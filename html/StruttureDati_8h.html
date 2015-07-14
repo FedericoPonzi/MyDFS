@@ -91,6 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a href="#nested-classes">Strutture dati</a> &#124;
 <a href="#define-members">Definizioni</a> &#124;
 <a href="#typedef-members">Ridefinizioni di tipo (typedef)</a> &#124;
+<a href="#enum-members">Tipi enumerati (enum)</a> &#124;
 <a href="#func-members">Funzioni</a> &#124;
 <a href="#var-members">Variabili</a>  </div>
   <div class="headertitle">
@@ -118,8 +119,38 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
 <tr class="memitem:aeb1a59f39eb8759e5c41cdfe0a53648c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structOpenedFile.html">OpenedFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8h.html#aeb1a59f39eb8759e5c41cdfe0a53648c">OpenedFile</a></td></tr>
 <tr class="separator:aeb1a59f39eb8759e5c41cdfe0a53648c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Tipi enumerati (enum)</h2></td></tr>
+<tr class="memitem:a6880e4562590c12cf8c358fa5f779bb2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8h.html#a6880e4562590c12cf8c358fa5f779bb2">modoApertura_t</a> { <br />
+&#160;&#160;<a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4">MYO_RDONLY</a>, 
+<a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>, 
+<a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, 
+<a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03">MYO_CREAT</a>, 
+<br />
+&#160;&#160;<a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56">MYO_TRUNC</a>, 
+<a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812">MYO_EXCL</a>, 
+<a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22">MYO_EXLOCK</a>, 
+<a class="el" href="StruttureDati_8h.html#a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4">MYO_RDONLY</a>, 
+<br />
+&#160;&#160;<a class="el" href="StruttureDati_8h.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>, 
+<a class="el" href="StruttureDati_8h.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, 
+<a class="el" href="StruttureDati_8h.html#a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03">MYO_CREAT</a>, 
+<a class="el" href="StruttureDati_8h.html#a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56">MYO_TRUNC</a>, 
+<br />
+&#160;&#160;<a class="el" href="StruttureDati_8h.html#a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812">MYO_EXCL</a>, 
+<a class="el" href="StruttureDati_8h.html#a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22">MYO_EXLOCK</a>
+<br />
+ }<tr class="separator:a6880e4562590c12cf8c358fa5f779bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
+<tr class="memitem:a801cff88ac6ddfa75379c76bb8b9d8d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8h.html#a801cff88ac6ddfa75379c76bb8b9d8d6">fileAlreadyOpen</a> (char *fileName, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2">modoApertura_t</a> modo, int socketId)</td></tr>
+<tr class="memdesc:a801cff88ac6ddfa75379c76bb8b9d8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla se un file con quel nome e' gia' stato aperto.  <a href="#a801cff88ac6ddfa75379c76bb8b9d8d6">Continua...</a><br /></td></tr>
+<tr class="separator:a801cff88ac6ddfa75379c76bb8b9d8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80b51d35734ccc9b19aa624ddd44f20a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2">modoApertura_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8h.html#a80b51d35734ccc9b19aa624ddd44f20a">getModoAperturaFromInt</a> (int i)</td></tr>
+<tr class="memdesc:a80b51d35734ccc9b19aa624ddd44f20a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ritorna un tipo modoApertura partendo da un intero.  <a href="#a80b51d35734ccc9b19aa624ddd44f20a">Continua...</a><br /></td></tr>
+<tr class="separator:a80b51d35734ccc9b19aa624ddd44f20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a221594d999c22ce87c14e50cd98287a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8h.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile</a> (char *nomefile, int modo, int socket)</td></tr>
 <tr class="memdesc:a221594d999c22ce87c14e50cd98287a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti <a class="el" href="structOpenedFile.html">OpenedFile</a>.  <a href="#a221594d999c22ce87c14e50cd98287a2">Continua...</a><br /></td></tr>
 <tr class="separator:a221594d999c22ce87c14e50cd98287a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,6 +198,49 @@ Variabili</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Documentazione dei tipi enumerati</h2>
+<a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2">modoApertura_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valori del tipo enumerato</th></tr><tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4"></a>MYO_RDONLY&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1"></a>MYO_WRONLY&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83"></a>MYO_RDWR&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03"></a>MYO_CREAT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56"></a>MYO_TRUNC&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812"></a>MYO_EXCL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22"></a>MYO_EXLOCK&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4"></a>MYO_RDONLY&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1"></a>MYO_WRONLY&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83"></a>MYO_RDWR&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03"></a>MYO_CREAT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56"></a>MYO_TRUNC&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812"></a>MYO_EXCL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22"></a>MYO_EXLOCK&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
 <a class="anchor" id="a221594d999c22ce87c14e50cd98287a2"></a>
 <div class="memitem">
@@ -201,9 +275,84 @@ Variabili</h2></td></tr>
 <p>Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti <a class="el" href="structOpenedFile.html">OpenedFile</a>. </p>
 <p>Se non esiste la radice mainFile la crea. Altrimenti scorre tutti i nodi fino ad arrivare all' elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. </p>
 
-<p>Referenzia <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="Library_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#a6d9f22ff6ba81506ba9c4a60f27c4f32">OpenedFile::modo</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8h.html#a3063a74baee4fe1870e52d0ec577afa9">openedFileLinkedList</a>, e <a class="el" href="structOpenedFile.html#a2af35018ecff06dbd349d464c815038a">OpenedFile::socketId</a>.</p>
+<p>Referenzia <a class="el" href="StruttureDati_8c.html#a801cff88ac6ddfa75379c76bb8b9d8d6">fileAlreadyOpen()</a>, <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="StruttureDati_8c.html#a80b51d35734ccc9b19aa624ddd44f20a">getModoAperturaFromInt()</a>, <a class="el" href="Library_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#ab2345215b095722d1339d571cfe287c7">OpenedFile::modo</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8h.html#a3063a74baee4fe1870e52d0ec577afa9">openedFileLinkedList</a>, <a class="el" href="enum_8c.html#abc6732f40ca2d5171a75be7460aacc07">prova()</a>, e <a class="el" href="structOpenedFile.html#a2af35018ecff06dbd349d464c815038a">OpenedFile::socketId</a>.</p>
 
 <p>Referenziato da <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a801cff88ac6ddfa75379c76bb8b9d8d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int fileAlreadyOpen </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2">modoApertura_t</a>&#160;</td>
+          <td class="paramname"><em>modo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socketId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Controlla se un file con quel nome e' gia' stato aperto. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>Il nome del file da controllare </td></tr>
+    <tr><td class="paramname">socketId</td><td>l' id della socket</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>1 se il file non e' aperto, </dd>
+<dd>
+1 se il file e' gia' aperto, ed e' associato alla stessa socketId </dd>
+<dd>
+1 se ha richiesto l'apertura in read </dd>
+<dd>
+0 se il file e' gia' aperto in scrittura da altri </dd></dl>
+
+<p>Referenzia <a class="el" href="second_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>, <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="Library_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8h.html#a3063a74baee4fe1870e52d0ec577afa9">openedFileLinkedList</a>, e <a class="el" href="second_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>.</p>
+
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a80b51d35734ccc9b19aa624ddd44f20a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2">modoApertura_t</a> getModoAperturaFromInt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ritorna un tipo modoApertura partendo da un intero. </p>
+<p>Gli enum in teoria sono codificato come 0, 1 ecc pero' qui' dice di non fare affidamento suq uesta cosa: </p><dl class="section see"><dt>Si veda anche</dt><dd><a href="http://www.cs.utah.edu/~germain/PPS/Topics/C_Language/enumerated_types.html">http://www.cs.utah.edu/~germain/PPS/Topics/C_Language/enumerated_types.html</a> </dd></dl>
+
+<p>Referenzia <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03">MYO_CREAT</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812">MYO_EXCL</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22">MYO_EXLOCK</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4">MYO_RDONLY</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56">MYO_TRUNC</a>, e <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>.</p>
+
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>.</p>
 
 </div>
 </div>
@@ -218,7 +367,7 @@ Variabili</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>, e <a class="el" href="StruttureDati_8c.html#a3a13fc9dad66d13c2ee974218cf1b502">fileAlreadyOpen()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>, e <a class="el" href="StruttureDati_8c.html#a801cff88ac6ddfa75379c76bb8b9d8d6">fileAlreadyOpen()</a>.</p>
 
 </div>
 </div>

@@ -99,7 +99,7 @@ int main()
 				}
 				
 				handleCommand(buff, temp_sd);
-
+				logM("\n\n");
 
 			}
 			while(getCommandID(buff) != 0 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa

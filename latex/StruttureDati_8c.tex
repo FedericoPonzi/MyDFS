@@ -10,13 +10,17 @@ Contiene le funzioni di utilita\textquotesingle{} per le Strutture Dati.
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{StruttureDati_8c_a221594d999c22ce87c14e50cd98287a2}{append\+Opened\+File} (char $\ast$nomefile, int modo, int socket)
 \begin{DoxyCompactList}\small\item\em Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. \end{DoxyCompactList}\item 
-int \hyperlink{StruttureDati_8c_a3a13fc9dad66d13c2ee974218cf1b502}{file\+Already\+Open} (char $\ast$file\+Name, int socket\+Id, int modo)
-\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \hyperlink{StruttureDati_8c_a801cff88ac6ddfa75379c76bb8b9d8d6}{file\+Already\+Open} (char $\ast$file\+Name, \hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2}{modo\+Apertura\+\_\+t} modo, int socket\+Id)
+\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto. \end{DoxyCompactList}\item 
+\hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2}{modo\+Apertura\+\_\+t} \hyperlink{StruttureDati_8c_a80b51d35734ccc9b19aa624ddd44f20a}{get\+Modo\+Apertura\+From\+Int} (int i)
+\begin{DoxyCompactList}\small\item\em Ritorna un tipo modo\+Apertura partendo da un intero. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descrizione dettagliata}
@@ -46,21 +50,21 @@ Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei 
 
 Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. 
 
-Referenzia Opened\+File\+::file\+Name, log\+M(), Opened\+File\+::modo, Opened\+File\+::next, opened\+File\+Linked\+List, e Opened\+File\+::socket\+Id.
+Referenzia file\+Already\+Open(), Opened\+File\+::file\+Name, get\+Modo\+Apertura\+From\+Int(), log\+M(), Opened\+File\+::modo, Opened\+File\+::next, opened\+File\+Linked\+List, prova(), e Opened\+File\+::socket\+Id.
 
 
 
 Referenziato da handle\+Open\+Command().
 
-\hypertarget{StruttureDati_8c_a3a13fc9dad66d13c2ee974218cf1b502}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!file\+Already\+Open@{file\+Already\+Open}}
+\hypertarget{StruttureDati_8c_a801cff88ac6ddfa75379c76bb8b9d8d6}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!file\+Already\+Open@{file\+Already\+Open}}
 \index{file\+Already\+Open@{file\+Already\+Open}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{file\+Already\+Open(char $\ast$file\+Name, int socket\+Id, int modo)}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Open (
+\subsubsection[{file\+Already\+Open(char $\ast$file\+Name, modo\+Apertura\+\_\+t modo, int socket\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Open (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{file\+Name, }
-\item[{int}]{socket\+Id, }
-\item[{int}]{modo}
+\item[{{\bf modo\+Apertura\+\_\+t}}]{modo, }
+\item[{int}]{socket\+Id}
 \end{DoxyParamCaption}
-)}\label{StruttureDati_8c_a3a13fc9dad66d13c2ee974218cf1b502}
+)}\label{StruttureDati_8c_a801cff88ac6ddfa75379c76bb8b9d8d6}
 
 
 Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto. 
@@ -83,5 +87,31 @@ Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} sta
 \end{DoxyReturn}
 
 
-Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, Opened\+File\+::next, opened\+File\+Linked\+List, e T\+R\+U\+E.
+Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, log\+M(), Opened\+File\+::next, opened\+File\+Linked\+List, e T\+R\+U\+E.
+
+
+
+Referenziato da append\+Opened\+File().
+
+\hypertarget{StruttureDati_8c_a80b51d35734ccc9b19aa624ddd44f20a}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+Modo\+Apertura\+From\+Int@{get\+Modo\+Apertura\+From\+Int}}
+\index{get\+Modo\+Apertura\+From\+Int@{get\+Modo\+Apertura\+From\+Int}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
+\subsubsection[{get\+Modo\+Apertura\+From\+Int(int i)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf modo\+Apertura\+\_\+t} get\+Modo\+Apertura\+From\+Int (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8c_a80b51d35734ccc9b19aa624ddd44f20a}
+
+
+Ritorna un tipo modo\+Apertura partendo da un intero. 
+
+Gli enum in teoria sono codificato come 0, 1 ecc pero\textquotesingle{} qui\textquotesingle{} dice di non fare affidamento suq uesta cosa\+: \begin{DoxySeeAlso}{Si veda anche}
+\href{http://www.cs.utah.edu/~germain/PPS/Topics/C_Language/enumerated_types.html}{\tt http\+://www.\+cs.\+utah.\+edu/$\sim$germain/\+P\+P\+S/\+Topics/\+C\+\_\+\+Language/enumerated\+\_\+types.\+html} 
+\end{DoxySeeAlso}
+
+
+Referenzia M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, M\+Y\+O\+\_\+\+E\+X\+C\+L, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+T\+R\+U\+N\+C, e M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y.
+
+
+
+Referenziato da append\+Opened\+File().
 

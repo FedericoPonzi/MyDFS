@@ -14,8 +14,11 @@ typedef struct OpenedFile
 	struct OpenedFile* next;
 }OpenedFile;
 
+
 extern OpenedFile* openedFileLinkedList;
 
+int fileAlreadyOpen(char* fileName, modoApertura_t modo, int socketId);
+modoApertura_t getModoAperturaFromInt(int i);
 void appendOpenedFile(char* nomefile, int modo, int socket);
 
 #endif

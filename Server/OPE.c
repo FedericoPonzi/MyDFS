@@ -50,7 +50,8 @@ void handleOpenCommand(char* command, int socket)
 {
 	stripCommand(command);
 
-	char nomeFile[30];
+	char* nomeFile = malloc(30*sizeof(char)); /** @todo : Da vedere bene per memory leaks!!!!*/
+
 	getFileName(command, nomeFile);
 	logM("Nome del file: '%s'\n", nomeFile);
 	char i = command[strlen(command)-1];

@@ -1,0 +1,14 @@
+Nelle specifiche\+: Per quanto riguarda il modo, devono essere supportate le seguenti modalità (per il significato vedere la documentazione sulla open Unix)\+: O\+\_\+\+R\+D\+O\+N\+L\+Y, O\+\_\+\+W\+R\+O\+N\+L\+Y, O\+\_\+\+R\+D\+W\+R, O\+\_\+\+C\+R\+E\+A\+T, O\+\_\+\+T\+R\+U\+N\+C, O\+\_\+\+E\+X\+C\+L, O\+\_\+\+E\+X\+L\+O\+C\+K
+
+
+\begin{DoxyItemize}
+\item O\+\_\+\+R\+D\+O\+N\+L\+Y\+: Apre il file in lettura, altri client possono richiedere lo stesso file. Se non esiste, E\+R\+R\+O\+R\+E.
+\item O\+\_\+\+W\+R\+O\+N\+L\+Y\+: Apre il file in scrittura. Invia un messaggio di invalidazione a tutti i client che lo hanno aperto in lettura. Se e\textquotesingle{} già aperto in scrittura, E\+R\+R\+O\+R\+E
+\item O\+\_\+\+R\+D\+W\+R\+: Apre il file in lettura e scrittura. Invia un messaggio di invalidazione a tutti i client che lo hanno aperto in lettura.
+\item O\+\_\+\+C\+R\+E\+A\+T\+: Crea il file se non esiste
+\item O\+\_\+\+T\+R\+U\+N\+C\+: Cancella e ricrea il file sostanzialmente. Deve essere associato a O\+\_\+\+W\+R\+O\+N\+L\+Y o O\+\_\+\+R\+D\+W\+R altrimenti non ha senso.
+\item O\+\_\+\+E\+X\+L\+O\+C\+K\+: Crea un lock esclusivo sul file (se è aperto in lettura nessuno può leggerlo o scriverlo). Da implementare in L\+I\+N\+U\+X!
+\item O\+\_\+\+E\+X\+C\+L\+: Da usare assieme a O\+\_\+\+C\+R\+E\+A\+T. Se cerca di fare la open di un file che esiste già con O\+\_\+\+E\+X\+C\+L$\vert$\+O\+\_\+\+C\+R\+E\+A\+T allora la open fallisce.
+\end{DoxyItemize}
+
+Ogni esito và codificato e rispedito come risposta al client! 

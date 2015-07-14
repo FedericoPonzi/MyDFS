@@ -33,6 +33,8 @@
 #include <stdlib.h>
 #include "inc/Utils.h"
 #include "inc/StruttureDati.h"
+#include <sys/types.h>
+#include <sys/socket.h>
 
 /**
  * @brief Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti OpenedFile
@@ -42,31 +44,40 @@
  */
 void appendOpenedFile(char* nomefile, int modo, int socket)
 {
-	OpenedFile* prova;
-	prova = (OpenedFile*) malloc(sizeof(OpenedFile));
-	prova->fileName = nomefile; 
-	prova->modo = modo;
-	prova->socketId = socket;
-	prova->next =NULL;
-	if(openedFileLinkedList == NULL)
+
+	if(fileAlreadyOpen(nomefile, getModoAperturaFromInt(modo), socket))
 	{
-		openedFileLinkedList = prova;
-		logM("[OpenFile] Main non esiste. Lo creo. '%s'\n", openedFileLinkedList->fileName);
+		logM("Ha provato ad aprire un file gia' aperto: '%s' \n", nomefile);
+		char answer[100] = "LOL File gia' aperto zio sorry :( \n";
+		send(socket, answer, strlen(answer), 0);
 	}
 	else
 	{
-		openedFileLinkedList->next = prova;
-		openedFileLinkedList = prova;
-		logM("[OpenFile] Main esiste '%s' \n", openedFileLinkedList->fileName);
-		OpenedFile* iterator = openedFileLinkedList;
-		while(iterator->next != NULL)
+		OpenedFile* prova;
+		prova = (OpenedFile*) malloc(sizeof(OpenedFile));
+		prova->fileName = nomefile; 
+		prova->modo = getModoAperturaFromInt(modo);
+		prova->socketId = socket;
+		prova->next =NULL;
+		if(openedFileLinkedList == NULL)
 		{
-			iterator = iterator->next;
+			openedFileLinkedList = prova;
+			logM("[OpenFile] Main non esiste. Lo creo. '%s'\n", openedFileLinkedList->fileName);
 		}
-		iterator->next = prova;
+		else
+		{
+			logM("[OpenFile] Main esiste '%s' \n", openedFileLinkedList->fileName);
+			OpenedFile* iterator = openedFileLinkedList;
+			while(iterator->next != NULL)
+			{
+				iterator = iterator->next;
+			}
+			
+			iterator->next = prova;
+		}
+		
+		logM("[OpenFile] Aggiunto. Nome: '%s' \n", prova->fileName);
 	}
-	logM("[OpenFile] Aggiunto. Nome: '%s' \n", prova->fileName);
-
 	
 }
 
@@ -81,19 +92,25 @@ void appendOpenedFile(char* nomefile, int modo, int socket)
  * @return 0 se il file e' gia' aperto in scrittura da altri
  */
 
-int fileAlreadyOpen(char* fileName, int socketId, int modo)
+int fileAlreadyOpen(char* filename, modoApertura_t modo, int socketId)
 {
+	if(openedFileLinkedList == NULL) return FALSE;
+	
 	OpenedFile* iterator = openedFileLinkedList;
-	printf("YO\n");
-	while(iterator->next != NULL)
+	
+	do
 	{
-		if(strcmp(iterator->fileName, fileName) == 0)
+		logM("Provo: '%s' \n", iterator->fileName);
+
+		if(strcmp(iterator->fileName, filename) == 0)
 		{
 			return TRUE;
 		}
-		printf("Provo: '%s' \n", iterator->fileName);
 		iterator = iterator->next;
-	}
+	}while(iterator != NULL);
+	
+	logM("Nessun file aperto con questo nome: '%s' \n",filename);
+
 	return FALSE;
 	
 }

@@ -6,8 +6,10 @@ var indexSectionsWithContent =
   3: "afghlmps",
   4: "fmnops",
   5: "mo",
-  6: "bdfmpt",
-  7: "ae"
+  6: "m",
+  7: "m",
+  8: "bdfmpt",
+  9: "ae"
 };
 
 var indexSectionNames =
@@ -18,8 +20,10 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "typedefs",
-  6: "defines",
-  7: "pages"
+  6: "enums",
+  7: "enumvalues",
+  8: "defines",
+  9: "pages"
 };
 
 var indexSectionLabels =
@@ -30,7 +34,9 @@ var indexSectionLabels =
   3: "Funzioni",
   4: "Variabili",
   5: "Ridefinizioni di tipo (typedef)",
-  6: "Definizioni",
-  7: "Pagine"
+  6: "Tipi enumerati (enum)",
+  7: "Valori del tipo enumerato",
+  8: "Definizioni",
+  9: "Pagine"
 };
 
