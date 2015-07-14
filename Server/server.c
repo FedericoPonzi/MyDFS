@@ -17,7 +17,7 @@
 #include "inc/StruttureDati.h"
 #define Max 30
 
-OpenedFile* mainFile = NULL;
+OpenedFile* openedFileLinkedList = NULL;
 
 int main()
 {
@@ -102,14 +102,11 @@ int main()
 
 
 			}
-			while(getCommandID(buff) != 0 || nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
+			while(getCommandID(buff) != 0 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
 			
-			logM("Connessione terminata.");
+			logM("Connessione terminata.\n");
 			exit(0);
 		}
 	}
 	return 0;
-}	
-
-
-
+}

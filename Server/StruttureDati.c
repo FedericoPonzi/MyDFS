@@ -29,57 +29,60 @@
  * Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell' header di questo modulo.
  */
 #include "inc/StruttureDati.h"
-
+#include "inc/Utils.h"
+#include "stdio.h"
+#include "string.h"
+#include "stdlib.h"
 /**
  * @brief Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti OpenedFile
  * 
  * Se non esiste la radice mainFile la crea. Altrimenti scorre tutti i nodi fino ad arrivare all' elemento in coda, crea un nuovo
  * nodo con i dati in input e lo appende alla fine.
  */
-static void appendOpenedFile(char* nomefile, int modo, int socket)
+void appendOpenedFile(char* nomefile, int modo, int socket)
 {
 	OpenedFile* prova;
 	prova = (OpenedFile*) malloc(sizeof(OpenedFile));
-	prova->filename = nomefile; 
+	prova->fileName = nomefile; 
 	prova->modo = modo;
 	prova->socketId = socket;
 	prova->next =NULL;
-	if(mainFile == NULL)
+	if(openedFileLinkedList == NULL)
 	{
-		mainFile = prova;
-		logM("[OpenFile] Main non esiste. Lo creo. '%s'\n", mainFile->filename);
+		openedFileLinkedList = prova;
+		logM("[OpenFile] Main non esiste. Lo creo. '%s'\n", openedFileLinkedList->fileName);
 	}
 	else
 	{
-		mainFile->next = prova;
-		mainFile = prova;
-		logM("[OpenFile] Main esiste '%s' \n", mainFile->filename);
-		OpenedFile* iterator = mainFile;
+		openedFileLinkedList->next = prova;
+		openedFileLinkedList = prova;
+		logM("[OpenFile] Main esiste '%s' \n", openedFileLinkedList->fileName);
+		OpenedFile* iterator = openedFileLinkedList;
 		while(iterator->next != NULL)
 		{
 			iterator = iterator->next;
 		}
 		iterator->next = prova;
 	}
+	logM("[OpenFile] Aggiunto. Nome: '%s' \n", prova->fileName);
+
 	
 }
 
 /**
- * @brief Aggiunge un nodo alla lista di File Aperti
+ * @brief Controlla se un file con quel nome e' gia' stato aperto.
+ * @param fileName Il nome del file da controllare
+ * @param socketId l' id della socket
  * 
- * Prende i dati necessari, e appende in coda a OpenedFile un nuovo elemento con i dati presi in input.
- * Se MainFile non e' stato ancora creato, lo crea.
+ * @return 1 se il file non e' aperto,
+ * @return 1 se il file e' gia' aperto, ed e' associato alla stessa socketId
+ * @return 1 se ha richiesto l'apertura in read
+ * @return 0 se il file e' gia' aperto in scrittura da altri
  */
-static void aggiungiOpenedFile(char* nomefile, int modo, int socket)
+
+int fileAlreadyOpen(char* fileName, int socketId, int modo)
 {
-
-	
-}
-
-
-int fileAlreadyOpen(char* fileName)
-{
-	OpenedFile* iterator = mainFile;
+	OpenedFile* iterator = openedFileLinkedList;
 	printf("YO\n");
 	while(iterator->next != NULL)
 	{

@@ -3,7 +3,7 @@
 #include "inc/CommandsHandler.h"
 
 #include "inc/BYE.h"
-#include "inc/OPEN.h"
+#include "inc/OPE.h"
 #include "inc/Utils.h"
 
 

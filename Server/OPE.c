@@ -33,9 +33,12 @@
  * @todo dovrebbe mandare una risposta al client in caso di successo o errore
  * @todo permettere l' apertura se il modo con cui e' aperto il file e' lettura e viene richiesta la lettura.
  */
-#include "inc/OPEN.h"
-
-static void aggiungiOpenedFile(char* nomefile, int modo, int socket);
+#include <stdlib.h> 
+#include <string.h>
+#include <stdio.h>
+#include "inc/OPE.h"
+#include "inc/StruttureDati.h"
+#include "inc/Utils.h"
  
 void handleOpenCommand(char* command, int socket)
 {
@@ -49,12 +52,8 @@ void handleOpenCommand(char* command, int socket)
 	int modo = i - '0'; //Mi da' il numero da char a int.
 
 	logM("Modo di apertura: '%d'\n", modo);
-	
-	logM("[OpenFile] Sto' aggiungendo un file alla lista di file aperti.\n");	
-	 
-	aggiungiOpenedFile(nomeFile, modo, socket);
-	
-	logM("[OpenFile] Aggiunto. Nome: '%s' \n", mainFile->filename);
+
+	appendOpenedFile(nomeFile, modo, socket);
 }
 
 /**
