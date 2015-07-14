@@ -97,3 +97,32 @@ int fileAlreadyOpen(char* fileName, int socketId, int modo)
 	return FALSE;
 	
 }
+
+
+/**
+ * @brief Ritorna un tipo modoApertura partendo da un intero.
+ * 
+ * Gli enum in teoria sono codificato come 0, 1 ecc pero' qui' dice di non fare affidamento suq uesta cosa: 
+ * @see http://www.cs.utah.edu/~germain/PPS/Topics/C_Language/enumerated_types.html
+ */
+modoApertura_t getModoAperturaFromInt(int i)
+{
+	switch(i)
+	{
+		case 0:
+			return MYO_RDONLY;
+		case 1:
+			return MYO_WRONLY; 
+		case 2:
+			return MYO_RDWR;
+		case 3:
+			return MYO_CREAT; 
+		case 4:
+			return MYO_TRUNC; 
+		case 5:
+			return MYO_EXCL;
+		case 6:
+			return MYO_EXLOCK;
+	}
+	return -1;
+}

@@ -7,7 +7,7 @@ var indexSectionsWithContent =
   4: "fmnops",
   5: "mo",
   6: "bdfmpt",
-  7: "e"
+  7: "ae"
 };
 
 var indexSectionNames =

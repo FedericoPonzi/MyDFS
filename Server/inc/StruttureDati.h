@@ -4,13 +4,14 @@
 #define TRUE !(FALSE)
 #include <stdio.h>
 
+typedef enum { MYO_RDONLY, MYO_WRONLY, MYO_RDWR, MYO_CREAT, MYO_TRUNC, MYO_EXCL, MYO_EXLOCK} modoApertura_t;
+
 typedef struct OpenedFile
 {
 	char* fileName;
 	int socketId;
-	int modo; /** @brief puo' essere uno fra O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_TRUNC, O_EXCL,  O_EXLOCK **/
+	modoApertura_t modo; /** @brief puo' essere un tipo modoApertura **/
 	struct OpenedFile* next;
-	
 }OpenedFile;
 
 extern OpenedFile* openedFileLinkedList;
