@@ -1,0 +1,192 @@
+\documentclass[twoside]{book}
+
+% Packages required by doxygen
+\usepackage{fixltx2e}
+\usepackage{calc}
+\usepackage{doxygen}
+\usepackage[export]{adjustbox} % also loads graphicx
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{multirow}
+\PassOptionsToPackage{warn}{textcomp}
+\usepackage{textcomp}
+\usepackage[nointegrals]{wasysym}
+\usepackage[table]{xcolor}
+
+% NLS support packages
+\usepackage[italian]{babel}
+
+% Font selection
+\usepackage[T1]{fontenc}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{amssymb}
+\usepackage{sectsty}
+\renewcommand{\familydefault}{\sfdefault}
+\allsectionsfont{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\renewcommand{\DoxyLabelFont}{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\newcommand{\+}{\discretionary{\mbox{\scriptsize$\hookleftarrow$}}{}{}}
+
+% Page & text layout
+\usepackage{geometry}
+\geometry{%
+  a4paper,%
+  top=2.5cm,%
+  bottom=2.5cm,%
+  left=2.5cm,%
+  right=2.5cm%
+}
+\tolerance=750
+\hfuzz=15pt
+\hbadness=750
+\setlength{\emergencystretch}{15pt}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.2cm}
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@parafont%
+  }%
+}
+\renewcommand{\subparagraph}{%
+  \@startsection{subparagraph}{5}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@subparafont%
+  }%
+}
+\makeatother
+
+% Headers & footers
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead[LE]{\fancyplain{}{\bfseries\thepage}}
+\fancyhead[CE]{\fancyplain{}{}}
+\fancyhead[RE]{\fancyplain{}{\bfseries\leftmark}}
+\fancyhead[LO]{\fancyplain{}{\bfseries\rightmark}}
+\fancyhead[CO]{\fancyplain{}{}}
+\fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
+\fancyfoot[LE]{\fancyplain{}{}}
+\fancyfoot[CE]{\fancyplain{}{}}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Generato Mar 14 Lug 2015 12\+:08\+:35 per My\+D\+F\+S da Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Generato Mar 14 Lug 2015 12\+:08\+:35 per My\+D\+F\+S da Doxygen }}
+\fancyfoot[CO]{\fancyplain{}{}}
+\fancyfoot[RO]{\fancyplain{}{}}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{%
+  \markboth{#1}{}%
+}
+\renewcommand{\sectionmark}[1]{%
+  \markright{\thesection\ #1}%
+}
+
+% Indices & bibliography
+\usepackage{natbib}
+\usepackage[titles]{tocloft}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{5}
+\makeindex
+
+% Hyperlinks (required, but should be loaded last)
+\usepackage{ifpdf}
+\ifpdf
+  \usepackage[pdftex,pagebackref=true]{hyperref}
+\else
+  \usepackage[ps2pdf,pagebackref=true]{hyperref}
+\fi
+\hypersetup{%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  unicode%
+}
+
+% Custom commands
+\newcommand{\clearemptydoublepage}{%
+  \newpage{\pagestyle{empty}\cleardoublepage}%
+}
+
+
+%===== C O N T E N T S =====
+
+\begin{document}
+
+% Titlepage & ToC
+\hypersetup{pageanchor=false,
+             bookmarks=true,
+             bookmarksnumbered=true,
+             pdfencoding=unicode
+            }
+\pagenumbering{roman}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}%
+{\Large My\+D\+F\+S \\[1ex]\large 1 }\\
+\vspace*{1cm}
+{\large Generato da Doxygen 1.8.10}\\
+\vspace*{0.5cm}
+{\small Mar 14 Lug 2015 12:08:35}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true}
+
+%--- Begin generated contents ---
+\chapter{Pagina Principale}
+\label{index}\hypertarget{index}{}\input{index}
+\chapter{Indice delle strutture dati}
+\input{annotated}
+\chapter{Indice dei file}
+\input{files}
+\chapter{Documentazione delle classi}
+\input{structMyDFSId}
+\input{structOpenedFile}
+\chapter{Documentazione dei file}
+\input{client_8c}
+\input{ClientIncludes_8h}
+\input{config2_8h}
+\input{FileHandler_8c}
+\input{FileHandler_8h}
+\input{Library_2inc_2Utils_8h}
+\input{Server_2inc_2Utils_8h}
+\input{Library_2Utils_8c}
+\input{Server_2Utils_8c}
+\input{Prova_8c}
+\input{second_8c}
+\input{second_8h}
+\input{terzo_8c}
+\input{terzo_8h}
+\input{README_8md}
+\input{BYE_8c}
+\input{CommandsHandler_8c}
+\input{Config_8h}
+\input{Error_8c}
+\input{BYE_8h}
+\input{CommandsHandler_8h}
+\input{Error_8h}
+\input{OPEN_8h}
+\input{READ_8h}
+\input{OPEN_8c}
+\input{READ_8c}
+\input{server_8c}
+\input{StruttureDati_8h}
+%--- End generated contents ---
+
+% Index
+\backmatter
+\newpage
+\phantomsection
+\clearemptydoublepage
+\addcontentsline{toc}{chapter}{Indice}
+\printindex
+
+\end{document}

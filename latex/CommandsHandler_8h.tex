@@ -1,0 +1,47 @@
+\hypertarget{CommandsHandler_8h}{}\section{Riferimenti per il file Server/inc/\+Commands\+Handler.h}
+\label{CommandsHandler_8h}\index{Server/inc/\+Commands\+Handler.\+h@{Server/inc/\+Commands\+Handler.\+h}}
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{CommandsHandler_8h_a919c7f4b4bcb820f1d6566238178390e}{get\+Command\+I\+D} (char $\ast$)
+\begin{DoxyCompactList}\small\item\em Ritorna un numero corrispondente ad un comando. \end{DoxyCompactList}\item 
+void \hyperlink{CommandsHandler_8h_af50eb510202dbf6e4e65c56a6e0c8fd5}{handle\+Command} (char $\ast$buff, int socket)
+\begin{DoxyCompactList}\small\item\em Gestisce il comando ricevuto dal client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentazione delle funzioni}
+\hypertarget{CommandsHandler_8h_a919c7f4b4bcb820f1d6566238178390e}{}\index{Commands\+Handler.\+h@{Commands\+Handler.\+h}!get\+Command\+I\+D@{get\+Command\+I\+D}}
+\index{get\+Command\+I\+D@{get\+Command\+I\+D}!Commands\+Handler.\+h@{Commands\+Handler.\+h}}
+\subsubsection[{get\+Command\+I\+D(char $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Command\+I\+D (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{input}
+\end{DoxyParamCaption}
+)}\label{CommandsHandler_8h_a919c7f4b4bcb820f1d6566238178390e}
+
+
+Ritorna un numero corrispondente ad un comando. 
+
+-\/1 = Comando sconosciuto. 0 = B\+Y\+E 1 = O\+P\+E 
+
+Referenziato da handle\+Command(), e main().
+
+\hypertarget{CommandsHandler_8h_af50eb510202dbf6e4e65c56a6e0c8fd5}{}\index{Commands\+Handler.\+h@{Commands\+Handler.\+h}!handle\+Command@{handle\+Command}}
+\index{handle\+Command@{handle\+Command}!Commands\+Handler.\+h@{Commands\+Handler.\+h}}
+\subsubsection[{handle\+Command(char $\ast$buff, int socket)}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Command (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buff, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\label{CommandsHandler_8h_af50eb510202dbf6e4e65c56a6e0c8fd5}
+
+
+Gestisce il comando ricevuto dal client. 
+
+
+
+Referenzia get\+Command\+I\+D(), handle\+Bye\+Command(), handle\+Open\+Command(), e log\+M().
+
+
+
+Referenziato da main().
+

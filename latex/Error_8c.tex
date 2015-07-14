@@ -1,0 +1,40 @@
+\hypertarget{Error_8c}{}\section{Riferimenti per il file Server/\+Error.c}
+\label{Error_8c}\index{Server/\+Error.\+c@{Server/\+Error.\+c}}
+{\ttfamily \#include \char`\"{}inc/\+Error.\+h\char`\"{}}\\*
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Error_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}{print\+Err\+\_\+s} (char $\ast$error)
+\begin{DoxyCompactList}\small\item\em Stampa un errore particolare. \end{DoxyCompactList}\item 
+void \hyperlink{Error_8c_a950f724a74ee364e724388b8a156f565}{print\+Err} (int num)
+\begin{DoxyCompactList}\small\item\em Stampa un errore in base al codice di errore. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentazione delle funzioni}
+\hypertarget{Error_8c_a950f724a74ee364e724388b8a156f565}{}\index{Error.\+c@{Error.\+c}!print\+Err@{print\+Err}}
+\index{print\+Err@{print\+Err}!Error.\+c@{Error.\+c}}
+\subsubsection[{print\+Err(int num)}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Err (
+\begin{DoxyParamCaption}
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}\label{Error_8c_a950f724a74ee364e724388b8a156f565}
+
+
+Stampa un errore in base al codice di errore. 
+
+Interrompe il programma usando l\textquotesingle{} input come codice d\textquotesingle{}errore. num\+: il codice dell\textquotesingle{} errore 
+
+Referenziato da main().
+
+\hypertarget{Error_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}{}\index{Error.\+c@{Error.\+c}!print\+Err\+\_\+s@{print\+Err\+\_\+s}}
+\index{print\+Err\+\_\+s@{print\+Err\+\_\+s}!Error.\+c@{Error.\+c}}
+\subsubsection[{print\+Err\+\_\+s(char $\ast$error)}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Err\+\_\+s (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{error}
+\end{DoxyParamCaption}
+)}\label{Error_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}
+
+
+Stampa un errore particolare. 
+
+Non interrompe il programma. error\+: L\textquotesingle{}errore da stampare 
