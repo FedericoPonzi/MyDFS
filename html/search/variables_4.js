@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['socketid',['socketId',['../structOpenedFile.html#a2af35018ecff06dbd349d464c815038a',1,'OpenedFile']]]
+  ['path',['path',['../structMyDFSId.html#ada22c15c99f564f9bfbe95d0d28913c2',1,'MyDFSId']]]
 ];

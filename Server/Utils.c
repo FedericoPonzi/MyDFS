@@ -38,7 +38,9 @@
 /**
  * @brief Stampa un messaggio di log sullo STDOUT 
  * 
- * se LOG vale 0
+ * se LOG vale 0. Wrapper della printf.
+ * @param messaggio Il messaggio da stampare
+ * @param ... Le variabili
  * @see Config.h
  */
 void logM (char* messaggio, ...)	
@@ -52,9 +54,9 @@ void logM (char* messaggio, ...)
 		va_end(args);
 	}
 }
-/**
- * @name stripCommand
+/** * 
  * @brief Rimuove i primi 4 caratteri (es: 'GET ')
+ * 
  * @param La linea del comando a cui vogliamo togliere i primi 4 caratteri.
  */
 void stripCommand(char* input)

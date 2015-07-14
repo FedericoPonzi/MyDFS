@@ -8,20 +8,9 @@
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{Server_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{log\+M} (char $\ast$messaggio,...)
-\begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\begin{Indent}{\bf strip\+Command}\par
-{\em Rimuove i primi 4 caratteri (es\+: \textquotesingle{}G\+E\+T \textquotesingle{})
-
-
-\begin{DoxyParams}{Parametri}
-{\em La} & linea del comando a cui vogliamo togliere i primi 4 caratteri. \\
-\hline
-\end{DoxyParams}
-}\begin{DoxyCompactItemize}
-\item 
+\begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T. \end{DoxyCompactList}\item 
 void \hyperlink{Server_2Utils_8c_a99eec54b0611d557e3e4eb1e783d9699}{strip\+Command} (char $\ast$input)
-\end{DoxyCompactItemize}
-\end{Indent}
+\begin{DoxyCompactList}\small\item\em Rimuove i primi 4 caratteri (es\+: \textquotesingle{}G\+E\+T \textquotesingle{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
@@ -39,12 +28,19 @@ Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T.
 
 Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se L\+O\+G vale 0.
 
-se L\+O\+G vale 0 \begin{DoxySeeAlso}{Si veda anche}
+se L\+O\+G vale 0. Wrapper della printf. 
+\begin{DoxyParams}{Parametri}
+{\em messaggio} & Il messaggio da stampare \\
+\hline
+{\em ...} & Le variabili \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Si veda anche}
 \hyperlink{Config_8h}{Config.\+h} 
 \end{DoxySeeAlso}
 
 
-Referenziato da get\+File\+Name(), handle\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), main(), mydfs\+\_\+close(), mydfs\+\_\+open(), e mydfs\+\_\+read().
+Referenziato da append\+Opened\+File(), handle\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), main(), mydfs\+\_\+close(), mydfs\+\_\+open(), e mydfs\+\_\+read().
 
 \hypertarget{Server_2Utils_8c_a99eec54b0611d557e3e4eb1e783d9699}{}\index{Server/\+Utils.\+c@{Server/\+Utils.\+c}!strip\+Command@{strip\+Command}}
 \index{strip\+Command@{strip\+Command}!Server/\+Utils.\+c@{Server/\+Utils.\+c}}
@@ -55,5 +51,17 @@ Referenziato da get\+File\+Name(), handle\+Command(), handle\+Open\+Command(), h
 )}\label{Server_2Utils_8c_a99eec54b0611d557e3e4eb1e783d9699}
 
 
-Referenziato da handle\+R\+E\+A\+D\+Command().
+Rimuove i primi 4 caratteri (es\+: \textquotesingle{}G\+E\+T \textquotesingle{}) 
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parametri}
+{\em La} & linea del comando a cui vogliamo togliere i primi 4 caratteri. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}
+
+Referenziato da handle\+Open\+Command(), e handle\+R\+E\+A\+D\+Command().
 

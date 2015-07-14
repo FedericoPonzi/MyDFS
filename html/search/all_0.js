@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['backlog',['BACKLOG',['../Config_8h.html#aeefbbafa97642defe3ee6c3080b7d66f',1,'Config.h']]],
-  ['buf_5fsize',['BUF_SIZE',['../READ_8c.html#a6821bafc3c88dfb2e433a095df9940c6',1,'READ.c']]],
-  ['bye_2ec',['BYE.c',['../BYE_8c.html',1,'']]],
-  ['bye_2eh',['BYE.h',['../BYE_8h.html',1,'']]]
+  ['append',['append',['../second_8c.html#a686d51d0e8d925b7b5d49bf1cc6fa260',1,'append(char *nome):&#160;second.c'],['../second_8h.html#ad680a12a996d3e8e592d522751bffba6',1,'append():&#160;second.h']]],
+  ['appendopenedfile',['appendOpenedFile',['../StruttureDati_8h.html#a221594d999c22ce87c14e50cd98287a2',1,'appendOpenedFile(char *nomefile, int modo, int socket):&#160;StruttureDati.c'],['../StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2',1,'appendOpenedFile(char *nomefile, int modo, int socket):&#160;StruttureDati.c']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['path',['path',['../structMyDFSId.html#ada22c15c99f564f9bfbe95d0d28913c2',1,'MyDFSId']]]
+  ['openedfilelinkedlist',['openedFileLinkedList',['../StruttureDati_8h.html#a3063a74baee4fe1870e52d0ec577afa9',1,'openedFileLinkedList():&#160;server.c'],['../server_8c.html#a3063a74baee4fe1870e52d0ec577afa9',1,'openedFileLinkedList():&#160;server.c']]]
 ];

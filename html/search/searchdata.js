@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "bcdefghlmnoprstu",
+  0: "abcdefghlmnoprstu",
   1: "mo",
   2: "bcefoprstu",
-  3: "dghlmps",
-  4: "fmnps",
+  3: "afghlmps",
+  4: "fmnops",
   5: "mo",
-  6: "bdmp"
+  6: "bdfmpt",
+  7: "e"
 };
 
 var indexSectionNames =
@@ -17,7 +18,8 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "typedefs",
-  6: "defines"
+  6: "defines",
+  7: "pages"
 };
 
 var indexSectionLabels =
@@ -28,6 +30,7 @@ var indexSectionLabels =
   3: "Funzioni",
   4: "Variabili",
   5: "Ridefinizioni di tipo (typedef)",
-  6: "Definizioni"
+  6: "Definizioni",
+  7: "Pagine"
 };
 

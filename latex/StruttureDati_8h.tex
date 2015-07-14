@@ -1,20 +1,41 @@
-\hypertarget{StruttureDati_8h}{}\section{Riferimenti per il file Server/\+Strutture\+Dati.h}
-\label{StruttureDati_8h}\index{Server/\+Strutture\+Dati.\+h@{Server/\+Strutture\+Dati.\+h}}
+\hypertarget{StruttureDati_8h}{}\section{Riferimenti per il file Server/inc/\+Strutture\+Dati.h}
+\label{StruttureDati_8h}\index{Server/inc/\+Strutture\+Dati.\+h@{Server/inc/\+Strutture\+Dati.\+h}}
 \subsection*{Strutture dati}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structOpenedFile}{Opened\+File}
+\end{DoxyCompactItemize}
+\subsection*{Definizioni}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{StruttureDati_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+S\+E}~0
+\item 
+\#define \hyperlink{StruttureDati_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\+R\+U\+E}~!(\hyperlink{StruttureDati_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+S\+E})
 \end{DoxyCompactItemize}
 \subsection*{Ridefinizioni di tipo (typedef)}
 \begin{DoxyCompactItemize}
 \item 
 typedef struct \hyperlink{structOpenedFile}{Opened\+File} \hyperlink{StruttureDati_8h_aeb1a59f39eb8759e5c41cdfe0a53648c}{Opened\+File}
 \end{DoxyCompactItemize}
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}{append\+Opened\+File} (char $\ast$nomefile, int modo, int socket)
+\begin{DoxyCompactList}\small\item\em Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variabili}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{StruttureDati_8h_ab1efb3c7e72a52568def0cde719eab1c}{main\+File}
+\hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{StruttureDati_8h_a3063a74baee4fe1870e52d0ec577afa9}{opened\+File\+Linked\+List}
 \end{DoxyCompactItemize}
+
+
+\subsection{Documentazione delle definizioni}
+\hypertarget{StruttureDati_8h_aa93f0eb578d23995850d61f7d61c55c1}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!F\+A\+L\+S\+E@{F\+A\+L\+S\+E}}
+\index{F\+A\+L\+S\+E@{F\+A\+L\+S\+E}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{F\+A\+L\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+L\+S\+E~0}\label{StruttureDati_8h_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{StruttureDati_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!T\+R\+U\+E@{T\+R\+U\+E}}
+\index{T\+R\+U\+E@{T\+R\+U\+E}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{T\+R\+U\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+R\+U\+E~!({\bf F\+A\+L\+S\+E})}\label{StruttureDati_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
 
 
 \subsection{Documentazione delle ridefinizioni di tipo (typedef)}
@@ -23,11 +44,35 @@ typedef struct \hyperlink{structOpenedFile}{Opened\+File} \hyperlink{StruttureDa
 \subsubsection[{Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Opened\+File} {\bf Opened\+File}}\label{StruttureDati_8h_aeb1a59f39eb8759e5c41cdfe0a53648c}
 
 
+\subsection{Documentazione delle funzioni}
+\hypertarget{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!append\+Opened\+File@{append\+Opened\+File}}
+\index{append\+Opened\+File@{append\+Opened\+File}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{append\+Opened\+File(char $\ast$nomefile, int modo, int socket)}]{\setlength{\rightskip}{0pt plus 5cm}void append\+Opened\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{nomefile, }
+\item[{int}]{modo, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}
+
+
+Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. 
+
+Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. 
+
+Referenzia Opened\+File\+::file\+Name, log\+M(), Opened\+File\+::modo, Opened\+File\+::next, opened\+File\+Linked\+List, e Opened\+File\+::socket\+Id.
+
+
+
+Referenziato da handle\+Open\+Command().
+
+
+
 \subsection{Documentazione delle variabili}
-\hypertarget{StruttureDati_8h_ab1efb3c7e72a52568def0cde719eab1c}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!main\+File@{main\+File}}
-\index{main\+File@{main\+File}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{main\+File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ main\+File}\label{StruttureDati_8h_ab1efb3c7e72a52568def0cde719eab1c}
+\hypertarget{StruttureDati_8h_a3063a74baee4fe1870e52d0ec577afa9}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!opened\+File\+Linked\+List@{opened\+File\+Linked\+List}}
+\index{opened\+File\+Linked\+List@{opened\+File\+Linked\+List}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{opened\+File\+Linked\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ opened\+File\+Linked\+List}\label{StruttureDati_8h_a3063a74baee4fe1870e52d0ec577afa9}
 
 
-Referenziato da do\+Something(), handle\+Open\+Command(), e printa\+Struct().
+Referenziato da append\+Opened\+File(), e file\+Already\+Open().
 

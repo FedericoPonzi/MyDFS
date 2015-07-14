@@ -30,6 +30,8 @@
  * 	* Controllando che il file richiesto non sia gia' stato aperto da qualcun'altro
  *  * Se non e' aperto, aggiunge un nodo in coda a mainOpenedFile
  * 
+ * 
+ * 
  * @todo dovrebbe mandare una risposta al client in caso di successo o errore
  * @todo permettere l' apertura se il modo con cui e' aperto il file e' lettura e viene richiesta la lettura.
  */
@@ -39,7 +41,11 @@
 #include "inc/OPE.h"
 #include "inc/StruttureDati.h"
 #include "inc/Utils.h"
- 
+
+/**
+ * @brief Gestisce il comando Open.
+ *
+ */
 void handleOpenCommand(char* command, int socket)
 {
 	stripCommand(command);

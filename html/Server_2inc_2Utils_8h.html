@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="pages.html"><span>Pagine&#160;collegate</span></a></li>
       <li><a href="annotated.html"><span>Strutture&#160;dati</span></a></li>
       <li class="current"><a href="files.html"><span>File</span></a></li>
       <li>
@@ -101,6 +102,7 @@ Funzioni</h2></td></tr>
 <tr class="memdesc:a1f6240c9883eba86a3a1dc5e8ea77338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stampa un messaggio di log sullo STDOUT se LOG vale 0.  <a href="#a1f6240c9883eba86a3a1dc5e8ea77338">Continua...</a><br /></td></tr>
 <tr class="separator:a1f6240c9883eba86a3a1dc5e8ea77338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac26fe6c49ab17caab523c2410afb27c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand</a> (char *)</td></tr>
+<tr class="memdesc:ac26fe6c49ab17caab523c2410afb27c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove i primi 4 caratteri (es: 'GET ')  <a href="#ac26fe6c49ab17caab523c2410afb27c1">Continua...</a><br /></td></tr>
 <tr class="separator:ac26fe6c49ab17caab523c2410afb27c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
@@ -130,7 +132,14 @@ Funzioni</h2></td></tr>
 
 <p>Stampa un messaggio di log sullo STDOUT se LOG vale 0. </p>
 <p>Stampa un messaggio di log sullo STDOUT se LOG vale 0.</p>
-<p>se LOG vale 0 </p><dl class="section see"><dt>Si veda anche</dt><dd><a class="el" href="Config_8h.html">Config.h</a> </dd></dl>
+<p>se LOG vale 0. Wrapper della printf. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">messaggio</td><td>Il messaggio da stampare </td></tr>
+    <tr><td class="paramname">...</td><td>Le variabili </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Si veda anche</dt><dd><a class="el" href="Config_8h.html">Config.h</a> </dd></dl>
 
 </div>
 </div>
@@ -142,13 +151,24 @@ Funzioni</h2></td></tr>
           <td class="memname">void stripCommand </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="READ_8c.html#a33bf0c6afa09e15ff4c9d4d3c13c4169">handleREADCommand()</a>.</p>
+<p>Rimuove i primi 4 caratteri (es: 'GET ') </p>
+<ul>
+<li><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">La</td><td>linea del comando a cui vogliamo togliere i primi 4 caratteri. </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+
+<p>Referenziato da <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="READ_8c.html#a33bf0c6afa09e15ff4c9d4d3c13c4169">handleREADCommand()</a>.</p>
 
 </div>
 </div>

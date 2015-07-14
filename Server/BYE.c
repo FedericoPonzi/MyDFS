@@ -24,6 +24,7 @@
  * @file Bye.c
  * @author Federico Ponzi
  * @date 11.07.2015
+ *
  * @brief Gestisce il comando BYE
  *
  * Quando il client invia un comando BYE, questo modulo lo gestisce chiudendo la socket( ma non uscendo dal programma).
@@ -34,6 +35,7 @@
 #include "inc/Utils.h"
 
 /**
+ * @brief Gestisce il comando Bye
  * @todo Dovrebbe cercare e rimuovere i file aperti dal client.
  */
 void handleByeCommand(int socket)

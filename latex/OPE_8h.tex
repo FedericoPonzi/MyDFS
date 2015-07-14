@@ -1,0 +1,44 @@
+\hypertarget{OPE_8h}{}\section{Riferimenti per il file Server/inc/\+O\+P\+E.h}
+\label{OPE_8h}\index{Server/inc/\+O\+P\+E.\+h@{Server/inc/\+O\+P\+E.\+h}}
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{OPE_8h_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command} (char $\ast$command, int socket)
+\item 
+void \hyperlink{OPE_8h_a80e913f5bc9ad0afa7ead080e42544ba}{get\+File\+Name} (char $\ast$command, char $\ast$nomefile)
+\begin{DoxyCompactList}\small\item\em Torna il nome (o path del file richiesto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentazione delle funzioni}
+\hypertarget{OPE_8h_a80e913f5bc9ad0afa7ead080e42544ba}{}\index{O\+P\+E.\+h@{O\+P\+E.\+h}!get\+File\+Name@{get\+File\+Name}}
+\index{get\+File\+Name@{get\+File\+Name}!O\+P\+E.\+h@{O\+P\+E.\+h}}
+\subsubsection[{get\+File\+Name(char $\ast$command, char $\ast$nomefile)}]{\setlength{\rightskip}{0pt plus 5cm}void get\+File\+Name (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command, }
+\item[{char $\ast$}]{nome\+File}
+\end{DoxyParamCaption}
+)}\label{OPE_8h_a80e913f5bc9ad0afa7ead080e42544ba}
+
+
+Torna il nome (o path del file richiesto. 
+
+Visto che mi aspetto una stringa del tipo \textquotesingle{}file.\+txt 0\textquotesingle{} allora mi basta prendere la stringa che va da 0 a n-\/2. 
+
+Referenziato da handle\+Open\+Command().
+
+\hypertarget{OPE_8h_a6eccb6ec6ec9c8375e70ab4088b511a5}{}\index{O\+P\+E.\+h@{O\+P\+E.\+h}!handle\+Open\+Command@{handle\+Open\+Command}}
+\index{handle\+Open\+Command@{handle\+Open\+Command}!O\+P\+E.\+h@{O\+P\+E.\+h}}
+\subsubsection[{handle\+Open\+Command(char $\ast$command, int socket)}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Open\+Command (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\label{OPE_8h_a6eccb6ec6ec9c8375e70ab4088b511a5}
+
+
+Referenzia append\+Opened\+File(), get\+File\+Name(), log\+M(), Opened\+File\+::modo, e strip\+Command().
+
+
+
+Referenziato da handle\+Command().
+

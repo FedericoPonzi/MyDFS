@@ -28,11 +28,12 @@
  *
  * Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell' header di questo modulo.
  */
-#include "inc/StruttureDati.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "inc/Utils.h"
-#include "stdio.h"
-#include "string.h"
-#include "stdlib.h"
+#include "inc/StruttureDati.h"
+
 /**
  * @brief Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti OpenedFile
  * 

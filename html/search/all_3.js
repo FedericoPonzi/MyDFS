@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['error_2ec',['Error.c',['../Error_8c.html',1,'']]],
-  ['error_2eh',['Error.h',['../Error_8h.html',1,'']]]
+  ['debug',['DEBUG',['../Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'Config.h']]]
 ];

@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['client_2ec',['client.c',['../client_8c.html',1,'']]],
-  ['clientincludes_2eh',['ClientIncludes.h',['../ClientIncludes_8h.html',1,'']]],
-  ['commandshandler_2ec',['CommandsHandler.c',['../CommandsHandler_8c.html',1,'']]],
-  ['commandshandler_2eh',['CommandsHandler.h',['../CommandsHandler_8h.html',1,'']]],
-  ['config_2eh',['Config.h',['../Config_8h.html',1,'']]],
-  ['config2_2eh',['config2.h',['../config2_8h.html',1,'']]]
+  ['backlog',['BACKLOG',['../Config_8h.html#aeefbbafa97642defe3ee6c3080b7d66f',1,'Config.h']]],
+  ['buf_5fsize',['BUF_SIZE',['../READ_8c.html#a6821bafc3c88dfb2e433a095df9940c6',1,'READ.c']]],
+  ['bye_2ec',['BYE.c',['../BYE_8c.html',1,'']]],
+  ['bye_2eh',['BYE.h',['../BYE_8h.html',1,'']]]
 ];

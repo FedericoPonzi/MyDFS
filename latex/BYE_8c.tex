@@ -3,11 +3,12 @@
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}inc/\+B\+Y\+E.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{BYE_8c_a15433b83fef67893c46145ec647ecfa1}{handle\+Bye\+Command} (int socket)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gestisce il comando Bye. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
@@ -18,6 +19,12 @@ void \hyperlink{BYE_8c_a15433b83fef67893c46145ec647ecfa1}{handle\+Bye\+Command} 
 \item[{int}]{socket}
 \end{DoxyParamCaption}
 )}\label{BYE_8c_a15433b83fef67893c46145ec647ecfa1}
+
+
+Gestisce il comando Bye. 
+
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000001}{Da fare}]Dovrebbe cercare e rimuovere i file aperti dal client. \end{DoxyRefDesc}
 
 
 Referenziato da handle\+Command().

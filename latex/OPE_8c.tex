@@ -1,0 +1,79 @@
+\hypertarget{OPE_8c}{}\section{Riferimenti per il file Server/\+O\+P\+E.c}
+\label{OPE_8c}\index{Server/\+O\+P\+E.\+c@{Server/\+O\+P\+E.\+c}}
+
+
+Gestisce il comando O\+P\+E(\+N)  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}inc/\+O\+P\+E.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{OPE_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command} (char $\ast$command, int socket)
+\item 
+void \hyperlink{OPE_8c_a5ad85b3f22163a883068ad47900445be}{get\+File\+Name} (char $\ast$command, char $\ast$nome\+File)
+\begin{DoxyCompactList}\small\item\em Torna il nome (o path del file richiesto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrizione dettagliata}
+Gestisce il comando O\+P\+E(\+N) 
+
+\begin{DoxyAuthor}{Autore}
+Federico Ponzi 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+11.\+07.\+2015 Quando il client invia un comando O\+P\+E\+N, questo modulo lo gestisce\+: ~\newline
+
+\begin{DoxyItemize}
+\item Controllando che il file richiesto non sia gia\textquotesingle{} stato aperto da qualcun\textquotesingle{}altro
+\end{DoxyItemize}
+\end{DoxyDate}
+
+\begin{DoxyItemize}
+\item Se non e\textquotesingle{} aperto, aggiunge un nodo in coda a main\+Opened\+File
+\end{DoxyItemize}
+
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000002}{Da fare}]dovrebbe mandare una risposta al client in caso di successo o errore 
+
+permettere l\textquotesingle{} apertura se il modo con cui e\textquotesingle{} aperto il file e\textquotesingle{} lettura e viene richiesta la lettura. \end{DoxyRefDesc}
+
+
+\subsection{Documentazione delle funzioni}
+\hypertarget{OPE_8c_a5ad85b3f22163a883068ad47900445be}{}\index{O\+P\+E.\+c@{O\+P\+E.\+c}!get\+File\+Name@{get\+File\+Name}}
+\index{get\+File\+Name@{get\+File\+Name}!O\+P\+E.\+c@{O\+P\+E.\+c}}
+\subsubsection[{get\+File\+Name(char $\ast$command, char $\ast$nome\+File)}]{\setlength{\rightskip}{0pt plus 5cm}void get\+File\+Name (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command, }
+\item[{char $\ast$}]{nome\+File}
+\end{DoxyParamCaption}
+)}\label{OPE_8c_a5ad85b3f22163a883068ad47900445be}
+
+
+Torna il nome (o path del file richiesto. 
+
+Visto che mi aspetto una stringa del tipo \textquotesingle{}file.\+txt 0\textquotesingle{} allora mi basta prendere la stringa che va da 0 a n-\/2. 
+
+Referenziato da handle\+Open\+Command().
+
+\hypertarget{OPE_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{}\index{O\+P\+E.\+c@{O\+P\+E.\+c}!handle\+Open\+Command@{handle\+Open\+Command}}
+\index{handle\+Open\+Command@{handle\+Open\+Command}!O\+P\+E.\+c@{O\+P\+E.\+c}}
+\subsubsection[{handle\+Open\+Command(char $\ast$command, int socket)}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Open\+Command (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\label{OPE_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}
+
+
+Referenzia append\+Opened\+File(), get\+File\+Name(), log\+M(), Opened\+File\+::modo, e strip\+Command().
+
+
+
+Referenziato da handle\+Command().
+

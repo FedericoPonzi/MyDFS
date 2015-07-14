@@ -15,7 +15,7 @@
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Commands\+Handler.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Error.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Strutture\+Dati.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
 \subsection*{Definizioni}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,7 +29,7 @@ int \hyperlink{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 \subsection*{Variabili}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{server_8c_ab1efb3c7e72a52568def0cde719eab1c}{main\+File}
+\hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{server_8c_a3063a74baee4fe1870e52d0ec577afa9}{opened\+File\+Linked\+List} = N\+U\+L\+L
 \end{DoxyCompactItemize}
 
 
@@ -58,6 +58,10 @@ Referenzia B\+A\+C\+K\+L\+O\+G, get\+Command\+I\+D(), handle\+Command(), log\+M(
 
 
 \subsection{Documentazione delle variabili}
-\hypertarget{server_8c_ab1efb3c7e72a52568def0cde719eab1c}{}\index{server.\+c@{server.\+c}!main\+File@{main\+File}}
-\index{main\+File@{main\+File}!server.\+c@{server.\+c}}
-\subsubsection[{main\+File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ main\+File}\label{server_8c_ab1efb3c7e72a52568def0cde719eab1c}
+\hypertarget{server_8c_a3063a74baee4fe1870e52d0ec577afa9}{}\index{server.\+c@{server.\+c}!opened\+File\+Linked\+List@{opened\+File\+Linked\+List}}
+\index{opened\+File\+Linked\+List@{opened\+File\+Linked\+List}!server.\+c@{server.\+c}}
+\subsubsection[{opened\+File\+Linked\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ opened\+File\+Linked\+List = N\+U\+L\+L}\label{server_8c_a3063a74baee4fe1870e52d0ec577afa9}
+
+
+Referenziato da append\+Opened\+File(), e file\+Already\+Open().
+

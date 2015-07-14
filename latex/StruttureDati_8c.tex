@@ -1,0 +1,87 @@
+\hypertarget{StruttureDati_8c}{}\section{Riferimenti per il file Server/\+Strutture\+Dati.c}
+\label{StruttureDati_8c}\index{Server/\+Strutture\+Dati.\+c@{Server/\+Strutture\+Dati.\+c}}
+
+
+Contiene le funzioni di utilita\textquotesingle{} per le Strutture Dati.  
+
+
+{\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stdio.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\\*
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{StruttureDati_8c_a221594d999c22ce87c14e50cd98287a2}{append\+Opened\+File} (char $\ast$nomefile, int modo, int socket)
+\begin{DoxyCompactList}\small\item\em Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. \end{DoxyCompactList}\item 
+int \hyperlink{StruttureDati_8c_a3a13fc9dad66d13c2ee974218cf1b502}{file\+Already\+Open} (char $\ast$file\+Name, int socket\+Id, int modo)
+\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrizione dettagliata}
+Contiene le funzioni di utilita\textquotesingle{} per le Strutture Dati. 
+
+\begin{DoxyAuthor}{Autore}
+Federico Ponzi 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+11.\+07.\+2015 Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell\textquotesingle{} header di questo modulo. 
+\end{DoxyDate}
+
+
+\subsection{Documentazione delle funzioni}
+\hypertarget{StruttureDati_8c_a221594d999c22ce87c14e50cd98287a2}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!append\+Opened\+File@{append\+Opened\+File}}
+\index{append\+Opened\+File@{append\+Opened\+File}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
+\subsubsection[{append\+Opened\+File(char $\ast$nomefile, int modo, int socket)}]{\setlength{\rightskip}{0pt plus 5cm}void append\+Opened\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{nomefile, }
+\item[{int}]{modo, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8c_a221594d999c22ce87c14e50cd98287a2}
+
+
+Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. 
+
+Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. 
+
+Referenzia Opened\+File\+::file\+Name, log\+M(), Opened\+File\+::modo, Opened\+File\+::next, opened\+File\+Linked\+List, e Opened\+File\+::socket\+Id.
+
+
+
+Referenziato da handle\+Open\+Command().
+
+\hypertarget{StruttureDati_8c_a3a13fc9dad66d13c2ee974218cf1b502}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!file\+Already\+Open@{file\+Already\+Open}}
+\index{file\+Already\+Open@{file\+Already\+Open}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
+\subsubsection[{file\+Already\+Open(char $\ast$file\+Name, int socket\+Id, int modo)}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Open (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\+Name, }
+\item[{int}]{socket\+Id, }
+\item[{int}]{modo}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8c_a3a13fc9dad66d13c2ee974218cf1b502}
+
+
+Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em file\+Name} & Il nome del file da controllare \\
+\hline
+{\em socket\+Id} & l\textquotesingle{} id della socket\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+1 se il file non e\textquotesingle{} aperto, 
+
+1 se il file e\textquotesingle{} gia\textquotesingle{} aperto, ed e\textquotesingle{} associato alla stessa socket\+Id 
+
+1 se ha richiesto l\textquotesingle{}apertura in read 
+
+0 se il file e\textquotesingle{} gia\textquotesingle{} aperto in scrittura da altri 
+\end{DoxyReturn}
+
+
+Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, Opened\+File\+::next, opened\+File\+Linked\+List, e T\+R\+U\+E.
+
