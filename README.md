@@ -6,7 +6,7 @@ Tutta la documentazione si riferisce al lato server (per ora, ovviamente).
 * Sulla [open](OPE.md)
 
 ###TODOS:
-* Implementare bene la Open
+* Implementare bene la Open e poi implementare la Close
 
 ###Più in là:
 * Sincronizzare l' accesso alla struttura dati [openedFilesLinkedList] (file:///home/federicoponzi/Progetto/html/server_8c.html#a3063a74baee4fe1870e52d0ec577afa9)
