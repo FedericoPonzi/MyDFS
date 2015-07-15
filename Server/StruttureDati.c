@@ -51,56 +51,71 @@
 void appendOpenedFile(char* nomefile, int modo, int socket)
 {
 
-	if(fileAlreadyOpen(nomefile, getModoAperturaFromInt(modo), socket))
+	if(fileAlreadyOpen(nomefile, modo, socket) == 1)
 	{
 		logM("Ha provato ad aprire un file gia' aperto: '%s' \n", nomefile);
 		char answer[100] = "LOL File gia' aperto zio sorry :( \n";
 		send(socket, answer, strlen(answer), 0);
 	}
-	else
-	{
-		OpenedFile* prova;
-		prova = (OpenedFile*) malloc(sizeof(OpenedFile));
-		prova->fileName = nomefile; 
-		prova->modo = getModoAperturaFromInt(modo);
-		prova->socketId = socket;
-		prova->next =NULL;
-		if(openedFileLinkedList == NULL)
+	else if(fileAlreadyOpen(nomefile, modo, socket) == 0)
 		{
-			openedFileLinkedList = prova;
-			logM("[OpenFile] Main non esiste. Lo creo. '%s'\n", openedFileLinkedList->fileName);
-		}
-		else
-		{
-			logM("[OpenFile] Main esiste '%s' \n", openedFileLinkedList->fileName);
-			OpenedFile* iterator = openedFileLinkedList;
-			while(iterator->next != NULL)
+			OpenedFile* prova;
+			prova = (OpenedFile*) malloc(sizeof(OpenedFile));
+			prova->fileName = nomefile;
+			
+			prova->socketIdList = (SocketIdList*) malloc(sizeof(SocketIdList));
+			prova->socketIdList->socketId = socket;
+			prova->socketIdList->next = NULL;
+			prova->socketIdList->modo = modo;
+			prova->next = NULL;
+			if(openedFileLinkedList == NULL)
 			{
-				iterator = iterator->next;
+				openedFileLinkedList = prova;
+				logM("[OpenFile] Main non esiste. Lo creo. '%s'\n", openedFileLinkedList->fileName);
+			}
+			else
+			{
+				logM("[OpenFile] Main esiste '%s' \n", openedFileLinkedList->fileName);
+				OpenedFile* iterator = openedFileLinkedList;
+				while(iterator->next != NULL)
+				{
+					iterator = iterator->next;
+				}
+				
+				iterator->next = prova;
 			}
 			
-			iterator->next = prova;
-		}
-		
-		logM("[OpenFile] Aggiunto. Nome: '%s' \n", prova->fileName);
+			logM("[OpenFile] Aggiunto. Nome: '%s' \n", prova->fileName);
+	   }
+	else
+	{
+		OpenedFile* iterator = openedFileLinkedList;
+		do
+		{
+			if(strcmp(iterator->fileName, nomefile)==0)
+			{
+				aggiungiSocketId(iterator->socketIdList, socket, modo);
+			}
+		}while(iterator->next != NULL);
 	}
+	   
 	
 }
 
 /**
- * @brief Controlla se un file con quel nome e' gia' stato aperto.
- * @param fileName Il nome del file da controllare
- * @param socketId l' id della socket
+ * @brief Controlla se un file con quel nome e' gia' stato aperto e se è stato aperto dal client che ne sta richiedendo nuovo accesso.
+ *
+ *  
+   @param filename Il nome del file da controllare
+ * @param socketId l'id della socket del client
+ * @param modo_client il modo con cui il client intende accedere al file
  * 
- * @todo Dovrebbe tenere da conto anche il modo di apertura e la socketID.
- * 
- * @return 1 se il file non e' aperto,
- * @return 1 se il file e' gia' aperto, ed e' associato alla stessa socketId
- * @return 1 se ha richiesto l'apertura in read
- * @return 0 se il file e' gia' aperto in scrittura da altri
+ * @return modo se il file è stato già aperto da client che sta richiedendo nuovo accesso,
+ * @return 1 se il file e' gia' aperto da altro client in mod. bloccante
+ * @return 0 se file non è ancora stato aperto
  */
 
-int fileAlreadyOpen(char* filename, modoApertura_t modo, int socketId)
+int fileAlreadyOpen(char* filename, int modo_client, int socketId)
 {
 	if(openedFileLinkedList == NULL) return FALSE;
 	
@@ -108,46 +123,107 @@ int fileAlreadyOpen(char* filename, modoApertura_t modo, int socketId)
 	
 	do
 	{
-		logM("Provo: '%s' \n", iterator->fileName);
-
 		if(strcmp(iterator->fileName, filename) == 0)
 		{
-			return TRUE;
+			if(socketIdAlreadyAdded(iterator->socketIdList, socketId))
+			{
+				return getModoFromSocketId(iterator->socketIdList, socketId);
+			}
+			if(isModoApertura(getModoFromSocketId(iterator->socketIdList, socketId), MYO_EXLOCK) || isModoApertura(getModoFromSocketId(iterator->socketIdList, socketId), MYO_WRONLY) || isModoApertura(getModoFromSocketId(iterator->socketIdList, socketId), MYO_RDWR))
+			{
+				return 1;
+			}
+			return 0;
 		}
 		iterator = iterator->next;
 	}while(iterator != NULL);
 	
 	logM("Nessun file aperto con questo nome: '%s' \n",filename);
 
-	return FALSE;
+	return 0;
 	
 }
 
 
 /**
- * @brief Ritorna un tipo modoApertura partendo da un intero.
+ * @brief Dice se modo_client contiene il modo modo.
  * 
- * Gli enum in teoria sono codificato come 0, 1 ecc pero' qui' dice di non fare affidamento suq uesta cosa: 
- * @see http://www.cs.utah.edu/~germain/PPS/Topics/C_Language/enumerated_types.html
- */
-modoApertura_t getModoAperturaFromInt(int i)
+  */
+int isModoApertura(int modo_client, int modo)
 {
-	switch(i)
+	if((modo_client&modo)==modo)
 	{
-		case 0:
-			return MYO_RDONLY;
-		case 1:
-			return MYO_WRONLY; 
-		case 2:
-			return MYO_RDWR;
-		case 3:
-			return MYO_CREAT; 
-		case 4:
-			return MYO_TRUNC; 
-		case 5:
-			return MYO_EXCL;
-		case 6:
-			return MYO_EXLOCK;
+		return TRUE;
 	}
+	return FALSE;
+}
+
+/**
+@brief aggiunge elemento a lista linkata di socket
+* @param SocketIdList* sl puntatore alla prima socket della lista
+* @param int socketId id della socket da aggiungere
+* @param modo modo di apertura file da parte di nuova socket
+* @return void
+* */
+void aggiungiSocketId(SocketIdList* sl, int socketId, int modo)
+{
+	SocketIdList* iterator = sl;
+	while(iterator->next != NULL || iterator->socketId != socketId)
+	{
+		iterator = iterator->next;
+	}
+	
+	if(iterator->socketId == socketId)
+	{
+		logM("%d\n", iterator->modo);
+		iterator->modo = iterator->modo | modo;
+		logM("%d\n", iterator->modo);
+	}
+	else
+	{		
+		SocketIdList* newSI = malloc(sizeof(SocketIdList));
+		newSI->socketId = socketId;
+		newSI->modo = modo;
+		iterator->next = newSI;
+	}
+}
+
+/**
+@brief controllo presenza socketId in lista socket
+* @param SocketIdList* sl puntatore alla prima socket della lista
+* @param int socketId id della socket da controllare
+* @return TRUE (1) se id gia' presente in lista, FALSE (0) altrimenti
+* */
+int socketIdAlreadyAdded(SocketIdList* sl, int socketId)
+{
+	SocketIdList* iterator = sl;
+	do
+	{
+		if(iterator->socketId == socketId)
+		{
+			return TRUE;
+		}
+		iterator = iterator->next;
+	}while(iterator->next != NULL);
+	return FALSE;
+}
+
+/**
+@brief ottieni modo (anche multiplo) di accesso di un certo socketId su un certo file
+* @param SocketIdList* sl puntatore alla prima socket della lista
+* @param int socketId id della socket di cui ottenere modo
+* @return modo se socket già ha aperto file, -1 altrimenti
+* */
+int getModoFromSocketId(SocketIdList* sl, int socketId)
+{
+	SocketIdList* iterator = sl;
+	do
+	{
+		if(iterator->socketId == socketId)
+		{
+			return iterator->modo;
+		} 
+		iterator = iterator->next;
+	}while(iterator->next != NULL);
 	return -1;
 }

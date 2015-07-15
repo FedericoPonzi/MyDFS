@@ -33,6 +33,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include "Config.h"
 
 
 /**
@@ -47,7 +48,7 @@ void logM (char* messaggio, ...)
 {
 	va_list args;
 
-	if(1)
+	if(DEBUG)
 	{
 		va_start(args, messaggio);
 		vprintf(messaggio, args);

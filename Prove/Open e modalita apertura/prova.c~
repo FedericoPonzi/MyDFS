@@ -12,11 +12,6 @@ int main()
 	char buff[100] = "Ciao, MONDO :D";
 	
 	fd = open("file.txt", O_CREAT | O_RDWR);
-
-    if(fd<0)
-    {
-          
-    }
 	write(fd, buff, strlen(buff));
 	
 	close(fd);
