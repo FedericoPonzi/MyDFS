@@ -96,6 +96,7 @@ void appendOpenedFile(char* nomefile, int modo, int socket)
 			{
 				aggiungiSocketId(iterator->socketIdList, socket, modo);
 			}
+			iterator = iterator->next;
 		}while(iterator->next != NULL);
 	}
 	   
