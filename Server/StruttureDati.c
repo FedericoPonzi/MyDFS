@@ -25,8 +25,13 @@
  * @author Federico Ponzi
  * @date 11.07.2015
  * @brief Contiene le funzioni di utilita' per le Strutture Dati
- *
+ * 
+ * @todo Una struttura dati che contenga una lista di sockets
+ * @todo Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti.
+ * NOTA: Ricordarsi di eseguire una free() dei OpenedFile->fileName perchè viene allocata con una malloc in OPE.c
+ * 
  * Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell' header di questo modulo.
+ * 
  */
 #include <stdio.h>
 #include <string.h>
@@ -39,6 +44,7 @@
 /**
  * @brief Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti OpenedFile
  * 
+ * @todo Dovrebbe tenere da conto anche il modo di apertura
  * Se non esiste la radice mainFile la crea. Altrimenti scorre tutti i nodi fino ad arrivare all' elemento in coda, crea un nuovo
  * nodo con i dati in input e lo appende alla fine.
  */
@@ -85,6 +91,8 @@ void appendOpenedFile(char* nomefile, int modo, int socket)
  * @brief Controlla se un file con quel nome e' gia' stato aperto.
  * @param fileName Il nome del file da controllare
  * @param socketId l' id della socket
+ * 
+ * @todo Dovrebbe tenere da conto anche il modo di apertura e la socketID.
  * 
  * @return 1 se il file non e' aperto,
  * @return 1 se il file e' gia' aperto, ed e' associato alla stessa socketId
