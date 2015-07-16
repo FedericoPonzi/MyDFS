@@ -36,7 +36,7 @@ int main()
 	server.sin_port = htons(PORT);
 	server.sin_addr.s_addr= INADDR_ANY;
 	
-	if(bind(sd, (struct sockaddr *) &server, sizeof(server)) <0)
+	if(bind(sd, (struct sockaddr *) &server, sizeof(server)) < 0)
 	{
 		printErr(2);
 	}
@@ -49,11 +49,11 @@ int main()
 	// Loop infinito per servire i client:
 	while(1)
 	{
-		if((temp_sd = accept(sd, (struct sockaddr *) &client, &address_size))<0)
+		if((temp_sd = accept(sd, (struct sockaddr *) &client, &address_size)) < 0)
 		{
 			printErr(4);
 		}
-		if((pid = fork()) <0)
+		if((pid = fork()) < 0)
 		{
 			printErr(5);
 		}

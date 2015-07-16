@@ -153,7 +153,7 @@ int isModoApertura(int modo_client, int modo)
 }
 
 /**
-@brief aggiunge elemento a lista linkata di socket
+@brief aggiunge elemento a lista linkata di socket o aggiunge modo a socket già aggiunta
 * @param SocketIdList* sl puntatore alla prima socket della lista
 * @param int socketId id della socket da aggiungere
 * @param modo modo di apertura file da parte di nuova socket
