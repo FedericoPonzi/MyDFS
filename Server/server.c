@@ -30,7 +30,7 @@ int main()
 	
 	//creazione e gestione socket e cattura errori
 	int errCode;
-	if((errCode = gestioneSocketServer(&sd, &temp_sd, &server)) != 0)
+	if((errCode = gestioneSocketServer(&sd, &temp_sd, &server)))
 	{
 		printErr(errCode);
 	}
@@ -46,14 +46,16 @@ int main()
 	return 0;
 }
 
-/**@brief ciclo per gestire fork e richieste dei client
+/**
+ * @brief ciclo per gestire fork e richieste dei client
  * @param *sd puntatore a socket descriptor
  * @param *temp_sd puntatore a socket descriptor temporanea
- * @param *client struct per indirizzo client*/
+ * @param *client struct per indirizzo client
+ */
 int loopFork(int *sd, int *temp_sd, struct sockaddr_in *client)
 {
 		pid_t pid;
-		int client_size = sizeof(*client);
+		socklen_t client_size = sizeof(*client);
 		char buff[Max];
 		if((*temp_sd = accept(*sd, (struct sockaddr *)client, &client_size)) < 0)
 		{
@@ -74,8 +76,7 @@ int loopFork(int *sd, int *temp_sd, struct sockaddr_in *client)
 		{
 			//figlio
 			//Mi scollego dal padre:
-			close(*sd);
-			
+			close(*sd);		
 			char answer[50];
 			int nRecv;
 			logM("Collegamento effettuato.\n");
@@ -91,12 +92,7 @@ int loopFork(int *sd, int *temp_sd, struct sockaddr_in *client)
 				}
 				buff[nRecv-1] = '\0';
 				logM("Lunghezza di buff:'%d'\n", strlen(buff));
-
-				/*if(buff[strlen(buff)-1] == '\n')
-				{
-					buff[strlen(buff)-2] = '\0';
-				}*/
-				//buff[strlen(buff)-2] = '\0';	
+				
 				logM("Client:'%s'\n", buff);
 				
 				if(strlen(buff) > 0)
