@@ -29,7 +29,7 @@ void printErr(int num)
 				printf("Errore nella chiamata di listen.\n");
 				break;
 			case 4:
-				printf("Errore nella chiamate dell' accept.\n");
+				printf("Errore nella chiamata dell'accept.\n");
 				break;
 			case 5:
 				printf("Errore nella chiamata della fork.\n");

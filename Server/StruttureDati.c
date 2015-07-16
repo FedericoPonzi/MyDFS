@@ -51,7 +51,7 @@
 void appendOpenedFile(char* nomefile, int modo, int socket)
 {
 
-	if(fileAlreadyOpen(nomefile, modo, socket) == 1)
+	if(fileAlreadyOpen(nomefile, modo, socket) == -1)
 	{
 		logM("Ha provato ad aprire un file gia' aperto: '%s' \n", nomefile);
 		char answer[100] = "LOL File gia' aperto zio sorry :( \n";
@@ -96,7 +96,10 @@ void appendOpenedFile(char* nomefile, int modo, int socket)
 			{
 				aggiungiSocketId(iterator->socketIdList, socket, modo);
 			}
-			iterator = iterator->next;
+			if(iterator->next != NULL)
+			{
+				iterator = iterator->next;
+			}
 		}while(iterator->next != NULL);
 	}
 	   
@@ -132,7 +135,7 @@ int fileAlreadyOpen(char* filename, int modo_client, int socketId)
 			}
 			if(isModoApertura(getModoFromSocketId(iterator->socketIdList, socketId), MYO_EXLOCK) || isModoApertura(getModoFromSocketId(iterator->socketIdList, socketId), MYO_WRONLY) || isModoApertura(getModoFromSocketId(iterator->socketIdList, socketId), MYO_RDWR))
 			{
-				return 1;
+				return -1;
 			}
 			return 0;
 		}
