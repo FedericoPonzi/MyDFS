@@ -231,3 +231,76 @@ int getModoFromSocketId(SocketIdList* sl, int socketId)
 	}while(iterator->next != NULL);
 	return -1;
 }
+
+/**@brief rimuove collegamenti tra client e file aperti nella sessione
+ * @param int sd socket descriptor del client*/
+void closeClientSession(int sd)
+{
+	OpenedFile* iterator = openedFileLinkedList;
+	SocketIdList* iterator2;
+	SocketIdList* preIterator2;
+	while(TRUE)
+	{
+		iterator2 = iterator->socketIdList;
+		do
+		{
+			/*stampe di debug:
+			logM("nuovo iterator: %s\n", iterator->fileName);
+			logM("iterator->socketId = %d\n", iterator2->socketId);
+			logM("socket_closing = %d\n", sd);*/
+			if(iterator2->socketId == sd) //se iterator2->SocketId è uguale a quella in input
+			{
+				logM("chiudo %s\n", iterator->fileName);
+				if(preIterator2 != NULL) //se iterator2 non è primo della lista
+				{
+					if(iterator2->next != NULL) //se iterator2 non è ultimo della lista
+					{
+							preIterator2->next = iterator2->next;
+							SocketIdList temp_it = *iterator2;
+							free(iterator2);
+							iterator2 = temp_it.next;
+							preIterator2 = preIterator2->next;
+					}
+					else //se iterator2 è ultimo della lista
+					{
+							free(iterator2);
+							preIterator2->next = NULL;
+					}
+				}
+				else //se iterator2 è primo della lista
+				{
+					if(iterator2->next != NULL) //se iterator2 non è ultimo della lista
+					{
+							SocketIdList temp_it = *iterator2;
+							free(iterator2);
+							iterator->socketIdList=temp_it.next;
+					}
+					else //se iterator2 è ultimo della lista
+					{
+							free(iterator2);
+							iterator->socketIdList=NULL;
+					}
+				}
+				break;	
+			}
+			else //se iterator2->SocketId è diversa da quella di input
+			{
+				if(iterator2->next != NULL)
+				{	
+					iterator2 = iterator2->next;
+					preIterator2 = iterator2;
+				}
+			}
+		}while(iterator2->next != NULL);
+		
+		if(iterator->next != NULL) //procedo finchè ho esaminato tutti i file aperti
+		{
+			iterator = iterator->next;
+		}
+		else
+		{
+			break;
+		}
+		
+	}
+}

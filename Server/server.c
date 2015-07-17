@@ -101,8 +101,9 @@ void* handleSocket(int temp_sd)
 		handleCommand(buff, temp_sd);
 		logM("\n\n");
 
+
 		}
-		while(getCommandID(buff) != 0 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
+		while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
 		
 		logM("Connessione terminata.\n");
 		return NULL;
