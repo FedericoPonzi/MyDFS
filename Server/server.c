@@ -81,7 +81,7 @@ void* handleSocket(int temp_sd)
 	{
 		bzero(answer, sizeof(answer));
 		bzero(buff, sizeof(buff));
-		printf("%d b \n\n",temp_sd);
+		
 		nRecv = recv(temp_sd, buff, sizeof(buff)-1, 0);
 		if(nRecv < 0)
 		{
