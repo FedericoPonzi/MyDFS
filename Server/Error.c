@@ -2,7 +2,7 @@
 #include "inc/Error.h"
 
 /**
- * Stampa un errore particolare. Non interrompe il programma.
+ * @brief Stampa un errore particolare. Non interrompe il programma.
  * error: L'errore da stampare
  */
 void printErr_s(char* error)
@@ -11,7 +11,7 @@ void printErr_s(char* error)
 }
 
 /**
- * Stampa un errore in base al codice di errore. 
+ * @brief Stampa un errore in base al codice di errore. 
  * Interrompe il programma usando l' input come codice d'errore.
  * num: il codice dell' errore
  */
