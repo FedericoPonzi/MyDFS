@@ -1,10 +1,10 @@
 #include <stdlib.h> 
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 #include "inc/OPE.h"
 #include "inc/StruttureDati.h"
 #include "inc/Utils.h"
-#include "inc/BYE.h"
 #include "inc/CLOSE.h"
 
 
@@ -26,5 +26,5 @@ void handleCloseCommand(int socket)
 	//chiusura connessione client-server
 	logM("chiusura sessione in corso, sciao beloo\n");
 	closeClientSession(socket);
-	handleByeCommand(socket);	
+	close(socket);
 }

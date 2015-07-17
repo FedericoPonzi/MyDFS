@@ -3,7 +3,6 @@
 #include "inc/CommandsHandler.h"
 
 #include "inc/CLOSE.h"
-#include "inc/BYE.h"
 #include "inc/OPE.h"
 
 #include "inc/Utils.h"
@@ -18,11 +17,6 @@
  */
 int getCommandID(char* input)
 {
-
-	/*if(strncmp("BYE", input, 3) == 0)
-	{
-		return 0;
-	}*/
 	if(strncmp("OPE", input, 3) == 0)
 	{
 		return 1;
@@ -43,10 +37,6 @@ void handleCommand(char* buff, int socket)
 {
 	switch(getCommandID(buff))
 	{
-		/*case 0:
-			logM("[handleCommand] Ricevuta richiesta BYE \n");
-			handleByeCommand(socket);
-			break;*/
 		case 1:
 			logM("[handleCommand] Ricevuta richiesta OPEN\n");
 			handleOpenCommand(buff, socket);
