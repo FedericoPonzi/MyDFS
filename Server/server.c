@@ -107,7 +107,7 @@ int loopFork(int *sd, int *temp_sd, struct sockaddr_in *client)
 				logM("\n\n");
 
 			}
-			while(getCommandID(buff) != 0 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
+			while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio CLO. o la connessione non e' chiusa
 			
 			logM("Connessione terminata.\n");
 			exit(0);

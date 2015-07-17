@@ -40,4 +40,6 @@ int socketIdAlreadyAdded(SocketIdList* sl, int socketId);
 
 int getModoFromSocketId(SocketIdList* sl, int socketId);
 
+void closeClientSession(int sd);
+
 #endif

@@ -2,8 +2,10 @@
 #include <string.h>
 #include "inc/CommandsHandler.h"
 
+#include "inc/CLOSE.h"
 #include "inc/BYE.h"
 #include "inc/OPE.h"
+
 #include "inc/Utils.h"
 
 
@@ -17,13 +19,17 @@
 int getCommandID(char* input)
 {
 
-	if(strncmp("BYE", input, 3) == 0)
+	/*if(strncmp("BYE", input, 3) == 0)
 	{
 		return 0;
-	}
+	}*/
 	if(strncmp("OPE", input, 3) == 0)
 	{
 		return 1;
+	}
+	if(strncmp("CLO", input, 3) == 0)
+	{
+		return 2;
 	}
 	return -1;
 }
@@ -37,13 +43,17 @@ void handleCommand(char* buff, int socket)
 {
 	switch(getCommandID(buff))
 	{
-		case 0:
+		/*case 0:
 			logM("[handleCommand] Ricevuta richiesta BYE \n");
 			handleByeCommand(socket);
-			break;
+			break;*/
 		case 1:
 			logM("[handleCommand] Ricevuta richiesta OPEN\n");
 			handleOpenCommand(buff, socket);
+			break;
+		case 2:
+			logM("[handleCommand] Ricevuta richiesta CLOSE\n");
+			handleCloseCommand(socket);
 			break;
 		default:
 			logM("[handleCommand] Comando sconosciuto.\n");
