@@ -18,9 +18,8 @@
 #define Max 30
 
 OpenedFile* openedFileLinkedList = NULL;
-
-int gestioneSocketServer(int *sd, int *temp_sd, struct sockaddr_in * server);
-int loopFork(int *sd, int *temp_sd, struct sockaddr_in *client);
+int spawnProcess(int temp_sd, int sd);
+void* handleSocket(int temp_sd);
 
 int main()
 {
@@ -28,118 +27,124 @@ int main()
 	struct sockaddr_in client;
 	int sd, temp_sd;
 	
-	//creazione e gestione socket e cattura errori
-	int errCode;
-	if((errCode = gestioneSocketServer(&sd, &temp_sd, &server)))
+	socklen_t address_size;
+	if((sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
-		printErr(errCode);
+		printErr(1);
+	}	
+	server.sin_family = AF_INET;
+	server.sin_port = htons(PORT);
+	server.sin_addr.s_addr= INADDR_ANY;
+	
+	if(bind(sd, (struct sockaddr *) &server, sizeof(server)) <0)
+	{
+		printErr(2);
 	}
+	if(listen (sd, BACKLOG) < 0)
+	{
+		printErr(3);
+	}	
+	address_size = sizeof(client);
+	logM("Server avviato. Attendo connessioni. \n");
 	// Loop infinito per servire i client:
-	int errCode2;
 	while(1)
 	{
-		if((errCode2=loopFork(&sd, &temp_sd, &client)) != 0)
+		if((temp_sd = accept(sd, (struct sockaddr *) &client, &address_size))<0)
 		{
-			printErr(errCode2);
+			printErr(4);
 		}
+
+		if(spawnProcess(temp_sd, sd)==0)
+		{
+			handleSocket(temp_sd);
+			return 0;
+		}
+			
 	}
+	
 	return 0;
 }
 
 /**
- * @brief ciclo per gestire fork e richieste dei client
- * @param *sd puntatore a socket descriptor
- * @param *temp_sd puntatore a socket descriptor temporanea
- * @param *client struct per indirizzo client
+ * @brief Gestisce la comunicazione con la socket
+ * 
+ * Riceve un messaggio dalla socket, lo gestisce, e scrive la risposta.
  */
-int loopFork(int *sd, int *temp_sd, struct sockaddr_in *client)
-{
-		pid_t pid;
-		socklen_t client_size = sizeof(*client);
-		char buff[Max];
-		if((*temp_sd = accept(*sd, (struct sockaddr *)client, &client_size)) < 0)
+void* handleSocket(int temp_sd)
+{					
+	char answer[50];
+	int nRecv;
+	char buff[Max];
+
+	logM("Collegamento effettuato.\n");
+	do
+	{
+		bzero(answer, sizeof(answer));
+		bzero(buff, sizeof(buff));
+		
+		nRecv = recv(temp_sd, buff, sizeof(buff)-1, 0);
+		if(nRecv < 0)
 		{
-			//printErr(4);
-			return 4;
+			printErr(6);
 		}
-		if((pid = fork()) < 0)
-		{
-			//printErr(5);
-			return 5;
+		buff[nRecv-1] = '\0';
+		logM("Lunghezza di buff:'%d'\n", strlen(buff));
+		logM("Client:'%s'\n", buff);
+		if(strlen(buff) > 0)
+		{	
+			strcpy(answer, "\nComando Ricevuto: ");
+			strcat(answer, buff);
+			strcat(answer, "\n");
+			send(temp_sd, answer, strlen(answer), 0);
 		}
 		
-		if(pid) //se e' il padre, chiude la socket temporanea.
-		{
-			close(*temp_sd);
-		}
-		else
-		{
-			//figlio
-			//Mi scollego dal padre:
-			close(*sd);		
-			char answer[50];
-			int nRecv;
-			logM("Collegamento effettuato.\n");
-			do
-			{	
-				bzero(answer, sizeof(answer));
-				bzero(buff, sizeof(buff));
-				nRecv = recv(*temp_sd, buff, sizeof(buff)-1, 0);
-				if(nRecv < 0)
-				{
-					//printErr(6);
-					return 6;
-				}
-				buff[nRecv-1] = '\0';
-				logM("Lunghezza di buff:'%d'\n", strlen(buff));
-				
-				logM("Client:'%s'\n", buff);
-				
-				if(strlen(buff) > 0)
-				{	
-					strcpy(answer, "\nComando Ricevuto: ");
-					strcat(answer, buff);
-					strcat(answer, "\n");
-					send(*temp_sd, answer, strlen(answer), 0);
-				}
-				
-				handleCommand(buff, *temp_sd);
-				logM("\n\n");
+		handleCommand(buff, temp_sd);
+		logM("\n\n");
 
-			}
-			while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio CLO. o la connessione non e' chiusa
-			
-			logM("Connessione terminata.\n");
-			exit(0);
+
 		}
-	return 0;
+		while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
+		
+		logM("Connessione terminata.\n");
+		return NULL;
 }
 
-/**@brief inizializzazione delle socket
- * @param *sd puntatore a socket descriptor
- * @param *temp_sd puntatore a socket descriptor temporanea
- * @param *server struct per indirizzo server*/
-int gestioneSocketServer(int *sd, int *temp_sd, struct sockaddr_in *server)
+/**
+ * @brief Crea un thread e richiama handleSocket()
+ * 
+ * All' arrivo di una connessione, crea un thread e richiama handleSocket
+ * @see server.c#handleSocket
+ * @todo dovrebbe passargli dei parametri.
+ */
+void spawnThread()
 {
-	if((*sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-	{
-		//printErr(1);
-		return 1;
-	}	
-	server->sin_family = AF_INET;
-	server->sin_port = htons(PORT);
-	server->sin_addr.s_addr= INADDR_ANY;
+	int err = 0;
+	//err = pthread_create(NULL, NULL, &handleSocket, NULL);
+    if (err != 0)
+        printf("\ncan't create thread :[%s]", strerror(err));
+ 
+}
+
+/**
+ * @brief Crea un processo e richiama handleSocket();
+ * All' arrivo di una connessione, crea un processo e richiama handleSocket
+ */
+int spawnProcess(int temp_sd, int sd)
+{
+	pid_t pid;
 	
-	if(bind(*sd, (struct sockaddr *) server, sizeof(*server)) < 0)
+	pid = fork();
+	if(pid < 0)
 	{
-		//printErr(2);
-		return 2;
+		printErr(5);
 	}
-	if(listen (*sd, BACKLOG) < 0)
+	if(pid)
 	{
-		//printErr(3);
-		return 3;
-	}	
-	logM("Server avviato. Attendo connessioni. \n");
-	return 0;
+		close(temp_sd);
+	}
+	else
+	{
+		close(sd);
+	}
+	return pid;
 }
