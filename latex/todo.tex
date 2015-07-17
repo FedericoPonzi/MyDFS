@@ -1,14 +1,28 @@
 
 \begin{DoxyRefList}
+\item[\label{todo__todo000006}%
+\hypertarget{todo__todo000006}{}%
+global\+Scope$>$ Globale \hyperlink{StruttureDati_8c_a221594d999c22ce87c14e50cd98287a2}{append\+Opened\+File} (char $\ast$nomefile, int modo, int socket)]Dovrebbe tenere da conto anche il modo di apertura Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine.  
 \item[\label{todo__todo000001}%
 \hypertarget{todo__todo000001}{}%
 global\+Scope$>$ Globale \hyperlink{BYE_8h_a2e130b9a6559e17fb5a989e57aaa0945}{handle\+Bye\+Command} (int)]Dovrebbe cercare e rimuovere i file aperti dal client.  
 \item[\label{todo__todo000001}%
 \hypertarget{todo__todo000001}{}%
 global\+Scope$>$ Globale \hyperlink{BYE_8h_a2e130b9a6559e17fb5a989e57aaa0945}{handle\+Bye\+Command} (int)]Dovrebbe cercare e rimuovere i file aperti dal client.  
+\item[\label{todo__todo000003}%
+\hypertarget{todo__todo000003}{}%
+global\+Scope$>$ Globale \hyperlink{OPE_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command} (char $\ast$command, int socket)]\+: Da vedere bene per memory leaks!!!!  
 \item[\label{todo__todo000002}%
 \hypertarget{todo__todo000002}{}%
 File \hyperlink{OPE_8c}{O\+P\+E.c} ]dovrebbe mandare una risposta al client in caso di successo o errore 
 
-permettere l\textquotesingle{} apertura se il modo con cui e\textquotesingle{} aperto il file e\textquotesingle{} lettura e viene richiesta la lettura. 
+permettere l\textquotesingle{} apertura se il modo con cui e\textquotesingle{} aperto il file e\textquotesingle{} lettura e viene richiesta la lettura.  
+\item[\label{todo__todo000004}%
+\hypertarget{todo__todo000004}{}%
+global\+Scope$>$ Globale \hyperlink{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}{spawn\+Thread} ()]dovrebbe passargli dei parametri.  
+\item[\label{todo__todo000005}%
+\hypertarget{todo__todo000005}{}%
+File \hyperlink{StruttureDati_8c}{Strutture\+Dati.c} ]Una struttura dati che contenga una lista di sockets 
+
+Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti. N\+O\+T\+A\+: Ricordarsi di eseguire una free() dei Opened\+File-\/$>$file\+Name perchè viene allocata con una malloc in \hyperlink{OPE_8c}{O\+P\+E.\+c}
 \end{DoxyRefList}

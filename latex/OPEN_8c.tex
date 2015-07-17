@@ -1,45 +1,45 @@
-\hypertarget{OPEN_8c}{}\section{Riferimenti per il file Server/\+O\+P\+E\+N.c}
-\label{OPEN_8c}\index{Server/\+O\+P\+E\+N.\+c@{Server/\+O\+P\+E\+N.\+c}}
-{\ttfamily \#include \char`\"{}inc/\+O\+P\+E\+N.\+h\char`\"{}}\\*
-\subsection*{Funzioni}
+\hypertarget{OPEN_8c}{}\section{Riferimenti per il file Client/\+O\+P\+E\+N.c}
+\label{OPEN_8c}\index{Client/\+O\+P\+E\+N.\+c@{Client/\+O\+P\+E\+N.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+\subsection*{Definizioni}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{OPEN_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command} (char $\ast$command, int socket)
+\#define \hyperlink{OPEN_8c_addf7c1358350b77c12278a4a1d6009cc}{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}~1
 \item 
-void \hyperlink{OPEN_8c_a80e913f5bc9ad0afa7ead080e42544ba}{get\+File\+Name} (char $\ast$command, char $\ast$nomefile)
-\begin{DoxyCompactList}\small\item\em Torna il nome (o path del file richiesto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\#define \hyperlink{OPEN_8c_a85f78205a7dfd8bec546ea15b8c11e72}{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}~2
+\item 
+\#define \hyperlink{OPEN_8c_aa9060de0420480468979d7332bc6d1b6}{M\+Y\+O\+\_\+\+R\+D\+W\+R}~4
+\item 
+\#define \hyperlink{OPEN_8c_ab8181332ab18dffb096fd34bb09d50ba}{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}~8
+\item 
+\#define \hyperlink{OPEN_8c_a7223636d09d813f91adef7515ab8185d}{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}~16
+\item 
+\#define \hyperlink{OPEN_8c_a143323b4e3aee4c7d2e296e06b114c13}{M\+Y\+O\+\_\+\+E\+X\+C\+L}~32
+\item 
+\#define \hyperlink{OPEN_8c_a8150949fd71074229bee31cd830c1ffa}{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}~64
+\end{DoxyCompactItemize}
 
 
-\subsection{Documentazione delle funzioni}
-\hypertarget{OPEN_8c_a80e913f5bc9ad0afa7ead080e42544ba}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!get\+File\+Name@{get\+File\+Name}}
-\index{get\+File\+Name@{get\+File\+Name}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
-\subsubsection[{get\+File\+Name(char $\ast$command, char $\ast$nomefile)}]{\setlength{\rightskip}{0pt plus 5cm}void get\+File\+Name (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{command, }
-\item[{char $\ast$}]{nomefile}
-\end{DoxyParamCaption}
-)}\label{OPEN_8c_a80e913f5bc9ad0afa7ead080e42544ba}
-
-
-Torna il nome (o path del file richiesto. 
-
-Visto che mi aspetto una stringa del tipo \textquotesingle{}file.\+txt 0\textquotesingle{} allora mi basta prendere la stringa che va da 0 a n-\/2. 
-
-Referenzia log\+M().
-
-\hypertarget{OPEN_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!handle\+Open\+Command@{handle\+Open\+Command}}
-\index{handle\+Open\+Command@{handle\+Open\+Command}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
-\subsubsection[{handle\+Open\+Command(char $\ast$command, int socket)}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Open\+Command (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{command, }
-\item[{int}]{socket}
-\end{DoxyParamCaption}
-)}\label{OPEN_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}
-
-
-Referenzia Opened\+File\+::filename, log\+M(), main\+File, e Opened\+File\+::modo.
-
-
-
-Referenziato da handle\+Command().
-
+\subsection{Documentazione delle definizioni}
+\hypertarget{OPEN_8c_ab8181332ab18dffb096fd34bb09d50ba}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+C\+R\+E\+A\+T@{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}}
+\index{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T@{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
+\subsubsection[{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+C\+R\+E\+A\+T~8}\label{OPEN_8c_ab8181332ab18dffb096fd34bb09d50ba}
+\hypertarget{OPEN_8c_a143323b4e3aee4c7d2e296e06b114c13}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+E\+X\+C\+L@{M\+Y\+O\+\_\+\+E\+X\+C\+L}}
+\index{M\+Y\+O\+\_\+\+E\+X\+C\+L@{M\+Y\+O\+\_\+\+E\+X\+C\+L}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
+\subsubsection[{M\+Y\+O\+\_\+\+E\+X\+C\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+E\+X\+C\+L~32}\label{OPEN_8c_a143323b4e3aee4c7d2e296e06b114c13}
+\hypertarget{OPEN_8c_a8150949fd71074229bee31cd830c1ffa}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K@{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}}
+\index{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K@{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
+\subsubsection[{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K~64}\label{OPEN_8c_a8150949fd71074229bee31cd830c1ffa}
+\hypertarget{OPEN_8c_addf7c1358350b77c12278a4a1d6009cc}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}}
+\index{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
+\subsubsection[{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y~1}\label{OPEN_8c_addf7c1358350b77c12278a4a1d6009cc}
+\hypertarget{OPEN_8c_aa9060de0420480468979d7332bc6d1b6}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+R\+D\+W\+R@{M\+Y\+O\+\_\+\+R\+D\+W\+R}}
+\index{M\+Y\+O\+\_\+\+R\+D\+W\+R@{M\+Y\+O\+\_\+\+R\+D\+W\+R}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
+\subsubsection[{M\+Y\+O\+\_\+\+R\+D\+W\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+R\+D\+W\+R~4}\label{OPEN_8c_aa9060de0420480468979d7332bc6d1b6}
+\hypertarget{OPEN_8c_a7223636d09d813f91adef7515ab8185d}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+T\+R\+U\+N\+C@{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}}
+\index{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C@{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
+\subsubsection[{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+T\+R\+U\+N\+C~16}\label{OPEN_8c_a7223636d09d813f91adef7515ab8185d}
+\hypertarget{OPEN_8c_a85f78205a7dfd8bec546ea15b8c11e72}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}}
+\index{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
+\subsubsection[{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y~2}\label{OPEN_8c_a85f78205a7dfd8bec546ea15b8c11e72}

@@ -24,8 +24,14 @@
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
+int \hyperlink{server_8c_a4b3c082abb275401381363274eef5e12}{spawn\+Process} (int temp\+\_\+sd, int sd)
+\begin{DoxyCompactList}\small\item\em Crea un processo e richiama \hyperlink{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{handle\+Socket()}; All\textquotesingle{} arrivo di una connessione, crea un processo e richiama handle\+Socket. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{handle\+Socket} (int temp\+\_\+sd)
+\begin{DoxyCompactList}\small\item\em Gestisce la comunicazione con la socket. \end{DoxyCompactList}\item 
 int \hyperlink{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
-\end{DoxyCompactItemize}
+\item 
+void \hyperlink{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}{spawn\+Thread} ()
+\begin{DoxyCompactList}\small\item\em Crea un thread e richiama \hyperlink{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{handle\+Socket()} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variabili}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,22 +45,77 @@ int \hyperlink{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 \subsubsection[{Max}]{\setlength{\rightskip}{0pt plus 5cm}\#define Max~30}\label{server_8c_a406ea73ae9534077b145f331cd542401}
 
 
-Referenziato da main().
+Referenziato da handle\+Socket().
 
 
 
 \subsection{Documentazione delle funzioni}
+\hypertarget{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{}\index{server.\+c@{server.\+c}!handle\+Socket@{handle\+Socket}}
+\index{handle\+Socket@{handle\+Socket}!server.\+c@{server.\+c}}
+\subsubsection[{handle\+Socket}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ handle\+Socket (
+\begin{DoxyParamCaption}
+\item[{int}]{temp\+\_\+sd}
+\end{DoxyParamCaption}
+)}\label{server_8c_a749fe13b0e1bd1da68a142f169235bbe}
+
+
+Gestisce la comunicazione con la socket. 
+
+Riceve un messaggio dalla socket, lo gestisce, e scrive la risposta. 
+
+Referenzia get\+Command\+I\+D(), handle\+Command(), log\+M(), Max, e print\+Err().
+
+
+
+Referenziato da main().
+
 \hypertarget{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\index{server.\+c@{server.\+c}!main@{main}}
 \index{main@{main}!server.\+c@{server.\+c}}
-\subsubsection[{main()}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
 \begin{DoxyParamCaption}
-{}
+\item[{void}]{}
 \end{DoxyParamCaption}
 )}\label{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
 
 
-Referenzia B\+A\+C\+K\+L\+O\+G, get\+Command\+I\+D(), handle\+Command(), log\+M(), Max, P\+O\+R\+T, e print\+Err().
+Referenzia B\+A\+C\+K\+L\+O\+G, handle\+Socket(), log\+M(), P\+O\+R\+T, print\+Err(), e spawn\+Process().
 
+\hypertarget{server_8c_a4b3c082abb275401381363274eef5e12}{}\index{server.\+c@{server.\+c}!spawn\+Process@{spawn\+Process}}
+\index{spawn\+Process@{spawn\+Process}!server.\+c@{server.\+c}}
+\subsubsection[{spawn\+Process}]{\setlength{\rightskip}{0pt plus 5cm}int spawn\+Process (
+\begin{DoxyParamCaption}
+\item[{int}]{temp\+\_\+sd, }
+\item[{int}]{sd}
+\end{DoxyParamCaption}
+)}\label{server_8c_a4b3c082abb275401381363274eef5e12}
+
+
+Crea un processo e richiama \hyperlink{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{handle\+Socket()}; All\textquotesingle{} arrivo di una connessione, crea un processo e richiama handle\+Socket. 
+
+
+
+Referenzia print\+Err().
+
+
+
+Referenziato da main().
+
+\hypertarget{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}{}\index{server.\+c@{server.\+c}!spawn\+Thread@{spawn\+Thread}}
+\index{spawn\+Thread@{spawn\+Thread}!server.\+c@{server.\+c}}
+\subsubsection[{spawn\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}
+
+
+Crea un thread e richiama \hyperlink{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{handle\+Socket()} 
+
+All\textquotesingle{} arrivo di una connessione, crea un thread e richiama handle\+Socket \begin{DoxySeeAlso}{Si veda anche}
+server.\+c\+::handle\+Socket 
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000004}{Da fare}]dovrebbe passargli dei parametri. \end{DoxyRefDesc}
 
 
 \subsection{Documentazione delle variabili}
@@ -63,5 +124,5 @@ Referenzia B\+A\+C\+K\+L\+O\+G, get\+Command\+I\+D(), handle\+Command(), log\+M(
 \subsubsection[{opened\+File\+Linked\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ opened\+File\+Linked\+List = N\+U\+L\+L}\label{server_8c_a3063a74baee4fe1870e52d0ec577afa9}
 
 
-Referenziato da append\+Opened\+File(), e file\+Already\+Open().
+Referenziato da append\+Opened\+File(), close\+Client\+Session(), e file\+Already\+Open().
 

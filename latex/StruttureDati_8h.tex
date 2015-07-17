@@ -4,6 +4,8 @@
 \subsection*{Strutture dati}
 \begin{DoxyCompactItemize}
 \item 
+struct \hyperlink{structSocketIdList}{Socket\+Id\+List}
+\item 
 struct \hyperlink{structOpenedFile}{Opened\+File}
 \end{DoxyCompactItemize}
 \subsection*{Definizioni}
@@ -12,44 +14,45 @@ struct \hyperlink{structOpenedFile}{Opened\+File}
 \#define \hyperlink{StruttureDati_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+S\+E}~0
 \item 
 \#define \hyperlink{StruttureDati_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\+R\+U\+E}~!(\hyperlink{StruttureDati_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+S\+E})
+\item 
+\#define \hyperlink{StruttureDati_8h_addf7c1358350b77c12278a4a1d6009cc}{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}~1
+\item 
+\#define \hyperlink{StruttureDati_8h_a85f78205a7dfd8bec546ea15b8c11e72}{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}~2
+\item 
+\#define \hyperlink{StruttureDati_8h_aa9060de0420480468979d7332bc6d1b6}{M\+Y\+O\+\_\+\+R\+D\+W\+R}~4
+\item 
+\#define \hyperlink{StruttureDati_8h_ab8181332ab18dffb096fd34bb09d50ba}{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}~8
+\item 
+\#define \hyperlink{StruttureDati_8h_a7223636d09d813f91adef7515ab8185d}{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}~16
+\item 
+\#define \hyperlink{StruttureDati_8h_a143323b4e3aee4c7d2e296e06b114c13}{M\+Y\+O\+\_\+\+E\+X\+C\+L}~32
+\item 
+\#define \hyperlink{StruttureDati_8h_a8150949fd71074229bee31cd830c1ffa}{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}~64
 \end{DoxyCompactItemize}
 \subsection*{Ridefinizioni di tipo (typedef)}
 \begin{DoxyCompactItemize}
 \item 
-typedef struct \hyperlink{structOpenedFile}{Opened\+File} \hyperlink{StruttureDati_8h_aeb1a59f39eb8759e5c41cdfe0a53648c}{Opened\+File}
-\end{DoxyCompactItemize}
-\subsection*{Tipi enumerati (enum)}
-\begin{DoxyCompactItemize}
+typedef struct \hyperlink{structSocketIdList}{Socket\+Id\+List} \hyperlink{StruttureDati_8h_a0cff94b71c2fd35e1c3b8c56b181781e}{Socket\+Id\+List}
 \item 
-enum \hyperlink{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2}{modo\+Apertura\+\_\+t} \{ \\*
-\hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4}{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}, 
-\hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1}{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}, 
-\hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83}{M\+Y\+O\+\_\+\+R\+D\+W\+R}, 
-\hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03}{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}, 
-\\*
-\hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56}{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}, 
-\hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812}{M\+Y\+O\+\_\+\+E\+X\+C\+L}, 
-\hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22}{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}, 
-\hyperlink{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4}{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}, 
-\\*
-\hyperlink{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1}{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}, 
-\hyperlink{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83}{M\+Y\+O\+\_\+\+R\+D\+W\+R}, 
-\hyperlink{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03}{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}, 
-\hyperlink{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56}{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}, 
-\\*
-\hyperlink{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812}{M\+Y\+O\+\_\+\+E\+X\+C\+L}, 
-\hyperlink{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22}{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}
- \}
+typedef struct \hyperlink{structOpenedFile}{Opened\+File} \hyperlink{StruttureDati_8h_aeb1a59f39eb8759e5c41cdfe0a53648c}{Opened\+File}
 \end{DoxyCompactItemize}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{StruttureDati_8h_a801cff88ac6ddfa75379c76bb8b9d8d6}{file\+Already\+Open} (char $\ast$file\+Name, \hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2}{modo\+Apertura\+\_\+t} modo, int socket\+Id)
-\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto. \end{DoxyCompactList}\item 
-\hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2}{modo\+Apertura\+\_\+t} \hyperlink{StruttureDati_8h_a80b51d35734ccc9b19aa624ddd44f20a}{get\+Modo\+Apertura\+From\+Int} (int i)
-\begin{DoxyCompactList}\small\item\em Ritorna un tipo modo\+Apertura partendo da un intero. \end{DoxyCompactList}\item 
+int \hyperlink{StruttureDati_8h_a9d1061becfc0df48b72ad385f3c2e697}{file\+Already\+Open} (char $\ast$filename, int modo\+\_\+client, int socket\+Id)
+\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto e se è stato aperto dal client che ne sta richiedendo nuovo accesso. \end{DoxyCompactList}\item 
+int \hyperlink{StruttureDati_8h_a6e2594e56afc29e961a1797a0bd8d262}{is\+Modo\+Apertura} (int modo\+\_\+client, int modo)
+\begin{DoxyCompactList}\small\item\em Dice se modo\+\_\+client contiene il modo modo. \end{DoxyCompactList}\item 
 void \hyperlink{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}{append\+Opened\+File} (char $\ast$nomefile, int modo, int socket)
-\begin{DoxyCompactList}\small\item\em Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. \end{DoxyCompactList}\item 
+void \hyperlink{StruttureDati_8h_a8a34e1cabb6b51062c5e2f8e7de6e8c1}{aggiungi\+Socket\+Id} (\hyperlink{structSocketIdList}{Socket\+Id\+List} $\ast$sl, int socket\+Id, int modo)
+\begin{DoxyCompactList}\small\item\em aggiunge elemento a lista linkata di socket o aggiunge modo a socket già aggiunta \end{DoxyCompactList}\item 
+int \hyperlink{StruttureDati_8h_a2852155c7d6b94e2bc96d2e3738c4312}{socket\+Id\+Already\+Added} (\hyperlink{structSocketIdList}{Socket\+Id\+List} $\ast$sl, int socket\+Id)
+\begin{DoxyCompactList}\small\item\em controllo presenza socket\+Id in lista socket \end{DoxyCompactList}\item 
+int \hyperlink{StruttureDati_8h_ae546e0c596132f59eef31bbbd417d980}{get\+Modo\+From\+Socket\+Id} (\hyperlink{structSocketIdList}{Socket\+Id\+List} $\ast$sl, int socket\+Id)
+\begin{DoxyCompactList}\small\item\em ottieni modo (anche multiplo) di accesso di un certo socket\+Id su un certo file \end{DoxyCompactList}\item 
+void \hyperlink{StruttureDati_8h_aedd0e72dfdc050225e43fabacc03829b}{close\+Client\+Session} (int sd)
+\begin{DoxyCompactList}\small\item\em rimuove collegamenti tra client e file aperti nella sessione \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variabili}
 \begin{DoxyCompactItemize}
 \item 
@@ -61,6 +64,27 @@ void \hyperlink{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}{append\+Open
 \hypertarget{StruttureDati_8h_aa93f0eb578d23995850d61f7d61c55c1}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!F\+A\+L\+S\+E@{F\+A\+L\+S\+E}}
 \index{F\+A\+L\+S\+E@{F\+A\+L\+S\+E}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
 \subsubsection[{F\+A\+L\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+L\+S\+E~0}\label{StruttureDati_8h_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{StruttureDati_8h_ab8181332ab18dffb096fd34bb09d50ba}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+C\+R\+E\+A\+T@{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}}
+\index{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T@{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+C\+R\+E\+A\+T~8}\label{StruttureDati_8h_ab8181332ab18dffb096fd34bb09d50ba}
+\hypertarget{StruttureDati_8h_a143323b4e3aee4c7d2e296e06b114c13}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+E\+X\+C\+L@{M\+Y\+O\+\_\+\+E\+X\+C\+L}}
+\index{M\+Y\+O\+\_\+\+E\+X\+C\+L@{M\+Y\+O\+\_\+\+E\+X\+C\+L}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{M\+Y\+O\+\_\+\+E\+X\+C\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+E\+X\+C\+L~32}\label{StruttureDati_8h_a143323b4e3aee4c7d2e296e06b114c13}
+\hypertarget{StruttureDati_8h_a8150949fd71074229bee31cd830c1ffa}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K@{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}}
+\index{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K@{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K~64}\label{StruttureDati_8h_a8150949fd71074229bee31cd830c1ffa}
+\hypertarget{StruttureDati_8h_addf7c1358350b77c12278a4a1d6009cc}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}}
+\index{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y~1}\label{StruttureDati_8h_addf7c1358350b77c12278a4a1d6009cc}
+\hypertarget{StruttureDati_8h_aa9060de0420480468979d7332bc6d1b6}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+R\+D\+W\+R@{M\+Y\+O\+\_\+\+R\+D\+W\+R}}
+\index{M\+Y\+O\+\_\+\+R\+D\+W\+R@{M\+Y\+O\+\_\+\+R\+D\+W\+R}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{M\+Y\+O\+\_\+\+R\+D\+W\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+R\+D\+W\+R~4}\label{StruttureDati_8h_aa9060de0420480468979d7332bc6d1b6}
+\hypertarget{StruttureDati_8h_a7223636d09d813f91adef7515ab8185d}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+T\+R\+U\+N\+C@{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}}
+\index{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C@{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+T\+R\+U\+N\+C~16}\label{StruttureDati_8h_a7223636d09d813f91adef7515ab8185d}
+\hypertarget{StruttureDati_8h_a85f78205a7dfd8bec546ea15b8c11e72}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}}
+\index{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y~2}\label{StruttureDati_8h_a85f78205a7dfd8bec546ea15b8c11e72}
 \hypertarget{StruttureDati_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!T\+R\+U\+E@{T\+R\+U\+E}}
 \index{T\+R\+U\+E@{T\+R\+U\+E}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
 \subsubsection[{T\+R\+U\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+R\+U\+E~!({\bf F\+A\+L\+S\+E})}\label{StruttureDati_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
@@ -70,51 +94,48 @@ void \hyperlink{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}{append\+Open
 \hypertarget{StruttureDati_8h_aeb1a59f39eb8759e5c41cdfe0a53648c}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!Opened\+File@{Opened\+File}}
 \index{Opened\+File@{Opened\+File}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
 \subsubsection[{Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Opened\+File} {\bf Opened\+File}}\label{StruttureDati_8h_aeb1a59f39eb8759e5c41cdfe0a53648c}
-
-
-\subsection{Documentazione dei tipi enumerati}
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!modo\+Apertura\+\_\+t@{modo\+Apertura\+\_\+t}}
-\index{modo\+Apertura\+\_\+t@{modo\+Apertura\+\_\+t}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{modo\+Apertura\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf modo\+Apertura\+\_\+t}}\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2}
-\begin{Desc}
-\item[Valori del tipo enumerato]\par
-\begin{description}
-\index{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4}{}M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4}
-}]\index{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1}{}M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1}
-}]\index{M\+Y\+O\+\_\+\+R\+D\+W\+R@{M\+Y\+O\+\_\+\+R\+D\+W\+R}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+R\+D\+W\+R@{M\+Y\+O\+\_\+\+R\+D\+W\+R}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83}{}M\+Y\+O\+\_\+\+R\+D\+W\+R\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83}
-}]\index{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T@{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+C\+R\+E\+A\+T@{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03}{}M\+Y\+O\+\_\+\+C\+R\+E\+A\+T\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03}
-}]\index{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C@{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+T\+R\+U\+N\+C@{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56}{}M\+Y\+O\+\_\+\+T\+R\+U\+N\+C\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56}
-}]\index{M\+Y\+O\+\_\+\+E\+X\+C\+L@{M\+Y\+O\+\_\+\+E\+X\+C\+L}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+E\+X\+C\+L@{M\+Y\+O\+\_\+\+E\+X\+C\+L}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812}{}M\+Y\+O\+\_\+\+E\+X\+C\+L\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812}
-}]\index{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K@{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K@{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22}{}M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22}
-}]\index{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4}{}M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4}
-}]\index{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1}{}M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1}
-}]\index{M\+Y\+O\+\_\+\+R\+D\+W\+R@{M\+Y\+O\+\_\+\+R\+D\+W\+R}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+R\+D\+W\+R@{M\+Y\+O\+\_\+\+R\+D\+W\+R}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83}{}M\+Y\+O\+\_\+\+R\+D\+W\+R\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83}
-}]\index{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T@{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+C\+R\+E\+A\+T@{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03}{}M\+Y\+O\+\_\+\+C\+R\+E\+A\+T\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03}
-}]\index{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C@{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+T\+R\+U\+N\+C@{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56}{}M\+Y\+O\+\_\+\+T\+R\+U\+N\+C\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56}
-}]\index{M\+Y\+O\+\_\+\+E\+X\+C\+L@{M\+Y\+O\+\_\+\+E\+X\+C\+L}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+E\+X\+C\+L@{M\+Y\+O\+\_\+\+E\+X\+C\+L}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812}{}M\+Y\+O\+\_\+\+E\+X\+C\+L\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812}
-}]\index{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K@{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K@{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}}\item[{\em 
-\hypertarget{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22}{}M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K\label{StruttureDati_8h_a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22}
-}]\end{description}
-\end{Desc}
+\hypertarget{StruttureDati_8h_a0cff94b71c2fd35e1c3b8c56b181781e}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!Socket\+Id\+List@{Socket\+Id\+List}}
+\index{Socket\+Id\+List@{Socket\+Id\+List}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{Socket\+Id\+List}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Socket\+Id\+List} {\bf Socket\+Id\+List}}\label{StruttureDati_8h_a0cff94b71c2fd35e1c3b8c56b181781e}
 
 
 \subsection{Documentazione delle funzioni}
+\hypertarget{StruttureDati_8h_a8a34e1cabb6b51062c5e2f8e7de6e8c1}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!aggiungi\+Socket\+Id@{aggiungi\+Socket\+Id}}
+\index{aggiungi\+Socket\+Id@{aggiungi\+Socket\+Id}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{aggiungi\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}void aggiungi\+Socket\+Id (
+\begin{DoxyParamCaption}
+\item[{{\bf Socket\+Id\+List} $\ast$}]{sl, }
+\item[{int}]{socket\+Id, }
+\item[{int}]{modo}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8h_a8a34e1cabb6b51062c5e2f8e7de6e8c1}
+
+
+aggiunge elemento a lista linkata di socket o aggiunge modo a socket già aggiunta 
+
+
+\begin{DoxyParams}{Parametri}
+{\em Socket\+Id\+List$\ast$} & sl puntatore alla prima socket della lista \\
+\hline
+{\em int} & socket\+Id id della socket da aggiungere \\
+\hline
+{\em modo} & modo di apertura file da parte di nuova socket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+void 
+\end{DoxyReturn}
+
+
+Referenzia log\+M(), Socket\+Id\+List\+::modo, Socket\+Id\+List\+::next, e Socket\+Id\+List\+::socket\+Id.
+
+
+
+Referenziato da append\+Opened\+File().
+
 \hypertarget{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!append\+Opened\+File@{append\+Opened\+File}}
 \index{append\+Opened\+File@{append\+Opened\+File}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{append\+Opened\+File(char $\ast$nomefile, int modo, int socket)}]{\setlength{\rightskip}{0pt plus 5cm}void append\+Opened\+File (
+\subsubsection[{append\+Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}void append\+Opened\+File (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{nomefile, }
 \item[{int}]{modo, }
@@ -125,72 +146,156 @@ void \hyperlink{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}{append\+Open
 
 Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. 
 
-Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. 
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000006}{Da fare}]Dovrebbe tenere da conto anche il modo di apertura Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. \end{DoxyRefDesc}
 
-Referenzia file\+Already\+Open(), Opened\+File\+::file\+Name, get\+Modo\+Apertura\+From\+Int(), log\+M(), Opened\+File\+::modo, Opened\+File\+::next, opened\+File\+Linked\+List, prova(), e Opened\+File\+::socket\+Id.
+
+Referenzia aggiungi\+Socket\+Id(), file\+Already\+Open(), Opened\+File\+::file\+Name, log\+M(), Socket\+Id\+List\+::modo, Opened\+File\+::next, Socket\+Id\+List\+::next, opened\+File\+Linked\+List, prova(), Socket\+Id\+List\+::socket\+Id, e Opened\+File\+::socket\+Id\+List.
 
 
 
 Referenziato da handle\+Open\+Command().
 
-\hypertarget{StruttureDati_8h_a801cff88ac6ddfa75379c76bb8b9d8d6}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!file\+Already\+Open@{file\+Already\+Open}}
-\index{file\+Already\+Open@{file\+Already\+Open}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{file\+Already\+Open(char $\ast$file\+Name, modo\+Apertura\+\_\+t modo, int socket\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Open (
+\hypertarget{StruttureDati_8h_aedd0e72dfdc050225e43fabacc03829b}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!close\+Client\+Session@{close\+Client\+Session}}
+\index{close\+Client\+Session@{close\+Client\+Session}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{close\+Client\+Session}]{\setlength{\rightskip}{0pt plus 5cm}void close\+Client\+Session (
 \begin{DoxyParamCaption}
-\item[{char $\ast$}]{file\+Name, }
-\item[{{\bf modo\+Apertura\+\_\+t}}]{modo, }
-\item[{int}]{socket\+Id}
+\item[{int}]{sd}
 \end{DoxyParamCaption}
-)}\label{StruttureDati_8h_a801cff88ac6ddfa75379c76bb8b9d8d6}
+)}\label{StruttureDati_8h_aedd0e72dfdc050225e43fabacc03829b}
 
 
-Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto. 
+rimuove collegamenti tra client e file aperti nella sessione 
 
 
 \begin{DoxyParams}{Parametri}
-{\em file\+Name} & Il nome del file da controllare \\
+{\em int} & sd socket descriptor del client \\
 \hline
-{\em socket\+Id} & l\textquotesingle{} id della socket\\
+\end{DoxyParams}
+
+
+Referenzia Opened\+File\+::file\+Name, log\+M(), Opened\+File\+::next, Socket\+Id\+List\+::next, opened\+File\+Linked\+List, Socket\+Id\+List\+::socket\+Id, Opened\+File\+::socket\+Id\+List, e T\+R\+U\+E.
+
+
+
+Referenziato da handle\+Close\+Command().
+
+\hypertarget{StruttureDati_8h_a9d1061becfc0df48b72ad385f3c2e697}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!file\+Already\+Open@{file\+Already\+Open}}
+\index{file\+Already\+Open@{file\+Already\+Open}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{file\+Already\+Open}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Open (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{int}]{modo\+\_\+client, }
+\item[{int}]{socket\+Id}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8h_a9d1061becfc0df48b72ad385f3c2e697}
+
+
+Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto e se è stato aperto dal client che ne sta richiedendo nuovo accesso. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em filename} & Il nome del file da controllare \\
+\hline
+{\em socket\+Id} & l\textquotesingle{}id della socket del client \\
+\hline
+{\em modo\+\_\+client} & il modo con cui il client intende accedere al file\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Restituisce}
-1 se il file non e\textquotesingle{} aperto, 
+modo se il file è stato già aperto da client che sta richiedendo nuovo accesso, 
 
-1 se il file e\textquotesingle{} gia\textquotesingle{} aperto, ed e\textquotesingle{} associato alla stessa socket\+Id 
+1 se il file e\textquotesingle{} gia\textquotesingle{} aperto da altro client in mod. bloccante 
 
-1 se ha richiesto l\textquotesingle{}apertura in read 
-
-0 se il file e\textquotesingle{} gia\textquotesingle{} aperto in scrittura da altri 
+0 se file non è ancora stato aperto 
 \end{DoxyReturn}
 
 
-Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, log\+M(), Opened\+File\+::next, opened\+File\+Linked\+List, e T\+R\+U\+E.
+Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, get\+Modo\+From\+Socket\+Id(), is\+Modo\+Apertura(), log\+M(), M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, Opened\+File\+::next, opened\+File\+Linked\+List, socket\+Id\+Already\+Added(), e Opened\+File\+::socket\+Id\+List.
 
 
 
 Referenziato da append\+Opened\+File().
 
-\hypertarget{StruttureDati_8h_a80b51d35734ccc9b19aa624ddd44f20a}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!get\+Modo\+Apertura\+From\+Int@{get\+Modo\+Apertura\+From\+Int}}
-\index{get\+Modo\+Apertura\+From\+Int@{get\+Modo\+Apertura\+From\+Int}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{get\+Modo\+Apertura\+From\+Int(int i)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf modo\+Apertura\+\_\+t} get\+Modo\+Apertura\+From\+Int (
+\hypertarget{StruttureDati_8h_ae546e0c596132f59eef31bbbd417d980}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!get\+Modo\+From\+Socket\+Id@{get\+Modo\+From\+Socket\+Id}}
+\index{get\+Modo\+From\+Socket\+Id@{get\+Modo\+From\+Socket\+Id}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{get\+Modo\+From\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Modo\+From\+Socket\+Id (
 \begin{DoxyParamCaption}
-\item[{int}]{i}
+\item[{{\bf Socket\+Id\+List} $\ast$}]{sl, }
+\item[{int}]{socket\+Id}
 \end{DoxyParamCaption}
-)}\label{StruttureDati_8h_a80b51d35734ccc9b19aa624ddd44f20a}
+)}\label{StruttureDati_8h_ae546e0c596132f59eef31bbbd417d980}
 
 
-Ritorna un tipo modo\+Apertura partendo da un intero. 
-
-Gli enum in teoria sono codificato come 0, 1 ecc pero\textquotesingle{} qui\textquotesingle{} dice di non fare affidamento suq uesta cosa\+: \begin{DoxySeeAlso}{Si veda anche}
-\href{http://www.cs.utah.edu/~germain/PPS/Topics/C_Language/enumerated_types.html}{\tt http\+://www.\+cs.\+utah.\+edu/$\sim$germain/\+P\+P\+S/\+Topics/\+C\+\_\+\+Language/enumerated\+\_\+types.\+html} 
-\end{DoxySeeAlso}
+ottieni modo (anche multiplo) di accesso di un certo socket\+Id su un certo file 
 
 
-Referenzia M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, M\+Y\+O\+\_\+\+E\+X\+C\+L, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+T\+R\+U\+N\+C, e M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y.
+\begin{DoxyParams}{Parametri}
+{\em Socket\+Id\+List$\ast$} & sl puntatore alla prima socket della lista \\
+\hline
+{\em int} & socket\+Id id della socket di cui ottenere modo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+modo se socket già ha aperto file, -\/1 altrimenti 
+\end{DoxyReturn}
+
+
+Referenzia Socket\+Id\+List\+::modo, Socket\+Id\+List\+::next, e Socket\+Id\+List\+::socket\+Id.
 
 
 
-Referenziato da append\+Opened\+File().
+Referenziato da file\+Already\+Open().
+
+\hypertarget{StruttureDati_8h_a6e2594e56afc29e961a1797a0bd8d262}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!is\+Modo\+Apertura@{is\+Modo\+Apertura}}
+\index{is\+Modo\+Apertura@{is\+Modo\+Apertura}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{is\+Modo\+Apertura}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Modo\+Apertura (
+\begin{DoxyParamCaption}
+\item[{int}]{modo\+\_\+client, }
+\item[{int}]{modo}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8h_a6e2594e56afc29e961a1797a0bd8d262}
+
+
+Dice se modo\+\_\+client contiene il modo modo. 
+
+
+
+Referenzia F\+A\+L\+S\+E, e T\+R\+U\+E.
+
+
+
+Referenziato da file\+Already\+Open().
+
+\hypertarget{StruttureDati_8h_a2852155c7d6b94e2bc96d2e3738c4312}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!socket\+Id\+Already\+Added@{socket\+Id\+Already\+Added}}
+\index{socket\+Id\+Already\+Added@{socket\+Id\+Already\+Added}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{socket\+Id\+Already\+Added}]{\setlength{\rightskip}{0pt plus 5cm}int socket\+Id\+Already\+Added (
+\begin{DoxyParamCaption}
+\item[{{\bf Socket\+Id\+List} $\ast$}]{sl, }
+\item[{int}]{socket\+Id}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8h_a2852155c7d6b94e2bc96d2e3738c4312}
+
+
+controllo presenza socket\+Id in lista socket 
+
+
+\begin{DoxyParams}{Parametri}
+{\em Socket\+Id\+List$\ast$} & sl puntatore alla prima socket della lista \\
+\hline
+{\em int} & socket\+Id id della socket da controllare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+T\+R\+U\+E (1) se id gia\textquotesingle{} presente in lista, F\+A\+L\+S\+E (0) altrimenti 
+\end{DoxyReturn}
+
+
+Referenzia F\+A\+L\+S\+E, Socket\+Id\+List\+::next, Socket\+Id\+List\+::socket\+Id, e T\+R\+U\+E.
+
+
+
+Referenziato da file\+Already\+Open().
 
 
 
@@ -200,5 +305,5 @@ Referenziato da append\+Opened\+File().
 \subsubsection[{opened\+File\+Linked\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ opened\+File\+Linked\+List}\label{StruttureDati_8h_a3063a74baee4fe1870e52d0ec577afa9}
 
 
-Referenziato da append\+Opened\+File(), e file\+Already\+Open().
+Referenziato da append\+Opened\+File(), close\+Client\+Session(), e file\+Already\+Open().
 

@@ -213,11 +213,11 @@ int socketIdAlreadyAdded(SocketIdList* sl, int socketId)
 }
 
 /**
-@brief ottieni modo (anche multiplo) di accesso di un certo socketId su un certo file
-* @param SocketIdList* sl puntatore alla prima socket della lista
-* @param int socketId id della socket di cui ottenere modo
-* @return modo se socket già ha aperto file, -1 altrimenti
-* */
+ * @brief ottieni modo (anche multiplo) di accesso di un certo socketId su un certo file
+ * @param SocketIdList* sl puntatore alla prima socket della lista
+ * @param int socketId id della socket di cui ottenere modo
+ * @return modo se socket già ha aperto file, -1 altrimenti
+ */
 int getModoFromSocketId(SocketIdList* sl, int socketId)
 {
 	SocketIdList* iterator = sl;
@@ -232,8 +232,10 @@ int getModoFromSocketId(SocketIdList* sl, int socketId)
 	return -1;
 }
 
-/**@brief rimuove collegamenti tra client e file aperti nella sessione
- * @param int sd socket descriptor del client*/
+/**
+ * @brief rimuove collegamenti tra client e file aperti nella sessione
+ * @param int sd socket descriptor del client
+ */
 void closeClientSession(int sd)
 {
 	OpenedFile* iterator = openedFileLinkedList;

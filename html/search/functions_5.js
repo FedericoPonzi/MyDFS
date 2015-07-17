@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['main',['main',['../client_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;client.c'],['../enum_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;enum.c'],['../prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;prova.c'],['../Prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;Prova.c'],['../server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;server.c']]],
-  ['mydfs_5fclose',['mydfs_close',['../FileHandler_8c.html#ab086978926c33c08e1e183be31d86cce',1,'mydfs_close(MyDFSId *dfsid):&#160;FileHandler.c'],['../FileHandler_8h.html#ae2016176c31d9fd520e24eda30ee95df',1,'mydfs_close(MyDFSId):&#160;FileHandler.h']]],
-  ['mydfs_5fopen',['mydfs_open',['../FileHandler_8c.html#a75966e6603c4713a140b5e4abbfe198c',1,'mydfs_open(struct in_addr *indirizzo, char *nomefile, int modo, int *err):&#160;FileHandler.c'],['../FileHandler_8h.html#a76463aec3ed29e04daad5467784a878f',1,'mydfs_open(struct in_addr *, char *nomefile, int modo, int *err):&#160;FileHandler.c']]],
-  ['mydfs_5fread',['mydfs_read',['../FileHandler_8c.html#a9f40f227ee4cf5bb37bbb0324704df1f',1,'mydfs_read(MyDFSId dfsid, int pos, void *ptr, unsigned int size):&#160;FileHandler.c'],['../FileHandler_8h.html#a84957b7d35fe9fc3fe4417da20fef668',1,'mydfs_read(MyDFSId, int pos, void *ptr, unsigned int size):&#160;FileHandler.c']]],
-  ['mydfs_5fwrite',['mydfs_write',['../FileHandler_8h.html#a6bbb475f9eb23e2940bb6eb439a5e265',1,'FileHandler.h']]]
+  ['handlebyecommand',['handleByeCommand',['../BYE_8c.html#a15433b83fef67893c46145ec647ecfa1',1,'handleByeCommand(int socket):&#160;BYE.c'],['../BYE_8h.html#a2e130b9a6559e17fb5a989e57aaa0945',1,'handleByeCommand(int):&#160;BYE.c']]],
+  ['handleclosecommand',['handleCloseCommand',['../CLOSE_8c.html#a33e9a4daafbf6ec7b0b6e2a2309acf3e',1,'handleCloseCommand(int socket):&#160;CLOSE.c'],['../CLOSE_8h.html#a33e9a4daafbf6ec7b0b6e2a2309acf3e',1,'handleCloseCommand(int socket):&#160;CLOSE.c']]],
+  ['handlecommand',['handleCommand',['../CommandsHandler_8c.html#af50eb510202dbf6e4e65c56a6e0c8fd5',1,'handleCommand(char *buff, int socket):&#160;CommandsHandler.c'],['../CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5',1,'handleCommand(char *buff, int socket):&#160;CommandsHandler.c']]],
+  ['handleopencommand',['handleOpenCommand',['../OPE_8h.html#a6eccb6ec6ec9c8375e70ab4088b511a5',1,'handleOpenCommand(char *command, int socket):&#160;OPE.c'],['../OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5',1,'handleOpenCommand(char *command, int socket):&#160;OPE.c']]],
+  ['handlereadcommand',['handleReadCommand',['../READ_8h.html#af99bb36f1d15e3f7a4e5dd602383ebe9',1,'handleReadCommand(char *command, int socket):&#160;READ.h'],['../READ_8c.html#a33bf0c6afa09e15ff4c9d4d3c13c4169',1,'handleREADCommand(char *command, int socket):&#160;READ.c']]],
+  ['handlesocket',['handleSocket',['../server_8c.html#a749fe13b0e1bd1da68a142f169235bbe',1,'server.c']]]
 ];

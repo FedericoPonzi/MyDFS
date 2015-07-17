@@ -14,9 +14,13 @@
 #define BACKLOG 20
 
 /**
- * Se in modalita' debug, stampa utili messaggi di log.
+ * @brief Se in modalita' debug, stampa utili messaggi di log.
  */
 #define DEBUG 1
 
+/**
+ * 1 per multiprocesso, 0 per multithreading:
+ */
+#define MULTIPROC 0
 
 #endif

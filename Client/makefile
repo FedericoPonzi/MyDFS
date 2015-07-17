@@ -1,5 +1,18 @@
+CC=gcc
+# CFLAGS will be the options passed to the compiler.
+CFLAGS=-c -g -Wall 
+OBJECTS = Utils.o FileHandler.o
 
 all:prog
 
-prog:../Library/libmydfs.a
-	gcc -o Client client.c ../Library/libmydfs.a
+prog:libmydfs.a
+	gcc -o Client client.c libmydfs.a
+
+%.o: %.c
+	$(CC) $(CFLAGS) $< 
+
+libmydfs.a:$(OBJECTS)
+	ar rvs libmydfs.a $(OBJECTS)
+
+clean:
+	rm -rf *.o

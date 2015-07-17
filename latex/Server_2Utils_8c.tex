@@ -4,6 +4,7 @@
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
 {\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,7 +17,7 @@ void \hyperlink{Server_2Utils_8c_a99eec54b0611d557e3e4eb1e783d9699}{strip\+Comma
 \subsection{Documentazione delle funzioni}
 \hypertarget{Server_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{}\index{Server/\+Utils.\+c@{Server/\+Utils.\+c}!log\+M@{log\+M}}
 \index{log\+M@{log\+M}!Server/\+Utils.\+c@{Server/\+Utils.\+c}}
-\subsubsection[{log\+M(char $\ast$messaggio,...)}]{\setlength{\rightskip}{0pt plus 5cm}void log\+M (
+\subsubsection[{log\+M}]{\setlength{\rightskip}{0pt plus 5cm}void log\+M (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{messaggio, }
 \item[{}]{...}
@@ -40,11 +41,15 @@ se L\+O\+G vale 0. Wrapper della printf.
 \end{DoxySeeAlso}
 
 
-Referenziato da append\+Opened\+File(), file\+Already\+Open(), handle\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), main(), mydfs\+\_\+close(), mydfs\+\_\+open(), e mydfs\+\_\+read().
+Referenzia D\+E\+B\+U\+G.
+
+
+
+Referenziato da aggiungi\+Socket\+Id(), append\+Opened\+File(), close\+Client\+Session(), file\+Already\+Open(), handle\+Close\+Command(), handle\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), handle\+Socket(), main(), mydfs\+\_\+close(), mydfs\+\_\+open(), e mydfs\+\_\+read().
 
 \hypertarget{Server_2Utils_8c_a99eec54b0611d557e3e4eb1e783d9699}{}\index{Server/\+Utils.\+c@{Server/\+Utils.\+c}!strip\+Command@{strip\+Command}}
 \index{strip\+Command@{strip\+Command}!Server/\+Utils.\+c@{Server/\+Utils.\+c}}
-\subsubsection[{strip\+Command(char $\ast$input)}]{\setlength{\rightskip}{0pt plus 5cm}void strip\+Command (
+\subsubsection[{strip\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void strip\+Command (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{input}
 \end{DoxyParamCaption}

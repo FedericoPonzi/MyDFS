@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
 <title>MyDFS: Riferimenti per il file Server/StruttureDati.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -22,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+  <td style="padding-left: 0.5em;">
    <div id="projectname">MyDFS
    &#160;<span id="projectnumber">1</span>
    </div>
@@ -33,7 +33,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generato da Doxygen 1.8.10 -->
+<!-- Generato da Doxygen 1.8.9.1 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
@@ -109,18 +109,81 @@ Funzioni</h2></td></tr>
 <tr class="memitem:a221594d999c22ce87c14e50cd98287a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile</a> (char *nomefile, int modo, int socket)</td></tr>
 <tr class="memdesc:a221594d999c22ce87c14e50cd98287a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti <a class="el" href="structOpenedFile.html">OpenedFile</a>.  <a href="#a221594d999c22ce87c14e50cd98287a2">Continua...</a><br /></td></tr>
 <tr class="separator:a221594d999c22ce87c14e50cd98287a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a801cff88ac6ddfa75379c76bb8b9d8d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a801cff88ac6ddfa75379c76bb8b9d8d6">fileAlreadyOpen</a> (char *fileName, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2">modoApertura_t</a> modo, int socketId)</td></tr>
-<tr class="memdesc:a801cff88ac6ddfa75379c76bb8b9d8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla se un file con quel nome e' gia' stato aperto.  <a href="#a801cff88ac6ddfa75379c76bb8b9d8d6">Continua...</a><br /></td></tr>
-<tr class="separator:a801cff88ac6ddfa75379c76bb8b9d8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80b51d35734ccc9b19aa624ddd44f20a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2">modoApertura_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a80b51d35734ccc9b19aa624ddd44f20a">getModoAperturaFromInt</a> (int i)</td></tr>
-<tr class="memdesc:a80b51d35734ccc9b19aa624ddd44f20a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ritorna un tipo modoApertura partendo da un intero.  <a href="#a80b51d35734ccc9b19aa624ddd44f20a">Continua...</a><br /></td></tr>
-<tr class="separator:a80b51d35734ccc9b19aa624ddd44f20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d1061becfc0df48b72ad385f3c2e697"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a9d1061becfc0df48b72ad385f3c2e697">fileAlreadyOpen</a> (char *filename, int modo_client, int socketId)</td></tr>
+<tr class="memdesc:a9d1061becfc0df48b72ad385f3c2e697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla se un file con quel nome e' gia' stato aperto e se è stato aperto dal client che ne sta richiedendo nuovo accesso.  <a href="#a9d1061becfc0df48b72ad385f3c2e697">Continua...</a><br /></td></tr>
+<tr class="separator:a9d1061becfc0df48b72ad385f3c2e697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e2594e56afc29e961a1797a0bd8d262"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura</a> (int modo_client, int modo)</td></tr>
+<tr class="memdesc:a6e2594e56afc29e961a1797a0bd8d262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dice se modo_client contiene il modo modo.  <a href="#a6e2594e56afc29e961a1797a0bd8d262">Continua...</a><br /></td></tr>
+<tr class="separator:a6e2594e56afc29e961a1797a0bd8d262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a34e1cabb6b51062c5e2f8e7de6e8c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a8a34e1cabb6b51062c5e2f8e7de6e8c1">aggiungiSocketId</a> (<a class="el" href="structSocketIdList.html">SocketIdList</a> *sl, int socketId, int modo)</td></tr>
+<tr class="memdesc:a8a34e1cabb6b51062c5e2f8e7de6e8c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">aggiunge elemento a lista linkata di socket o aggiunge modo a socket già aggiunta  <a href="#a8a34e1cabb6b51062c5e2f8e7de6e8c1">Continua...</a><br /></td></tr>
+<tr class="separator:a8a34e1cabb6b51062c5e2f8e7de6e8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2852155c7d6b94e2bc96d2e3738c4312"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a2852155c7d6b94e2bc96d2e3738c4312">socketIdAlreadyAdded</a> (<a class="el" href="structSocketIdList.html">SocketIdList</a> *sl, int socketId)</td></tr>
+<tr class="memdesc:a2852155c7d6b94e2bc96d2e3738c4312"><td class="mdescLeft">&#160;</td><td class="mdescRight">controllo presenza socketId in lista socket  <a href="#a2852155c7d6b94e2bc96d2e3738c4312">Continua...</a><br /></td></tr>
+<tr class="separator:a2852155c7d6b94e2bc96d2e3738c4312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae546e0c596132f59eef31bbbd417d980"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#ae546e0c596132f59eef31bbbd417d980">getModoFromSocketId</a> (<a class="el" href="structSocketIdList.html">SocketIdList</a> *sl, int socketId)</td></tr>
+<tr class="memdesc:ae546e0c596132f59eef31bbbd417d980"><td class="mdescLeft">&#160;</td><td class="mdescRight">ottieni modo (anche multiplo) di accesso di un certo socketId su un certo file  <a href="#ae546e0c596132f59eef31bbbd417d980">Continua...</a><br /></td></tr>
+<tr class="separator:ae546e0c596132f59eef31bbbd417d980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedd0e72dfdc050225e43fabacc03829b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#aedd0e72dfdc050225e43fabacc03829b">closeClientSession</a> (int sd)</td></tr>
+<tr class="memdesc:aedd0e72dfdc050225e43fabacc03829b"><td class="mdescLeft">&#160;</td><td class="mdescRight">rimuove collegamenti tra client e file aperti nella sessione  <a href="#aedd0e72dfdc050225e43fabacc03829b">Continua...</a><br /></td></tr>
+<tr class="separator:aedd0e72dfdc050225e43fabacc03829b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrizione dettagliata</h2>
 <div class="textblock"><p>Contiene le funzioni di utilita' per le Strutture Dati. </p>
 <dl class="section author"><dt>Autore</dt><dd>Federico Ponzi </dd></dl>
-<dl class="section date"><dt>Data</dt><dd>11.07.2015 Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell' header di questo modulo. </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>11.07.2015 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Da fare:</a></b></dt><dd><p class="startdd">Una struttura dati che contenga una lista di sockets </p>
+<p class="enddd">Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti. NOTA: Ricordarsi di eseguire una free() dei OpenedFile-&gt;fileName perchè viene allocata con una malloc in <a class="el" href="OPE_8c.html" title="Gestisce il comando OPE(N) ">OPE.c</a></p>
+</dd></dl>
+<p>Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell' header di questo modulo. </p>
 </div><h2 class="groupheader">Documentazione delle funzioni</h2>
+<a class="anchor" id="a8a34e1cabb6b51062c5e2f8e7de6e8c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aggiungiSocketId </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSocketIdList.html">SocketIdList</a> *&#160;</td>
+          <td class="paramname"><em>sl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socketId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>modo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>aggiunge elemento a lista linkata di socket o aggiunge modo a socket già aggiunta </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">SocketIdList*</td><td>sl puntatore alla prima socket della lista </td></tr>
+    <tr><td class="paramname">int</td><td>socketId id della socket da aggiungere </td></tr>
+    <tr><td class="paramname">modo</td><td>modo di apertura file da parte di nuova socket </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>void </dd></dl>
+
+<p>Referenzia <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structSocketIdList.html#a84ef1b1879e61c17fe09e27e2038d0ee">SocketIdList::modo</a>, <a class="el" href="structSocketIdList.html#a6a4ac9d91704e30a162d520bca97a270">SocketIdList::next</a>, e <a class="el" href="structSocketIdList.html#ae3472c269defc3b5c5158bb23316989d">SocketIdList::socketId</a>.</p>
+
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a221594d999c22ce87c14e50cd98287a2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -152,15 +215,43 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti <a class="el" href="structOpenedFile.html">OpenedFile</a>. </p>
-<p>Se non esiste la radice mainFile la crea. Altrimenti scorre tutti i nodi fino ad arrivare all' elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Da fare:</a></b></dt><dd>Dovrebbe tenere da conto anche il modo di apertura Se non esiste la radice mainFile la crea. Altrimenti scorre tutti i nodi fino ad arrivare all' elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. </dd></dl>
 
-<p>Referenzia <a class="el" href="StruttureDati_8c.html#a801cff88ac6ddfa75379c76bb8b9d8d6">fileAlreadyOpen()</a>, <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="StruttureDati_8c.html#a80b51d35734ccc9b19aa624ddd44f20a">getModoAperturaFromInt()</a>, <a class="el" href="Library_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#ab2345215b095722d1339d571cfe287c7">OpenedFile::modo</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8h.html#a3063a74baee4fe1870e52d0ec577afa9">openedFileLinkedList</a>, <a class="el" href="enum_8c.html#abc6732f40ca2d5171a75be7460aacc07">prova()</a>, e <a class="el" href="structOpenedFile.html#a2af35018ecff06dbd349d464c815038a">OpenedFile::socketId</a>.</p>
+<p>Referenzia <a class="el" href="StruttureDati_8c.html#a8a34e1cabb6b51062c5e2f8e7de6e8c1">aggiungiSocketId()</a>, <a class="el" href="StruttureDati_8c.html#a9d1061becfc0df48b72ad385f3c2e697">fileAlreadyOpen()</a>, <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structSocketIdList.html#a84ef1b1879e61c17fe09e27e2038d0ee">SocketIdList::modo</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="structSocketIdList.html#a6a4ac9d91704e30a162d520bca97a270">SocketIdList::next</a>, <a class="el" href="StruttureDati_8h.html#a3063a74baee4fe1870e52d0ec577afa9">openedFileLinkedList</a>, <a class="el" href="enum_8c.html#abc6732f40ca2d5171a75be7460aacc07">prova()</a>, <a class="el" href="structSocketIdList.html#ae3472c269defc3b5c5158bb23316989d">SocketIdList::socketId</a>, e <a class="el" href="structOpenedFile.html#afae954d6877e7a6345a696d29355f29e">OpenedFile::socketIdList</a>.</p>
 
 <p>Referenziato da <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a801cff88ac6ddfa75379c76bb8b9d8d6"></a>
+<a class="anchor" id="aedd0e72dfdc050225e43fabacc03829b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void closeClientSession </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>rimuove collegamenti tra client e file aperti nella sessione </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>sd socket descriptor del client </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenzia <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="structSocketIdList.html#a6a4ac9d91704e30a162d520bca97a270">SocketIdList::next</a>, <a class="el" href="StruttureDati_8h.html#a3063a74baee4fe1870e52d0ec577afa9">openedFileLinkedList</a>, <a class="el" href="structSocketIdList.html#ae3472c269defc3b5c5158bb23316989d">SocketIdList::socketId</a>, <a class="el" href="structOpenedFile.html#afae954d6877e7a6345a696d29355f29e">OpenedFile::socketIdList</a>, e <a class="el" href="second_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>.</p>
+
+<p>Referenziato da <a class="el" href="CLOSE_8h.html#a33e9a4daafbf6ec7b0b6e2a2309acf3e">handleCloseCommand()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d1061becfc0df48b72ad385f3c2e697"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -168,13 +259,13 @@ Funzioni</h2></td></tr>
           <td class="memname">int fileAlreadyOpen </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>fileName</em>, </td>
+          <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2">modoApertura_t</a>&#160;</td>
-          <td class="paramname"><em>modo</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>modo_client</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -190,48 +281,136 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Controlla se un file con quel nome e' gia' stato aperto. </p>
+<p>Controlla se un file con quel nome e' gia' stato aperto e se è stato aperto dal client che ne sta richiedendo nuovo accesso. </p>
 <dl class="params"><dt>Parametri</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fileName</td><td>Il nome del file da controllare </td></tr>
-    <tr><td class="paramname">socketId</td><td>l' id della socket</td></tr>
+    <tr><td class="paramname">filename</td><td>Il nome del file da controllare </td></tr>
+    <tr><td class="paramname">socketId</td><td>l'id della socket del client </td></tr>
+    <tr><td class="paramname">modo_client</td><td>il modo con cui il client intende accedere al file</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Restituisce</dt><dd>1 se il file non e' aperto, </dd>
+<dl class="section return"><dt>Restituisce</dt><dd>modo se il file è stato già aperto da client che sta richiedendo nuovo accesso, </dd>
 <dd>
-1 se il file e' gia' aperto, ed e' associato alla stessa socketId </dd>
+1 se il file e' gia' aperto da altro client in mod. bloccante </dd>
 <dd>
-1 se ha richiesto l'apertura in read </dd>
-<dd>
-0 se il file e' gia' aperto in scrittura da altri </dd></dl>
+0 se file non è ancora stato aperto </dd></dl>
 
-<p>Referenzia <a class="el" href="second_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>, <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="Library_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8h.html#a3063a74baee4fe1870e52d0ec577afa9">openedFileLinkedList</a>, e <a class="el" href="second_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>.</p>
+<p>Referenzia <a class="el" href="second_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>, <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="StruttureDati_8c.html#ae546e0c596132f59eef31bbbd417d980">getModoFromSocketId()</a>, <a class="el" href="StruttureDati_8c.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22">MYO_EXLOCK</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8h.html#a3063a74baee4fe1870e52d0ec577afa9">openedFileLinkedList</a>, <a class="el" href="StruttureDati_8c.html#a2852155c7d6b94e2bc96d2e3738c4312">socketIdAlreadyAdded()</a>, e <a class="el" href="structOpenedFile.html#afae954d6877e7a6345a696d29355f29e">OpenedFile::socketIdList</a>.</p>
 
 <p>Referenziato da <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a80b51d35734ccc9b19aa624ddd44f20a"></a>
+<a class="anchor" id="ae546e0c596132f59eef31bbbd417d980"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2">modoApertura_t</a> getModoAperturaFromInt </td>
+          <td class="memname">int getModoFromSocketId </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structSocketIdList.html">SocketIdList</a> *&#160;</td>
+          <td class="paramname"><em>sl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socketId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Ritorna un tipo modoApertura partendo da un intero. </p>
-<p>Gli enum in teoria sono codificato come 0, 1 ecc pero' qui' dice di non fare affidamento suq uesta cosa: </p><dl class="section see"><dt>Si veda anche</dt><dd><a href="http://www.cs.utah.edu/~germain/PPS/Topics/C_Language/enumerated_types.html">http://www.cs.utah.edu/~germain/PPS/Topics/C_Language/enumerated_types.html</a> </dd></dl>
+<p>ottieni modo (anche multiplo) di accesso di un certo socketId su un certo file </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">SocketIdList*</td><td>sl puntatore alla prima socket della lista </td></tr>
+    <tr><td class="paramname">int</td><td>socketId id della socket di cui ottenere modo </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>modo se socket già ha aperto file, -1 altrimenti </dd></dl>
 
-<p>Referenzia <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03">MYO_CREAT</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812">MYO_EXCL</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22">MYO_EXLOCK</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4">MYO_RDONLY</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56">MYO_TRUNC</a>, e <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>.</p>
+<p>Referenzia <a class="el" href="structSocketIdList.html#a84ef1b1879e61c17fe09e27e2038d0ee">SocketIdList::modo</a>, <a class="el" href="structSocketIdList.html#a6a4ac9d91704e30a162d520bca97a270">SocketIdList::next</a>, e <a class="el" href="structSocketIdList.html#ae3472c269defc3b5c5158bb23316989d">SocketIdList::socketId</a>.</p>
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a9d1061becfc0df48b72ad385f3c2e697">fileAlreadyOpen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e2594e56afc29e961a1797a0bd8d262"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isModoApertura </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>modo_client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>modo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dice se modo_client contiene il modo modo. </p>
+
+<p>Referenzia <a class="el" href="second_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>, e <a class="el" href="second_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>.</p>
+
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a9d1061becfc0df48b72ad385f3c2e697">fileAlreadyOpen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2852155c7d6b94e2bc96d2e3738c4312"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int socketIdAlreadyAdded </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSocketIdList.html">SocketIdList</a> *&#160;</td>
+          <td class="paramname"><em>sl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socketId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>controllo presenza socketId in lista socket </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">SocketIdList*</td><td>sl puntatore alla prima socket della lista </td></tr>
+    <tr><td class="paramname">int</td><td>socketId id della socket da controllare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>TRUE (1) se id gia' presente in lista, FALSE (0) altrimenti </dd></dl>
+
+<p>Referenzia <a class="el" href="second_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>, <a class="el" href="structSocketIdList.html#a6a4ac9d91704e30a162d520bca97a270">SocketIdList::next</a>, <a class="el" href="structSocketIdList.html#ae3472c269defc3b5c5158bb23316989d">SocketIdList::socketId</a>, e <a class="el" href="second_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>.</p>
+
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a9d1061becfc0df48b72ad385f3c2e697">fileAlreadyOpen()</a>.</p>
 
 </div>
 </div>
@@ -240,7 +419,7 @@ Funzioni</h2></td></tr>
 <hr class="footer"/><address class="footer"><small>
 Generato da &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.9.1
 </small></address>
 </body>
 </html>

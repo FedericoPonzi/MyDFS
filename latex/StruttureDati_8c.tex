@@ -17,10 +17,18 @@ Contiene le funzioni di utilita\textquotesingle{} per le Strutture Dati.
 \item 
 void \hyperlink{StruttureDati_8c_a221594d999c22ce87c14e50cd98287a2}{append\+Opened\+File} (char $\ast$nomefile, int modo, int socket)
 \begin{DoxyCompactList}\small\item\em Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. \end{DoxyCompactList}\item 
-int \hyperlink{StruttureDati_8c_a801cff88ac6ddfa75379c76bb8b9d8d6}{file\+Already\+Open} (char $\ast$file\+Name, \hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2}{modo\+Apertura\+\_\+t} modo, int socket\+Id)
-\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto. \end{DoxyCompactList}\item 
-\hyperlink{enum_8c_a6880e4562590c12cf8c358fa5f779bb2}{modo\+Apertura\+\_\+t} \hyperlink{StruttureDati_8c_a80b51d35734ccc9b19aa624ddd44f20a}{get\+Modo\+Apertura\+From\+Int} (int i)
-\begin{DoxyCompactList}\small\item\em Ritorna un tipo modo\+Apertura partendo da un intero. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \hyperlink{StruttureDati_8c_a9d1061becfc0df48b72ad385f3c2e697}{file\+Already\+Open} (char $\ast$filename, int modo\+\_\+client, int socket\+Id)
+\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto e se è stato aperto dal client che ne sta richiedendo nuovo accesso. \end{DoxyCompactList}\item 
+int \hyperlink{StruttureDati_8c_a6e2594e56afc29e961a1797a0bd8d262}{is\+Modo\+Apertura} (int modo\+\_\+client, int modo)
+\begin{DoxyCompactList}\small\item\em Dice se modo\+\_\+client contiene il modo modo. \end{DoxyCompactList}\item 
+void \hyperlink{StruttureDati_8c_a8a34e1cabb6b51062c5e2f8e7de6e8c1}{aggiungi\+Socket\+Id} (\hyperlink{structSocketIdList}{Socket\+Id\+List} $\ast$sl, int socket\+Id, int modo)
+\begin{DoxyCompactList}\small\item\em aggiunge elemento a lista linkata di socket o aggiunge modo a socket già aggiunta \end{DoxyCompactList}\item 
+int \hyperlink{StruttureDati_8c_a2852155c7d6b94e2bc96d2e3738c4312}{socket\+Id\+Already\+Added} (\hyperlink{structSocketIdList}{Socket\+Id\+List} $\ast$sl, int socket\+Id)
+\begin{DoxyCompactList}\small\item\em controllo presenza socket\+Id in lista socket \end{DoxyCompactList}\item 
+int \hyperlink{StruttureDati_8c_ae546e0c596132f59eef31bbbd417d980}{get\+Modo\+From\+Socket\+Id} (\hyperlink{structSocketIdList}{Socket\+Id\+List} $\ast$sl, int socket\+Id)
+\begin{DoxyCompactList}\small\item\em ottieni modo (anche multiplo) di accesso di un certo socket\+Id su un certo file \end{DoxyCompactList}\item 
+void \hyperlink{StruttureDati_8c_aedd0e72dfdc050225e43fabacc03829b}{close\+Client\+Session} (int sd)
+\begin{DoxyCompactList}\small\item\em rimuove collegamenti tra client e file aperti nella sessione \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descrizione dettagliata}
@@ -30,14 +38,53 @@ Contiene le funzioni di utilita\textquotesingle{} per le Strutture Dati.
 Federico Ponzi 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Data}
-11.\+07.\+2015 Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell\textquotesingle{} header di questo modulo. 
+11.\+07.\+2015 
 \end{DoxyDate}
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000005}{Da fare}]Una struttura dati che contenga una lista di sockets 
 
+Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti. N\+O\+T\+A\+: Ricordarsi di eseguire una free() dei Opened\+File-\/$>$file\+Name perchè viene allocata con una malloc in \hyperlink{OPE_8c}{O\+P\+E.\+c}\end{DoxyRefDesc}
+
+
+Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell\textquotesingle{} header di questo modulo. 
 
 \subsection{Documentazione delle funzioni}
+\hypertarget{StruttureDati_8c_a8a34e1cabb6b51062c5e2f8e7de6e8c1}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!aggiungi\+Socket\+Id@{aggiungi\+Socket\+Id}}
+\index{aggiungi\+Socket\+Id@{aggiungi\+Socket\+Id}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
+\subsubsection[{aggiungi\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}void aggiungi\+Socket\+Id (
+\begin{DoxyParamCaption}
+\item[{{\bf Socket\+Id\+List} $\ast$}]{sl, }
+\item[{int}]{socket\+Id, }
+\item[{int}]{modo}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8c_a8a34e1cabb6b51062c5e2f8e7de6e8c1}
+
+
+aggiunge elemento a lista linkata di socket o aggiunge modo a socket già aggiunta 
+
+
+\begin{DoxyParams}{Parametri}
+{\em Socket\+Id\+List$\ast$} & sl puntatore alla prima socket della lista \\
+\hline
+{\em int} & socket\+Id id della socket da aggiungere \\
+\hline
+{\em modo} & modo di apertura file da parte di nuova socket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+void 
+\end{DoxyReturn}
+
+
+Referenzia log\+M(), Socket\+Id\+List\+::modo, Socket\+Id\+List\+::next, e Socket\+Id\+List\+::socket\+Id.
+
+
+
+Referenziato da append\+Opened\+File().
+
 \hypertarget{StruttureDati_8c_a221594d999c22ce87c14e50cd98287a2}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!append\+Opened\+File@{append\+Opened\+File}}
 \index{append\+Opened\+File@{append\+Opened\+File}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{append\+Opened\+File(char $\ast$nomefile, int modo, int socket)}]{\setlength{\rightskip}{0pt plus 5cm}void append\+Opened\+File (
+\subsubsection[{append\+Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}void append\+Opened\+File (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{nomefile, }
 \item[{int}]{modo, }
@@ -48,70 +95,154 @@ Federico Ponzi
 
 Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. 
 
-Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. 
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000006}{Da fare}]Dovrebbe tenere da conto anche il modo di apertura Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. \end{DoxyRefDesc}
 
-Referenzia file\+Already\+Open(), Opened\+File\+::file\+Name, get\+Modo\+Apertura\+From\+Int(), log\+M(), Opened\+File\+::modo, Opened\+File\+::next, opened\+File\+Linked\+List, prova(), e Opened\+File\+::socket\+Id.
+
+Referenzia aggiungi\+Socket\+Id(), file\+Already\+Open(), Opened\+File\+::file\+Name, log\+M(), Socket\+Id\+List\+::modo, Opened\+File\+::next, Socket\+Id\+List\+::next, opened\+File\+Linked\+List, prova(), Socket\+Id\+List\+::socket\+Id, e Opened\+File\+::socket\+Id\+List.
 
 
 
 Referenziato da handle\+Open\+Command().
 
-\hypertarget{StruttureDati_8c_a801cff88ac6ddfa75379c76bb8b9d8d6}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!file\+Already\+Open@{file\+Already\+Open}}
-\index{file\+Already\+Open@{file\+Already\+Open}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{file\+Already\+Open(char $\ast$file\+Name, modo\+Apertura\+\_\+t modo, int socket\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Open (
+\hypertarget{StruttureDati_8c_aedd0e72dfdc050225e43fabacc03829b}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!close\+Client\+Session@{close\+Client\+Session}}
+\index{close\+Client\+Session@{close\+Client\+Session}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
+\subsubsection[{close\+Client\+Session}]{\setlength{\rightskip}{0pt plus 5cm}void close\+Client\+Session (
 \begin{DoxyParamCaption}
-\item[{char $\ast$}]{file\+Name, }
-\item[{{\bf modo\+Apertura\+\_\+t}}]{modo, }
-\item[{int}]{socket\+Id}
+\item[{int}]{sd}
 \end{DoxyParamCaption}
-)}\label{StruttureDati_8c_a801cff88ac6ddfa75379c76bb8b9d8d6}
+)}\label{StruttureDati_8c_aedd0e72dfdc050225e43fabacc03829b}
 
 
-Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto. 
+rimuove collegamenti tra client e file aperti nella sessione 
 
 
 \begin{DoxyParams}{Parametri}
-{\em file\+Name} & Il nome del file da controllare \\
+{\em int} & sd socket descriptor del client \\
 \hline
-{\em socket\+Id} & l\textquotesingle{} id della socket\\
+\end{DoxyParams}
+
+
+Referenzia Opened\+File\+::file\+Name, log\+M(), Opened\+File\+::next, Socket\+Id\+List\+::next, opened\+File\+Linked\+List, Socket\+Id\+List\+::socket\+Id, Opened\+File\+::socket\+Id\+List, e T\+R\+U\+E.
+
+
+
+Referenziato da handle\+Close\+Command().
+
+\hypertarget{StruttureDati_8c_a9d1061becfc0df48b72ad385f3c2e697}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!file\+Already\+Open@{file\+Already\+Open}}
+\index{file\+Already\+Open@{file\+Already\+Open}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
+\subsubsection[{file\+Already\+Open}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Open (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{int}]{modo\+\_\+client, }
+\item[{int}]{socket\+Id}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8c_a9d1061becfc0df48b72ad385f3c2e697}
+
+
+Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto e se è stato aperto dal client che ne sta richiedendo nuovo accesso. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em filename} & Il nome del file da controllare \\
+\hline
+{\em socket\+Id} & l\textquotesingle{}id della socket del client \\
+\hline
+{\em modo\+\_\+client} & il modo con cui il client intende accedere al file\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Restituisce}
-1 se il file non e\textquotesingle{} aperto, 
+modo se il file è stato già aperto da client che sta richiedendo nuovo accesso, 
 
-1 se il file e\textquotesingle{} gia\textquotesingle{} aperto, ed e\textquotesingle{} associato alla stessa socket\+Id 
+1 se il file e\textquotesingle{} gia\textquotesingle{} aperto da altro client in mod. bloccante 
 
-1 se ha richiesto l\textquotesingle{}apertura in read 
-
-0 se il file e\textquotesingle{} gia\textquotesingle{} aperto in scrittura da altri 
+0 se file non è ancora stato aperto 
 \end{DoxyReturn}
 
 
-Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, log\+M(), Opened\+File\+::next, opened\+File\+Linked\+List, e T\+R\+U\+E.
+Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, get\+Modo\+From\+Socket\+Id(), is\+Modo\+Apertura(), log\+M(), M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, Opened\+File\+::next, opened\+File\+Linked\+List, socket\+Id\+Already\+Added(), e Opened\+File\+::socket\+Id\+List.
 
 
 
 Referenziato da append\+Opened\+File().
 
-\hypertarget{StruttureDati_8c_a80b51d35734ccc9b19aa624ddd44f20a}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+Modo\+Apertura\+From\+Int@{get\+Modo\+Apertura\+From\+Int}}
-\index{get\+Modo\+Apertura\+From\+Int@{get\+Modo\+Apertura\+From\+Int}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{get\+Modo\+Apertura\+From\+Int(int i)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf modo\+Apertura\+\_\+t} get\+Modo\+Apertura\+From\+Int (
+\hypertarget{StruttureDati_8c_ae546e0c596132f59eef31bbbd417d980}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+Modo\+From\+Socket\+Id@{get\+Modo\+From\+Socket\+Id}}
+\index{get\+Modo\+From\+Socket\+Id@{get\+Modo\+From\+Socket\+Id}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
+\subsubsection[{get\+Modo\+From\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Modo\+From\+Socket\+Id (
 \begin{DoxyParamCaption}
-\item[{int}]{i}
+\item[{{\bf Socket\+Id\+List} $\ast$}]{sl, }
+\item[{int}]{socket\+Id}
 \end{DoxyParamCaption}
-)}\label{StruttureDati_8c_a80b51d35734ccc9b19aa624ddd44f20a}
+)}\label{StruttureDati_8c_ae546e0c596132f59eef31bbbd417d980}
 
 
-Ritorna un tipo modo\+Apertura partendo da un intero. 
-
-Gli enum in teoria sono codificato come 0, 1 ecc pero\textquotesingle{} qui\textquotesingle{} dice di non fare affidamento suq uesta cosa\+: \begin{DoxySeeAlso}{Si veda anche}
-\href{http://www.cs.utah.edu/~germain/PPS/Topics/C_Language/enumerated_types.html}{\tt http\+://www.\+cs.\+utah.\+edu/$\sim$germain/\+P\+P\+S/\+Topics/\+C\+\_\+\+Language/enumerated\+\_\+types.\+html} 
-\end{DoxySeeAlso}
+ottieni modo (anche multiplo) di accesso di un certo socket\+Id su un certo file 
 
 
-Referenzia M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, M\+Y\+O\+\_\+\+E\+X\+C\+L, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+T\+R\+U\+N\+C, e M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y.
+\begin{DoxyParams}{Parametri}
+{\em Socket\+Id\+List$\ast$} & sl puntatore alla prima socket della lista \\
+\hline
+{\em int} & socket\+Id id della socket di cui ottenere modo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+modo se socket già ha aperto file, -\/1 altrimenti 
+\end{DoxyReturn}
+
+
+Referenzia Socket\+Id\+List\+::modo, Socket\+Id\+List\+::next, e Socket\+Id\+List\+::socket\+Id.
 
 
 
-Referenziato da append\+Opened\+File().
+Referenziato da file\+Already\+Open().
+
+\hypertarget{StruttureDati_8c_a6e2594e56afc29e961a1797a0bd8d262}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!is\+Modo\+Apertura@{is\+Modo\+Apertura}}
+\index{is\+Modo\+Apertura@{is\+Modo\+Apertura}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
+\subsubsection[{is\+Modo\+Apertura}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Modo\+Apertura (
+\begin{DoxyParamCaption}
+\item[{int}]{modo\+\_\+client, }
+\item[{int}]{modo}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8c_a6e2594e56afc29e961a1797a0bd8d262}
+
+
+Dice se modo\+\_\+client contiene il modo modo. 
+
+
+
+Referenzia F\+A\+L\+S\+E, e T\+R\+U\+E.
+
+
+
+Referenziato da file\+Already\+Open().
+
+\hypertarget{StruttureDati_8c_a2852155c7d6b94e2bc96d2e3738c4312}{}\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!socket\+Id\+Already\+Added@{socket\+Id\+Already\+Added}}
+\index{socket\+Id\+Already\+Added@{socket\+Id\+Already\+Added}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
+\subsubsection[{socket\+Id\+Already\+Added}]{\setlength{\rightskip}{0pt plus 5cm}int socket\+Id\+Already\+Added (
+\begin{DoxyParamCaption}
+\item[{{\bf Socket\+Id\+List} $\ast$}]{sl, }
+\item[{int}]{socket\+Id}
+\end{DoxyParamCaption}
+)}\label{StruttureDati_8c_a2852155c7d6b94e2bc96d2e3738c4312}
+
+
+controllo presenza socket\+Id in lista socket 
+
+
+\begin{DoxyParams}{Parametri}
+{\em Socket\+Id\+List$\ast$} & sl puntatore alla prima socket della lista \\
+\hline
+{\em int} & socket\+Id id della socket da controllare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+T\+R\+U\+E (1) se id gia\textquotesingle{} presente in lista, F\+A\+L\+S\+E (0) altrimenti 
+\end{DoxyReturn}
+
+
+Referenzia F\+A\+L\+S\+E, Socket\+Id\+List\+::next, Socket\+Id\+List\+::socket\+Id, e T\+R\+U\+E.
+
+
+
+Referenziato da file\+Already\+Open().
 

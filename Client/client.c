@@ -1,14 +1,16 @@
 #include <stdio.h>
 #include "ClientIncludes.h"
 
-int main(){
-	logM("Hello, world\n");
-
+int main()
+{
 	struct in_addr indirizzo;
 	inet_aton("127.0.0.1", &indirizzo);
-	int z = 23;
 	char* file = "FILE.TXT";
-	mydfs_open(&indirizzo, file, 23, &z);
+	int err = 0;
+	printf("HELLO, CLIENT \n");
+	
+	mydfs_open(&indirizzo, file, MYO_CREAT | MYO_RDONLY, &err);
+	
 	return 0;
 }
 
