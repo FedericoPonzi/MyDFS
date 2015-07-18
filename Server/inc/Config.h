@@ -1,11 +1,7 @@
 #ifndef CONFIGH
 #define CONFIGH
 
-/**
- * @brief Porta di ascolto del Server
- */
- 
-#define PORT 9000
+
 
 /**
  * @brief Numero di connessioni in ascolto
@@ -19,8 +15,19 @@
 #define DEBUG 1
 
 /**
- * 1 per multiprocesso, 0 per multithreading:
+ * @brief 1 per multiprocesso, 0 per multithreading:
  */
 #define MULTIPROC 0
+
+/**
+ * @brief Nome del file di config
+ */
+#define CONFIGFILENAME "CONFIG"
+
+
+extern int numeroCon;
+extern int procOrThread;
+extern int portNumber;
+int loadConfig();
 
 #endif

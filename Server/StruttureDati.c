@@ -54,38 +54,38 @@ void appendOpenedFile(char* nomefile, int modo, int socket)
 	if(fileAlreadyOpen(nomefile, modo, socket) == -1)
 	{
 		logM("Ha provato ad aprire un file gia' aperto: '%s' \n", nomefile);
-		char answer[100] = "LOL File gia' aperto zio sorry :( \n";
+		char answer[100] = "File gia' aperto n";
 		send(socket, answer, strlen(answer), 0);
 	}
 	else if(fileAlreadyOpen(nomefile, modo, socket) == 0)
+	{
+		OpenedFile* prova;
+		prova = (OpenedFile*) malloc(sizeof(OpenedFile));
+		prova->fileName = nomefile;
+		
+		prova->socketIdList = (SocketIdList*) malloc(sizeof(SocketIdList));
+		prova->socketIdList->socketId = socket;
+		prova->socketIdList->next = NULL;
+		prova->socketIdList->modo = modo;
+		prova->next = NULL;
+		if(openedFileLinkedList == NULL)
 		{
-			OpenedFile* prova;
-			prova = (OpenedFile*) malloc(sizeof(OpenedFile));
-			prova->fileName = nomefile;
-			
-			prova->socketIdList = (SocketIdList*) malloc(sizeof(SocketIdList));
-			prova->socketIdList->socketId = socket;
-			prova->socketIdList->next = NULL;
-			prova->socketIdList->modo = modo;
-			prova->next = NULL;
-			if(openedFileLinkedList == NULL)
+			openedFileLinkedList = prova;
+			logM("[OpenFile] Main non esiste. Lo creo. '%s'\n", openedFileLinkedList->fileName);
+		}
+		else
+		{
+			logM("[OpenFile] Main esiste '%s' \n", openedFileLinkedList->fileName);
+			OpenedFile* iterator = openedFileLinkedList;
+			while(iterator->next != NULL)
 			{
-				openedFileLinkedList = prova;
-				logM("[OpenFile] Main non esiste. Lo creo. '%s'\n", openedFileLinkedList->fileName);
-			}
-			else
-			{
-				logM("[OpenFile] Main esiste '%s' \n", openedFileLinkedList->fileName);
-				OpenedFile* iterator = openedFileLinkedList;
-				while(iterator->next != NULL)
-				{
-					iterator = iterator->next;
-				}
-				
-				iterator->next = prova;
+				iterator = iterator->next;
 			}
 			
-			logM("[OpenFile] Aggiunto. Nome: '%s' \n", prova->fileName);
+			iterator->next = prova;
+		}
+		
+		logM("[OpenFile] Aggiunto. Nome: '%s' \n", prova->fileName);
 	   }
 	else
 	{
@@ -179,9 +179,7 @@ void aggiungiSocketId(SocketIdList* sl, int socketId, int modo)
 	
 	if(iterator->socketId == socketId)
 	{
-		logM("%d\n", iterator->modo);
 		iterator->modo = iterator->modo | modo;
-		logM("%d\n", iterator->modo);
 	}
 	else
 	{		

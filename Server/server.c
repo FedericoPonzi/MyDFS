@@ -10,12 +10,12 @@
 #include <pthread.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "Config.h"
+#include "inc/Config.h"
 #include "inc/Utils.h"
 #include "inc/CommandsHandler.h"
 #include "inc/Error.h"
 #include "inc/StruttureDati.h"
-#define Max 30
+#define BUFFSIZE 30
 
 OpenedFile* openedFileLinkedList = NULL;
 int spawnProcess(int temp_sd, int sd);
@@ -23,6 +23,8 @@ void* handleSocket(int temp_sd);
 
 int main()
 {
+	loadConfig();
+	logM("[Config]\n'%d' numero di connessioni\n'%d' Processo o thread\n'%d' Porta in ascolto.\n\n", numeroCon, procOrThread, portNumber);
 	struct sockaddr_in server;
 	struct sockaddr_in client;
 	int sd, temp_sd;
@@ -33,7 +35,7 @@ int main()
 		printErr(1);
 	}	
 	server.sin_family = AF_INET;
-	server.sin_port = htons(PORT);
+	server.sin_port = htons(portNumber);
 	server.sin_addr.s_addr= INADDR_ANY;
 	
 	if(bind(sd, (struct sockaddr *) &server, sizeof(server)) <0)
@@ -74,7 +76,7 @@ void* handleSocket(int temp_sd)
 {					
 	char answer[50];
 	int nRecv;
-	char buff[Max];
+	char buff[BUFFSIZE];
 
 	logM("Collegamento effettuato.\n");
 	do

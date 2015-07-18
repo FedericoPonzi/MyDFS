@@ -33,7 +33,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
-#include "Config.h"
+#include "inc/Config.h"
 
 
 /**
