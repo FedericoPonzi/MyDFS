@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "inc/CommandsHandler.h"
-
 #include "inc/CLOSE.h"
 #include "inc/OPE.h"
-
 #include "inc/Utils.h"
 
 
@@ -12,8 +10,8 @@
 /**
  * Ritorna un numero corrispondente ad un comando.
  * -1 = Comando sconosciuto.
- * 0 = BYE
- * 1 = OPE
+ * 1 = CLO
+ * 2 = OPE
  */
 int getCommandID(char* input)
 {

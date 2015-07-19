@@ -24,21 +24,20 @@ typedef struct SocketIdList //struct per lista socket attive
 typedef struct OpenedFile
 {
 	char* fileName;
-	SocketIdList* socketIdList;
+	int socketId;
+	int modo;
 	struct OpenedFile* next;
 }OpenedFile;
 
 
-extern OpenedFile* openedFileLinkedList;
+extern OpenedFile **openedFileLinkedList;
+extern OpenedFile **free_head;
 
-int fileAlreadyOpen(char* filename, int modo_client, int socketId);
+void allocaEInizializzaMemoria();
+int appendOpenedFile(char* nomefile, int modo, int socket);
+int fileAlreadyOpenedInWrite(char* filename, int modo_client, int socketId);
 int isModoApertura(int modo_client, int modo);
-void appendOpenedFile(char* nomefile, int modo, int socket);
-void aggiungiSocketId(SocketIdList* sl, int socketId, int modo);
 
-int socketIdAlreadyAdded(SocketIdList* sl, int socketId);
-
-int getModoFromSocketId(SocketIdList* sl, int socketId);
 
 void closeClientSession(int sd);
 

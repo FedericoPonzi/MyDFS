@@ -3,9 +3,19 @@
 #include <string.h>
 #include "inc/Config.h"
 #include "inc/Utils.h"
+#include "inc/StruttureDati.h"
 #define NUMCON "NUMBER_OF_CONNECTION"
 #define PROCORTRE "PROCESS_OR_THREAD"
 #define PORTNUMB "PORT_NUMBER"
+/**
+ * @file StruttureDati.c
+ * @author Federico Ponzi
+ * @date 18.07.2015
+ * @brief Contiene funzioni utilizzate per caricare il file di configurazione
+ * 
+ * 
+ */
+
 
 int numeroCon = 0;
 int procOrThread = 0;
@@ -15,6 +25,8 @@ static void handleLine(char* line);
 
 int loadConfig()
 {
+	// Inizializzo la memoria per le strutture dati:
+	
 	char* filename = CONFIGFILENAME;
 	FILE* filePointer = fopen(filename, "ru");
 	char buf[256];
@@ -23,6 +35,8 @@ int loadConfig()
 		handleLine(buf);	
 		//printf("%s", buf);
 	}
+	allocaEInizializzaMemoria();
+	
 	return EXIT_SUCCESS;
 }
 

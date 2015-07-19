@@ -17,7 +17,7 @@
 #include "inc/StruttureDati.h"
 #define BUFFSIZE 30
 
-OpenedFile* openedFileLinkedList = NULL;
+
 int spawnProcess(int temp_sd, int sd);
 void* handleSocket(int temp_sd);
 

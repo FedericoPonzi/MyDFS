@@ -36,116 +36,157 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "inc/Utils.h"
-#include "inc/StruttureDati.h"
+#include <assert.h>
+#include <unistd.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+
+#include <semaphore.h>
+#include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <pthread.h>
+#include "inc/Config.h"
+#include "inc/Utils.h"
+#include "inc/StruttureDati.h"
+
+
+OpenedFile ** openedFileLinkedList = NULL;
+OpenedFile ** free_head;
+static pthread_mutex_t *mutex;
+
+
+/**
+ * @brief Alloca la memoria necessaria per gestire le strutture dati.
+ */
+void allocaEInizializzaMemoria()
+{
+	void *ptr;
+    size_t region_sz = 0;
+
+    /* Space for the nodes */
+    region_sz += sizeof(OpenedFile)*numeroCon;
+	logM("region_sz: %lu\n", region_sz);
+	
+	/* Space for house-keeping pointers */
+    region_sz += sizeof(openedFileLinkedList)+sizeof(free_head);
+	logM("Puntatori: %lu", sizeof(openedFileLinkedList)+sizeof(free_head));
+	/* Space for the mutex */
+    region_sz += sizeof(*mutex);
+	
+	logM("[Initialize Memory] Sto per allocare %lu spazio.\n", region_sz);
+    ptr = mmap(NULL, region_sz, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, 0, 0);
+    if (ptr == MAP_FAILED) {
+        perror("mmap(2) failed");
+        exit(EXIT_FAILURE);
+    }
+
+    /* Set up everything */
+    mutex = ptr;
+    
+    free_head = (OpenedFile **) (((char *) ptr)+sizeof(*mutex));
+   
+    openedFileLinkedList = free_head+1;
+
+    *free_head = (OpenedFile *) (openedFileLinkedList+1);
+
+    *openedFileLinkedList = NULL;
+
+    /* Initialize free list */
+    int i;
+    OpenedFile *curr;
+
+    for (i = 0, curr = *free_head; i < numeroCon-1; i++, curr++) {
+        curr->next = curr+1;
+	}
+
+    curr->next = NULL;
+
+    pthread_mutexattr_t mutex_attr;
+    if (pthread_mutexattr_init(&mutex_attr) < 0) {
+        perror("Failed to initialize mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutexattr_setpshared(&mutex_attr, PTHREAD_PROCESS_SHARED) < 0) {
+        perror("Failed to change mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutex_init(mutex, &mutex_attr) < 0) {
+        perror("Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
+}
+
 
 /**
  * @brief Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti OpenedFile
  * 
- * @todo Dovrebbe tenere da conto anche il modo di apertura
  * Se non esiste la radice mainFile la crea. Altrimenti scorre tutti i nodi fino ad arrivare all' elemento in coda, crea un nuovo
  * nodo con i dati in input e lo appende alla fine.
  */
-void appendOpenedFile(char* nomefile, int modo, int socket)
+int appendOpenedFile(char* nomeFile, int modo, int socket)
 {
+	logM("Appendo il file aperto.\n");
+	//Se richiede una scrittura, e il file e' già aperto in scrittura:
+	if(fileAlreadyOpenedInWrite(nomeFile, modo, socket)) //Aperto in scrittura
+	{
+		logM("Non posso farlo john\n");
+		return 0;
+	}
+	logM("Prendo il lock: \n");
+	pthread_mutex_lock(mutex);
 
-	if(fileAlreadyOpen(nomefile, modo, socket) == -1)
-	{
-		logM("Ha provato ad aprire un file gia' aperto: '%s' \n", nomefile);
-		char answer[100] = "File gia' aperto n";
-		send(socket, answer, strlen(answer), 0);
+	OpenedFile *n = *free_head;
+
+	if (n == NULL) {
+		pthread_mutex_unlock(mutex);
+		assert(0);
 	}
-	else if(fileAlreadyOpen(nomefile, modo, socket) == 0)
-	{
-		OpenedFile* prova;
-		prova = (OpenedFile*) malloc(sizeof(OpenedFile));
-		prova->fileName = nomefile;
-		
-		prova->socketIdList = (SocketIdList*) malloc(sizeof(SocketIdList));
-		prova->socketIdList->socketId = socket;
-		prova->socketIdList->next = NULL;
-		prova->socketIdList->modo = modo;
-		prova->next = NULL;
-		if(openedFileLinkedList == NULL)
-		{
-			openedFileLinkedList = prova;
-			logM("[OpenFile] Main non esiste. Lo creo. '%s'\n", openedFileLinkedList->fileName);
-		}
-		else
-		{
-			logM("[OpenFile] Main esiste '%s' \n", openedFileLinkedList->fileName);
-			OpenedFile* iterator = openedFileLinkedList;
-			while(iterator->next != NULL)
-			{
-				iterator = iterator->next;
-			}
-			
-			iterator->next = prova;
-		}
-		
-		logM("[OpenFile] Aggiunto. Nome: '%s' \n", prova->fileName);
-	   }
-	else
-	{
-		OpenedFile* iterator = openedFileLinkedList;
-		do
-		{
-			if(strcmp(iterator->fileName, nomefile)==0)
-			{
-				aggiungiSocketId(iterator->socketIdList, socket, modo);
-			}
-			if(iterator->next != NULL)
-			{
-				iterator = iterator->next;
-			}
-		}while(iterator->next != NULL);
-	}
-	   
-	
+
+	*free_head = (*free_head)->next;
+	n->fileName = nomeFile;
+	n->socketId = socket;
+	n->modo = modo;
+	n->next = *openedFileLinkedList;
+	*openedFileLinkedList = n;
+
+	pthread_mutex_unlock(mutex);
+	logM("Lock rilasciato. \n");
+
+	return 1;
 }
 
 /**
- * @brief Controlla se un file con quel nome e' gia' stato aperto e se è stato aperto dal client che ne sta richiedendo nuovo accesso.
+ * @brief Controlla se un file con quel nome e' gia' stato aperto in una modalita' che non permette l'accesso da parte di altri client
  *
- *  
-   @param filename Il nome del file da controllare
- * @param socketId l'id della socket del client
- * @param modo_client il modo con cui il client intende accedere al file
- * 
- * @return modo se il file è stato già aperto da client che sta richiedendo nuovo accesso,
- * @return 1 se il file e' gia' aperto da altro client in mod. bloccante
- * @return 0 se file non è ancora stato aperto
  */
 
-int fileAlreadyOpen(char* filename, int modo_client, int socketId)
+int fileAlreadyOpenedInWrite(char* filename, int modo_client, int socketId)
 {
+	logM("File already opened in write? \n");
+
 	if(openedFileLinkedList == NULL) return FALSE;
 	
-	OpenedFile* iterator = openedFileLinkedList;
-	
-	do
+	OpenedFile* iterator = *openedFileLinkedList;
+	while(iterator != NULL)
 	{
 		if(strcmp(iterator->fileName, filename) == 0)
 		{
-			if(socketIdAlreadyAdded(iterator->socketIdList, socketId))
-			{
-				return getModoFromSocketId(iterator->socketIdList, socketId);
-			}
-			if(isModoApertura(getModoFromSocketId(iterator->socketIdList, socketId), MYO_EXLOCK) || isModoApertura(getModoFromSocketId(iterator->socketIdList, socketId), MYO_WRONLY) || isModoApertura(getModoFromSocketId(iterator->socketIdList, socketId), MYO_RDWR))
+			if(isModoApertura(iterator->modo, MYO_EXLOCK) || isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
 			{
 				return -1;
 			}
-			return 0;
+			return FALSE;
 		}
 		iterator = iterator->next;
-	}while(iterator != NULL);
+	}
 	
 	logM("Nessun file aperto con questo nome: '%s' \n",filename);
 
 	return 0;
-	
+
 }
 
 
@@ -162,73 +203,7 @@ int isModoApertura(int modo_client, int modo)
 	return FALSE;
 }
 
-/**
-@brief aggiunge elemento a lista linkata di socket o aggiunge modo a socket già aggiunta
-* @param SocketIdList* sl puntatore alla prima socket della lista
-* @param int socketId id della socket da aggiungere
-* @param modo modo di apertura file da parte di nuova socket
-* @return void
-* */
-void aggiungiSocketId(SocketIdList* sl, int socketId, int modo)
-{
-	SocketIdList* iterator = sl;
-	while(iterator->next != NULL || iterator->socketId != socketId)
-	{
-		iterator = iterator->next;
-	}
-	
-	if(iterator->socketId == socketId)
-	{
-		iterator->modo = iterator->modo | modo;
-	}
-	else
-	{		
-		SocketIdList* newSI = malloc(sizeof(SocketIdList));
-		newSI->socketId = socketId;
-		newSI->modo = modo;
-		iterator->next = newSI;
-	}
-}
 
-/**
-@brief controllo presenza socketId in lista socket
-* @param SocketIdList* sl puntatore alla prima socket della lista
-* @param int socketId id della socket da controllare
-* @return TRUE (1) se id gia' presente in lista, FALSE (0) altrimenti
-* */
-int socketIdAlreadyAdded(SocketIdList* sl, int socketId)
-{
-	SocketIdList* iterator = sl;
-	do
-	{
-		if(iterator->socketId == socketId)
-		{
-			return TRUE;
-		}
-		iterator = iterator->next;
-	}while(iterator->next != NULL);
-	return FALSE;
-}
-
-/**
- * @brief ottieni modo (anche multiplo) di accesso di un certo socketId su un certo file
- * @param SocketIdList* sl puntatore alla prima socket della lista
- * @param int socketId id della socket di cui ottenere modo
- * @return modo se socket già ha aperto file, -1 altrimenti
- */
-int getModoFromSocketId(SocketIdList* sl, int socketId)
-{
-	SocketIdList* iterator = sl;
-	do
-	{
-		if(iterator->socketId == socketId)
-		{
-			return iterator->modo;
-		} 
-		iterator = iterator->next;
-	}while(iterator->next != NULL);
-	return -1;
-}
 
 /**
  * @brief rimuove collegamenti tra client e file aperti nella sessione
@@ -236,6 +211,7 @@ int getModoFromSocketId(SocketIdList* sl, int socketId)
  */
 void closeClientSession(int sd)
 {
+	/*
 	OpenedFile* iterator = openedFileLinkedList;
 	SocketIdList* iterator2;
 	SocketIdList* preIterator2;
@@ -244,10 +220,10 @@ void closeClientSession(int sd)
 		iterator2 = iterator->socketIdList;
 		do
 		{
-			/*stampe di debug:
+			/stampe di debug:
 			logM("nuovo iterator: %s\n", iterator->fileName);
 			logM("iterator->socketId = %d\n", iterator2->socketId);
-			logM("socket_closing = %d\n", sd);*/
+			logM("socket_closing = %d\n", sd);
 			if(iterator2->socketId == sd) //se iterator2->SocketId è uguale a quella in input
 			{
 				logM("chiudo %s\n", iterator->fileName);
@@ -303,4 +279,5 @@ void closeClientSession(int sd)
 		}
 		
 	}
+	*/
 }
