@@ -41,7 +41,7 @@ void handleCommand(char* buff, int socket)
 			break;
 		case 2:
 			logM("[handleCommand] Ricevuta richiesta CLOSE\n");
-			handleCloseCommand(socket);
+			handleCloseCommand(socket, buff);
 			break;
 		default:
 			logM("[handleCommand] Comando sconosciuto.\n");

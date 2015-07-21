@@ -186,7 +186,6 @@ int fileAlreadyOpenedInWrite(char* filename, int modo_client, int socketId)
 	logM("Nessun file aperto con questo nome: '%s' \n",filename);
 
 	return 0;
-
 }
 
 
@@ -209,8 +208,66 @@ int isModoApertura(int modo_client, int modo)
  * @brief rimuove collegamenti tra client e file aperti nella sessione
  * @param int sd socket descriptor del client
  */
-void closeClientSession(int sd)
+void closeClientSession(int sd, char* fileName) //SISTEMA LOOP
 {
+	OpenedFile* iterator = *openedFileLinkedList;
+	OpenedFile* preIterator = NULL;
+	while(TRUE)
+	{
+		if(iterator->socketId == sd && (strcmp(iterator->fileName, fileName) == 0))
+		{
+			
+			//OpenedFile* temp = iterator;
+			pthread_mutex_lock(mutex);
+			
+			if(preIterator == NULL) //primo della lista
+			{
+				logM("individuato file primo: %s - pronto alla chiusura\n", iterator->fileName);
+				*openedFileLinkedList = iterator->next;
+				
+				iterator->next = *free_head;
+				*free_head = iterator;
+				
+				//iterator = temp->next;
+			}
+			else
+			{
+				if(iterator->next == NULL) //ultimo della lista
+				{
+					logM("individuato file ultimo: %s - pronto alla chiusura\n", iterator->fileName);
+					iterator->next = *free_head;
+					*free_head = iterator;
+					preIterator->next = NULL;
+				}
+				else //nè primo nè ultimo della lista
+				{
+					logM("individuato file medio: %s - pronto alla chiusura\n", iterator->fileName);
+					preIterator->next = iterator->next;
+					
+					iterator->next = *free_head;
+					*free_head = iterator;
+					
+					//iterator = temp->next;
+				}	
+			}
+			pthread_mutex_unlock(mutex);
+			break;
+		}
+		else
+		{
+			logM("skip\n");
+			if(iterator->next != NULL) //se ci sono ancora file da controllare
+			{
+				preIterator = iterator;
+				iterator = iterator->next;
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+	
 	/*
 	OpenedFile* iterator = openedFileLinkedList;
 	SocketIdList* iterator2;
