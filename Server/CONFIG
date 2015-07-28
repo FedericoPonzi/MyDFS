@@ -8,7 +8,7 @@ NUMBER_OF_CONNECTION 10
 ###
 ## 1 per usare i processi, 0 per usare i threads
 ###
-PROCESS_OR_THREAD 1
+PROCESS_OR_THREAD 0
 
 ###
 ## Numero di porta su cui ascoltare la connessione:
