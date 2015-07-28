@@ -22,10 +22,11 @@ int procOrThread = 0;
 int portNumber = 0;
 static void handleLine(char* line);
 
-
+/**
+ * @brief Carica le impostazioni del config, ed inizializza la memoria.
+ */
 int loadConfig()
 {
-	// Inizializzo la memoria per le strutture dati:
 	
 	char* filename = CONFIGFILENAME;
 	FILE* filePointer = fopen(filename, "ru");
@@ -35,6 +36,8 @@ int loadConfig()
 		handleLine(buf);	
 		//printf("%s", buf);
 	}
+	
+	// Inizializzo la memoria per le strutture dati:
 	allocaEInizializzaMemoria();
 	
 	return EXIT_SUCCESS;

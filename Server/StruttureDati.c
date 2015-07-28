@@ -66,11 +66,10 @@ void allocaEInizializzaMemoria()
 
     /* Space for the nodes */
     region_sz += sizeof(OpenedFile)*numeroCon;
-	logM("region_sz: %lu\n", region_sz);
 	
 	/* Space for house-keeping pointers */
     region_sz += sizeof(openedFileLinkedList)+sizeof(free_head);
-	logM("Puntatori: %lu", sizeof(openedFileLinkedList)+sizeof(free_head));
+
 	/* Space for the mutex */
     region_sz += sizeof(*mutex);
 	
