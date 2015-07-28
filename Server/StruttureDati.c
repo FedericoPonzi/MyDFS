@@ -56,8 +56,10 @@ OpenedFile ** free_head;
 static pthread_mutex_t *mutex;
 
 
+
 /**
  * @brief Alloca la memoria necessaria per gestire le strutture dati.
+ * @todo Dovrebbe trovarsi dentro al Config.c
  */
 void allocaEInizializzaMemoria()
 {
@@ -73,6 +75,10 @@ void allocaEInizializzaMemoria()
 	/* Space for the mutex */
     region_sz += sizeof(*mutex);
 	
+	/* Spazio per il mutex dell'accept e dell' int numbero figli vivi */
+	region_sz += sizeof(pthread_mutex_t);
+	region_sz += sizeof(int);
+	
 	logM("[Initialize Memory] Sto per allocare %lu spazio.\n", region_sz);
     ptr = mmap(NULL, region_sz, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, 0, 0);
     if (ptr == MAP_FAILED) {
@@ -81,6 +87,12 @@ void allocaEInizializzaMemoria()
     }
 
     /* Set up everything */
+    
+    /**Indirizzo di serverconnectionsstruct */
+    acceptMutex = ptr+region_sz-sizeof(pthread_mutex_t)-sizeof(int);
+    
+    numberAliveChilds = ptr+region_sz-sizeof(int);
+    
     mutex = ptr;
     
     free_head = (OpenedFile **) (((char *) ptr)+sizeof(*mutex));

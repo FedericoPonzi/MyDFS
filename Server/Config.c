@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <pthread.h>
 #include "inc/Config.h"
 #include "inc/Utils.h"
 #include "inc/StruttureDati.h"
 #define NUMCON "NUMBER_OF_CONNECTION"
 #define PROCORTRE "PROCESS_OR_THREAD"
 #define PORTNUMB "PORT_NUMBER"
+
+
+
 /**
  * @file StruttureDati.c
  * @author Federico Ponzi
@@ -15,6 +19,9 @@
  * 
  * 
  */
+
+int *numberAliveChilds;
+pthread_mutex_t *acceptMutex;
 
 
 int numeroCon = 0;
@@ -33,18 +40,35 @@ int loadConfig()
 	char buf[256];
 	while (fgets (buf, sizeof(buf), filePointer)) 
 	{	
-		handleLine(buf);	
-		//printf("%s", buf);
+		handleLine(buf);
 	}
 	
 	// Inizializzo la memoria per le strutture dati:
 	allocaEInizializzaMemoria();
 	
+	*numberAliveChilds = 0;
+	printf("Number alive childs: %d", *numberAliveChilds);
+    pthread_mutexattr_t mutex_attr;
+    if (pthread_mutexattr_init(&mutex_attr) < 0) {
+        perror("Failed to initialize mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutexattr_setpshared(&mutex_attr, PTHREAD_PROCESS_SHARED) < 0) {
+        perror("Failed to change mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutex_init(acceptMutex, &mutex_attr) < 0) {
+        perror("Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
+	
 	return EXIT_SUCCESS;
 }
 
 /**
- * @brief Gestisce una linea del config.
+ * @brief Gestisce una linea del file di config.
  * 
  * Prende in input una linea e i aspetta o un commento o una configurazione.
  */

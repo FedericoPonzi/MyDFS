@@ -17,19 +17,19 @@
 #include "inc/StruttureDati.h"
 #define BUFFSIZE 30
 
-
-int spawnProcess(int temp_sd, int sd);
-void* handleSocket(int temp_sd);
-
+void spawnThread();
+void spawnProcess();
+void* handleSocket();
+int sd;
+struct sockaddr_in server;
+struct sockaddr_in client;
+socklen_t address_size;
 int main()
 {
 	loadConfig();
 	logM("[Config]\n'%d' numero di connessioni\n'%d' Processo o thread\n'%d' Porta in ascolto.\n\n", numeroCon, procOrThread, portNumber);
-	struct sockaddr_in server;
-	struct sockaddr_in client;
-	int sd, temp_sd;
-	
-	socklen_t address_size;
+
+
 	if((sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
 		printErr(1);
@@ -51,17 +51,14 @@ int main()
 	// Loop infinito per servire i client:
 	while(1)
 	{
-		if((temp_sd = accept(sd, (struct sockaddr *) &client, &address_size))<0)
+		if(procOrThread)
 		{
-			printErr(4);
+			spawnProcess();
 		}
-
-		if(spawnProcess(temp_sd, sd)==0)
+		else
 		{
-			handleSocket(temp_sd);
-			return 0;
+			spawnThread();
 		}
-			
 	}
 	
 	return 0;
@@ -72,8 +69,18 @@ int main()
  * 
  * Riceve un messaggio dalla socket, lo gestisce, e scrive la risposta.
  */
-void* handleSocket(int temp_sd)
-{					
+void* handleSocket()
+{
+	int temp_sd;
+	
+	pthread_mutex_lock(acceptMutex);
+	
+	if((temp_sd = accept(sd, (struct sockaddr *) &client, &address_size))<0)
+	{
+		printErr(4);
+	}
+	pthread_mutex_unlock(acceptMutex);
+
 	char answer[50];
 	int nRecv;
 	char buff[BUFFSIZE];
@@ -90,7 +97,7 @@ void* handleSocket(int temp_sd)
 			printErr(6);
 		}
 		buff[nRecv-1] = '\0';
-		logM("Lunghezza di buff:'%d'\n", strlen(buff));
+		
 		logM("Client:'%s'\n", buff);
 		if(strlen(buff) > 0)
 		{	
@@ -107,7 +114,10 @@ void* handleSocket(int temp_sd)
 		}
 		while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
 		
+		//Diminuisco il numero di figli vivi.
+		(*numberAliveChilds)--;
 		logM("Connessione terminata.\n");
+		
 		return NULL;
 }
 
@@ -120,33 +130,38 @@ void* handleSocket(int temp_sd)
  */
 void spawnThread()
 {
-	int err = 0;
-	//err = pthread_create(NULL, NULL, &handleSocket, NULL);
-    if (err != 0)
-        printf("\ncan't create thread :[%s]", strerror(err));
- 
+	pthread_t tid;
+	if(*numberAliveChilds >= numeroCon)
+		return;
+    if (pthread_create(&tid, NULL, &handleSocket, NULL) != 0)
+    {
+        printf("\ncan't create thread");
+        perror("Cant create thread");
+	}
+	(*numberAliveChilds)++;
 }
 
 /**
- * @brief Crea un processo e richiama handleSocket();
- * All' arrivo di una connessione, crea un processo e richiama handleSocket
+* @brief Crea un processo se il numero di processi disponibili e' inferiore a numeroCon
  */
-int spawnProcess(int temp_sd, int sd)
+void spawnProcess()
 {
 	pid_t pid;
-	
+	if(*numberAliveChilds >= numeroCon)
+		return;
+		
 	pid = fork();
 	if(pid < 0)
 	{
 		printErr(5);
 	}
-	if(pid)
+	else if(!pid)
 	{
-		close(temp_sd);
+		printf("Mio pid: %d\n", getpid());
+		handleSocket();
 	}
 	else
 	{
-		close(sd);
+		(*numberAliveChilds)++;
 	}
-	return pid;
 }
