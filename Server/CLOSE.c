@@ -12,7 +12,7 @@
  * @brief Gestisce il comando Close.
  * @param int socket socket del client che termina sessione
  */
-void handleCloseCommand(int socket)
+void handleCloseCommand(int socket, char* command)
 {
 	//-iterare gli OpenedFile
 	//-per ognuno controllare che tra le SocketIdList associate compaia
@@ -24,7 +24,20 @@ void handleCloseCommand(int socket)
 	//Fatto ciò rimuovere tutti OpenedFile che dopo rimozione non hanno più 
 	//SocketIdList associate e collegare predecessori e successori di elementi rimossi
 	//chiusura connessione client-server
-	logM("chiusura sessione in corso, sciao beloo\n");
-	closeClientSession(socket);
-	close(socket);
+	stripCommand(command);
+	char* fileName = malloc(30*sizeof(char));
+	getFileNameClose(command, fileName);
+	
+	logM("chiusura file in corso, wait 4 it\n");
+	
+	closeClientSession(socket, fileName);
+	//close(socket);
+}
+
+void getFileNameClose(char* command, char* nomeFile)
+{
+	int lunghezza = strlen(command)+1;
+	memcpy(nomeFile, command, lunghezza);
+	nomeFile[lunghezza-1] = '\0';
+	logM("nomeFile = %s\n", nomeFile);
 }

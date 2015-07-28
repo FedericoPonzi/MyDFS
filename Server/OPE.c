@@ -70,8 +70,8 @@ void handleOpenCommand(char* command, int socket)
  */
 void getFileName(char* command, char* nomeFile)
 {
-
 	int lunghezza = strlen(command);
 	memcpy(nomeFile, command, lunghezza);
 	nomeFile[lunghezza-2] = '\0';
+	logM("nomeFile = %s\n", nomeFile);
 }

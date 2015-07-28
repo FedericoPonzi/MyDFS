@@ -39,6 +39,6 @@ int fileAlreadyOpenedInWrite(char* filename, int modo_client, int socketId);
 int isModoApertura(int modo_client, int modo);
 
 
-void closeClientSession(int sd);
+void closeClientSession(int sd, char* fileName);
 
 #endif
