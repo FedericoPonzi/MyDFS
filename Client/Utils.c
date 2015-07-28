@@ -5,12 +5,7 @@
 #include <string.h>
 #include <stdarg.h>
 
-typedef struct MyDFSId
-{
-	char* nomefile;
-	int modo;
-	int pos;
-}MyDFSId;
+
 
 /**
  * Stampa un messaggio di log sullo STDOUT

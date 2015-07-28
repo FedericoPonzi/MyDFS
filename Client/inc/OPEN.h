@@ -10,7 +10,7 @@
 #define MYO_EXLOCK 64
 
 
-MyDFSId* mydfs_open(struct in_addr *indirizzo, char* file, int modo, int* err);
+MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err);
 
 
 #endif
