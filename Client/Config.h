@@ -4,6 +4,7 @@
 #define OPENCOMMAND "OPE"
 #define CLOSECOMMAND "CLO"
 
+#define BUFFSIZEREAD 65536
 
 typedef struct MyDFSId {  
 	char* indirizzo;

@@ -89,13 +89,12 @@ void allocaEInizializzaMemoria()
     /* Set up everything */
     
     /**Indirizzo di serverconnectionsstruct */
-    acceptMutex = ptr+region_sz-sizeof(pthread_mutex_t)-sizeof(int);
-    
-    numberAliveChilds = ptr+region_sz-sizeof(int);
     
     mutex = ptr;
+    acceptMutex = mutex + sizeof(pthread_mutex_t);
+    numberAliveChilds =  (int* )acceptMutex + sizeof(pthread_mutex_t);
     
-    free_head = (OpenedFile **) (((char *) ptr)+sizeof(*mutex));
+    free_head = (OpenedFile **) (((char *) numberAliveChilds)+sizeof(int));
    
     openedFileLinkedList = free_head+1;
 

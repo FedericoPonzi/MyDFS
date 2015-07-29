@@ -61,11 +61,33 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
     //Connessione effettuata, invio la richiesta
     char openCommand [strlen(OPENCOMMAND)+strlen(nomefile)+5];
     sprintf(openCommand, "%s %s %d\n", OPENCOMMAND, toRet->filename, toRet->modo);
-
+	logM("[OpenCommand]: '%s'\n", openCommand);
     if(send(toRet->socketId, openCommand, sizeof(openCommand), 0) < 0)
     {
-		perror("Send:");
+		*err = -2;
 		return NULL;
 	}
-	return toRet;
+	char buffer[30];
+	int nRecv = 0;
+	if (nRecv = recv(toRet->socketId, buffer, sizeof(buffer)-1, 0) < 0)
+	{
+		*err = -2;
+		return NULL;
+	}
+	if(strncmp(buffer, "ok", 2) == 0)
+	{
+		return toRet;
+	}
+	else if(strncmp(buffer, "-1", 2) == 0)
+	{
+		*err = -1;
+	}
+	else
+	{
+		*err = -3;
+	}
+	return NULL;
 }
+
+
+

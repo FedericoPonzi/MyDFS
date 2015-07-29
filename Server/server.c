@@ -104,13 +104,6 @@ void* handleSocket()
 		buff[nRecv-1] = '\0';
 		
 		logM("Client:'%s'\n", buff);
-		if(strlen(buff) > 0)
-		{	
-			strcpy(answer, "\nComando Ricevuto: ");
-			strcat(answer, buff);
-			strcat(answer, "\n");
-			send(temp_sd, answer, strlen(answer), 0);
-		}
 		
 		handleCommand(buff, temp_sd);
 		logM("\n\n");

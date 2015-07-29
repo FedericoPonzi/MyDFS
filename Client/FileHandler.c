@@ -41,16 +41,6 @@
 #include <unistd.h>
 #include <errno.h>
 
-/**
- * name: mydfs_read
- * 
- * @param dfsid: L' id del file che l' utente vuole chiudere.
- * @return -1 in caso di errore, 0 altrimenti.
- * 
- */
-int mydfs_read(MyDFSId* dfsid, int pos, void *ptr, unsigned int size)
-{
-	logM("L'utente ha richiesto la lettura del file: '%s'.", dfsid->filename);
-}
+
 
 

@@ -32,8 +32,7 @@ int main(int argc, char* argv[])
 	error = 0;
 	
 	printf("\n\tHELLO, CLIENT \n");
-	printf("Usage: client.c [filename]\n");
-	printf("Esempio: client.c file.txt\n\n");
+	
 	
 	fileDescr = mydfs_open(indirizzo, file, MYO_CREAT | MYO_RDONLY, &error);
 	
@@ -41,7 +40,7 @@ int main(int argc, char* argv[])
 	{
 		printf("Errore D:");
 	}
-	//mydfs_close(fileDescr);
+	mydfs_close(fileDescr);
 	return 0;
 }
 
