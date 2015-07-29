@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['filename',['filename',['../structMyDFSId.html#ac0e1b8c96d859982c1a7d49f9e929e48',1,'MyDFSId::filename()'],['../structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5',1,'OpenedFile::fileName()']]]
+  ['acceptmutex',['acceptMutex',['../Server_2Config_8c.html#a1b7ba52f02ee92a5963c7aa917b10c2b',1,'acceptMutex():&#160;Config.c'],['../Server_2inc_2Config_8h.html#a1b7ba52f02ee92a5963c7aa917b10c2b',1,'acceptMutex():&#160;Config.c']]],
+  ['address_5fsize',['address_size',['../server_8c.html#ac173e6ad284fd133ccc16bfd48bf0337',1,'server.c']]]
 ];

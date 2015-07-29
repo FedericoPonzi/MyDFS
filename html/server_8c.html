@@ -106,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <code>#include &lt;fcntl.h&gt;</code><br />
 <code>#include &lt;pthread.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="Config_8h_source.html">Config.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Server_2inc_2Config_8h_source.html">inc/Config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Server_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="CommandsHandler_8h_source.html">inc/CommandsHandler.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Error_8h_source.html">inc/Error.h</a>&quot;</code><br />
@@ -114,53 +114,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Definizioni</h2></td></tr>
-<tr class="memitem:a406ea73ae9534077b145f331cd542401"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a406ea73ae9534077b145f331cd542401">Max</a>&#160;&#160;&#160;30</td></tr>
-<tr class="separator:a406ea73ae9534077b145f331cd542401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39912bfe2a55f30e269196f9141d845d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a39912bfe2a55f30e269196f9141d845d">BUFFSIZE</a>&#160;&#160;&#160;30</td></tr>
+<tr class="separator:a39912bfe2a55f30e269196f9141d845d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:a4b3c082abb275401381363274eef5e12"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a4b3c082abb275401381363274eef5e12">spawnProcess</a> (int temp_sd, int sd)</td></tr>
-<tr class="memdesc:a4b3c082abb275401381363274eef5e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un processo e richiama <a class="el" href="server_8c.html#a749fe13b0e1bd1da68a142f169235bbe" title="Gestisce la comunicazione con la socket. ">handleSocket()</a>; All' arrivo di una connessione, crea un processo e richiama handleSocket.  <a href="#a4b3c082abb275401381363274eef5e12">Continua...</a><br /></td></tr>
-<tr class="separator:a4b3c082abb275401381363274eef5e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a749fe13b0e1bd1da68a142f169235bbe"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a749fe13b0e1bd1da68a142f169235bbe">handleSocket</a> (int temp_sd)</td></tr>
-<tr class="memdesc:a749fe13b0e1bd1da68a142f169235bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce la comunicazione con la socket.  <a href="#a749fe13b0e1bd1da68a142f169235bbe">Continua...</a><br /></td></tr>
-<tr class="separator:a749fe13b0e1bd1da68a142f169235bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e7b14672f9e2c9fa99b363004afb8e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread</a> ()</td></tr>
+<tr class="memdesc:a5e7b14672f9e2c9fa99b363004afb8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un thread e richiama <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8" title="Gestisce la comunicazione con la socket. ">handleSocket()</a>  <a href="#a5e7b14672f9e2c9fa99b363004afb8e8">Continua...</a><br /></td></tr>
+<tr class="separator:a5e7b14672f9e2c9fa99b363004afb8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b9349e06b1fd5e9f6e08e25f5968ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess</a> ()</td></tr>
+<tr class="memdesc:a62b9349e06b1fd5e9f6e08e25f5968ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un processo se il numero di processi disponibili e' inferiore a numeroCon.  <a href="#a62b9349e06b1fd5e9f6e08e25f5968ab">Continua...</a><br /></td></tr>
+<tr class="separator:a62b9349e06b1fd5e9f6e08e25f5968ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac53af003472a20c81247bd125288a4c8"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket</a> ()</td></tr>
+<tr class="memdesc:ac53af003472a20c81247bd125288a4c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce la comunicazione con la socket.  <a href="#ac53af003472a20c81247bd125288a4c8">Continua...</a><br /></td></tr>
+<tr class="separator:ac53af003472a20c81247bd125288a4c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e7b14672f9e2c9fa99b363004afb8e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread</a> ()</td></tr>
-<tr class="memdesc:a5e7b14672f9e2c9fa99b363004afb8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un thread e richiama <a class="el" href="server_8c.html#a749fe13b0e1bd1da68a142f169235bbe" title="Gestisce la comunicazione con la socket. ">handleSocket()</a>  <a href="#a5e7b14672f9e2c9fa99b363004afb8e8">Continua...</a><br /></td></tr>
-<tr class="separator:a5e7b14672f9e2c9fa99b363004afb8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variabili</h2></td></tr>
-<tr class="memitem:a3063a74baee4fe1870e52d0ec577afa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOpenedFile.html">OpenedFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a3063a74baee4fe1870e52d0ec577afa9">openedFileLinkedList</a> = NULL</td></tr>
-<tr class="separator:a3063a74baee4fe1870e52d0ec577afa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06b0afe769d54ae94259d8532bc878b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a></td></tr>
+<tr class="separator:a06b0afe769d54ae94259d8532bc878b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a437cecc27162b023659813375ca67d62"><td class="memItemLeft" align="right" valign="top">struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a437cecc27162b023659813375ca67d62">server</a></td></tr>
+<tr class="separator:a437cecc27162b023659813375ca67d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf7df3c8f5ff035f1843f41668a2168c"><td class="memItemLeft" align="right" valign="top">struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#abf7df3c8f5ff035f1843f41668a2168c">client</a></td></tr>
+<tr class="separator:abf7df3c8f5ff035f1843f41668a2168c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac173e6ad284fd133ccc16bfd48bf0337"><td class="memItemLeft" align="right" valign="top">socklen_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#ac173e6ad284fd133ccc16bfd48bf0337">address_size</a></td></tr>
+<tr class="separator:ac173e6ad284fd133ccc16bfd48bf0337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle definizioni</h2>
-<a class="anchor" id="a406ea73ae9534077b145f331cd542401"></a>
+<a class="anchor" id="a39912bfe2a55f30e269196f9141d845d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define Max&#160;&#160;&#160;30</td>
+          <td class="memname">#define BUFFSIZE&#160;&#160;&#160;30</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="server_8c.html#a749fe13b0e1bd1da68a142f169235bbe">handleSocket()</a>.</p>
+<p>Referenziato da <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
-<a class="anchor" id="a749fe13b0e1bd1da68a142f169235bbe"></a>
+<a class="anchor" id="ac53af003472a20c81247bd125288a4c8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void * handleSocket </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>temp_sd</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -169,9 +174,9 @@ Variabili</h2></td></tr>
 <p>Gestisce la comunicazione con la socket. </p>
 <p>Riceve un messaggio dalla socket, lo gestisce, e scrive la risposta. </p>
 
-<p>Referenzia <a class="el" href="CommandsHandler_8c.html#a0c4028eb5c202872c2d81e0861bc9591">getCommandID()</a>, <a class="el" href="CommandsHandler_8c.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="server_8c.html#a406ea73ae9534077b145f331cd542401">Max</a>, e <a class="el" href="Error_8c.html#a950f724a74ee364e724388b8a156f565">printErr()</a>.</p>
+<p>Referenzia <a class="el" href="Server_2Config_8c.html#a1b7ba52f02ee92a5963c7aa917b10c2b">acceptMutex</a>, <a class="el" href="server_8c.html#ac173e6ad284fd133ccc16bfd48bf0337">address_size</a>, <a class="el" href="server_8c.html#a39912bfe2a55f30e269196f9141d845d">BUFFSIZE</a>, <a class="el" href="server_8c.html#abf7df3c8f5ff035f1843f41668a2168c">client</a>, <a class="el" href="CommandsHandler_8c.html#a0c4028eb5c202872c2d81e0861bc9591">getCommandID()</a>, <a class="el" href="CommandsHandler_8c.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Error_8c.html#a950f724a74ee364e724388b8a156f565">printErr()</a>, e <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>.</p>
 
-<p>Referenziato da <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p>Referenziato da <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, e <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>.</p>
 
 </div>
 </div>
@@ -189,37 +194,26 @@ Variabili</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenzia <a class="el" href="Config_8h.html#aeefbbafa97642defe3ee6c3080b7d66f">BACKLOG</a>, <a class="el" href="server_8c.html#a749fe13b0e1bd1da68a142f169235bbe">handleSocket()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Config_8h.html#a614217d263be1fb1a5f76e2ff7be19a2">PORT</a>, <a class="el" href="Error_8c.html#a950f724a74ee364e724388b8a156f565">printErr()</a>, e <a class="el" href="server_8c.html#a4b3c082abb275401381363274eef5e12">spawnProcess()</a>.</p>
+<p>Referenzia <a class="el" href="server_8c.html#ac173e6ad284fd133ccc16bfd48bf0337">address_size</a>, <a class="el" href="Server_2inc_2Config_8h.html#aeefbbafa97642defe3ee6c3080b7d66f">BACKLOG</a>, <a class="el" href="server_8c.html#abf7df3c8f5ff035f1843f41668a2168c">client</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#ad5ed6ddd9940c0097cc91774056df1c2">loadConfig()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>, <a class="el" href="Server_2Config_8c.html#ae53ea95e0769743e3a9e0935564b3739">portNumber</a>, <a class="el" href="Error_8c.html#a950f724a74ee364e724388b8a156f565">printErr()</a>, <a class="el" href="Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>, <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>, <a class="el" href="server_8c.html#a437cecc27162b023659813375ca67d62">server</a>, <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, e <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4b3c082abb275401381363274eef5e12"></a>
+<a class="anchor" id="a62b9349e06b1fd5e9f6e08e25f5968ab"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int spawnProcess </td>
+          <td class="memname">void spawnProcess </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>temp_sd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sd</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Crea un processo e richiama <a class="el" href="server_8c.html#a749fe13b0e1bd1da68a142f169235bbe" title="Gestisce la comunicazione con la socket. ">handleSocket()</a>; All' arrivo di una connessione, crea un processo e richiama handleSocket. </p>
+<p>Crea un processo se il numero di processi disponibili e' inferiore a numeroCon. </p>
 
-<p>Referenzia <a class="el" href="Error_8c.html#a950f724a74ee364e724388b8a156f565">printErr()</a>.</p>
+<p>Referenzia <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="Server_2Config_8c.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>, e <a class="el" href="Error_8c.html#a950f724a74ee364e724388b8a156f565">printErr()</a>.</p>
 
 <p>Referenziato da <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
 
@@ -238,24 +232,70 @@ Variabili</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Crea un thread e richiama <a class="el" href="server_8c.html#a749fe13b0e1bd1da68a142f169235bbe" title="Gestisce la comunicazione con la socket. ">handleSocket()</a> </p>
+<p>Crea un thread e richiama <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8" title="Gestisce la comunicazione con la socket. ">handleSocket()</a> </p>
 <p>All' arrivo di una connessione, crea un thread e richiama handleSocket </p><dl class="section see"><dt>Si veda anche</dt><dd>server.c::handleSocket </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Da fare:</a></b></dt><dd>dovrebbe passargli dei parametri. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Da fare:</a></b></dt><dd>dovrebbe passargli dei parametri. </dd></dl>
+
+<p>Referenzia <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="Server_2Config_8c.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>, e <a class="el" href="Threading_8c.html#a8d783a9d90fdc4fde93816b56043c24b">tid</a>.</p>
+
+<p>Referenziato da <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Documentazione delle variabili</h2>
-<a class="anchor" id="a3063a74baee4fe1870e52d0ec577afa9"></a>
+<a class="anchor" id="ac173e6ad284fd133ccc16bfd48bf0337"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structOpenedFile.html">OpenedFile</a>* openedFileLinkedList = NULL</td>
+          <td class="memname">socklen_t address_size</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#aedd0e72dfdc050225e43fabacc03829b">closeClientSession()</a>, e <a class="el" href="StruttureDati_8c.html#a9d1061becfc0df48b72ad385f3c2e697">fileAlreadyOpen()</a>.</p>
+<p>Referenziato da <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, e <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf7df3c8f5ff035f1843f41668a2168c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sockaddr_in client</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenziato da <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, e <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a06b0afe769d54ae94259d8532bc878b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenziato da <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, e <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a437cecc27162b023659813375ca67d62"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sockaddr_in server</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenziato da <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
 
 </div>
 </div>

@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['second_2ec',['second.c',['../second_8c.html',1,'']]],
-  ['second_2eh',['second.h',['../second_8h.html',1,'']]],
-  ['server_2ec',['server.c',['../server_8c.html',1,'']]],
-  ['strutturedati_2ec',['StruttureDati.c',['../StruttureDati_8c.html',1,'']]],
-  ['strutturedati_2eh',['StruttureDati.h',['../StruttureDati_8h.html',1,'']]]
+  ['read_2ec',['READ.c',['../Client_2READ_8c.html',1,'']]],
+  ['read_2ec',['READ.c',['../Server_2READ_8c.html',1,'']]],
+  ['read_2eh',['READ.h',['../Server_2inc_2READ_8h.html',1,'']]],
+  ['read_2eh',['READ.h',['../Client_2inc_2READ_8h.html',1,'']]],
+  ['readme_2emd',['README.md',['../README_8md.html',1,'']]]
 ];

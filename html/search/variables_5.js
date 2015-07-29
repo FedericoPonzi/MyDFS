@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['socketid',['socketId',['../structSocketIdList.html#ae3472c269defc3b5c5158bb23316989d',1,'SocketIdList']]],
-  ['socketidlist',['socketIdList',['../structOpenedFile.html#afae954d6877e7a6345a696d29355f29e',1,'OpenedFile']]]
+  ['ll',['ll',['../DataStrutePointToPoint_8c.html#a17bd6f6e8522b36453e37821922780a2',1,'DataStrutePointToPoint.c']]]
 ];

@@ -116,6 +116,11 @@ void* handleSocket()
 		{
 			printErr(6);
 		}
+		// Credo che la connessione sia chiusa.
+		if(nRecv == 0)
+		{
+			break;
+		}
 		buff[nRecv-1] = '\0';
 		
 		logM("Client:'%s'\n", buff);
@@ -147,8 +152,7 @@ void* handleSocket()
 		if(isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
 		{
 			spawnHeartBeat(temp_sd);
-		}
-		
+		}		
 	}
 	while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
 		

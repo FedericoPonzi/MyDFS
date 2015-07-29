@@ -11,7 +11,9 @@ char $\ast$ \hyperlink{structOpenedFile_abcff0610dfa8b1e3836b3f5bac40c8f5}{file\
 \item 
 struct \hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{structOpenedFile_a9b8c8b995cdda6da249a6ce9a9df98b2}{next}
 \item 
-\hyperlink{structSocketIdList}{Socket\+Id\+List} $\ast$ \hyperlink{structOpenedFile_afae954d6877e7a6345a696d29355f29e}{socket\+Id\+List}
+int \hyperlink{structOpenedFile_a2af35018ecff06dbd349d464c815038a}{socket\+Id}
+\item 
+int \hyperlink{structOpenedFile_a6d9f22ff6ba81506ba9c4a60f27c4f32}{modo}
 \end{DoxyCompactItemize}
 
 
@@ -21,21 +23,28 @@ struct \hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{structOpened
 \subsubsection[{file\+Name}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ Opened\+File\+::file\+Name}\label{structOpenedFile_abcff0610dfa8b1e3836b3f5bac40c8f5}
 
 
-Referenziato da append(), append\+Opened\+File(), close\+Client\+Session(), file\+Already\+Open(), main(), e printa\+Struct().
+Referenziato da append(), append\+Opened\+File(), close\+Client\+Session(), file\+Already\+Open(), file\+Already\+Opened\+In\+Write(), main(), e printa\+Struct().
+
+\hypertarget{structOpenedFile_a6d9f22ff6ba81506ba9c4a60f27c4f32}{}\index{Opened\+File@{Opened\+File}!modo@{modo}}
+\index{modo@{modo}!Opened\+File@{Opened\+File}}
+\subsubsection[{modo}]{\setlength{\rightskip}{0pt plus 5cm}int Opened\+File\+::modo}\label{structOpenedFile_a6d9f22ff6ba81506ba9c4a60f27c4f32}
+
+
+Referenziato da append\+Opened\+File(), file\+Already\+Opened\+In\+Write(), e handle\+Open\+Command().
 
 \hypertarget{structOpenedFile_a9b8c8b995cdda6da249a6ce9a9df98b2}{}\index{Opened\+File@{Opened\+File}!next@{next}}
 \index{next@{next}!Opened\+File@{Opened\+File}}
 \subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Opened\+File} $\ast$ Opened\+File\+::next}\label{structOpenedFile_a9b8c8b995cdda6da249a6ce9a9df98b2}
 
 
-Referenziato da append(), append\+Opened\+File(), close\+Client\+Session(), file\+Already\+Open(), e main().
+Referenziato da alloca\+E\+Inizializza\+Memoria(), append(), append\+Opened\+File(), close\+Client\+Session(), file\+Already\+Open(), file\+Already\+Opened\+In\+Write(), e main().
 
-\hypertarget{structOpenedFile_afae954d6877e7a6345a696d29355f29e}{}\index{Opened\+File@{Opened\+File}!socket\+Id\+List@{socket\+Id\+List}}
-\index{socket\+Id\+List@{socket\+Id\+List}!Opened\+File@{Opened\+File}}
-\subsubsection[{socket\+Id\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Socket\+Id\+List}$\ast$ Opened\+File\+::socket\+Id\+List}\label{structOpenedFile_afae954d6877e7a6345a696d29355f29e}
+\hypertarget{structOpenedFile_a2af35018ecff06dbd349d464c815038a}{}\index{Opened\+File@{Opened\+File}!socket\+Id@{socket\+Id}}
+\index{socket\+Id@{socket\+Id}!Opened\+File@{Opened\+File}}
+\subsubsection[{socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int Opened\+File\+::socket\+Id}\label{structOpenedFile_a2af35018ecff06dbd349d464c815038a}
 
 
-Referenziato da append\+Opened\+File(), close\+Client\+Session(), e file\+Already\+Open().
+Referenziato da append\+Opened\+File(), e close\+Client\+Session().
 
 
 

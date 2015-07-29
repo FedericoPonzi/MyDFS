@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['socketidlist',['SocketIdList',['../structSocketIdList.html',1,'']]]
+  ['nodo',['Nodo',['../structNodo.html',1,'']]]
 ];

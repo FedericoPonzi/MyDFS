@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openedfile',['OpenedFile',['../structOpenedFile.html',1,'']]]
+  ['mydfsid',['MyDFSId',['../structMyDFSId.html',1,'']]]
 ];

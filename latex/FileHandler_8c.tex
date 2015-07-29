@@ -1,87 +1,33 @@
 \hypertarget{FileHandler_8c}{}\section{Riferimenti per il file Client/\+File\+Handler.c}
 \label{FileHandler_8c}\index{Client/\+File\+Handler.\+c@{Client/\+File\+Handler.\+c}}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
-{\ttfamily \#include \char`\"{}inc/\+File\+Handle.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+File\+Handler.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$ \hyperlink{FileHandler_8c_a75966e6603c4713a140b5e4abbfe198c}{mydfs\+\_\+open} (struct in\+\_\+addr $\ast$indirizzo, char $\ast$nomefile, int modo, int $\ast$err)
-\begin{DoxyCompactList}\small\item\em name\+: mydfs\+\_\+open \end{DoxyCompactList}\item 
-int \hyperlink{FileHandler_8c_ab086978926c33c08e1e183be31d86cce}{mydfs\+\_\+close} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$dfsid)
-\begin{DoxyCompactList}\small\item\em name\+: mydfs\+\_\+open \end{DoxyCompactList}\item 
-int \hyperlink{FileHandler_8c_a9f40f227ee4cf5bb37bbb0324704df1f}{mydfs\+\_\+read} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} dfsid, int pos, void $\ast$ptr, unsigned int size)
+int \hyperlink{FileHandler_8c_a7d847ae719301345714844133a3eca16}{mydfs\+\_\+read} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$dfsid, int pos, void $\ast$ptr, unsigned int size)
 \begin{DoxyCompactList}\small\item\em name\+: mydfs\+\_\+read \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{FileHandler_8c_ab086978926c33c08e1e183be31d86cce}{}\index{File\+Handler.\+c@{File\+Handler.\+c}!mydfs\+\_\+close@{mydfs\+\_\+close}}
-\index{mydfs\+\_\+close@{mydfs\+\_\+close}!File\+Handler.\+c@{File\+Handler.\+c}}
-\subsubsection[{mydfs\+\_\+close}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+close (
-\begin{DoxyParamCaption}
-\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{dfsid}
-\end{DoxyParamCaption}
-)}\label{FileHandler_8c_ab086978926c33c08e1e183be31d86cce}
-
-
-name\+: mydfs\+\_\+open 
-
-
-\begin{DoxyParams}{Parametri}
-{\em dfsid} & L\textquotesingle{} id del file che l\textquotesingle{} utente vuole chiudere. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Restituisce}
--\/1 in caso di errore, 0 altrimenti. 
-\end{DoxyReturn}
-
-
-Referenzia My\+D\+F\+S\+Id\+::filename, e log\+M().
-
-\hypertarget{FileHandler_8c_a75966e6603c4713a140b5e4abbfe198c}{}\index{File\+Handler.\+c@{File\+Handler.\+c}!mydfs\+\_\+open@{mydfs\+\_\+open}}
-\index{mydfs\+\_\+open@{mydfs\+\_\+open}!File\+Handler.\+c@{File\+Handler.\+c}}
-\subsubsection[{mydfs\+\_\+open}]{\setlength{\rightskip}{0pt plus 5cm}{\bf My\+D\+F\+S\+Id}$\ast$ mydfs\+\_\+open (
-\begin{DoxyParamCaption}
-\item[{struct in\+\_\+addr $\ast$}]{indirizzo, }
-\item[{char $\ast$}]{nomefile, }
-\item[{int}]{modo, }
-\item[{int $\ast$}]{err}
-\end{DoxyParamCaption}
-)}\label{FileHandler_8c_a75966e6603c4713a140b5e4abbfe198c}
-
-
-name\+: mydfs\+\_\+open 
-
-
-\begin{DoxyParams}{Parametri}
-{\em indirizzo} & l\textquotesingle{} indirizzo ipv4 a cui vogliamo connetterci, \\
-\hline
-{\em nomefile} & nome del file richiesto, \\
-\hline
-{\em modo} & modo, che puo essere\+: O\+\_\+\+R\+D\+O\+N\+L\+Y, O\+\_\+\+W\+R\+O\+N\+L\+Y, O\+\_\+\+R\+D\+W\+R, O\+\_\+\+C\+R\+E\+A\+T, O\+\_\+\+T\+R\+U\+N\+C, O\+\_\+\+E\+X\+C\+L, O\+\_\+\+E\+X\+L\+O\+C\+K \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Restituisce}
-N\+U\+L\+L in caso di errore, un puntatore a My\+D\+F\+S\+Id$\ast$ altrimenti. 
-\end{DoxyReturn}
-
-
-Referenzia log\+M().
-
-
-
-Referenziato da main().
-
-\hypertarget{FileHandler_8c_a9f40f227ee4cf5bb37bbb0324704df1f}{}\index{File\+Handler.\+c@{File\+Handler.\+c}!mydfs\+\_\+read@{mydfs\+\_\+read}}
+\hypertarget{FileHandler_8c_a7d847ae719301345714844133a3eca16}{}\index{File\+Handler.\+c@{File\+Handler.\+c}!mydfs\+\_\+read@{mydfs\+\_\+read}}
 \index{mydfs\+\_\+read@{mydfs\+\_\+read}!File\+Handler.\+c@{File\+Handler.\+c}}
 \subsubsection[{mydfs\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+read (
 \begin{DoxyParamCaption}
-\item[{{\bf My\+D\+F\+S\+Id}}]{dfsid, }
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{dfsid, }
 \item[{int}]{pos, }
 \item[{void $\ast$}]{ptr, }
 \item[{unsigned int}]{size}
 \end{DoxyParamCaption}
-)}\label{FileHandler_8c_a9f40f227ee4cf5bb37bbb0324704df1f}
+)}\label{FileHandler_8c_a7d847ae719301345714844133a3eca16}
 
 
 name\+: mydfs\+\_\+read 

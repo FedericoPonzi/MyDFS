@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openedfilelinkedlist',['openedFileLinkedList',['../StruttureDati_8h.html#a3063a74baee4fe1870e52d0ec577afa9',1,'openedFileLinkedList():&#160;server.c'],['../server_8c.html#a3063a74baee4fe1870e52d0ec577afa9',1,'openedFileLinkedList():&#160;server.c']]]
+  ['glob',['glob',['../Mmap_8c.html#a70e20ef1857673c65b486a38792b6c2c',1,'Mmap.c']]]
 ];

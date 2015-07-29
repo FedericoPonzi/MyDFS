@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['true',['TRUE',['../second_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d',1,'TRUE():&#160;second.h'],['../StruttureDati_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d',1,'TRUE():&#160;StruttureDati.h']]]
+  ['numcon',['NUMCON',['../Prove_2Parsing_01file_01Config_2Config_8c.html#a255e36c4be794d811184d55bb5550820',1,'NUMCON():&#160;Config.c'],['../Server_2Config_8c.html#a255e36c4be794d811184d55bb5550820',1,'NUMCON():&#160;Config.c']]]
 ];
