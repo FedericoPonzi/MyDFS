@@ -29,12 +29,11 @@
  *
  */
 #include <stdio.h>
-#include "inc/Utils.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include "inc/Utils.h"
 #include "inc/Config.h"
-
 
 /**
  * @brief Stampa un messaggio di log sullo STDOUT 

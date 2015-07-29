@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
 #include <pthread.h>
 #include "inc/Config.h"
 #include "inc/Utils.h"
@@ -22,6 +23,7 @@
 
 int *numberAliveChilds;
 pthread_mutex_t *acceptMutex;
+//static pthread_mutex_t *hbMutex;
 
 
 int numeroCon = 0;

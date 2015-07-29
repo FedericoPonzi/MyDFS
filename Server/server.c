@@ -20,10 +20,14 @@
 void spawnThread();
 void spawnProcess();
 void* handleSocket();
+void spawnHeartBeat(int temp_sd);
+void* heartBeat(void *temp_sd);
 int sd;
 struct sockaddr_in server;
 struct sockaddr_in client;
 socklen_t address_size;
+static pthread_mutex_t *hbMutex;
+
 int main()
 {
 	loadConfig();
@@ -40,6 +44,7 @@ int main()
 	
 	if(bind(sd, (struct sockaddr *) &server, sizeof(server)) <0)
 	{
+		perror("bind");
 		printErr(2);
 	}
 	if(listen (sd, BACKLOG) < 0)
@@ -79,11 +84,25 @@ void* handleSocket()
 	{
 		printErr(4);
 	}
+
 	pthread_mutex_unlock(acceptMutex);
 
 	char answer[50];
 	int nRecv;
 	char buff[BUFFSIZE];
+	
+	hbMutex = malloc(sizeof(pthread_mutex_t));
+	pthread_mutexattr_t mutex_attr;
+	
+    if (pthread_mutexattr_init(&mutex_attr) < 0) {
+        perror("Failed to initialize mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+    
+    if (pthread_mutex_init(hbMutex, &mutex_attr) < 0) {
+        perror("Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
 
 	logM("Collegamento effettuato.\n");
 	do
@@ -92,6 +111,7 @@ void* handleSocket()
 		bzero(buff, sizeof(buff));
 		
 		nRecv = recv(temp_sd, buff, sizeof(buff)-1, 0);
+		
 		if(nRecv < 0)
 		{
 			printErr(6);
@@ -104,23 +124,84 @@ void* handleSocket()
 			strcpy(answer, "\nComando Ricevuto: ");
 			strcat(answer, buff);
 			strcat(answer, "\n");
+			
+			pthread_mutex_lock(hbMutex);
+			
 			send(temp_sd, answer, strlen(answer), 0);
+			
+			pthread_mutex_unlock(hbMutex);
 		}
 		
 		handleCommand(buff, temp_sd);
 		logM("\n\n");
-
-
+		
+		OpenedFile* iterator = *openedFileLinkedList;
+		while(iterator->socketId != temp_sd)
+		{
+			if(iterator->next != NULL)
+			{
+				iterator = iterator->next;
+			}
 		}
-		while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
 		
-		//Diminuisco il numero di figli vivi.
-		(*numberAliveChilds)--;
-		logM("Connessione terminata.\n");
+		if(isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
+		{
+			spawnHeartBeat(temp_sd);
+		}
 		
-		return NULL;
+	}
+	while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
+		
+	//Diminuisco il numero di figli vivi.
+	(*numberAliveChilds)--;
+	logM("Connessione terminata.\n");
+		
+	return NULL;
 }
 
+void spawnHeartBeat(int temp_sd)
+{
+	pthread_t tid;
+	if(pthread_create(&tid, NULL, &heartBeat, &temp_sd) != 0)
+	{
+		perror("Cant create hb_thread");
+	}
+}
+
+void* heartBeat(void *pt_temp_sd)
+{
+	//wait tot secondi
+	sleep(2);
+	int temp_sd = *((int*)pt_temp_sd);
+	char ping[5] = "ping";
+	int nRecv;
+	char buff_ping_back[BUFFSIZE];
+	
+	pthread_mutex_lock(hbMutex);
+			
+	send(temp_sd, ping, strlen(ping), 0);
+			
+	pthread_mutex_unlock(hbMutex);
+	
+	//struct per settare tempo massimo di attesa in rcv
+	struct timeval tv;
+
+	tv.tv_sec = 10;  /* 5 Secs Timeout */
+	tv.tv_usec = 0;  // Not init'ing this can cause strange errors
+
+	setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
+	
+	nRecv = recv(temp_sd, buff_ping_back, sizeof(buff_ping_back)-1, 0); //se ci sono errori prova a levare il -1
+		
+	if((nRecv < 0) | (strncmp("ok", buff_ping_back, 2) != 0))
+	{
+		printf("connessione %d chiusa per inattività\n", temp_sd);
+		closeClientSession(temp_sd);
+		exit(0);
+	}
+	
+	return NULL;
+}
 /**
  * @brief Crea un thread e richiama handleSocket()
  * 

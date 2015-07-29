@@ -35,10 +35,10 @@ extern OpenedFile **free_head;
 
 void allocaEInizializzaMemoria();
 int appendOpenedFile(char* nomefile, int modo, int socket);
-int fileAlreadyOpenedInWrite(char* filename, int modo_client, int socketId);
+int fileAlreadyOpenedInWrite(char* filename, int socketId);
 int isModoApertura(int modo_client, int modo);
 
 
-void closeClientSession(int sd, char* fileName);
+void closeClientSession(int sd /*, char* fileName*/);
 
 #endif

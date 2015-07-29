@@ -1,6 +1,7 @@
 #ifndef CONFIGH
 #define CONFIGH
 
+#include <pthread.h>
 
 
 /**
@@ -25,7 +26,8 @@
 #define CONFIGFILENAME "CONFIG"
 
 
-extern pthread_mutex_t* acceptMutex;
+extern pthread_mutex_t *acceptMutex;
+//static pthread_mutex_t *hbMutex;
 
 extern int* numberAliveChilds;
 

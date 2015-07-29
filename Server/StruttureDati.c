@@ -141,7 +141,7 @@ int appendOpenedFile(char* nomeFile, int modo, int socket)
 {
 	logM("Appendo il file aperto.\n");
 	//Se richiede una scrittura, e il file e' già aperto in scrittura:
-	if(fileAlreadyOpenedInWrite(nomeFile, modo, socket)) //Aperto in scrittura
+	if(fileAlreadyOpenedInWrite(nomeFile, socket)) //Aperto in scrittura
 	{
 		logM("Non posso farlo john\n");
 		return 0;
@@ -174,7 +174,7 @@ int appendOpenedFile(char* nomeFile, int modo, int socket)
  *
  */
 
-int fileAlreadyOpenedInWrite(char* filename, int modo_client, int socketId)
+int fileAlreadyOpenedInWrite(char* filename, int socketId)
 {
 	logM("File already opened in write? \n");
 
@@ -219,13 +219,13 @@ int isModoApertura(int modo_client, int modo)
  * @brief rimuove collegamenti tra client e file aperti nella sessione
  * @param int sd socket descriptor del client
  */
-void closeClientSession(int sd, char* fileName) //SISTEMA LOOP
+void closeClientSession(int sd /*, char* fileName*/) //fileName va rimosso, la session è relativa ad un solo file
 {
 	OpenedFile* iterator = *openedFileLinkedList;
 	OpenedFile* preIterator = NULL;
 	while(TRUE)
 	{
-		if(iterator->socketId == sd && (strcmp(iterator->fileName, fileName) == 0))
+		if(iterator->socketId == sd /*&& (strcmp(iterator->fileName, fileName) == 0)*/)
 		{
 			
 			//OpenedFile* temp = iterator;
@@ -278,6 +278,8 @@ void closeClientSession(int sd, char* fileName) //SISTEMA LOOP
 			}
 		}
 	}
+	logM("chiusura connessione, byeee\n");
+	close(sd);
 	
 	/*
 	OpenedFile* iterator = openedFileLinkedList;
