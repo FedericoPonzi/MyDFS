@@ -1,0 +1,61 @@
+\hypertarget{Server_2CLOSE_8c}{}\section{Riferimenti per il file Server/\+C\+L\+O\+S\+E.c}
+\label{Server_2CLOSE_8c}\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}inc/\+O\+P\+E.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+C\+L\+O\+S\+E.\+h\char`\"{}}\\*
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Server_2CLOSE_8c_a9b6ede669b1302d07f8a3200f737b778}{handle\+Close\+Command} (int socket, char $\ast$command)
+\begin{DoxyCompactList}\small\item\em Gestisce il comando Close. \end{DoxyCompactList}\item 
+void \hyperlink{Server_2CLOSE_8c_a00f50008269b8cc071244708afabd5ca}{get\+File\+Name\+Close} (char $\ast$command, char $\ast$nome\+File)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentazione delle funzioni}
+\hypertarget{Server_2CLOSE_8c_a00f50008269b8cc071244708afabd5ca}{}\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!get\+File\+Name\+Close@{get\+File\+Name\+Close}}
+\index{get\+File\+Name\+Close@{get\+File\+Name\+Close}!Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}}
+\subsubsection[{get\+File\+Name\+Close}]{\setlength{\rightskip}{0pt plus 5cm}void get\+File\+Name\+Close (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command, }
+\item[{char $\ast$}]{nome\+File}
+\end{DoxyParamCaption}
+)}\label{Server_2CLOSE_8c_a00f50008269b8cc071244708afabd5ca}
+
+
+Referenzia log\+M().
+
+
+
+Referenziato da handle\+Close\+Command().
+
+\hypertarget{Server_2CLOSE_8c_a9b6ede669b1302d07f8a3200f737b778}{}\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!handle\+Close\+Command@{handle\+Close\+Command}}
+\index{handle\+Close\+Command@{handle\+Close\+Command}!Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}}
+\subsubsection[{handle\+Close\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Close\+Command (
+\begin{DoxyParamCaption}
+\item[{int}]{socket, }
+\item[{char $\ast$}]{command}
+\end{DoxyParamCaption}
+)}\label{Server_2CLOSE_8c_a9b6ede669b1302d07f8a3200f737b778}
+
+
+Gestisce il comando Close. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em int} & socket socket del client che termina sessione \\
+\hline
+\end{DoxyParams}
+
+
+Referenzia close\+Client\+Session(), get\+File\+Name\+Close(), log\+M(), e strip\+Command().
+
+
+
+Referenziato da handle\+Command().
+
