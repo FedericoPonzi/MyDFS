@@ -1,13 +1,19 @@
 #ifndef CONFIGH
 #define CONFIGH
 
+#include <pthread.h>
 
 
 /**
  * @brief Numero di connessioni in ascolto
  */
  
-#define BACKLOG 20
+#define BACKLOG 10
+
+/**
+ * @brief Tempo di attesa per heartbeating
+ */
+#define PING_TIME 20
 
 /**
  * @brief Se in modalita' debug, stampa utili messaggi di log.
@@ -17,7 +23,7 @@
 /**
  * @brief 1 per multiprocesso, 0 per multithreading:
  */
-#define MULTIPROC 0
+#define MULTIPROC 1
 
 /**
  * @brief Nome del file di config
@@ -25,7 +31,8 @@
 #define CONFIGFILENAME "CONFIG"
 
 
-extern pthread_mutex_t* acceptMutex;
+extern pthread_mutex_t *acceptMutex;
+//static pthread_mutex_t *hbMutex;
 
 extern int* numberAliveChilds;
 

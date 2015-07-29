@@ -79,7 +79,7 @@ void allocaEInizializzaMemoria()
 	region_sz += sizeof(pthread_mutex_t);
 	region_sz += sizeof(int);
 	
-	logM("[Initialize Memory] Sto per allocare %lu spazio.\n", region_sz);
+	logM("[Initialize Memory] - Sto per allocare %lu spazio.\n", region_sz);
     ptr = mmap(NULL, region_sz, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, 0, 0);
     if (ptr == MAP_FAILED) {
         perror("mmap(2) failed");
@@ -114,17 +114,17 @@ void allocaEInizializzaMemoria()
 
     pthread_mutexattr_t mutex_attr;
     if (pthread_mutexattr_init(&mutex_attr) < 0) {
-        perror("Failed to initialize mutex attributes");
+        perror("[Initialize Memory] - Failed to initialize mutex attributes");
         exit(EXIT_FAILURE);
     }
 
     if (pthread_mutexattr_setpshared(&mutex_attr, PTHREAD_PROCESS_SHARED) < 0) {
-        perror("Failed to change mutex attributes");
+        perror("[Initialize Memory] - Failed to change mutex attributes");
         exit(EXIT_FAILURE);
     }
 
     if (pthread_mutex_init(mutex, &mutex_attr) < 0) {
-        perror("Failed to initialize mutex");
+        perror("[Initialize Memory] - Failed to initialize mutex");
         exit(EXIT_FAILURE);
     }
 }
@@ -138,19 +138,22 @@ void allocaEInizializzaMemoria()
  */
 int appendOpenedFile(char* nomeFile, int modo, int socket)
 {
-	logM("Appendo il file aperto.\n");
+	logM("[appendOpenedFile] - Appendo il file aperto.\n");
 	//Se richiede una scrittura, e il file e' già aperto in scrittura:
-	if(fileAlreadyOpenedInWrite(nomeFile, modo, socket)) //Aperto in scrittura
+	if(fileAlreadyOpenedInWrite(nomeFile, socket)) //Aperto in scrittura
 	{
-		logM("Non posso farlo john\n");
+		logM("[appendOpenedFile] - Non posso farlo john\n");
+		char ret_val[2] = "-1";
+		send(socket, ret_val, sizeof(ret_val), 0);
 		return 0;
 	}
-	logM("Prendo il lock: \n");
+	logM("[appendOpenedFile] - Prendo il lock: \n");
 	pthread_mutex_lock(mutex);
 
 	OpenedFile *n = *free_head;
-
-	if (n == NULL) {
+	
+	if (n == NULL) 
+	{
 		pthread_mutex_unlock(mutex);
 		assert(0);
 	}
@@ -163,7 +166,7 @@ int appendOpenedFile(char* nomeFile, int modo, int socket)
 	*openedFileLinkedList = n;
 
 	pthread_mutex_unlock(mutex);
-	logM("Lock rilasciato. \n");
+	logM("[appendOpenedFile] - Lock rilasciato. \n");
 
 	return 1;
 }
@@ -173,9 +176,9 @@ int appendOpenedFile(char* nomeFile, int modo, int socket)
  *
  */
 
-int fileAlreadyOpenedInWrite(char* filename, int modo_client, int socketId)
+int fileAlreadyOpenedInWrite(char* filename, int socketId)
 {
-	logM("File already opened in write? \n");
+	logM("[fileAlreadyOpenedInWrite] - File already opened in write? \n");
 
 	if(openedFileLinkedList == NULL) return FALSE;
 	
@@ -193,14 +196,14 @@ int fileAlreadyOpenedInWrite(char* filename, int modo_client, int socketId)
 		iterator = iterator->next;
 	}
 	
-	logM("Nessun file aperto con questo nome: '%s' \n",filename);
+	logM("[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome: '%s' \n",filename);
 
 	return 0;
 }
 
 
 /**
- * @brief Dice se modo_client contiene il modo modo.
+ * @brief Dice se modo_client contiene il modo "modo".
  * 
   */
 int isModoApertura(int modo_client, int modo)
@@ -218,13 +221,13 @@ int isModoApertura(int modo_client, int modo)
  * @brief rimuove collegamenti tra client e file aperti nella sessione
  * @param int sd socket descriptor del client
  */
-void closeClientSession(int sd, char* fileName) //SISTEMA LOOP
+void closeClientSession(int sd /*, char* fileName*/) //fileName va rimosso, la session è relativa ad un solo file
 {
 	OpenedFile* iterator = *openedFileLinkedList;
 	OpenedFile* preIterator = NULL;
 	while(TRUE)
 	{
-		if(iterator->socketId == sd && (strcmp(iterator->fileName, fileName) == 0))
+		if(iterator->socketId == sd /*&& (strcmp(iterator->fileName, fileName) == 0)*/)
 		{
 			
 			//OpenedFile* temp = iterator;
@@ -232,7 +235,7 @@ void closeClientSession(int sd, char* fileName) //SISTEMA LOOP
 			
 			if(preIterator == NULL) //primo della lista
 			{
-				logM("individuato file primo: %s - pronto alla chiusura\n", iterator->fileName);
+				logM("[closeClientSession] - individuato file primo: %s - pronto alla chiusura\n", iterator->fileName);
 				*openedFileLinkedList = iterator->next;
 				
 				iterator->next = *free_head;
@@ -244,14 +247,14 @@ void closeClientSession(int sd, char* fileName) //SISTEMA LOOP
 			{
 				if(iterator->next == NULL) //ultimo della lista
 				{
-					logM("individuato file ultimo: %s - pronto alla chiusura\n", iterator->fileName);
+					logM("[closeClientSession] - individuato file ultimo: %s - pronto alla chiusura\n", iterator->fileName);
 					iterator->next = *free_head;
 					*free_head = iterator;
 					preIterator->next = NULL;
 				}
 				else //nè primo nè ultimo della lista
 				{
-					logM("individuato file medio: %s - pronto alla chiusura\n", iterator->fileName);
+					logM("[closeClientSession] - individuato file medio: %s - pronto alla chiusura\n", iterator->fileName);
 					preIterator->next = iterator->next;
 					
 					iterator->next = *free_head;
@@ -277,74 +280,6 @@ void closeClientSession(int sd, char* fileName) //SISTEMA LOOP
 			}
 		}
 	}
-	
-	/*
-	OpenedFile* iterator = openedFileLinkedList;
-	SocketIdList* iterator2;
-	SocketIdList* preIterator2;
-	while(TRUE)
-	{
-		iterator2 = iterator->socketIdList;
-		do
-		{
-			/stampe di debug:
-			logM("nuovo iterator: %s\n", iterator->fileName);
-			logM("iterator->socketId = %d\n", iterator2->socketId);
-			logM("socket_closing = %d\n", sd);
-			if(iterator2->socketId == sd) //se iterator2->SocketId è uguale a quella in input
-			{
-				logM("chiudo %s\n", iterator->fileName);
-				if(preIterator2 != NULL) //se iterator2 non è primo della lista
-				{
-					if(iterator2->next != NULL) //se iterator2 non è ultimo della lista
-					{
-							preIterator2->next = iterator2->next;
-							SocketIdList temp_it = *iterator2;
-							free(iterator2);
-							iterator2 = temp_it.next;
-							preIterator2 = preIterator2->next;
-					}
-					else //se iterator2 è ultimo della lista
-					{
-							free(iterator2);
-							preIterator2->next = NULL;
-					}
-				}
-				else //se iterator2 è primo della lista
-				{
-					if(iterator2->next != NULL) //se iterator2 non è ultimo della lista
-					{
-							SocketIdList temp_it = *iterator2;
-							free(iterator2);
-							iterator->socketIdList=temp_it.next;
-					}
-					else //se iterator2 è ultimo della lista
-					{
-							free(iterator2);
-							iterator->socketIdList=NULL;
-					}
-				}
-				break;	
-			}
-			else //se iterator2->SocketId è diversa da quella di input
-			{
-				if(iterator2->next != NULL)
-				{	
-					iterator2 = iterator2->next;
-					preIterator2 = iterator2;
-				}
-			}
-		}while(iterator2->next != NULL);
-		
-		if(iterator->next != NULL) //procedo finchè ho esaminato tutti i file aperti
-		{
-			iterator = iterator->next;
-		}
-		else
-		{
-			break;
-		}
-		
-	}
-	*/
+	logM("[closeClientSession] - chiusura connessione, byeee\n");
+	close(sd);
 }

@@ -30,8 +30,7 @@ void handleCloseCommand(int socket, char* command)
 	
 	logM("chiusura file in corso, wait 4 it\n");
 	
-	closeClientSession(socket, fileName);
-	//close(socket);
+	closeClientSession(socket/*, fileName*/);
 }
 
 void getFileNameClose(char* command, char* nomeFile)
