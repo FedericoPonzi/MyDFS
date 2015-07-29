@@ -1,45 +1,57 @@
 \hypertarget{OPEN_8c}{}\section{Riferimenti per il file Client/\+O\+P\+E\+N.c}
 \label{OPEN_8c}\index{Client/\+O\+P\+E\+N.\+c@{Client/\+O\+P\+E\+N.\+c}}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
-\subsection*{Definizioni}
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+File\+Handler.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+O\+P\+E\+N.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
+\subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{OPEN_8c_addf7c1358350b77c12278a4a1d6009cc}{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}~1
-\item 
-\#define \hyperlink{OPEN_8c_a85f78205a7dfd8bec546ea15b8c11e72}{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}~2
-\item 
-\#define \hyperlink{OPEN_8c_aa9060de0420480468979d7332bc6d1b6}{M\+Y\+O\+\_\+\+R\+D\+W\+R}~4
-\item 
-\#define \hyperlink{OPEN_8c_ab8181332ab18dffb096fd34bb09d50ba}{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}~8
-\item 
-\#define \hyperlink{OPEN_8c_a7223636d09d813f91adef7515ab8185d}{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}~16
-\item 
-\#define \hyperlink{OPEN_8c_a143323b4e3aee4c7d2e296e06b114c13}{M\+Y\+O\+\_\+\+E\+X\+C\+L}~32
-\item 
-\#define \hyperlink{OPEN_8c_a8150949fd71074229bee31cd830c1ffa}{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}~64
-\end{DoxyCompactItemize}
+\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$ \hyperlink{OPEN_8c_a846cf2a86ab9bdb1a8496e03b93d6db8}{mydfs\+\_\+open} (char $\ast$indirizzo, char $\ast$nomefile, int modo, int $\ast$err)
+\begin{DoxyCompactList}\small\item\em name\+: mydfs\+\_\+open \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Documentazione delle definizioni}
-\hypertarget{OPEN_8c_ab8181332ab18dffb096fd34bb09d50ba}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+C\+R\+E\+A\+T@{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}}
-\index{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T@{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
-\subsubsection[{M\+Y\+O\+\_\+\+C\+R\+E\+A\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+C\+R\+E\+A\+T~8}\label{OPEN_8c_ab8181332ab18dffb096fd34bb09d50ba}
-\hypertarget{OPEN_8c_a143323b4e3aee4c7d2e296e06b114c13}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+E\+X\+C\+L@{M\+Y\+O\+\_\+\+E\+X\+C\+L}}
-\index{M\+Y\+O\+\_\+\+E\+X\+C\+L@{M\+Y\+O\+\_\+\+E\+X\+C\+L}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
-\subsubsection[{M\+Y\+O\+\_\+\+E\+X\+C\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+E\+X\+C\+L~32}\label{OPEN_8c_a143323b4e3aee4c7d2e296e06b114c13}
-\hypertarget{OPEN_8c_a8150949fd71074229bee31cd830c1ffa}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K@{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}}
-\index{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K@{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
-\subsubsection[{M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K~64}\label{OPEN_8c_a8150949fd71074229bee31cd830c1ffa}
-\hypertarget{OPEN_8c_addf7c1358350b77c12278a4a1d6009cc}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}}
-\index{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
-\subsubsection[{M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y~1}\label{OPEN_8c_addf7c1358350b77c12278a4a1d6009cc}
-\hypertarget{OPEN_8c_aa9060de0420480468979d7332bc6d1b6}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+R\+D\+W\+R@{M\+Y\+O\+\_\+\+R\+D\+W\+R}}
-\index{M\+Y\+O\+\_\+\+R\+D\+W\+R@{M\+Y\+O\+\_\+\+R\+D\+W\+R}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
-\subsubsection[{M\+Y\+O\+\_\+\+R\+D\+W\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+R\+D\+W\+R~4}\label{OPEN_8c_aa9060de0420480468979d7332bc6d1b6}
-\hypertarget{OPEN_8c_a7223636d09d813f91adef7515ab8185d}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+T\+R\+U\+N\+C@{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}}
-\index{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C@{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
-\subsubsection[{M\+Y\+O\+\_\+\+T\+R\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+T\+R\+U\+N\+C~16}\label{OPEN_8c_a7223636d09d813f91adef7515ab8185d}
-\hypertarget{OPEN_8c_a85f78205a7dfd8bec546ea15b8c11e72}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}}
-\index{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y@{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
-\subsubsection[{M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y~2}\label{OPEN_8c_a85f78205a7dfd8bec546ea15b8c11e72}
+\subsection{Documentazione delle funzioni}
+\hypertarget{OPEN_8c_a846cf2a86ab9bdb1a8496e03b93d6db8}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!mydfs\+\_\+open@{mydfs\+\_\+open}}
+\index{mydfs\+\_\+open@{mydfs\+\_\+open}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
+\subsubsection[{mydfs\+\_\+open}]{\setlength{\rightskip}{0pt plus 5cm}{\bf My\+D\+F\+S\+Id}$\ast$ mydfs\+\_\+open (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{indirizzo, }
+\item[{char $\ast$}]{nomefile, }
+\item[{int}]{modo, }
+\item[{int $\ast$}]{err}
+\end{DoxyParamCaption}
+)}\label{OPEN_8c_a846cf2a86ab9bdb1a8496e03b93d6db8}
+
+
+name\+: mydfs\+\_\+open 
+
+
+\begin{DoxyParams}{Parametri}
+{\em indirizzo} & l\textquotesingle{} indirizzo ipv4 a cui vogliamo connetterci, \\
+\hline
+{\em nomefile} & nome del file richiesto, \\
+\hline
+{\em modo} & modo, che puo essere\+: O\+\_\+\+R\+D\+O\+N\+L\+Y, O\+\_\+\+W\+R\+O\+N\+L\+Y, O\+\_\+\+R\+D\+W\+R, O\+\_\+\+C\+R\+E\+A\+T, O\+\_\+\+T\+R\+U\+N\+C, O\+\_\+\+E\+X\+C\+L, O\+\_\+\+E\+X\+L\+O\+C\+K \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+N\+U\+L\+L in caso di errore, un puntatore a My\+D\+F\+S\+Id$\ast$ altrimenti. 
+\end{DoxyReturn}
+
+
+Referenzia O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D.
+
+
+
+Referenziato da main().
+

@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
-<title>MyDFS:  File sorgente Server/inc/OPEN.h</title>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>MyDFS:  File sorgente Client/inc/OPEN.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+  <td style="padding-left: 0.5em;">
    <div id="projectname">MyDFS
    &#160;<span id="projectnumber">1</span>
    </div>
@@ -33,13 +33,14 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generato da Doxygen 1.8.10 -->
+<!-- Generato da Doxygen 1.8.9.1 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="pages.html"><span>Pagine&#160;collegate</span></a></li>
       <li><a href="annotated.html"><span>Strutture&#160;dati</span></a></li>
       <li class="current"><a href="files.html"><span>File</span></a></li>
       <li>
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_1a445cb237d74f7a5f8d11ec3b0585cc.html">Server</a></li><li class="navelem"><a class="el" href="dir_c0c72df55d3d7effa499cb3e8f85f3eb.html">inc</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_922c588100a187620fdc1533bc178f73.html">Client</a></li><li class="navelem"><a class="el" href="dir_ae8017259e19aa6e76c1027178a75206.html">inc</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -90,30 +91,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="title">OPEN.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="OPEN_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef OPENCOMMAND</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define OPENCOMMAND</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../StruttureDati.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Server_2inc_2Utils_8h.html">Utils.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">void</span> <a class="code" href="OPEN_8h.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a>(<span class="keywordtype">char</span>* command, <span class="keywordtype">int</span> socket);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">void</span> <a class="code" href="OPEN_8h.html#a80e913f5bc9ad0afa7ead080e42544ba">getFileName</a>(<span class="keywordtype">char</span>* command, <span class="keywordtype">char</span>* nomefile);</div>
+<a href="OPEN_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef OPEN</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define OPEN</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="OPEN_8h.html#addf7c1358350b77c12278a4a1d6009cc">    4</a></span>&#160;<span class="preprocessor">#define MYO_RDONLY 1</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="OPEN_8h.html#a85f78205a7dfd8bec546ea15b8c11e72">    5</a></span>&#160;<span class="preprocessor">#define MYO_WRONLY 2</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="OPEN_8h.html#aa9060de0420480468979d7332bc6d1b6">    6</a></span>&#160;<span class="preprocessor">#define MYO_RDWR   4</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="OPEN_8h.html#ab8181332ab18dffb096fd34bb09d50ba">    7</a></span>&#160;<span class="preprocessor">#define MYO_CREAT  8</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="OPEN_8h.html#a7223636d09d813f91adef7515ab8185d">    8</a></span>&#160;<span class="preprocessor">#define MYO_TRUNC  16</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="OPEN_8h.html#a143323b4e3aee4c7d2e296e06b114c13">    9</a></span>&#160;<span class="preprocessor">#define MYO_EXCL   32</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="OPEN_8h.html#a8150949fd71074229bee31cd830c1ffa">   10</a></span>&#160;<span class="preprocessor">#define MYO_EXLOCK 64</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<a class="code" href="structMyDFSId.html">MyDFSId</a>* <a class="code" href="OPEN_8h.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open</a>(<span class="keywordtype">char</span>* indirizzo, <span class="keywordtype">char</span> *nomefile, <span class="keywordtype">int</span> modo, <span class="keywordtype">int</span> *err);</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="OPEN_8h_html_a80e913f5bc9ad0afa7ead080e42544ba"><div class="ttname"><a href="OPEN_8h.html#a80e913f5bc9ad0afa7ead080e42544ba">getFileName</a></div><div class="ttdeci">void getFileName(char *command, char *nomefile)</div><div class="ttdoc">Torna il nome (o path del file richiesto. </div><div class="ttdef"><b>Definition:</b> OPEN.c:32</div></div>
-<div class="ttc" id="OPEN_8h_html_a6eccb6ec6ec9c8375e70ab4088b511a5"><div class="ttname"><a href="OPEN_8h.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a></div><div class="ttdeci">void handleOpenCommand(char *command, int socket)</div><div class="ttdef"><b>Definition:</b> OPEN.c:5</div></div>
-<div class="ttc" id="Server_2inc_2Utils_8h_html"><div class="ttname"><a href="Server_2inc_2Utils_8h.html">Utils.h</a></div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="OPEN_8h_html_a846cf2a86ab9bdb1a8496e03b93d6db8"><div class="ttname"><a href="OPEN_8h.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open</a></div><div class="ttdeci">MyDFSId * mydfs_open(char *indirizzo, char *nomefile, int modo, int *err)</div><div class="ttdoc">name: mydfs_open </div><div class="ttdef"><b>Definition:</b> OPEN.c:24</div></div>
+<div class="ttc" id="structMyDFSId_html"><div class="ttname"><a href="structMyDFSId.html">MyDFSId</a></div><div class="ttdef"><b>Definition:</b> Config.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generato da &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.9.1
 </small></address>
 </body>
 </html>

@@ -39,24 +39,22 @@ typedef struct \hyperlink{structOpenedFile}{Opened\+File} \hyperlink{StruttureDa
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{StruttureDati_8h_a9d1061becfc0df48b72ad385f3c2e697}{file\+Already\+Open} (char $\ast$filename, int modo\+\_\+client, int socket\+Id)
-\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto e se è stato aperto dal client che ne sta richiedendo nuovo accesso. \end{DoxyCompactList}\item 
+void \hyperlink{StruttureDati_8h_a2a0d14b97e3ebef118d2d1420c51f429}{alloca\+E\+Inizializza\+Memoria} ()
+\begin{DoxyCompactList}\small\item\em Alloca la memoria necessaria per gestire le strutture dati. \end{DoxyCompactList}\item 
+int \hyperlink{StruttureDati_8h_a65171a8abdf2f36e1647be00853bc993}{append\+Opened\+File} (char $\ast$nomefile, int modo, int socket)
+\begin{DoxyCompactList}\small\item\em Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. \end{DoxyCompactList}\item 
+int \hyperlink{StruttureDati_8h_a8d682a78857ccfdbe53092dab0a6cd4b}{file\+Already\+Opened\+In\+Write} (char $\ast$filename, int modo\+\_\+client, int socket\+Id)
+\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto in una modalita\textquotesingle{} che non permette l\textquotesingle{}accesso da parte di altri client. \end{DoxyCompactList}\item 
 int \hyperlink{StruttureDati_8h_a6e2594e56afc29e961a1797a0bd8d262}{is\+Modo\+Apertura} (int modo\+\_\+client, int modo)
 \begin{DoxyCompactList}\small\item\em Dice se modo\+\_\+client contiene il modo modo. \end{DoxyCompactList}\item 
-void \hyperlink{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}{append\+Opened\+File} (char $\ast$nomefile, int modo, int socket)
-\begin{DoxyCompactList}\small\item\em Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. \end{DoxyCompactList}\item 
-void \hyperlink{StruttureDati_8h_a8a34e1cabb6b51062c5e2f8e7de6e8c1}{aggiungi\+Socket\+Id} (\hyperlink{structSocketIdList}{Socket\+Id\+List} $\ast$sl, int socket\+Id, int modo)
-\begin{DoxyCompactList}\small\item\em aggiunge elemento a lista linkata di socket o aggiunge modo a socket già aggiunta \end{DoxyCompactList}\item 
-int \hyperlink{StruttureDati_8h_a2852155c7d6b94e2bc96d2e3738c4312}{socket\+Id\+Already\+Added} (\hyperlink{structSocketIdList}{Socket\+Id\+List} $\ast$sl, int socket\+Id)
-\begin{DoxyCompactList}\small\item\em controllo presenza socket\+Id in lista socket \end{DoxyCompactList}\item 
-int \hyperlink{StruttureDati_8h_ae546e0c596132f59eef31bbbd417d980}{get\+Modo\+From\+Socket\+Id} (\hyperlink{structSocketIdList}{Socket\+Id\+List} $\ast$sl, int socket\+Id)
-\begin{DoxyCompactList}\small\item\em ottieni modo (anche multiplo) di accesso di un certo socket\+Id su un certo file \end{DoxyCompactList}\item 
-void \hyperlink{StruttureDati_8h_aedd0e72dfdc050225e43fabacc03829b}{close\+Client\+Session} (int sd)
+void \hyperlink{StruttureDati_8h_a8de81927bc9aec9d97034dd3e4cda612}{close\+Client\+Session} (int \hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd}, char $\ast$file\+Name)
 \begin{DoxyCompactList}\small\item\em rimuove collegamenti tra client e file aperti nella sessione \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variabili}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{StruttureDati_8h_a3063a74baee4fe1870e52d0ec577afa9}{opened\+File\+Linked\+List}
+\hyperlink{structOpenedFile}{Opened\+File} $\ast$$\ast$ \hyperlink{StruttureDati_8h_ac6c781406efae2362705c3a19a96474a}{opened\+File\+Linked\+List}
+\item 
+\hyperlink{structOpenedFile}{Opened\+File} $\ast$$\ast$ \hyperlink{StruttureDati_8h_a7ed27afe1793bab93e0646228dd26ce3}{free\+\_\+head}
 \end{DoxyCompactItemize}
 
 
@@ -100,69 +98,56 @@ void \hyperlink{StruttureDati_8h_aedd0e72dfdc050225e43fabacc03829b}{close\+Clien
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{StruttureDati_8h_a8a34e1cabb6b51062c5e2f8e7de6e8c1}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!aggiungi\+Socket\+Id@{aggiungi\+Socket\+Id}}
-\index{aggiungi\+Socket\+Id@{aggiungi\+Socket\+Id}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{aggiungi\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}void aggiungi\+Socket\+Id (
+\hypertarget{StruttureDati_8h_a2a0d14b97e3ebef118d2d1420c51f429}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!alloca\+E\+Inizializza\+Memoria@{alloca\+E\+Inizializza\+Memoria}}
+\index{alloca\+E\+Inizializza\+Memoria@{alloca\+E\+Inizializza\+Memoria}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{alloca\+E\+Inizializza\+Memoria}]{\setlength{\rightskip}{0pt plus 5cm}void alloca\+E\+Inizializza\+Memoria (
 \begin{DoxyParamCaption}
-\item[{{\bf Socket\+Id\+List} $\ast$}]{sl, }
-\item[{int}]{socket\+Id, }
-\item[{int}]{modo}
+{}
 \end{DoxyParamCaption}
-)}\label{StruttureDati_8h_a8a34e1cabb6b51062c5e2f8e7de6e8c1}
+)}\label{StruttureDati_8h_a2a0d14b97e3ebef118d2d1420c51f429}
 
 
-aggiunge elemento a lista linkata di socket o aggiunge modo a socket già aggiunta 
+Alloca la memoria necessaria per gestire le strutture dati. 
 
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000005}{Da fare}]Dovrebbe trovarsi dentro al Config.\+c \end{DoxyRefDesc}
+Indirizzo di serverconnectionsstruct 
 
-\begin{DoxyParams}{Parametri}
-{\em Socket\+Id\+List$\ast$} & sl puntatore alla prima socket della lista \\
-\hline
-{\em int} & socket\+Id id della socket da aggiungere \\
-\hline
-{\em modo} & modo di apertura file da parte di nuova socket \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Restituisce}
-void 
-\end{DoxyReturn}
-
-
-Referenzia log\+M(), Socket\+Id\+List\+::modo, Socket\+Id\+List\+::next, e Socket\+Id\+List\+::socket\+Id.
+Referenzia accept\+Mutex, log\+M(), Opened\+File\+::next, number\+Alive\+Childs, numero\+Con, e opened\+File\+Linked\+List.
 
 
 
-Referenziato da append\+Opened\+File().
+Referenziato da load\+Config().
 
-\hypertarget{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!append\+Opened\+File@{append\+Opened\+File}}
+\hypertarget{StruttureDati_8h_a65171a8abdf2f36e1647be00853bc993}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!append\+Opened\+File@{append\+Opened\+File}}
 \index{append\+Opened\+File@{append\+Opened\+File}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{append\+Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}void append\+Opened\+File (
+\subsubsection[{append\+Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}int append\+Opened\+File (
 \begin{DoxyParamCaption}
-\item[{char $\ast$}]{nomefile, }
+\item[{char $\ast$}]{nome\+File, }
 \item[{int}]{modo, }
 \item[{int}]{socket}
 \end{DoxyParamCaption}
-)}\label{StruttureDati_8h_a221594d999c22ce87c14e50cd98287a2}
+)}\label{StruttureDati_8h_a65171a8abdf2f36e1647be00853bc993}
 
 
 Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. 
 
-\begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000006}{Da fare}]Dovrebbe tenere da conto anche il modo di apertura Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. \end{DoxyRefDesc}
+Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. 
 
-
-Referenzia aggiungi\+Socket\+Id(), file\+Already\+Open(), Opened\+File\+::file\+Name, log\+M(), Socket\+Id\+List\+::modo, Opened\+File\+::next, Socket\+Id\+List\+::next, opened\+File\+Linked\+List, prova(), Socket\+Id\+List\+::socket\+Id, e Opened\+File\+::socket\+Id\+List.
+Referenzia file\+Already\+Opened\+In\+Write(), Opened\+File\+::file\+Name, free\+\_\+head, log\+M(), Opened\+File\+::modo, Opened\+File\+::next, opened\+File\+Linked\+List, e Opened\+File\+::socket\+Id.
 
 
 
 Referenziato da handle\+Open\+Command().
 
-\hypertarget{StruttureDati_8h_aedd0e72dfdc050225e43fabacc03829b}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!close\+Client\+Session@{close\+Client\+Session}}
+\hypertarget{StruttureDati_8h_a8de81927bc9aec9d97034dd3e4cda612}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!close\+Client\+Session@{close\+Client\+Session}}
 \index{close\+Client\+Session@{close\+Client\+Session}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
 \subsubsection[{close\+Client\+Session}]{\setlength{\rightskip}{0pt plus 5cm}void close\+Client\+Session (
 \begin{DoxyParamCaption}
-\item[{int}]{sd}
+\item[{int}]{sd, }
+\item[{char $\ast$}]{file\+Name}
 \end{DoxyParamCaption}
-)}\label{StruttureDati_8h_aedd0e72dfdc050225e43fabacc03829b}
+)}\label{StruttureDati_8h_a8de81927bc9aec9d97034dd3e4cda612}
 
 
 rimuove collegamenti tra client e file aperti nella sessione 
@@ -174,78 +159,32 @@ rimuove collegamenti tra client e file aperti nella sessione
 \end{DoxyParams}
 
 
-Referenzia Opened\+File\+::file\+Name, log\+M(), Opened\+File\+::next, Socket\+Id\+List\+::next, opened\+File\+Linked\+List, Socket\+Id\+List\+::socket\+Id, Opened\+File\+::socket\+Id\+List, e T\+R\+U\+E.
+Referenzia Opened\+File\+::file\+Name, free\+\_\+head, log\+M(), Opened\+File\+::next, opened\+File\+Linked\+List, Opened\+File\+::socket\+Id, e T\+R\+U\+E.
 
 
 
 Referenziato da handle\+Close\+Command().
 
-\hypertarget{StruttureDati_8h_a9d1061becfc0df48b72ad385f3c2e697}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!file\+Already\+Open@{file\+Already\+Open}}
-\index{file\+Already\+Open@{file\+Already\+Open}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{file\+Already\+Open}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Open (
+\hypertarget{StruttureDati_8h_a8d682a78857ccfdbe53092dab0a6cd4b}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!file\+Already\+Opened\+In\+Write@{file\+Already\+Opened\+In\+Write}}
+\index{file\+Already\+Opened\+In\+Write@{file\+Already\+Opened\+In\+Write}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{file\+Already\+Opened\+In\+Write}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Opened\+In\+Write (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
 \item[{int}]{modo\+\_\+client, }
 \item[{int}]{socket\+Id}
 \end{DoxyParamCaption}
-)}\label{StruttureDati_8h_a9d1061becfc0df48b72ad385f3c2e697}
+)}\label{StruttureDati_8h_a8d682a78857ccfdbe53092dab0a6cd4b}
 
 
-Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto e se è stato aperto dal client che ne sta richiedendo nuovo accesso. 
+Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto in una modalita\textquotesingle{} che non permette l\textquotesingle{}accesso da parte di altri client. 
 
 
-\begin{DoxyParams}{Parametri}
-{\em filename} & Il nome del file da controllare \\
-\hline
-{\em socket\+Id} & l\textquotesingle{}id della socket del client \\
-\hline
-{\em modo\+\_\+client} & il modo con cui il client intende accedere al file\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Restituisce}
-modo se il file è stato già aperto da client che sta richiedendo nuovo accesso, 
 
-1 se il file e\textquotesingle{} gia\textquotesingle{} aperto da altro client in mod. bloccante 
-
-0 se file non è ancora stato aperto 
-\end{DoxyReturn}
-
-
-Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, get\+Modo\+From\+Socket\+Id(), is\+Modo\+Apertura(), log\+M(), M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, Opened\+File\+::next, opened\+File\+Linked\+List, socket\+Id\+Already\+Added(), e Opened\+File\+::socket\+Id\+List.
+Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, Opened\+File\+::next, e opened\+File\+Linked\+List.
 
 
 
 Referenziato da append\+Opened\+File().
-
-\hypertarget{StruttureDati_8h_ae546e0c596132f59eef31bbbd417d980}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!get\+Modo\+From\+Socket\+Id@{get\+Modo\+From\+Socket\+Id}}
-\index{get\+Modo\+From\+Socket\+Id@{get\+Modo\+From\+Socket\+Id}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{get\+Modo\+From\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Modo\+From\+Socket\+Id (
-\begin{DoxyParamCaption}
-\item[{{\bf Socket\+Id\+List} $\ast$}]{sl, }
-\item[{int}]{socket\+Id}
-\end{DoxyParamCaption}
-)}\label{StruttureDati_8h_ae546e0c596132f59eef31bbbd417d980}
-
-
-ottieni modo (anche multiplo) di accesso di un certo socket\+Id su un certo file 
-
-
-\begin{DoxyParams}{Parametri}
-{\em Socket\+Id\+List$\ast$} & sl puntatore alla prima socket della lista \\
-\hline
-{\em int} & socket\+Id id della socket di cui ottenere modo \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Restituisce}
-modo se socket già ha aperto file, -\/1 altrimenti 
-\end{DoxyReturn}
-
-
-Referenzia Socket\+Id\+List\+::modo, Socket\+Id\+List\+::next, e Socket\+Id\+List\+::socket\+Id.
-
-
-
-Referenziato da file\+Already\+Open().
 
 \hypertarget{StruttureDati_8h_a6e2594e56afc29e961a1797a0bd8d262}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!is\+Modo\+Apertura@{is\+Modo\+Apertura}}
 \index{is\+Modo\+Apertura@{is\+Modo\+Apertura}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
@@ -265,45 +204,22 @@ Referenzia F\+A\+L\+S\+E, e T\+R\+U\+E.
 
 
 
-Referenziato da file\+Already\+Open().
-
-\hypertarget{StruttureDati_8h_a2852155c7d6b94e2bc96d2e3738c4312}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!socket\+Id\+Already\+Added@{socket\+Id\+Already\+Added}}
-\index{socket\+Id\+Already\+Added@{socket\+Id\+Already\+Added}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{socket\+Id\+Already\+Added}]{\setlength{\rightskip}{0pt plus 5cm}int socket\+Id\+Already\+Added (
-\begin{DoxyParamCaption}
-\item[{{\bf Socket\+Id\+List} $\ast$}]{sl, }
-\item[{int}]{socket\+Id}
-\end{DoxyParamCaption}
-)}\label{StruttureDati_8h_a2852155c7d6b94e2bc96d2e3738c4312}
-
-
-controllo presenza socket\+Id in lista socket 
-
-
-\begin{DoxyParams}{Parametri}
-{\em Socket\+Id\+List$\ast$} & sl puntatore alla prima socket della lista \\
-\hline
-{\em int} & socket\+Id id della socket da controllare \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Restituisce}
-T\+R\+U\+E (1) se id gia\textquotesingle{} presente in lista, F\+A\+L\+S\+E (0) altrimenti 
-\end{DoxyReturn}
-
-
-Referenzia F\+A\+L\+S\+E, Socket\+Id\+List\+::next, Socket\+Id\+List\+::socket\+Id, e T\+R\+U\+E.
-
-
-
-Referenziato da file\+Already\+Open().
+Referenziato da file\+Already\+Opened\+In\+Write().
 
 
 
 \subsection{Documentazione delle variabili}
-\hypertarget{StruttureDati_8h_a3063a74baee4fe1870e52d0ec577afa9}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!opened\+File\+Linked\+List@{opened\+File\+Linked\+List}}
+\hypertarget{StruttureDati_8h_a7ed27afe1793bab93e0646228dd26ce3}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!free\+\_\+head@{free\+\_\+head}}
+\index{free\+\_\+head@{free\+\_\+head}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
+\subsubsection[{free\+\_\+head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$$\ast$ free\+\_\+head}\label{StruttureDati_8h_a7ed27afe1793bab93e0646228dd26ce3}
+
+
+Referenziato da append\+Opened\+File(), e close\+Client\+Session().
+
+\hypertarget{StruttureDati_8h_ac6c781406efae2362705c3a19a96474a}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!opened\+File\+Linked\+List@{opened\+File\+Linked\+List}}
 \index{opened\+File\+Linked\+List@{opened\+File\+Linked\+List}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
-\subsubsection[{opened\+File\+Linked\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ opened\+File\+Linked\+List}\label{StruttureDati_8h_a3063a74baee4fe1870e52d0ec577afa9}
+\subsubsection[{opened\+File\+Linked\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$$\ast$ opened\+File\+Linked\+List}\label{StruttureDati_8h_ac6c781406efae2362705c3a19a96474a}
 
 
-Referenziato da append\+Opened\+File(), close\+Client\+Session(), e file\+Already\+Open().
+Referenziato da alloca\+E\+Inizializza\+Memoria(), append\+Opened\+File(), close\+Client\+Session(), e file\+Already\+Opened\+In\+Write().
 

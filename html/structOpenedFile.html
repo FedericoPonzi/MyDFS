@@ -99,8 +99,10 @@ Campi</h2></td></tr>
 <tr class="separator:abcff0610dfa8b1e3836b3f5bac40c8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b8c8b995cdda6da249a6ce9a9df98b2"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structOpenedFile.html">OpenedFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">next</a></td></tr>
 <tr class="separator:a9b8c8b995cdda6da249a6ce9a9df98b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afae954d6877e7a6345a696d29355f29e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSocketIdList.html">SocketIdList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOpenedFile.html#afae954d6877e7a6345a696d29355f29e">socketIdList</a></td></tr>
-<tr class="separator:afae954d6877e7a6345a696d29355f29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2af35018ecff06dbd349d464c815038a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOpenedFile.html#a2af35018ecff06dbd349d464c815038a">socketId</a></td></tr>
+<tr class="separator:a2af35018ecff06dbd349d464c815038a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d9f22ff6ba81506ba9c4a60f27c4f32"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOpenedFile.html#a6d9f22ff6ba81506ba9c4a60f27c4f32">modo</a></td></tr>
+<tr class="separator:a6d9f22ff6ba81506ba9c4a60f27c4f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione dei campi</h2>
 <a class="anchor" id="abcff0610dfa8b1e3836b3f5bac40c8f5"></a>
@@ -113,7 +115,21 @@ Campi</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="second_8c.html#a686d51d0e8d925b7b5d49bf1cc6fa260">append()</a>, <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#aedd0e72dfdc050225e43fabacc03829b">closeClientSession()</a>, <a class="el" href="second_8h.html#ab14411cf7570093d3f4b4640a29d1917">fileAlreadyOpen()</a>, <a class="el" href="Prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>, e <a class="el" href="terzo_8h.html#a332a74378bd8e4ece2516bcc7b5952c4">printaStruct()</a>.</p>
+<p>Referenziato da <a class="el" href="second_8c.html#a686d51d0e8d925b7b5d49bf1cc6fa260">append()</a>, <a class="el" href="StruttureDati_8c.html#af12cb4139a20c87eb79ea97af2d5a780">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#a8de81927bc9aec9d97034dd3e4cda612">closeClientSession()</a>, <a class="el" href="second_8h.html#ab14411cf7570093d3f4b4640a29d1917">fileAlreadyOpen()</a>, <a class="el" href="StruttureDati_8c.html#a8d682a78857ccfdbe53092dab0a6cd4b">fileAlreadyOpenedInWrite()</a>, <a class="el" href="Prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>, e <a class="el" href="terzo_8h.html#a332a74378bd8e4ece2516bcc7b5952c4">printaStruct()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d9f22ff6ba81506ba9c4a60f27c4f32"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int OpenedFile::modo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af12cb4139a20c87eb79ea97af2d5a780">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#a8d682a78857ccfdbe53092dab0a6cd4b">fileAlreadyOpenedInWrite()</a>, e <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>.</p>
 
 </div>
 </div>
@@ -127,21 +143,21 @@ Campi</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="second_8c.html#a686d51d0e8d925b7b5d49bf1cc6fa260">append()</a>, <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#aedd0e72dfdc050225e43fabacc03829b">closeClientSession()</a>, <a class="el" href="second_8h.html#ab14411cf7570093d3f4b4640a29d1917">fileAlreadyOpen()</a>, e <a class="el" href="Prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a2a0d14b97e3ebef118d2d1420c51f429">allocaEInizializzaMemoria()</a>, <a class="el" href="second_8c.html#a686d51d0e8d925b7b5d49bf1cc6fa260">append()</a>, <a class="el" href="StruttureDati_8c.html#af12cb4139a20c87eb79ea97af2d5a780">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#a8de81927bc9aec9d97034dd3e4cda612">closeClientSession()</a>, <a class="el" href="second_8h.html#ab14411cf7570093d3f4b4640a29d1917">fileAlreadyOpen()</a>, <a class="el" href="StruttureDati_8c.html#a8d682a78857ccfdbe53092dab0a6cd4b">fileAlreadyOpenedInWrite()</a>, e <a class="el" href="Prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="afae954d6877e7a6345a696d29355f29e"></a>
+<a class="anchor" id="a2af35018ecff06dbd349d464c815038a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structSocketIdList.html">SocketIdList</a>* OpenedFile::socketIdList</td>
+          <td class="memname">int OpenedFile::socketId</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a221594d999c22ce87c14e50cd98287a2">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#aedd0e72dfdc050225e43fabacc03829b">closeClientSession()</a>, e <a class="el" href="StruttureDati_8c.html#a9d1061becfc0df48b72ad385f3c2e697">fileAlreadyOpen()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af12cb4139a20c87eb79ea97af2d5a780">appendOpenedFile()</a>, e <a class="el" href="StruttureDati_8c.html#a8de81927bc9aec9d97034dd3e4cda612">closeClientSession()</a>.</p>
 
 </div>
 </div>

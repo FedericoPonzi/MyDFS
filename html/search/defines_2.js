@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['false',['FALSE',['../second_8h.html#aa93f0eb578d23995850d61f7d61c55c1',1,'FALSE():&#160;second.h'],['../StruttureDati_8h.html#aa93f0eb578d23995850d61f7d61c55c1',1,'FALSE():&#160;StruttureDati.h']]]
+  ['debug',['DEBUG',['../Client_2Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'DEBUG():&#160;Config.h'],['../Server_2inc_2Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'DEBUG():&#160;Config.h']]]
 ];

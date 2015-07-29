@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['socketidlist',['SocketIdList',['../StruttureDati_8h.html#a0cff94b71c2fd35e1c3b8c56b181781e',1,'StruttureDati.h']]]
+  ['openedfile',['OpenedFile',['../second_8h.html#aeb1a59f39eb8759e5c41cdfe0a53648c',1,'OpenedFile():&#160;second.h'],['../StruttureDati_8h.html#aeb1a59f39eb8759e5c41cdfe0a53648c',1,'OpenedFile():&#160;StruttureDati.h']]]
 ];

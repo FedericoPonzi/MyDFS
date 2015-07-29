@@ -88,113 +88,82 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Definizioni</a>  </div>
+<a href="#func-members">Funzioni</a>  </div>
   <div class="headertitle">
 <div class="title">Riferimenti per il file OPEN.c</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;sys/socket.h&gt;</code><br />
+<code>#include &lt;arpa/inet.h&gt;</code><br />
+<code>#include &lt;netinet/in.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="Client_2Config_8h_source.html">Config.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="FileHandler_8h_source.html">inc/FileHandler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="OPEN_8h_source.html">inc/OPEN.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Client_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Definizioni</h2></td></tr>
-<tr class="memitem:addf7c1358350b77c12278a4a1d6009cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPEN_8c.html#addf7c1358350b77c12278a4a1d6009cc">MYO_RDONLY</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:addf7c1358350b77c12278a4a1d6009cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85f78205a7dfd8bec546ea15b8c11e72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPEN_8c.html#a85f78205a7dfd8bec546ea15b8c11e72">MYO_WRONLY</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a85f78205a7dfd8bec546ea15b8c11e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9060de0420480468979d7332bc6d1b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPEN_8c.html#aa9060de0420480468979d7332bc6d1b6">MYO_RDWR</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:aa9060de0420480468979d7332bc6d1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8181332ab18dffb096fd34bb09d50ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPEN_8c.html#ab8181332ab18dffb096fd34bb09d50ba">MYO_CREAT</a>&#160;&#160;&#160;8</td></tr>
-<tr class="separator:ab8181332ab18dffb096fd34bb09d50ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7223636d09d813f91adef7515ab8185d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPEN_8c.html#a7223636d09d813f91adef7515ab8185d">MYO_TRUNC</a>&#160;&#160;&#160;16</td></tr>
-<tr class="separator:a7223636d09d813f91adef7515ab8185d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a143323b4e3aee4c7d2e296e06b114c13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPEN_8c.html#a143323b4e3aee4c7d2e296e06b114c13">MYO_EXCL</a>&#160;&#160;&#160;32</td></tr>
-<tr class="separator:a143323b4e3aee4c7d2e296e06b114c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8150949fd71074229bee31cd830c1ffa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPEN_8c.html#a8150949fd71074229bee31cd830c1ffa">MYO_EXLOCK</a>&#160;&#160;&#160;64</td></tr>
-<tr class="separator:a8150949fd71074229bee31cd830c1ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funzioni</h2></td></tr>
+<tr class="memitem:a846cf2a86ab9bdb1a8496e03b93d6db8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMyDFSId.html">MyDFSId</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open</a> (char *indirizzo, char *nomefile, int modo, int *err)</td></tr>
+<tr class="memdesc:a846cf2a86ab9bdb1a8496e03b93d6db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">name: mydfs_open  <a href="#a846cf2a86ab9bdb1a8496e03b93d6db8">Continua...</a><br /></td></tr>
+<tr class="separator:a846cf2a86ab9bdb1a8496e03b93d6db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentazione delle definizioni</h2>
-<a class="anchor" id="ab8181332ab18dffb096fd34bb09d50ba"></a>
+<h2 class="groupheader">Documentazione delle funzioni</h2>
+<a class="anchor" id="a846cf2a86ab9bdb1a8496e03b93d6db8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MYO_CREAT&#160;&#160;&#160;8</td>
+          <td class="memname"><a class="el" href="structMyDFSId.html">MyDFSId</a>* mydfs_open </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>indirizzo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nomefile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>modo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>err</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a143323b4e3aee4c7d2e296e06b114c13"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MYO_EXCL&#160;&#160;&#160;32</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>name: mydfs_open </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">indirizzo</td><td>l' indirizzo ipv4 a cui vogliamo connetterci, </td></tr>
+    <tr><td class="paramname">nomefile</td><td>nome del file richiesto, </td></tr>
+    <tr><td class="paramname">modo</td><td>modo, che puo essere: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_TRUNC, O_EXCL, O_EXLOCK </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>NULL in caso di errore, un puntatore a MyDFSId* altrimenti. </dd></dl>
 
-</div>
-</div>
-<a class="anchor" id="a8150949fd71074229bee31cd830c1ffa"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MYO_EXLOCK&#160;&#160;&#160;64</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Referenzia <a class="el" href="Client_2Config_8h.html#a4c7025999674d0b90a4f9498c8ab849e">OPENCOMMAND</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="addf7c1358350b77c12278a4a1d6009cc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MYO_RDONLY&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa9060de0420480468979d7332bc6d1b6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MYO_RDWR&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7223636d09d813f91adef7515ab8185d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MYO_TRUNC&#160;&#160;&#160;16</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a85f78205a7dfd8bec546ea15b8c11e72"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MYO_WRONLY&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Referenziato da <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>

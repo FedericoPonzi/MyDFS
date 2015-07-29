@@ -11,7 +11,7 @@
 {\ttfamily \#include $<$fcntl.\+h$>$}\\*
 {\ttfamily \#include $<$pthread.\+h$>$}\\*
 {\ttfamily \#include $<$unistd.\+h$>$}\\*
-{\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Config.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Commands\+Handler.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Error.\+h\char`\"{}}\\*
@@ -19,30 +19,36 @@
 \subsection*{Definizioni}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{server_8c_a406ea73ae9534077b145f331cd542401}{Max}~30
+\#define \hyperlink{server_8c_a39912bfe2a55f30e269196f9141d845d}{B\+U\+F\+F\+S\+I\+Z\+E}~30
 \end{DoxyCompactItemize}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{server_8c_a4b3c082abb275401381363274eef5e12}{spawn\+Process} (int temp\+\_\+sd, int sd)
-\begin{DoxyCompactList}\small\item\em Crea un processo e richiama \hyperlink{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{handle\+Socket()}; All\textquotesingle{} arrivo di una connessione, crea un processo e richiama handle\+Socket. \end{DoxyCompactList}\item 
-void $\ast$ \hyperlink{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{handle\+Socket} (int temp\+\_\+sd)
+void \hyperlink{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}{spawn\+Thread} ()
+\begin{DoxyCompactList}\small\item\em Crea un thread e richiama \hyperlink{server_8c_ac53af003472a20c81247bd125288a4c8}{handle\+Socket()} \end{DoxyCompactList}\item 
+void \hyperlink{server_8c_a62b9349e06b1fd5e9f6e08e25f5968ab}{spawn\+Process} ()
+\begin{DoxyCompactList}\small\item\em Crea un processo se il numero di processi disponibili e\textquotesingle{} inferiore a numero\+Con. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{server_8c_ac53af003472a20c81247bd125288a4c8}{handle\+Socket} ()
 \begin{DoxyCompactList}\small\item\em Gestisce la comunicazione con la socket. \end{DoxyCompactList}\item 
 int \hyperlink{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
-\item 
-void \hyperlink{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}{spawn\+Thread} ()
-\begin{DoxyCompactList}\small\item\em Crea un thread e richiama \hyperlink{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{handle\+Socket()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Variabili}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{server_8c_a3063a74baee4fe1870e52d0ec577afa9}{opened\+File\+Linked\+List} = N\+U\+L\+L
+int \hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd}
+\item 
+struct sockaddr\+\_\+in \hyperlink{server_8c_a437cecc27162b023659813375ca67d62}{server}
+\item 
+struct sockaddr\+\_\+in \hyperlink{server_8c_abf7df3c8f5ff035f1843f41668a2168c}{client}
+\item 
+socklen\+\_\+t \hyperlink{server_8c_ac173e6ad284fd133ccc16bfd48bf0337}{address\+\_\+size}
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle definizioni}
-\hypertarget{server_8c_a406ea73ae9534077b145f331cd542401}{}\index{server.\+c@{server.\+c}!Max@{Max}}
-\index{Max@{Max}!server.\+c@{server.\+c}}
-\subsubsection[{Max}]{\setlength{\rightskip}{0pt plus 5cm}\#define Max~30}\label{server_8c_a406ea73ae9534077b145f331cd542401}
+\hypertarget{server_8c_a39912bfe2a55f30e269196f9141d845d}{}\index{server.\+c@{server.\+c}!B\+U\+F\+F\+S\+I\+Z\+E@{B\+U\+F\+F\+S\+I\+Z\+E}}
+\index{B\+U\+F\+F\+S\+I\+Z\+E@{B\+U\+F\+F\+S\+I\+Z\+E}!server.\+c@{server.\+c}}
+\subsubsection[{B\+U\+F\+F\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+S\+I\+Z\+E~30}\label{server_8c_a39912bfe2a55f30e269196f9141d845d}
 
 
 Referenziato da handle\+Socket().
@@ -50,24 +56,24 @@ Referenziato da handle\+Socket().
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{}\index{server.\+c@{server.\+c}!handle\+Socket@{handle\+Socket}}
+\hypertarget{server_8c_ac53af003472a20c81247bd125288a4c8}{}\index{server.\+c@{server.\+c}!handle\+Socket@{handle\+Socket}}
 \index{handle\+Socket@{handle\+Socket}!server.\+c@{server.\+c}}
 \subsubsection[{handle\+Socket}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ handle\+Socket (
 \begin{DoxyParamCaption}
-\item[{int}]{temp\+\_\+sd}
+{}
 \end{DoxyParamCaption}
-)}\label{server_8c_a749fe13b0e1bd1da68a142f169235bbe}
+)}\label{server_8c_ac53af003472a20c81247bd125288a4c8}
 
 
 Gestisce la comunicazione con la socket. 
 
 Riceve un messaggio dalla socket, lo gestisce, e scrive la risposta. 
 
-Referenzia get\+Command\+I\+D(), handle\+Command(), log\+M(), Max, e print\+Err().
+Referenzia accept\+Mutex, address\+\_\+size, B\+U\+F\+F\+S\+I\+Z\+E, client, get\+Command\+I\+D(), handle\+Command(), log\+M(), print\+Err(), e sd.
 
 
 
-Referenziato da main().
+Referenziato da spawn\+Process(), e spawn\+Thread().
 
 \hypertarget{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\index{server.\+c@{server.\+c}!main@{main}}
 \index{main@{main}!server.\+c@{server.\+c}}
@@ -78,23 +84,22 @@ Referenziato da main().
 )}\label{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
 
 
-Referenzia B\+A\+C\+K\+L\+O\+G, handle\+Socket(), log\+M(), P\+O\+R\+T, print\+Err(), e spawn\+Process().
+Referenzia address\+\_\+size, B\+A\+C\+K\+L\+O\+G, client, load\+Config(), log\+M(), numero\+Con, port\+Number, print\+Err(), proc\+Or\+Thread, sd, server, spawn\+Process(), e spawn\+Thread().
 
-\hypertarget{server_8c_a4b3c082abb275401381363274eef5e12}{}\index{server.\+c@{server.\+c}!spawn\+Process@{spawn\+Process}}
+\hypertarget{server_8c_a62b9349e06b1fd5e9f6e08e25f5968ab}{}\index{server.\+c@{server.\+c}!spawn\+Process@{spawn\+Process}}
 \index{spawn\+Process@{spawn\+Process}!server.\+c@{server.\+c}}
-\subsubsection[{spawn\+Process}]{\setlength{\rightskip}{0pt plus 5cm}int spawn\+Process (
+\subsubsection[{spawn\+Process}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Process (
 \begin{DoxyParamCaption}
-\item[{int}]{temp\+\_\+sd, }
-\item[{int}]{sd}
+{}
 \end{DoxyParamCaption}
-)}\label{server_8c_a4b3c082abb275401381363274eef5e12}
+)}\label{server_8c_a62b9349e06b1fd5e9f6e08e25f5968ab}
 
 
-Crea un processo e richiama \hyperlink{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{handle\+Socket()}; All\textquotesingle{} arrivo di una connessione, crea un processo e richiama handle\+Socket. 
+Crea un processo se il numero di processi disponibili e\textquotesingle{} inferiore a numero\+Con. 
 
 
 
-Referenzia print\+Err().
+Referenzia handle\+Socket(), number\+Alive\+Childs, numero\+Con, e print\+Err().
 
 
 
@@ -109,20 +114,49 @@ Referenziato da main().
 )}\label{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}
 
 
-Crea un thread e richiama \hyperlink{server_8c_a749fe13b0e1bd1da68a142f169235bbe}{handle\+Socket()} 
+Crea un thread e richiama \hyperlink{server_8c_ac53af003472a20c81247bd125288a4c8}{handle\+Socket()} 
 
 All\textquotesingle{} arrivo di una connessione, crea un thread e richiama handle\+Socket \begin{DoxySeeAlso}{Si veda anche}
 server.\+c\+::handle\+Socket 
 \end{DoxySeeAlso}
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000004}{Da fare}]dovrebbe passargli dei parametri. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000003}{Da fare}]dovrebbe passargli dei parametri. \end{DoxyRefDesc}
+
+
+Referenzia handle\+Socket(), number\+Alive\+Childs, numero\+Con, e tid.
+
+
+
+Referenziato da main().
+
 
 
 \subsection{Documentazione delle variabili}
-\hypertarget{server_8c_a3063a74baee4fe1870e52d0ec577afa9}{}\index{server.\+c@{server.\+c}!opened\+File\+Linked\+List@{opened\+File\+Linked\+List}}
-\index{opened\+File\+Linked\+List@{opened\+File\+Linked\+List}!server.\+c@{server.\+c}}
-\subsubsection[{opened\+File\+Linked\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ opened\+File\+Linked\+List = N\+U\+L\+L}\label{server_8c_a3063a74baee4fe1870e52d0ec577afa9}
+\hypertarget{server_8c_ac173e6ad284fd133ccc16bfd48bf0337}{}\index{server.\+c@{server.\+c}!address\+\_\+size@{address\+\_\+size}}
+\index{address\+\_\+size@{address\+\_\+size}!server.\+c@{server.\+c}}
+\subsubsection[{address\+\_\+size}]{\setlength{\rightskip}{0pt plus 5cm}socklen\+\_\+t address\+\_\+size}\label{server_8c_ac173e6ad284fd133ccc16bfd48bf0337}
 
 
-Referenziato da append\+Opened\+File(), close\+Client\+Session(), e file\+Already\+Open().
+Referenziato da handle\+Socket(), e main().
+
+\hypertarget{server_8c_abf7df3c8f5ff035f1843f41668a2168c}{}\index{server.\+c@{server.\+c}!client@{client}}
+\index{client@{client}!server.\+c@{server.\+c}}
+\subsubsection[{client}]{\setlength{\rightskip}{0pt plus 5cm}struct sockaddr\+\_\+in client}\label{server_8c_abf7df3c8f5ff035f1843f41668a2168c}
+
+
+Referenziato da handle\+Socket(), e main().
+
+\hypertarget{server_8c_a06b0afe769d54ae94259d8532bc878b0}{}\index{server.\+c@{server.\+c}!sd@{sd}}
+\index{sd@{sd}!server.\+c@{server.\+c}}
+\subsubsection[{sd}]{\setlength{\rightskip}{0pt plus 5cm}int sd}\label{server_8c_a06b0afe769d54ae94259d8532bc878b0}
+
+
+Referenziato da handle\+Socket(), e main().
+
+\hypertarget{server_8c_a437cecc27162b023659813375ca67d62}{}\index{server.\+c@{server.\+c}!server@{server}}
+\index{server@{server}!server.\+c@{server.\+c}}
+\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}struct sockaddr\+\_\+in server}\label{server_8c_a437cecc27162b023659813375ca67d62}
+
+
+Referenziato da main().
 

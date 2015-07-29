@@ -94,29 +94,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="ClientIncludes_8h_source.html">ClientIncludes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Client_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="FileHandler_8h_source.html">inc/FileHandler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Client_2Config_8h_source.html">Config.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="OPEN_8h_source.html">inc/OPEN.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Client_2inc_2CLOSE_8h_source.html">inc/CLOSE.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Client_2inc_2READ_8h_source.html">inc/READ.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="WRITE_8h_source.html">inc/WRITE.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
-<a class="anchor" id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int main </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenzia <a class="el" href="FileHandler_8c.html#a75966e6603c4713a140b5e4abbfe198c">mydfs_open()</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03">MYO_CREAT</a>, e <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4">MYO_RDONLY</a>.</p>
+<p>Referenzia <a class="el" href="OPEN_8h.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03">MYO_CREAT</a>, e <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4">MYO_RDONLY</a>.</p>
+
+<p>Referenziato da <a class="el" href="DataStrutePointToPoint_8c.html#a78600e35b64549caa6dec8ab6d031eca">addNode()</a>.</p>
 
 </div>
 </div>
