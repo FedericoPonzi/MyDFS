@@ -96,6 +96,11 @@ void* handleSocket()
 		{
 			printErr(6);
 		}
+		// Credo che la connessione sia chiusa.
+		if(nRecv == 0)
+		{
+			break;
+		}
 		buff[nRecv-1] = '\0';
 		
 		logM("Client:'%s'\n", buff);
@@ -112,7 +117,7 @@ void* handleSocket()
 
 
 		}
-		while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
+		while(getCommandID(buff) != 2); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
 		
 		//Diminuisco il numero di figli vivi.
 		(*numberAliveChilds)--;
