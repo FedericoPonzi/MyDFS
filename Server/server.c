@@ -52,7 +52,7 @@ int main()
 		printErr(3);
 	}	
 	address_size = sizeof(client);
-	logM("Server avviato. Attendo connessioni. \n");
+	logM("Server avviato. Attendo connessioni.\n");
 	// Loop infinito per servire i client:
 	while(1)
 	{
@@ -104,7 +104,7 @@ void* handleSocket()
         exit(EXIT_FAILURE);
     }
 
-	logM("Collegamento effettuato.\n");
+	logM("[handleSocket] - Collegamento effettuato.\n");
 	do
 	{
 		bzero(answer, sizeof(answer));
@@ -123,7 +123,7 @@ void* handleSocket()
 		}
 		buff[nRecv-1] = '\0';
 		
-		logM("Client:'%s'\n", buff);
+		logM("[handleSocket] - Client:'%s'\n", buff);
 		if(strlen(buff) > 0)
 		{	
 			strcpy(answer, "\nComando Ricevuto: ");
@@ -149,16 +149,20 @@ void* handleSocket()
 			}
 		}
 		
-		if(isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
+		if(iterator->socketId == temp_sd)
 		{
-			spawnHeartBeat(temp_sd);
-		}		
+			if(isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
+			{
+				spawnHeartBeat(temp_sd);
+			}		
+		}
 	}
 	while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
 		
 	//Diminuisco il numero di figli vivi.
 	(*numberAliveChilds)--;
-	logM("Connessione terminata.\n");
+	closeClientSession(temp_sd);
+	logM("[handleSocket] - Connessione terminata.\n");
 		
 	return NULL;
 }
@@ -177,7 +181,7 @@ void* heartBeat(void *pt_temp_sd)
 	//wait tot secondi
 	sleep(2);
 	int temp_sd = *((int*)pt_temp_sd);
-	char ping[5] = "ping";
+	char ping[5] = "ping\n";
 	int nRecv;
 	char buff_ping_back[BUFFSIZE];
 	
@@ -190,16 +194,16 @@ void* heartBeat(void *pt_temp_sd)
 	//struct per settare tempo massimo di attesa in rcv
 	struct timeval tv;
 
-	tv.tv_sec = 10;  /* 5 Secs Timeout */
+	tv.tv_sec = PING_TIME;  /* 5 Secs Timeout */
 	tv.tv_usec = 0;  // Not init'ing this can cause strange errors
 
 	setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
 	
 	nRecv = recv(temp_sd, buff_ping_back, sizeof(buff_ping_back)-1, 0); //se ci sono errori prova a levare il -1
 		
-	if((nRecv < 0) | (strncmp("ok", buff_ping_back, 2) != 0))
+	if((nRecv < 0) || (strncmp("ok", buff_ping_back, 2) != 0))
 	{
-		printf("connessione %d chiusa per inattività\n", temp_sd);
+		printf("[heartBeat] - connessione %d chiusa per inattività\n", temp_sd);
 		closeClientSession(temp_sd);
 		exit(0);
 	}
@@ -220,7 +224,7 @@ void spawnThread()
 		return;
     if (pthread_create(&tid, NULL, &handleSocket, NULL) != 0)
     {
-        printf("\ncan't create thread");
+        printf("\n[spawnThread] - can't create thread");
         perror("Cant create thread");
 	}
 	(*numberAliveChilds)++;
@@ -242,7 +246,7 @@ void spawnProcess()
 	}
 	else if(!pid)
 	{
-		printf("Mio pid: %d\n", getpid());
+		printf("[spawnProcess] - Mio pid: %d\n", getpid());
 		handleSocket();
 	}
 	else

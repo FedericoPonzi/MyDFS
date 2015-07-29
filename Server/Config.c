@@ -111,7 +111,7 @@ static void handleLine(char* line)
 			}
 			else
 			{
-				logM("Errore nel file di config: '%s' ", line);
+				logM("[handleLine] - Errore nel file di config: '%s' ", line);
 				break;
 			}
 		}	

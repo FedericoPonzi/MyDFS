@@ -8,7 +8,12 @@
  * @brief Numero di connessioni in ascolto
  */
  
-#define BACKLOG 20
+#define BACKLOG 10
+
+/**
+ * @brief Tempo di attesa per heartbeating
+ */
+#define PING_TIME 20
 
 /**
  * @brief Se in modalita' debug, stampa utili messaggi di log.
@@ -18,7 +23,7 @@
 /**
  * @brief 1 per multiprocesso, 0 per multithreading:
  */
-#define MULTIPROC 0
+#define MULTIPROC 1
 
 /**
  * @brief Nome del file di config
