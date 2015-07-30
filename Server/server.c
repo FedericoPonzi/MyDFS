@@ -174,11 +174,12 @@ void* handleSocket()
 void spawnHeartBeat(int sd)
 {
 	pthread_t tid;
-	pthreadArgs ptarg;
-	ptarg.temp_sd = sd;
-	ptarg.ptid=getptid();
+	pthreadArgs *ptarg;
+	ptarg = malloc(sizeof(pthreadArgs));
+	ptarg->temp_sd = sd;
+	ptarg->ptid = getptid();
 	
-	if(pthread_create(&tid, NULL, &heartBeat, &ptarg) != 0)
+	if(pthread_create(&tid, NULL, &heartBeat, ptarg) != 0)
 	{
 		perror("Cant create hb_thread");
 	}

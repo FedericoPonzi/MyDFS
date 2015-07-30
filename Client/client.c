@@ -20,15 +20,7 @@ int main(int argc, char* argv[])
 	{
 		file = argv[1];
 	}
-/*	if(argc == 3)
-	{
-		modo = argv[2];
-	}
-	if(argc == 4)
-	{
-		indirizzo = argv[3];
-	}
-*/
+
 	error = 0;
 	
 	printf("\n\tHELLO, CLIENT \n");
