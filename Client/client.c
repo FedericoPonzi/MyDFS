@@ -32,6 +32,9 @@ int main(int argc, char* argv[])
 	{
 		printf("Errore D:");
 	}
+	
+	mydfs_read(fileDescr);
+
 	mydfs_close(fileDescr);
 	return 0;
 }

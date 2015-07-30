@@ -32,6 +32,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include <sys/types.h>
+#include <sys/unistd.h>
 #include "inc/Utils.h"
 #include "inc/Config.h"
 

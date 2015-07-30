@@ -144,7 +144,7 @@ int appendOpenedFile(char* nomeFile, int modo)
 	{
 		return 1;
 	}
-	logM("Boh vabbe'\n");
+	
 	pthread_mutex_lock(mutex);
 
 	OpenedFile *n = *free_head;
@@ -179,18 +179,18 @@ int fileAlreadyOpenedInWrite(char* filename)
 	OpenedFile* iterator = *openedFileLinkedList;
 	while(iterator != NULL)
 	{
+		printf("iterator->filename: %s\n", iterator->fileName);
 		if(strcmp(iterator->fileName, filename) == 0)
 		{
 			if(isModoApertura(iterator->modo, MYO_EXLOCK) || isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
 			{
 				return 1;
 			}
-			return FALSE;
 		}
 		iterator = iterator->next;
 	}
 	
-	logM("[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome: '%s' \n",filename);
+	logM("[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: '%s' \n",filename);
 
 	return 0;
 }
