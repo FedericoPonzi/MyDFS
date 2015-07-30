@@ -32,7 +32,7 @@
 
 
 extern pthread_mutex_t *acceptMutex;
-//static pthread_mutex_t *hbMutex;
+extern pthread_mutex_t *tempSockMutex;
 
 extern int* numberAliveChilds;
 

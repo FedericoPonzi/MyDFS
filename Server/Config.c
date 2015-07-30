@@ -22,15 +22,23 @@
  */
 
 int *numberAliveChilds;
+
+/**
+ * Mutex dell' accept
+ */
 pthread_mutex_t *acceptMutex;
-//static pthread_mutex_t *hbMutex;
+
+/**
+ * Mutex della socket temporanea
+ */
+pthread_mutex_t *tempSockMutex;
 
 
 int numeroCon = 0;
 int procOrThread = 0;
 int portNumber = 0;
 static void handleLine(char* line);
-
+static void initializeMutex();
 /**
  * @brief Carica le impostazioni del config, ed inizializza la memoria.
  */
@@ -44,26 +52,10 @@ int loadConfig()
 	{	
 		handleLine(buf);
 	}
-	
+
 	// Inizializzo la memoria per le strutture dati:
 	allocaEInizializzaMemoria();
-	
-    pthread_mutexattr_t mutex_attr;
-    if (pthread_mutexattr_init(&mutex_attr) < 0) {
-        perror("Failed to initialize mutex attributes");
-        exit(EXIT_FAILURE);
-    }
-
-    if (pthread_mutexattr_setpshared(&mutex_attr, PTHREAD_PROCESS_SHARED) < 0) {
-        perror("Failed to change mutex attributes");
-        exit(EXIT_FAILURE);
-    }
-
-    if (pthread_mutex_init(acceptMutex, &mutex_attr) < 0) {
-        perror("Failed to initialize mutex");
-        exit(EXIT_FAILURE);
-    }
-	
+	initializeMutex();
 	return EXIT_SUCCESS;
 }
 
@@ -114,4 +106,41 @@ static void handleLine(char* line)
 			}
 		}	
 	}
+}
+
+
+void initializeMutex()
+{
+	
+	tempSockMutex = malloc(sizeof(pthread_mutex_t));
+	pthread_mutexattr_t mutex_attr;
+	
+    if (pthread_mutexattr_init(&mutex_attr) < 0) {
+        perror("Failed to initialize mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+    
+    if (pthread_mutex_init(tempSockMutex, &mutex_attr) < 0) {
+        perror("Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
+
+	acceptMutex = malloc(sizeof(pthread_mutex_t));	
+    pthread_mutexattr_t mutex_attr2;
+    if (pthread_mutexattr_init(&mutex_attr2) < 0) {
+        perror("Failed to initialize mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutexattr_setpshared(&mutex_attr2, PTHREAD_PROCESS_SHARED) < 0) {
+        perror("Failed to change mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutex_init(acceptMutex, &mutex_attr2) < 0) {
+        perror("Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
+	
+
 }

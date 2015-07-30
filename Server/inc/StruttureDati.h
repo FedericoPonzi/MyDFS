@@ -29,11 +29,7 @@ typedef struct OpenedFile
 	struct OpenedFile* next;
 }OpenedFile;
 
-typedef struct {
-    //Or whatever information that you need
-    int temp_sd;
-    int ptid;
-} pthreadArgs;
+
 
 extern OpenedFile **openedFileLinkedList;
 extern OpenedFile **free_head;

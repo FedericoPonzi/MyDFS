@@ -40,12 +40,12 @@
 #include <unistd.h>
 #include <sys/mman.h>
 #include <sys/types.h>
-
 #include <semaphore.h>
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <pthread.h>
+#include "inc/Heartbeating.h"
 #include "inc/Config.h"
 #include "inc/Utils.h"
 #include "inc/StruttureDati.h"
@@ -163,6 +163,7 @@ int appendOpenedFile(char* nomeFile, int modo)
 	*openedFileLinkedList = n;
 
 	pthread_mutex_unlock(mutex);
+
 	return 0;
 }
 

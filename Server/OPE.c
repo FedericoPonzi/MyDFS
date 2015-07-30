@@ -40,11 +40,11 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "inc/OPE.h"
+#include "inc/Heartbeating.h"
 #include "inc/StruttureDati.h"
 #include "inc/Utils.h"
 #include <limits.h>
 #include <errno.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 
 void getFileName(char* command, char* nomeFile);
@@ -74,8 +74,13 @@ void handleOpenCommand(char* command, int socket)
 		send(socket, ret_val, sizeof(ret_val), 0);
 		return;
 	}
+	if(isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR))
+	{
+		spawnHeartBeat(socket);
+	}
 	
 	//TODO if true append allora manda un messaggio al client.
+
 }
 
 /**
