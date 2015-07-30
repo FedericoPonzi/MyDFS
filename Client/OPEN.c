@@ -62,6 +62,7 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
     char openCommand [strlen(OPENCOMMAND)+strlen(nomefile)+5];
     sprintf(openCommand, "%s %s %d\n", OPENCOMMAND, toRet->filename, toRet->modo);
 	logM("[OpenCommand]: '%s'\n", openCommand);
+	
     if(send(toRet->socketId, openCommand, sizeof(openCommand), 0) < 0)
     {
 		*err = -2;

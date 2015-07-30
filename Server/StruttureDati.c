@@ -144,10 +144,12 @@ int appendOpenedFile(char* nomeFile, int modo)
 	{
 		return 1;
 	}
+
 	if(checkModoOpen(nomeFile, modo))
 	{
 		return -3;
 	}
+
 	pthread_mutex_lock(mutex);
 
 	OpenedFile *n = *free_head;

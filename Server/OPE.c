@@ -38,12 +38,17 @@
 #include <stdlib.h> 
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
 #include "inc/OPE.h"
 #include "inc/StruttureDati.h"
 #include "inc/Utils.h"
-
+#include <limits.h>
+#include <errno.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+
+void getFileName(char* command, char* nomeFile);
+int getModo(char* command);
 
 /**
  * @brief Gestisce il comando Open.
@@ -57,9 +62,8 @@ void handleOpenCommand(char* command, int socket)
 
 	getFileName(command, nomeFile);
 	logM("Nome del file: '%s'\n", nomeFile);
-	char i = command[strlen(command)-1];
-
-	int modo = i - '0'; //Mi da' il numero da char a int.
+	
+	int modo = getModo(command);
 
 	logM("Modo di apertura: '%d'\n", modo);
 	int err_code;
@@ -76,8 +80,9 @@ void handleOpenCommand(char* command, int socket)
 			char ret_val[3] = "-1\n";
 			send(socket, ret_val, sizeof(ret_val), 0);
 		}
-		
+	
 	}
+	
 	//TODO if true append allora manda un messaggio al client.
 }
 
@@ -92,4 +97,21 @@ void getFileName(char* command, char* nomeFile)
 	memcpy(nomeFile, command, lunghezza);
 	nomeFile[lunghezza-2] = '\0';
 	logM("nomeFile = %s\n", nomeFile);
+}
+
+/**
+ * @brief Ritorna il modo, sia se e' a una cifra che se e' a due cifre :D
+ * 
+ */
+int getModo(char* command)
+{
+	if(isspace(*(command+strlen(command)-2)))
+	{
+		return *(command+strlen(command)-1) - '0'; // magic don't touch
+	}
+	
+	char* ptr = command+ strlen(command)-2;
+	long val;
+	val = strtol(ptr, NULL, 10);
+	return val;
 }
