@@ -179,7 +179,6 @@ int fileAlreadyOpenedInWrite(char* filename)
 	OpenedFile* iterator = *openedFileLinkedList;
 	while(iterator != NULL)
 	{
-		printf("iterator->filename: %s\n", iterator->fileName);
 		if(strcmp(iterator->fileName, filename) == 0)
 		{
 			if(isModoApertura(iterator->modo, MYO_EXLOCK) || isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
