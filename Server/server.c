@@ -220,7 +220,7 @@ void* heartBeat(void *pt_pthreadarg)
 		closeClientSession(ptid);
 		close(temp_sd);
 	}
-	
+	free(pt_pthreadarg);
 	return NULL;
 }
 /**
