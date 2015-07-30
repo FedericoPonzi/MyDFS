@@ -62,11 +62,21 @@ void handleOpenCommand(char* command, int socket)
 	int modo = i - '0'; //Mi da' il numero da char a int.
 
 	logM("Modo di apertura: '%d'\n", modo);
-	if(appendOpenedFile(nomeFile, modo))
+	int err_code;
+	if((err_code = appendOpenedFile(nomeFile, modo)) != 0)
 	{
 		logM("[appendOpenedFile] - Non posso farlo john\n");
-		char ret_val[2] = "-1";
-		send(socket, ret_val, sizeof(ret_val), 0);
+		if(err_code == -3)
+		{
+			char ret_val[3] = "-3\n";
+			send(socket, ret_val, sizeof(ret_val), 0);
+		}
+		else //provvisorio
+		{
+			char ret_val[3] = "-1\n";
+			send(socket, ret_val, sizeof(ret_val), 0);
+		}
+		
 	}
 	//TODO if true append allora manda un messaggio al client.
 }

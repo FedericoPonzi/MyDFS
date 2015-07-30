@@ -144,7 +144,10 @@ int appendOpenedFile(char* nomeFile, int modo)
 	{
 		return 1;
 	}
-	logM("Boh vabbe'\n");
+	if(checkModoOpen(nomeFile, modo))
+	{
+		return -3;
+	}
 	pthread_mutex_lock(mutex);
 
 	OpenedFile *n = *free_head;
@@ -167,6 +170,69 @@ int appendOpenedFile(char* nomeFile, int modo)
 }
 
 /**
+ * @brief controlla se la open è realizzabile con i modi richiesti
+ */
+int checkModoOpen(char *nomeFile, int modo)
+{
+	OpenedFile* iterator = *openedFileLinkedList;
+	
+	//copio in temp_path il rootPath
+	char temp_path[40];
+	int count = 0;
+	while(count < strlen(rootPath))
+	{
+		temp_path[count] = rootPath[count];
+		count++;
+	}
+	//completo temp_path concatenandolo con il nomeFile
+	int count2 = 0;
+	while(count2 <= (strlen(nomeFile)))
+	{
+		temp_path[count] = nomeFile[count2];
+		count++;
+		count2++;
+	}
+	
+	if(iterator != NULL)
+	{
+		while(TRUE) //solito ciclo per individuare, se esiste, il file con nome nomeFile
+		{
+			if(strcmp(iterator->fileName, nomeFile) == 0)
+			{
+				break;
+			}
+			else
+			{
+				if(iterator->next != NULL)
+				{
+					iterator = iterator->next;
+				}
+				else
+				{
+					break;
+				}
+			}
+		}
+	}
+	
+	//se richiesto uno dei modi elencati su file inesistente
+	if(isModoApertura(modo, MYO_RDONLY) || isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR) || 
+	  (isModoApertura(modo, MYO_TRUNC) && !isModoApertura(modo, MYO_WRONLY) && !isModoApertura(modo, MYO_RDWR)))
+	{
+		if(access(temp_path, F_OK) != -1)
+		{
+			return 0;
+		}
+		else
+		{
+			return -3;
+		}
+	}
+	
+	return 0;
+}
+
+/**
  * @brief Controlla se un file con quel nome e' gia' stato aperto in una modalita' che non permette l'accesso da parte di altri client
  *
  */
@@ -185,12 +251,11 @@ int fileAlreadyOpenedInWrite(char* filename)
 			{
 				return 1;
 			}
-			return FALSE;
 		}
 		iterator = iterator->next;
 	}
 	
-	logM("[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome: '%s' \n",filename);
+	logM("[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: '%s' \n",filename);
 
 	return 0;
 }

@@ -51,6 +51,11 @@ extern int procOrThread;
  */
 extern int portNumber;
 
+/**
+ * root path server
+ */
+extern char rootPath[40];
+
 int loadConfig();
 
 #endif

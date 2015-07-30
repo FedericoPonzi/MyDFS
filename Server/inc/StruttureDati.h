@@ -42,7 +42,7 @@ void allocaEInizializzaMemoria();
 int appendOpenedFile(char* nomefile, int modo);
 int fileAlreadyOpenedInWrite(char* filename);
 int isModoApertura(int modo_client, int modo);
-
+int checkModoOpen(char *nomeFile , int modo);
 
 void closeClientSession(int ptid);
 

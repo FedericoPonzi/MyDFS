@@ -34,6 +34,8 @@
 #include <stdarg.h>
 #include "inc/Utils.h"
 #include "inc/Config.h"
+#include <sys/types.h>
+#include <sys/unistd.h>
 
 /**
  * @brief Stampa un messaggio di log sullo STDOUT 

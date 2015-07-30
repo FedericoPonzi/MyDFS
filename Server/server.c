@@ -159,7 +159,6 @@ void* handleSocket()
 		
 		logM("\n\n");
 
-		
 	}
 	while(getCommandID(buff) != 2 || nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
 		
