@@ -9,6 +9,7 @@
 #define NUMCON "NUMBER_OF_CONNECTION"
 #define PROCORTRE "PROCESS_OR_THREAD"
 #define PORTNUMB "PORT_NUMBER"
+#define ROOTPATH "ROOT_PATH"
 
 
 
@@ -37,6 +38,7 @@ pthread_mutex_t *tempSockMutex;
 int numeroCon = 0;
 int procOrThread = 0;
 int portNumber = 0;
+char rootPath[40];
 static void handleLine(char* line);
 static void initializeMutex();
 /**
@@ -97,6 +99,20 @@ static void handleLine(char* line)
 			{
 				i = strlen(PORTNUMB) + 1;
 				portNumber = strtol(&line[i], &ptr, 10);
+				break;
+			}
+			else if(strncmp(line, ROOTPATH, strlen(ROOTPATH)) == 0)
+			{
+				i = strlen(ROOTPATH) + 1;
+				int count = 0;
+				//*rootPath = line[i]; //giusto?
+				while(line[i] != '\n')
+				{
+					rootPath[count] = line[i];
+					count++;
+					i++;
+				}
+				logM("root_path = %s\n", rootPath);
 				break;
 			}
 			else

@@ -66,13 +66,21 @@ void handleOpenCommand(char* command, int socket)
 	int modo = getModo(command);
 
 	logM("Modo di apertura: '%d'\n", modo);
-	
-	if(appendOpenedFile(nomeFile, modo))
+	int err_code;
+	if((err_code = appendOpenedFile(nomeFile, modo)) != 0)
 	{
 		logM("[appendOpenedFile] - Non posso farlo john\n");
-		char ret_val[2] = "-1";
-		send(socket, ret_val, sizeof(ret_val), 0);
-		return;
+		if(err_code == -3)
+		{
+			char ret_val[3] = "-3\n";
+			send(socket, ret_val, sizeof(ret_val), 0);
+		}
+		else //provvisorio
+		{
+			char ret_val[3] = "-1\n";
+			send(socket, ret_val, sizeof(ret_val), 0);
+		}
+	
 	}
 	if(isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR))
 	{
