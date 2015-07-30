@@ -136,18 +136,15 @@ void allocaEInizializzaMemoria()
  * Se non esiste la radice mainFile la crea. Altrimenti scorre tutti i nodi fino ad arrivare all' elemento in coda, crea un nuovo
  * nodo con i dati in input e lo appende alla fine.
  */
-int appendOpenedFile(char* nomeFile, int modo, int socket)
+int appendOpenedFile(char* nomeFile, int modo)
 {
 	logM("[appendOpenedFile] - Appendo il file aperto.\n");
 	//Se richiede una scrittura, e il file e' già aperto in scrittura:
-	if(fileAlreadyOpenedInWrite(nomeFile, socket)) //Aperto in scrittura
+	if(fileAlreadyOpenedInWrite(nomeFile)) //Aperto in scrittura
 	{
-		logM("[appendOpenedFile] - Non posso farlo john\n");
-		char ret_val[2] = "-1";
-		send(socket, ret_val, sizeof(ret_val), 0);
-		return 0;
+		return 1;
 	}
-	logM("[appendOpenedFile] - Prendo il lock: \n");
+	logM("Boh vabbe'\n");
 	pthread_mutex_lock(mutex);
 
 	OpenedFile *n = *free_head;
@@ -160,15 +157,13 @@ int appendOpenedFile(char* nomeFile, int modo, int socket)
 
 	*free_head = (*free_head)->next;
 	n->fileName = nomeFile;
-	n->socketId = socket;
+	n->ptid = getptid();
 	n->modo = modo;
 	n->next = *openedFileLinkedList;
 	*openedFileLinkedList = n;
 
 	pthread_mutex_unlock(mutex);
-	logM("[appendOpenedFile] - Lock rilasciato. \n");
-
-	return 1;
+	return 0;
 }
 
 /**
@@ -176,9 +171,8 @@ int appendOpenedFile(char* nomeFile, int modo, int socket)
  *
  */
 
-int fileAlreadyOpenedInWrite(char* filename, int socketId)
+int fileAlreadyOpenedInWrite(char* filename)
 {
-	logM("[fileAlreadyOpenedInWrite] - File already opened in write? \n");
 
 	if(openedFileLinkedList == NULL) return FALSE;
 	
@@ -189,7 +183,7 @@ int fileAlreadyOpenedInWrite(char* filename, int socketId)
 		{
 			if(isModoApertura(iterator->modo, MYO_EXLOCK) || isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
 			{
-				return -1;
+				return 1;
 			}
 			return FALSE;
 		}
@@ -221,13 +215,13 @@ int isModoApertura(int modo_client, int modo)
  * @brief rimuove collegamenti tra client e file aperti nella sessione
  * @param int sd socket descriptor del client
  */
-void closeClientSession(int sd /*, char* fileName*/) //fileName va rimosso, la session è relativa ad un solo file
+void closeClientSession(int ptid) //fileName va rimosso, la session è relativa ad un solo file
 {
 	OpenedFile* iterator = *openedFileLinkedList;
 	OpenedFile* preIterator = NULL;
 	while(TRUE)
 	{
-		if(iterator->socketId == sd /*&& (strcmp(iterator->fileName, fileName) == 0)*/)
+		if(iterator->ptid == ptid)
 		{
 			
 			//OpenedFile* temp = iterator;
@@ -252,7 +246,7 @@ void closeClientSession(int sd /*, char* fileName*/) //fileName va rimosso, la s
 					*free_head = iterator;
 					preIterator->next = NULL;
 				}
-				else //nè primo nè ultimo della lista
+				else //ne primo ne ultimo della lista
 				{
 					logM("[closeClientSession] - individuato file medio: %s - pronto alla chiusura\n", iterator->fileName);
 					preIterator->next = iterator->next;
@@ -268,7 +262,7 @@ void closeClientSession(int sd /*, char* fileName*/) //fileName va rimosso, la s
 		}
 		else
 		{
-			logM("skip\n");
+
 			if(iterator->next != NULL) //se ci sono ancora file da controllare
 			{
 				preIterator = iterator;
@@ -280,6 +274,5 @@ void closeClientSession(int sd /*, char* fileName*/) //fileName va rimosso, la s
 			}
 		}
 	}
-	logM("[closeClientSession] - chiusura connessione, byeee\n");
-	close(sd);
+	logM("[closeClientSession] - Connessione chiusa.\n");
 }

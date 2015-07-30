@@ -24,8 +24,6 @@ void spawnHeartBeat(int temp_sd);
 void* heartBeat(void *temp_sd);
 int sd;
 struct sockaddr_in server;
-struct sockaddr_in client;
-socklen_t address_size;
 static pthread_mutex_t *hbMutex;
 
 int main()
@@ -51,7 +49,7 @@ int main()
 	{
 		printErr(3);
 	}	
-	address_size = sizeof(client);
+
 	logM("Server avviato. Attendo connessioni.\n");
 	// Loop infinito per servire i client:
 	while(1)
@@ -77,6 +75,9 @@ int main()
 void* handleSocket()
 {
 	int temp_sd;
+	struct sockaddr_in client;
+	socklen_t address_size;
+	address_size = sizeof(client);
 	
 	pthread_mutex_lock(acceptMutex);
 	
@@ -125,6 +126,7 @@ void* handleSocket()
 		
 
 		logM("[handleSocket] - Client:'%s'\n", buff);
+		
 		if(strlen(buff) > 0)
 		{	
 			strcpy(answer, "\nComando Ricevuto: ");
@@ -139,10 +141,9 @@ void* handleSocket()
 		}
 		
 		handleCommand(buff, temp_sd);
-		logM("\n\n");
 		
 		OpenedFile* iterator = *openedFileLinkedList;
-		while(iterator->socketId != temp_sd)
+		while(iterator->ptid != getptid())
 		{
 			if(iterator->next != NULL)
 			{
@@ -150,15 +151,17 @@ void* handleSocket()
 			}
 		}
 		
-		if(iterator->socketId == temp_sd)
+		if(iterator->ptid == getptid() && (isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR)))
 		{
-			if(isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
-			{
-				spawnHeartBeat(temp_sd);
-			}		
-		}
+			logM("LOLOLOL\n");
+			spawnHeartBeat(temp_sd);
+		}		
+		
+		logM("\n\n");
+
+		
 	}
-	while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
+	while(getCommandID(buff) != 2 || nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
 		
 	//Diminuisco il numero di figli vivi.
 	(*numberAliveChilds)--;
@@ -168,20 +171,28 @@ void* handleSocket()
 	return NULL;
 }
 
-void spawnHeartBeat(int temp_sd)
+void spawnHeartBeat(int sd)
 {
 	pthread_t tid;
-	if(pthread_create(&tid, NULL, &heartBeat, &temp_sd) != 0)
+	pthreadArgs ptarg;
+	ptarg.temp_sd = sd;
+	ptarg.ptid=getptid();
+	
+	if(pthread_create(&tid, NULL, &heartBeat, &ptarg) != 0)
 	{
 		perror("Cant create hb_thread");
 	}
 }
 
-void* heartBeat(void *pt_temp_sd)
+void* heartBeat(void *pt_pthreadarg)
 {
+	
+	int temp_sd = ((pthreadArgs*)pt_pthreadarg)->temp_sd;
+	int ptid = ((pthreadArgs*)pt_pthreadarg)->ptid;
+	logM("Tempsd: %d, ptid: %d\n", temp_sd, ptid);
 	//wait tot secondi
-	sleep(2);
-	int temp_sd = *((int*)pt_temp_sd);
+	sleep(PING_TIME);
+
 	char ping[5] = "ping\n";
 	int nRecv;
 	char buff_ping_back[BUFFSIZE];
@@ -204,9 +215,9 @@ void* heartBeat(void *pt_temp_sd)
 		
 	if((nRecv < 0) || (strncmp("ok", buff_ping_back, 2) != 0))
 	{
-		printf("[heartBeat] - connessione %d chiusa per inattività\n", temp_sd);
-		closeClientSession(temp_sd);
-		exit(0);
+		printf("[heartBeat] - connessione %d chiusa per inattività\n", ptid);
+		closeClientSession(ptid);
+		close(temp_sd);
 	}
 	
 	return NULL;

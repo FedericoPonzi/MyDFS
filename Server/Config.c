@@ -48,8 +48,6 @@ int loadConfig()
 	// Inizializzo la memoria per le strutture dati:
 	allocaEInizializzaMemoria();
 	
-	*numberAliveChilds = 0;
-	printf("Number alive childs: %d", *numberAliveChilds);
     pthread_mutexattr_t mutex_attr;
     if (pthread_mutexattr_init(&mutex_attr) < 0) {
         perror("Failed to initialize mutex attributes");

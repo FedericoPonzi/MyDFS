@@ -13,7 +13,7 @@
 /**
  * @brief Tempo di attesa per heartbeating
  */
-#define PING_TIME 20
+#define PING_TIME 5
 
 /**
  * @brief Se in modalita' debug, stampa utili messaggi di log.
