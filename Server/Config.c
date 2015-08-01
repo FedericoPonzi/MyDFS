@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include <sys/mman.h>
 #include <sys/types.h>
+
 #include <pthread.h>
 #include "inc/Config.h"
 #include "inc/Utils.h"
@@ -12,6 +15,8 @@
 #define ROOTPATH "ROOT_PATH"
 
 
+
+static void allocaEInizializzaMemoria();
 
 /**
  * @file StruttureDati.c
@@ -141,7 +146,6 @@ void initializeMutex()
         exit(EXIT_FAILURE);
     }
 
-	acceptMutex = malloc(sizeof(pthread_mutex_t));	
     pthread_mutexattr_t mutex_attr2;
     if (pthread_mutexattr_init(&mutex_attr2) < 0) {
         perror("Failed to initialize mutex attributes");
@@ -157,6 +161,78 @@ void initializeMutex()
         perror("Failed to initialize mutex");
         exit(EXIT_FAILURE);
     }
-	
 
+}
+
+
+/**
+ * @brief Alloca la memoria necessaria per gestire le strutture dati.
+ * @todo Dovrebbe trovarsi dentro al Config.c
+ */
+void allocaEInizializzaMemoria()
+{
+	void *ptr;
+    size_t region_sz = 0;
+
+    /* Space for the nodes */
+    region_sz += sizeof(OpenedFile)*numeroCon;
+	
+	/* Space for house-keeping pointers */
+    region_sz += sizeof(openedFileLinkedList)+sizeof(free_head);
+
+	/* Space for the mutex */
+    region_sz += sizeof(*mutex);
+	
+	/* Spazio per il mutex dell'accept e dell' int numbero figli vivi */
+	region_sz += sizeof(pthread_mutex_t);
+	region_sz += sizeof(int);
+	
+	logM("[Initialize Memory] - Sto per allocare %lu spazio.\n", region_sz);
+    ptr = mmap(NULL, region_sz, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, 0, 0);
+    if (ptr == MAP_FAILED) {
+        perror("mmap(2) failed");
+        exit(EXIT_FAILURE);
+    }
+
+    /* Set up everything */
+    
+    /**Indirizzo di serverconnectionsstruct */
+    
+    mutex = ptr;
+    acceptMutex = mutex + sizeof(pthread_mutex_t);
+    numberAliveChilds =  (int* )acceptMutex + sizeof(pthread_mutex_t);
+    
+    free_head = (OpenedFile **) (((char *) numberAliveChilds)+sizeof(int));
+   
+    openedFileLinkedList = free_head+1;
+
+    *free_head = (OpenedFile *) (openedFileLinkedList+1);
+
+    *openedFileLinkedList = NULL;
+
+    /* Initialize free list */
+    int i;
+    OpenedFile *curr;
+
+    for (i = 0, curr = *free_head; i < numeroCon-1; i++, curr++) {
+        curr->next = curr+1;
+	}
+
+    curr->next = NULL;
+
+    pthread_mutexattr_t mutex_attr;
+    if (pthread_mutexattr_init(&mutex_attr) < 0) {
+        perror("[Initialize Memory] - Failed to initialize mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutexattr_setpshared(&mutex_attr, PTHREAD_PROCESS_SHARED) < 0) {
+        perror("[Initialize Memory] - Failed to change mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutex_init(mutex, &mutex_attr) < 0) {
+        perror("[Initialize Memory] - Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
 }

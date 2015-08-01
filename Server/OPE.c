@@ -58,36 +58,34 @@ void handleOpenCommand(char* command, int socket)
 {
 	stripCommand(command);
 
-	char* nomeFile = malloc(30*sizeof(char)); /** @todo : Da vedere bene per memory leaks!!!!*/
+	char* nomeFile;
+	char* ret_val;
+	int err_code;
+	
+	nomeFile = malloc(30*sizeof(char)); /** @todo : Da vedere bene per memory leaks!!!!*/
 
 	getFileName(command, nomeFile);
-	logM("Nome del file: '%s'\n", nomeFile);
-	
-	int modo = getModo(command);
 
+	logM("Nome del file: '%s'\n", nomeFile);
+	int modo = getModo(command);
 	logM("Modo di apertura: '%d'\n", modo);
-	int err_code;
+	
 	if((err_code = appendOpenedFile(nomeFile, modo)) != 0)
 	{
 		logM("[appendOpenedFile] - Non posso farlo john\n");
-		if(err_code == -3)
-		{
-			char ret_val[3] = "-3\n";
-			send(socket, ret_val, sizeof(ret_val), 0);
-		}
-		else //provvisorio
-		{
-			char ret_val[3] = "-1\n";
-			send(socket, ret_val, sizeof(ret_val), 0);
-		}
-	
+		ret_val = ((err_code == -3) ? "-3\n" : "-1\n");
 	}
-	if(isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR))
+	else
+	{
+		ret_val = "ok";
+	}
+	
+	if(err_code == 0 && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
 	{
 		spawnHeartBeat(socket);
 	}
-	
-	//TODO if true append allora manda un messaggio al client.
+
+	send(socket, ret_val, strlen(ret_val), 0);
 
 }
 

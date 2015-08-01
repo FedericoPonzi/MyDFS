@@ -53,81 +53,8 @@
 
 OpenedFile ** openedFileLinkedList = NULL;
 OpenedFile ** free_head;
-static pthread_mutex_t *mutex;
+pthread_mutex_t *mutex;
 
-
-
-/**
- * @brief Alloca la memoria necessaria per gestire le strutture dati.
- * @todo Dovrebbe trovarsi dentro al Config.c
- */
-void allocaEInizializzaMemoria()
-{
-	void *ptr;
-    size_t region_sz = 0;
-
-    /* Space for the nodes */
-    region_sz += sizeof(OpenedFile)*numeroCon;
-	
-	/* Space for house-keeping pointers */
-    region_sz += sizeof(openedFileLinkedList)+sizeof(free_head);
-
-	/* Space for the mutex */
-    region_sz += sizeof(*mutex);
-	
-	/* Spazio per il mutex dell'accept e dell' int numbero figli vivi */
-	region_sz += sizeof(pthread_mutex_t);
-	region_sz += sizeof(int);
-	
-	logM("[Initialize Memory] - Sto per allocare %lu spazio.\n", region_sz);
-    ptr = mmap(NULL, region_sz, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, 0, 0);
-    if (ptr == MAP_FAILED) {
-        perror("mmap(2) failed");
-        exit(EXIT_FAILURE);
-    }
-
-    /* Set up everything */
-    
-    /**Indirizzo di serverconnectionsstruct */
-    
-    mutex = ptr;
-    acceptMutex = mutex + sizeof(pthread_mutex_t);
-    numberAliveChilds =  (int* )acceptMutex + sizeof(pthread_mutex_t);
-    
-    free_head = (OpenedFile **) (((char *) numberAliveChilds)+sizeof(int));
-   
-    openedFileLinkedList = free_head+1;
-
-    *free_head = (OpenedFile *) (openedFileLinkedList+1);
-
-    *openedFileLinkedList = NULL;
-
-    /* Initialize free list */
-    int i;
-    OpenedFile *curr;
-
-    for (i = 0, curr = *free_head; i < numeroCon-1; i++, curr++) {
-        curr->next = curr+1;
-	}
-
-    curr->next = NULL;
-
-    pthread_mutexattr_t mutex_attr;
-    if (pthread_mutexattr_init(&mutex_attr) < 0) {
-        perror("[Initialize Memory] - Failed to initialize mutex attributes");
-        exit(EXIT_FAILURE);
-    }
-
-    if (pthread_mutexattr_setpshared(&mutex_attr, PTHREAD_PROCESS_SHARED) < 0) {
-        perror("[Initialize Memory] - Failed to change mutex attributes");
-        exit(EXIT_FAILURE);
-    }
-
-    if (pthread_mutex_init(mutex, &mutex_attr) < 0) {
-        perror("[Initialize Memory] - Failed to initialize mutex");
-        exit(EXIT_FAILURE);
-    }
-}
 
 
 /**
@@ -147,6 +74,7 @@ int appendOpenedFile(char* nomeFile, int modo)
 
 	if(checkModoOpen(nomeFile, modo))
 	{
+		logM("Checkmodoopen error\n");
 		return -3;
 	}
 
@@ -173,7 +101,7 @@ int appendOpenedFile(char* nomeFile, int modo)
 }
 
 /**
- * @brief controlla se la open è realizzabile con i modi richiesti
+ * @brief controlla se la open è realizzabile con il modo richiesti
  */
 int checkModoOpen(char *nomeFile, int modo)
 {
@@ -181,7 +109,10 @@ int checkModoOpen(char *nomeFile, int modo)
 	
 	//copio in temp_path il rootPath
 	char temp_path[40];
-	int count = 0;
+	strcpy(temp_path, rootPath);
+	strcat(temp_path, nomeFile);
+
+/*	int count = 0;
 	while(count < strlen(rootPath))
 	{
 		temp_path[count] = rootPath[count];
@@ -195,42 +126,28 @@ int checkModoOpen(char *nomeFile, int modo)
 		count++;
 		count2++;
 	}
+	*/
 	
-	if(iterator != NULL)
+	while(iterator != NULL)
 	{
-		while(TRUE) //solito ciclo per individuare, se esiste, il file con nome nomeFile
+		if(strcmp(iterator->fileName, nomeFile) == 0)
 		{
-			if(strcmp(iterator->fileName, nomeFile) == 0)
+			if(isModoApertura(modo, MYO_RDONLY) || isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR) || 
+			  (isModoApertura(modo, MYO_TRUNC) && !isModoApertura(modo, MYO_WRONLY) && !isModoApertura(modo, MYO_RDWR)))
 			{
-				break;
-			}
-			else
-			{
-				if(iterator->next != NULL)
+				if(access(temp_path, F_OK) != -1)
 				{
-					iterator = iterator->next;
+					return 0;
 				}
 				else
 				{
-					break;
+					return -3;
 				}
 			}
 		}
+		iterator = iterator->next;
 	}
 	
-	//se richiesto uno dei modi elencati su file inesistente
-	if(isModoApertura(modo, MYO_RDONLY) || isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR) || 
-	  (isModoApertura(modo, MYO_TRUNC) && !isModoApertura(modo, MYO_WRONLY) && !isModoApertura(modo, MYO_RDWR)))
-	{
-		if(access(temp_path, F_OK) != -1)
-		{
-			return 0;
-		}
-		else
-		{
-			return -3;
-		}
-	}
 	
 	return 0;
 }

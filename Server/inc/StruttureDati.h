@@ -30,11 +30,12 @@ typedef struct OpenedFile
 }OpenedFile;
 
 
+extern pthread_mutex_t *mutex;
 
 extern OpenedFile **openedFileLinkedList;
+
 extern OpenedFile **free_head;
 
-void allocaEInizializzaMemoria();
 int appendOpenedFile(char* nomefile, int modo);
 int fileAlreadyOpenedInWrite(char* filename);
 int isModoApertura(int modo_client, int modo);

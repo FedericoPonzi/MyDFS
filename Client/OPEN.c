@@ -28,7 +28,7 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	//Creo la struttura di ritorno, e le aggiungo dei valori che gia conosco:
 	MyDFSId* toRet;
 	toRet = malloc(sizeof(toRet));
-	toRet->filename = malloc(strlen(nomefile));
+	toRet->filename = malloc(strlen(nomefile)+1);
 	strcpy(toRet->filename, nomefile);
 	toRet->modo = modo;
 	toRet->indirizzo = malloc(strlen(indirizzo));
@@ -43,21 +43,21 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
     memset(&serv_addr, '0', sizeof(serv_addr)); 
 
     serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(9000); 
+    serv_addr.sin_port = htons(SERVER_PORT); 
 
     if(inet_aton(indirizzo, &serv_addr.sin_addr) == 0)
     {
 		perror("inet_aton");
-        printf("\n inet_pton error occured\n");
+        *err= -2;
         return NULL;
     } 
 	
-    if( connect(toRet->socketId, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) != 0)
+    if( (connect(toRet->socketId, (struct sockaddr *)&serv_addr, sizeof(serv_addr))) != 0)
     {
+       *err= -2;
 	   perror("connect");
-       printf("\n Error : Connect Failed \n");
        return NULL;
-    }	
+    }		
     //Connessione effettuata, invio la richiesta
     char openCommand [strlen(OPENCOMMAND)+strlen(nomefile)+5];
     sprintf(openCommand, "%s %s %d\n", OPENCOMMAND, toRet->filename, toRet->modo);
@@ -65,13 +65,15 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	
     if(send(toRet->socketId, openCommand, sizeof(openCommand), 0) < 0)
     {
+		perror("send");
 		*err = -2;
 		return NULL;
 	}
 	char buffer[30];
 	int nRecv = 0;
-	if (nRecv = recv(toRet->socketId, buffer, sizeof(buffer)-1, 0) < 0)
+	if ((nRecv = recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{
+		perror("recv");
 		*err = -2;
 		return NULL;
 	}

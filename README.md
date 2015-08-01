@@ -6,10 +6,11 @@ Tutta la documentazione si riferisce al lato server (per ora, ovviamente).
 * Sulla [open](OPE.md)
 
 ###TODOS:
-* Bisogna spostare l' heartbeating nella open
+*Aggiungere un campo lock a OpenedFile e controllare il modo alla Open
+
 
 ###Più in là:
-* Sincronizzare l' accesso alla struttura dati [openedFilesLinkedList] (file:///home/federicoponzi/Progetto/html/server_8c.html#a3063a74baee4fe1870e52d0ec577afa9)
+* In server.c: Spawnare gli n threads, poi creare un metodo che ogni 1 secondo (quindi sleep(1)) controlla se ci sono thread/processi da creare.
 
 ###Note:
 * Se passo un oggetto sbagliato a logM, ricevo un errore sulla vprintf. Tipo logM("%d","ciao");

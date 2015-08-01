@@ -18,21 +18,21 @@
  */
 int mydfs_close(MyDFSId* id)
 {
-		logM("[Close] %s", id->filename);
+		logM("[Close] '%s'\n", id->filename);
 		
-		char closeCommand[strlen(id->filename)+strlen(CLOSECOMMAND)];
+		char closeCommand[strlen(CLOSECOMMAND)+2];
 		
-		strcpy(closeCommand, CLOSECOMMAND);
-
-		strcat(closeCommand, id->filename);
+		sprintf(closeCommand, "%s\n", CLOSECOMMAND);
 		
 		if(send(id->socketId, closeCommand, strlen(closeCommand), 0) < 0)
 		{
 			return -1;
 		}
 		close(id->socketId);
-		free(id->filename);
-		free(id);
+//free(id->indirizzo);
+//		
+//free(id->filename);
+//		free(id);
 		
 		return 0;
 }

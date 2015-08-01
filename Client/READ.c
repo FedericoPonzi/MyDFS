@@ -3,7 +3,8 @@
 #include <netdb.h>
 #include <netinet/in.h>
 #include <string.h>
-
+#include "Config.h"
+#include "inc/Utils.h"
 
 /**
  * name: mydfs_read
@@ -18,9 +19,9 @@
  */
 int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 {
-	logM("[Read] Filename '%s' \n", dfsid->filename);
+	logM("[Read] Filename '%s' \n", id->filename);
 	//char buffer[BUFFSIZEREAD];
-	int nRecv;
+	//int nRecv;
 	return recv (id->socketId, ptr, size, 0);
 }
 
