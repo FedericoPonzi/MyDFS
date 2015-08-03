@@ -126,6 +126,8 @@ void handleOpenCommand(char* command, int socket)
 
 /**
  * @brief crea connessione dati lato server
+ *
+ * @todo correggere utilizzo vecchio socketDes
  */
 int createDataSock(int portNo, int socketId)
 {
@@ -140,8 +142,8 @@ int createDataSock(int portNo, int socketId)
 
     if(getpeername(socketId, (struct sockaddr *)&datasock_addr.sin_addr, &address_size) != 0)
     {
-		perror("getpeername");
-		return 1;
+	   perror("getpeername");
+	   return 1;
     } 
 	
     if((connect(socketId, (struct sockaddr *)&datasock_addr, sizeof(datasock_addr))) != 0)
