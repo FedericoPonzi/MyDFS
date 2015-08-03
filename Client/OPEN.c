@@ -42,13 +42,13 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	switch(*err)
 	{
 		case -1: 
-			logM("[Open] Errore: File aperto in scrittura da un altro client");
+			logM("[Open] Errore: File aperto in scrittura da un altro client\n");
 			break;
 		case -2:
-			logM("[Open] Error: il server non sia raggiungibile");
+			logM("[Open] Error: il server non sia raggiungibile\n");
 			break;
 		case -3:
-			logM("[Open] Error: errore sul file (ad esempio file aperto in sola lettura che non esiste");
+			logM("[Open] Error: errore sul file (ad esempio file aperto in sola lettura che non esiste\n");
 			break;
 	}
 	return *err != 0 ? NULL : toRet;
@@ -173,13 +173,11 @@ void createTransferSocket(MyDFSId* toRet, int* err)
 	logM("[OPEN] Aperta connessione di trasferimento.");
 
 
-	int nRecv = 0;
-	if ((nRecv = recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
+	if ((recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{
 		perror("recv");
 		*err = -2;
 	}
-	
 	if(strncmp(buffer , "-2", 2) == 0)
 	{
 		*err = -2;

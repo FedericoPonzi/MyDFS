@@ -11,7 +11,7 @@
 
 int main(int argc, char* argv[])
 {
-	
+
 	char* indirizzo;
 	int error, modo;
 	MyDFSId* fileId;
@@ -20,14 +20,14 @@ int main(int argc, char* argv[])
 	char* fileInesistente;
 	int array[] = { MYO_RDONLY, MYO_WRONLY, MYO_RDWR, MYO_CREAT, MYO_TRUNC, MYO_EXCL, MYO_EXLOCK};
 	indirizzo = "127.0.0.1";
-	
+
 	if(argc == 2)
 	{
 		filename = argv[1];
 	}
 
 	error = 0;
-	
+
 	printf("\n\tHELLO, CLIENT \n");
 	printf("[TEST DELLA OPEN]:\n");
 
@@ -47,8 +47,7 @@ int main(int argc, char* argv[])
 			z++;
 			printf("z: %d\n", z);
 	}
-	
-	
+
+
 	return 0;
 }
-
