@@ -35,9 +35,7 @@ int main(int argc, char* argv[])
 	int i;
 	for(i = 0; i < 7; i++)
 	{
-		int k;
-		for(k =0; k < 1000; k++)
-		{
+
 			printf("\n * Modo numero: %d \n", array[i]);
 			fileId = mydfs_open(indirizzo, filename, array[i], &error);
 			if(error != 0)
@@ -48,7 +46,6 @@ int main(int argc, char* argv[])
 			mydfs_close(fileId);
 			z++;
 			printf("z: %d\n", z);
-		}
 	}
 	
 	

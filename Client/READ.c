@@ -6,6 +6,10 @@
 #include "Config.h"
 #include "inc/Utils.h"
 
+
+int openTransferSocket();
+
+
 /**
  * name: mydfs_read
  * 
@@ -17,11 +21,32 @@
  * @todo Per ora usa direttamente il buffer puntato da ptr per scrivere il risultato della read. In un futuro dovrà scrivere/leggere dalla cache.
  * 
  */
+ 
 int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 {
 	logM("[Read] Filename '%s' \n", id->filename);
-	//char buffer[BUFFSIZEREAD];
-	//int nRecv;
-	return recv (id->socketId, ptr, size, 0);
+
+	
+	void* buffer = malloc(BUFFSIZEREAD);
+	int nRecv = recv (id->transferSockId, buffer, BUFFSIZEREAD, 0);
+	int k;
+	for(k = pos; k < nRecv; k++)
+	{
+		//*(ptr+ k) = *(buffer+k);
+	}
+	
+	
+	
+	return 0;
 }
 
+/**
+ * @brief Apre la socket per trasferire i dati.
+ * @return -1 se l' utente non ha permessi di lettura
+ * 0 errore nella creazione della socket o altro
+ * n la socketa.
+ */
+int openTransferSocket()
+{
+	return 0;
+}

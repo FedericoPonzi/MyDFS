@@ -95,18 +95,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="title">Riferimenti per il file Config.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;pthread.h&gt;</code><br />
+</div>
 <p><a href="Server_2inc_2Config_8h_source.html">Vai al codice sorgente di questo file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Definizioni</h2></td></tr>
-<tr class="memitem:aeefbbafa97642defe3ee6c3080b7d66f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#aeefbbafa97642defe3ee6c3080b7d66f">BACKLOG</a>&#160;&#160;&#160;20</td></tr>
+<tr class="memitem:aeefbbafa97642defe3ee6c3080b7d66f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#aeefbbafa97642defe3ee6c3080b7d66f">BACKLOG</a>&#160;&#160;&#160;10</td></tr>
 <tr class="memdesc:aeefbbafa97642defe3ee6c3080b7d66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numero di connessioni in ascolto.  <a href="#aeefbbafa97642defe3ee6c3080b7d66f">Continua...</a><br /></td></tr>
 <tr class="separator:aeefbbafa97642defe3ee6c3080b7d66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21c8feef84ea8774c2061af39050441c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#a21c8feef84ea8774c2061af39050441c">PING_TIME</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memdesc:a21c8feef84ea8774c2061af39050441c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tempo di attesa per heartbeating.  <a href="#a21c8feef84ea8774c2061af39050441c">Continua...</a><br /></td></tr>
+<tr class="separator:a21c8feef84ea8774c2061af39050441c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:ad72dbcf6d0153db1b8d8a58001feed83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se in modalita' debug, stampa utili messaggi di log.  <a href="#ad72dbcf6d0153db1b8d8a58001feed83">Continua...</a><br /></td></tr>
 <tr class="separator:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a150eaf10f0e759de665bbe9619cd4a24"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#a150eaf10f0e759de665bbe9619cd4a24">MULTIPROC</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a150eaf10f0e759de665bbe9619cd4a24"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#a150eaf10f0e759de665bbe9619cd4a24">MULTIPROC</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:a150eaf10f0e759de665bbe9619cd4a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">1 per multiprocesso, 0 per multithreading:  <a href="#a150eaf10f0e759de665bbe9619cd4a24">Continua...</a><br /></td></tr>
 <tr class="separator:a150eaf10f0e759de665bbe9619cd4a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae99ca2d2731dcecf9670d172003c467c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#ae99ca2d2731dcecf9670d172003c467c">CONFIGFILENAME</a>&#160;&#160;&#160;&quot;CONFIG&quot;</td></tr>
@@ -122,7 +126,11 @@ Funzioni</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variabili</h2></td></tr>
 <tr class="memitem:a1b7ba52f02ee92a5963c7aa917b10c2b"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#a1b7ba52f02ee92a5963c7aa917b10c2b">acceptMutex</a></td></tr>
+<tr class="memdesc:a1b7ba52f02ee92a5963c7aa917b10c2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex dell' accept.  <a href="#a1b7ba52f02ee92a5963c7aa917b10c2b">Continua...</a><br /></td></tr>
 <tr class="separator:a1b7ba52f02ee92a5963c7aa917b10c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6746bc317b81e89070e24e57e63f760"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#ad6746bc317b81e89070e24e57e63f760">tempSockMutex</a></td></tr>
+<tr class="memdesc:ad6746bc317b81e89070e24e57e63f760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex della socket temporanea.  <a href="#ad6746bc317b81e89070e24e57e63f760">Continua...</a><br /></td></tr>
+<tr class="separator:ad6746bc317b81e89070e24e57e63f760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad588b9329591f013097f9531c643a262"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a></td></tr>
 <tr class="separator:ad588b9329591f013097f9531c643a262"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fa40559d133e806762dd11ebaec522e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a></td></tr>
@@ -134,6 +142,9 @@ Variabili</h2></td></tr>
 <tr class="memitem:ae53ea95e0769743e3a9e0935564b3739"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#ae53ea95e0769743e3a9e0935564b3739">portNumber</a></td></tr>
 <tr class="memdesc:ae53ea95e0769743e3a9e0935564b3739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numero di porta.  <a href="#ae53ea95e0769743e3a9e0935564b3739">Continua...</a><br /></td></tr>
 <tr class="separator:ae53ea95e0769743e3a9e0935564b3739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c5e63abddd4a2647c2310bde6f15fd7"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#a8c5e63abddd4a2647c2310bde6f15fd7">rootPath</a> [40]</td></tr>
+<tr class="memdesc:a8c5e63abddd4a2647c2310bde6f15fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">root path server  <a href="#a8c5e63abddd4a2647c2310bde6f15fd7">Continua...</a><br /></td></tr>
+<tr class="separator:a8c5e63abddd4a2647c2310bde6f15fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle definizioni</h2>
 <a class="anchor" id="aeefbbafa97642defe3ee6c3080b7d66f"></a>
@@ -141,7 +152,7 @@ Variabili</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BACKLOG&#160;&#160;&#160;20</td>
+          <td class="memname">#define BACKLOG&#160;&#160;&#160;10</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -187,12 +198,28 @@ Variabili</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MULTIPROC&#160;&#160;&#160;0</td>
+          <td class="memname">#define MULTIPROC&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>1 per multiprocesso, 0 per multithreading: </p>
+
+</div>
+</div>
+<a class="anchor" id="a21c8feef84ea8774c2061af39050441c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PING_TIME&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tempo di attesa per heartbeating. </p>
+
+<p>Referenziato da <a class="el" href="server_8c.html#ac43da3dbb27d7a95bb3fbf75f3dfd99f">heartBeat()</a>.</p>
 
 </div>
 </div>
@@ -212,7 +239,7 @@ Variabili</h2></td></tr>
 
 <p>Carica le impostazioni del config, ed inizializza la memoria. </p>
 
-<p>Referenzia <a class="el" href="Server_2Config_8c.html#a1b7ba52f02ee92a5963c7aa917b10c2b">acceptMutex</a>, <a class="el" href="StruttureDati_8h.html#a2a0d14b97e3ebef118d2d1420c51f429">allocaEInizializzaMemoria()</a>, <a class="el" href="Server_2inc_2Config_8h.html#ae99ca2d2731dcecf9670d172003c467c">CONFIGFILENAME</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a273482281a7c4e340879ab4d5b81f0a3">handleLine()</a>, e <a class="el" href="Server_2Config_8c.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a>.</p>
+<p>Referenzia <a class="el" href="Server_2inc_2Config_8h.html#ae99ca2d2731dcecf9670d172003c467c">CONFIGFILENAME</a>, e <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a273482281a7c4e340879ab4d5b81f0a3">handleLine()</a>.</p>
 
 <p>Referenziato da <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
 
@@ -229,7 +256,9 @@ Variabili</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a2a0d14b97e3ebef118d2d1420c51f429">allocaEInizializzaMemoria()</a>, <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, e <a class="el" href="Server_2Config_8c.html#a5b6baa60f72c2a81a203e279eff99749">loadConfig()</a>.</p>
+<p>Mutex dell' accept. </p>
+
+<p>Referenziato da <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>.</p>
 
 </div>
 </div>
@@ -243,7 +272,7 @@ Variabili</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a2a0d14b97e3ebef118d2d1420c51f429">allocaEInizializzaMemoria()</a>, <a class="el" href="Server_2Config_8c.html#a5b6baa60f72c2a81a203e279eff99749">loadConfig()</a>, <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, e <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>.</p>
+<p>Referenziato da <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, e <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>.</p>
 
 </div>
 </div>
@@ -259,7 +288,7 @@ Variabili</h2></td></tr>
 
 <p>Numero di connessioni contemporanee permesse (equivale al numero di threads o processi) </p>
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a2a0d14b97e3ebef118d2d1420c51f429">allocaEInizializzaMemoria()</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a273482281a7c4e340879ab4d5b81f0a3">handleLine()</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>, <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, e <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>.</p>
+<p>Referenziato da <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a273482281a7c4e340879ab4d5b81f0a3">handleLine()</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>, <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, e <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>.</p>
 
 </div>
 </div>
@@ -291,7 +320,39 @@ Variabili</h2></td></tr>
 
 <p>E' richiesto un processo o un thread? </p>
 
-<p>Referenziato da <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p>Referenziato da <a class="el" href="Server_2Utils_8c.html#a11d37c4ad110f578cbf862fdd1585b71">getptid()</a>, e <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c5e63abddd4a2647c2310bde6f15fd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char rootPath[40]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>root path server </p>
+
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#aa089645f4772b1d34f2808e1f913eb45">checkModoOpen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6746bc317b81e89070e24e57e63f760"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_mutex_t* tempSockMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutex della socket temporanea. </p>
+
+<p>Referenziato da <a class="el" href="server_8c.html#ac43da3dbb27d7a95bb3fbf75f3dfd99f">heartBeat()</a>.</p>
 
 </div>
 </div>

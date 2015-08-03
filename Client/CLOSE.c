@@ -29,6 +29,7 @@ int mydfs_close(MyDFSId* id)
 			return -1;
 		}
 		close(id->socketId);
+		close(id->transferSockId);
 //free(id->indirizzo);
 //		
 //free(id->filename);

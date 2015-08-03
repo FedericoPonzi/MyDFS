@@ -4,5 +4,6 @@ var searchData=
   ['pos',['pos',['../structMyDFSId.html#aaeac229fb85c313f91a76f00be916832',1,'MyDFSId']]],
   ['procorthread',['procOrThread',['../Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3',1,'procOrThread():&#160;Config.c'],['../Server_2inc_2Config_8h.html#af05e592fecdd2c97fa06eafcb1c8e2c3',1,'procOrThread():&#160;Config.c']]],
   ['procortre',['procortre',['../Prove_2Parsing_01file_01Config_2Config_8c.html#af535b5ec1e9fcaae5cb21dcae8890bea',1,'Config.c']]],
-  ['prova',['prova',['../structStruttura.html#a6bed68a71bad8da4f22e93def9c759af',1,'Struttura']]]
+  ['prova',['prova',['../structStruttura.html#a6bed68a71bad8da4f22e93def9c759af',1,'Struttura']]],
+  ['ptid',['ptid',['../structpthreadArgs.html#abc763a99a614f8e00c11fbbece336516',1,'pthreadArgs::ptid()'],['../structOpenedFile.html#aba1e9ae457adfa6a9cc6a22ca4ee290d',1,'OpenedFile::ptid()']]]
 ];

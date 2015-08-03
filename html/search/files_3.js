@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['filehandler_2ec',['FileHandler.c',['../FileHandler_8c.html',1,'']]],
-  ['filehandler_2eh',['FileHandler.h',['../FileHandler_8h.html',1,'']]]
+  ['enum_2ec',['enum.c',['../enum_8c.html',1,'']]],
+  ['error_2ec',['Error.c',['../Error_8c.html',1,'']]],
+  ['error_2eh',['Error.h',['../Error_8h.html',1,'']]]
 ];

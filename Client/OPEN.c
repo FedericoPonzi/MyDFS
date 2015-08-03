@@ -12,6 +12,11 @@
 #include "inc/OPEN.h"
 #include "inc/Utils.h"
 
+
+void createControlSocketId(MyDFSId* toRet, int *err);
+
+void createTransferSocket(MyDFSId* toRet, int* err);
+
 /**
  * name: mydfs_open
  * @param indirizzo: l' indirizzo ipv4 a cui vogliamo connetterci, 
@@ -23,21 +28,39 @@
 
 MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 {
-    struct sockaddr_in serv_addr; 
-
 	//Creo la struttura di ritorno, e le aggiungo dei valori che gia conosco:
 	MyDFSId* toRet;
 	toRet = malloc(sizeof(toRet));
 	toRet->filename = malloc(strlen(nomefile)+1);
+	toRet->indirizzo = malloc(strlen(indirizzo)+1);
+	toRet->modo = modo;	
 	strcpy(toRet->filename, nomefile);
-	toRet->modo = modo;
-	toRet->indirizzo = malloc(strlen(indirizzo));
 	strcpy(toRet->indirizzo, indirizzo);
-	
-    if((toRet->socketId = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+	*err = 0;
+	createControlSocketId(toRet, err);
+	createTransferSocket(toRet, err);
+	switch(*err)
+	{
+		case -1: 
+			logM("[Open] Errore: File aperto in scrittura da un altro client");
+			break;
+		case -2:
+			logM("[Open] Error: il server non sia raggiungibile");
+			break;
+		case -3:
+			logM("[Open] Error: errore sul file (ad esempio file aperto in sola lettura che non esiste");
+			break;
+	}
+	return *err != 0 ? NULL : toRet;
+}
+
+void createControlSocketId(MyDFSId* toRet, int *err)
+{
+    struct sockaddr_in serv_addr; 	
+	if((toRet->socketId = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
         *err= toRet->socketId;
-        return NULL;
+        return;
     }
     
     memset(&serv_addr, '0', sizeof(serv_addr)); 
@@ -45,21 +68,21 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(SERVER_PORT); 
 
-    if(inet_aton(indirizzo, &serv_addr.sin_addr) == 0)
+    if(inet_aton(toRet->indirizzo, &serv_addr.sin_addr) == 0)
     {
 		perror("inet_aton");
         *err= -2;
-        return NULL;
+        return;
     } 
 	
-    if( (connect(toRet->socketId, (struct sockaddr *)&serv_addr, sizeof(serv_addr))) != 0)
+    if((connect(toRet->socketId, (struct sockaddr *)&serv_addr, sizeof(serv_addr))) != 0)
     {
        *err= -2;
 	   perror("connect");
-       return NULL;
+       return;
     }		
     //Connessione effettuata, invio la richiesta
-    char openCommand [strlen(OPENCOMMAND)+strlen(nomefile)+5];
+    char openCommand [strlen(OPENCOMMAND)+strlen(toRet->filename)+5];
     sprintf(openCommand, "%s %s %d\n", OPENCOMMAND, toRet->filename, toRet->modo);
 	logM("[OpenCommand]: '%s'\n", openCommand);
 	
@@ -67,7 +90,7 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
     {
 		perror("send");
 		*err = -2;
-		return NULL;
+		return;
 	}
 	char buffer[30];
 	int nRecv = 0;
@@ -75,22 +98,90 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	{
 		perror("recv");
 		*err = -2;
-		return NULL;
 	}
-	if(strncmp(buffer, "ok", 2) == 0)
-	{
-		return toRet;
-	}
-	else if(strncmp(buffer, "-1", 2) == 0)
+	
+	if(strncmp(buffer, "-1", 2) == 0)
 	{
 		*err = -1;
 	}
-	else
+	else if(strncmp(buffer , "-3", 2) == 0)
 	{
 		*err = -3;
 	}
-	return NULL;
 }
 
+/**
+ * @brief Crea la socket di trasporto dati
+ * 
+ * Setta propriamente err se qualcosa va storto, o modifica il campo toRet->transferSockId se tutto va bene.
+ */
+void createTransferSocket(MyDFSId* toRet, int* err)
+{
+	if(*err != 0) return;
+
+	int sockfd, newsockfd;
+	char buffer[256];
+	struct sockaddr_in serv_addr, cli_addr;
+	socklen_t clilen;
+	/* First call to socket() function */
+	sockfd = socket(AF_INET, SOCK_STREAM, 0);
+   
+	if (sockfd < 0)
+	{
+		perror("ERROR opening socket");
+		*err = -2;
+	}
+   
+	bzero((char *) &serv_addr, sizeof(serv_addr));
 
 
+	serv_addr.sin_family = AF_INET;
+	serv_addr.sin_addr.s_addr = INADDR_ANY;
+	serv_addr.sin_port = htons(0);
+
+	/* Now bind the host address using bind() call.*/
+	if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0)
+	{
+		perror("ERROR on binding");
+		*err = -2;
+	}
+	struct sockaddr_in sin;
+	socklen_t len = sizeof(sin);
+
+	if (getsockname(sockfd, (struct sockaddr *)&sin, &len) == -1)
+	{
+		*err = -2;
+		perror("getsockname");
+	}
+
+	sprintf(buffer, "port_num %d", ntohs(sin.sin_port));
+
+	send(toRet->socketId, buffer, sizeof(buffer), 0);
+	 
+	listen(sockfd,1);
+	clilen = sizeof(cli_addr);
+   
+	/* Accept actual connection from the client */
+	newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
+	if (newsockfd < 0)
+	{
+		perror("ERROR on accept");
+		*err = -2;
+	}
+	
+	toRet->transferSockId = newsockfd;
+	logM("[OPEN] Aperta connessione di trasferimento.");
+
+
+	int nRecv = 0;
+	if ((nRecv = recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
+	{
+		perror("recv");
+		*err = -2;
+	}
+	
+	if(strncmp(buffer , "-2", 2) == 0)
+	{
+		*err = -2;
+	}	
+}

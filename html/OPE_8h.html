@@ -101,44 +101,8 @@ Funzioni</h2></td></tr>
 <tr class="memitem:a6eccb6ec6ec9c8375e70ab4088b511a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPE_8h.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a> (char *command, int socket)</td></tr>
 <tr class="memdesc:a6eccb6ec6ec9c8375e70ab4088b511a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il comando Open.  <a href="#a6eccb6ec6ec9c8375e70ab4088b511a5">Continua...</a><br /></td></tr>
 <tr class="separator:a6eccb6ec6ec9c8375e70ab4088b511a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80e913f5bc9ad0afa7ead080e42544ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPE_8h.html#a80e913f5bc9ad0afa7ead080e42544ba">getFileName</a> (char *command, char *nomefile)</td></tr>
-<tr class="memdesc:a80e913f5bc9ad0afa7ead080e42544ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Torna il nome (o path del file richiesto.  <a href="#a80e913f5bc9ad0afa7ead080e42544ba">Continua...</a><br /></td></tr>
-<tr class="separator:a80e913f5bc9ad0afa7ead080e42544ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
-<a class="anchor" id="a80e913f5bc9ad0afa7ead080e42544ba"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void getFileName </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>command</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>nomeFile</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Torna il nome (o path del file richiesto. </p>
-<p>Visto che mi aspetto una stringa del tipo 'file.txt 0' allora mi basta prendere la stringa che va da 0 a n-2. </p>
-
-<p>Referenzia <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>.</p>
-
-<p>Referenziato da <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a6eccb6ec6ec9c8375e70ab4088b511a5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -164,9 +128,9 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gestisce il comando Open. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Da fare:</a></b></dt><dd>: Da vedere bene per memory leaks!!!! </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Da fare:</a></b></dt><dd>: Da vedere bene per memory leaks!!!! </dd></dl>
 
-<p>Referenzia <a class="el" href="StruttureDati_8h.html#a65171a8abdf2f36e1647be00853bc993">appendOpenedFile()</a>, <a class="el" href="OPE_8c.html#a5ad85b3f22163a883068ad47900445be">getFileName()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#a6d9f22ff6ba81506ba9c4a60f27c4f32">OpenedFile::modo</a>, e <a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand()</a>.</p>
+<p>Referenzia <a class="el" href="StruttureDati_8h.html#aa878836a099aa59b3664d853a9c8b2b4">appendOpenedFile()</a>, <a class="el" href="OPE_8c.html#a5ad85b3f22163a883068ad47900445be">getFileName()</a>, <a class="el" href="OPE_8c.html#a14798837102781498ee08e3c4cf5561c">getModo()</a>, <a class="el" href="StruttureDati_8h.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#a6d9f22ff6ba81506ba9c4a60f27c4f32">OpenedFile::modo</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>, <a class="el" href="Heartbeating_8c.html#af362ff05e1ca5b06b77aa25e7999c6ee">spawnHeartBeat()</a>, e <a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand()</a>.</p>
 
 <p>Referenziato da <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>.</p>
 

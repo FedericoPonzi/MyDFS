@@ -8,16 +8,23 @@ Gestisce il comando O\+P\+E(\+N)
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$ctype.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}inc/\+O\+P\+E.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Heartbeating.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{OPE_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command} (char $\ast$command, int socket)
-\begin{DoxyCompactList}\small\item\em Gestisce il comando Open. \end{DoxyCompactList}\item 
 void \hyperlink{OPE_8c_a5ad85b3f22163a883068ad47900445be}{get\+File\+Name} (char $\ast$command, char $\ast$nome\+File)
-\begin{DoxyCompactList}\small\item\em Torna il nome (o path del file richiesto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Torna il nome (o path del file richiesto. \end{DoxyCompactList}\item 
+int \hyperlink{OPE_8c_a14798837102781498ee08e3c4cf5561c}{get\+Modo} (char $\ast$command)
+\begin{DoxyCompactList}\small\item\em Ritorna il modo, sia se e\textquotesingle{} a una cifra che se e\textquotesingle{} a due cifre \+:D. \end{DoxyCompactList}\item 
+void \hyperlink{OPE_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command} (char $\ast$command, int socket)
+\begin{DoxyCompactList}\small\item\em Gestisce il comando Open. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descrizione dettagliata}
@@ -39,7 +46,7 @@ Federico Ponzi
 \end{DoxyItemize}
 
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000001}{Da fare}]dovrebbe mandare una risposta al client in caso di successo o errore 
+\item[\hyperlink{todo__todo000003}{Da fare}]dovrebbe mandare una risposta al client in caso di successo o errore 
 
 permettere l\textquotesingle{} apertura se il modo con cui e\textquotesingle{} aperto il file e\textquotesingle{} lettura e viene richiesta la lettura. \end{DoxyRefDesc}
 
@@ -65,6 +72,21 @@ Referenzia log\+M().
 
 Referenziato da handle\+Open\+Command().
 
+\hypertarget{OPE_8c_a14798837102781498ee08e3c4cf5561c}{}\index{O\+P\+E.\+c@{O\+P\+E.\+c}!get\+Modo@{get\+Modo}}
+\index{get\+Modo@{get\+Modo}!O\+P\+E.\+c@{O\+P\+E.\+c}}
+\subsubsection[{get\+Modo}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Modo (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command}
+\end{DoxyParamCaption}
+)}\label{OPE_8c_a14798837102781498ee08e3c4cf5561c}
+
+
+Ritorna il modo, sia se e\textquotesingle{} a una cifra che se e\textquotesingle{} a due cifre \+:D. 
+
+
+
+Referenziato da handle\+Open\+Command().
+
 \hypertarget{OPE_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{}\index{O\+P\+E.\+c@{O\+P\+E.\+c}!handle\+Open\+Command@{handle\+Open\+Command}}
 \index{handle\+Open\+Command@{handle\+Open\+Command}!O\+P\+E.\+c@{O\+P\+E.\+c}}
 \subsubsection[{handle\+Open\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Open\+Command (
@@ -78,10 +100,10 @@ Referenziato da handle\+Open\+Command().
 Gestisce il comando Open. 
 
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000002}{Da fare}]\+: Da vedere bene per memory leaks!!!! \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000004}{Da fare}]\+: Da vedere bene per memory leaks!!!! \end{DoxyRefDesc}
 
 
-Referenzia append\+Opened\+File(), get\+File\+Name(), log\+M(), Opened\+File\+::modo, e strip\+Command().
+Referenzia append\+Opened\+File(), get\+File\+Name(), get\+Modo(), is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, spawn\+Heart\+Beat(), e strip\+Command().
 
 
 

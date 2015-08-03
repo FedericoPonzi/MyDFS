@@ -16,11 +16,47 @@
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{OPEN_8c_a54d24af40fe92f36f40ed358e84fa9ad}{create\+Control\+Socket\+Id} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$to\+Ret, int $\ast$err)
+\item 
+void \hyperlink{OPEN_8c_a8387ba93dac90e647ee90636f324d61c}{create\+Transfer\+Socket} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$to\+Ret, int $\ast$err)
+\begin{DoxyCompactList}\small\item\em Crea la socket di trasporto dati. \end{DoxyCompactList}\item 
 \hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$ \hyperlink{OPEN_8c_a846cf2a86ab9bdb1a8496e03b93d6db8}{mydfs\+\_\+open} (char $\ast$indirizzo, char $\ast$nomefile, int modo, int $\ast$err)
 \begin{DoxyCompactList}\small\item\em name\+: mydfs\+\_\+open \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
+\hypertarget{OPEN_8c_a54d24af40fe92f36f40ed358e84fa9ad}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!create\+Control\+Socket\+Id@{create\+Control\+Socket\+Id}}
+\index{create\+Control\+Socket\+Id@{create\+Control\+Socket\+Id}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
+\subsubsection[{create\+Control\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}void create\+Control\+Socket\+Id (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{to\+Ret, }
+\item[{int $\ast$}]{err}
+\end{DoxyParamCaption}
+)}\label{OPEN_8c_a54d24af40fe92f36f40ed358e84fa9ad}
+
+
+Referenzia My\+D\+F\+S\+Id\+::filename, My\+D\+F\+S\+Id\+::indirizzo, log\+M(), My\+D\+F\+S\+Id\+::modo, O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D, S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T, e My\+D\+F\+S\+Id\+::socket\+Id.
+
+
+
+Referenziato da mydfs\+\_\+open().
+
+\hypertarget{OPEN_8c_a8387ba93dac90e647ee90636f324d61c}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!create\+Transfer\+Socket@{create\+Transfer\+Socket}}
+\index{create\+Transfer\+Socket@{create\+Transfer\+Socket}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
+\subsubsection[{create\+Transfer\+Socket}]{\setlength{\rightskip}{0pt plus 5cm}void create\+Transfer\+Socket (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{to\+Ret, }
+\item[{int $\ast$}]{err}
+\end{DoxyParamCaption}
+)}\label{OPEN_8c_a8387ba93dac90e647ee90636f324d61c}
+
+
+Crea la socket di trasporto dati. 
+
+Setta propriamente err se qualcosa va storto, o modifica il campo to\+Ret-\/$>$transfer\+Sock\+Id se tutto va bene. 
+
+Referenziato da mydfs\+\_\+open().
+
 \hypertarget{OPEN_8c_a846cf2a86ab9bdb1a8496e03b93d6db8}{}\index{O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}!mydfs\+\_\+open@{mydfs\+\_\+open}}
 \index{mydfs\+\_\+open@{mydfs\+\_\+open}!O\+P\+E\+N.\+c@{O\+P\+E\+N.\+c}}
 \subsubsection[{mydfs\+\_\+open}]{\setlength{\rightskip}{0pt plus 5cm}{\bf My\+D\+F\+S\+Id}$\ast$ mydfs\+\_\+open (
@@ -49,7 +85,7 @@ N\+U\+L\+L in caso di errore, un puntatore a My\+D\+F\+S\+Id$\ast$ altrimenti.
 \end{DoxyReturn}
 
 
-Referenzia O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D.
+Referenzia create\+Control\+Socket\+Id(), create\+Transfer\+Socket(), My\+D\+F\+S\+Id\+::filename, My\+D\+F\+S\+Id\+::indirizzo, log\+M(), e My\+D\+F\+S\+Id\+::modo.
 
 
 

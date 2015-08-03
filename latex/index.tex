@@ -11,14 +11,15 @@ Tutta la documentazione si riferisce al lato server (per ora, ovviamente). \subs
 
 
 \begin{DoxyItemize}
-\item Implementare bene la Open e poi implementare la Close
+\item Aggiungere un campo lock a \hyperlink{structOpenedFile}{Opened\+File} e controllare il modo alla Open
+\item Aggiungere heartbeating anche quando un client richiede una lock.
 \end{DoxyItemize}
 
 \subsubsection*{Più in là\+:}
 
 
 \begin{DoxyItemize}
-\item Sincronizzare l\textquotesingle{} accesso alla struttura dati \href{file:///home/federicoponzi/Progetto/html/server_8c.html#a3063a74baee4fe1870e52d0ec577afa9}{\tt opened\+Files\+Linked\+List}
+\item In \hyperlink{server_8c}{server.\+c}\+: Spawnare gli n threads, poi creare un metodo che ogni 1 secondo (quindi sleep(1)) controlla se ci sono thread/processi da creare.
 \end{DoxyItemize}
 
 \subsubsection*{Note\+:}

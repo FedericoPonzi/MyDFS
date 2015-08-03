@@ -6,10 +6,31 @@
 void \hyperlink{Server_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}{log\+M} (char $\ast$messaggio,...)
 \begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se L\+O\+G vale 0. \end{DoxyCompactList}\item 
 void \hyperlink{Server_2inc_2Utils_8h_ac26fe6c49ab17caab523c2410afb27c1}{strip\+Command} (char $\ast$)
-\begin{DoxyCompactList}\small\item\em Rimuove i primi 4 caratteri (es\+: \textquotesingle{}G\+E\+T \textquotesingle{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Rimuove i primi 4 caratteri (es\+: \textquotesingle{}G\+E\+T \textquotesingle{}) \end{DoxyCompactList}\item 
+int \hyperlink{Server_2inc_2Utils_8h_a11d37c4ad110f578cbf862fdd1585b71}{getptid} ()
+\begin{DoxyCompactList}\small\item\em Ritorna il numero del processo o del thread che richiama questa funzione. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
+\hypertarget{Server_2inc_2Utils_8h_a11d37c4ad110f578cbf862fdd1585b71}{}\index{Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}!getptid@{getptid}}
+\index{getptid@{getptid}!Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}}
+\subsubsection[{getptid}]{\setlength{\rightskip}{0pt plus 5cm}int getptid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{Server_2inc_2Utils_8h_a11d37c4ad110f578cbf862fdd1585b71}
+
+
+Ritorna il numero del processo o del thread che richiama questa funzione. 
+
+
+
+Referenzia proc\+Or\+Thread.
+
+
+
+Referenziato da append\+Opened\+File(), handle\+Close\+Command(), e spawn\+Heart\+Beat().
+
 \hypertarget{Server_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}{}\index{Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}!log\+M@{log\+M}}
 \index{log\+M@{log\+M}!Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}}
 \subsubsection[{log\+M}]{\setlength{\rightskip}{0pt plus 5cm}void log\+M (
@@ -59,5 +80,5 @@ Rimuove i primi 4 caratteri (es\+: \textquotesingle{}G\+E\+T \textquotesingle{})
 
 \end{DoxyItemize}
 
-Referenziato da handle\+Close\+Command(), handle\+Open\+Command(), e handle\+R\+E\+A\+D\+Command().
+Referenziato da handle\+Open\+Command(), e handle\+R\+E\+A\+D\+Command().
 

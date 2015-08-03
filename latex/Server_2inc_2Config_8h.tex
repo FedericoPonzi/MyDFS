@@ -1,13 +1,16 @@
 \hypertarget{Server_2inc_2Config_8h}{}\section{Riferimenti per il file Server/inc/\+Config.h}
 \label{Server_2inc_2Config_8h}\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
 \subsection*{Definizioni}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{Server_2inc_2Config_8h_aeefbbafa97642defe3ee6c3080b7d66f}{B\+A\+C\+K\+L\+O\+G}~20
+\#define \hyperlink{Server_2inc_2Config_8h_aeefbbafa97642defe3ee6c3080b7d66f}{B\+A\+C\+K\+L\+O\+G}~10
 \begin{DoxyCompactList}\small\item\em Numero di connessioni in ascolto. \end{DoxyCompactList}\item 
+\#define \hyperlink{Server_2inc_2Config_8h_a21c8feef84ea8774c2061af39050441c}{P\+I\+N\+G\+\_\+\+T\+I\+M\+E}~5
+\begin{DoxyCompactList}\small\item\em Tempo di attesa per heartbeating. \end{DoxyCompactList}\item 
 \#define \hyperlink{Server_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\+E\+B\+U\+G}~1
 \begin{DoxyCompactList}\small\item\em Se in modalita\textquotesingle{} debug, stampa utili messaggi di log. \end{DoxyCompactList}\item 
-\#define \hyperlink{Server_2inc_2Config_8h_a150eaf10f0e759de665bbe9619cd4a24}{M\+U\+L\+T\+I\+P\+R\+O\+C}~0
+\#define \hyperlink{Server_2inc_2Config_8h_a150eaf10f0e759de665bbe9619cd4a24}{M\+U\+L\+T\+I\+P\+R\+O\+C}~1
 \begin{DoxyCompactList}\small\item\em 1 per multiprocesso, 0 per multithreading\+: \end{DoxyCompactList}\item 
 \#define \hyperlink{Server_2inc_2Config_8h_ae99ca2d2731dcecf9670d172003c467c}{C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E}~\char`\"{}C\+O\+N\+F\+I\+G\char`\"{}
 \begin{DoxyCompactList}\small\item\em Nome del file di config. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -20,7 +23,9 @@ int \hyperlink{Server_2inc_2Config_8h_a5b6baa60f72c2a81a203e279eff99749}{load\+C
 \begin{DoxyCompactItemize}
 \item 
 pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{Server_2inc_2Config_8h_a1b7ba52f02ee92a5963c7aa917b10c2b}{accept\+Mutex}
-\item 
+\begin{DoxyCompactList}\small\item\em Mutex dell\textquotesingle{} accept. \end{DoxyCompactList}\item 
+pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{Server_2inc_2Config_8h_ad6746bc317b81e89070e24e57e63f760}{temp\+Sock\+Mutex}
+\begin{DoxyCompactList}\small\item\em Mutex della socket temporanea. \end{DoxyCompactList}\item 
 int $\ast$ \hyperlink{Server_2inc_2Config_8h_ad588b9329591f013097f9531c643a262}{number\+Alive\+Childs}
 \item 
 int \hyperlink{Server_2inc_2Config_8h_a6fa40559d133e806762dd11ebaec522e}{numero\+Con}
@@ -28,13 +33,15 @@ int \hyperlink{Server_2inc_2Config_8h_a6fa40559d133e806762dd11ebaec522e}{numero\
 int \hyperlink{Server_2inc_2Config_8h_af05e592fecdd2c97fa06eafcb1c8e2c3}{proc\+Or\+Thread}
 \begin{DoxyCompactList}\small\item\em E\textquotesingle{} richiesto un processo o un thread? \end{DoxyCompactList}\item 
 int \hyperlink{Server_2inc_2Config_8h_ae53ea95e0769743e3a9e0935564b3739}{port\+Number}
-\begin{DoxyCompactList}\small\item\em Numero di porta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Numero di porta. \end{DoxyCompactList}\item 
+char \hyperlink{Server_2inc_2Config_8h_a8c5e63abddd4a2647c2310bde6f15fd7}{root\+Path} \mbox{[}40\mbox{]}
+\begin{DoxyCompactList}\small\item\em root path server \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle definizioni}
 \hypertarget{Server_2inc_2Config_8h_aeefbbafa97642defe3ee6c3080b7d66f}{}\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!B\+A\+C\+K\+L\+O\+G@{B\+A\+C\+K\+L\+O\+G}}
 \index{B\+A\+C\+K\+L\+O\+G@{B\+A\+C\+K\+L\+O\+G}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
-\subsubsection[{B\+A\+C\+K\+L\+O\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+A\+C\+K\+L\+O\+G~20}\label{Server_2inc_2Config_8h_aeefbbafa97642defe3ee6c3080b7d66f}
+\subsubsection[{B\+A\+C\+K\+L\+O\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+A\+C\+K\+L\+O\+G~10}\label{Server_2inc_2Config_8h_aeefbbafa97642defe3ee6c3080b7d66f}
 
 
 Numero di connessioni in ascolto. 
@@ -63,10 +70,21 @@ Se in modalita\textquotesingle{} debug, stampa utili messaggi di log.
 
 \hypertarget{Server_2inc_2Config_8h_a150eaf10f0e759de665bbe9619cd4a24}{}\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!M\+U\+L\+T\+I\+P\+R\+O\+C@{M\+U\+L\+T\+I\+P\+R\+O\+C}}
 \index{M\+U\+L\+T\+I\+P\+R\+O\+C@{M\+U\+L\+T\+I\+P\+R\+O\+C}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
-\subsubsection[{M\+U\+L\+T\+I\+P\+R\+O\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+U\+L\+T\+I\+P\+R\+O\+C~0}\label{Server_2inc_2Config_8h_a150eaf10f0e759de665bbe9619cd4a24}
+\subsubsection[{M\+U\+L\+T\+I\+P\+R\+O\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+U\+L\+T\+I\+P\+R\+O\+C~1}\label{Server_2inc_2Config_8h_a150eaf10f0e759de665bbe9619cd4a24}
 
 
 1 per multiprocesso, 0 per multithreading\+: 
+
+\hypertarget{Server_2inc_2Config_8h_a21c8feef84ea8774c2061af39050441c}{}\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!P\+I\+N\+G\+\_\+\+T\+I\+M\+E@{P\+I\+N\+G\+\_\+\+T\+I\+M\+E}}
+\index{P\+I\+N\+G\+\_\+\+T\+I\+M\+E@{P\+I\+N\+G\+\_\+\+T\+I\+M\+E}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
+\subsubsection[{P\+I\+N\+G\+\_\+\+T\+I\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+G\+\_\+\+T\+I\+M\+E~5}\label{Server_2inc_2Config_8h_a21c8feef84ea8774c2061af39050441c}
+
+
+Tempo di attesa per heartbeating. 
+
+
+
+Referenziato da heart\+Beat().
 
 
 
@@ -84,7 +102,7 @@ Carica le impostazioni del config, ed inizializza la memoria.
 
 
 
-Referenzia accept\+Mutex, alloca\+E\+Inizializza\+Memoria(), C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E, handle\+Line(), e number\+Alive\+Childs.
+Referenzia C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E, e handle\+Line().
 
 
 
@@ -98,14 +116,18 @@ Referenziato da main().
 \subsubsection[{accept\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ accept\+Mutex}\label{Server_2inc_2Config_8h_a1b7ba52f02ee92a5963c7aa917b10c2b}
 
 
-Referenziato da alloca\+E\+Inizializza\+Memoria(), handle\+Socket(), e load\+Config().
+Mutex dell\textquotesingle{} accept. 
+
+
+
+Referenziato da handle\+Socket().
 
 \hypertarget{Server_2inc_2Config_8h_ad588b9329591f013097f9531c643a262}{}\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!number\+Alive\+Childs@{number\+Alive\+Childs}}
 \index{number\+Alive\+Childs@{number\+Alive\+Childs}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
 \subsubsection[{number\+Alive\+Childs}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ number\+Alive\+Childs}\label{Server_2inc_2Config_8h_ad588b9329591f013097f9531c643a262}
 
 
-Referenziato da alloca\+E\+Inizializza\+Memoria(), load\+Config(), spawn\+Process(), e spawn\+Thread().
+Referenziato da spawn\+Process(), e spawn\+Thread().
 
 \hypertarget{Server_2inc_2Config_8h_a6fa40559d133e806762dd11ebaec522e}{}\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!numero\+Con@{numero\+Con}}
 \index{numero\+Con@{numero\+Con}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
@@ -116,7 +138,7 @@ Numero di connessioni contemporanee permesse (equivale al numero di threads o pr
 
 
 
-Referenziato da alloca\+E\+Inizializza\+Memoria(), handle\+Line(), main(), spawn\+Process(), e spawn\+Thread().
+Referenziato da handle\+Line(), main(), spawn\+Process(), e spawn\+Thread().
 
 \hypertarget{Server_2inc_2Config_8h_ae53ea95e0769743e3a9e0935564b3739}{}\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!port\+Number@{port\+Number}}
 \index{port\+Number@{port\+Number}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
@@ -138,5 +160,27 @@ E\textquotesingle{} richiesto un processo o un thread?
 
 
 
-Referenziato da main().
+Referenziato da getptid(), e main().
+
+\hypertarget{Server_2inc_2Config_8h_a8c5e63abddd4a2647c2310bde6f15fd7}{}\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!root\+Path@{root\+Path}}
+\index{root\+Path@{root\+Path}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
+\subsubsection[{root\+Path}]{\setlength{\rightskip}{0pt plus 5cm}char root\+Path\mbox{[}40\mbox{]}}\label{Server_2inc_2Config_8h_a8c5e63abddd4a2647c2310bde6f15fd7}
+
+
+root path server 
+
+
+
+Referenziato da check\+Modo\+Open().
+
+\hypertarget{Server_2inc_2Config_8h_ad6746bc317b81e89070e24e57e63f760}{}\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!temp\+Sock\+Mutex@{temp\+Sock\+Mutex}}
+\index{temp\+Sock\+Mutex@{temp\+Sock\+Mutex}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
+\subsubsection[{temp\+Sock\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ temp\+Sock\+Mutex}\label{Server_2inc_2Config_8h_ad6746bc317b81e89070e24e57e63f760}
+
+
+Mutex della socket temporanea. 
+
+
+
+Referenziato da heart\+Beat().
 
