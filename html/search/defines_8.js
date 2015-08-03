@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['true',['TRUE',['../second_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d',1,'TRUE():&#160;second.h'],['../StruttureDati_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d',1,'TRUE():&#160;StruttureDati.h']]]
+  ['rootpath',['ROOTPATH',['../Server_2Config_8c.html#a940ff87c8a72e7a67a558568d5852c62',1,'Config.c']]]
 ];

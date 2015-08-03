@@ -88,11 +88,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </ul>
 <h3>TODOS:</h3>
 <ul>
-<li>Implementare bene la Open e poi implementare la Close</li>
+<li>Aggiungere un campo lock a <a class="el" href="structOpenedFile.html">OpenedFile</a> e controllare il modo alla Open</li>
+<li>Aggiungere heartbeating anche quando un client richiede una lock.</li>
 </ul>
 <h3>Più in là:</h3>
 <ul>
-<li>Sincronizzare l' accesso alla struttura dati <a href="file:///home/federicoponzi/Progetto/html/server_8c.html#a3063a74baee4fe1870e52d0ec577afa9">openedFilesLinkedList</a></li>
+<li>In <a class="el" href="server_8c.html">server.c</a>: Spawnare gli n threads, poi creare un metodo che ogni 1 secondo (quindi sleep(1)) controlla se ci sono thread/processi da creare.</li>
 </ul>
 <h3>Note:</h3>
 <ul>

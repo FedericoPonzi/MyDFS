@@ -1,0 +1,42 @@
+\hypertarget{Heartbeating_8h}{}\section{Riferimenti per il file Server/inc/\+Heartbeating.h}
+\label{Heartbeating_8h}\index{Server/inc/\+Heartbeating.\+h@{Server/inc/\+Heartbeating.\+h}}
+\subsection*{Strutture dati}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structpthreadArgs}{pthread\+Args}
+\end{DoxyCompactItemize}
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Heartbeating_8h_af362ff05e1ca5b06b77aa25e7999c6ee}{spawn\+Heart\+Beat} (int \hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd})
+\item 
+void $\ast$ \hyperlink{Heartbeating_8h_a3224550934078a0a93c864a1e3e8e11a}{heart\+Beat} (void $\ast$pt\+\_\+pthreadarg)
+\end{DoxyCompactItemize}
+\subsection*{Variabili}
+\begin{DoxyCompactItemize}
+\item 
+pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{Heartbeating_8h_a4bf185e2235ae2d2aaa2a21714ee959a}{hb\+Mutex}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentazione delle funzioni}
+\hypertarget{Heartbeating_8h_a3224550934078a0a93c864a1e3e8e11a}{}\index{Heartbeating.\+h@{Heartbeating.\+h}!heart\+Beat@{heart\+Beat}}
+\index{heart\+Beat@{heart\+Beat}!Heartbeating.\+h@{Heartbeating.\+h}}
+\subsubsection[{heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ heart\+Beat (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{pt\+\_\+pthreadarg}
+\end{DoxyParamCaption}
+)}\label{Heartbeating_8h_a3224550934078a0a93c864a1e3e8e11a}
+\hypertarget{Heartbeating_8h_af362ff05e1ca5b06b77aa25e7999c6ee}{}\index{Heartbeating.\+h@{Heartbeating.\+h}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
+\index{spawn\+Heart\+Beat@{spawn\+Heart\+Beat}!Heartbeating.\+h@{Heartbeating.\+h}}
+\subsubsection[{spawn\+Heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Heart\+Beat (
+\begin{DoxyParamCaption}
+\item[{int}]{sd}
+\end{DoxyParamCaption}
+)}\label{Heartbeating_8h_af362ff05e1ca5b06b77aa25e7999c6ee}
+
+
+\subsection{Documentazione delle variabili}
+\hypertarget{Heartbeating_8h_a4bf185e2235ae2d2aaa2a21714ee959a}{}\index{Heartbeating.\+h@{Heartbeating.\+h}!hb\+Mutex@{hb\+Mutex}}
+\index{hb\+Mutex@{hb\+Mutex}!Heartbeating.\+h@{Heartbeating.\+h}}
+\subsubsection[{hb\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ hb\+Mutex}\label{Heartbeating_8h_a4bf185e2235ae2d2aaa2a21714ee959a}

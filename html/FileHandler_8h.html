@@ -115,7 +115,7 @@ Funzioni</h2></td></tr>
           <td class="memname">int mydfs_read </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structMyDFSId.html">MyDFSId</a> *&#160;</td>
-          <td class="paramname"><em>dfsid</em>, </td>
+          <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -146,13 +146,15 @@ Funzioni</h2></td></tr>
 <p>name: mydfs_read </p>
 <dl class="params"><dt>Parametri</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dfsid</td><td>L' id del file che l' utente vuole chiudere. </td></tr>
+    <tr><td class="paramname">id</td><td>L' id del file da cui vuole leggere. </td></tr>
+    <tr><td class="paramname">pos</td><td>Posizione da cui vuole leggere </td></tr>
+    <tr><td class="paramname">ptr</td><td>puntatore al buffer in cui andra a legere </td></tr>
+    <tr><td class="paramname">size</td><td>quanto vuole leggere </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Restituisce</dt><dd>-1 in caso di errore, 0 altrimenti. </dd></dl>
-
-<p>Referenzia <a class="el" href="structMyDFSId.html#ac0e1b8c96d859982c1a7d49f9e929e48">MyDFSId::filename</a>, e <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Da fare:</a></b></dt><dd>Per ora usa direttamente il buffer puntato da ptr per scrivere il risultato della read. In un futuro dovrà scrivere/leggere dalla cache.</dd></dl>
 
 </div>
 </div>

@@ -94,9 +94,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="Server_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdarg.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;sys/unistd.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="Server_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Server_2inc_2Config_8h_source.html">inc/Config.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -107,8 +109,32 @@ Funzioni</h2></td></tr>
 <tr class="memitem:a99eec54b0611d557e3e4eb1e783d9699"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2Utils_8c.html#a99eec54b0611d557e3e4eb1e783d9699">stripCommand</a> (char *input)</td></tr>
 <tr class="memdesc:a99eec54b0611d557e3e4eb1e783d9699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove i primi 4 caratteri (es: 'GET ')  <a href="#a99eec54b0611d557e3e4eb1e783d9699">Continua...</a><br /></td></tr>
 <tr class="separator:a99eec54b0611d557e3e4eb1e783d9699"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11d37c4ad110f578cbf862fdd1585b71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2Utils_8c.html#a11d37c4ad110f578cbf862fdd1585b71">getptid</a> ()</td></tr>
+<tr class="memdesc:a11d37c4ad110f578cbf862fdd1585b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ritorna il numero del processo o del thread che richiama questa funzione.  <a href="#a11d37c4ad110f578cbf862fdd1585b71">Continua...</a><br /></td></tr>
+<tr class="separator:a11d37c4ad110f578cbf862fdd1585b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
+<a class="anchor" id="a11d37c4ad110f578cbf862fdd1585b71"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getptid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ritorna il numero del processo o del thread che richiama questa funzione. </p>
+
+<p>Referenzia <a class="el" href="Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>.</p>
+
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="Server_2inc_2CLOSE_8h.html#a6a49bbd7e5e6c4f5bbeec11010d7c275">handleCloseCommand()</a>, e <a class="el" href="server_8c.html#af9111700e7416f44aec9f208e66f0d7e">spawnHeartBeat()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a1f6240c9883eba86a3a1dc5e8ea77338"></a>
 <div class="memitem">
 <div class="memproto">
@@ -146,7 +172,7 @@ Funzioni</h2></td></tr>
 
 <p>Referenzia <a class="el" href="Client_2Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>.</p>
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a2a0d14b97e3ebef118d2d1420c51f429">allocaEInizializzaMemoria()</a>, <a class="el" href="StruttureDati_8c.html#af12cb4139a20c87eb79ea97af2d5a780">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#a8de81927bc9aec9d97034dd3e4cda612">closeClientSession()</a>, <a class="el" href="StruttureDati_8c.html#a8d682a78857ccfdbe53092dab0a6cd4b">fileAlreadyOpenedInWrite()</a>, <a class="el" href="OPE_8c.html#a5ad85b3f22163a883068ad47900445be">getFileName()</a>, <a class="el" href="Server_2inc_2CLOSE_8h.html#a0ca3802925a54a4987878defd71125ae">getFileNameClose()</a>, <a class="el" href="Server_2inc_2CLOSE_8h.html#a6a49bbd7e5e6c4f5bbeec11010d7c275">handleCloseCommand()</a>, <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, <a class="el" href="Server_2READ_8c.html#a33bf0c6afa09e15ff4c9d4d3c13c4169">handleREADCommand()</a>, <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>, <a class="el" href="Client_2inc_2CLOSE_8h.html#ad666db41278616946fce866250a175af">mydfs_close()</a>, e <a class="el" href="FileHandler_8h.html#a2035b3594ee11ab9f403af28b3f1e34a">mydfs_read()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#a6baf2e6e9935b8ed81bf2c504557bfc2">closeClientSession()</a>, <a class="el" href="OPEN_8c.html#a54d24af40fe92f36f40ed358e84fa9ad">createControlSocketId()</a>, <a class="el" href="StruttureDati_8c.html#a53729d51218aa9a03ba46e8b1fa89875">fileAlreadyOpenedInWrite()</a>, <a class="el" href="OPE_8c.html#a5ad85b3f22163a883068ad47900445be">getFileName()</a>, <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, <a class="el" href="Server_2READ_8c.html#a33bf0c6afa09e15ff4c9d4d3c13c4169">handleREADCommand()</a>, <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="server_8c.html#ac43da3dbb27d7a95bb3fbf75f3dfd99f">heartBeat()</a>, <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>, <a class="el" href="Client_2inc_2CLOSE_8h.html#ad666db41278616946fce866250a175af">mydfs_close()</a>, <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, e <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>.</p>
 
 </div>
 </div>
@@ -175,7 +201,7 @@ Funzioni</h2></td></tr>
 </li>
 </ul>
 
-<p>Referenziato da <a class="el" href="Server_2inc_2CLOSE_8h.html#a6a49bbd7e5e6c4f5bbeec11010d7c275">handleCloseCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="Server_2READ_8c.html#a33bf0c6afa09e15ff4c9d4d3c13c4169">handleREADCommand()</a>.</p>
+<p>Referenziato da <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="Server_2READ_8c.html#a33bf0c6afa09e15ff4c9d4d3c13c4169">handleREADCommand()</a>.</p>
 
 </div>
 </div>

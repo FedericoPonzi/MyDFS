@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['second_2ec',['second.c',['../second_8c.html',1,'']]],
-  ['second_2eh',['second.h',['../second_8h.html',1,'']]],
-  ['server_2ec',['server.c',['../server_8c.html',1,'']]],
-  ['strutturedati_2ec',['StruttureDati.c',['../StruttureDati_8c.html',1,'']]],
-  ['strutturedati_2eh',['StruttureDati.h',['../StruttureDati_8h.html',1,'']]]
+  ['pointertopointers_2ec',['pointerToPointers.c',['../pointerToPointers_8c.html',1,'']]],
+  ['prova_2ec',['prova.c',['../Open_01e_01modalita_01apertura_2prova_8c.html',1,'']]],
+  ['prova_2ec',['prova.c',['../prova_8c.html',1,'(Namespace globale)'],['../Prova_8c.html',1,'(Namespace globale)']]]
 ];

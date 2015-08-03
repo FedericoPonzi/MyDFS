@@ -1,2 +1,67 @@
 \hypertarget{Client_2READ_8c}{}\section{Riferimenti per il file Client/\+R\+E\+A\+D.c}
 \label{Client_2READ_8c}\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$netdb.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Client_2READ_8c_ae2d34b39ff973b177d1e639fd46d2de0}{open\+Transfer\+Socket} ()
+\begin{DoxyCompactList}\small\item\em Apre la socket per trasferire i dati. \end{DoxyCompactList}\item 
+int \hyperlink{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{mydfs\+\_\+read} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int pos, void $\ast$ptr, unsigned int size)
+\begin{DoxyCompactList}\small\item\em name\+: mydfs\+\_\+read \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentazione delle funzioni}
+\hypertarget{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{}\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!mydfs\+\_\+read@{mydfs\+\_\+read}}
+\index{mydfs\+\_\+read@{mydfs\+\_\+read}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
+\subsubsection[{mydfs\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
+\item[{int}]{pos, }
+\item[{void $\ast$}]{ptr, }
+\item[{unsigned int}]{size}
+\end{DoxyParamCaption}
+)}\label{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}
+
+
+name\+: mydfs\+\_\+read 
+
+
+\begin{DoxyParams}{Parametri}
+{\em id} & L\textquotesingle{} id del file da cui vuole leggere. \\
+\hline
+{\em pos} & Posizione da cui vuole leggere \\
+\hline
+{\em ptr} & puntatore al buffer in cui andra a legere \\
+\hline
+{\em size} & quanto vuole leggere \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+-\/1 in caso di errore, 0 altrimenti. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000001}{Da fare}]Per ora usa direttamente il buffer puntato da ptr per scrivere il risultato della read. In un futuro dovrà scrivere/leggere dalla cache.\end{DoxyRefDesc}
+
+
+Referenzia B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D, My\+D\+F\+S\+Id\+::filename, log\+M(), e My\+D\+F\+S\+Id\+::transfer\+Sock\+Id.
+
+\hypertarget{Client_2READ_8c_ae2d34b39ff973b177d1e639fd46d2de0}{}\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!open\+Transfer\+Socket@{open\+Transfer\+Socket}}
+\index{open\+Transfer\+Socket@{open\+Transfer\+Socket}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
+\subsubsection[{open\+Transfer\+Socket}]{\setlength{\rightskip}{0pt plus 5cm}int open\+Transfer\+Socket (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{Client_2READ_8c_ae2d34b39ff973b177d1e639fd46d2de0}
+
+
+Apre la socket per trasferire i dati. 
+
+\begin{DoxyReturn}{Restituisce}
+-\/1 se l\textquotesingle{} utente non ha permessi di lettura 0 errore nella creazione della socket o altro n la socketa. 
+\end{DoxyReturn}

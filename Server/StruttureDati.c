@@ -74,7 +74,7 @@ int appendOpenedFile(char* nomeFile, int modo)
 
 	if(checkModoOpen(nomeFile, modo))
 	{
-		logM("Checkmodoopen error\n");
+		logM("CheckModoOpen error\n");
 		return -3;
 	}
 
