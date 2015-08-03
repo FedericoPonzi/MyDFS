@@ -111,29 +111,13 @@ int checkModoOpen(char *nomeFile, int modo)
 	char temp_path[40];
 	strcpy(temp_path, rootPath);
 	strcat(temp_path, nomeFile);
-
-/*	int count = 0;
-	while(count < strlen(rootPath))
-	{
-		temp_path[count] = rootPath[count];
-		count++;
-	}
-	//completo temp_path concatenandolo con il nomeFile
-	int count2 = 0;
-	while(count2 <= (strlen(nomeFile)))
-	{
-		temp_path[count] = nomeFile[count2];
-		count++;
-		count2++;
-	}
-	*/
 	
 	while(iterator != NULL)
 	{
 		if(strcmp(iterator->fileName, nomeFile) == 0)
 		{
 			if(isModoApertura(modo, MYO_RDONLY) || isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR) || 
-			  (isModoApertura(modo, MYO_TRUNC) && !isModoApertura(modo, MYO_WRONLY) && !isModoApertura(modo, MYO_RDWR)))
+			  (isModoApertura(modo, MYO_TRUNC) && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR))) || isModoApertura(modo, MYO_EXCL))
 			{
 				if(access(temp_path, F_OK) != -1)
 				{

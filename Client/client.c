@@ -16,7 +16,11 @@ int main(int argc, char* argv[])
 	int error, modo;
 	MyDFSId* fileId;
 	MyDFSId* fileId2;
-	char* filename = "file.txt";
+	char* filename;
+	filename = "file.txt";
+	
+	printf("FILENAME: %s\n", filename);
+	
 	char* fileInesistente;
 	int array[] = { MYO_RDONLY, MYO_WRONLY, MYO_RDWR, MYO_CREAT, MYO_TRUNC, MYO_EXCL, MYO_EXLOCK};
 	indirizzo = "127.0.0.1";

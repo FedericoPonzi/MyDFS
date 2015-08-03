@@ -31,12 +31,15 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	//Creo la struttura di ritorno, e le aggiungo dei valori che gia conosco:
 	MyDFSId* toRet;
 	toRet = malloc(sizeof(toRet));
-	toRet->filename = malloc(strlen(nomefile)+1);
+	
 	toRet->indirizzo = malloc(strlen(indirizzo)+1);
 	toRet->modo = modo;	
-	strcpy(toRet->filename, nomefile);
+	
 	strcpy(toRet->indirizzo, indirizzo);
 	*err = 0;
+	
+	toRet->filename = malloc(strlen(nomefile)+1);
+	strcpy(toRet->filename, nomefile);
 	createControlSocketId(toRet, err);
 	createTransferSocket(toRet, err);
 	switch(*err)
@@ -62,6 +65,9 @@ void createControlSocketId(MyDFSId* toRet, int *err)
         *err= toRet->socketId;
         return;
     }
+    logM("ptr = %p\n", &toRet->socketId);
+    
+    logM("toRet->filename = %p\n", toRet->filename);
     
     memset(&serv_addr, '0', sizeof(serv_addr)); 
 
@@ -82,7 +88,9 @@ void createControlSocketId(MyDFSId* toRet, int *err)
        return;
     }		
     //Connessione effettuata, invio la richiesta
+
     char openCommand [strlen(OPENCOMMAND)+strlen(toRet->filename)+5];
+
     sprintf(openCommand, "%s %s %d\n", OPENCOMMAND, toRet->filename, toRet->modo);
 	logM("[OpenCommand]: '%s'\n", openCommand);
 	

@@ -46,6 +46,10 @@
 #include <limits.h>
 #include <errno.h>
 #include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+
+#define PRT_MSG_SIZE 14
 
 void getFileName(char* command, char* nomeFile);
 int getModo(char* command);
@@ -86,7 +90,68 @@ void handleOpenCommand(char* command, int socket)
 	}
 
 	send(socket, ret_val, strlen(ret_val), 0);
+	
+	//server di nuovo in ascolto per fetch port number
+	int nRecv;
+	char prt_msg[PRT_MSG_SIZE];
+	int port_num;
+	char answer[10];
+	if((nRecv = recv(socket, prt_msg, sizeof(prt_msg), 0)) < 0)
+	{
+		//errore
+		logM("[handleOpenCommand] - errore rcv port no\n");
+		strcpy(answer, "-2");
+	}
+	else
+	{
+		if(strncmp(prt_msg, "port_num", 8) == 0)
+		{
+			//fetch numero porta
+			port_num = strtol(prt_msg+(strlen("port_num ")), NULL, 10);
+			strcpy(answer, "ok");
+		}
+		else
+		{
+			//errore
+			logM("[handleOpenCommand] - errore formato port no");
+			strcpy(answer, "-2");
+		}
+	}
+	
+	if (createDataSock(port_num, socket))
+	{
+		strcpy(answer, "-2");
+	}
+	
+	send(socket, answer, strlen(answer), 0);
+}
 
+/**
+ * @brief crea connessione dati lato server
+ */
+int createDataSock(int portNo, int socketId)
+{
+	struct sockaddr_in datasock_addr; 
+	socklen_t address_size;
+	address_size = sizeof(datasock_addr);
+	
+	memset(&datasock_addr, '0', sizeof(datasock_addr)); 
+
+    datasock_addr.sin_family = AF_INET;
+    datasock_addr.sin_port = htons(portNo); 
+
+    if(getpeername(socketId, (struct sockaddr *)&datasock_addr.sin_addr, &address_size) != 0)
+    {
+		perror("getpeername");
+		return 1;
+    } 
+	
+    if((connect(socketId, (struct sockaddr *)&datasock_addr, sizeof(datasock_addr))) != 0)
+    {
+	   perror("connect");
+	   return 1;
+    }	
+    return 0;	
 }
 
 /**
