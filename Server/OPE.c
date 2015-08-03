@@ -93,37 +93,35 @@ void handleOpenCommand(char* command, int socket)
 	
 	//server di nuovo in ascolto per fetch port number
 	int nRecv;
-	char prt_msg[PRT_MSG_SIZE];
+	char prt_msg[PRT_MSG_SIZE+1];
 	int port_num;
-	char answer[10];
+	char answer[3] = "ok";
 	if((nRecv = recv(socket, prt_msg, sizeof(prt_msg), 0)) < 0)
 	{
 		//errore
 		logM("[handleOpenCommand] - errore rcv port no\n");
-		strcpy(answer, "-2");
+		strcpy(answer, "-2");		
+	}
+	if(strncmp(prt_msg, "port_num", 8) == 0)
+	{
+		prt_msg[nRecv] = '\0';
+		//fetch numero porta
+		port_num = strtol(prt_msg+(strlen("port_num ")), NULL, 10);
 	}
 	else
 	{
-		if(strncmp(prt_msg, "port_num", 8) == 0)
-		{
-			//fetch numero porta
-			port_num = strtol(prt_msg+(strlen("port_num ")), NULL, 10);
-			strcpy(answer, "ok");
-		}
-		else
-		{
-			//errore
-			logM("[handleOpenCommand] - errore formato port no");
-			strcpy(answer, "-2");
-		}
+		//errore
+		logM("[handleOpenCommand] - errore formato port no");
+		strcpy(answer, "-2");
 	}
+	logM("Il client ha richiesto la connessione sulla port: %d\n", port_num);
 	
 	if (createDataSock(port_num, socket))
 	{
 		strcpy(answer, "-2");
 	}
 	
-	send(socket, answer, strlen(answer), 0);
+	send(socket, answer, sizeof(answer), 0);
 }
 
 /**
