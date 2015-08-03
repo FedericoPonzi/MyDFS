@@ -6,7 +6,8 @@ Tutta la documentazione si riferisce al lato server (per ora, ovviamente).
 * Sulla [open](OPE.md)
 
 ###TODOS:
-*Aggiungere un campo lock a OpenedFile e controllare il modo alla Open
+* Aggiungere un campo lock a OpenedFile e controllare il modo alla Open
+* Aggiungere heartbeating anche quando un client richiede una lock.
 
 
 ###Più in là:

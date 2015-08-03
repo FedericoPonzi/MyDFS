@@ -31,17 +31,24 @@ int main(int argc, char* argv[])
 	printf("\n\tHELLO, CLIENT \n");
 	printf("[TEST DELLA OPEN]:\n");
 
+	int z = 0;
 	int i;
 	for(i = 0; i < 7; i++)
 	{
-		printf("\n * Modo numero: %d \n", array[i]);
-		fileId = mydfs_open(indirizzo, filename, array[i], &error);
-		if(error != 0)
+		int k;
+		for(k =0; k < 1000; k++)
 		{
-			printf("Errore %d\n", error);
-			assert(0);
+			printf("\n * Modo numero: %d \n", array[i]);
+			fileId = mydfs_open(indirizzo, filename, array[i], &error);
+			if(error != 0)
+			{
+				printf("Errore %d\n", error);
+				assert(0);
+			}
+			mydfs_close(fileId);
+			z++;
+			printf("z: %d\n", z);
 		}
-		mydfs_close(fileId);
 	}
 	
 	
