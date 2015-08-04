@@ -52,7 +52,7 @@
 
 #define PRT_MSG_SIZE 14
 
-void getFileName(char* command, char* nomeFile);
+char* getFileName(char* command);
 int getModo(char* command);
 
 /**
@@ -63,13 +63,12 @@ void handleOpenCommand(char* command, int socket)
 {
 	stripCommand(command);
 
-	char* nomeFile;
 	char* ret_val;
 	int err_code;
 	
-	nomeFile = malloc(30*sizeof(char)); /** @todo : Da vedere bene per memory leaks!!!!*/
+	 /** @todo : Da vedere bene per memory leaks!!!!*/
 
-	getFileName(command, nomeFile);
+	char* nomeFile = getFileName(command);
 
 	logM("Nome del file: '%s'\n", nomeFile);
 	int modo = getModo(command);
@@ -177,14 +176,21 @@ int createDataSock(int portNo, int socketId)
 /**
  * @brief Torna il nome (o path del file richiesto
  * 
- * Visto che mi aspetto una stringa del tipo 'file.txt 0' allora mi basta prendere la stringa che va da 0 a n-2.
+ * Mi calcolo dalla fine il primo spazio, e uso quello come delimitatore come nome del file.
  */
-void getFileName(char* command, char* nomeFile)
+char* getFileName(char* command)
 {
+	char* nomeFile = malloc(30*sizeof(char));
 	int lunghezza = strlen(command);
+	int i = lunghezza;
+	while(!isspace(command[i]))
+	{
+		i--;
+	}
 	memcpy(nomeFile, command, lunghezza);
-	nomeFile[lunghezza-2] = '\0';
+	nomeFile[i] = '\0';
 	logM("nomeFile = %s\n", nomeFile);
+	return nomeFile;
 }
 
 /**
@@ -197,9 +203,5 @@ int getModo(char* command)
 	{
 		return *(command+strlen(command)-1) - '0'; // magic don't touch
 	}
-	
-	char* ptr = command+ strlen(command)-2;
-	long val;
-	val = strtol(ptr, NULL, 10);
-	return val;
+	return strtol(command+strlen(command)-2, NULL, 10);
 }

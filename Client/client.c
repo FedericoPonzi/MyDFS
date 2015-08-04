@@ -42,8 +42,13 @@ int main(int argc, char* argv[])
 		int k;
 		printf("\n * Modo numero: %d \n", array[i]);
 		fileId = mydfs_open(indirizzo, filename, array[i], &error);
+		z++;
+		printf("z: %d\n", z);
+
+
 		if(array[i] == MYO_EXCL)
 		{
+			logM("MYO_EXCL percio' tutto ok c:\n");
 			continue;
 		}
 		if(error != 0)
@@ -51,11 +56,8 @@ int main(int argc, char* argv[])
 			printf("Errore %d\n", error);
 			assert(0);
 		}
-		
 		mydfs_close(fileId);
-		z++;
-		printf("z: %d\n", z);
-		sleep(1);
+		//sleep(1);
 	}
 
 
