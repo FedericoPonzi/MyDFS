@@ -74,7 +74,7 @@ void createControlSocketId(MyDFSId* toRet, int *err)
 
     if(inet_aton(toRet->indirizzo, &serv_addr.sin_addr) == 0)
     {
-		perror("inet_aton");
+		logM("inet_aton error \n");
         *err= -2;
         return;
     }
