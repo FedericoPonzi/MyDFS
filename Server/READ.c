@@ -28,52 +28,97 @@
  *
  * Quando il client invia un comando READ, questo modulo lo gestisce, inviando sulla socket il dato richiesto.
  */
+
+#include <stdio.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include "inc/Utils.h"
+#include "inc/StruttureDati.h"
+#include "inc/READ.h"
+#include "inc/Config.h"
 
-#define BUF_SIZE 256
+#define BUF_SIZE 65000
+int getPosFromCommand(char*);
 
-int handleREADCommand(char* command, int socket)
+void handleREADCommand(char* command, int socket)
 {
-	stripCommand(command);
-	logM("[GET] Richiesto il file:'%s'", command);
-	FILE *fp = fopen(command,"rb");
-
-	if(fp==NULL)
+	logM("[READ]: Ricevuta richiesta read.\n", command);
+	int pos = getPosFromCommand(command);
+	char* fileName = getFileName();
+	char filePath[strlen(fileName) + strlen(rootPath)+1];
+	sprintf(filePath, "%s%s", rootPath,fileName);
+	logM("[READ] Provo ad aprire: '%s'\n", filePath);
+	
+	FILE *fp = fopen(filePath,"rb"); //Todo, controllare se ha i permessi
+	char buff[BUF_SIZE];
+	
+	if( fp == NULL)
 	{
+		send(socket, "-1", strlen("-1"), 0);
 		logM("Errore nella apertura del file.\n");
-		//TODO: Dovrebbe tornare al client un codice di errore.
-		return -1;
-	}   
-	logM("[Get] File aperto correttamente. \n");
-	while(1)
-	{
-		/* First read file in chunks of 256 bytes */
-		unsigned char buff[BUF_SIZE]={0};
-		int nread = fread(buff,1,BUF_SIZE,fp);
-		logM("Bytes read %d \n", nread);        
-
-		/* If read was success, send data. */
-		if(nread > 0)
-		{
-			printf("Sending \n");
-			write(socket, buff, nread);
-		}
-
-		/*
-		 * There is something tricky going on with read .. 
-		 * Either there was error, or we reached end of file.
-		 */
-		if (nread < 256)
-		{
-			if (feof(fp))
-				printf("End of file\n");
-			if (ferror(fp))
-				printf("Error reading\n");
-			break;
-		}
-
-
+		return;
 	}
-	return 0;
+	logM("[READ] File aperto correttamente. \n");
+	
+	//fseek (fp, 0, pos);
+/*
+	// obtain file size:
+	fseek (pFile , 0 , SEEK_END);
+	lSize = ftell (pFile);
+	rewind (pFile);
+
+	// allocate memory to contain the whole file:
+	buffer = (char*) malloc (sizeof(char)*lSize);
+	if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
+
+	// copy the file into the buffer:
+	result = fread (buffer,1,lSize,pFile);
+	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}
+*/
+
+	int nread = fread(buff,BUF_SIZE,1,fp);
+	/*
+	 * There is something tricky going on with read .. 
+	 * Either there was error, or we reached end of file.
+	 */
+	if (nread < BUF_SIZE)
+	{
+		if (feof(fp))
+		{
+			nread = strlen(buff);
+		}
+		if (ferror(fp))
+		{
+			logM("Error reading\n");
+			/* Error*/
+		}
+	}
+	logM("[READ] Bytes letti: %d \n", nread);        
+	logM("[READ] Contenuto letto: '%s'", buff);
+
+	if(nread > 0)
+	{
+		logM("[READ] Invio file...");
+		char message[20];
+		sprintf(message, "size %d", nread);
+		
+		//Mando la dimensione della parte che ho letto
+		write(socket, message, strlen(message)+1);
+		
+		//Mando la parte letta
+		logM("Transfer socket: '%d'", getTransferSocket());
+		write(getTransferSocket(), buff, nread);
+	}
+	
+
 }
 
+int getPosFromCommand(char* command)
+{
+	return strtol(command, NULL, 10);
+}

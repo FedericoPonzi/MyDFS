@@ -4,24 +4,17 @@
 #include <sys/stat.h>
 #include <unistd.h>    
 #include <string.h>
-
+#include <stdlib.h>
 int main()
 {
 	// Il file descriptor
-	int fd;
+	FILE* fd;
 	char buff[100] = "Ciao, MONDO :D";
 	
-	fd = open("file.txt", O_CREAT | O_RDWR);
-
-    if(fd<0)
-    {
-          
-    }
-	write(fd, buff, strlen(buff));
+	fd = fopen("file.txt", "rb");
 	
-	close(fd);
-	fd = open("file.txt", O_WRONLY | O_TRUNC);
-	close(fd);
-	
+	fread(buff,sizeof(buff), 0, fd);
+	printf("Buff: %s", buff);
+		
 	return 0;
 }

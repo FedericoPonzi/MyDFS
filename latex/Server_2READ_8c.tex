@@ -1,22 +1,27 @@
 \hypertarget{Server_2READ_8c}{}\section{Riferimenti per il file Server/\+R\+E\+A\+D.c}
 \label{Server_2READ_8c}\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}}
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
 \subsection*{Definizioni}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{Server_2READ_8c_a6821bafc3c88dfb2e433a095df9940c6}{B\+U\+F\+\_\+\+S\+I\+Z\+E}~256
+\#define \hyperlink{Server_2READ_8c_a6821bafc3c88dfb2e433a095df9940c6}{B\+U\+F\+\_\+\+S\+I\+Z\+E}~65000
 \end{DoxyCompactItemize}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{Server_2READ_8c_a33bf0c6afa09e15ff4c9d4d3c13c4169}{handle\+R\+E\+A\+D\+Command} (char $\ast$command, int socket)
+int \hyperlink{Server_2READ_8c_a936ab4848cf83a445f5e038926a46dae}{get\+Pos\+From\+Command} (char $\ast$)
+\item 
+void \hyperlink{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}{handle\+R\+E\+A\+D\+Command} (char $\ast$command, int socket)
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle definizioni}
 \hypertarget{Server_2READ_8c_a6821bafc3c88dfb2e433a095df9940c6}{}\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!B\+U\+F\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+\_\+\+S\+I\+Z\+E}}
 \index{B\+U\+F\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+\_\+\+S\+I\+Z\+E}!Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}}
-\subsubsection[{B\+U\+F\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+\_\+\+S\+I\+Z\+E~256}\label{Server_2READ_8c_a6821bafc3c88dfb2e433a095df9940c6}
+\subsubsection[{B\+U\+F\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+\_\+\+S\+I\+Z\+E~65000}\label{Server_2READ_8c_a6821bafc3c88dfb2e433a095df9940c6}
 
 
 Referenziato da handle\+R\+E\+A\+D\+Command().
@@ -24,15 +29,26 @@ Referenziato da handle\+R\+E\+A\+D\+Command().
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Server_2READ_8c_a33bf0c6afa09e15ff4c9d4d3c13c4169}{}\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!handle\+R\+E\+A\+D\+Command@{handle\+R\+E\+A\+D\+Command}}
+\hypertarget{Server_2READ_8c_a936ab4848cf83a445f5e038926a46dae}{}\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!get\+Pos\+From\+Command@{get\+Pos\+From\+Command}}
+\index{get\+Pos\+From\+Command@{get\+Pos\+From\+Command}!Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}}
+\subsubsection[{get\+Pos\+From\+Command}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Pos\+From\+Command (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command}
+\end{DoxyParamCaption}
+)}\label{Server_2READ_8c_a936ab4848cf83a445f5e038926a46dae}
+
+
+Referenziato da handle\+R\+E\+A\+D\+Command().
+
+\hypertarget{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}{}\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!handle\+R\+E\+A\+D\+Command@{handle\+R\+E\+A\+D\+Command}}
 \index{handle\+R\+E\+A\+D\+Command@{handle\+R\+E\+A\+D\+Command}!Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}}
-\subsubsection[{handle\+R\+E\+A\+D\+Command}]{\setlength{\rightskip}{0pt plus 5cm}int handle\+R\+E\+A\+D\+Command (
+\subsubsection[{handle\+R\+E\+A\+D\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+R\+E\+A\+D\+Command (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{command, }
 \item[{int}]{socket}
 \end{DoxyParamCaption}
-)}\label{Server_2READ_8c_a33bf0c6afa09e15ff4c9d4d3c13c4169}
+)}\label{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}
 
 
-Referenzia B\+U\+F\+\_\+\+S\+I\+Z\+E, log\+M(), e strip\+Command().
+Referenzia B\+U\+F\+\_\+\+S\+I\+Z\+E, get\+Pos\+From\+Command(), get\+Transfer\+Socket(), e log\+M().
 

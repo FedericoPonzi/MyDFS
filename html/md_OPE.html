@@ -91,7 +91,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <li>O_EXLOCK: Crea un lock esclusivo sul file (se è aperto in lettura nessuno può leggerlo o scriverlo). Da implementare in LINUX!</li>
 <li>O_EXCL: Da usare assieme a O_CREAT. Se cerca di fare la open di un file che esiste già con O_EXCL|O_CREAT allora la open fallisce.</li>
 </ul>
-<p>Ogni esito và codificato e rispedito come risposta al client! </p>
+<p>Ogni esito và codificato e rispedito come risposta al client! </p><hr/>
+ <h2>Protocollo di comunicazione per la open</h2>
+<ol type="1">
+<li>Client: OPE file.txt 2</li>
+<li>Server: ok</li>
+<li>Client: port_num 50000</li>
+<li>Server: ok </li>
+</ol>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

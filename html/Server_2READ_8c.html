@@ -95,16 +95,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Server_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="StruttureDati_8h_source.html">inc/StruttureDati.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Definizioni</h2></td></tr>
-<tr class="memitem:a6821bafc3c88dfb2e433a095df9940c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2READ_8c.html#a6821bafc3c88dfb2e433a095df9940c6">BUF_SIZE</a>&#160;&#160;&#160;256</td></tr>
+<tr class="memitem:a6821bafc3c88dfb2e433a095df9940c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2READ_8c.html#a6821bafc3c88dfb2e433a095df9940c6">BUF_SIZE</a>&#160;&#160;&#160;65000</td></tr>
 <tr class="separator:a6821bafc3c88dfb2e433a095df9940c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:a33bf0c6afa09e15ff4c9d4d3c13c4169"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2READ_8c.html#a33bf0c6afa09e15ff4c9d4d3c13c4169">handleREADCommand</a> (char *command, int socket)</td></tr>
-<tr class="separator:a33bf0c6afa09e15ff4c9d4d3c13c4169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a936ab4848cf83a445f5e038926a46dae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2READ_8c.html#a936ab4848cf83a445f5e038926a46dae">getPosFromCommand</a> (char *)</td></tr>
+<tr class="separator:a936ab4848cf83a445f5e038926a46dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11a14c030d3457d46ad960cf8bc15a4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">handleREADCommand</a> (char *command, int socket)</td></tr>
+<tr class="separator:a11a14c030d3457d46ad960cf8bc15a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle definizioni</h2>
 <a class="anchor" id="a6821bafc3c88dfb2e433a095df9940c6"></a>
@@ -112,22 +117,40 @@ Funzioni</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BUF_SIZE&#160;&#160;&#160;256</td>
+          <td class="memname">#define BUF_SIZE&#160;&#160;&#160;65000</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="Server_2READ_8c.html#a33bf0c6afa09e15ff4c9d4d3c13c4169">handleREADCommand()</a>.</p>
+<p>Referenziato da <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">handleREADCommand()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
-<a class="anchor" id="a33bf0c6afa09e15ff4c9d4d3c13c4169"></a>
+<a class="anchor" id="a936ab4848cf83a445f5e038926a46dae"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int handleREADCommand </td>
+          <td class="memname">int getPosFromCommand </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenziato da <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">handleREADCommand()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a11a14c030d3457d46ad960cf8bc15a4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handleREADCommand </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>command</em>, </td>
@@ -146,7 +169,7 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenzia <a class="el" href="Server_2READ_8c.html#a6821bafc3c88dfb2e433a095df9940c6">BUF_SIZE</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, e <a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand()</a>.</p>
+<p>Referenzia <a class="el" href="Server_2READ_8c.html#a6821bafc3c88dfb2e433a095df9940c6">BUF_SIZE</a>, <a class="el" href="Server_2READ_8c.html#a936ab4848cf83a445f5e038926a46dae">getPosFromCommand()</a>, <a class="el" href="StruttureDati_8c.html#ab227c35b76ef6706729ad091f99e7263">getTransferSocket()</a>, e <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>.</p>
 
 </div>
 </div>

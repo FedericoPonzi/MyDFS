@@ -3,6 +3,7 @@ var searchData=
   ['sd',['sd',['../server_8c.html#a06b0afe769d54ae94259d8532bc878b0',1,'server.c']]],
   ['second_2ec',['second.c',['../second_8c.html',1,'']]],
   ['second_2eh',['second.h',['../second_8h.html',1,'']]],
+  ['sendreadcommand',['sendReadCommand',['../Client_2READ_8c.html#aefa99785546e3d4a800c689b8778d6cf',1,'READ.c']]],
   ['server',['server',['../server_8c.html#a437cecc27162b023659813375ca67d62',1,'server.c']]],
   ['server_2ec',['server.c',['../server_8c.html',1,'']]],
   ['server_5fport',['SERVER_PORT',['../Client_2Config_8h.html#ac42367fe5c999ec6650de83e9d72fe8c',1,'Config.h']]],

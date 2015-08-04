@@ -1,7 +1,9 @@
 #ifndef GETCOMMAND
 #define GETCOMMAND
-#include <unistd.h>
-#include <stdio.h>
-int handleReadCommand(char* command, int socket);
+#define MYSEEK_SET 0
+#define MYSEEK_CUR 1
+#define MYSEEK_END 2
+
+void handleREADCommand(char* command, int socket);
 
 #endif

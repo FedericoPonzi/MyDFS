@@ -16,15 +16,25 @@ Gestisce il comando O\+P\+E(\+N)
 {\ttfamily \#include $<$limits.\+h$>$}\\*
 {\ttfamily \#include $<$errno.\+h$>$}\\*
 {\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+\subsection*{Definizioni}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OPE_8c_abf5dc13ad8c5442a46d67adb678d1541}{P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E}~14
+\end{DoxyCompactItemize}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{OPE_8c_a5ad85b3f22163a883068ad47900445be}{get\+File\+Name} (char $\ast$command, char $\ast$nome\+File)
+char $\ast$ \hyperlink{OPE_8c_ac3c229cca43d2b2744ca25dfc7e62f23}{get\+File\+Name} (char $\ast$command)
 \begin{DoxyCompactList}\small\item\em Torna il nome (o path del file richiesto. \end{DoxyCompactList}\item 
 int \hyperlink{OPE_8c_a14798837102781498ee08e3c4cf5561c}{get\+Modo} (char $\ast$command)
 \begin{DoxyCompactList}\small\item\em Ritorna il modo, sia se e\textquotesingle{} a una cifra che se e\textquotesingle{} a due cifre \+:D. \end{DoxyCompactList}\item 
 void \hyperlink{OPE_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command} (char $\ast$command, int socket)
-\begin{DoxyCompactList}\small\item\em Gestisce il comando Open. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gestisce il comando Open. \end{DoxyCompactList}\item 
+int \hyperlink{OPE_8c_ad902fd8b94b926056967098b6faeb111}{create\+Data\+Sock} (int port\+No, int socket\+Id)
+\begin{DoxyCompactList}\small\item\em crea connessione dati lato server \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descrizione dettagliata}
@@ -46,25 +56,56 @@ Federico Ponzi
 \end{DoxyItemize}
 
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000003}{Da fare}]dovrebbe mandare una risposta al client in caso di successo o errore 
+\item[\hyperlink{todo__todo000004}{Da fare}]dovrebbe mandare una risposta al client in caso di successo o errore 
 
 permettere l\textquotesingle{} apertura se il modo con cui e\textquotesingle{} aperto il file e\textquotesingle{} lettura e viene richiesta la lettura. \end{DoxyRefDesc}
 
 
+\subsection{Documentazione delle definizioni}
+\hypertarget{OPE_8c_abf5dc13ad8c5442a46d67adb678d1541}{}\index{O\+P\+E.\+c@{O\+P\+E.\+c}!P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E@{P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E}}
+\index{P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E@{P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E}!O\+P\+E.\+c@{O\+P\+E.\+c}}
+\subsubsection[{P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E~14}\label{OPE_8c_abf5dc13ad8c5442a46d67adb678d1541}
+
+
+Referenziato da handle\+Open\+Command().
+
+
+
 \subsection{Documentazione delle funzioni}
-\hypertarget{OPE_8c_a5ad85b3f22163a883068ad47900445be}{}\index{O\+P\+E.\+c@{O\+P\+E.\+c}!get\+File\+Name@{get\+File\+Name}}
-\index{get\+File\+Name@{get\+File\+Name}!O\+P\+E.\+c@{O\+P\+E.\+c}}
-\subsubsection[{get\+File\+Name}]{\setlength{\rightskip}{0pt plus 5cm}void get\+File\+Name (
+\hypertarget{OPE_8c_ad902fd8b94b926056967098b6faeb111}{}\index{O\+P\+E.\+c@{O\+P\+E.\+c}!create\+Data\+Sock@{create\+Data\+Sock}}
+\index{create\+Data\+Sock@{create\+Data\+Sock}!O\+P\+E.\+c@{O\+P\+E.\+c}}
+\subsubsection[{create\+Data\+Sock}]{\setlength{\rightskip}{0pt plus 5cm}int create\+Data\+Sock (
 \begin{DoxyParamCaption}
-\item[{char $\ast$}]{command, }
-\item[{char $\ast$}]{nome\+File}
+\item[{int}]{port\+No, }
+\item[{int}]{socket\+Id}
 \end{DoxyParamCaption}
-)}\label{OPE_8c_a5ad85b3f22163a883068ad47900445be}
+)}\label{OPE_8c_ad902fd8b94b926056967098b6faeb111}
+
+
+crea connessione dati lato server 
+
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000006}{Da fare}]correggere utilizzo vecchio socket\+Des \end{DoxyRefDesc}
+
+
+Referenzia log\+M(), e sd.
+
+
+
+Referenziato da handle\+Open\+Command().
+
+\hypertarget{OPE_8c_ac3c229cca43d2b2744ca25dfc7e62f23}{}\index{O\+P\+E.\+c@{O\+P\+E.\+c}!get\+File\+Name@{get\+File\+Name}}
+\index{get\+File\+Name@{get\+File\+Name}!O\+P\+E.\+c@{O\+P\+E.\+c}}
+\subsubsection[{get\+File\+Name}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ get\+File\+Name (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command}
+\end{DoxyParamCaption}
+)}\label{OPE_8c_ac3c229cca43d2b2744ca25dfc7e62f23}
 
 
 Torna il nome (o path del file richiesto. 
 
-Visto che mi aspetto una stringa del tipo \textquotesingle{}file.\+txt 0\textquotesingle{} allora mi basta prendere la stringa che va da 0 a n-\/2. 
+Mi calcolo dalla fine il primo spazio, e uso quello come delimitatore come nome del file. 
 
 Referenzia log\+M().
 
@@ -100,10 +141,10 @@ Referenziato da handle\+Open\+Command().
 Gestisce il comando Open. 
 
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000004}{Da fare}]\+: Da vedere bene per memory leaks!!!! \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000005}{Da fare}]\+: Da vedere bene per memory leaks!!!! \end{DoxyRefDesc}
 
 
-Referenzia append\+Opened\+File(), get\+File\+Name(), get\+Modo(), is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, spawn\+Heart\+Beat(), e strip\+Command().
+Referenzia append\+Opened\+File(), create\+Data\+Sock(), get\+File\+Name(), get\+Modo(), is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E, spawn\+Heart\+Beat(), e strip\+Command().
 
 
 

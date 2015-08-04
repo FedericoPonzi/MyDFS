@@ -15,7 +15,6 @@ int main(int argc, char* argv[])
 	char* indirizzo;
 	int error, modo;
 	MyDFSId* fileId;
-	MyDFSId* fileId2;
 	char* filename;
 	filename = "file.txt";
 	
@@ -37,7 +36,7 @@ int main(int argc, char* argv[])
 
 	int z = 0;
 	int i;
-	for(i = 0; i < 7; i++)
+	for(i = 6; i < 7; i++)
 	{
 		int k;
 		printf("\n * Modo numero: %d \n", array[i]);
@@ -57,9 +56,14 @@ int main(int argc, char* argv[])
 			assert(0);
 		}
 		mydfs_close(fileId);
-		//sleep(1);
 	}
-
-
+	printf("[/ FINE TEST BASE DELLA OPEN]\n\n");
+	printf("Inizio prova read");
+	
+	fileId = mydfs_open(indirizzo, filename, MYO_RDONLY, &error);
+	char buffer[1000];
+	mydfs_read(fileId, MYSEEK_SET, buffer, sizeof(buffer));
+	mydfs_close(fileId);
+	
 	return 0;
 }

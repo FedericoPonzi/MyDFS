@@ -54,7 +54,7 @@ void logM (char* messaggio, ...)
 	if(DEBUG)
 	{
 		va_start(args, messaggio);
-		printf("[%d]", getptid());
+		//printf("[%d]", getptid());
 		vprintf(messaggio, args);
 		va_end(args);
 	}
@@ -66,7 +66,8 @@ void logM (char* messaggio, ...)
  */
 void stripCommand(char* input)
 {
-	char substringa[30];
+	
+	char substringa[strlen(input)];
 	strcpy(substringa, &input[4]);
 	strcpy(input, substringa);
 	

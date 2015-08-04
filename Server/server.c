@@ -49,7 +49,7 @@ int main()
 	}	
 
 	logM("Server avviato. Attendo connessioni.\n");
-	// Loop infinito per servire i client:
+
 	while(1)
 	{
 		if(procOrThread)

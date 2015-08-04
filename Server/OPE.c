@@ -52,7 +52,7 @@
 
 #define PRT_MSG_SIZE 14
 
-char* getFileName(char* command);
+static char* getFileNameFromCommand(char* command);
 int getModo(char* command);
 
 /**
@@ -66,9 +66,7 @@ void handleOpenCommand(char* command, int socket)
 	char* ret_val;
 	int err_code;
 	
-	 /** @todo : Da vedere bene per memory leaks!!!!*/
-
-	char* nomeFile = getFileName(command);
+	char* nomeFile = getFileNameFromCommand(command);	 /** @todo : Da vedere bene per memory leaks!!!!*/
 
 	logM("Nome del file: '%s'\n", nomeFile);
 	int modo = getModo(command);
@@ -90,6 +88,7 @@ void handleOpenCommand(char* command, int socket)
 	}
 
 	send(socket, ret_val, strlen(ret_val), 0);
+	if(err_code != 0) return;
 	
 	//server di nuovo in ascolto per fetch port number
 	int nRecv;
@@ -100,7 +99,7 @@ void handleOpenCommand(char* command, int socket)
 	{
 		//errore
 		logM("[handleOpenCommand] - errore rcv port no\n");
-		strcpy(answer, "-2");		
+		strcpy(answer, "-2");
 	}
 	if(strncmp(prt_msg, "port_num", 8) == 0)
 	{
@@ -116,7 +115,7 @@ void handleOpenCommand(char* command, int socket)
 	}
 	logM("Il client ha richiesto la connessione sulla port: %d\n", port_num);
 	
-	if (createDataSock(port_num, socket) == 1)
+	if (createDataSock(port_num, socket))
 	{
 		strcpy(answer, "-2");
 	}
@@ -170,7 +169,10 @@ int createDataSock(int portNo, int socketId)
 	   perror("connect");
 	   return 1;
     }	
-    return sd;	
+    OpenedFile* file = getOpenedFile();
+    file->transferSockId = sd;
+    
+    return 0;	
 }
 
 /**
@@ -178,7 +180,7 @@ int createDataSock(int portNo, int socketId)
  * 
  * Mi calcolo dalla fine il primo spazio, e uso quello come delimitatore come nome del file.
  */
-char* getFileName(char* command)
+char* getFileNameFromCommand(char* command)
 {
 	char* nomeFile = malloc(30*sizeof(char));
 	int lunghezza = strlen(command);

@@ -134,7 +134,7 @@ controlla se la open è realizzabile con il modo richiesti
 
 
 
-Referenzia Opened\+File\+::file\+Name, is\+Modo\+Apertura(), M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+T\+R\+U\+N\+C, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, Opened\+File\+::next, opened\+File\+Linked\+List, e root\+Path.
+Referenzia Opened\+File\+::file\+Name, is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, M\+Y\+O\+\_\+\+E\+X\+C\+L, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, Opened\+File\+::next, opened\+File\+Linked\+List, e root\+Path.
 
 
 
@@ -177,7 +177,7 @@ Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} sta
 
 
 
-Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, Opened\+File\+::next, e opened\+File\+Linked\+List.
+Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, mutex, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, Opened\+File\+::next, e opened\+File\+Linked\+List.
 
 
 
@@ -218,12 +218,12 @@ Referenziato da append\+Opened\+File(), e close\+Client\+Session().
 \subsubsection[{mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ mutex}\label{StruttureDati_8h_a8647861982974418fd65cf3dca69c54e}
 
 
-Referenziato da append\+Opened\+File(), e close\+Client\+Session().
+Referenziato da append\+Opened\+File(), close\+Client\+Session(), e file\+Already\+Opened\+In\+Write().
 
 \hypertarget{StruttureDati_8h_ac6c781406efae2362705c3a19a96474a}{}\index{Strutture\+Dati.\+h@{Strutture\+Dati.\+h}!opened\+File\+Linked\+List@{opened\+File\+Linked\+List}}
 \index{opened\+File\+Linked\+List@{opened\+File\+Linked\+List}!Strutture\+Dati.\+h@{Strutture\+Dati.\+h}}
 \subsubsection[{opened\+File\+Linked\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$$\ast$ opened\+File\+Linked\+List}\label{StruttureDati_8h_ac6c781406efae2362705c3a19a96474a}
 
 
-Referenziato da append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), e file\+Already\+Opened\+In\+Write().
+Referenziato da append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), file\+Already\+Opened\+In\+Write(), e get\+Transfer\+Socket().
 

@@ -1,7 +1,7 @@
 ##Alcuni appunti sulla open
 Nelle specifiche:
 	Per quanto riguarda il modo, devono essere supportate le seguenti modalità (per il significato vedere la documentazione sulla open Unix):
-	O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_TRUNC, O_EXCL,  O_EXLOCK 
+	O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_TRUNC, O_EXCL,  O_EXLOCK
 
 * O_RDONLY: Apre il file in lettura, altri client possono richiedere lo stesso file. Se non esiste, ERRORE.
 * O_WRONLY: Apre il file in scrittura. Invia un messaggio di invalidazione a tutti i client che lo hanno aperto in lettura. Se e' già aperto in scrittura, ERRORE
@@ -13,3 +13,10 @@ Nelle specifiche:
 
 Ogni esito và codificato e rispedito come risposta al client!
 
+---
+##Protocollo di comunicazione per la open
+
+ 1. Client: OPE file.txt 2
+ 2. Server: ok
+ 3. Client: port_num 50000
+ 4. Server: ok

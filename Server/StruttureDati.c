@@ -115,31 +115,31 @@ int checkModoOpen(char *nomeFile, int modo)
 
 	if(access(temp_path, F_OK) == -1)
 	{
-		logM("LOL1\n");
 		if(!isModoApertura(modo, MYO_CREAT))
 		{
+			logM("1");
 			return -3;
 		}
 	}
 	else
 	{
-		logM("LOL2\n");
 		if(isModoApertura(modo, MYO_EXCL))
 		{
+			logM("2");
 			return -3;
 		}
 	}
-	logM("LOL3\n");
 	while(iterator != NULL)
 	{
 		if(strcmp(iterator->fileName, nomeFile) == 0)
 		{
+			logM("3");
 			if(
 			isModoApertura(iterator->modo, MYO_WRONLY) || 
 			isModoApertura(iterator->modo, MYO_RDWR) || 
 			isModoApertura(iterator->modo, MYO_EXLOCK))
 			{
-				logM("LOL4\n");
+			logM("4");
 				return -3;
 			}
 		}
@@ -159,9 +159,7 @@ int fileAlreadyOpenedInWrite(char* filename)
 {
 
 	if(openedFileLinkedList == NULL) return FALSE;
-	
-	logM("CIAO\n");
-	
+		
 	OpenedFile* iterator = *openedFileLinkedList;
 	pthread_mutex_lock(mutex);
 	while(iterator != NULL)
@@ -264,4 +262,51 @@ void closeClientSession(int ptid) //fileName va rimosso, la session è relativa 
 		}
 	}
 	logM("[closeClientSession] - Connessione chiusa.\n");
+}
+
+int getTransferSocket()
+{
+	OpenedFile* iterator = *openedFileLinkedList;
+	while(iterator != NULL)
+	{
+		if(iterator->ptid == getptid())
+		{
+			return iterator->transferSockId;
+		}
+		iterator = iterator->next;
+	}
+	return 0;
+}
+/**
+ * @brief Ritorna il nome del file aperto da questo ptid.
+ */
+char* getFileName()
+{
+	OpenedFile* iterator = *openedFileLinkedList;
+	while(iterator != NULL)
+	{
+		if(iterator->ptid == getptid())
+		{
+			return iterator->fileName;
+		}
+		iterator = iterator->next;
+	}
+	return NULL;
+}
+
+/**
+ * @brief Ritorna l' opened file associato a questo ptid
+ */
+OpenedFile* getOpenedFile()
+{
+	OpenedFile* iterator = *openedFileLinkedList;
+	while(iterator != NULL)
+	{
+		if(iterator->ptid == getptid())
+		{
+			return iterator;
+		}
+		iterator = iterator->next;
+	}
+	return NULL;
 }

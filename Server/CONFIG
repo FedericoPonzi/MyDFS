@@ -3,7 +3,7 @@
 ###
 ##Numero massimo di connessioni contemporanee:
 ###
-NUMBER_OF_CONNECTION 10
+NUMBER_OF_CONNECTION 1
 
 ###
 ## 1 per usare i processi, 0 per usare i threads

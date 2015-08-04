@@ -88,6 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Definizioni</a> &#124;
 <a href="#func-members">Funzioni</a>  </div>
   <div class="headertitle">
 <div class="title">Riferimenti per il file OPE.c</div>  </div>
@@ -107,18 +108,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <code>#include &lt;limits.h&gt;</code><br />
 <code>#include &lt;errno.h&gt;</code><br />
 <code>#include &lt;sys/socket.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;netinet/in.h&gt;</code><br />
+<code>#include &lt;arpa/inet.h&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definizioni</h2></td></tr>
+<tr class="memitem:abf5dc13ad8c5442a46d67adb678d1541"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPE_8c.html#abf5dc13ad8c5442a46d67adb678d1541">PRT_MSG_SIZE</a>&#160;&#160;&#160;14</td></tr>
+<tr class="separator:abf5dc13ad8c5442a46d67adb678d1541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:a5ad85b3f22163a883068ad47900445be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPE_8c.html#a5ad85b3f22163a883068ad47900445be">getFileName</a> (char *command, char *nomeFile)</td></tr>
-<tr class="memdesc:a5ad85b3f22163a883068ad47900445be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Torna il nome (o path del file richiesto.  <a href="#a5ad85b3f22163a883068ad47900445be">Continua...</a><br /></td></tr>
-<tr class="separator:a5ad85b3f22163a883068ad47900445be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3c229cca43d2b2744ca25dfc7e62f23"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPE_8c.html#ac3c229cca43d2b2744ca25dfc7e62f23">getFileName</a> (char *command)</td></tr>
+<tr class="memdesc:ac3c229cca43d2b2744ca25dfc7e62f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Torna il nome (o path del file richiesto.  <a href="#ac3c229cca43d2b2744ca25dfc7e62f23">Continua...</a><br /></td></tr>
+<tr class="separator:ac3c229cca43d2b2744ca25dfc7e62f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14798837102781498ee08e3c4cf5561c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPE_8c.html#a14798837102781498ee08e3c4cf5561c">getModo</a> (char *command)</td></tr>
 <tr class="memdesc:a14798837102781498ee08e3c4cf5561c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ritorna il modo, sia se e' a una cifra che se e' a due cifre :D.  <a href="#a14798837102781498ee08e3c4cf5561c">Continua...</a><br /></td></tr>
 <tr class="separator:a14798837102781498ee08e3c4cf5561c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eccb6ec6ec9c8375e70ab4088b511a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a> (char *command, int socket)</td></tr>
 <tr class="memdesc:a6eccb6ec6ec9c8375e70ab4088b511a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il comando Open.  <a href="#a6eccb6ec6ec9c8375e70ab4088b511a5">Continua...</a><br /></td></tr>
 <tr class="separator:a6eccb6ec6ec9c8375e70ab4088b511a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad902fd8b94b926056967098b6faeb111"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OPE_8c.html#ad902fd8b94b926056967098b6faeb111">createDataSock</a> (int portNo, int socketId)</td></tr>
+<tr class="memdesc:ad902fd8b94b926056967098b6faeb111"><td class="mdescLeft">&#160;</td><td class="mdescRight">crea connessione dati lato server  <a href="#ad902fd8b94b926056967098b6faeb111">Continua...</a><br /></td></tr>
+<tr class="separator:ad902fd8b94b926056967098b6faeb111"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrizione dettagliata</h2>
 <div class="textblock"><p>Gestisce il comando OPE(N) </p>
@@ -131,25 +143,40 @@ Funzioni</h2></td></tr>
 <ul>
 <li>Se non e' aperto, aggiunge un nodo in coda a mainOpenedFile</li>
 </ul>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Da fare:</a></b></dt><dd><p class="startdd">dovrebbe mandare una risposta al client in caso di successo o errore </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Da fare:</a></b></dt><dd><p class="startdd">dovrebbe mandare una risposta al client in caso di successo o errore </p>
 <p class="enddd">permettere l' apertura se il modo con cui e' aperto il file e' lettura e viene richiesta la lettura. </p>
 </dd></dl>
-</div><h2 class="groupheader">Documentazione delle funzioni</h2>
-<a class="anchor" id="a5ad85b3f22163a883068ad47900445be"></a>
+</div><h2 class="groupheader">Documentazione delle definizioni</h2>
+<a class="anchor" id="abf5dc13ad8c5442a46d67adb678d1541"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void getFileName </td>
+          <td class="memname">#define PRT_MSG_SIZE&#160;&#160;&#160;14</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenziato da <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentazione delle funzioni</h2>
+<a class="anchor" id="ad902fd8b94b926056967098b6faeb111"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int createDataSock </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>command</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>portNo</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>nomeFile</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socketId</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -159,8 +186,31 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>crea connessione dati lato server </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Da fare:</a></b></dt><dd>correggere utilizzo vecchio socketDes </dd></dl>
+
+<p>Referenzia <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, e <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>.</p>
+
+<p>Referenziato da <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac3c229cca43d2b2744ca25dfc7e62f23"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * getFileName </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 <p>Torna il nome (o path del file richiesto. </p>
-<p>Visto che mi aspetto una stringa del tipo 'file.txt 0' allora mi basta prendere la stringa che va da 0 a n-2. </p>
+<p>Mi calcolo dalla fine il primo spazio, e uso quello come delimitatore come nome del file. </p>
 
 <p>Referenzia <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>.</p>
 
@@ -213,9 +263,9 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gestisce il comando Open. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Da fare:</a></b></dt><dd>: Da vedere bene per memory leaks!!!! </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Da fare:</a></b></dt><dd>: Da vedere bene per memory leaks!!!! </dd></dl>
 
-<p>Referenzia <a class="el" href="StruttureDati_8h.html#aa878836a099aa59b3664d853a9c8b2b4">appendOpenedFile()</a>, <a class="el" href="OPE_8c.html#a5ad85b3f22163a883068ad47900445be">getFileName()</a>, <a class="el" href="OPE_8c.html#a14798837102781498ee08e3c4cf5561c">getModo()</a>, <a class="el" href="StruttureDati_8h.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#a6d9f22ff6ba81506ba9c4a60f27c4f32">OpenedFile::modo</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>, <a class="el" href="Heartbeating_8c.html#af362ff05e1ca5b06b77aa25e7999c6ee">spawnHeartBeat()</a>, e <a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand()</a>.</p>
+<p>Referenzia <a class="el" href="StruttureDati_8h.html#aa878836a099aa59b3664d853a9c8b2b4">appendOpenedFile()</a>, <a class="el" href="OPE_8c.html#ad902fd8b94b926056967098b6faeb111">createDataSock()</a>, <a class="el" href="OPE_8c.html#ac3c229cca43d2b2744ca25dfc7e62f23">getFileName()</a>, <a class="el" href="OPE_8c.html#a14798837102781498ee08e3c4cf5561c">getModo()</a>, <a class="el" href="StruttureDati_8h.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#a6d9f22ff6ba81506ba9c4a60f27c4f32">OpenedFile::modo</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>, <a class="el" href="OPE_8c.html#abf5dc13ad8c5442a46d67adb678d1541">PRT_MSG_SIZE</a>, <a class="el" href="Heartbeating_8c.html#af362ff05e1ca5b06b77aa25e7999c6ee">spawnHeartBeat()</a>, e <a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand()</a>.</p>
 
 <p>Referenziato da <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>.</p>
 

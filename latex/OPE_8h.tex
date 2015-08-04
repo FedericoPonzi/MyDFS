@@ -4,10 +4,34 @@
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{OPE_8h_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command} (char $\ast$command, int socket)
-\begin{DoxyCompactList}\small\item\em Gestisce il comando Open. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gestisce il comando Open. \end{DoxyCompactList}\item 
+int \hyperlink{OPE_8h_ad902fd8b94b926056967098b6faeb111}{create\+Data\+Sock} (int port\+No, int socket\+Id)
+\begin{DoxyCompactList}\small\item\em crea connessione dati lato server \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
+\hypertarget{OPE_8h_ad902fd8b94b926056967098b6faeb111}{}\index{O\+P\+E.\+h@{O\+P\+E.\+h}!create\+Data\+Sock@{create\+Data\+Sock}}
+\index{create\+Data\+Sock@{create\+Data\+Sock}!O\+P\+E.\+h@{O\+P\+E.\+h}}
+\subsubsection[{create\+Data\+Sock}]{\setlength{\rightskip}{0pt plus 5cm}int create\+Data\+Sock (
+\begin{DoxyParamCaption}
+\item[{int}]{port\+No, }
+\item[{int}]{socket\+Id}
+\end{DoxyParamCaption}
+)}\label{OPE_8h_ad902fd8b94b926056967098b6faeb111}
+
+
+crea connessione dati lato server 
+
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000006}{Da fare}]correggere utilizzo vecchio socket\+Des \end{DoxyRefDesc}
+
+
+Referenzia log\+M(), e sd.
+
+
+
+Referenziato da handle\+Open\+Command().
+
 \hypertarget{OPE_8h_a6eccb6ec6ec9c8375e70ab4088b511a5}{}\index{O\+P\+E.\+h@{O\+P\+E.\+h}!handle\+Open\+Command@{handle\+Open\+Command}}
 \index{handle\+Open\+Command@{handle\+Open\+Command}!O\+P\+E.\+h@{O\+P\+E.\+h}}
 \subsubsection[{handle\+Open\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Open\+Command (
@@ -21,10 +45,10 @@ void \hyperlink{OPE_8h_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command}
 Gestisce il comando Open. 
 
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000004}{Da fare}]\+: Da vedere bene per memory leaks!!!! \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000005}{Da fare}]\+: Da vedere bene per memory leaks!!!! \end{DoxyRefDesc}
 
 
-Referenzia append\+Opened\+File(), get\+File\+Name(), get\+Modo(), is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, spawn\+Heart\+Beat(), e strip\+Command().
+Referenzia append\+Opened\+File(), create\+Data\+Sock(), get\+File\+Name(), get\+Modo(), is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E, spawn\+Heart\+Beat(), e strip\+Command().
 
 
 

@@ -16,12 +16,13 @@ var searchData=
   ['closecommand',['CLOSECOMMAND',['../Client_2Config_8h.html#a62cb50fa7a98a13378476e83137c8d7f',1,'Config.h']]],
   ['commandshandler_2ec',['CommandsHandler.c',['../CommandsHandler_8c.html',1,'']]],
   ['commandshandler_2eh',['CommandsHandler.h',['../CommandsHandler_8h.html',1,'']]],
-  ['config_2ec',['Config.c',['../Prove_2Parsing_01file_01Config_2Config_8c.html',1,'']]],
   ['config_2ec',['Config.c',['../Server_2Config_8c.html',1,'']]],
+  ['config_2ec',['Config.c',['../Prove_2Parsing_01file_01Config_2Config_8c.html',1,'']]],
   ['config_2eh',['Config.h',['../Client_2Config_8h.html',1,'']]],
   ['config_2eh',['Config.h',['../Server_2inc_2Config_8h.html',1,'']]],
   ['config2_2eh',['config2.h',['../config2_8h.html',1,'']]],
   ['configfilename',['CONFIGFILENAME',['../Server_2inc_2Config_8h.html#ae99ca2d2731dcecf9670d172003c467c',1,'Config.h']]],
   ['createcontrolsocketid',['createControlSocketId',['../OPEN_8c.html#a54d24af40fe92f36f40ed358e84fa9ad',1,'OPEN.c']]],
+  ['createdatasock',['createDataSock',['../OPE_8h.html#ad902fd8b94b926056967098b6faeb111',1,'createDataSock(int portNo, int socketId):&#160;OPE.c'],['../OPE_8c.html#ad902fd8b94b926056967098b6faeb111',1,'createDataSock(int portNo, int socketId):&#160;OPE.c']]],
   ['createtransfersocket',['createTransferSocket',['../OPEN_8c.html#a8387ba93dac90e647ee90636f324d61c',1,'OPEN.c']]]
 ];
