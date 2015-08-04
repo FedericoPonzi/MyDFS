@@ -102,12 +102,13 @@ void createControlSocketId(MyDFSId* toRet, int *err)
 	}
 	char buffer[30];
 	int nRecv = 0;
+	
 	if ((nRecv = recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{
 		perror("recv");
 		*err = -2;
 	}
-
+	
 	if(strncmp(buffer, "-1", 2) == 0)
 	{
 		*err = -1;
@@ -162,15 +163,14 @@ void createTransferSocket(MyDFSId* toRet, int* err)
 		perror("getsockname");
 	}
 
-	logM("Sto richiedendo la connessione sulla porta numero: %d", ntohs(sin.sin_port));
+	logM("Sto richiedendo la connessione sulla porta numero: %d\n", ntohs(sin.sin_port));
 	sprintf(buffer, "port_num %d", ntohs(sin.sin_port));
 	
-	send(toRet->socketId, buffer, strlen(buffer), 0);
-
-	listen(sockfd,1);
+	listen(sockfd,5);
 	clilen = sizeof(cli_addr);
 
 	/* Accept actual connection from the client */
+	send(toRet->socketId, buffer, strlen(buffer), 0);
 	newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
 	if (newsockfd < 0)
 	{
@@ -179,8 +179,7 @@ void createTransferSocket(MyDFSId* toRet, int* err)
 	}
 
 	toRet->transferSockId = newsockfd;
-	logM("[OPEN] Aperta connessione di trasferimento.");
-
+	logM("[OPEN] Aperta connessione di trasferimento.\n");
 
 	if ((recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{

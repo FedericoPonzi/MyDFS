@@ -54,6 +54,7 @@ void logM (char* messaggio, ...)
 	if(DEBUG)
 	{
 		va_start(args, messaggio);
+		printf("[%d]", getptid());
 		vprintf(messaggio, args);
 		va_end(args);
 	}

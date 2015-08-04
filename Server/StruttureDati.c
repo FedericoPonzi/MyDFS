@@ -69,6 +69,7 @@ int appendOpenedFile(char* nomeFile, int modo)
 	//Se richiede una scrittura, e il file e' già aperto in scrittura:
 	if(fileAlreadyOpenedInWrite(nomeFile)) //Aperto in scrittura
 	{
+		logM("file gia aperto in scrittura!\n");
 		return 1;
 	}
 
@@ -111,22 +112,35 @@ int checkModoOpen(char *nomeFile, int modo)
 	char temp_path[40];
 	strcpy(temp_path, rootPath);
 	strcat(temp_path, nomeFile);
-	
+
+	if(access(temp_path, F_OK) == -1)
+	{
+		logM("LOL1\n");
+		if(!isModoApertura(modo, MYO_CREAT))
+		{
+			return -3;
+		}
+	}
+	else
+	{
+		logM("LOL2\n");
+		if(isModoApertura(modo, MYO_EXCL))
+		{
+			return -3;
+		}
+	}
+	logM("LOL3\n");
 	while(iterator != NULL)
 	{
 		if(strcmp(iterator->fileName, nomeFile) == 0)
 		{
-			if(isModoApertura(modo, MYO_RDONLY) || isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR) || 
-			  (isModoApertura(modo, MYO_TRUNC) && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR))) || isModoApertura(modo, MYO_EXCL))
+			if(
+			isModoApertura(iterator->modo, MYO_WRONLY) || 
+			isModoApertura(iterator->modo, MYO_RDWR) || 
+			isModoApertura(iterator->modo, MYO_EXLOCK))
 			{
-				if(access(temp_path, F_OK) != -1)
-				{
-					return 0;
-				}
-				else
-				{
-					return -3;
-				}
+				logM("LOL4\n");
+				return -3;
 			}
 		}
 		iterator = iterator->next;
@@ -146,18 +160,24 @@ int fileAlreadyOpenedInWrite(char* filename)
 
 	if(openedFileLinkedList == NULL) return FALSE;
 	
+	logM("CIAO\n");
+	
 	OpenedFile* iterator = *openedFileLinkedList;
+	pthread_mutex_lock(mutex);
 	while(iterator != NULL)
 	{
 		if(strcmp(iterator->fileName, filename) == 0)
 		{
 			if(isModoApertura(iterator->modo, MYO_EXLOCK) || isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
 			{
+				logM("iterator->filename = %s\n", iterator->fileName);
+				pthread_mutex_unlock(mutex);
 				return 1;
 			}
 		}
 		iterator = iterator->next;
 	}
+	pthread_mutex_unlock(mutex);
 	
 	logM("[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: '%s' \n",filename);
 

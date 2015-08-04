@@ -39,17 +39,23 @@ int main(int argc, char* argv[])
 	int i;
 	for(i = 0; i < 7; i++)
 	{
-
-			printf("\n * Modo numero: %d \n", array[i]);
-			fileId = mydfs_open(indirizzo, filename, array[i], &error);
-			if(error != 0)
-			{
-				printf("Errore %d\n", error);
-				assert(0);
-			}
-			mydfs_close(fileId);
-			z++;
-			printf("z: %d\n", z);
+		int k;
+		printf("\n * Modo numero: %d \n", array[i]);
+		fileId = mydfs_open(indirizzo, filename, array[i], &error);
+		if(array[i] == MYO_EXCL)
+		{
+			continue;
+		}
+		if(error != 0)
+		{
+			printf("Errore %d\n", error);
+			assert(0);
+		}
+		
+		mydfs_close(fileId);
+		z++;
+		printf("z: %d\n", z);
+		sleep(1);
 	}
 
 

@@ -48,6 +48,7 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
 
 #define PRT_MSG_SIZE 14
 
@@ -116,7 +117,7 @@ void handleOpenCommand(char* command, int socket)
 	}
 	logM("Il client ha richiesto la connessione sulla port: %d\n", port_num);
 	
-	if (createDataSock(port_num, socket))
+	if (createDataSock(port_num, socket) == 1)
 	{
 		strcpy(answer, "-2");
 	}
@@ -131,27 +132,46 @@ void handleOpenCommand(char* command, int socket)
  */
 int createDataSock(int portNo, int socketId)
 {
-	struct sockaddr_in datasock_addr; 
-	socklen_t address_size;
-	address_size = sizeof(datasock_addr);
+	socklen_t len;
+	struct sockaddr_storage addr;
+	char ipstr[INET6_ADDRSTRLEN];
+
+	len = sizeof addr;
+	getpeername(socketId, (struct sockaddr*)&addr, &len);
+
+	// deal with both IPv4 and IPv6:
 	
-	memset(&datasock_addr, '0', sizeof(datasock_addr)); 
+	struct sockaddr_in *s = (struct sockaddr_in *)&addr;
+	inet_ntop(AF_INET, &s->sin_addr, ipstr, sizeof ipstr);
+	logM("indirizzo = %s\n", ipstr);
+    
+    struct sockaddr_in serv_addr;
+		
+	memset(&serv_addr, '0', sizeof(serv_addr));
 
-    datasock_addr.sin_family = AF_INET;
-    datasock_addr.sin_port = htons(portNo); 
-
-    if(getpeername(socketId, (struct sockaddr *)&datasock_addr.sin_addr, &address_size) != 0)
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = htons(portNo);
+        
+    if(inet_aton(ipstr, &serv_addr.sin_addr) == 0)
     {
-	   perror("getpeername");
-	   return 1;
-    } 
+		logM("error inet_aton\n");
+        return 1;
+    }
+    
+    int sd;
+    
+    if(( sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+    {
+        perror("socket");
+        return 1;
+    }
 	
-    if((connect(socketId, (struct sockaddr *)&datasock_addr, sizeof(datasock_addr))) != 0)
+    if((connect(sd, (struct sockaddr *)&serv_addr, sizeof(serv_addr))) != 0)
     {
 	   perror("connect");
 	   return 1;
     }	
-    return 0;	
+    return sd;	
 }
 
 /**

@@ -8,6 +8,8 @@ Tutta la documentazione si riferisce al lato server (per ora, ovviamente).
 ###TODOS:
 * Aggiungere un campo lock a OpenedFile e controllare il modo alla Open
 * Aggiungere heartbeating anche quando un client richiede una lock.
+* Migliorare sincronizzazione tra rimozione file a fine connessione e aggiunta di nuovo file in quella successiva 
+* Open Client aggiunge spazio in filename
 
 
 ###Più in là:
