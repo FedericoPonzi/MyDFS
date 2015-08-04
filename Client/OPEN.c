@@ -32,14 +32,16 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	MyDFSId* toRet;
 	toRet = malloc(sizeof(toRet));
 
-	toRet->indirizzo = malloc(strlen(indirizzo)+1);
-	toRet->modo = modo;
-
+	toRet->indirizzo = malloc(strlen(indirizzo));
 	strcpy(toRet->indirizzo, indirizzo);
+	
+	toRet->modo = modo;
+	
 	*err = 0;
 
-	toRet->filename = malloc(strlen(nomefile)+1);
+	toRet->filename = malloc(strlen(nomefile));
 	strcpy(toRet->filename, nomefile);
+	
 	createControlSocketId(toRet, err);
 	createTransferSocket(toRet, err);
 	switch(*err)
@@ -60,14 +62,8 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 void createControlSocketId(MyDFSId* toRet, int *err)
 {
     struct sockaddr_in serv_addr;
-	if((toRet->socketId = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-    {
-        *err= toRet->socketId;
-        return;
-    }
 		
-
-    memset(&serv_addr, '0', sizeof(serv_addr));
+	memset(&serv_addr, '0', sizeof(serv_addr));
 
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(SERVER_PORT);
@@ -76,6 +72,12 @@ void createControlSocketId(MyDFSId* toRet, int *err)
     {
 		perror("inet_aton");
         *err= -2;
+        return;
+    }
+    
+    if((toRet->socketId = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+    {
+        *err= toRet->socketId;
         return;
     }
 
