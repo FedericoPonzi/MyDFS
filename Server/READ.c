@@ -47,25 +47,21 @@ int getPosFromCommand(char*);
 
 void handleREADCommand(char* command, int socket)
 {
-	logM("[READ]: Ricevuta richiesta read.\n", command);
+	logM("[READ]: Ricevuta richiesta read. Command = %s\n", command);
 	int pos = getPosFromCommand(command);
+	logM("pos = %d\n", pos);
 	char* fileName = getFileName();
 	char filePath[strlen(fileName) + strlen(rootPath)+1];
 	sprintf(filePath, "%s%s", rootPath,fileName);
 	logM("[READ] Provo ad aprire: '%s'\n", filePath);
-	
-	FILE *fp = fopen(filePath,"rb"); //Todo, controllare se ha i permessi
+
 	char buff[BUF_SIZE];
 	
-	if( fp == NULL)
-	{
-		send(socket, "-1", strlen("-1"), 0);
-		logM("Errore nella apertura del file.\n");
-		return;
-	}
+	OpenedFile* of = getOpenedFile();
+	
 	logM("[READ] File aperto correttamente. \n");
 	
-	//fseek (fp, 0, pos);
+	//fseek(of->fp, 0, SEEK_CUR);
 /*
 	// obtain file size:
 	fseek (pFile , 0 , SEEK_END);
@@ -81,18 +77,18 @@ void handleREADCommand(char* command, int socket)
 	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}
 */
 
-	int nread = fread(buff,BUF_SIZE,1,fp);
+	int nread = fread(buff,BUF_SIZE,1,of->fp);
 	/*
 	 * There is something tricky going on with read .. 
 	 * Either there was error, or we reached end of file.
 	 */
 	if (nread < BUF_SIZE)
 	{
-		if (feof(fp))
+		if (feof(of->fp))
 		{
 			nread = strlen(buff);
 		}
-		if (ferror(fp))
+		if (ferror(getOpenedFile()->fp))
 		{
 			logM("Error reading\n");
 			/* Error*/
@@ -120,5 +116,5 @@ void handleREADCommand(char* command, int socket)
 
 int getPosFromCommand(char* command)
 {
-	return strtol(command, NULL, 10);
+	return strtol(command+4, NULL, 10);
 }

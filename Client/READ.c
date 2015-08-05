@@ -61,6 +61,7 @@ int sendReadCommand(MyDFSId* id, int pos, void *ptr, unsigned int size)
 	//Mando la read
 	char readSize[2];
 	sprintf(readSize, "%d", pos);
+	logM("pos = %d\n", pos);
 	char readCommand[strlen(READCOMMAND) + 3]; //es: "READ 1"
 	sprintf(readCommand, "%s %s\n", READCOMMAND, readSize);
 	send(id->socketId, readCommand, strlen(readCommand), 0);

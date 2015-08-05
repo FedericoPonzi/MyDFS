@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
 	
 	fileId = mydfs_open(indirizzo, filename, MYO_RDONLY, &error);
 	char buffer[1000];
-	mydfs_read(fileId, MYSEEK_SET, buffer, sizeof(buffer));
+	mydfs_read(fileId, MYSEEK_CUR, buffer, sizeof(buffer));
 	mydfs_close(fileId);
 	
 	return 0;
