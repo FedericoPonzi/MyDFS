@@ -10,3 +10,11 @@
 
 
 
+int mydfs_close(MyDFSId* dfsid, int pos, void *ptr, unsigned int size)
+{
+	
+	
+	
+}
+
+
