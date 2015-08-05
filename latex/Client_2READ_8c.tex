@@ -9,6 +9,7 @@
 {\ttfamily \#include $<$netinet/in.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+R\+E\+A\+D.\+h\char`\"{}}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
@@ -55,6 +56,10 @@ name\+: mydfs\+\_\+read
 
 Referenzia B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D, My\+D\+F\+S\+Id\+::filename, log\+M(), read\+From(), send\+Read\+Command(), e My\+D\+F\+S\+Id\+::transfer\+Sock\+Id.
 
+
+
+Referenziato da main().
+
 \hypertarget{Client_2READ_8c_afa7834fa56368be319d9994da5c6a687}{}\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!read\+From@{read\+From}}
 \index{read\+From@{read\+From}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
 \subsubsection[{read\+From}]{\setlength{\rightskip}{0pt plus 5cm}int read\+From (
@@ -71,6 +76,10 @@ Legge dalla socket di trasferimento buffsize dati.
 \begin{DoxyReturn}{Restituisce}
 1 se c\textquotesingle{}e\textquotesingle{} un errore con la recv 0 altrimenti. 
 \end{DoxyReturn}
+
+
+Referenzia log\+M().
+
 
 
 Referenziato da mydfs\+\_\+read().
@@ -91,7 +100,7 @@ Manda il comando di R\+E\+A\+D, e aspetta come risposta la dimensione di quanto 
 
 
 
-Referenzia R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D, My\+D\+F\+S\+Id\+::socket\+Id, e strip\+Command().
+Referenzia log\+M(), R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D, e My\+D\+F\+S\+Id\+::socket\+Id.
 
 
 

@@ -136,28 +136,33 @@ void initializeMutex()
 	tempSockMutex = malloc(sizeof(pthread_mutex_t));
 	pthread_mutexattr_t mutex_attr;
 	
-    if (pthread_mutexattr_init(&mutex_attr) < 0) {
+    if (pthread_mutexattr_init(&mutex_attr) < 0) 
+    {
         perror("Failed to initialize mutex attributes");
         exit(EXIT_FAILURE);
     }
     
-    if (pthread_mutex_init(tempSockMutex, &mutex_attr) < 0) {
+    if (pthread_mutex_init(tempSockMutex, &mutex_attr) < 0) 
+    {
         perror("Failed to initialize mutex");
         exit(EXIT_FAILURE);
     }
 
     pthread_mutexattr_t mutex_attr2;
-    if (pthread_mutexattr_init(&mutex_attr2) < 0) {
+    if (pthread_mutexattr_init(&mutex_attr2) < 0) 
+    {
         perror("Failed to initialize mutex attributes");
         exit(EXIT_FAILURE);
     }
 
-    if (pthread_mutexattr_setpshared(&mutex_attr2, PTHREAD_PROCESS_SHARED) < 0) {
+    if (pthread_mutexattr_setpshared(&mutex_attr2, PTHREAD_PROCESS_SHARED) < 0) 
+    {
         perror("Failed to change mutex attributes");
         exit(EXIT_FAILURE);
     }
 
-    if (pthread_mutex_init(acceptMutex, &mutex_attr2) < 0) {
+    if (pthread_mutex_init(acceptMutex, &mutex_attr2) < 0) 
+    {
         perror("Failed to initialize mutex");
         exit(EXIT_FAILURE);
     }
@@ -190,7 +195,8 @@ void allocaEInizializzaMemoria()
 	
 	logM("[Initialize Memory] - Sto per allocare %lu spazio.\n", region_sz);
     ptr = mmap(NULL, region_sz, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, 0, 0);
-    if (ptr == MAP_FAILED) {
+    if (ptr == MAP_FAILED) 
+    {
         perror("mmap(2) failed");
         exit(EXIT_FAILURE);
     }
@@ -215,7 +221,8 @@ void allocaEInizializzaMemoria()
     int i;
     OpenedFile *curr;
 
-    for (i = 0, curr = *free_head; i < numeroCon-1; i++, curr++) {
+    for (i = 0, curr = *free_head; i < numeroCon-1; i++, curr++) 
+    {
         curr->next = curr+1;
 	}
 
