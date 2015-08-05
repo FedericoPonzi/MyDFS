@@ -1,9 +1,17 @@
 \hypertarget{Server_2READ_8c}{}\section{Riferimenti per il file Server/\+R\+E\+A\+D.c}
 \label{Server_2READ_8c}\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}}
-{\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
-{\ttfamily \#include $<$unistd.\+h$>$}\\*
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+R\+E\+A\+D.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Config.\+h\char`\"{}}\\*
 \subsection*{Definizioni}
 \begin{DoxyCompactItemize}
 \item 
@@ -50,5 +58,9 @@ Referenziato da handle\+R\+E\+A\+D\+Command().
 )}\label{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}
 
 
-Referenzia B\+U\+F\+\_\+\+S\+I\+Z\+E, get\+Pos\+From\+Command(), get\+Transfer\+Socket(), e log\+M().
+Referenzia B\+U\+F\+\_\+\+S\+I\+Z\+E, get\+File\+Name(), get\+Pos\+From\+Command(), get\+Transfer\+Socket(), log\+M(), e root\+Path.
+
+
+
+Referenziato da handle\+Command().
 

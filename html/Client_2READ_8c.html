@@ -102,6 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <code>#include &lt;netinet/in.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="Client_2Config_8h_source.html">Config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Client_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Client_2inc_2READ_8h_source.html">inc/READ.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
@@ -167,6 +168,8 @@ Funzioni</h2></td></tr>
 
 <p>Referenzia <a class="el" href="Client_2Config_8h.html#af9a3b0ff5be08d6b9a70217971e632b9">BUFFSIZEREAD</a>, <a class="el" href="structMyDFSId.html#ac0e1b8c96d859982c1a7d49f9e929e48">MyDFSId::filename</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Client_2READ_8c.html#afa7834fa56368be319d9994da5c6a687">readFrom()</a>, <a class="el" href="Client_2READ_8c.html#aefa99785546e3d4a800c689b8778d6cf">sendReadCommand()</a>, e <a class="el" href="structMyDFSId.html#a3b62a6d0f52a871bda4bf9cd56c57ff7">MyDFSId::transferSockId</a>.</p>
 
+<p>Referenziato da <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afa7834fa56368be319d9994da5c6a687"></a>
@@ -201,6 +204,8 @@ Funzioni</h2></td></tr>
 
 <p>Legge dalla socket di trasferimento buffsize dati. </p>
 <dl class="section return"><dt>Restituisce</dt><dd>1 se c'e' un errore con la recv 0 altrimenti. </dd></dl>
+
+<p>Referenzia <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>.</p>
 
 <p>Referenziato da <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>.</p>
 
@@ -244,7 +249,7 @@ Funzioni</h2></td></tr>
 
 <p>Manda il comando di READ, e aspetta come risposta la dimensione di quanto deve leggere all'interno della risposta. </p>
 
-<p>Referenzia <a class="el" href="Client_2Config_8h.html#add84839609e88a57d40aaa46a9f73ba9">READCOMMAND</a>, <a class="el" href="structMyDFSId.html#a382a74f109962751085cea7aac2892cc">MyDFSId::socketId</a>, e <a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand()</a>.</p>
+<p>Referenzia <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Client_2Config_8h.html#add84839609e88a57d40aaa46a9f73ba9">READCOMMAND</a>, e <a class="el" href="structMyDFSId.html#a382a74f109962751085cea7aac2892cc">MyDFSId::socketId</a>.</p>
 
 <p>Referenziato da <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>.</p>
 

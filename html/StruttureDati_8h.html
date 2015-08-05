@@ -150,6 +150,14 @@ Funzioni</h2></td></tr>
 <tr class="memitem:aa089645f4772b1d34f2808e1f913eb45"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8h.html#aa089645f4772b1d34f2808e1f913eb45">checkModoOpen</a> (char *nomeFile, int modo)</td></tr>
 <tr class="memdesc:aa089645f4772b1d34f2808e1f913eb45"><td class="mdescLeft">&#160;</td><td class="mdescRight">controlla se la open è realizzabile con il modo richiesti  <a href="#aa089645f4772b1d34f2808e1f913eb45">Continua...</a><br /></td></tr>
 <tr class="separator:aa089645f4772b1d34f2808e1f913eb45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab227c35b76ef6706729ad091f99e7263"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8h.html#ab227c35b76ef6706729ad091f99e7263">getTransferSocket</a> ()</td></tr>
+<tr class="separator:ab227c35b76ef6706729ad091f99e7263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bd53dd113398b8df28c065f0ef2255e"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8h.html#a5bd53dd113398b8df28c065f0ef2255e">getFileName</a> ()</td></tr>
+<tr class="memdesc:a5bd53dd113398b8df28c065f0ef2255e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ritorna il nome del file aperto da questo ptid.  <a href="#a5bd53dd113398b8df28c065f0ef2255e">Continua...</a><br /></td></tr>
+<tr class="separator:a5bd53dd113398b8df28c065f0ef2255e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47a975b11b2dad0a1142c7313a7d2f19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOpenedFile.html">OpenedFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8h.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile</a> ()</td></tr>
+<tr class="memdesc:a47a975b11b2dad0a1142c7313a7d2f19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ritorna l' opened file associato a questo ptid.  <a href="#a47a975b11b2dad0a1142c7313a7d2f19">Continua...</a><br /></td></tr>
+<tr class="separator:a47a975b11b2dad0a1142c7313a7d2f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6baf2e6e9935b8ed81bf2c504557bfc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8h.html#a6baf2e6e9935b8ed81bf2c504557bfc2">closeClientSession</a> (int ptid)</td></tr>
 <tr class="memdesc:a6baf2e6e9935b8ed81bf2c504557bfc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">rimuove collegamenti tra client e file aperti nella sessione  <a href="#a6baf2e6e9935b8ed81bf2c504557bfc2">Continua...</a><br /></td></tr>
 <tr class="separator:a6baf2e6e9935b8ed81bf2c504557bfc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -413,6 +421,67 @@ Variabili</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a5bd53dd113398b8df28c065f0ef2255e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* getFileName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ritorna il nome del file aperto da questo ptid. </p>
+
+<p>Referenzia <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="Server_2inc_2Utils_8h.html#a11d37c4ad110f578cbf862fdd1585b71">getptid()</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8c.html#ac6c781406efae2362705c3a19a96474a">openedFileLinkedList</a>, e <a class="el" href="structOpenedFile.html#aba1e9ae457adfa6a9cc6a22ca4ee290d">OpenedFile::ptid</a>.</p>
+
+<p>Referenziato da <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">handleREADCommand()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a47a975b11b2dad0a1142c7313a7d2f19"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structOpenedFile.html">OpenedFile</a>* getOpenedFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ritorna l' opened file associato a questo ptid. </p>
+
+<p>Referenzia <a class="el" href="Server_2inc_2Utils_8h.html#a11d37c4ad110f578cbf862fdd1585b71">getptid()</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8c.html#ac6c781406efae2362705c3a19a96474a">openedFileLinkedList</a>, e <a class="el" href="structOpenedFile.html#aba1e9ae457adfa6a9cc6a22ca4ee290d">OpenedFile::ptid</a>.</p>
+
+<p>Referenziato da <a class="el" href="OPE_8c.html#ad902fd8b94b926056967098b6faeb111">createDataSock()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab227c35b76ef6706729ad091f99e7263"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getTransferSocket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenzia <a class="el" href="Server_2inc_2Utils_8h.html#a11d37c4ad110f578cbf862fdd1585b71">getptid()</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8c.html#ac6c781406efae2362705c3a19a96474a">openedFileLinkedList</a>, <a class="el" href="structOpenedFile.html#aba1e9ae457adfa6a9cc6a22ca4ee290d">OpenedFile::ptid</a>, e <a class="el" href="structOpenedFile.html#a122a7d3d722dc1f7c63857af2024f098">OpenedFile::transferSockId</a>.</p>
+
+<p>Referenziato da <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">handleREADCommand()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a6e2594e56afc29e961a1797a0bd8d262"></a>
 <div class="memitem">
 <div class="memproto">
@@ -484,7 +553,7 @@ Variabili</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#aa089645f4772b1d34f2808e1f913eb45">checkModoOpen()</a>, <a class="el" href="StruttureDati_8c.html#a6baf2e6e9935b8ed81bf2c504557bfc2">closeClientSession()</a>, <a class="el" href="StruttureDati_8c.html#a53729d51218aa9a03ba46e8b1fa89875">fileAlreadyOpenedInWrite()</a>, e <a class="el" href="StruttureDati_8c.html#ab227c35b76ef6706729ad091f99e7263">getTransferSocket()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#aa089645f4772b1d34f2808e1f913eb45">checkModoOpen()</a>, <a class="el" href="StruttureDati_8c.html#a6baf2e6e9935b8ed81bf2c504557bfc2">closeClientSession()</a>, <a class="el" href="StruttureDati_8c.html#a53729d51218aa9a03ba46e8b1fa89875">fileAlreadyOpenedInWrite()</a>, <a class="el" href="StruttureDati_8c.html#a5bd53dd113398b8df28c065f0ef2255e">getFileName()</a>, <a class="el" href="StruttureDati_8c.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, e <a class="el" href="StruttureDati_8c.html#ab227c35b76ef6706729ad091f99e7263">getTransferSocket()</a>.</p>
 
 </div>
 </div>
