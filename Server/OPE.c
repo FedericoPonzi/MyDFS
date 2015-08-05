@@ -137,7 +137,7 @@ int createDataSock(int portNo, int socketId)
 	len = sizeof addr;
 	getpeername(socketId, (struct sockaddr*)&addr, &len);
 
-	// deal with both IPv4 and IPv6:
+	//deal with both IPv4 and IPv6:
 	
 	struct sockaddr_in *s = (struct sockaddr_in *)&addr;
 	inet_ntop(AF_INET, &s->sin_addr, ipstr, sizeof ipstr);

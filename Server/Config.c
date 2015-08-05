@@ -191,6 +191,7 @@ void allocaEInizializzaMemoria()
 	/* Spazio per il mutex dell'accept e dell' int numbero figli vivi */
 	region_sz += sizeof(pthread_mutex_t);
 	region_sz += sizeof(int);
+	region_sz += sizeof(FILE*);
 	
 	logM("[Initialize Memory] - Sto per allocare %lu spazio.\n", region_sz);
     ptr = mmap(NULL, region_sz, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, 0, 0);

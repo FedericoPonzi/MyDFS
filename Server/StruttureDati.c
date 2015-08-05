@@ -88,12 +88,16 @@ int appendOpenedFile(char* nomeFile, int modo)
 		pthread_mutex_unlock(mutex);
 		assert(0);
 	}
-
+	
+	char filePath[strlen(nomeFile) + strlen(rootPath)+1];
+	sprintf(filePath, "%s%s", rootPath,nomeFile);
+	
 	*free_head = (*free_head)->next;
 	n->fileName = nomeFile;
 	n->ptid = getptid();
 	n->modo = modo;
 	n->next = *openedFileLinkedList;
+	n->fp = fopen(filePath, "r+b");
 	*openedFileLinkedList = n;
 
 	pthread_mutex_unlock(mutex);
@@ -139,7 +143,7 @@ int checkModoOpen(char *nomeFile, int modo)
 			isModoApertura(iterator->modo, MYO_RDWR) || 
 			isModoApertura(iterator->modo, MYO_EXLOCK))
 			{
-			logM("4");
+				logM("4");
 				return -3;
 			}
 		}

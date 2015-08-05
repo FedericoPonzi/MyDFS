@@ -14,6 +14,7 @@ typedef struct MyDFSId {
 	int pos;
 	int socketId;
 	int transferSockId;
+	FILE* fp;
 } MyDFSId;
     
 #endif

@@ -28,6 +28,7 @@ typedef struct OpenedFile
 	int modo;
 	struct OpenedFile* next;
 	int transferSockId;
+	FILE* fp;
 }OpenedFile;
 
 
