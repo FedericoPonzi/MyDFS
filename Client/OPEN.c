@@ -8,14 +8,15 @@
 #include <unistd.h>
 #include <errno.h>
 #include "Config.h"
-#include "inc/FileHandler.h"
 #include "inc/OPEN.h"
 #include "inc/Utils.h"
+#include "inc/Cache.h"
+#include "inc/Heartbeating.h"
 
+static void createTransferSocket(MyDFSId* toRet, int* err);
 
-void createControlSocketId(MyDFSId* toRet, int *err);
+static void createControlSocket(MyDFSId* toRet, int *err);
 
-void createTransferSocket(MyDFSId* toRet, int* err);
 
 /**
  * name: mydfs_open
@@ -42,10 +43,20 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	toRet->filename = malloc(strlen(nomefile)+1);
 	strcpy(toRet->filename, nomefile);
 	
-	toRet->fp = malloc(sizeof(FILE));
+	toRet->fp = createTempFile(toRet->filename);
 	
-	createControlSocketId(toRet, err);
 	createTransferSocket(toRet, err);
+
+	if(*err == 0)
+	{
+		createControlSocket(toRet, err);
+	}
+	
+	if(*err == 0 && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
+	{
+		spawnHeartBeat(toRet->transferSockId);
+	}
+	
 	switch(*err)
 	{
 		case -1:
@@ -61,7 +72,7 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	return *err != 0 ? NULL : toRet;
 }
 
-void createControlSocketId(MyDFSId* toRet, int *err)
+void createTransferSocket(MyDFSId* toRet, int *err)
 {
     struct sockaddr_in serv_addr;
 		
@@ -89,6 +100,7 @@ void createControlSocketId(MyDFSId* toRet, int *err)
 	   perror("connect");
        return;
     }
+    
     //Connessione effettuata, invio la richiesta
 
     char openCommand [strlen(OPENCOMMAND)+strlen(toRet->filename)+5];
@@ -126,7 +138,7 @@ void createControlSocketId(MyDFSId* toRet, int *err)
  *
  * Setta propriamente err se qualcosa va storto, o modifica il campo toRet->transferSockId se tutto va bene.
  */
-void createTransferSocket(MyDFSId* toRet, int* err)
+void createControlSocket(MyDFSId* toRet, int* err)
 {
 	if(*err != 0) return;
 

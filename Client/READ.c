@@ -12,8 +12,8 @@
 #include "inc/READ.h"
 
 int sendReadCommand(MyDFSId* id, int pos, void *ptr, unsigned int size);
-int readFrom(int socketId,char  *buff, int buffsize);
-
+int readFrom(MyDFSId* id, int sizeRimasta);
+int byteMancanti(FILE* fp);
 /**
  * name: mydfs_read
  * 
@@ -30,27 +30,38 @@ int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 {
 	logM("[Read] Filename '%s' \n", id->filename);	
 	int sizeRimasta;
+	if(byteMancanti(id->fp) < 1000)
+	{
+		printf("Byte mancanti: '%d'\n", byteMancanti(id->fp));
+
+		if((sizeRimasta = sendReadCommand(id,pos,ptr,size))< 0)
+		{
+			/* Error*/
+			return -1;
+		}
+		if(sizeRimasta == 0)
+		{
+			logM("[READ] File finito di leggere.\n");
+			return 0;
+		}
+		if(readFrom(id, sizeRimasta)) 
+		{
+			/* Error*/
+			return -1;
+		}
+	}
 	
-	if((sizeRimasta = sendReadCommand(id,pos,ptr,size))< 0)
+	fseek(id->fp, 0, pos);
+	
+	int n = fread(ptr, 1, size, id->fp);
+	if(n==0)
 	{
-		/* Error*/
+		if(ferror(id->fp))
+		{
+			logM("Error nella lettura\n\n");
+		}
 	}
-	char* buffer = malloc(BUFFSIZEREAD+1);
-	if(sizeRimasta == 0)
-	{
-		logM("[READ] File finito di leggere.\n");
-		return 0;
-	}
-		
-	if(readFrom(id->transferSockId, buffer, sizeRimasta)) 
-	{
-		/* Error*/
-	}
-	printf("BUFFER ricevuto: %s", buffer);
-	buffer[BUFFSIZEREAD] = '\0';
-	strcpy(ptr, buffer);
-	free(buffer);
-	return 0;
+	return n;
 }
 
 /**
@@ -86,16 +97,38 @@ int sendReadCommand(MyDFSId* id, int pos, void *ptr, unsigned int size)
  * 0 altrimenti.
  */
  
-int readFrom(int socketId, char *buff, int buffsize)
+int readFrom(MyDFSId* id, int sizeRimasta)
 {
+	char buff[sizeRimasta];
 	logM("Pronto per la read!\n");
-	int nRecv = recv(socketId, buff, buffsize, 0);
+	
+	int nRecv = recv(id->socketId, buff, sizeRimasta, 0);
 	if(nRecv < 0)
 	{
 		return 1;
 	}
 	else
 	{
+		int posAttuale;
+		posAttuale = ftell(id->fp);
+		fseek(id->fp,0,SEEK_END);
+		fwrite(buff, nRecv, 1, id->fp);
+		fseek(id->fp,posAttuale, SEEK_SET);
 		return 0;
 	}
+	
+}
+
+
+/**
+ * @brief Torna il numero di byte prima della fine del file puntato da fp
+ */
+int byteMancanti(FILE* fp)
+{
+	int posAttuale, dimen;
+	posAttuale = ftell(fp);
+	fseek(fp,0,SEEK_END);
+	dimen = ftell(fp);
+	fseek(fp,posAttuale,SEEK_SET);
+	return dimen-posAttuale;
 }

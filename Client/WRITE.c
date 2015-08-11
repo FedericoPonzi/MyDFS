@@ -7,14 +7,20 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <errno.h>
+#include "Config.h"
+#include "inc/WRITE.h"
 
 
-
-int mydfs_close(MyDFSId* dfsid, int pos, void *ptr, unsigned int size)
+/**
+ * -1 in caso di errore;
+ * >= 0 ed uguale al numero di byte effettivamente scritti.
+ */
+ 
+int mydfs_write(MyDFSId* dfsid, int pos, void *ptr, unsigned int size)
 {
 	
-	
-	
+	return 0;	
 }
+
 
 

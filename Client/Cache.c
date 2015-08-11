@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include <stlib.h>
+#include <stdlib.h>
+#include "inc/Cache.h"
+
 
 FILE* createTempFile(char* basename)
 {
@@ -12,7 +14,7 @@ FILE* createTempFile(char* basename)
     fd = mkstemp(tempName);
 	//Appena mi stacco dall' fd, viene cancellato il file temporaneo:
     unlink(tempName);
-	printf("Creato temp file: '%s'", tempName);
+	printf("[Cache] Creato temp file: '%s'\n", tempName);
 	toRet = fdopen(fd, "w+");
 	return toRet;
 }

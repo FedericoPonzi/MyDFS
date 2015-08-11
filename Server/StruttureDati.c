@@ -49,6 +49,7 @@
 #include "inc/Config.h"
 #include "inc/Utils.h"
 #include "inc/StruttureDati.h"
+#include "inc/OPE.h"
 
 
 OpenedFile ** openedFileLinkedList = NULL;
@@ -69,7 +70,7 @@ int appendOpenedFile(char* nomeFile, int modo)
 	//Se richiede una scrittura, e il file e' già aperto in scrittura:
 	if(fileAlreadyOpenedInWrite(nomeFile)) //Aperto in scrittura
 	{
-		logM("file gia aperto in scrittura!\n");
+		logM("File gia aperto in scrittura!\n");
 		return 1;
 	}
 
@@ -121,7 +122,6 @@ int checkModoOpen(char *nomeFile, int modo)
 	{
 		if(!isModoApertura(modo, MYO_CREAT))
 		{
-			logM("1");
 			return -3;
 		}
 	}
@@ -129,7 +129,6 @@ int checkModoOpen(char *nomeFile, int modo)
 	{
 		if(isModoApertura(modo, MYO_EXCL))
 		{
-			logM("2");
 			return -3;
 		}
 	}
@@ -206,7 +205,7 @@ int isModoApertura(int modo_client, int modo)
  * @brief rimuove collegamenti tra client e file aperti nella sessione
  * @param int sd socket descriptor del client
  */
-void closeClientSession(int ptid) //fileName va rimosso, la session è relativa ad un solo file
+void closeClientSession(int ptid) 
 {
 	OpenedFile* iterator = *openedFileLinkedList;
 	OpenedFile* preIterator = NULL;

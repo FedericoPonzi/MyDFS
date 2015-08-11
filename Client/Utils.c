@@ -5,8 +5,6 @@
 #include <string.h>
 #include <stdarg.h>
 
-
-
 /**
  * Stampa un messaggio di log sullo STDOUT
  * se LOG vale 0
@@ -30,4 +28,17 @@ void logM (char* messaggio, ...)
 void printErr_s(char* error)
 {
 	printf("Error: %s", error);
+}
+
+/**
+ * @brief Dice se modo_client contiene il modo "modo".
+ * 
+  */
+int isModoApertura(int modo_client, int modo)
+{
+	if((modo_client&modo)==modo)
+	{
+		return 1;
+	}
+	return 0;
 }

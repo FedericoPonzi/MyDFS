@@ -29,7 +29,7 @@ void spawnHeartBeat(int sd)
 	
 	if(pthread_create(&tid, NULL, &heartBeat, ptarg) != 0)
 	{
-		perror("Cant create hb_thread");
+		perror("Cant create hb thread");
 	}
 }
 
@@ -39,34 +39,40 @@ void* heartBeat(void *pt_pthreadarg)
 	int ptid = ((pthreadArgs*)pt_pthreadarg)->ptid;
 	logM("[Spawining HeartBeating] \n");
 	logM("Tempsd: %d, ptid: %d\n", temp_sd, ptid);
-	//wait tot secondi
-	sleep(PING_TIME);
-
-	char ping[5] = "ping\n";
-	int nRecv;
-	char buff_ping_back[BUFFSIZE];
-	
-	pthread_mutex_lock(tempSockMutex);
-			
-	send(temp_sd, ping, strlen(ping), 0);
-			
-	pthread_mutex_unlock(tempSockMutex);
 	
 	//struct per settare tempo massimo di attesa in rcv
 	struct timeval tv;
 
 	tv.tv_sec = PING_TIME; 
 	tv.tv_usec = 0; 
+	char ping[5] = "ping";
+	char pong[5];
+	int nRecv;
 
 	setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
 	
-	nRecv = recv(temp_sd, buff_ping_back, sizeof(buff_ping_back)-1, 0); //se ci sono errori prova a levare il -1
+	while(1)
+	{	
+		//wait tot secondi
+		sleep(PING_TIME);
+		logM("[Heartbeating] PING!\n");
+		pthread_mutex_lock(tempSockMutex);
+		send(temp_sd, ping, sizeof(ping), 0);				
+		pthread_mutex_unlock(tempSockMutex);
 		
-	if((nRecv < 0) || (strncmp("ok", buff_ping_back, 2) != 0))
-	{
-		printf("[heartBeat] - connessione %d chiusa per inattività\n", ptid);
-		closeClientSession(ptid);
-		close(temp_sd);
+		nRecv = recv(temp_sd, pong, sizeof(pong), 0);
+		
+		if((nRecv < 0) || (strncmp("pong", pong, 4) != 0)) //Se la socket viene chiusa ritorna -1. quindi esco.
+		{
+			printf("[heartBeat] - connessione %d chiusa\n", ptid);
+			if(temp_sd > 0)
+			{	
+				closeClientSession(ptid);
+				close(temp_sd);
+			}
+			break;
+		}
+		memset(pong, 0, sizeof(pong));
 	}
 	free(pt_pthreadarg);
 	return NULL;

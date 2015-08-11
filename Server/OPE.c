@@ -38,11 +38,13 @@
 #include <stdlib.h> 
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <ctype.h>
 #include "inc/OPE.h"
 #include "inc/Heartbeating.h"
 #include "inc/StruttureDati.h"
 #include "inc/Utils.h"
+#include "inc/CLOSE.h"
 #include <limits.h>
 #include <errno.h>
 #include <sys/socket.h>
@@ -81,15 +83,16 @@ void handleOpenCommand(char* command, int socket)
 	{
 		ret_val = "ok";
 	}
-	
-	if(err_code == 0 && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
-	{
-		spawnHeartBeat(socket);
-	}
 
 	send(socket, ret_val, strlen(ret_val), 0);
-	if(err_code != 0) return;
-	
+
+	if(strncmp(ret_val, "ok", 2) != 0) //Se c'e' un errore, esco
+	{
+		logM("Errore nell' apertura del file, byebye\n");
+		close(socket);
+		return;
+	}
+
 	//server di nuovo in ascolto per fetch port number
 	int nRecv;
 	char prt_msg[PRT_MSG_SIZE+1];
@@ -112,14 +115,25 @@ void handleOpenCommand(char* command, int socket)
 		//errore
 		logM("[handleOpenCommand] - errore formato port no");
 		strcpy(answer, "-2");
+
 	}
 	logM("Il client ha richiesto la connessione sulla port: %d\n", port_num);
 	
-	if (createDataSock(port_num, socket))
+	int controlSocket;
+
+	//Se c'e' gia' un errore, non devo creare la socket di controllo.
+	if ((strncmp(answer, "-2", 2) == 0) || (controlSocket = createControlSock(port_num, socket)) < 1)
 	{
 		strcpy(answer, "-2");
 	}
-	
+	else
+	{
+		if(err_code == 0 && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
+		{
+
+			spawnHeartBeat(controlSocket);
+		}
+	}	
 	send(socket, answer, sizeof(answer), 0);
 }
 
@@ -128,7 +142,7 @@ void handleOpenCommand(char* command, int socket)
  *
  * @todo correggere utilizzo vecchio socketDes
  */
-int createDataSock(int portNo, int socketId)
+int createControlSock(int portNo, int socketId)
 {
 	socklen_t len;
 	struct sockaddr_storage addr;
@@ -153,7 +167,7 @@ int createDataSock(int portNo, int socketId)
     if(inet_aton(ipstr, &serv_addr.sin_addr) == 0)
     {
 		logM("error inet_aton\n");
-        return 1;
+        return 0;
     }
     
     int sd;
@@ -161,18 +175,18 @@ int createDataSock(int portNo, int socketId)
     if(( sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
         perror("socket");
-        return 1;
+        return 0;
     }
 	
     if((connect(sd, (struct sockaddr *)&serv_addr, sizeof(serv_addr))) != 0)
     {
 	   perror("connect");
-	   return 1;
+	   return 0;
     }	
     OpenedFile* file = getOpenedFile();
     file->transferSockId = sd;
     
-    return 0;	
+    return sd;	
 }
 
 /**

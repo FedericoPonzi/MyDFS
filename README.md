@@ -11,7 +11,8 @@ Tutta la documentazione si riferisce al lato server (per ora, ovviamente).
 * Aggiungere heartbeating anche quando un client richiede una lock.
 * Migliorare sincronizzazione tra rimozione file a fine connessione e aggiunta di nuovo file in quella successiva
 * Aggiungere opzione lock alla open (e spawnare heartbeat).
-
+* Spostare tutto sulla connessione dati
+* Chiudere heartbeating se la connessione si chiude con la close correttamente.
 ###Più in là:
 * In server.c: Spawnare gli n threads, poi creare un metodo che ogni 1 secondo (quindi sleep(1)) controlla se ci sono thread/processi da creare.
 

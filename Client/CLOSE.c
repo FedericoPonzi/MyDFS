@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "inc/FileHandler.h"
 #include "inc/Utils.h"
 #include "Config.h"
 #include "inc/CLOSE.h"

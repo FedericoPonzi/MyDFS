@@ -12,7 +12,7 @@
  * @brief Gestisce il comando Close.
  * @param int socket socket del client che termina sessione
  */
-void handleCloseCommand(int socket, char* command)
+void handleCloseCommand(int socket)
 {	
 	closeClientSession(getptid());
 	close(socket);	

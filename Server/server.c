@@ -60,6 +60,7 @@ int main()
 		{
 			spawnThread();
 		}
+		//sleep(1);
 	}
 	
 	return 0;
@@ -98,13 +99,8 @@ void* handleSocket()
 		
 		nRecv = recv(temp_sd, buff, sizeof(buff)-1, 0);
 		
-		if(nRecv < 0)
-		{
-			printf("Tempsd: %d, \n", temp_sd);
-			printErr(6);
-		}
-		// Credo che la connessione sia chiusa.
-		if(nRecv == 0)
+		// Connessione chiusa
+		if(nRecv < 0 || nRecv == 0)
 		{
 			break;
 		}

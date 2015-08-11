@@ -95,20 +95,20 @@ void handleREADCommand(char* command, int socket)
 		}
 	}
 	logM("[READ] Bytes letti: %d \n", nread);        
-	logM("[READ] Contenuto letto: '%s'", buff);
+	logM("[READ] Contenuto letto: '%s'\n", buff);
 
 	if(nread > 0)
 	{
-		logM("[READ] Invio file...");
+		logM("[READ] Invio file...\n");
 		char message[20];
-		sprintf(message, "size %d", nread);
+		sprintf(message, "size %d", nread+1);
 		
 		//Mando la dimensione della parte che ho letto
 		write(socket, message, strlen(message)+1);
 		
 		//Mando la parte letta
-		logM("Transfer socket: '%d'", getTransferSocket());
-		write(getTransferSocket(), buff, nread);
+		logM("Transfer socket: '%d'\n", getTransferSocket());
+		write(socket, buff, nread);
 	}
 	
 
