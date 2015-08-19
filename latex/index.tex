@@ -15,9 +15,10 @@ Tutta la documentazione si riferisce al lato server (per ora, ovviamente). \subs
 \item Aggiungere un campo lock a \hyperlink{structOpenedFile}{Opened\+File} e controllare il modo alla Open
 \item Aggiungere heartbeating anche quando un client richiede una lock.
 \item Migliorare sincronizzazione tra rimozione file a fine connessione e aggiunta di nuovo file in quella successiva
+\item Aggiungere opzione lock alla open (e spawnare heartbeat).
+\item Spostare tutto sulla connessione dati
+\item Chiudere heartbeating se la connessione si chiude con la close correttamente. \subsubsection*{Più in là\+:}
 \end{DoxyItemize}
-
-\subsubsection*{Più in là\+:}
 
 
 \begin{DoxyItemize}

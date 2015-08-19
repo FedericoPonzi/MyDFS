@@ -1,7 +1,9 @@
 #!/bin/sh
 
-generale="/home/federicoponzi/Progetto"
 
-$generale/Server/Server &
-
-echo "OPE file 2" > netcat localhost 9000
+x=1
+while [ $x -le 1000 ]
+do
+  echo "Ciaoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" >> /tmp/test.txt
+  x=$(( $x + 1 ))
+done

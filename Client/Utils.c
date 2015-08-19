@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "inc/Utils.h"
-#include "Config.h"
+#include "inc/Config.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>

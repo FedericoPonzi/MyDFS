@@ -1,32 +1,26 @@
-\hypertarget{Client_2Cache_8c}{}\section{Riferimenti per il file Client/\+Cache.c}
+\hypertarget{Client_2Cache_8c}{\section{Riferimenti per il file Client/\+Cache.c}
 \label{Client_2Cache_8c}\index{Client/\+Cache.\+c@{Client/\+Cache.\+c}}
+}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
-{\ttfamily \#include $<$stlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}inc/\+Cache.\+h\char`\"{}}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{Client_2Cache_8c_a34ed479fe589e798e5c7f193d44ecb61}{my\+\_\+read} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$dfsid, int pos, void $\ast$ptr, unsigned int size)
-\item 
-void \hyperlink{Client_2Cache_8c_ad99630f2fe6aa6af96bea54979a92b87}{my\+\_\+write} ()
+F\+I\+L\+E $\ast$ \hyperlink{Client_2Cache_8c_a3bc523df2fea20d9f4d25f2596a66a71}{create\+Temp\+File} (char $\ast$basename)
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Client_2Cache_8c_a34ed479fe589e798e5c7f193d44ecb61}{}\index{Client/\+Cache.\+c@{Client/\+Cache.\+c}!my\+\_\+read@{my\+\_\+read}}
-\index{my\+\_\+read@{my\+\_\+read}!Client/\+Cache.\+c@{Client/\+Cache.\+c}}
-\subsubsection[{my\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int my\+\_\+read (
+\hypertarget{Client_2Cache_8c_a3bc523df2fea20d9f4d25f2596a66a71}{\index{Client/\+Cache.\+c@{Client/\+Cache.\+c}!create\+Temp\+File@{create\+Temp\+File}}
+\index{create\+Temp\+File@{create\+Temp\+File}!Client/\+Cache.\+c@{Client/\+Cache.\+c}}
+\subsubsection[{create\+Temp\+File}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+L\+E $\ast$ create\+Temp\+File (
 \begin{DoxyParamCaption}
-\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{dfsid, }
-\item[{int}]{pos, }
-\item[{void $\ast$}]{ptr, }
-\item[{unsigned int}]{size}
+\item[{char $\ast$}]{basename}
 \end{DoxyParamCaption}
-)}\label{Client_2Cache_8c_a34ed479fe589e798e5c7f193d44ecb61}
-\hypertarget{Client_2Cache_8c_ad99630f2fe6aa6af96bea54979a92b87}{}\index{Client/\+Cache.\+c@{Client/\+Cache.\+c}!my\+\_\+write@{my\+\_\+write}}
-\index{my\+\_\+write@{my\+\_\+write}!Client/\+Cache.\+c@{Client/\+Cache.\+c}}
-\subsubsection[{my\+\_\+write}]{\setlength{\rightskip}{0pt plus 5cm}void my\+\_\+write (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{Client_2Cache_8c_ad99630f2fe6aa6af96bea54979a92b87}
+)}}\label{Client_2Cache_8c_a3bc523df2fea20d9f4d25f2596a66a71}
+
+
+Referenziato da main(), e mydfs\+\_\+open().
+

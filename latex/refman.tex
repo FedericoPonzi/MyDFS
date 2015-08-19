@@ -4,7 +4,6 @@
 \usepackage{fixltx2e}
 \usepackage{calc}
 \usepackage{doxygen}
-\usepackage[export]{adjustbox} % also loads graphicx
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{makeidx}
@@ -20,6 +19,7 @@
 
 % Font selection
 \usepackage[T1]{fontenc}
+\usepackage{mathptmx}
 \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
 \usepackage{amssymb}
@@ -74,8 +74,8 @@
 \fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
 \fancyfoot[LE]{\fancyplain{}{}}
 \fancyfoot[CE]{\fancyplain{}{}}
-\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Generato Mer 5 Ago 2015 11\+:40\+:58 per My\+D\+F\+S da Doxygen }}
-\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Generato Mer 5 Ago 2015 11\+:40\+:58 per My\+D\+F\+S da Doxygen }}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Generato Mar 18 Ago 2015 14\+:13\+:21 per My\+D\+F\+S da Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Generato Mar 18 Ago 2015 14\+:13\+:21 per My\+D\+F\+S da Doxygen }}
 \fancyfoot[CO]{\fancyplain{}{}}
 \fancyfoot[RO]{\fancyplain{}{}}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -129,9 +129,9 @@
 \begin{center}%
 {\Large My\+D\+F\+S \\[1ex]\large 1 }\\
 \vspace*{1cm}
-{\large Generato da Doxygen 1.8.9.1}\\
+{\large Generato da Doxygen 1.8.7}\\
 \vspace*{0.5cm}
-{\small Mer 5 Ago 2015 11:40:58}\\
+{\small Mar 18 Ago 2015 14:13:21}\\
 \end{center}
 \end{titlepage}
 \clearemptydoublepage
@@ -167,19 +167,22 @@
 \input{structpthreadArgs}
 \input{structSocketIdList}
 \input{structStruttura}
+\input{structWriteOp}
 \chapter{Documentazione dei file}
 \input{Client_2Cache_8c}
-\input{Client_2inc_2Cache_8c}
 \input{Prove_2Cache_2Cache_8c}
 \input{client_8c}
 \input{Client_2CLOSE_8c}
 \input{Server_2CLOSE_8c}
 \input{Client_2Config_8h}
 \input{Server_2inc_2Config_8h}
-\input{FileHandler_8c}
+\input{Client_2Heartbeating_8c}
+\input{Server_2Heartbeating_8c}
+\input{Cache_8h}
 \input{Client_2inc_2CLOSE_8h}
 \input{Server_2inc_2CLOSE_8h}
-\input{FileHandler_8h}
+\input{Client_2inc_2Heartbeating_8h}
+\input{Server_2inc_2Heartbeating_8h}
 \input{OPEN_8h}
 \input{Client_2inc_2READ_8h}
 \input{Server_2inc_2READ_8h}
@@ -219,10 +222,8 @@
 \input{README_8md}
 \input{CommandsHandler_8c}
 \input{Error_8c}
-\input{Heartbeating_8c}
 \input{CommandsHandler_8h}
 \input{Error_8h}
-\input{Heartbeating_8h}
 \input{OPE_8h}
 \input{StruttureDati_8h}
 \input{OPE_8c}
@@ -231,10 +232,8 @@
 %--- End generated contents ---
 
 % Index
-\backmatter
 \newpage
 \phantomsection
-\clearemptydoublepage
 \addcontentsline{toc}{chapter}{Indice}
 \printindex
 

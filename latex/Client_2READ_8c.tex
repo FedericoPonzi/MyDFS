@@ -1,5 +1,6 @@
-\hypertarget{Client_2READ_8c}{}\section{Riferimenti per il file Client/\+R\+E\+A\+D.c}
+\hypertarget{Client_2READ_8c}{\section{Riferimenti per il file Client/\+R\+E\+A\+D.c}
 \label{Client_2READ_8c}\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
+}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
@@ -14,15 +15,32 @@
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{Client_2READ_8c_aefa99785546e3d4a800c689b8778d6cf}{send\+Read\+Command} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int pos, void $\ast$ptr, unsigned int size)
-\begin{DoxyCompactList}\small\item\em Manda il comando di R\+E\+A\+D, e aspetta come risposta la dimensione di quanto deve leggere all\textquotesingle{}interno della risposta. \end{DoxyCompactList}\item 
-int \hyperlink{Client_2READ_8c_afa7834fa56368be319d9994da5c6a687}{read\+From} (int socket\+Id, char $\ast$buff, int buffsize)
+\begin{DoxyCompactList}\small\item\em Manda il comando di R\+E\+A\+D, e aspetta come risposta la dimensione di quanto deve leggere all'interno della risposta. \end{DoxyCompactList}\item 
+int \hyperlink{Client_2READ_8c_a88c7f6cba19038c7f49d8ac1ad5a2853}{read\+From} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int size\+Rimasta)
 \begin{DoxyCompactList}\small\item\em Legge dalla socket di trasferimento buffsize dati. \end{DoxyCompactList}\item 
+int \hyperlink{Client_2READ_8c_ad48e629c770d8352db6aa53fcbc3ece7}{byte\+Mancanti} (F\+I\+L\+E $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Torna il numero di byte prima della fine del file puntato da fp. \end{DoxyCompactList}\item 
 int \hyperlink{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{mydfs\+\_\+read} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int pos, void $\ast$ptr, unsigned int size)
 \begin{DoxyCompactList}\small\item\em name\+: mydfs\+\_\+read \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{}\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!mydfs\+\_\+read@{mydfs\+\_\+read}}
+\hypertarget{Client_2READ_8c_ad48e629c770d8352db6aa53fcbc3ece7}{\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!byte\+Mancanti@{byte\+Mancanti}}
+\index{byte\+Mancanti@{byte\+Mancanti}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
+\subsubsection[{byte\+Mancanti}]{\setlength{\rightskip}{0pt plus 5cm}int byte\+Mancanti (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}}\label{Client_2READ_8c_ad48e629c770d8352db6aa53fcbc3ece7}
+
+
+Torna il numero di byte prima della fine del file puntato da fp. 
+
+
+
+Referenziato da mydfs\+\_\+read().
+
+\hypertarget{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!mydfs\+\_\+read@{mydfs\+\_\+read}}
 \index{mydfs\+\_\+read@{mydfs\+\_\+read}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
 \subsubsection[{mydfs\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+read (
 \begin{DoxyParamCaption}
@@ -31,14 +49,14 @@ int \hyperlink{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{mydfs\+\_\+rea
 \item[{void $\ast$}]{ptr, }
 \item[{unsigned int}]{size}
 \end{DoxyParamCaption}
-)}\label{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}
+)}}\label{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}
 
 
 name\+: mydfs\+\_\+read 
 
 
 \begin{DoxyParams}{Parametri}
-{\em id} & L\textquotesingle{} id del file da cui vuole leggere. \\
+{\em id} & L' id del file da cui vuole leggere. \\
 \hline
 {\em pos} & Posizione da cui vuole leggere \\
 \hline
@@ -54,37 +72,36 @@ name\+: mydfs\+\_\+read
 \item[\hyperlink{todo__todo000001}{Da fare}]Per ora usa direttamente il buffer puntato da ptr per scrivere il risultato della read. In un futuro dovrà scrivere/leggere dalla cache.\end{DoxyRefDesc}
 
 
-Referenzia B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D, My\+D\+F\+S\+Id\+::filename, log\+M(), read\+From(), send\+Read\+Command(), e My\+D\+F\+S\+Id\+::transfer\+Sock\+Id.
+Referenzia byte\+Mancanti(), My\+D\+F\+S\+Id\+::filename, My\+D\+F\+S\+Id\+::fp, log\+M(), read\+From(), e send\+Read\+Command().
 
 
 
 Referenziato da main().
 
-\hypertarget{Client_2READ_8c_afa7834fa56368be319d9994da5c6a687}{}\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!read\+From@{read\+From}}
+\hypertarget{Client_2READ_8c_a88c7f6cba19038c7f49d8ac1ad5a2853}{\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!read\+From@{read\+From}}
 \index{read\+From@{read\+From}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
 \subsubsection[{read\+From}]{\setlength{\rightskip}{0pt plus 5cm}int read\+From (
 \begin{DoxyParamCaption}
-\item[{int}]{socket\+Id, }
-\item[{char $\ast$}]{buff, }
-\item[{int}]{buffsize}
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
+\item[{int}]{size\+Rimasta}
 \end{DoxyParamCaption}
-)}\label{Client_2READ_8c_afa7834fa56368be319d9994da5c6a687}
+)}}\label{Client_2READ_8c_a88c7f6cba19038c7f49d8ac1ad5a2853}
 
 
 Legge dalla socket di trasferimento buffsize dati. 
 
 \begin{DoxyReturn}{Restituisce}
-1 se c\textquotesingle{}e\textquotesingle{} un errore con la recv 0 altrimenti. 
+1 se c'e' un errore con la recv 0 altrimenti. 
 \end{DoxyReturn}
 
 
-Referenzia log\+M().
+Referenzia My\+D\+F\+S\+Id\+::fp, log\+M(), e My\+D\+F\+S\+Id\+::socket\+Id.
 
 
 
 Referenziato da mydfs\+\_\+read().
 
-\hypertarget{Client_2READ_8c_aefa99785546e3d4a800c689b8778d6cf}{}\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!send\+Read\+Command@{send\+Read\+Command}}
+\hypertarget{Client_2READ_8c_aefa99785546e3d4a800c689b8778d6cf}{\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!send\+Read\+Command@{send\+Read\+Command}}
 \index{send\+Read\+Command@{send\+Read\+Command}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
 \subsubsection[{send\+Read\+Command}]{\setlength{\rightskip}{0pt plus 5cm}int send\+Read\+Command (
 \begin{DoxyParamCaption}
@@ -93,10 +110,10 @@ Referenziato da mydfs\+\_\+read().
 \item[{void $\ast$}]{ptr, }
 \item[{unsigned int}]{size}
 \end{DoxyParamCaption}
-)}\label{Client_2READ_8c_aefa99785546e3d4a800c689b8778d6cf}
+)}}\label{Client_2READ_8c_aefa99785546e3d4a800c689b8778d6cf}
 
 
-Manda il comando di R\+E\+A\+D, e aspetta come risposta la dimensione di quanto deve leggere all\textquotesingle{}interno della risposta. 
+Manda il comando di R\+E\+A\+D, e aspetta come risposta la dimensione di quanto deve leggere all'interno della risposta. 
 
 
 

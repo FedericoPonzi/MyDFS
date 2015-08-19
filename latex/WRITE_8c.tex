@@ -1,5 +1,6 @@
-\hypertarget{WRITE_8c}{}\section{Riferimenti per il file Client/\+W\+R\+I\+T\+E.c}
+\hypertarget{WRITE_8c}{\section{Riferimenti per il file Client/\+W\+R\+I\+T\+E.c}
 \label{WRITE_8c}\index{Client/\+W\+R\+I\+T\+E.\+c@{Client/\+W\+R\+I\+T\+E.\+c}}
+}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
@@ -9,3 +10,27 @@
 {\ttfamily \#include $<$netinet/in.\+h$>$}\\*
 {\ttfamily \#include $<$unistd.\+h$>$}\\*
 {\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+W\+R\+I\+T\+E.\+h\char`\"{}}\\*
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{WRITE_8c_aba2d6c2aad45c7165d6aeb0cee704d3f}{mydfs\+\_\+write} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$dfsid, int pos, void $\ast$ptr, unsigned int size)
+\begin{DoxyCompactList}\small\item\em -\/1 in caso di errore; $>$= 0 ed uguale al numero di byte effettivamente scritti. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentazione delle funzioni}
+\hypertarget{WRITE_8c_aba2d6c2aad45c7165d6aeb0cee704d3f}{\index{W\+R\+I\+T\+E.\+c@{W\+R\+I\+T\+E.\+c}!mydfs\+\_\+write@{mydfs\+\_\+write}}
+\index{mydfs\+\_\+write@{mydfs\+\_\+write}!W\+R\+I\+T\+E.\+c@{W\+R\+I\+T\+E.\+c}}
+\subsubsection[{mydfs\+\_\+write}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+write (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{dfsid, }
+\item[{int}]{pos, }
+\item[{void $\ast$}]{ptr, }
+\item[{unsigned int}]{size}
+\end{DoxyParamCaption}
+)}}\label{WRITE_8c_aba2d6c2aad45c7165d6aeb0cee704d3f}
+
+
+-\/1 in caso di errore; $>$= 0 ed uguale al numero di byte effettivamente scritti. 
+

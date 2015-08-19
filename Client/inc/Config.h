@@ -12,23 +12,23 @@
  */
 #define PING_TIME 5
 
-
 typedef struct MyDFSId {  
 	char* indirizzo;
 	char* filename;
+	int filesize;
 	int modo;
 	int pos;
 	int socketId;
 	int transferSockId;
+	WriteOp writeList;
 	FILE* fp;
 } MyDFSId;
 
 typedef struct WriteOp
 {
-	int posInizio;
-	int posFine;
+	int pos;
+	int size;
 	struct WriteOp* next;
-
 } WriteOp;
     
 #endif

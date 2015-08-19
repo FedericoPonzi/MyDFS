@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "inc/Heartbeating.h"
-#include "Config.h"
+#include "inc/Config.h"
 #include "inc/Utils.h"
 #define BUFFSIZE 30
 

@@ -1,21 +1,40 @@
-\hypertarget{Client_2inc_2Utils_8h}{}\section{Riferimenti per il file Client/inc/\+Utils.h}
+\hypertarget{Client_2inc_2Utils_8h}{\section{Riferimenti per il file Client/inc/\+Utils.h}
 \label{Client_2inc_2Utils_8h}\index{Client/inc/\+Utils.\+h@{Client/inc/\+Utils.\+h}}
+}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{Client_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}{log\+M} (char $\ast$messaggio,...)
-\begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se L\+O\+G vale 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se L\+O\+G vale 0. \end{DoxyCompactList}\item 
+int \hyperlink{Client_2inc_2Utils_8h_a6e2594e56afc29e961a1797a0bd8d262}{is\+Modo\+Apertura} (int modo\+\_\+client, int modo)
+\begin{DoxyCompactList}\small\item\em Dice se modo\+\_\+client contiene il modo \char`\"{}modo\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Client_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}{}\index{Client/inc/\+Utils.\+h@{Client/inc/\+Utils.\+h}!log\+M@{log\+M}}
+\hypertarget{Client_2inc_2Utils_8h_a6e2594e56afc29e961a1797a0bd8d262}{\index{Client/inc/\+Utils.\+h@{Client/inc/\+Utils.\+h}!is\+Modo\+Apertura@{is\+Modo\+Apertura}}
+\index{is\+Modo\+Apertura@{is\+Modo\+Apertura}!Client/inc/\+Utils.\+h@{Client/inc/\+Utils.\+h}}
+\subsubsection[{is\+Modo\+Apertura}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Modo\+Apertura (
+\begin{DoxyParamCaption}
+\item[{int}]{modo\+\_\+client, }
+\item[{int}]{modo}
+\end{DoxyParamCaption}
+)}}\label{Client_2inc_2Utils_8h_a6e2594e56afc29e961a1797a0bd8d262}
+
+
+Dice se modo\+\_\+client contiene il modo \char`\"{}modo\char`\"{}. 
+
+
+
+Referenziato da handle\+Open\+Command(), e mydfs\+\_\+open().
+
+\hypertarget{Client_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}{\index{Client/inc/\+Utils.\+h@{Client/inc/\+Utils.\+h}!log\+M@{log\+M}}
 \index{log\+M@{log\+M}!Client/inc/\+Utils.\+h@{Client/inc/\+Utils.\+h}}
 \subsubsection[{log\+M}]{\setlength{\rightskip}{0pt plus 5cm}void log\+M (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{messaggio, }
 \item[{}]{...}
 \end{DoxyParamCaption}
-)}\label{Client_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}
+)}}\label{Client_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}
 
 
 Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se L\+O\+G vale 0. 
@@ -34,5 +53,5 @@ Config.\+h
 \end{DoxySeeAlso}
 
 
-Referenziato da append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), create\+Control\+Socket\+Id(), create\+Data\+Sock(), create\+Transfer\+Socket(), file\+Already\+Opened\+In\+Write(), handle\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), handle\+Socket(), heart\+Beat(), main(), mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), read\+From(), e send\+Read\+Command().
+Referenziato da append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), create\+Control\+Sock(), file\+Already\+Opened\+In\+Write(), handle\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), handle\+Socket(), heart\+Beat(), main(), mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), read\+From(), e send\+Read\+Command().
 

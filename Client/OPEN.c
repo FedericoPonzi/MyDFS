@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <errno.h>
-#include "Config.h"
+#include "inc/Config.h"
 #include "inc/OPEN.h"
 #include "inc/Utils.h"
 #include "inc/Cache.h"

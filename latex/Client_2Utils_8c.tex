@@ -1,5 +1,6 @@
-\hypertarget{Client_2Utils_8c}{}\section{Riferimenti per il file Client/\+Utils.c}
+\hypertarget{Client_2Utils_8c}{\section{Riferimenti per il file Client/\+Utils.c}
 \label{Client_2Utils_8c}\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}}
+}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\\*
@@ -11,31 +12,45 @@
 void \hyperlink{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{log\+M} (char $\ast$messaggio,...)
 \begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se L\+O\+G vale 0. \end{DoxyCompactList}\item 
 void \hyperlink{Client_2Utils_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}{print\+Err\+\_\+s} (char $\ast$error)
-\begin{DoxyCompactList}\small\item\em Stampa un errore particolare. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Stampa un errore particolare. \end{DoxyCompactList}\item 
+int \hyperlink{Client_2Utils_8c_a6e2594e56afc29e961a1797a0bd8d262}{is\+Modo\+Apertura} (int modo\+\_\+client, int modo)
+\begin{DoxyCompactList}\small\item\em Dice se modo\+\_\+client contiene il modo \char`\"{}modo\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{}\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!log\+M@{log\+M}}
+\hypertarget{Client_2Utils_8c_a6e2594e56afc29e961a1797a0bd8d262}{\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!is\+Modo\+Apertura@{is\+Modo\+Apertura}}
+\index{is\+Modo\+Apertura@{is\+Modo\+Apertura}!Client/\+Utils.\+c@{Client/\+Utils.\+c}}
+\subsubsection[{is\+Modo\+Apertura}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Modo\+Apertura (
+\begin{DoxyParamCaption}
+\item[{int}]{modo\+\_\+client, }
+\item[{int}]{modo}
+\end{DoxyParamCaption}
+)}}\label{Client_2Utils_8c_a6e2594e56afc29e961a1797a0bd8d262}
+
+
+Dice se modo\+\_\+client contiene il modo \char`\"{}modo\char`\"{}. 
+
+\hypertarget{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!log\+M@{log\+M}}
 \index{log\+M@{log\+M}!Client/\+Utils.\+c@{Client/\+Utils.\+c}}
 \subsubsection[{log\+M}]{\setlength{\rightskip}{0pt plus 5cm}void log\+M (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{messaggio, }
 \item[{}]{...}
 \end{DoxyParamCaption}
-)}\label{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}
+)}}\label{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}
 
 
 Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se L\+O\+G vale 0. 
 
-\hypertarget{Client_2Utils_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}{}\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!print\+Err\+\_\+s@{print\+Err\+\_\+s}}
+\hypertarget{Client_2Utils_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}{\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!print\+Err\+\_\+s@{print\+Err\+\_\+s}}
 \index{print\+Err\+\_\+s@{print\+Err\+\_\+s}!Client/\+Utils.\+c@{Client/\+Utils.\+c}}
 \subsubsection[{print\+Err\+\_\+s}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Err\+\_\+s (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{error}
 \end{DoxyParamCaption}
-)}\label{Client_2Utils_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}
+)}}\label{Client_2Utils_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}
 
 
 Stampa un errore particolare. 
 
-Non interrompe il programma. error\+: L\textquotesingle{}errore da stampare 
+Non interrompe il programma. error\+: L'errore da stampare 

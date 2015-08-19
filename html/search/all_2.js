@@ -1,8 +1,8 @@
 var searchData=
 [
   ['cache_2ec',['Cache.c',['../Client_2Cache_8c.html',1,'']]],
-  ['cache_2ec',['Cache.c',['../Client_2inc_2Cache_8c.html',1,'']]],
   ['cache_2ec',['Cache.c',['../Prove_2Cache_2Cache_8c.html',1,'']]],
+  ['cache_2eh',['Cache.h',['../Cache_8h.html',1,'']]],
   ['cant_5fchange',['cant_change',['../pointerToPointers_8c.html#ad310ab9a64c4411194d542db5295f1a9',1,'pointerToPointers.c']]],
   ['change',['change',['../pointerToPointers_8c.html#a3697e486ca1913f0c3e556507879f31a',1,'pointerToPointers.c']]],
   ['checkmodoopen',['checkModoOpen',['../StruttureDati_8h.html#aa089645f4772b1d34f2808e1f913eb45',1,'checkModoOpen(char *nomeFile, int modo):&#160;StruttureDati.c'],['../StruttureDati_8c.html#aa089645f4772b1d34f2808e1f913eb45',1,'checkModoOpen(char *nomeFile, int modo):&#160;StruttureDati.c']]],
@@ -17,11 +17,10 @@ var searchData=
   ['commandshandler_2eh',['CommandsHandler.h',['../CommandsHandler_8h.html',1,'']]],
   ['config_2ec',['Config.c',['../Server_2Config_8c.html',1,'']]],
   ['config_2ec',['Config.c',['../Prove_2Parsing_01file_01Config_2Config_8c.html',1,'']]],
-  ['config_2eh',['Config.h',['../Server_2inc_2Config_8h.html',1,'']]],
   ['config_2eh',['Config.h',['../Client_2Config_8h.html',1,'']]],
+  ['config_2eh',['Config.h',['../Server_2inc_2Config_8h.html',1,'']]],
   ['config2_2eh',['config2.h',['../config2_8h.html',1,'']]],
   ['configfilename',['CONFIGFILENAME',['../Server_2inc_2Config_8h.html#ae99ca2d2731dcecf9670d172003c467c',1,'Config.h']]],
-  ['createcontrolsocketid',['createControlSocketId',['../OPEN_8c.html#a54d24af40fe92f36f40ed358e84fa9ad',1,'OPEN.c']]],
-  ['createdatasock',['createDataSock',['../OPE_8h.html#ad902fd8b94b926056967098b6faeb111',1,'createDataSock(int portNo, int socketId):&#160;OPE.c'],['../OPE_8c.html#ad902fd8b94b926056967098b6faeb111',1,'createDataSock(int portNo, int socketId):&#160;OPE.c']]],
-  ['createtransfersocket',['createTransferSocket',['../OPEN_8c.html#a8387ba93dac90e647ee90636f324d61c',1,'OPEN.c']]]
+  ['createcontrolsock',['createControlSock',['../OPE_8h.html#af1f79690eec0a7727a519ba59a891762',1,'createControlSock(int portNo, int socketId):&#160;OPE.c'],['../OPE_8c.html#af1f79690eec0a7727a519ba59a891762',1,'createControlSock(int portNo, int socketId):&#160;OPE.c']]],
+  ['createtempfile',['createTempFile',['../Client_2Cache_8c.html#a3bc523df2fea20d9f4d25f2596a66a71',1,'createTempFile(char *basename):&#160;Cache.c'],['../Cache_8h.html#ab85cfa2751c24894cd4bdca9254ed117',1,'createTempFile(char *basename):&#160;Cache.c'],['../Prove_2Cache_2Cache_8c.html#ab85cfa2751c24894cd4bdca9254ed117',1,'createTempFile(char *basename):&#160;Cache.c']]]
 ];

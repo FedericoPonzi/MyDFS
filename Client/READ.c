@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <string.h>
 #include <stdlib.h>
-#include "Config.h"
+#include "inc/Config.h"
 #include "inc/Utils.h"
 #include "inc/READ.h"
 
@@ -21,8 +21,8 @@ int byteMancanti(FILE* fp);
  * @param pos: Posizione da cui vuole leggere
  * @param ptr: puntatore al buffer in cui andra a legere
  * @param size: quanto vuole leggere
- * @return -1 in caso di errore, 0 altrimenti.
- * @todo Per ora usa direttamente il buffer puntato da ptr per scrivere il risultato della read. In un futuro dovrà scrivere/leggere dalla cache.
+ * @return -1 in caso di errore, n bytes letti altrimenti.
+ * 
  * 
  */
  
@@ -51,7 +51,7 @@ int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 		}
 	}
 	
-	fseek(id->fp, 0, pos);
+	//fseek(id->fp, 0, pos);
 	
 	int n = fread(ptr, 1, size, id->fp);
 	if(n==0)

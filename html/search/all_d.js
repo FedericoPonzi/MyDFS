@@ -1,11 +1,13 @@
 var searchData=
 [
   ['permute',['permute',['../BTperTest_8c.html#a9536d4b864d34a8c8bef3f7dc3a775d6',1,'BTperTest.c']]],
-  ['ping_5ftime',['PING_TIME',['../Server_2inc_2Config_8h.html#a21c8feef84ea8774c2061af39050441c',1,'Config.h']]],
+  ['ping_5ftime',['PING_TIME',['../Client_2Config_8h.html#a21c8feef84ea8774c2061af39050441c',1,'PING_TIME():&#160;Config.h'],['../Server_2inc_2Config_8h.html#a21c8feef84ea8774c2061af39050441c',1,'PING_TIME():&#160;Config.h']]],
   ['pointertopointers_2ec',['pointerToPointers.c',['../pointerToPointers_8c.html',1,'']]],
   ['portnumb',['PORTNUMB',['../Server_2Config_8c.html#a0d9f198a3b0fbbf754c334769c7f6c34',1,'Config.c']]],
   ['portnumber',['portNumber',['../Server_2Config_8c.html#ae53ea95e0769743e3a9e0935564b3739',1,'portNumber():&#160;Config.c'],['../Server_2inc_2Config_8h.html#ae53ea95e0769743e3a9e0935564b3739',1,'portNumber():&#160;Config.c']]],
   ['pos',['pos',['../structMyDFSId.html#aaeac229fb85c313f91a76f00be916832',1,'MyDFSId']]],
+  ['posfine',['posFine',['../structWriteOp.html#a1e30be6ad0c2d27427c106424d3fa94b',1,'WriteOp']]],
+  ['posinizio',['posInizio',['../structWriteOp.html#a415a6d3f0ad48e8f3e75f28d3fddd8c1',1,'WriteOp']]],
   ['print_5flist',['print_list',['../mmapStrutturaEasier_8c.html#a8d44ef7c1f6aebb2ebce1672ca2661ed',1,'print_list(void):&#160;mmapStrutturaEasier.c'],['../mmapStruttureDati_8c.html#a8d44ef7c1f6aebb2ebce1672ca2661ed',1,'print_list(void):&#160;mmapStruttureDati.c']]],
   ['printastruct',['printaStruct',['../terzo_8c.html#a332a74378bd8e4ece2516bcc7b5952c4',1,'printaStruct():&#160;terzo.c'],['../terzo_8h.html#a332a74378bd8e4ece2516bcc7b5952c4',1,'printaStruct():&#160;terzo.c']]],
   ['printerr',['printErr',['../Error_8c.html#a950f724a74ee364e724388b8a156f565',1,'printErr(int num):&#160;Error.c'],['../Error_8h.html#a856d01daa15cd32f6e18edf818bb78ea',1,'printErr(int):&#160;Error.c']]],

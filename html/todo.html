@@ -3,16 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.9.1"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
 <title>MyDFS: Elenco delle cose da fare</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { init_search(); });
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -33,7 +32,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generato da Doxygen 1.8.9.1 -->
+<!-- Generato da Doxygen 1.8.7 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
@@ -66,7 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valori del tipo enumerato</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definizioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pagine</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,25 +81,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000006"></a>globalScope&gt; Globale <a class="el" href="OPE_8c.html#ad902fd8b94b926056967098b6faeb111">createDataSock</a>  (int portNo, int socketId)</dt>
+<dt><a class="anchor" id="_todo000006"></a>Globale <a class="el" href="OPE_8c.html#af1f79690eec0a7727a519ba59a891762">createControlSock</a>  (int portNo, int socketId)</dt>
 <dd>correggere utilizzo vecchio socketDes  </dd>
-<dt><a class="anchor" id="_todo000002"></a>globalScope&gt; Globale <a class="el" href="CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e">getCommandID</a>  (char *)</dt>
+<dt><a class="anchor" id="_todo000002"></a>Globale <a class="el" href="CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e">getCommandID</a>  (char *)</dt>
 <dd>mergare questa funzione con quella sotto.  </dd>
-<dt><a class="anchor" id="_todo000002"></a>globalScope&gt; Globale <a class="el" href="CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e">getCommandID</a>  (char *)</dt>
+<dt><a class="anchor" id="_todo000002"></a>Globale <a class="el" href="CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e">getCommandID</a>  (char *)</dt>
 <dd>mergare questa funzione con quella sotto.  </dd>
-<dt><a class="anchor" id="_todo000005"></a>globalScope&gt; Globale <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a>  (char *command, int socket)</dt>
+<dt><a class="anchor" id="_todo000005"></a>Globale <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a>  (char *command, int socket)</dt>
 <dd>: Da vedere bene per memory leaks!!!!  </dd>
-<dt><a class="anchor" id="_todo000001"></a>globalScope&gt; Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
+<dt><a class="anchor" id="_todo000001"></a>Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
 <dd>Per ora usa direttamente il buffer puntato da ptr per scrivere il risultato della read. In un futuro dovrà scrivere/leggere dalla cache. </dd>
-<dt><a class="anchor" id="_todo000001"></a>globalScope&gt; Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
-<dd>Per ora usa direttamente il buffer puntato da ptr per scrivere il risultato della read. In un futuro dovrà scrivere/leggere dalla cache. </dd>
-<dt><a class="anchor" id="_todo000001"></a>globalScope&gt; Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
+<dt><a class="anchor" id="_todo000001"></a>Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
 <dd>Per ora usa direttamente il buffer puntato da ptr per scrivere il risultato della read. In un futuro dovrà scrivere/leggere dalla cache. </dd>
 <dt><a class="anchor" id="_todo000004"></a>File <a class="el" href="OPE_8c.html">OPE.c</a>  </dt>
 <dd><p class="startdd">dovrebbe mandare una risposta al client in caso di successo o errore </p>
 <p class="enddd">permettere l' apertura se il modo con cui e' aperto il file e' lettura e viene richiesta la lettura.  </p>
 </dd>
-<dt><a class="anchor" id="_todo000007"></a>globalScope&gt; Globale <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread</a>  ()</dt>
+<dt><a class="anchor" id="_todo000007"></a>Globale <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread</a>  ()</dt>
 <dd>dovrebbe passargli dei parametri.  </dd>
 <dt><a class="anchor" id="_todo000008"></a>File <a class="el" href="StruttureDati_8c.html">StruttureDati.c</a>  </dt>
 <dd><p class="startdd">Una struttura dati che contenga una lista di sockets </p>
@@ -112,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <hr class="footer"/><address class="footer"><small>
 Generato da &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
+</a> 1.8.7
 </small></address>
 </body>
 </html>
