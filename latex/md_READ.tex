@@ -1,4 +1,8 @@
-\#\+Alcuni appunti sulla R\+E\+A\+D \subsubsection*{fseek}
+\#\+Alcuni appunti sulla R\+E\+A\+D \subsection*{Funzionamento}
+
+Quando viene richiesta una mydfs\+\_\+open, viene eseguita una funzione che controlla quanto manca dalla posizione in cui ho richiesto la read fino alla fine del file. Se questa dimensione è inferiore ad un treshold, viene mandata una richiesta di read al server a partire dalla posizione n (dove n è l'ultimo byte contenuto nel file cachato). Il nuovo pezzo di file viene letto e scritto nel file della cache. In ogni caso, viene eseguita una lettura dal file cachato a partire dalla posizione specificata dal parametro pos (vedi più avanti fseek).
+
+\subsubsection*{fseek}
 
 Ref\+: \href{http://www.cplusplus.com/reference/cstdio/fseek/}{\tt http\+://www.\+cplusplus.\+com/reference/cstdio/fseek/}
 
@@ -6,5 +10,5 @@ Ref\+: \href{http://www.cplusplus.com/reference/cstdio/fseek/}{\tt http\+://www.
 \begin{DoxyItemize}
 \item S\+E\+E\+K\+\_\+\+S\+E\+T Beginning of file
 \item S\+E\+E\+K\+\_\+\+C\+U\+R Current position of the file pointer
-\item S\+E\+E\+K\+\_\+\+E\+N\+D End of file $\ast$ 
+\item S\+E\+E\+K\+\_\+\+E\+N\+D End of file 
 \end{DoxyItemize}

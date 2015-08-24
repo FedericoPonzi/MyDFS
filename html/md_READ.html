@@ -80,12 +80,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="title">READ </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>#Alcuni appunti sulla READ </p><h3>fseek</h3>
+<div class="textblock"><p>#Alcuni appunti sulla READ </p><h2>Funzionamento</h2>
+<p>Quando viene richiesta una mydfs_open, viene eseguita una funzione che controlla quanto manca dalla posizione in cui ho richiesto la read fino alla fine del file. Se questa dimensione è inferiore ad un treshold, viene mandata una richiesta di read al server a partire dalla posizione n (dove n è l'ultimo byte contenuto nel file cachato). Il nuovo pezzo di file viene letto e scritto nel file della cache. In ogni caso, viene eseguita una lettura dal file cachato a partire dalla posizione specificata dal parametro pos (vedi più avanti fseek).</p>
+<h3>fseek</h3>
 <p>Ref: <a href="http://www.cplusplus.com/reference/cstdio/fseek/">http://www.cplusplus.com/reference/cstdio/fseek/</a></p>
 <ul>
 <li>SEEK_SET Beginning of file</li>
 <li>SEEK_CUR Current position of the file pointer</li>
-<li>SEEK_END End of file * </li>
+<li>SEEK_END End of file </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->

@@ -1,14 +1,15 @@
 #include <stdio.h>
-#include "inc/Utils.h"
-#include "inc/Config.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include "inc/Utils.h"
+#include "inc/Config.h"
 
 /**
  * Stampa un messaggio di log sullo STDOUT
  * se LOG vale 0
  */
+
 void logM (char* messaggio, ...)	
 {
 	va_list args;
@@ -42,3 +43,5 @@ int isModoApertura(int modo_client, int modo)
 	}
 	return 0;
 }
+
+

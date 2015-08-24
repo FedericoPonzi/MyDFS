@@ -72,8 +72,13 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	return *err != 0 ? NULL : toRet;
 }
 
+/**
+ * Crea la connessione di comunicazione client-server
+ */
 void createTransferSocket(MyDFSId* toRet, int *err)
 {
+	char buffer[30];
+	int nRecv = 0;
     struct sockaddr_in serv_addr;
 		
 	memset(&serv_addr, '0', sizeof(serv_addr));
@@ -101,7 +106,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
        return;
     }
     
-    //Connessione effettuata, invio la richiesta
+    //Connessione effettuata, invio la richiesta di apertura del file
 
     char openCommand [strlen(OPENCOMMAND)+strlen(toRet->filename)+5];
 
@@ -114,9 +119,10 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 		*err = -2;
 		return;
 	}
-	char buffer[30];
-	int nRecv = 0;
 	
+	/*
+	 * Controllo per vedere se non ci sono errori nell' apertura
+	 */
 	if ((nRecv = recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{
 		perror("recv");
@@ -126,15 +132,22 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 	if(strncmp(buffer, "-1", 2) == 0)
 	{
 		*err = -1;
+		return;
 	}
 	else if(strncmp(buffer , "-3", 2) == 0)
 	{
 		*err = -3;
+		return;
 	}
+	buffer[nRecv]='\0';
+	
+	toRet->filesize = strtol(buffer, NULL, 10);
+	
+	
 }
 
 /**
- * @brief Crea la socket di trasporto dati
+ * @brief Crea la socket di controllo 
  *
  * Setta propriamente err se qualcosa va storto, o modifica il campo toRet->transferSockId se tutto va bene.
  */
@@ -193,7 +206,7 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	}
 
 	toRet->transferSockId = newsockfd;
-	logM("[OPEN] Aperta connessione di trasferimento.\n");
+	logM("[OPEN] Aperta connessione di controllo.\n");
 
 	if ((recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{

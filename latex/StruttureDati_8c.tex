@@ -70,7 +70,7 @@ Federico Ponzi
 11.\+07.\+2015 
 \end{DoxyDate}
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000008}{Da fare}]Una struttura dati che contenga una lista di sockets 
+\item[\hyperlink{todo__todo000009}{Da fare}]Una struttura dati che contenga una lista di sockets 
 
 Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti. N\+O\+T\+A\+: Ricordarsi di eseguire una free() dei Opened\+File-\/$>$file\+Name perchè viene allocata con una malloc in \hyperlink{OPE_8c}{O\+P\+E.\+c}\end{DoxyRefDesc}
 
@@ -92,7 +92,7 @@ Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti \hype
 
 Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all' elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. 
 
-Referenzia check\+Modo\+Open(), file\+Already\+Opened\+In\+Write(), Opened\+File\+::file\+Name, Opened\+File\+::fp, free\+\_\+head, getptid(), log\+M(), Opened\+File\+::modo, mutex, Opened\+File\+::next, opened\+File\+Linked\+List, Opened\+File\+::ptid, e root\+Path.
+Referenzia check\+Modo\+Open(), file\+Already\+Opened\+In\+Write(), Opened\+File\+::file\+Name, Opened\+File\+::fp, free\+\_\+head, getptid(), is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, mutex, M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, M\+Y\+O\+\_\+\+T\+R\+U\+N\+C, Opened\+File\+::next, opened\+File\+Linked\+List, Opened\+File\+::ptid, e root\+Path.
 
 
 
@@ -197,7 +197,7 @@ Referenzia getptid(), Opened\+File\+::next, opened\+File\+Linked\+List, e Opened
 
 
 
-Referenziato da create\+Control\+Sock(), e handle\+R\+E\+A\+D\+Command().
+Referenziato da create\+Control\+Sock(), handle\+Open\+Command(), e handle\+R\+E\+A\+D\+Command().
 
 \hypertarget{StruttureDati_8c_ab227c35b76ef6706729ad091f99e7263}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+Transfer\+Socket@{get\+Transfer\+Socket}}
 \index{get\+Transfer\+Socket@{get\+Transfer\+Socket}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
@@ -232,7 +232,7 @@ Referenzia F\+A\+L\+S\+E, e T\+R\+U\+E.
 
 
 
-Referenziato da check\+Modo\+Open(), file\+Already\+Opened\+In\+Write(), handle\+Open\+Command(), e mydfs\+\_\+open().
+Referenziato da append\+Opened\+File(), check\+Modo\+Open(), file\+Already\+Opened\+In\+Write(), handle\+Open\+Command(), e mydfs\+\_\+open().
 
 
 

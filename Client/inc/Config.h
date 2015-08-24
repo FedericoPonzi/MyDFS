@@ -12,6 +12,19 @@
  */
 #define PING_TIME 5
 
+typedef struct WriteOp
+{
+	int pos;
+	int size;
+	struct WriteOp* next;
+} WriteOp;
+typedef struct ReadOp
+{
+	int pos;
+	int size;
+	struct ReadOp* next;
+} ReadOp;
+
 typedef struct MyDFSId {  
 	char* indirizzo;
 	char* filename;
@@ -20,15 +33,15 @@ typedef struct MyDFSId {
 	int pos;
 	int socketId;
 	int transferSockId;
-	WriteOp writeList;
+	WriteOp* writeList;
+	ReadOp* readList;
 	FILE* fp;
 } MyDFSId;
 
-typedef struct WriteOp
-{
+typedef struct CacheRequest {
 	int pos;
 	int size;
-	struct WriteOp* next;
-} WriteOp;
+}CacheRequest;
+
     
 #endif

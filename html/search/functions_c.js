@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sendreadcommand',['sendReadCommand',['../Client_2READ_8c.html#aefa99785546e3d4a800c689b8778d6cf',1,'READ.c']]],
+  ['sendreadcommand',['sendReadCommand',['../Client_2READ_8c.html#a34f4cc3ee1ace86747c737cad2d801e7',1,'READ.c']]],
   ['spawnheartbeat',['spawnHeartBeat',['../Client_2Heartbeating_8c.html#af362ff05e1ca5b06b77aa25e7999c6ee',1,'spawnHeartBeat(int sd):&#160;Heartbeating.c'],['../Client_2inc_2Heartbeating_8h.html#af362ff05e1ca5b06b77aa25e7999c6ee',1,'spawnHeartBeat(int sd):&#160;Heartbeating.c'],['../Server_2Heartbeating_8c.html#af362ff05e1ca5b06b77aa25e7999c6ee',1,'spawnHeartBeat(int sd):&#160;Heartbeating.c'],['../Server_2inc_2Heartbeating_8h.html#af362ff05e1ca5b06b77aa25e7999c6ee',1,'spawnHeartBeat(int sd):&#160;Heartbeating.c'],['../server_8c.html#af9111700e7416f44aec9f208e66f0d7e',1,'spawnHeartBeat(int temp_sd):&#160;Heartbeating.c']]],
   ['spawnprocess',['spawnProcess',['../server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab',1,'server.c']]],
   ['spawnthread',['spawnThread',['../server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8',1,'server.c']]],

@@ -64,29 +64,37 @@ int getModo(char* command);
 void handleOpenCommand(char* command, int socket)
 {
 	stripCommand(command);
-
-	char* ret_val;
+	char answer[3] = "ok";
+	char ret_val[30];
 	int err_code;
 	
 	char* nomeFile = getFileNameFromCommand(command);	 /** @todo : Da vedere bene per memory leaks!!!!*/
 
-	logM("Nome del file: '%s'\n", nomeFile);
+	logM("[OPEN] Nome del file: '%s'\n", nomeFile);
 	int modo = getModo(command);
-	logM("Modo di apertura: '%d'\n", modo);
+	logM("[OPEN] Modo di apertura: '%d'\n", modo);
 	
 	if((err_code = appendOpenedFile(nomeFile, modo)) != 0)
 	{
 		logM("[appendOpenedFile] - Non posso farlo john\n");
-		ret_val = ((err_code == -3) ? "-3\n" : "-1\n");
+		sprintf(ret_val, "%s", ((err_code == -3) ? "-3\n" : "-1\n"));
 	}
 	else
 	{
-		ret_val = "ok";
+		//Mando la dimensione del file
+		OpenedFile* id = getOpenedFile();
+		fseek(id->fp,0,SEEK_END);
+		int fileSize = ftell(id->fp);
+		logM("[OPEN] File Size: '%d'\n", fileSize);
+		fseek(id->fp,0, SEEK_SET);
+		sprintf(ret_val, "%d", fileSize);
+		printf("Answer: %s\n", ret_val);
+		//ret_val = "ok";
 	}
 
 	send(socket, ret_val, strlen(ret_val), 0);
 
-	if(strncmp(ret_val, "ok", 2) != 0) //Se c'e' un errore, esco
+	if(err_code != 0) //Se c'e' un errore, esco
 	{
 		logM("Errore nell' apertura del file, byebye\n");
 		close(socket);
@@ -97,7 +105,7 @@ void handleOpenCommand(char* command, int socket)
 	int nRecv;
 	char prt_msg[PRT_MSG_SIZE+1];
 	int port_num;
-	char answer[3] = "ok";
+	
 	if((nRecv = recv(socket, prt_msg, sizeof(prt_msg), 0)) < 0)
 	{
 		//errore
@@ -115,7 +123,6 @@ void handleOpenCommand(char* command, int socket)
 		//errore
 		logM("[handleOpenCommand] - errore formato port no");
 		strcpy(answer, "-2");
-
 	}
 	logM("Il client ha richiesto la connessione sulla port: %d\n", port_num);
 	
@@ -133,8 +140,9 @@ void handleOpenCommand(char* command, int socket)
 
 			spawnHeartBeat(controlSocket);
 		}
-	}	
-	send(socket, answer, sizeof(answer), 0);
+	}
+	send(socket, answer, strlen(answer), 0);
+	
 }
 
 /**
@@ -205,7 +213,7 @@ char* getFileNameFromCommand(char* command)
 	}
 	memcpy(nomeFile, command, lunghezza);
 	nomeFile[i] = '\0';
-	logM("nomeFile = %s\n", nomeFile);
+	logM("nomeFile = '%s'\n", nomeFile);
 	return nomeFile;
 }
 

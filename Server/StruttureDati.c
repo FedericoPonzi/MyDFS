@@ -98,7 +98,17 @@ int appendOpenedFile(char* nomeFile, int modo)
 	n->ptid = getptid();
 	n->modo = modo;
 	n->next = *openedFileLinkedList;
-	n->fp = fopen(filePath, "r+b");
+	
+	//Il controllo per vedere se il file esiste e tornare errore in caso, lo faccio prima
+	if(isModoApertura(modo, MYO_CREAT) && isModoApertura(modo, MYO_TRUNC))
+	{
+		n->fp = fopen(filePath, "w+b");
+	}
+	else
+	{
+		n->fp = fopen(filePath, "r+b");
+	}
+
 	*openedFileLinkedList = n;
 
 	pthread_mutex_unlock(mutex);
@@ -122,6 +132,7 @@ int checkModoOpen(char *nomeFile, int modo)
 	{
 		if(!isModoApertura(modo, MYO_CREAT))
 		{
+			logM("File inesistente");
 			return -3;
 		}
 	}
@@ -136,13 +147,11 @@ int checkModoOpen(char *nomeFile, int modo)
 	{
 		if(strcmp(iterator->fileName, nomeFile) == 0)
 		{
-			logM("3");
 			if(
 			isModoApertura(iterator->modo, MYO_WRONLY) || 
 			isModoApertura(iterator->modo, MYO_RDWR) || 
 			isModoApertura(iterator->modo, MYO_EXLOCK))
 			{
-				logM("4");
 				return -3;
 			}
 		}

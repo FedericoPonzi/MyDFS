@@ -1,11 +1,11 @@
 ##My Distribuited File System
 ### Systems Programming exam 2014/2015
 
-Tutta la documentazione si riferisce al lato server (per ora, ovviamente).
 ###Altri appunti:
 * Sulla [open](OPE.md)
 * Sulla [read](READ.md)
 * Sulla [write](WRITE.md)
+* Sulla [cache](Cache.md)
 
 ###TODOS:
 * Aggiungere heartbeating anche quando un client richiede una lock.

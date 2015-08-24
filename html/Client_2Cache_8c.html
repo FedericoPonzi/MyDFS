@@ -95,12 +95,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;limits.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="Client_2inc_2Config_8h_source.html">inc/Config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Cache_8h_source.html">inc/Cache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Client_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
 <tr class="memitem:a3bc523df2fea20d9f4d25f2596a66a71"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2Cache_8c.html#a3bc523df2fea20d9f4d25f2596a66a71">createTempFile</a> (char *basename)</td></tr>
 <tr class="separator:a3bc523df2fea20d9f4d25f2596a66a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a403785c0f2573dd16d81eff4ab26c20d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2Cache_8c.html#a403785c0f2573dd16d81eff4ab26c20d">readRequest</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, int size, <a class="el" href="structCacheRequest.html">CacheRequest</a> *req)</td></tr>
+<tr class="memdesc:a403785c0f2573dd16d81eff4ab26c20d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usato per dire se il dato che voglio leggere si trova in cache oppure no.  <a href="#a403785c0f2573dd16d81eff4ab26c20d">Continua...</a><br /></td></tr>
+<tr class="separator:a403785c0f2573dd16d81eff4ab26c20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a686e517ab500f68c40c03bfbc3e2e2fd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2Cache_8c.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, void *buffer, int size, int pos)</td></tr>
+<tr class="memdesc:a686e517ab500f68c40c03bfbc3e2e2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione che scrive nel file di cache il contenuto di una read, senza sovrascrivere le parti scritte da write locali.  <a href="#a686e517ab500f68c40c03bfbc3e2e2fd">Continua...</a><br /></td></tr>
+<tr class="separator:a686e517ab500f68c40c03bfbc3e2e2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
 <a class="anchor" id="a3bc523df2fea20d9f4d25f2596a66a71"></a>
@@ -118,6 +128,103 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Referenziato da <a class="el" href="Prove_2Cache_2Cache_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a>, e <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a403785c0f2573dd16d81eff4ab26c20d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int readRequest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMyDFSId.html">MyDFSId</a> *&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structCacheRequest.html">CacheRequest</a> *&#160;</td>
+          <td class="paramname"><em>req</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Usato per dire se il dato che voglio leggere si trova in cache oppure no. </p>
+<dl class="section return"><dt>Restituisce</dt><dd>n MISS: In caso di MISS, dentro a req verranno messi posizione e size del dato da scaricare. </dd>
+<dd>
+0 HIT: per interrompere il while, torna false.</dd></dl>
+<p>Nota: La miss si riferisce ad un "buco", quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano altri miss. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Da fare:</a></b></dt><dd>da terminare </dd></dl>
+
+<p>Referenzia <a class="el" href="structWriteOp.html#ab10157ced397c43b41d1e77a6372a43c">WriteOp::next</a>, <a class="el" href="structReadOp.html#ac84186a2d784cb2fbd0c71dd7d5df78d">ReadOp::next</a>, <a class="el" href="structWriteOp.html#a0cd1c3d781c93b6feaaa5d01606fdc3d">WriteOp::pos</a>, <a class="el" href="structReadOp.html#a2615c975be53dbd950cb51959009257a">ReadOp::pos</a>, <a class="el" href="structCacheRequest.html#a9b1e1f0498ee02f22da75fe915334873">CacheRequest::pos</a>, <a class="el" href="Client_2Cache_8c.html#a403785c0f2573dd16d81eff4ab26c20d">readRequest()</a>, <a class="el" href="structWriteOp.html#af804d8a1e3d428ee7275b5e4f467d23a">WriteOp::size</a>, <a class="el" href="structReadOp.html#a4ed8bd364b1b3378cc6f4faf750da527">ReadOp::size</a>, e <a class="el" href="structCacheRequest.html#abc81e438c50064f3dde1835d6146bb1c">CacheRequest::size</a>.</p>
+
+<p>Referenziato da <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>, e <a class="el" href="Cache_8h.html#a403785c0f2573dd16d81eff4ab26c20d">readRequest()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a686e517ab500f68c40c03bfbc3e2e2fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int writeCache </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMyDFSId.html">MyDFSId</a> *&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funzione che scrive nel file di cache il contenuto di una read, senza sovrascrivere le parti scritte da write locali. </p>
+<p>Eseguo un ciclo che vede se il punto in cui:</p><ol type="1">
+<li>Controllo se il punto in cui voglio scrivere e' contenuto in una operazione di write. In quel caso, richiamo questa funzione spostando avanti il puntatore del buffer</li>
+<li>Il punto in cui voglio scrivere non e' incluso in nessuna write. In questo caso, vedo se c'e' una write inclusa nello spazio del buffer della read che voglio scrivere. Se e' cosi', scrivo quanto posso, e se posso scrivere altro dopo la sezione di write, richiamo questa funzione ricorsivamente aggiornado gli indici. <dl class="section return"><dt>Restituisce</dt><dd>1 se tutto e' ok, 0 se qualcosa e' andata storta </dd></dl>
+</li>
+</ol>
+
+<p>Referenzia <a class="el" href="structMyDFSId.html#ae2badd91d3b506420a9e49554df8212d">MyDFSId::fp</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structWriteOp.html#ab10157ced397c43b41d1e77a6372a43c">WriteOp::next</a>, <a class="el" href="structWriteOp.html#a0cd1c3d781c93b6feaaa5d01606fdc3d">WriteOp::pos</a>, <a class="el" href="structWriteOp.html#af804d8a1e3d428ee7275b5e4f467d23a">WriteOp::size</a>, e <a class="el" href="Client_2Cache_8c.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache()</a>.</p>
+
+<p>Referenziato da <a class="el" href="Client_2READ_8c.html#a0b8dfa171c3b5c784fb6cba643728110">readFrom()</a>, e <a class="el" href="Cache_8h.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache()</a>.</p>
 
 </div>
 </div>

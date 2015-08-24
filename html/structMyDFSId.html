@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="Client_2Config_8h_source.html">Config.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="Client_2inc_2Config_8h_source.html">Config.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Campi</h2></td></tr>
@@ -98,6 +98,8 @@ Campi</h2></td></tr>
 <tr class="separator:ac8c10a1a5b18776bf5e5585ee9e26331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0e1b8c96d859982c1a7d49f9e929e48"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMyDFSId.html#ac0e1b8c96d859982c1a7d49f9e929e48">filename</a></td></tr>
 <tr class="separator:ac0e1b8c96d859982c1a7d49f9e929e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b7cf19c5ac22e03ae8abf7e688fee2a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMyDFSId.html#a2b7cf19c5ac22e03ae8abf7e688fee2a">filesize</a></td></tr>
+<tr class="separator:a2b7cf19c5ac22e03ae8abf7e688fee2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98bc5ce1a7734459d8b81c997da4e9f0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMyDFSId.html#a98bc5ce1a7734459d8b81c997da4e9f0">modo</a></td></tr>
 <tr class="separator:a98bc5ce1a7734459d8b81c997da4e9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaeac229fb85c313f91a76f00be916832"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMyDFSId.html#aaeac229fb85c313f91a76f00be916832">pos</a></td></tr>
@@ -106,6 +108,10 @@ Campi</h2></td></tr>
 <tr class="separator:a382a74f109962751085cea7aac2892cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b62a6d0f52a871bda4bf9cd56c57ff7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMyDFSId.html#a3b62a6d0f52a871bda4bf9cd56c57ff7">transferSockId</a></td></tr>
 <tr class="separator:a3b62a6d0f52a871bda4bf9cd56c57ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f7d2a9c60ddc649ee7e65b8b9295432"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structWriteOp.html">WriteOp</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMyDFSId.html#a0f7d2a9c60ddc649ee7e65b8b9295432">writeList</a></td></tr>
+<tr class="separator:a0f7d2a9c60ddc649ee7e65b8b9295432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a4360512d45c22b6d8e980967c7dd32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structReadOp.html">ReadOp</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMyDFSId.html#a8a4360512d45c22b6d8e980967c7dd32">readList</a></td></tr>
+<tr class="separator:a8a4360512d45c22b6d8e980967c7dd32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2badd91d3b506420a9e49554df8212d"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMyDFSId.html#ae2badd91d3b506420a9e49554df8212d">fp</a></td></tr>
 <tr class="separator:ae2badd91d3b506420a9e49554df8212d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -124,6 +130,20 @@ Campi</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a2b7cf19c5ac22e03ae8abf7e688fee2a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MyDFSId::filesize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenziato da <a class="el" href="WRITE_8c.html#afb191dc8eca40eb5302e0ca4f57de4d6">mydfs_write()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ae2badd91d3b506420a9e49554df8212d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -134,7 +154,7 @@ Campi</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>, e <a class="el" href="Client_2READ_8c.html#a88c7f6cba19038c7f49d8ac1ad5a2853">readFrom()</a>.</p>
+<p>Referenziato da <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>, <a class="el" href="WRITE_8c.html#afb191dc8eca40eb5302e0ca4f57de4d6">mydfs_write()</a>, e <a class="el" href="Cache_8h.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache()</a>.</p>
 
 </div>
 </div>
@@ -178,6 +198,18 @@ Campi</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a8a4360512d45c22b6d8e980967c7dd32"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structReadOp.html">ReadOp</a>* MyDFSId::readList</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a382a74f109962751085cea7aac2892cc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -188,7 +220,7 @@ Campi</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="Client_2inc_2CLOSE_8h.html#ad666db41278616946fce866250a175af">mydfs_close()</a>, <a class="el" href="Client_2READ_8c.html#a88c7f6cba19038c7f49d8ac1ad5a2853">readFrom()</a>, e <a class="el" href="Client_2READ_8c.html#aefa99785546e3d4a800c689b8778d6cf">sendReadCommand()</a>.</p>
+<p>Referenziato da <a class="el" href="Client_2inc_2CLOSE_8h.html#ad666db41278616946fce866250a175af">mydfs_close()</a>, <a class="el" href="Client_2READ_8c.html#a0b8dfa171c3b5c784fb6cba643728110">readFrom()</a>, e <a class="el" href="Client_2READ_8c.html#a34f4cc3ee1ace86747c737cad2d801e7">sendReadCommand()</a>.</p>
 
 </div>
 </div>
@@ -206,8 +238,20 @@ Campi</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0f7d2a9c60ddc649ee7e65b8b9295432"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structWriteOp.html">WriteOp</a>* MyDFSId::writeList</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>La documentazione per questa struct è stata generata a partire dal seguente file:<ul>
-<li>Client/<a class="el" href="Client_2Config_8h_source.html">Config.h</a></li>
+<li>Client/inc/<a class="el" href="Client_2inc_2Config_8h_source.html">Config.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writeop',['WriteOp',['../structWriteOp.html',1,'']]]
+  ['readop',['ReadOp',['../structReadOp.html',1,'']]]
 ];

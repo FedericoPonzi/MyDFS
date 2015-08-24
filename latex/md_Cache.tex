@@ -1,0 +1,18 @@
+Il modulo di caching è formato principalmente da due funzioni\+:
+
+\subsubsection*{1. File di cache}
+
+Una funzione che crea un file di caching temporaneo con nome .nomefile, che viene cancellato una volta chiuso l' ultimo file descriptor associato al file.
+
+\subsubsection*{2. Hit Or Miss}
+
+Una funzione che risponde, prima di una lettura, se il dato che si vuole leggere è presente in cache o meno.
+
+int \hyperlink{Cache_8h_a403785c0f2573dd16d81eff4ab26c20d}{read\+Request(\+My\+D\+F\+S\+Id$\ast$ id, int pos, int size, Cache\+Request$\ast$ req)}
+
+Nel caso in cui il dato che il client vuole leggere non è presente in cache, la funzione ritorna come valore 0 (F\+A\+L\+S\+E) e inserisce all' interno della struttura dato req\+: \begin{DoxyVerb}typedef struct CacheRequest {
+    int pos;
+    int size;
+}CacheRequest;
+\end{DoxyVerb}
+ La posizione, e la dimensione del primo buco dello spazio che l' utente vuole leggere. Quando questa funzione ritorna true, vuol dire che ho un hit completo e quindi posso procedere con la lettura. Lo storico delle operazioni di scrittura e lettura viene mantenuto nelle rispettive liste linkate all' interno di \hyperlink{structMyDFSId}{My\+D\+F\+S\+Id}. 

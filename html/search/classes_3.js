@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openedfile',['OpenedFile',['../structOpenedFile.html',1,'']]]
+  ['nodo',['Nodo',['../structNodo.html',1,'']]]
 ];

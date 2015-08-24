@@ -81,25 +81,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000006"></a>Globale <a class="el" href="OPE_8c.html#af1f79690eec0a7727a519ba59a891762">createControlSock</a>  (int portNo, int socketId)</dt>
+<dt><a class="anchor" id="_todo000007"></a>Globale <a class="el" href="OPE_8c.html#af1f79690eec0a7727a519ba59a891762">createControlSock</a>  (int portNo, int socketId)</dt>
 <dd>correggere utilizzo vecchio socketDes  </dd>
-<dt><a class="anchor" id="_todo000002"></a>Globale <a class="el" href="CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e">getCommandID</a>  (char *)</dt>
+<dt><a class="anchor" id="_todo000003"></a>Globale <a class="el" href="CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e">getCommandID</a>  (char *)</dt>
 <dd>mergare questa funzione con quella sotto.  </dd>
-<dt><a class="anchor" id="_todo000002"></a>Globale <a class="el" href="CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e">getCommandID</a>  (char *)</dt>
+<dt><a class="anchor" id="_todo000003"></a>Globale <a class="el" href="CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e">getCommandID</a>  (char *)</dt>
 <dd>mergare questa funzione con quella sotto.  </dd>
-<dt><a class="anchor" id="_todo000005"></a>Globale <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a>  (char *command, int socket)</dt>
+<dt><a class="anchor" id="_todo000006"></a>Globale <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a>  (char *command, int socket)</dt>
 <dd>: Da vedere bene per memory leaks!!!!  </dd>
-<dt><a class="anchor" id="_todo000001"></a>Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
-<dd>Per ora usa direttamente il buffer puntato da ptr per scrivere il risultato della read. In un futuro dovrà scrivere/leggere dalla cache. </dd>
-<dt><a class="anchor" id="_todo000001"></a>Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
-<dd>Per ora usa direttamente il buffer puntato da ptr per scrivere il risultato della read. In un futuro dovrà scrivere/leggere dalla cache. </dd>
-<dt><a class="anchor" id="_todo000004"></a>File <a class="el" href="OPE_8c.html">OPE.c</a>  </dt>
+<dt><a class="anchor" id="_todo000002"></a>Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
+<dd>quando ricevo i 65000 bytes di dati, devo stare attento a non sovrascrivere nel file dei dati che ho scritto (e che quindi non dovrei sovrascrivere con una read).  </dd>
+<dt><a class="anchor" id="_todo000002"></a>Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
+<dd>quando ricevo i 65000 bytes di dati, devo stare attento a non sovrascrivere nel file dei dati che ho scritto (e che quindi non dovrei sovrascrivere con una read).  </dd>
+<dt><a class="anchor" id="_todo000005"></a>File <a class="el" href="OPE_8c.html">OPE.c</a>  </dt>
 <dd><p class="startdd">dovrebbe mandare una risposta al client in caso di successo o errore </p>
 <p class="enddd">permettere l' apertura se il modo con cui e' aperto il file e' lettura e viene richiesta la lettura.  </p>
 </dd>
-<dt><a class="anchor" id="_todo000007"></a>Globale <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread</a>  ()</dt>
+<dt><a class="anchor" id="_todo000001"></a>Globale <a class="el" href="Cache_8h.html#a403785c0f2573dd16d81eff4ab26c20d">readRequest</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, int size, <a class="el" href="structCacheRequest.html">CacheRequest</a> *req)</dt>
+<dd>da terminare  </dd>
+<dt><a class="anchor" id="_todo000008"></a>Globale <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread</a>  ()</dt>
 <dd>dovrebbe passargli dei parametri.  </dd>
-<dt><a class="anchor" id="_todo000008"></a>File <a class="el" href="StruttureDati_8c.html">StruttureDati.c</a>  </dt>
+<dt><a class="anchor" id="_todo000009"></a>File <a class="el" href="StruttureDati_8c.html">StruttureDati.c</a>  </dt>
 <dd><p class="startdd">Una struttura dati che contenga una lista di sockets </p>
 <p class="enddd">Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti. NOTA: Ricordarsi di eseguire una free() dei OpenedFile-&gt;fileName perchè viene allocata con una malloc in <a class="el" href="OPE_8c.html" title="Gestisce il comando OPE(N) ">OPE.c</a></p>
 </dd>

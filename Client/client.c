@@ -81,13 +81,23 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 	char bufferPiccolo[50];
-	while((n = mydfs_read(fileId, MYSEEK_SET, bufferPiccolo, sizeof(bufferPiccolo)-1))>= 0)
+	FILE * prova = fopen("/tmp/fileprova.txt", "w+");
+	
+	while((n = mydfs_read(fileId, MYSEEK_CUR, bufferPiccolo, sizeof(bufferPiccolo)-1))> 0)
 	{
 		//Visto che e' una stringa, devo aggiungere un fine linea.
 		bufferPiccolo[n]= '\0';
 	
 		printf("Letti %d dati, Buffer contiene: '%s'\n", n, bufferPiccolo);
+		fwrite(bufferPiccolo, 1, n, prova);
+		//break;
 	}
+	if(n<0)
+	{
+		printf("errore");
+	}
+	fclose(prova);
+	
 	mydfs_close(fileId);
 	
 	
