@@ -60,7 +60,7 @@ int main()
 		{
 			spawnThread();
 		}
-		//sleep(1);
+		sleep(2);
 	}
 	
 	return 0;
@@ -141,14 +141,15 @@ void* handleSocket()
 void spawnThread()
 {
 	pthread_t tid;
-	if(*numberAliveChilds >= numeroCon)
-		return;
-    if (pthread_create(&tid, NULL, &handleSocket, NULL) != 0)
-    {
-        printf("\n[spawnThread] - can't create thread");
-        perror("Cant create thread");
+	while(*numberAliveChilds < numeroCon)
+	{
+		if (pthread_create(&tid, NULL, &handleSocket, NULL) != 0)
+		{
+			printf("\n[spawnThread] - can't create thread");
+			perror("Cant create thread");
+		}
+		(*numberAliveChilds)++;
 	}
-	(*numberAliveChilds)++;
 }
 
 /**
