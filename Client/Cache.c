@@ -14,7 +14,7 @@ FILE* createTempFile(char* basename)
 	sprintf(tempName, ".%s-XXXXXX",basename);
 	//Mi creo il file temporaneo:
     fd = mkstemp(tempName);
-    //unlink(tempName);
+    unlink(tempName);
 	//Appena mi stacco dall' fd, viene cancellato il file temporaneo:
     printf("[Cache] Creato temp file: '%s'\n", tempName);
 	toRet = fdopen(fd, "w+b");
