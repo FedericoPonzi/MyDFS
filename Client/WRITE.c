@@ -10,7 +10,11 @@
 #include "inc/Config.h"
 #include "inc/WRITE.h"
 #include "inc/READ.h"
+#include "inc/OPEN.h"
+#include "inc/Utils.h"
+int addWriteOp(MyDFSId* id, int pos, int size);
 
+int writeTo(FILE* id, void* ptr, int size);
 
 /**
  * -1 in caso di errore;
@@ -19,8 +23,11 @@
  
 int mydfs_write(MyDFSId* id, int pos, void *ptr, unsigned int size)
 {
-	//Sposto il puntatore del file pointer in base a pos.
-	
+	if(!isModoApertura(id->modo, MYO_WRONLY) && !isModoApertura(id->modo, MYO_RDWR))
+	{
+		logM("Non hai aperto in modo di scrittura\n");
+		return -1;
+	}
 	//NEl caso sia end, mi sposto alla fine del file (che conosco da id->filesize)
 	if(pos == MYSEEK_END)
 	{
@@ -38,16 +45,31 @@ int mydfs_write(MyDFSId* id, int pos, void *ptr, unsigned int size)
 	return writeTo(id->fp, ptr, size);	
 }
 
-void addWriteOp(MyDFSId* id, int pos, int size)
+int addWriteOp(MyDFSId* id, int pos, int size)
 {
+	WriteOp* writeOp = malloc(sizeof(WriteOp));
+	writeOp->pos = pos;
+	writeOp->size = size;
+	writeOp->next = NULL;
+	
+	if(writeOp == NULL)
+	{
+		return 1;
+	}		
 	WriteOp* iterator = id->writeList;
-	while(iterator != NULL)
+	while(iterator != NULL && iterator->next != NULL)
 	{
 		iterator = iterator->next;
 	}
-	iterator = (WriteOp*) malloc(sizeof(WriteOp));
-	iterator->pos = pos;
-	iterator->size = size;
+	if(!iterator)
+	{
+		id->writeList = writeOp;
+	}
+	else
+	{
+		iterator->next = writeOp;
+	}
+	return 0;	
 }
 
 int writeTo(FILE* id, void* ptr, int size)

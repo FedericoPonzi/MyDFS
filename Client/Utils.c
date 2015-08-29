@@ -6,7 +6,7 @@
 #include "inc/Config.h"
 
 /**
- * Stampa un messaggio di log sullo STDOUT
+ * @brief Stampa un messaggio di log sullo STDOUT
  * se LOG vale 0
  */
 
@@ -23,7 +23,7 @@ void logM (char* messaggio, ...)
 }
 
 /**
- * Stampa un errore particolare. Non interrompe il programma.
+ * @brief Stampa un errore particolare. Non interrompe il programma.
  * error: L'errore da stampare
  */
 void printErr_s(char* error)
@@ -42,6 +42,21 @@ int isModoApertura(int modo_client, int modo)
 		return 1;
 	}
 	return 0;
+}
+
+/**
+ * @brief Ritorna il numero di cifre del numero in input.
+ */
+int getNumberLenght(int n)
+{
+	int digits = 1;
+
+	while (n >= 10)
+	{
+		n /= 10;
+		digits++;
+	}
+	return digits;
 }
 
 

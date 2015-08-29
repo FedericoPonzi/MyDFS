@@ -14,6 +14,19 @@
  */
 void handleCloseCommand(int socket)
 {	
+	OpenedFile* id = getOpenedFile();
+	if(isModoApertura(id->modo, MYO_RDONLY) || isModoApertura(id->modo, MYO_RDWR))
+	{
+		handleWrites(id);
+	}
+	
 	closeClientSession(getptid());
 	close(socket);	
+}
+
+
+int handleWrites(OpenedFile* id)
+{
+	
+	return 0;
 }

@@ -14,16 +14,16 @@ FILE* createTempFile(char* basename)
 	sprintf(tempName, ".%s-XXXXXX",basename);
 	//Mi creo il file temporaneo:
     fd = mkstemp(tempName);
-	//Appena mi stacco dall' fd, viene cancellato il file temporaneo:
     //unlink(tempName);
-	printf("[Cache] Creato temp file: '%s'\n", tempName);
-	toRet = fdopen(fd, "w+");
+	//Appena mi stacco dall' fd, viene cancellato il file temporaneo:
+    printf("[Cache] Creato temp file: '%s'\n", tempName);
+	toRet = fdopen(fd, "w+b");
 	return toRet;
 }
 
 /**
  * @brief Usato per dire se il dato che voglio leggere si trova in cache oppure no.
- * @return n MISS: In caso di MISS, dentro a req verranno messi posizione e size del dato da scaricare.
+ * @return 1 MISS: In caso di MISS, dentro a req verranno messi posizione e size del dato da scaricare.
  * @return 0 HIT: per interrompere il while, torna false.
  * 
  * Nota: La miss si riferisce ad un "buco", quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano
@@ -32,6 +32,10 @@ FILE* createTempFile(char* basename)
  */
 int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 {
+	if(pos == id->filesize)
+	{
+		return 0;
+	}
 	WriteOp* iteratorw = id->writeList;
 	ReadOp* iteratorr = id->readList;
 	
@@ -107,10 +111,11 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 	
 	//Se arrivo fino a qui, vuol dire che ho trovato l' inizio e la fine del buco.
 	//Devo tenere in consideraione anche la dimensione del file.
-	holeSize= pos+holeSize > id->filesize ? pos+holeSize - id->filesize: holeSize; 
+	holeSize= pos + holeSize > id->filesize ? id->filesize - pos : holeSize; 
+	printf("holeSize: %d\n", holeSize);
 	req->size = holeSize;
 	req->pos = pos;
-	return pos;
+	return 1;
 }
 
 /**
@@ -171,7 +176,7 @@ int writeCache(MyDFSId* id, void* buffer, int size, int pos)
 			if(ferror(id->fp))
 				return 1;
 		}
-		logM("Scritti: %i dati", scritti);
+		logM("[WriteCache] Scritti '%d' dati nella cache.\n", scritti);
 		fseek(id->fp,posAttuale, SEEK_SET);	
 		// Modifico gli indici e richiamo questa funzione ricorsivamente:
 		return writeCache(id, buffer+scritti, size-scritti, pos+scritti);
@@ -182,12 +187,13 @@ int writeCache(MyDFSId* id, void* buffer, int size, int pos)
 		posAttuale = ftell(id->fp);
 		
 		fseek(id->fp, pos, SEEK_SET);
-		
-		if(fwrite(buffer, size, 1, id->fp) == 0)
+		int s;
+		if((s = fwrite(buffer, 1, size, id->fp)) == 0)
 		{
 			if(ferror(id->fp))
 				return 1;
 		}
+		logM("[WriteCache] Scritti '%d' dati nella cache.\n", s);
 		fseek(id->fp,posAttuale, SEEK_SET);
 		return 0;
 	}

@@ -32,7 +32,8 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	//Creo la struttura di ritorno, e le aggiungo dei valori che gia conosco:
 	MyDFSId* toRet;
 	toRet = malloc(sizeof(MyDFSId));
-
+	toRet->readList = NULL;
+	toRet->writeList = NULL;
 	toRet->indirizzo = malloc(strlen(indirizzo)+1);
 	strcpy(toRet->indirizzo, indirizzo);
 	
@@ -140,9 +141,8 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 		return;
 	}
 	buffer[nRecv]='\0';
-	
+
 	toRet->filesize = strtol(buffer, NULL, 10);
-	
 	
 }
 

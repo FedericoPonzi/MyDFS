@@ -1,6 +1,6 @@
 #ifndef CLOSECOMMAND
 #define CLOSECOMMAND
 
-void handleCloseCommand(int socket);
+void handleCloseCommand(char* command, int socket);
 
 #endif

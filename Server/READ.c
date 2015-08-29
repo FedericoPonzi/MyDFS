@@ -101,7 +101,7 @@ void handleREADCommand(char* command, int socket)
 	{
 		logM("[READ] Invio file...\n");
 		char message[20];
-		sprintf(message, "size %d", nread+1);
+		sprintf(message, "size %d", nread);
 		
 		//Mando la dimensione della parte che ho letto
 		write(socket, message, strlen(message)+1);
