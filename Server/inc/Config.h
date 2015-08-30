@@ -26,6 +26,12 @@
 #define MULTIPROC 1
 
 /**
+ * Dimensione dei file durante i trasferimenti
+ */
+#define FILESIZE 65000
+
+
+/**
  * @brief Nome del file di config
  */
 #define CONFIGFILENAME "CONFIG"
@@ -55,6 +61,8 @@ extern int portNumber;
  * root path server
  */
 extern char rootPath[40];
+
+
 
 int loadConfig();
 

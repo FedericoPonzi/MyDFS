@@ -14,7 +14,7 @@
 #include "inc/CommandsHandler.h"
 #include "inc/Error.h"
 #include "inc/StruttureDati.h"
-#define BUFFSIZE 30
+
 
 void spawnThread();
 void spawnProcess();
@@ -89,7 +89,7 @@ void* handleSocket()
 
 	char answer[50];
 	int nRecv;
-	char buff[BUFFSIZE];
+	char buff[100];
 
 	logM("[handleSocket] - Collegamento effettuato.\n");
 	do

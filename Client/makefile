@@ -6,7 +6,7 @@ OBJECTS = Utils.o OPEN.o CLOSE.o READ.o WRITE.o Cache.o Heartbeating.o
 all:prog
 
 prog:libmydfs.a
-	gcc -o Client -g -pthread client.c libmydfs.a
+	gcc -o Client -g -pthread test-write.c libmydfs.a
 
 %.o: %.c
 	$(CC) $(CFLAGS) $< 

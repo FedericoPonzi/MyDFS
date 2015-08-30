@@ -11,6 +11,7 @@
 #include <errno.h>
 
 int getNumberOfChanges(MyDFSId* id);
+int uploadChanges(MyDFSId* id);
 
 /**
  * @param dfsid: L' id del file che l' utente vuole chiudere.
@@ -22,18 +23,19 @@ int mydfs_close(MyDFSId* id)
 {
 		logM("[Close] '%s'\n", id->filename);
 
-		char closeCommand[strlen(CLOSECOMMAND)+getNumberLenght(getNumberOfChanges(id))+2];
+		char closeCommand[100];
 		
 		sprintf(closeCommand, "%s %d\n", CLOSECOMMAND, getNumberOfChanges(id));
 		
-		if(send(id->socketId, closeCommand, strlen(closeCommand), 0) < 0)
+		if(send(id->socketId, closeCommand, sizeof(closeCommand), 0) < 0)
 		{
 			perror("1-send");
 			return -1;
 		}
 		
+		uploadChanges(id);
 		//Cancello tutto quanto:
-		
+
 		close(id->socketId);
 		close(id->transferSockId);
 		free(id->indirizzo);
@@ -73,22 +75,25 @@ int uploadChanges(MyDFSId* id)
 
 	while(iterator != NULL)
 	{		
-		char buffcommand[5+getNumberLenght(iterator->size)+2]; // "SIZE %d", iterator->size;
-		sprintf(buffcommand, "SIZE %d\n", iterator->size);
-		
-		if(send(id->socketId, buffcommand, strlen(buffcommand), 0) < 0)
+		char buffcommand[100]; // "POS %d SIZE %d", iterator->size;
+		memset(buffcommand, 0, 100);
+		sprintf(buffcommand, "POS %d SIZE %d\n", iterator->pos, iterator->size);
+		printf("Sto inviando il comando: %s\n", buffcommand);
+		if(send(id->transferSockId, buffcommand, sizeof(buffcommand), 0) < 0)
 		{
 			perror("1-send");
 			return -1;
 		}
+		logM("Fatta la send! dovrei invaire %d dati in teoria. \n", iterator->size);
 		
+		/** @todo spezzare in piu read.*/
 		void* buffer = malloc(iterator->size);
 		
 		fseek(id->fp, iterator->pos, SEEK_SET);
-		
 		fread(buffer, 1, iterator->size, id->fp);
 		
-		if(send(id->socketId, buffer, sizeof(buffer), 0) <0)
+		logM("Sto inviando %d dati.\n", iterator->size);
+		if(send(id->transferSockId, buffer, iterator->size, 0) <0)
 		{
 			perror("Send error sending write.");
 			return -1;

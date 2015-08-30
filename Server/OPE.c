@@ -85,6 +85,7 @@ void handleOpenCommand(char* command, int socket)
 		OpenedFile* id = getOpenedFile();
 		fseek(id->fp,0,SEEK_END);
 		int fileSize = ftell(id->fp);
+		id->fileSize = filesize;
 		logM("[OPEN] File Size: '%d'\n", fileSize);
 		fseek(id->fp,0, SEEK_SET);
 		sprintf(ret_val, "%d", fileSize);

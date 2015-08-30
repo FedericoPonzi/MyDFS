@@ -61,10 +61,9 @@ void* heartBeat(void *pt_pthreadarg)
 		pthread_mutex_unlock(tempSockMutex);
 		
 		nRecv = recv(temp_sd, pong, sizeof(pong), 0);
-		
 		if((nRecv < 0) || (strncmp("pong", pong, 4) != 0)) //Se la socket viene chiusa ritorna -1. quindi esco.
 		{
-			printf("[heartBeat] - connessione %d chiusa\n", ptid);
+			printf("[heartBeat] - connessione %d chiusa: %s\n", ptid, pong);
 			if(temp_sd > 0)
 			{	
 				closeClientSession(ptid);
@@ -76,4 +75,13 @@ void* heartBeat(void *pt_pthreadarg)
 	}
 	free(pt_pthreadarg);
 	return NULL;
+}
+
+
+void sendInvalidate()
+{
+	
+	
+	
+	
 }

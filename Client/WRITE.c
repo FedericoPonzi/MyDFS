@@ -19,6 +19,8 @@ int writeTo(FILE* id, void* ptr, int size);
 /**
  * -1 in caso di errore;
  * >= 0 ed uguale al numero di byte effettivamente scritti.
+ * 
+ * Pos puo essere MYSEEK_SET,MYSEEK_CUR, MYSEEK_END
  */
  
 int mydfs_write(MyDFSId* id, int pos, void *ptr, unsigned int size)
@@ -37,12 +39,23 @@ int mydfs_write(MyDFSId* id, int pos, void *ptr, unsigned int size)
 	{
 		fseek(id->fp, 0, pos);
 	}
-	
-	//Aggiungo l' operazione di scrittura alla lista di operazione write
-	addWriteOp(id, pos, size);
-	
+	int posizione = ftell(id->fp);
 	//Eseguo la scrittura
-	return writeTo(id->fp, ptr, size);	
+	int n = writeTo(id->fp, ptr, size);	
+	if(n > 0)
+	{
+		//In caso sia avvenuta,	
+		//Aggiungo l' operazione di scrittura alla lista di operazione write
+		addWriteOp(id, posizione, size);
+
+		if(pos == MYSEEK_END)
+		{
+			//aggiorno la dimensione del file.
+			id->filesize = id->filesize+size;
+		}
+	}
+	return n;
+
 }
 
 int addWriteOp(MyDFSId* id, int pos, int size)

@@ -18,6 +18,7 @@ typedef struct OpenedFile
 	char* fileName;
 	int ptid;
 	int modo;
+	int filesize;
 	struct OpenedFile* next;
 	int transferSockId;
 	FILE* fp;

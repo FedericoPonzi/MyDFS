@@ -134,7 +134,7 @@ int main(int argc, char* argv[])
 	
 	n = mydfs_write(fileId, MYSEEK_SET, testo, strlen(testo));
 	
-	assert(n >= 0);
+	assert(n>=0);
 	
 	
 	n = mydfs_read(fileId, MYSEEK_SET, bufferPiccolo, sizeof(bufferPiccolo)-1);	
