@@ -147,6 +147,7 @@ void spawnThread()
 		{
 			printf("\n[spawnThread] - can't create thread");
 			perror("Cant create thread");
+			//return;
 		}
 		(*numberAliveChilds)++;
 	}

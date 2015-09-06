@@ -47,7 +47,7 @@ int mydfs_write(MyDFSId* id, int pos, void *ptr, unsigned int size)
 		//In caso sia avvenuta,	
 		//Aggiungo l' operazione di scrittura alla lista di operazione write
 		addWriteOp(id, posizione, size);
-
+		
 		if(pos == MYSEEK_END)
 		{
 			//aggiorno la dimensione del file.

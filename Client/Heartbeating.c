@@ -1,3 +1,8 @@
+/**
+ * Client heartbeating
+ * 
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
@@ -15,21 +20,30 @@
 #include "inc/Utils.h"
 #define BUFFSIZE 30
 
+int invalidate(MyDFSId* id);
 
-void spawnHeartBeat(int sd)
+/**
+ * spawnHeartBeat
+ * @brief prende in input l' id il MyDFSId e spawna il thread heartbeating
+ */
+void spawnHeartBeat(MyDFSId* id)
 {
 	pthread_t tid;
-	int* controlSd = malloc(sizeof(int));
-	*controlSd = sd;
-	if(pthread_create(&tid, NULL, &heartBeat, controlSd) != 0)
+	if(pthread_create(&tid, NULL, &heartBeat, id) != 0)
 	{
 		perror("Cant create hb_thread");
 	}
 }
 
+/**
+ * @brief Main del nuovo thread creato per l' heartbeating.
+ * 
+ */
 void* heartBeat(void *sd)
 {
-	int controlSd = *((int*)sd);
+	MyDFSId* id = (MyDFSId *) sd;
+	int controlSd = id->socketId;
+	
 	logM("[Spawining HeartBeating] sd: %d \n", controlSd);
 	char ping[5];
 	char pong[5] = "pong";
@@ -37,19 +51,53 @@ void* heartBeat(void *sd)
 	sleep(1);
 	while(1)
 	{
-		nRecv = recv(controlSd, ping, sizeof(ping), 0); //se ci sono errori prova a levare il -1
-		
-		if((nRecv > 0) || (strncmp("ping", ping, 4) == 0))
+		nRecv = recv(controlSd, ping, strlen(ping), 0); 
+		printf("ping: %s,\n", ping);
+		if(nRecv > 0) //Se sono meno di zero la connessione e' chiusa.
 		{
-			send(controlSd, pong, strlen(pong), 0);
-			logM("[Heartbeating] PONG! %d, '%s'\n", strlen(ping), ping);
+			
+			if(strncmp("INVA", ping, 4) == 0)
+			{
+				logM("[Heartbeating] Ricevuto comando di invalidazione!");
+				invalidate(id);
+			}
+			else if(strncmp("ping", ping, 4) == 0)
+			{
+				send(controlSd, pong, strlen(pong), 0);
+				logM("[Heartbeating] PONG! %d, '%s'\n", strlen(ping), ping);
+			}
+			else
+			{
+				ping[nRecv] = '\0';
+				logM("[Heartbeating] Ho ricevuto questo:'%s'",ping);
+			}
 		}
 		else
 		{
-			printf("[heartBeat] Connessione chiusa. %s\n", ping);
+			logM("[heartBeat] Connessione chiusa.\n");
 			return NULL;
 		}
 		memset(ping, 0, sizeof(ping));
 	}			
 	return NULL;
+}
+
+/**
+ * @brief Rimuove la lista di readList a seguito della ricezione di un comando di invalidazione.
+ * 
+ */
+int invalidate(MyDFSId* id)
+{
+	pthread_mutex_lock(id->readListMutex);
+	ReadOp* iteratorr = id-> readList;
+	ReadOp* tempr;
+	while(iteratorr != NULL)
+	{
+		tempr = iteratorr->next;
+		free(iteratorr);
+		iteratorr = tempr;
+	}
+	iteratorr = NULL;
+	pthread_mutex_unlock(id->readListMutex);	
+	return 0;
 }

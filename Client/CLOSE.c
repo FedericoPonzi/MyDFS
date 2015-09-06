@@ -52,6 +52,7 @@ int mydfs_close(MyDFSId* id)
 		}
 		iteratorw = NULL;
 		
+		pthread_mutex_lock(id->readListMutex);
 		ReadOp* iteratorr = id-> readList;
 		ReadOp* tempr;
 		while(iteratorr != NULL)
@@ -61,6 +62,8 @@ int mydfs_close(MyDFSId* id)
 			iteratorr = tempr;
 		}
 		iteratorr = NULL;
+		pthread_mutex_unlock(id->readListMutex);
+		free(id->readListMutex);
 		free(id);
 		
 		return 0;

@@ -1,0 +1,214 @@
+18820 execve("./Server", ["./Server"], [/* 50 vars */]) = 0
+18820 brk(0)                            = 0x1563000
+18820 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+18820 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7feafc54a000
+18820 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+18820 open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+18820 fstat(3, {st_mode=S_IFREG|0644, st_size=123079, ...}) = 0
+18820 mmap(NULL, 123079, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7feafc52b000
+18820 close(3)                          = 0
+18820 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+18820 open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+18820 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0po\0\0\0\0\0\0"..., 832) = 832
+18820 fstat(3, {st_mode=S_IFREG|0755, st_size=141574, ...}) = 0
+18820 mmap(NULL, 2217264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7feafc10c000
+18820 mprotect(0x7feafc125000, 2093056, PROT_NONE) = 0
+18820 mmap(0x7feafc324000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7feafc324000
+18820 mmap(0x7feafc326000, 13616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7feafc326000
+18820 close(3)                          = 0
+18820 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+18820 open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+18820 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\37\2\0\0\0\0\0"..., 832) = 832
+18820 fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
+18820 mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7feafbd47000
+18820 mprotect(0x7feafbf02000, 2093056, PROT_NONE) = 0
+18820 mmap(0x7feafc101000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7feafc101000
+18820 mmap(0x7feafc107000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7feafc107000
+18820 close(3)                          = 0
+18820 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7feafc52a000
+18820 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7feafc528000
+18820 arch_prctl(ARCH_SET_FS, 0x7feafc528740) = 0
+18820 mprotect(0x7feafc101000, 16384, PROT_READ) = 0
+18820 mprotect(0x7feafc324000, 4096, PROT_READ) = 0
+18820 mprotect(0x604000, 4096, PROT_READ) = 0
+18820 mprotect(0x7feafc54c000, 4096, PROT_READ) = 0
+18820 munmap(0x7feafc52b000, 123079)    = 0
+18820 set_tid_address(0x7feafc528a10)   = 18820
+18820 set_robust_list(0x7feafc528a20, 24) = 0
+18820 futex(0x7ffdb221b050, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7feafc528740) = -1 EAGAIN (Resource temporarily unavailable)
+18820 rt_sigaction(SIGRTMIN, {0x7feafc1129f0, [], SA_RESTORER|SA_SIGINFO, 0x7feafc11c340}, NULL, 8) = 0
+18820 rt_sigaction(SIGRT_1, {0x7feafc112a80, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7feafc11c340}, NULL, 8) = 0
+18820 rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+18820 getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+18820 brk(0)                            = 0x1563000
+18820 brk(0x1584000)                    = 0x1584000
+18820 open("CONFIG", O_RDONLY)          = 3
+18820 fstat(3, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
+18820 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7feafc549000
+18820 read(3, "##FILE DI CONFIG\n\n###\n##Numero m"..., 4096) = 295
+18820 fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+18820 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7feafc548000
+18820 write(1, "root_path = /tmp/\n", 18) = 18
+18820 read(3, "", 4096)                 = 0
+18820 write(1, "[Initialize Memory] - Sto per al"..., 51) = 51
+18820 mmap(NULL, 204, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, 0, 0) = 0x7feafc547000
+18820 write(1, "[Config]\n", 9)         = 9
+18820 write(1, "'2' numero di connessioni\n", 26) = 26
+18820 write(1, "'1' Processo o thread\n", 22) = 22
+18820 write(1, "'9001' Porta in ascolto.\n\n", 26) = 26
+18820 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 4
+18820 bind(4, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+18820 listen(4, 10)                     = 0
+18820 write(1, "Server avviato. Attendo connessi"..., 37) = 37
+18820 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7feafc528a10) = 18821
+18820 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+18821 set_robust_list(0x7feafc528a20, 24 <unfinished ...>
+18820 <... rt_sigprocmask resumed> [], 8) = 0
+18821 <... set_robust_list resumed> )   = 0
+18820 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+18820 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+18820 nanosleep({2, 0},  <unfinished ...>
+18821 write(1, "[spawnProcess] - Mio pid: 18821\n", 32) = 32
+18821 accept(4,  <unfinished ...>
+18820 <... nanosleep resumed> 0x7ffdb221aed0) = 0
+18820 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7feafc528a10) = 18828
+18828 set_robust_list(0x7feafc528a20, 24 <unfinished ...>
+18820 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+18828 <... set_robust_list resumed> )   = 0
+18820 <... rt_sigprocmask resumed> [], 8) = 0
+18820 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+18820 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+18828 write(1, "[spawnProcess] - Mio pid: 18828\n", 32 <unfinished ...>
+18820 nanosleep({2, 0},  <unfinished ...>
+18828 <... write resumed> )             = 32
+18828 futex(0x7feafc547640, FUTEX_WAIT, 2, NULL <unfinished ...>
+18821 <... accept resumed> {sa_family=AF_INET, sin_port=htons(41522), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+18821 futex(0x7feafc547640, FUTEX_WAKE, 1) = 1
+18828 <... futex resumed> )             = 0
+18821 write(1, "[handleSocket] - Collegamento ef"..., 42 <unfinished ...>
+18828 accept(4,  <unfinished ...>
+18821 <... write resumed> )             = 42
+18821 recvfrom(5, "OPE file.txt 4\n\0", 99, 0, NULL, NULL) = 16
+18821 write(1, "[handleSocket] - Client:'OPE fil"..., 40) = 40
+18821 write(1, "'\n", 2)                = 2
+18821 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+18821 write(1, "nomeFile = 'file.txt'\n", 22) = 22
+18821 write(1, "[OPEN] Nome del file: 'file.txt'"..., 33) = 33
+18821 write(1, "[OPEN] Modo di apertura: '4'\n", 29) = 29
+18821 write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
+18821 write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 90) = 90
+18821 access("/tmp/file.txt", F_OK)     = 0
+18821 open("/tmp/file.txt", O_RDWR)     = 6
+18821 fstat(6, {st_mode=S_IFREG|0644, st_size=186, ...}) = 0
+18821 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7feafc546000
+18821 fstat(6, {st_mode=S_IFREG|0644, st_size=186, ...}) = 0
+18821 lseek(6, 0, SEEK_SET)             = 0
+18821 read(6, "CIAO MONDO SONO UN FILE DI TEST!"..., 186) = 186
+18821 write(1, "[OPEN] File Size: '186'\n", 24) = 24
+18821 lseek(6, 186, SEEK_SET)           = 186
+18821 write(1, "Answer: 186\n", 12)     = 12
+18821 sendto(5, "186", 3, 0, NULL, 0)   = 3
+18821 recvfrom(5, "port_num 48198", 15, 0, NULL, NULL) = 14
+18821 write(1, "Il client ha richiesto la connes"..., 56) = 56
+18821 getpeername(5, {sa_family=AF_INET, sin_port=htons(41522), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+18821 write(1, "indirizzo = 127.0.0.1\n", 22) = 22
+18821 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+18821 connect(7, {sa_family=AF_INET, sin_port=htons(48198), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+18821 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7feafb546000
+18821 mprotect(0x7feafb546000, 4096, PROT_NONE) = 0
+18821 clone(child_stack=0x7feafbd45fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7feafbd469d0, tls=0x7feafbd46700, child_tidptr=0x7feafbd469d0) = 18836
+18836 set_robust_list(0x7feafbd469e0, 24 <unfinished ...>
+18821 sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
+18836 <... set_robust_list resumed> )   = 0
+18821 <... sendto resumed> )            = 2
+18836 write(1, "[Spawining HeartBeating] \n", 26 <unfinished ...>
+18821 futex(0x7feafc1079e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+18836 <... write resumed> )             = 26
+18836 futex(0x7feafc1079e0, FUTEX_WAKE_PRIVATE, 1) = 1
+18821 <... futex resumed> )             = 0
+18836 write(1, "Tempsd: 7, ptid: 18821\n", 23 <unfinished ...>
+18821 futex(0x7feafc1079e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+18836 <... write resumed> )             = 23
+18836 futex(0x7feafc1079e0, FUTEX_WAKE_PRIVATE, 1) = 1
+18821 <... futex resumed> )             = 0
+18836 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+18821 write(1, "\n\n", 2 <unfinished ...>
+18836 <... rt_sigprocmask resumed> [], 8) = 0
+18821 <... write resumed> )             = 2
+18836 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+18821 futex(0x7feafc1079e0, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+18836 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+18821 <... futex resumed> )             = 0
+18836 <... rt_sigprocmask resumed> NULL, 8) = 0
+18821 recvfrom(5,  <unfinished ...>
+18836 nanosleep({20, 0},  <unfinished ...>
+18821 <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
+18821 write(1, "[handleSocket] - Client:'REA 0'\n", 32) = 32
+18821 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+18821 write(1, "[READ]: Ricevuta richiesta read."..., 49) = 49
+18821 write(1, "pos = 0\n", 8)          = 8
+18821 write(1, "[READ] Provo ad aprire: '/tmp/fi"..., 40) = 40
+18821 write(1, "[READ] File aperto correttamente"..., 35) = 35
+18821 read(6, "", 61440)                = 0
+18821 write(1, "[READ] Bytes letti: 186 \n", 25) = 25
+18821 write(1, "[READ] Contenuto letto: 'CIAO MO"..., 135) = 135
+18821 write(1, "questo e' il secondo test della "..., 78) = 78
+18821 write(1, "[READ] Invio file...\n", 21) = 21
+18821 write(5, "size 186\0", 9)         = 9
+18821 write(1, "Transfer socket: '7'\n", 21) = 21
+18821 write(5, "CIAO MONDO SONO UN FILE DI TEST!"..., 186) = 186
+18821 write(1, "\n\n", 2)               = 2
+18821 recvfrom(5, "CLO 2\n\0\0\26\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\26\0\0\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
+18821 write(1, "[handleSocket] - Client:'CLO 2\n", 31) = 31
+18821 write(1, "'\n", 2)                = 2
+18821 write(1, "[handleCommand] Ricevuta richies"..., 41) = 41
+18821 write(1, "HandleWrites: 2 numero di cambia"..., 40) = 40
+18821 recvfrom(7, "POS 186 SIZE 38\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, NULL) = 100
+18821 write(1, "Messaggio: 100 dati,  'POS 186 S"..., 39) = 39
+18821 write(1, "'\n", 2)                = 2
+18821 lseek(6, 0, SEEK_SET)             = 0
+18821 read(6, "CIAO MONDO SONO UN FILE DI TEST!"..., 186) = 186
+18821 write(1, "Ricevo dati:\n", 13)    = 13
+18821 recvfrom(7, "questo e' il secondo test della "..., 38, 0, NULL, NULL) = 38
+18821 write(1, "Messaggio size: '38', 'questo e'"..., 63) = 63
+18821 write(1, "Scritti 38 dati nel file. \n", 27) = 27
+18821 recvfrom(7, "POS 0 SIZE 22\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, NULL) = 100
+18821 write(1, "Messaggio: 100 dati,  'POS 0 SIZ"..., 37) = 37
+18821 write(1, "'\n", 2)                = 2
+18821 write(6, "questo e' il secondo test della "..., 38) = 38
+18821 lseek(6, 0, SEEK_SET)             = 0
+18821 write(1, "Ricevo dati:\n", 13)    = 13
+18821 recvfrom(7, "Io sono il primo testo", 22, 0, NULL, NULL) = 22
+18821 write(1, "Messaggio size: '22', 'Io sono i"..., 47) = 47
+18821 write(1, "Scritti 22 dati nel file. \n", 27) = 27
+18821 sendto(5, "INVA", 4, 0, NULL, 0)  = 4
+18821 write(1, "[closeClientSession] - individua"..., 79) = 79
+18821 write(1, "[closeClientSession] - Connessio"..., 43) = 43
+18821 close(5)                          = 0
+18821 write(1, "\n\n", 2)               = 2
+18821 --- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0x8} ---
+18836 +++ killed by SIGSEGV +++
+18821 +++ killed by SIGSEGV +++
+18820 <... nanosleep resumed> {1, 189559916}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+18820 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_KILLED, si_pid=18821, si_status=SIGSEGV, si_utime=0, si_stime=0} ---
+18820 restart_syscall(<... resuming interrupted call ...>) = 0
+18820 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7feafc528a10) = 18846
+18820 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+18846 set_robust_list(0x7feafc528a20, 24 <unfinished ...>
+18820 <... rt_sigprocmask resumed> [], 8) = 0
+18820 rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+18846 <... set_robust_list resumed> )   = 0
+18820 <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+18820 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+18820 nanosleep({2, 0},  <unfinished ...>
+18846 write(1, "[spawnProcess] - Mio pid: 18846\n", 32) = 32
+18846 futex(0x7feafc547640, FUTEX_WAIT, 2, NULL <unfinished ...>
+18820 <... nanosleep resumed> {1, 207051590}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+18846 <... futex resumed> )             = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+18820 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL, si_value={int=11, ptr=0xb}} ---
+18846 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL, si_value={int=11, ptr=0xb}} ---
+18828 <... accept resumed> 0x7ffdb221afb0, [16]) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+18828 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL, si_value={int=11, ptr=0xb}} ---
+18820 +++ killed by SIGINT +++
+18846 +++ killed by SIGINT +++
+18828 +++ killed by SIGINT +++

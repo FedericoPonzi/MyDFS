@@ -49,12 +49,12 @@ void* heartBeat(void *pt_pthreadarg)
 	char pong[5];
 	int nRecv;
 
-	setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
+	//setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
 	
 	while(1)
 	{	
 		//wait tot secondi
-		sleep(PING_TIME);
+		sleep(PING_TIME);	
 		logM("[Heartbeating] PING!\n");
 		pthread_mutex_lock(tempSockMutex);
 		send(temp_sd, ping, sizeof(ping), 0);				
@@ -78,10 +78,3 @@ void* heartBeat(void *pt_pthreadarg)
 }
 
 
-void sendInvalidate()
-{
-	
-	
-	
-	
-}

@@ -85,7 +85,7 @@ void handleOpenCommand(char* command, int socket)
 		OpenedFile* id = getOpenedFile();
 		fseek(id->fp,0,SEEK_END);
 		int fileSize = ftell(id->fp);
-		id->fileSize = filesize;
+		id->filesize = fileSize;
 		logM("[OPEN] File Size: '%d'\n", fileSize);
 		fseek(id->fp,0, SEEK_SET);
 		sprintf(ret_val, "%d", fileSize);
@@ -138,7 +138,8 @@ void handleOpenCommand(char* command, int socket)
 	{
 		if(err_code == 0 && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
 		{
-
+			OpenedFile* id = getOpenedFile();
+			id->socketId = socket;
 			spawnHeartBeat(controlSocket);
 		}
 	}

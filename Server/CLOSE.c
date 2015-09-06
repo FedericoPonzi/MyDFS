@@ -15,7 +15,7 @@ int getChunkSize(char*);
 
 int getNumberOfChanges(char* command);
 int handleWrites(int numberOfChanges, OpenedFile* id);
-
+void sendInvalidate(OpenedFile* id);
 /**
  * @brief Gestisce il comando Close.
  * @param int socket socket del client che termina sessione
@@ -23,10 +23,13 @@ int handleWrites(int numberOfChanges, OpenedFile* id);
 void handleCloseCommand(char* command, int socket)
 {	
 	OpenedFile* id = getOpenedFile();
-	
-	handleWrites(getNumberOfChanges(command), id);
-	
+	if(isModoApertura(id->modo, MYO_WRONLY) || isModoApertura(id->modo, MYO_RDWR))
+	{	
+		handleWrites(getNumberOfChanges(command), id);
+		sendInvalidate(id);
+	}
 	closeClientSession(getptid());
+	fclose(id->fp);
 	close(socket);	
 }
 
@@ -49,12 +52,13 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 		else if(n == 0)
 		{
 			logM("Il peer e' andato.");
+			return 0;
 		}
 		printf("Messaggio: %d dati,  '%s'\n", n,  messaggio);
 		//Mi prendo la quantita e la posizione:
 		int size = getChunkSize(messaggio);
-		
 		int pos = getChunkPosition(messaggio);
+		
 		//Preparo il file pointer:
 		FILE* fp = id->fp;
 		fseek(fp, pos, SEEK_SET);
@@ -65,7 +69,7 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 			printf("Ricevo dati:\n");
 			int buffSize = size > FILESIZE ? FILESIZE : size;
 			char* buffer = malloc(buffSize); /**@todo : cambiare a void*/
-			n = recv(id->transferSockId, buffer, size > FILESIZE ? FILESIZE : size, 0);
+			n = recv(id->transferSockId, buffer, buffSize, 0);
 			printf("Messaggio size: '%d', '%s'\n", n, buffer);
 			
 			if(n < 0)
@@ -73,10 +77,10 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 				perror("Recv: ");
 				return -1;
 			}
-			
-			n = fwrite(buffer, 1, n, fp);
-			printf("Scritti %d dati nel file. \n", n);
-			
+			printf("Buffer: %s %d\n", buffer, ftell(fp));
+			int w = fwrite(buffer, 1, n, fp);
+			printf("Scritti %d dati nel file. \n", w);
+			free(buffer);
 			size -= n;
 		}
 		//Aggiorno la dimensione del file:
@@ -124,4 +128,17 @@ int getChunkSize(char* buffer)
 	i+= strlen("SIZE ");
 	toRet = strtol(buffer + i, 0, 10);
 	return toRet;
+}
+
+/** 
+ * @brief Invia il messaggio di invalidazione ai client che hanno il file aperto in lettura.
+ * @todo da finire.
+ */
+void sendInvalidate(OpenedFile* id)
+{
+	char* invalidate = "INVA";
+	pthread_mutex_lock(tempSockMutex);
+	//send(id->socketId, invalidate, strlen(invalidate), 0);
+	pthread_mutex_unlock(tempSockMutex);
+	
 }

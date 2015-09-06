@@ -208,7 +208,14 @@ int isModoApertura(int modo_client, int modo)
 	return FALSE;
 }
 
-
+/**
+ * @brief Rimuove il nodo openedfile associato al ptid.
+ * @todo da fare.
+ */
+OpenedFile* closeOpenedFile(int ptid)
+{
+	
+}
 
 /**
  * @brief rimuove collegamenti tra client e file aperti nella sessione
@@ -218,6 +225,7 @@ void closeClientSession(int ptid)
 {
 	OpenedFile* iterator = *openedFileLinkedList;
 	OpenedFile* preIterator = NULL;
+	
 	while(TRUE)
 	{
 		if(iterator->ptid == ptid)

@@ -1,7 +1,7 @@
 #ifndef HEARTBEATING
 #define HEARTBEATING
-
-void spawnHeartBeat(int sd);
+#include "Config.h"
+void spawnHeartBeat( MyDFSId* id);
 void* heartBeat(void *sd);
 
 extern pthread_mutex_t *hbMutex;

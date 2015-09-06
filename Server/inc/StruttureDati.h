@@ -19,6 +19,7 @@ typedef struct OpenedFile
 	int ptid;
 	int modo;
 	int filesize;
+	int socketId; /** Usata dall' hearbeating */
 	struct OpenedFile* next;
 	int transferSockId;
 	FILE* fp;

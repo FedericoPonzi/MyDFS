@@ -28,7 +28,8 @@ FILE* createTempFile(char* basename)
  * 
  * Nota: La miss si riferisce ad un "buco", quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano
  * altri miss.
- * @todo da terminare 
+ * Nota2: Il lock e' in teoria troppo grande. In pratica pero', se fra la prima operazione di lettura e la seconda ci fosse una invalidazione della cache
+ * qualcosa di orrendo potrebbe accadere.
  */
 int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 {
@@ -58,7 +59,8 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 		}
 		iteratorw = iteratorw->next;
 	}
-	
+
+	pthread_mutex_lock(id->readListMutex);
 	//Cerco fra le operazioni di lettura:
 	while(iteratorr != NULL)
 	{
@@ -68,18 +70,22 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 			//Controllo se e' contenuto totalmente nella write op.
 			if(pos+size < iteratorr->pos+iteratorr->size)
 			{
+				pthread_mutex_unlock(id->readListMutex);
+
 				 //Caso perfetto! total HIT! 
 				 return 0;	
 			}
 			else
 			{
+				pthread_mutex_unlock(id->readListMutex);
+
 				//Richiamo quest funzione spostando pos
 				return readRequest(id, iteratorr->pos+iteratorr->size, size-iteratorr->size, req); //@todo manca un argomento LOL anche la parte dopo
 			}
 		}
 		iteratorr = iteratorr->next;
 	}
-	
+
 	//Arrivato qui' ho dentro a pos la posizione del primo buco.
 	
 	
@@ -97,7 +103,6 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 		}
 		iteratorw = iteratorw->next;
 	}
-	
 	while(iteratorr != NULL)
 	{
 		//L' inizio del blocco contenuto in cache, deve essere compreso all' interno dell' area che sto considerando.
@@ -108,7 +113,8 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 		}
 		iteratorr = iteratorr->next;
 	}
-	
+	pthread_mutex_unlock(id->readListMutex);
+
 	//Se arrivo fino a qui, vuol dire che ho trovato l' inizio e la fine del buco.
 	//Devo tenere in consideraione anche la dimensione del file.
 	holeSize= pos + holeSize > id->filesize ? id->filesize - pos : holeSize; 
@@ -127,10 +133,16 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
  * 2. Il punto in cui voglio scrivere non e' incluso in nessuna write. In questo caso, vedo se c'e' una write inclusa nello spazio
  * 		del buffer della read che voglio scrivere. Se e' cosi', scrivo quanto posso, e se posso scrivere altro dopo la sezione
  * 		di write, richiamo questa funzione ricorsivamente aggiornado gli indici.
+ * 
+ * Utilizzo pos, e vedo se e' contenuto in una write. Se si lo sposto fino alla fine della write, e richiamo questa funzione ricorsivamente.
+ * Raggiunto il caso base, cerco se c'e' una write contenuta fra pos e pos+size. Se e' così mi trovo la fine della write.
+ * Eseguo la scrittura e richiamo questa funzione ricorsivamente
+ * 
  * @return 1 se tutto e' ok, 0 se qualcosa e' andata storta		
  */
 int writeCache(MyDFSId* id, void* buffer, int size, int pos)
 {
+	printf("Devo scrivere: %d dati dalla posizione %d", size, pos);
 	if(size <= 0)
 	{
 		return 0;
@@ -142,9 +154,8 @@ int writeCache(MyDFSId* id, void* buffer, int size, int pos)
 	WriteOp* iterator = id->writeList;
 	while(iterator != NULL)
 	{
-		if(iterator->pos < pos && iterator->pos+iterator->size > pos) //Se il pos e' contenuto in una write,
+		if(iterator->pos <= pos && iterator->pos+iterator->size > pos) //Se il pos e' contenuto in una write,
 		{
-			logM("Pos e' contenuto in una write\n");
 			//Sposto il puntatore avanti e richiamo la funzione.
 			int delta = iterator->pos+iterator->size - pos;
 			return writeCache(id, buffer+delta, size-delta,pos+ delta);
@@ -164,13 +175,13 @@ int writeCache(MyDFSId* id, void* buffer, int size, int pos)
 	// Ora eseguo la write,
 	// Se primaWrite si trova in mezzo alle scatole, scrivo fino a primaWrite e richiamo ricorsivamente questa funzione
 	// Altrimento scrivo tutto il buffer che mi rimane da scrivere
-	//Segmentation fault:
+	
 	if(primaWrite != NULL && primaWrite->pos < pos+size) //Se primaWrite e' settato, si trova a destra di pos.
 	{
 		int posAttuale;
 		posAttuale = ftell(id->fp);
 		fseek(id->fp, pos, SEEK_SET);
-		int scritti = fwrite(buffer, pos-primaWrite->pos, 1, id->fp);
+		int scritti = fwrite(buffer, 1, primaWrite->pos-pos, id->fp);
 		if(scritti == 0)
 		{
 			if(ferror(id->fp))

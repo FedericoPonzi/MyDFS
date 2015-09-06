@@ -145,11 +145,7 @@ int main(int argc, char* argv[])
 	
 	
 	printf("\n[/ FINE TEST READ!]");
-	int sleepTime = 8;
-	printf("\n\n\t[INIZIO TEST HEARTBEATING ]\n Mi aspetto %d ping.\n", 8/2 -1);
-	fileId = mydfs_open(indirizzo, filename, MYO_WRONLY, &error);
-	sleep(8); // 3 ping
-	mydfs_close(fileId);
+
 	
 	
 	return 0;

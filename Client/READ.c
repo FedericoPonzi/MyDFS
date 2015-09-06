@@ -173,6 +173,8 @@ int byteMancanti(FILE* fp)
  */
 int appendReadRequest(MyDFSId* id, int pos, int size)
 {
+	pthread_mutex_lock(id->readListMutex);
+
 	ReadOp* readOp = malloc(sizeof(ReadOp));
 	readOp->pos = pos;
 	readOp->size = size;
@@ -195,5 +197,7 @@ int appendReadRequest(MyDFSId* id, int pos, int size)
 	{
 		iterator->next = readOp;
 	}
+	pthread_mutex_unlock(id->readListMutex);
+
 	return 0;	
 }

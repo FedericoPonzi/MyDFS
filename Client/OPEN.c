@@ -34,9 +34,27 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	toRet = malloc(sizeof(MyDFSId));
 	toRet->readList = NULL;
 	toRet->writeList = NULL;
+	toRet->readListMutex = malloc(sizeof(pthread_mutex_t));
 	toRet->indirizzo = malloc(strlen(indirizzo)+1);
 	strcpy(toRet->indirizzo, indirizzo);
 	
+	
+    pthread_mutexattr_t mutex_attr;
+    if (pthread_mutexattr_init(&mutex_attr) < 0) {
+        perror("[Failed to initialize mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutexattr_setpshared(&mutex_attr, PTHREAD_PROCESS_SHARED) < 0) {
+        perror("Failed to change mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutex_init(toRet->readListMutex, &mutex_attr) < 0) {
+        perror("Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
+    
 	toRet->modo = modo;
 	
 	*err = 0;
@@ -55,7 +73,7 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	
 	if(*err == 0 && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
 	{
-		spawnHeartBeat(toRet->transferSockId);
+		spawnHeartBeat(toRet);
 	}
 	
 	switch(*err)
@@ -112,8 +130,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
     char openCommand [strlen(OPENCOMMAND)+strlen(toRet->filename)+5];
 
     sprintf(openCommand, "%s %s %d\n", OPENCOMMAND, toRet->filename, toRet->modo);
-	logM("[OpenCommand]: '%s'\n", openCommand);
-
+	
     if(send(toRet->socketId, openCommand, sizeof(openCommand), 0) < 0)
     {
 		perror("send");
