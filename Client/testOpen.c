@@ -22,8 +22,13 @@ int main(int argc, char* argv[])
 	{
 		filename=argv[1];
 	}
-	
-	testOpen(filename);
-	
+	int i = 10000;	
+	while(i>0)
+	{
+		printf("i: %d\n", i);
+		testOpen(filename);
+		i--;
+		sleep(2);	
+	}
 	return 0;	
 }

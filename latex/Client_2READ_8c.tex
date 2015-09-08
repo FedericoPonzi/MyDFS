@@ -48,7 +48,7 @@ Aggiunge un nodo alla lista di reads.
 \end{DoxyReturn}
 
 
-Referenzia Read\+Op\+::next, Read\+Op\+::pos, e Read\+Op\+::size.
+Referenzia Read\+Op\+::next, Read\+Op\+::pos, My\+D\+F\+S\+Id\+::read\+List\+Mutex, e Read\+Op\+::size.
 
 
 
@@ -83,7 +83,7 @@ name\+: mydfs\+\_\+read
 \begin{DoxyParams}{Parametri}
 {\em id} & L' id del file da cui vuole leggere. \\
 \hline
-{\em pos} & Posizione da cui vuole leggere \\
+{\em pos} & Posizione da cui vuole leggere (una delle seek). \\
 \hline
 {\em ptr} & puntatore al buffer in cui andra a legere \\
 \hline
@@ -94,14 +94,14 @@ name\+: mydfs\+\_\+read
 -\/1 in caso di errore, n bytes letti altrimenti.
 \end{DoxyReturn}
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000002}{Da fare}]quando ricevo i 65000 bytes di dati, devo stare attento a non sovrascrivere nel file dei dati che ho scritto (e che quindi non dovrei sovrascrivere con una read). \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000002}{Da fare}]per qualche motivo, la fread ritorna 0 O\+\_\+o pero' tipo la copia in un altro file sembra funzionare. \end{DoxyRefDesc}
 
 
-Referenzia append\+Read\+Request(), My\+D\+F\+S\+Id\+::filename, My\+D\+F\+S\+Id\+::fp, log\+M(), read\+From(), read\+Request(), e send\+Read\+Command().
+Referenzia append\+Read\+Request(), My\+D\+F\+S\+Id\+::fp, log\+M(), Cache\+Request\+::pos, read\+From(), read\+Request(), e send\+Read\+Command().
 
 
 
-Referenziato da main().
+Referenziato da main(), e test\+Write().
 
 \hypertarget{Client_2READ_8c_a0b8dfa171c3b5c784fb6cba643728110}{\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!read\+From@{read\+From}}
 \index{read\+From@{read\+From}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
@@ -122,9 +122,11 @@ Legge dalla socket di trasferimento buffsize dati.
 \begin{DoxySeeAlso}{Si veda anche}
 \hyperlink{Cache_8h_a686e517ab500f68c40c03bfbc3e2e2fd}{write\+Cache} 
 \end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000003}{Da fare}]La recv dovrebbe continuare finche' non ho tutto size\+Riamsta. \end{DoxyRefDesc}
 
 
-Referenzia log\+M(), My\+D\+F\+S\+Id\+::socket\+Id, e write\+Cache().
+Referenzia My\+D\+F\+S\+Id\+::socket\+Id, e write\+Cache().
 
 
 
@@ -144,7 +146,7 @@ Manda il comando di R\+E\+A\+D, e aspetta come risposta la dimensione di quanto 
 
 
 
-Referenzia log\+M(), R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D, e My\+D\+F\+S\+Id\+::socket\+Id.
+Referenzia get\+Number\+Lenght(), log\+M(), R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D, e My\+D\+F\+S\+Id\+::socket\+Id.
 
 
 

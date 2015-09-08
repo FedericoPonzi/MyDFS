@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['writecache',['writeCache',['../Client_2Cache_8c.html#a686e517ab500f68c40c03bfbc3e2e2fd',1,'writeCache(MyDFSId *id, void *buffer, int size, int pos):&#160;Cache.c'],['../Cache_8h.html#a686e517ab500f68c40c03bfbc3e2e2fd',1,'writeCache(MyDFSId *id, void *buffer, int size, int pos):&#160;Cache.c']]],
-  ['writeto',['writeTo',['../WRITE_8h.html#a7723ee130cf1e92ef81b309b1beef4cf',1,'writeTo(FILE *id, void *ptr, int size):&#160;WRITE.c'],['../WRITE_8c.html#a7723ee130cf1e92ef81b309b1beef4cf',1,'writeTo(FILE *id, void *ptr, int size):&#160;WRITE.c']]]
+  ['testheartbeating',['testHeartBeating',['../Test_8h.html#a3319f5111dc2d6069a31e052cf849223',1,'testHeartBeating(char *filename, char *indirizzo):&#160;Test.c'],['../Test_8c.html#a3319f5111dc2d6069a31e052cf849223',1,'testHeartBeating(char *filename, char *indirizzo):&#160;Test.c']]],
+  ['testopen',['testOpen',['../Test_8h.html#a02a0d651ea65063fb8cb1eda19614d78',1,'testOpen(char *filename):&#160;Test.c'],['../Test_8c.html#a02a0d651ea65063fb8cb1eda19614d78',1,'testOpen(char *filename):&#160;Test.c']]],
+  ['testread',['testRead',['../Test_8h.html#acf1667aa8cdcd99e7dc342a3e893562c',1,'testRead(char *filename):&#160;Test.c'],['../Test_8c.html#acf1667aa8cdcd99e7dc342a3e893562c',1,'testRead(char *filename):&#160;Test.c']]],
+  ['testwrite',['testWrite',['../Test_8h.html#a3a5d4c7d0b9aefc5be06d03a85d98e67',1,'testWrite(char *filename):&#160;Test.c'],['../Test_8c.html#a3a5d4c7d0b9aefc5be06d03a85d98e67',1,'testWrite(char *filename):&#160;Test.c']]]
 ];

@@ -18,10 +18,10 @@ clean:
 	rm -rf *.o
 
 testread:
-	gcc -o TestRead -g -pthread testread.c libmydfs.a
+	gcc -o TestRead -g -pthread testRead.c libmydfs.a
 
 testopen:
-	gcc -o TestOpen -g -pthread testopen.c libmydfs.a
+	gcc -o TestOpen -g -pthread testOpen.c libmydfs.a
 
 testheartbeating:
 	gcc -o TestHeartBeating -g -pthread testHeartBeating.c libmydfs.a

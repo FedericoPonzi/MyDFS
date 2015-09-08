@@ -104,24 +104,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <code>#include &quot;<a class="el" href="Client_2inc_2Config_8h_source.html">inc/Config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="WRITE_8h_source.html">inc/WRITE.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Client_2inc_2READ_8h_source.html">inc/READ.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="OPEN_8h_source.html">inc/OPEN.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Client_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
+<tr class="memitem:af30a6d079f7040855c747e2bea7a0e1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WRITE_8c.html#af30a6d079f7040855c747e2bea7a0e1b">addWriteOp</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, int size)</td></tr>
+<tr class="separator:af30a6d079f7040855c747e2bea7a0e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7723ee130cf1e92ef81b309b1beef4cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WRITE_8c.html#a7723ee130cf1e92ef81b309b1beef4cf">writeTo</a> (FILE *id, void *ptr, int size)</td></tr>
+<tr class="separator:a7723ee130cf1e92ef81b309b1beef4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb191dc8eca40eb5302e0ca4f57de4d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WRITE_8c.html#afb191dc8eca40eb5302e0ca4f57de4d6">mydfs_write</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</td></tr>
 <tr class="memdesc:afb191dc8eca40eb5302e0ca4f57de4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">-1 in caso di errore; &gt;= 0 ed uguale al numero di byte effettivamente scritti.  <a href="#afb191dc8eca40eb5302e0ca4f57de4d6">Continua...</a><br /></td></tr>
 <tr class="separator:afb191dc8eca40eb5302e0ca4f57de4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a305bb3dc1d092fea2b196509738c0c0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WRITE_8c.html#a305bb3dc1d092fea2b196509738c0c0f">addWriteOp</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, int size)</td></tr>
-<tr class="separator:a305bb3dc1d092fea2b196509738c0c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7723ee130cf1e92ef81b309b1beef4cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WRITE_8c.html#a7723ee130cf1e92ef81b309b1beef4cf">writeTo</a> (FILE *id, void *ptr, int size)</td></tr>
-<tr class="separator:a7723ee130cf1e92ef81b309b1beef4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
-<a class="anchor" id="a305bb3dc1d092fea2b196509738c0c0f"></a>
+<a class="anchor" id="af30a6d079f7040855c747e2bea7a0e1b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void addWriteOp </td>
+          <td class="memname">int addWriteOp </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structMyDFSId.html">MyDFSId</a> *&#160;</td>
           <td class="paramname"><em>id</em>, </td>
@@ -189,8 +191,11 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>-1 in caso di errore; &gt;= 0 ed uguale al numero di byte effettivamente scritti. </p>
+<p>Pos puo essere MYSEEK_SET,MYSEEK_CUR, MYSEEK_END </p>
 
-<p>Referenzia <a class="el" href="WRITE_8c.html#a305bb3dc1d092fea2b196509738c0c0f">addWriteOp()</a>, <a class="el" href="structMyDFSId.html#a2b7cf19c5ac22e03ae8abf7e688fee2a">MyDFSId::filesize</a>, <a class="el" href="structMyDFSId.html#ae2badd91d3b506420a9e49554df8212d">MyDFSId::fp</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7be712d079aae58b8bd11905a426348f">MYSEEK_END</a>, e <a class="el" href="WRITE_8c.html#a7723ee130cf1e92ef81b309b1beef4cf">writeTo()</a>.</p>
+<p>Referenzia <a class="el" href="WRITE_8c.html#af30a6d079f7040855c747e2bea7a0e1b">addWriteOp()</a>, <a class="el" href="structMyDFSId.html#a2b7cf19c5ac22e03ae8abf7e688fee2a">MyDFSId::filesize</a>, <a class="el" href="structMyDFSId.html#ae2badd91d3b506420a9e49554df8212d">MyDFSId::fp</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structMyDFSId.html#a98bc5ce1a7734459d8b81c997da4e9f0">MyDFSId::modo</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7be712d079aae58b8bd11905a426348f">MYSEEK_END</a>, e <a class="el" href="WRITE_8c.html#a7723ee130cf1e92ef81b309b1beef4cf">writeTo()</a>.</p>
+
+<p>Referenziato da <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, e <a class="el" href="Test_8c.html#a3a5d4c7d0b9aefc5be06d03a85d98e67">testWrite()</a>.</p>
 
 </div>
 </div>

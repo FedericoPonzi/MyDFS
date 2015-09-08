@@ -9,6 +9,6 @@ extern pthread_mutex_t *hbMutex;
 typedef struct {
     //Or whatever information that you need
     int temp_sd;
-    int ptid;
+    long unsigned int ptid;
 } pthreadArgs;
 #endif

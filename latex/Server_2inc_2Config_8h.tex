@@ -13,6 +13,8 @@
 \begin{DoxyCompactList}\small\item\em Se in modalita' debug, stampa utili messaggi di log. \end{DoxyCompactList}\item 
 \#define \hyperlink{Server_2inc_2Config_8h_a150eaf10f0e759de665bbe9619cd4a24}{M\+U\+L\+T\+I\+P\+R\+O\+C}~1
 \begin{DoxyCompactList}\small\item\em 1 per multiprocesso, 0 per multithreading\+: \end{DoxyCompactList}\item 
+\#define \hyperlink{Server_2inc_2Config_8h_a8049c678a855a57b1030eab386393a8f}{F\+I\+L\+E\+S\+I\+Z\+E}~65000
+\begin{DoxyCompactList}\small\item\em Dimensione dei file durante i trasferimenti. \end{DoxyCompactList}\item 
 \#define \hyperlink{Server_2inc_2Config_8h_ae99ca2d2731dcecf9670d172003c467c}{C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E}~\char`\"{}C\+O\+N\+F\+I\+G\char`\"{}
 \begin{DoxyCompactList}\small\item\em Nome del file di config. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Funzioni}
@@ -69,6 +71,17 @@ Referenziato da load\+Config().
 
 Se in modalita' debug, stampa utili messaggi di log. 
 
+\hypertarget{Server_2inc_2Config_8h_a8049c678a855a57b1030eab386393a8f}{\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!F\+I\+L\+E\+S\+I\+Z\+E@{F\+I\+L\+E\+S\+I\+Z\+E}}
+\index{F\+I\+L\+E\+S\+I\+Z\+E@{F\+I\+L\+E\+S\+I\+Z\+E}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
+\subsubsection[{F\+I\+L\+E\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+L\+E\+S\+I\+Z\+E~65000}}\label{Server_2inc_2Config_8h_a8049c678a855a57b1030eab386393a8f}
+
+
+Dimensione dei file durante i trasferimenti. 
+
+
+
+Referenziato da handle\+Writes().
+
 \hypertarget{Server_2inc_2Config_8h_a150eaf10f0e759de665bbe9619cd4a24}{\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!M\+U\+L\+T\+I\+P\+R\+O\+C@{M\+U\+L\+T\+I\+P\+R\+O\+C}}
 \index{M\+U\+L\+T\+I\+P\+R\+O\+C@{M\+U\+L\+T\+I\+P\+R\+O\+C}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
 \subsubsection[{M\+U\+L\+T\+I\+P\+R\+O\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+U\+L\+T\+I\+P\+R\+O\+C~1}}\label{Server_2inc_2Config_8h_a150eaf10f0e759de665bbe9619cd4a24}
@@ -82,6 +95,10 @@ Se in modalita' debug, stampa utili messaggi di log.
 
 
 Tempo di attesa per heartbeating. 
+
+
+
+Referenziato da heart\+Beat().
 
 
 
@@ -179,5 +196,5 @@ Mutex della socket temporanea.
 
 
 
-Referenziato da heart\+Beat().
+Referenziato da heart\+Beat(), e send\+Invalidate().
 

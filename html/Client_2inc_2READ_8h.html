@@ -136,7 +136,7 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="WRITE_8c.html#afb191dc8eca40eb5302e0ca4f57de4d6">mydfs_write()</a>.</p>
+<p>Referenziato da <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, <a class="el" href="WRITE_8c.html#afb191dc8eca40eb5302e0ca4f57de4d6">mydfs_write()</a>, e <a class="el" href="Test_8c.html#a3a5d4c7d0b9aefc5be06d03a85d98e67">testWrite()</a>.</p>
 
 </div>
 </div>
@@ -150,7 +150,7 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+<p>Referenziato da <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, e <a class="el" href="Test_8c.html#a3a5d4c7d0b9aefc5be06d03a85d98e67">testWrite()</a>.</p>
 
 </div>
 </div>
@@ -195,18 +195,18 @@ Funzioni</h2></td></tr>
 <dl class="params"><dt>Parametri</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>L' id del file da cui vuole leggere. </td></tr>
-    <tr><td class="paramname">pos</td><td>Posizione da cui vuole leggere </td></tr>
+    <tr><td class="paramname">pos</td><td>Posizione da cui vuole leggere (una delle seek). </td></tr>
     <tr><td class="paramname">ptr</td><td>puntatore al buffer in cui andra a legere </td></tr>
     <tr><td class="paramname">size</td><td>quanto vuole leggere </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Restituisce</dt><dd>-1 in caso di errore, n bytes letti altrimenti.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Da fare:</a></b></dt><dd>quando ricevo i 65000 bytes di dati, devo stare attento a non sovrascrivere nel file dei dati che ho scritto (e che quindi non dovrei sovrascrivere con una read). </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Da fare:</a></b></dt><dd>per qualche motivo, la fread ritorna 0 O_o pero' tipo la copia in un altro file sembra funzionare. </dd></dl>
 
-<p>Referenzia <a class="el" href="Client_2READ_8c.html#afc0e31d500c5ae7b2a0f1aaa5a4ab78b">appendReadRequest()</a>, <a class="el" href="structMyDFSId.html#ac0e1b8c96d859982c1a7d49f9e929e48">MyDFSId::filename</a>, <a class="el" href="structMyDFSId.html#ae2badd91d3b506420a9e49554df8212d">MyDFSId::fp</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Client_2READ_8c.html#a0b8dfa171c3b5c784fb6cba643728110">readFrom()</a>, <a class="el" href="Client_2Cache_8c.html#a403785c0f2573dd16d81eff4ab26c20d">readRequest()</a>, e <a class="el" href="Client_2READ_8c.html#a34f4cc3ee1ace86747c737cad2d801e7">sendReadCommand()</a>.</p>
+<p>Referenzia <a class="el" href="Client_2READ_8c.html#afc0e31d500c5ae7b2a0f1aaa5a4ab78b">appendReadRequest()</a>, <a class="el" href="structMyDFSId.html#ae2badd91d3b506420a9e49554df8212d">MyDFSId::fp</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structCacheRequest.html#a9b1e1f0498ee02f22da75fe915334873">CacheRequest::pos</a>, <a class="el" href="Client_2READ_8c.html#a0b8dfa171c3b5c784fb6cba643728110">readFrom()</a>, <a class="el" href="Client_2Cache_8c.html#a403785c0f2573dd16d81eff4ab26c20d">readRequest()</a>, e <a class="el" href="Client_2READ_8c.html#a34f4cc3ee1ace86747c737cad2d801e7">sendReadCommand()</a>.</p>
 
-<p>Referenziato da <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+<p>Referenziato da <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, e <a class="el" href="Test_8c.html#a3a5d4c7d0b9aefc5be06d03a85d98e67">testWrite()</a>.</p>
 
 </div>
 </div>

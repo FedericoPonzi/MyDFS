@@ -8,29 +8,21 @@
 \item Sulla \hyperlink{md_READ}{read}
 \item Sulla \hyperlink{md_WRITE}{write}
 \item Sulla \hyperlink{md_Cache}{cache}
+\item Sulla \hyperlink{md_Test}{configurazione e sui test}
 \end{DoxyItemize}
 
 \subsubsection*{T\+O\+D\+O\+S\+:}
 
 
 \begin{DoxyItemize}
-\item Aggiungere heartbeating anche quando un client richiede una lock.
-\item Migliorare sincronizzazione tra rimozione file a fine connessione e aggiunta di nuovo file in quella successiva
-\item Aggiungere opzione lock alla open (e spawnare heartbeat).
-\item Chiudere heartbeating se la connessione si chiude con la close correttamente.
-\item La O\+P\+E\+N dovrebbe mandare anche la dimensione del file.
+\item Finire invalidazione heartbeating.
+\item Aggiungere le cazzate per il lancio.
+\item Alla fine\+: Aggingere modalità deamon.
 \end{DoxyItemize}
 
 \subsubsection*{Più in là\+:}
 
 
 \begin{DoxyItemize}
-\item In \hyperlink{server_8c}{server.\+c}\+: Spawnare gli n threads, poi creare un metodo che ogni 1 secondo (quindi sleep(1)) controlla se ci sono thread/processi da creare.
-\end{DoxyItemize}
-
-\subsubsection*{Note\+:}
-
-
-\begin{DoxyItemize}
-\item Se passo un oggetto sbagliato a log\+M, ricevo un errore sulla vprintf. Tipo log\+M(\char`\"{}\%d\char`\"{},\char`\"{}ciao\char`\"{}); 
+\item In \hyperlink{server_8c}{server.\+c}\+: Spawnare gli n threads, poi creare un metodo che ogni 1 secondo (quindi sleep(1)) controlla se ci sono thread/processi da creare. 
 \end{DoxyItemize}

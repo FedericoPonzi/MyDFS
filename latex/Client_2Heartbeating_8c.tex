@@ -19,20 +19,26 @@
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{Client_2Heartbeating_8c_a39912bfe2a55f30e269196f9141d845d}{B\+U\+F\+F\+S\+I\+Z\+E}~30
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Client heartbeating. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{Client_2Heartbeating_8c_af362ff05e1ca5b06b77aa25e7999c6ee}{spawn\+Heart\+Beat} (int \hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd})
-\item 
+int \hyperlink{Client_2Heartbeating_8c_ab95a74565a85ceabf1a9f1310cdb434f}{invalidate} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
+\begin{DoxyCompactList}\small\item\em Rimuove la lista di read\+List a seguito della ricezione di un comando di invalidazione. \end{DoxyCompactList}\item 
+void \hyperlink{Client_2Heartbeating_8c_a996f23ff45bfbedeb9b64f6b030122f8}{spawn\+Heart\+Beat} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
+\begin{DoxyCompactList}\small\item\em spawn\+Heart\+Beat \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{Client_2Heartbeating_8c_aae3126a1d85426aa8df88b7186611472}{heart\+Beat} (void $\ast$\hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l' heartbeating. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle definizioni}
 \hypertarget{Client_2Heartbeating_8c_a39912bfe2a55f30e269196f9141d845d}{\index{Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}!B\+U\+F\+F\+S\+I\+Z\+E@{B\+U\+F\+F\+S\+I\+Z\+E}}
 \index{B\+U\+F\+F\+S\+I\+Z\+E@{B\+U\+F\+F\+S\+I\+Z\+E}!Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}}
 \subsubsection[{B\+U\+F\+F\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+S\+I\+Z\+E~30}}\label{Client_2Heartbeating_8c_a39912bfe2a55f30e269196f9141d845d}
+
+
+Client heartbeating. 
+
 
 
 \subsection{Documentazione delle funzioni}
@@ -45,15 +51,46 @@ void $\ast$ \hyperlink{Client_2Heartbeating_8c_aae3126a1d85426aa8df88b7186611472
 )}}\label{Client_2Heartbeating_8c_aae3126a1d85426aa8df88b7186611472}
 
 
+Main del nuovo thread creato per l' heartbeating. 
+
+
+
 Referenziato da spawn\+Heart\+Beat().
 
-\hypertarget{Client_2Heartbeating_8c_af362ff05e1ca5b06b77aa25e7999c6ee}{\index{Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
+\hypertarget{Client_2Heartbeating_8c_ab95a74565a85ceabf1a9f1310cdb434f}{\index{Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}!invalidate@{invalidate}}
+\index{invalidate@{invalidate}!Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}}
+\subsubsection[{invalidate}]{\setlength{\rightskip}{0pt plus 5cm}int invalidate (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id}
+\end{DoxyParamCaption}
+)}}\label{Client_2Heartbeating_8c_ab95a74565a85ceabf1a9f1310cdb434f}
+
+
+Rimuove la lista di read\+List a seguito della ricezione di un comando di invalidazione. 
+
+
+
+Referenzia Read\+Op\+::next, e My\+D\+F\+S\+Id\+::read\+List\+Mutex.
+
+
+
+Referenziato da heart\+Beat(), e send\+Invalidate().
+
+\hypertarget{Client_2Heartbeating_8c_a996f23ff45bfbedeb9b64f6b030122f8}{\index{Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
 \index{spawn\+Heart\+Beat@{spawn\+Heart\+Beat}!Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}}
 \subsubsection[{spawn\+Heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Heart\+Beat (
 \begin{DoxyParamCaption}
-\item[{int}]{sd}
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id}
 \end{DoxyParamCaption}
-)}}\label{Client_2Heartbeating_8c_af362ff05e1ca5b06b77aa25e7999c6ee}
+)}}\label{Client_2Heartbeating_8c_a996f23ff45bfbedeb9b64f6b030122f8}
+
+
+spawn\+Heart\+Beat 
+
+prende in input l' id il \hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} e spawna il thread heartbeating 
+
+Referenzia heart\+Beat(), e tid.
+
 
 
 Referenziato da handle\+Open\+Command(), e mydfs\+\_\+open().

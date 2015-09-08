@@ -15,11 +15,30 @@
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
+int \hyperlink{Client_2CLOSE_8c_a8e44338b364d8da7b693226bf600c53c}{get\+Number\+Of\+Changes} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
+\item 
+int \hyperlink{Client_2CLOSE_8c_affca868a39ef47e0de0a54b7fca94e10}{upload\+Changes} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
+\begin{DoxyCompactList}\small\item\em Carica i cambiamenti fatti dal client con le write sul server. \end{DoxyCompactList}\item 
 int \hyperlink{Client_2CLOSE_8c_a8aefec12977b01fcb2e74b1d2e2ba49b}{mydfs\+\_\+close} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
+\hypertarget{Client_2CLOSE_8c_a8e44338b364d8da7b693226bf600c53c}{\index{Client/\+C\+L\+O\+S\+E.\+c@{Client/\+C\+L\+O\+S\+E.\+c}!get\+Number\+Of\+Changes@{get\+Number\+Of\+Changes}}
+\index{get\+Number\+Of\+Changes@{get\+Number\+Of\+Changes}!Client/\+C\+L\+O\+S\+E.\+c@{Client/\+C\+L\+O\+S\+E.\+c}}
+\subsubsection[{get\+Number\+Of\+Changes}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Number\+Of\+Changes (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id}
+\end{DoxyParamCaption}
+)}}\label{Client_2CLOSE_8c_a8e44338b364d8da7b693226bf600c53c}
+
+
+Referenzia Write\+Op\+::next.
+
+
+
+Referenziato da handle\+Close\+Command(), e mydfs\+\_\+close().
+
 \hypertarget{Client_2CLOSE_8c_a8aefec12977b01fcb2e74b1d2e2ba49b}{\index{Client/\+C\+L\+O\+S\+E.\+c@{Client/\+C\+L\+O\+S\+E.\+c}!mydfs\+\_\+close@{mydfs\+\_\+close}}
 \index{mydfs\+\_\+close@{mydfs\+\_\+close}!Client/\+C\+L\+O\+S\+E.\+c@{Client/\+C\+L\+O\+S\+E.\+c}}
 \subsubsection[{mydfs\+\_\+close}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+close (
@@ -33,13 +52,34 @@ int \hyperlink{Client_2CLOSE_8c_a8aefec12977b01fcb2e74b1d2e2ba49b}{mydfs\+\_\+cl
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Restituisce}
--\/1 in caso di errore, 0 altrimenti. 
+-\/1 in caso di errore, 0 altrimenti. Il comando C\+L\+O\+S\+E invia anche il numero di write che sono state eseguite, quindi quante send il client dovra' mandare al server. 
 \end{DoxyReturn}
 
 
-Referenzia C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D, My\+D\+F\+S\+Id\+::filename, My\+D\+F\+S\+Id\+::indirizzo, log\+M(), My\+D\+F\+S\+Id\+::socket\+Id, e My\+D\+F\+S\+Id\+::transfer\+Sock\+Id.
+Referenzia C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D, My\+D\+F\+S\+Id\+::filename, get\+Number\+Of\+Changes(), My\+D\+F\+S\+Id\+::indirizzo, log\+M(), Write\+Op\+::next, Read\+Op\+::next, My\+D\+F\+S\+Id\+::read\+List\+Mutex, My\+D\+F\+S\+Id\+::socket\+Id, My\+D\+F\+S\+Id\+::transfer\+Sock\+Id, e upload\+Changes().
 
 
 
-Referenziato da main().
+Referenziato da main(), test\+Heart\+Beating(), test\+Open(), e test\+Write().
+
+\hypertarget{Client_2CLOSE_8c_affca868a39ef47e0de0a54b7fca94e10}{\index{Client/\+C\+L\+O\+S\+E.\+c@{Client/\+C\+L\+O\+S\+E.\+c}!upload\+Changes@{upload\+Changes}}
+\index{upload\+Changes@{upload\+Changes}!Client/\+C\+L\+O\+S\+E.\+c@{Client/\+C\+L\+O\+S\+E.\+c}}
+\subsubsection[{upload\+Changes}]{\setlength{\rightskip}{0pt plus 5cm}int upload\+Changes (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id}
+\end{DoxyParamCaption}
+)}}\label{Client_2CLOSE_8c_affca868a39ef47e0de0a54b7fca94e10}
+
+
+Carica i cambiamenti fatti dal client con le write sul server. 
+
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000001}{Da fare}]spezzare in piu read. \end{DoxyRefDesc}
+
+
+Referenzia My\+D\+F\+S\+Id\+::fp, log\+M(), Write\+Op\+::next, Write\+Op\+::pos, Write\+Op\+::size, e My\+D\+F\+S\+Id\+::transfer\+Sock\+Id.
+
+
+
+Referenziato da mydfs\+\_\+close().
 

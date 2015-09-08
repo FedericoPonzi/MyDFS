@@ -38,6 +38,7 @@
 
 
 extern pthread_mutex_t *acceptMutex;
+
 extern pthread_mutex_t *tempSockMutex;
 
 extern int* numberAliveChilds;

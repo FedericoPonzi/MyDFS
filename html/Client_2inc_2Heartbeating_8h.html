@@ -94,7 +94,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="title">Riferimenti per il file Heartbeating.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="Client_2inc_2Config_8h_source.html">Config.h</a>&quot;</code><br />
+</div>
 <p><a href="Client_2inc_2Heartbeating_8h_source.html">Vai al codice sorgente di questo file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -104,9 +105,11 @@ Strutture dati</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:af362ff05e1ca5b06b77aa25e7999c6ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Heartbeating_8h.html#af362ff05e1ca5b06b77aa25e7999c6ee">spawnHeartBeat</a> (int <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>)</td></tr>
-<tr class="separator:af362ff05e1ca5b06b77aa25e7999c6ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996f23ff45bfbedeb9b64f6b030122f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Heartbeating_8h.html#a996f23ff45bfbedeb9b64f6b030122f8">spawnHeartBeat</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id)</td></tr>
+<tr class="memdesc:a996f23ff45bfbedeb9b64f6b030122f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">spawnHeartBeat  <a href="#a996f23ff45bfbedeb9b64f6b030122f8">Continua...</a><br /></td></tr>
+<tr class="separator:a996f23ff45bfbedeb9b64f6b030122f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae3126a1d85426aa8df88b7186611472"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Heartbeating_8h.html#aae3126a1d85426aa8df88b7186611472">heartBeat</a> (void *<a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>)</td></tr>
+<tr class="memdesc:aae3126a1d85426aa8df88b7186611472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main del nuovo thread creato per l' heartbeating.  <a href="#aae3126a1d85426aa8df88b7186611472">Continua...</a><br /></td></tr>
 <tr class="separator:aae3126a1d85426aa8df88b7186611472"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -129,21 +132,30 @@ Variabili</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Main del nuovo thread creato per l' heartbeating. </p>
+
 </div>
 </div>
-<a class="anchor" id="af362ff05e1ca5b06b77aa25e7999c6ee"></a>
+<a class="anchor" id="a996f23ff45bfbedeb9b64f6b030122f8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void spawnHeartBeat </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sd</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structMyDFSId.html">MyDFSId</a> *&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>spawnHeartBeat </p>
+<p>prende in input l' id il <a class="el" href="structMyDFSId.html">MyDFSId</a> e spawna il thread heartbeating </p>
+
+<p>Referenzia <a class="el" href="Client_2Heartbeating_8c.html#aae3126a1d85426aa8df88b7186611472">heartBeat()</a>, e <a class="el" href="Threading_8c.html#a8d783a9d90fdc4fde93816b56043c24b">tid</a>.</p>
+
+<p>Referenziato da <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>.</p>
 
 </div>
 </div>

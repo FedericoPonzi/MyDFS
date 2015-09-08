@@ -77,7 +77,7 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 				perror("Recv: ");
 				return -1;
 			}
-			printf("Buffer: %s %d\n", buffer, ftell(fp));
+			printf("Buffer: %s %lu\n", buffer, ftell(fp));
 			int w = fwrite(buffer, 1, n, fp);
 			printf("Scritti %d dati nel file. \n", w);
 			free(buffer);
@@ -136,7 +136,7 @@ int getChunkSize(char* buffer)
  */
 void sendInvalidate(OpenedFile* id)
 {
-	char* invalidate = "INVA";
+	//char* invalidate = "INVA";
 	pthread_mutex_lock(tempSockMutex);
 	//send(id->socketId, invalidate, strlen(invalidate), 0);
 	pthread_mutex_unlock(tempSockMutex);

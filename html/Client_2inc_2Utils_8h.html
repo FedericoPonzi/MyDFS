@@ -103,8 +103,31 @@ Funzioni</h2></td></tr>
 <tr class="memitem:a6e2594e56afc29e961a1797a0bd8d262"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Utils_8h.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura</a> (int modo_client, int modo)</td></tr>
 <tr class="memdesc:a6e2594e56afc29e961a1797a0bd8d262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dice se modo_client contiene il modo "modo".  <a href="#a6e2594e56afc29e961a1797a0bd8d262">Continua...</a><br /></td></tr>
 <tr class="separator:a6e2594e56afc29e961a1797a0bd8d262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab79ad909806935a9a392a5fb44b47197"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Utils_8h.html#ab79ad909806935a9a392a5fb44b47197">getNumberLenght</a> (int n)</td></tr>
+<tr class="memdesc:ab79ad909806935a9a392a5fb44b47197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ritorna il numero di cifre del numero in input.  <a href="#ab79ad909806935a9a392a5fb44b47197">Continua...</a><br /></td></tr>
+<tr class="separator:ab79ad909806935a9a392a5fb44b47197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
+<a class="anchor" id="ab79ad909806935a9a392a5fb44b47197"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getNumberLenght </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ritorna il numero di cifre del numero in input. </p>
+
+<p>Referenziato da <a class="el" href="Client_2READ_8c.html#a34f4cc3ee1ace86747c737cad2d801e7">sendReadCommand()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a6e2594e56afc29e961a1797a0bd8d262"></a>
 <div class="memitem">
 <div class="memproto">
@@ -131,7 +154,7 @@ Funzioni</h2></td></tr>
 
 <p>Dice se modo_client contiene il modo "modo". </p>
 
-<p>Referenziato da <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>.</p>
+<p>Referenziato da <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, e <a class="el" href="WRITE_8c.html#afb191dc8eca40eb5302e0ca4f57de4d6">mydfs_write()</a>.</p>
 
 </div>
 </div>
@@ -170,7 +193,7 @@ Funzioni</h2></td></tr>
 </dl>
 <dl class="section see"><dt>Si veda anche</dt><dd>Config.h </dd></dl>
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#aa089645f4772b1d34f2808e1f913eb45">checkModoOpen()</a>, <a class="el" href="StruttureDati_8c.html#a6baf2e6e9935b8ed81bf2c504557bfc2">closeClientSession()</a>, <a class="el" href="OPE_8c.html#af1f79690eec0a7727a519ba59a891762">createControlSock()</a>, <a class="el" href="StruttureDati_8c.html#a53729d51218aa9a03ba46e8b1fa89875">fileAlreadyOpenedInWrite()</a>, <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">handleREADCommand()</a>, <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="server_8c.html#ac43da3dbb27d7a95bb3fbf75f3dfd99f">heartBeat()</a>, <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, <a class="el" href="Client_2inc_2CLOSE_8h.html#ad666db41278616946fce866250a175af">mydfs_close()</a>, <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>, <a class="el" href="Client_2READ_8c.html#a0b8dfa171c3b5c784fb6cba643728110">readFrom()</a>, <a class="el" href="Client_2READ_8c.html#a34f4cc3ee1ace86747c737cad2d801e7">sendReadCommand()</a>, e <a class="el" href="Cache_8h.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#aa089645f4772b1d34f2808e1f913eb45">checkModoOpen()</a>, <a class="el" href="StruttureDati_8c.html#a6baf2e6e9935b8ed81bf2c504557bfc2">closeClientSession()</a>, <a class="el" href="OPE_8c.html#af1f79690eec0a7727a519ba59a891762">createControlSock()</a>, <a class="el" href="StruttureDati_8c.html#a53729d51218aa9a03ba46e8b1fa89875">fileAlreadyOpenedInWrite()</a>, <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">handleREADCommand()</a>, <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="Server_2CLOSE_8c.html#a29faf0797a0c5b3d36a86e72cc023d85">handleWrites()</a>, <a class="el" href="server_8c.html#ac43da3dbb27d7a95bb3fbf75f3dfd99f">heartBeat()</a>, <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, <a class="el" href="Client_2inc_2CLOSE_8h.html#ad666db41278616946fce866250a175af">mydfs_close()</a>, <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>, <a class="el" href="WRITE_8c.html#afb191dc8eca40eb5302e0ca4f57de4d6">mydfs_write()</a>, <a class="el" href="Client_2READ_8c.html#a34f4cc3ee1ace86747c737cad2d801e7">sendReadCommand()</a>, <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>, <a class="el" href="Test_8c.html#a02a0d651ea65063fb8cb1eda19614d78">testOpen()</a>, <a class="el" href="Client_2CLOSE_8c.html#affca868a39ef47e0de0a54b7fca94e10">uploadChanges()</a>, e <a class="el" href="Cache_8h.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache()</a>.</p>
 
 </div>
 </div>

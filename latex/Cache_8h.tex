@@ -39,15 +39,13 @@ Referenziato da main(), e mydfs\+\_\+open().
 Usato per dire se il dato che voglio leggere si trova in cache oppure no. 
 
 \begin{DoxyReturn}{Restituisce}
-n M\+I\+S\+S\+: In caso di M\+I\+S\+S, dentro a req verranno messi posizione e size del dato da scaricare. 
+1 M\+I\+S\+S\+: In caso di M\+I\+S\+S, dentro a req verranno messi posizione e size del dato da scaricare. 
 
 0 H\+I\+T\+: per interrompere il while, torna false.
 \end{DoxyReturn}
-Nota\+: La miss si riferisce ad un \char`\"{}buco\char`\"{}, quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano altri miss. \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000001}{Da fare}]da terminare \end{DoxyRefDesc}
+Nota\+: La miss si riferisce ad un \char`\"{}buco\char`\"{}, quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano altri miss. Nota2\+: Il lock e' in teoria troppo grande. In pratica pero', se fra la prima operazione di lettura e la seconda ci fosse una invalidazione della cache qualcosa di orrendo potrebbe accadere. 
 
-
-Referenzia Write\+Op\+::next, Read\+Op\+::next, Write\+Op\+::pos, Read\+Op\+::pos, Cache\+Request\+::pos, read\+Request(), Write\+Op\+::size, Read\+Op\+::size, e Cache\+Request\+::size.
+Referenzia My\+D\+F\+S\+Id\+::filesize, Write\+Op\+::next, Read\+Op\+::next, Write\+Op\+::pos, Read\+Op\+::pos, Cache\+Request\+::pos, My\+D\+F\+S\+Id\+::read\+List\+Mutex, read\+Request(), Write\+Op\+::size, Read\+Op\+::size, e Cache\+Request\+::size.
 
 
 
@@ -70,11 +68,15 @@ Funzione che scrive nel file di cache il contenuto di una read, senza sovrascriv
 Eseguo un ciclo che vede se il punto in cui\+:
 \begin{DoxyEnumerate}
 \item Controllo se il punto in cui voglio scrivere e' contenuto in una operazione di write. In quel caso, richiamo questa funzione spostando avanti il puntatore del buffer
-\item Il punto in cui voglio scrivere non e' incluso in nessuna write. In questo caso, vedo se c'e' una write inclusa nello spazio del buffer della read che voglio scrivere. Se e' cosi', scrivo quanto posso, e se posso scrivere altro dopo la sezione di write, richiamo questa funzione ricorsivamente aggiornado gli indici. \begin{DoxyReturn}{Restituisce}
+\item Il punto in cui voglio scrivere non e' incluso in nessuna write. In questo caso, vedo se c'e' una write inclusa nello spazio del buffer della read che voglio scrivere. Se e' cosi', scrivo quanto posso, e se posso scrivere altro dopo la sezione di write, richiamo questa funzione ricorsivamente aggiornado gli indici.
+\end{DoxyEnumerate}
+
+Utilizzo pos, e vedo se e' contenuto in una write. Se si lo sposto fino alla fine della write, e richiamo questa funzione ricorsivamente. Raggiunto il caso base, cerco se c'e' una write contenuta fra pos e pos+size. Se e' così mi trovo la fine della write. Eseguo la scrittura e richiamo questa funzione ricorsivamente
+
+\begin{DoxyReturn}{Restituisce}
 1 se tutto e' ok, 0 se qualcosa e' andata storta 
 \end{DoxyReturn}
 
-\end{DoxyEnumerate}
 
 Referenzia My\+D\+F\+S\+Id\+::fp, log\+M(), Write\+Op\+::next, Write\+Op\+::pos, Write\+Op\+::size, e write\+Cache().
 

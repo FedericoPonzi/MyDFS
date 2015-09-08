@@ -16,7 +16,7 @@ typedef struct SocketIdList //struct per lista socket attive
 typedef struct OpenedFile
 {
 	char* fileName;
-	int ptid;
+	unsigned long int ptid;
 	int modo;
 	int filesize;
 	int socketId; /** Usata dall' hearbeating */
@@ -25,8 +25,10 @@ typedef struct OpenedFile
 	FILE* fp;
 }OpenedFile;
 
-
-extern pthread_mutex_t *mutex;
+/**
+ * Questo mutex e' da usare su ogni lavoro che si esegue con la lista linkata di elementi.
+ */
+extern pthread_mutex_t *mutex; 
 
 extern OpenedFile **openedFileLinkedList;
 
@@ -40,6 +42,6 @@ int getTransferSocket();
 char* getFileName();
 OpenedFile* getOpenedFile();
 
-void closeClientSession(int ptid);
+void closeClientSession(unsigned long int ptid);
 
 #endif

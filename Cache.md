@@ -1,4 +1,4 @@
-Il modulo di caching è formato principalmente da due funzioni:
+Il modulo di caching è formato principalmente da tre funzioni:
 
 ###1. File di cache
 Una funzione che crea un file di caching temporaneo con nome .nomefile, che viene cancellato una volta chiuso l' ultimo file descriptor associato al file.
@@ -16,4 +16,13 @@ Nel caso in cui il dato che il client vuole leggere non è presente in cache, la
 	}CacheRequest;
 La posizione, e la dimensione del primo buco dello spazio che l' utente vuole leggere.
 Quando questa funzione ritorna true, vuol dire che ho un hit completo e quindi posso procedere con la lettura.
+
 Lo storico delle operazioni di scrittura e lettura viene mantenuto nelle rispettive liste linkate all' interno di MyDFSId.
+
+
+##3. Write cache
+
+La write cache è una funzione utilizzata dalla read per scrivere nella cache. Le read
+non devono sovrascrivere le write effettuate dal client con i dati ricevuti dal server, quindi si usa questa funzione di supporto per
+scrivere nella cache senza andare a sovrascrivere zone di memoria protette.
+

@@ -147,8 +147,9 @@ void spawnThread()
 		{
 			printf("\n[spawnThread] - can't create thread");
 			perror("Cant create thread");
-			//return;
+			return;
 		}
+		logM("[spawnThread] - Mio tid: %d\n", getpid());
 		(*numberAliveChilds)++;
 	}
 }
@@ -169,11 +170,13 @@ void spawnProcess()
 	}
 	else if(!pid)
 	{
-		printf("[spawnProcess] - Mio pid: %d\n", getpid());
+		//Se sono il figlio:
+		logM("[spawnProcess] - Mio pid: %d\n", getpid());
 		handleSocket();
 	}
 	else
 	{
+		//Se sono il padre:
 		(*numberAliveChilds)++;
 	}
 }

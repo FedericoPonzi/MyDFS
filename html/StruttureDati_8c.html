@@ -127,6 +127,9 @@ Funzioni</h2></td></tr>
 <tr class="memitem:a6e2594e56afc29e961a1797a0bd8d262"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura</a> (int modo_client, int modo)</td></tr>
 <tr class="memdesc:a6e2594e56afc29e961a1797a0bd8d262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dice se modo_client contiene il modo "modo".  <a href="#a6e2594e56afc29e961a1797a0bd8d262">Continua...</a><br /></td></tr>
 <tr class="separator:a6e2594e56afc29e961a1797a0bd8d262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae68c4a04beab2c3add2a48c8c8111742"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOpenedFile.html">OpenedFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#ae68c4a04beab2c3add2a48c8c8111742">closeOpenedFile</a> (int ptid)</td></tr>
+<tr class="memdesc:ae68c4a04beab2c3add2a48c8c8111742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove il nodo openedfile associato al ptid.  <a href="#ae68c4a04beab2c3add2a48c8c8111742">Continua...</a><br /></td></tr>
+<tr class="separator:ae68c4a04beab2c3add2a48c8c8111742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6baf2e6e9935b8ed81bf2c504557bfc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a6baf2e6e9935b8ed81bf2c504557bfc2">closeClientSession</a> (int ptid)</td></tr>
 <tr class="memdesc:a6baf2e6e9935b8ed81bf2c504557bfc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">rimuove collegamenti tra client e file aperti nella sessione  <a href="#a6baf2e6e9935b8ed81bf2c504557bfc2">Continua...</a><br /></td></tr>
 <tr class="separator:a6baf2e6e9935b8ed81bf2c504557bfc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,7 +158,7 @@ Variabili</h2></td></tr>
 <dl class="section date"><dt>Data</dt><dd>18.07.2015</dd></dl>
 <dl class="section author"><dt>Autore</dt><dd>Federico Ponzi </dd></dl>
 <dl class="section date"><dt>Data</dt><dd>11.07.2015 </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Da fare:</a></b></dt><dd><p class="startdd">Una struttura dati che contenga una lista di sockets </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Da fare:</a></b></dt><dd><p class="startdd">Una struttura dati che contenga una lista di sockets </p>
 <p class="enddd">Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti. NOTA: Ricordarsi di eseguire una free() dei OpenedFile-&gt;fileName perchè viene allocata con una malloc in <a class="el" href="OPE_8c.html" title="Gestisce il comando OPE(N) ">OPE.c</a></p>
 </dd></dl>
 <p>Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell' header di questo modulo. </p>
@@ -249,7 +252,26 @@ Variabili</h2></td></tr>
 
 <p>Referenzia <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="StruttureDati_8c.html#a7ed27afe1793bab93e0646228dd26ce3">free_head</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="StruttureDati_8c.html#a8647861982974418fd65cf3dca69c54e">mutex</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8c.html#ac6c781406efae2362705c3a19a96474a">openedFileLinkedList</a>, <a class="el" href="structOpenedFile.html#aba1e9ae457adfa6a9cc6a22ca4ee290d">OpenedFile::ptid</a>, e <a class="el" href="second_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>.</p>
 
-<p>Referenziato da <a class="el" href="Server_2inc_2CLOSE_8h.html#a33e9a4daafbf6ec7b0b6e2a2309acf3e">handleCloseCommand()</a>, <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, e <a class="el" href="Server_2Heartbeating_8c.html#a3224550934078a0a93c864a1e3e8e11a">heartBeat()</a>.</p>
+<p>Referenziato da <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>, <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, e <a class="el" href="Server_2Heartbeating_8c.html#a3224550934078a0a93c864a1e3e8e11a">heartBeat()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae68c4a04beab2c3add2a48c8c8111742"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structOpenedFile.html">OpenedFile</a>* closeOpenedFile </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ptid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rimuove il nodo openedfile associato al ptid. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Da fare:</a></b></dt><dd>da fare. </dd></dl>
 
 </div>
 </div>
@@ -313,7 +335,7 @@ Variabili</h2></td></tr>
 
 <p>Referenzia <a class="el" href="Server_2inc_2Utils_8h.html#a11d37c4ad110f578cbf862fdd1585b71">getptid()</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8c.html#ac6c781406efae2362705c3a19a96474a">openedFileLinkedList</a>, e <a class="el" href="structOpenedFile.html#aba1e9ae457adfa6a9cc6a22ca4ee290d">OpenedFile::ptid</a>.</p>
 
-<p>Referenziato da <a class="el" href="OPE_8c.html#af1f79690eec0a7727a519ba59a891762">createControlSock()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">handleREADCommand()</a>.</p>
+<p>Referenziato da <a class="el" href="OPE_8c.html#af1f79690eec0a7727a519ba59a891762">createControlSock()</a>, <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">handleREADCommand()</a>.</p>
 
 </div>
 </div>
@@ -364,7 +386,7 @@ Variabili</h2></td></tr>
 
 <p>Referenzia <a class="el" href="second_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>, e <a class="el" href="second_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>.</p>
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#aa089645f4772b1d34f2808e1f913eb45">checkModoOpen()</a>, <a class="el" href="StruttureDati_8c.html#a53729d51218aa9a03ba46e8b1fa89875">fileAlreadyOpenedInWrite()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#aa089645f4772b1d34f2808e1f913eb45">checkModoOpen()</a>, <a class="el" href="StruttureDati_8c.html#a53729d51218aa9a03ba46e8b1fa89875">fileAlreadyOpenedInWrite()</a>, <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, e <a class="el" href="WRITE_8c.html#afb191dc8eca40eb5302e0ca4f57de4d6">mydfs_write()</a>.</p>
 
 </div>
 </div>

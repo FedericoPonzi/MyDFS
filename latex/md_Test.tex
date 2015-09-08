@@ -1,0 +1,34 @@
+Il file di configurazione contiene le impostazioni per il server. Le righe che iniziano con un simbolo {\ttfamily \#} sono considerate commenti. Le impostazioni necessarie sono\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+O\+N $<$number$>$}\+: Equivale al numero di thread o processi da spawnare. Ogni processo/thread gestisce una connessione (=mydfs\+\_\+open)
+\item {\ttfamily P\+R\+O\+C\+E\+S\+S\+\_\+\+O\+R\+\_\+\+T\+H\+R\+E\+A\+D $<$number$>$}\+: 1 per i processi, 0 per i threads.
+\item {\ttfamily P\+O\+R\+T\+\_\+\+N\+U\+M\+B\+E\+R 9001}\+: Numero di porta su cui il server si mette in ascolto.
+\item {\ttfamily R\+O\+O\+T\+\_\+\+P\+A\+T\+H /tmp/}\+: Path del file system su cui deve lavorare il server.
+\end{DoxyItemize}
+
+\subsubsection*{Esempio di file di configurazione}
+
+\begin{DoxyVerb}##FILE DI CONFIG
+
+###
+##Numero massimo di connessioni contemporanee:
+###
+NUMBER_OF_CONNECTION 2
+
+###
+## 1 per usare i processi, 0 per usare i threads
+###
+PROCESS_OR_THREAD 0
+
+###
+## Numero di porta su cui ascoltare la connessione:
+###
+PORT_NUMBER 9001
+
+###
+## Root path file
+###
+ROOT_PATH /tmp/\end{DoxyVerb}
+ 

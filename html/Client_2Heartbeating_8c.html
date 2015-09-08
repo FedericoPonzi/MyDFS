@@ -111,13 +111,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Definizioni</h2></td></tr>
 <tr class="memitem:a39912bfe2a55f30e269196f9141d845d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2Heartbeating_8c.html#a39912bfe2a55f30e269196f9141d845d">BUFFSIZE</a>&#160;&#160;&#160;30</td></tr>
+<tr class="memdesc:a39912bfe2a55f30e269196f9141d845d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client heartbeating.  <a href="#a39912bfe2a55f30e269196f9141d845d">Continua...</a><br /></td></tr>
 <tr class="separator:a39912bfe2a55f30e269196f9141d845d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:af362ff05e1ca5b06b77aa25e7999c6ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2Heartbeating_8c.html#af362ff05e1ca5b06b77aa25e7999c6ee">spawnHeartBeat</a> (int <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>)</td></tr>
-<tr class="separator:af362ff05e1ca5b06b77aa25e7999c6ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab95a74565a85ceabf1a9f1310cdb434f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2Heartbeating_8c.html#ab95a74565a85ceabf1a9f1310cdb434f">invalidate</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id)</td></tr>
+<tr class="memdesc:ab95a74565a85ceabf1a9f1310cdb434f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove la lista di readList a seguito della ricezione di un comando di invalidazione.  <a href="#ab95a74565a85ceabf1a9f1310cdb434f">Continua...</a><br /></td></tr>
+<tr class="separator:ab95a74565a85ceabf1a9f1310cdb434f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996f23ff45bfbedeb9b64f6b030122f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2Heartbeating_8c.html#a996f23ff45bfbedeb9b64f6b030122f8">spawnHeartBeat</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id)</td></tr>
+<tr class="memdesc:a996f23ff45bfbedeb9b64f6b030122f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">spawnHeartBeat  <a href="#a996f23ff45bfbedeb9b64f6b030122f8">Continua...</a><br /></td></tr>
+<tr class="separator:a996f23ff45bfbedeb9b64f6b030122f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae3126a1d85426aa8df88b7186611472"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2Heartbeating_8c.html#aae3126a1d85426aa8df88b7186611472">heartBeat</a> (void *<a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>)</td></tr>
+<tr class="memdesc:aae3126a1d85426aa8df88b7186611472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main del nuovo thread creato per l' heartbeating.  <a href="#aae3126a1d85426aa8df88b7186611472">Continua...</a><br /></td></tr>
 <tr class="separator:aae3126a1d85426aa8df88b7186611472"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle definizioni</h2>
@@ -130,6 +136,8 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Client heartbeating. </p>
 
 </div>
 </div>
@@ -148,23 +156,52 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="server_8c.html#af9111700e7416f44aec9f208e66f0d7e">spawnHeartBeat()</a>.</p>
+<p>Main del nuovo thread creato per l' heartbeating. </p>
+
+<p>Referenziato da <a class="el" href="Client_2inc_2Heartbeating_8h.html#a996f23ff45bfbedeb9b64f6b030122f8">spawnHeartBeat()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af362ff05e1ca5b06b77aa25e7999c6ee"></a>
+<a class="anchor" id="ab95a74565a85ceabf1a9f1310cdb434f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int invalidate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMyDFSId.html">MyDFSId</a> *&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rimuove la lista di readList a seguito della ricezione di un comando di invalidazione. </p>
+
+<p>Referenzia <a class="el" href="structReadOp.html#ac84186a2d784cb2fbd0c71dd7d5df78d">ReadOp::next</a>, e <a class="el" href="structMyDFSId.html#a71f51c82d7133bfc16fcffeb4c395da0">MyDFSId::readListMutex</a>.</p>
+
+<p>Referenziato da <a class="el" href="server_8c.html#ac43da3dbb27d7a95bb3fbf75f3dfd99f">heartBeat()</a>, e <a class="el" href="Server_2CLOSE_8c.html#a12ee57b78a18d7b6afb04b7ea5a98a80">sendInvalidate()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a996f23ff45bfbedeb9b64f6b030122f8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void spawnHeartBeat </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sd</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structMyDFSId.html">MyDFSId</a> *&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>spawnHeartBeat </p>
+<p>prende in input l' id il <a class="el" href="structMyDFSId.html">MyDFSId</a> e spawna il thread heartbeating </p>
+
+<p>Referenzia <a class="el" href="Client_2Heartbeating_8c.html#aae3126a1d85426aa8df88b7186611472">heartBeat()</a>, e <a class="el" href="Threading_8c.html#a8d783a9d90fdc4fde93816b56043c24b">tid</a>.</p>
 
 <p>Referenziato da <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="OPEN_8c.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>.</p>
 

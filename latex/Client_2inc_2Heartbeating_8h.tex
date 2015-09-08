@@ -1,6 +1,7 @@
 \hypertarget{Client_2inc_2Heartbeating_8h}{\section{Riferimenti per il file Client/inc/\+Heartbeating.h}
 \label{Client_2inc_2Heartbeating_8h}\index{Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}}
 }
+{\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\\*
 \subsection*{Strutture dati}
 \begin{DoxyCompactItemize}
 \item 
@@ -9,10 +10,10 @@ struct \hyperlink{structpthreadArgs}{pthread\+Args}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{Client_2inc_2Heartbeating_8h_af362ff05e1ca5b06b77aa25e7999c6ee}{spawn\+Heart\+Beat} (int \hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd})
-\item 
+void \hyperlink{Client_2inc_2Heartbeating_8h_a996f23ff45bfbedeb9b64f6b030122f8}{spawn\+Heart\+Beat} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
+\begin{DoxyCompactList}\small\item\em spawn\+Heart\+Beat \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{Client_2inc_2Heartbeating_8h_aae3126a1d85426aa8df88b7186611472}{heart\+Beat} (void $\ast$\hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l' heartbeating. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variabili}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,13 +29,29 @@ pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{Client_2inc_2Heartbeating_8h_a4bf185
 \item[{void $\ast$}]{sd}
 \end{DoxyParamCaption}
 )}}\label{Client_2inc_2Heartbeating_8h_aae3126a1d85426aa8df88b7186611472}
-\hypertarget{Client_2inc_2Heartbeating_8h_af362ff05e1ca5b06b77aa25e7999c6ee}{\index{Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
+
+
+Main del nuovo thread creato per l' heartbeating. 
+
+\hypertarget{Client_2inc_2Heartbeating_8h_a996f23ff45bfbedeb9b64f6b030122f8}{\index{Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
 \index{spawn\+Heart\+Beat@{spawn\+Heart\+Beat}!Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}}
 \subsubsection[{spawn\+Heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Heart\+Beat (
 \begin{DoxyParamCaption}
-\item[{int}]{sd}
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id}
 \end{DoxyParamCaption}
-)}}\label{Client_2inc_2Heartbeating_8h_af362ff05e1ca5b06b77aa25e7999c6ee}
+)}}\label{Client_2inc_2Heartbeating_8h_a996f23ff45bfbedeb9b64f6b030122f8}
+
+
+spawn\+Heart\+Beat 
+
+prende in input l' id il \hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} e spawna il thread heartbeating 
+
+Referenzia heart\+Beat(), e tid.
+
+
+
+Referenziato da handle\+Open\+Command(), e mydfs\+\_\+open().
+
 
 
 \subsection{Documentazione delle variabili}

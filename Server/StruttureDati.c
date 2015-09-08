@@ -121,6 +121,8 @@ int appendOpenedFile(char* nomeFile, int modo)
  */
 int checkModoOpen(char *nomeFile, int modo)
 {
+	pthread_mutex_lock(mutex);
+
 	OpenedFile* iterator = *openedFileLinkedList;
 	
 	//copio in temp_path il rootPath
@@ -132,7 +134,8 @@ int checkModoOpen(char *nomeFile, int modo)
 	{
 		if(!isModoApertura(modo, MYO_CREAT))
 		{
-			logM("File inesistente");
+			pthread_mutex_unlock(mutex);
+			logM("File inesistente");			
 			return -3;
 		}
 	}
@@ -140,6 +143,8 @@ int checkModoOpen(char *nomeFile, int modo)
 	{
 		if(isModoApertura(modo, MYO_EXCL))
 		{
+			pthread_mutex_unlock(mutex);
+
 			return -3;
 		}
 	}
@@ -152,36 +157,41 @@ int checkModoOpen(char *nomeFile, int modo)
 			isModoApertura(iterator->modo, MYO_RDWR) || 
 			isModoApertura(iterator->modo, MYO_EXLOCK))
 			{
+				pthread_mutex_unlock(mutex);
+
 				return -3;
 			}
 		}
 		iterator = iterator->next;
 	}
-	
+	pthread_mutex_unlock(mutex);
+
 	
 	return 0;
 }
 
 /**
  * @brief Controlla se un file con quel nome e' gia' stato aperto in una modalita' che non permette l'accesso da parte di altri client
- *
+ * NOTA: SINCRONIZZATO CON MUTEX
  */
 
 int fileAlreadyOpenedInWrite(char* filename)
 {
-
-	if(openedFileLinkedList == NULL) return FALSE;
-		
+	pthread_mutex_lock(mutex);		
+	if(openedFileLinkedList == NULL)
+	{
+		pthread_mutex_unlock(mutex);		
+		return FALSE;
+	}
 	OpenedFile* iterator = *openedFileLinkedList;
-	pthread_mutex_lock(mutex);
 	while(iterator != NULL)
 	{
 		if(strcmp(iterator->fileName, filename) == 0)
 		{
 			if(isModoApertura(iterator->modo, MYO_EXLOCK) || isModoApertura(iterator->modo, MYO_WRONLY) || isModoApertura(iterator->modo, MYO_RDWR))
 			{
-				logM("iterator->filename = %s\n", iterator->fileName);
 				pthread_mutex_unlock(mutex);
+				logM("iterator->filename = %s\n", iterator->fileName);
 				return 1;
 			}
 		}
@@ -214,25 +224,33 @@ int isModoApertura(int modo_client, int modo)
  */
 OpenedFile* closeOpenedFile(int ptid)
 {
-	
+	return NULL;
 }
 
 /**
  * @brief rimuove collegamenti tra client e file aperti nella sessione
+ * NOTA: ACCESSO SINCRONIZZATO CON MUTEX
  * @param int sd socket descriptor del client
  */
-void closeClientSession(int ptid) 
+void closeClientSession(unsigned long int ptid) 
 {
+	pthread_mutex_lock(mutex);	
 	OpenedFile* iterator = *openedFileLinkedList;
+	// Dal main di server.c richiamo questa funzione quando si interrompe la socket
+	// Quindi iterator potrebbe essere null.
+	if(iterator == NULL)
+	{
+		pthread_mutex_unlock(mutex);		
+		return;
+	}
 	OpenedFile* preIterator = NULL;
-	
 	while(TRUE)
 	{
 		if(iterator->ptid == ptid)
 		{
 			
 			//OpenedFile* temp = iterator;
-			pthread_mutex_lock(mutex);
+
 			
 			if(preIterator == NULL) //primo della lista
 			{
@@ -264,7 +282,6 @@ void closeClientSession(int ptid)
 					//iterator = temp->next;
 				}	
 			}
-			pthread_mutex_unlock(mutex);
 			break;
 		}
 		else
@@ -281,36 +298,45 @@ void closeClientSession(int ptid)
 			}
 		}
 	}
+	pthread_mutex_unlock(mutex);
+
 	logM("[closeClientSession] - Connessione chiusa.\n");
 }
 
 int getTransferSocket()
 {
+	pthread_mutex_lock(mutex);
 	OpenedFile* iterator = *openedFileLinkedList;
 	while(iterator != NULL)
 	{
 		if(iterator->ptid == getptid())
 		{
+			pthread_mutex_unlock(mutex);
 			return iterator->transferSockId;
 		}
 		iterator = iterator->next;
 	}
+	pthread_mutex_unlock(mutex);
 	return 0;
 }
 /**
  * @brief Ritorna il nome del file aperto da questo ptid.
+ * NOTA: ACCESSO SINCRONIZZATO CON MUTEX
  */
 char* getFileName()
 {
+	pthread_mutex_lock(mutex);	
 	OpenedFile* iterator = *openedFileLinkedList;
 	while(iterator != NULL)
 	{
 		if(iterator->ptid == getptid())
 		{
+			pthread_mutex_unlock(mutex);
 			return iterator->fileName;
 		}
 		iterator = iterator->next;
 	}
+	pthread_mutex_unlock(mutex);
 	return NULL;
 }
 
@@ -319,14 +345,19 @@ char* getFileName()
  */
 OpenedFile* getOpenedFile()
 {
+	pthread_mutex_lock(mutex);
+
 	OpenedFile* iterator = *openedFileLinkedList;
 	while(iterator != NULL)
 	{
 		if(iterator->ptid == getptid())
 		{
+			pthread_mutex_unlock(mutex);
 			return iterator;
 		}
 		iterator = iterator->next;
 	}
+	
+	pthread_mutex_unlock(mutex);
 	return NULL;
 }

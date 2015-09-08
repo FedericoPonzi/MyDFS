@@ -5,36 +5,15 @@
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{WRITE_8h_aba2d6c2aad45c7165d6aeb0cee704d3f}{mydfs\+\_\+write} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$dfsid, int pos, void $\ast$ptr, unsigned int size)
-\begin{DoxyCompactList}\small\item\em -\/1 in caso di errore; $>$= 0 ed uguale al numero di byte effettivamente scritti. \end{DoxyCompactList}\item 
-int \hyperlink{WRITE_8h_a7723ee130cf1e92ef81b309b1beef4cf}{write\+To} (F\+I\+L\+E $\ast$id, void $\ast$ptr, int size)
-\item 
-void \hyperlink{WRITE_8h_a305bb3dc1d092fea2b196509738c0c0f}{add\+Write\+Op} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int pos, int size)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em -\/1 in caso di errore; $>$= 0 ed uguale al numero di byte effettivamente scritti. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{WRITE_8h_a305bb3dc1d092fea2b196509738c0c0f}{\index{W\+R\+I\+T\+E.\+h@{W\+R\+I\+T\+E.\+h}!add\+Write\+Op@{add\+Write\+Op}}
-\index{add\+Write\+Op@{add\+Write\+Op}!W\+R\+I\+T\+E.\+h@{W\+R\+I\+T\+E.\+h}}
-\subsubsection[{add\+Write\+Op}]{\setlength{\rightskip}{0pt plus 5cm}void add\+Write\+Op (
-\begin{DoxyParamCaption}
-\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
-\item[{int}]{pos, }
-\item[{int}]{size}
-\end{DoxyParamCaption}
-)}}\label{WRITE_8h_a305bb3dc1d092fea2b196509738c0c0f}
-
-
-Referenzia Write\+Op\+::next, Write\+Op\+::pos, e Write\+Op\+::size.
-
-
-
-Referenziato da mydfs\+\_\+write().
-
 \hypertarget{WRITE_8h_aba2d6c2aad45c7165d6aeb0cee704d3f}{\index{W\+R\+I\+T\+E.\+h@{W\+R\+I\+T\+E.\+h}!mydfs\+\_\+write@{mydfs\+\_\+write}}
 \index{mydfs\+\_\+write@{mydfs\+\_\+write}!W\+R\+I\+T\+E.\+h@{W\+R\+I\+T\+E.\+h}}
 \subsubsection[{mydfs\+\_\+write}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+write (
 \begin{DoxyParamCaption}
-\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{dfsid, }
+\item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
 \item[{int}]{pos, }
 \item[{void $\ast$}]{ptr, }
 \item[{unsigned int}]{size}
@@ -44,20 +23,11 @@ Referenziato da mydfs\+\_\+write().
 
 -\/1 in caso di errore; $>$= 0 ed uguale al numero di byte effettivamente scritti. 
 
+Pos puo essere M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T,M\+Y\+S\+E\+E\+K\+\_\+\+C\+U\+R, M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D 
+
+Referenzia add\+Write\+Op(), My\+D\+F\+S\+Id\+::filesize, My\+D\+F\+S\+Id\+::fp, is\+Modo\+Apertura(), log\+M(), My\+D\+F\+S\+Id\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D, e write\+To().
 
 
-Referenzia add\+Write\+Op(), My\+D\+F\+S\+Id\+::filesize, My\+D\+F\+S\+Id\+::fp, M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D, e write\+To().
 
-\hypertarget{WRITE_8h_a7723ee130cf1e92ef81b309b1beef4cf}{\index{W\+R\+I\+T\+E.\+h@{W\+R\+I\+T\+E.\+h}!write\+To@{write\+To}}
-\index{write\+To@{write\+To}!W\+R\+I\+T\+E.\+h@{W\+R\+I\+T\+E.\+h}}
-\subsubsection[{write\+To}]{\setlength{\rightskip}{0pt plus 5cm}int write\+To (
-\begin{DoxyParamCaption}
-\item[{F\+I\+L\+E $\ast$}]{id, }
-\item[{void $\ast$}]{ptr, }
-\item[{int}]{size}
-\end{DoxyParamCaption}
-)}}\label{WRITE_8h_a7723ee130cf1e92ef81b309b1beef4cf}
-
-
-Referenziato da mydfs\+\_\+write().
+Referenziato da main(), e test\+Write().
 

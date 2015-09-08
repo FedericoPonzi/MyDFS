@@ -33,6 +33,8 @@ int \hyperlink{StruttureDati_8c_a53729d51218aa9a03ba46e8b1fa89875}{file\+Already
 \begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e' gia' stato aperto in una modalita' che non permette l'accesso da parte di altri client. \end{DoxyCompactList}\item 
 int \hyperlink{StruttureDati_8c_a6e2594e56afc29e961a1797a0bd8d262}{is\+Modo\+Apertura} (int modo\+\_\+client, int modo)
 \begin{DoxyCompactList}\small\item\em Dice se modo\+\_\+client contiene il modo \char`\"{}modo\char`\"{}. \end{DoxyCompactList}\item 
+\hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{StruttureDati_8c_ae68c4a04beab2c3add2a48c8c8111742}{close\+Opened\+File} (int ptid)
+\begin{DoxyCompactList}\small\item\em Rimuove il nodo openedfile associato al ptid. \end{DoxyCompactList}\item 
 void \hyperlink{StruttureDati_8c_a6baf2e6e9935b8ed81bf2c504557bfc2}{close\+Client\+Session} (int ptid)
 \begin{DoxyCompactList}\small\item\em rimuove collegamenti tra client e file aperti nella sessione \end{DoxyCompactList}\item 
 int \hyperlink{StruttureDati_8c_ab227c35b76ef6706729ad091f99e7263}{get\+Transfer\+Socket} ()
@@ -70,7 +72,7 @@ Federico Ponzi
 11.\+07.\+2015 
 \end{DoxyDate}
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000009}{Da fare}]Una struttura dati che contenga una lista di sockets 
+\item[\hyperlink{todo__todo000012}{Da fare}]Una struttura dati che contenga una lista di sockets 
 
 Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti. N\+O\+T\+A\+: Ricordarsi di eseguire una free() dei Opened\+File-\/$>$file\+Name perchè viene allocata con una malloc in \hyperlink{OPE_8c}{O\+P\+E.\+c}\end{DoxyRefDesc}
 
@@ -142,6 +144,19 @@ Referenzia Opened\+File\+::file\+Name, free\+\_\+head, log\+M(), mutex, Opened\+
 
 Referenziato da handle\+Close\+Command(), handle\+Socket(), e heart\+Beat().
 
+\hypertarget{StruttureDati_8c_ae68c4a04beab2c3add2a48c8c8111742}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!close\+Opened\+File@{close\+Opened\+File}}
+\index{close\+Opened\+File@{close\+Opened\+File}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
+\subsubsection[{close\+Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ close\+Opened\+File (
+\begin{DoxyParamCaption}
+\item[{int}]{ptid}
+\end{DoxyParamCaption}
+)}}\label{StruttureDati_8c_ae68c4a04beab2c3add2a48c8c8111742}
+
+
+Rimuove il nodo openedfile associato al ptid. 
+
+\begin{DoxyRefDesc}{Da fare}
+\item[\hyperlink{todo__todo000013}{Da fare}]da fare. \end{DoxyRefDesc}
 \hypertarget{StruttureDati_8c_a53729d51218aa9a03ba46e8b1fa89875}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!file\+Already\+Opened\+In\+Write@{file\+Already\+Opened\+In\+Write}}
 \index{file\+Already\+Opened\+In\+Write@{file\+Already\+Opened\+In\+Write}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
 \subsubsection[{file\+Already\+Opened\+In\+Write}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Opened\+In\+Write (
@@ -197,7 +212,7 @@ Referenzia getptid(), Opened\+File\+::next, opened\+File\+Linked\+List, e Opened
 
 
 
-Referenziato da create\+Control\+Sock(), handle\+Open\+Command(), e handle\+R\+E\+A\+D\+Command().
+Referenziato da create\+Control\+Sock(), handle\+Close\+Command(), handle\+Open\+Command(), e handle\+R\+E\+A\+D\+Command().
 
 \hypertarget{StruttureDati_8c_ab227c35b76ef6706729ad091f99e7263}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+Transfer\+Socket@{get\+Transfer\+Socket}}
 \index{get\+Transfer\+Socket@{get\+Transfer\+Socket}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
@@ -232,7 +247,7 @@ Referenzia F\+A\+L\+S\+E, e T\+R\+U\+E.
 
 
 
-Referenziato da append\+Opened\+File(), check\+Modo\+Open(), file\+Already\+Opened\+In\+Write(), handle\+Open\+Command(), e mydfs\+\_\+open().
+Referenziato da append\+Opened\+File(), check\+Modo\+Open(), file\+Already\+Opened\+In\+Write(), handle\+Close\+Command(), handle\+Open\+Command(), mydfs\+\_\+open(), e mydfs\+\_\+write().
 
 
 

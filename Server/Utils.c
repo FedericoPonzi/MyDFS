@@ -81,7 +81,7 @@ void stripCommand(char* input)
 /**
  * @brief Ritorna il numero del processo o del thread che richiama questa funzione.
  */
-int getptid()
+unsigned long int getptid()
 {
 	return procOrThread? getpid() : pthread_self();
 }

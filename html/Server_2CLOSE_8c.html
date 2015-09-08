@@ -96,28 +96,113 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;sys/socket.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="OPE_8h_source.html">inc/OPE.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="StruttureDati_8h_source.html">inc/StruttureDati.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Server_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Server_2inc_2CLOSE_8h_source.html">inc/CLOSE.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Server_2inc_2Config_8h_source.html">inc/Config.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:a33e9a4daafbf6ec7b0b6e2a2309acf3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2CLOSE_8c.html#a33e9a4daafbf6ec7b0b6e2a2309acf3e">handleCloseCommand</a> (int socket)</td></tr>
-<tr class="memdesc:a33e9a4daafbf6ec7b0b6e2a2309acf3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il comando Close.  <a href="#a33e9a4daafbf6ec7b0b6e2a2309acf3e">Continua...</a><br /></td></tr>
-<tr class="separator:a33e9a4daafbf6ec7b0b6e2a2309acf3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21857a51925ee30db458ebcdaba4681a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2CLOSE_8c.html#a21857a51925ee30db458ebcdaba4681a">getChunkPosition</a> (char *buffer)</td></tr>
+<tr class="memdesc:a21857a51925ee30db458ebcdaba4681a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prende in input il comando, ed estrare la posizione della write.  <a href="#a21857a51925ee30db458ebcdaba4681a">Continua...</a><br /></td></tr>
+<tr class="separator:a21857a51925ee30db458ebcdaba4681a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08cb38236e114f03ae330076f65a42c0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2CLOSE_8c.html#a08cb38236e114f03ae330076f65a42c0">getChunkSize</a> (char *buffer)</td></tr>
+<tr class="memdesc:a08cb38236e114f03ae330076f65a42c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prende in input il comando, ed estrare la dimensione della write.  <a href="#a08cb38236e114f03ae330076f65a42c0">Continua...</a><br /></td></tr>
+<tr class="separator:a08cb38236e114f03ae330076f65a42c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c4e45865ca15361e71d2ab68ec75754"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2CLOSE_8c.html#a5c4e45865ca15361e71d2ab68ec75754">getNumberOfChanges</a> (char *command)</td></tr>
+<tr class="separator:a5c4e45865ca15361e71d2ab68ec75754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29faf0797a0c5b3d36a86e72cc023d85"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2CLOSE_8c.html#a29faf0797a0c5b3d36a86e72cc023d85">handleWrites</a> (int numberOfChanges, <a class="el" href="structOpenedFile.html">OpenedFile</a> *id)</td></tr>
+<tr class="memdesc:a29faf0797a0c5b3d36a86e72cc023d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">gestisce tutte le writes.  <a href="#a29faf0797a0c5b3d36a86e72cc023d85">Continua...</a><br /></td></tr>
+<tr class="separator:a29faf0797a0c5b3d36a86e72cc023d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ee57b78a18d7b6afb04b7ea5a98a80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2CLOSE_8c.html#a12ee57b78a18d7b6afb04b7ea5a98a80">sendInvalidate</a> (<a class="el" href="structOpenedFile.html">OpenedFile</a> *id)</td></tr>
+<tr class="memdesc:a12ee57b78a18d7b6afb04b7ea5a98a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invia il messaggio di invalidazione ai client che hanno il file aperto in lettura.  <a href="#a12ee57b78a18d7b6afb04b7ea5a98a80">Continua...</a><br /></td></tr>
+<tr class="separator:a12ee57b78a18d7b6afb04b7ea5a98a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f032a9f5bfd044370c257459df60b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2CLOSE_8c.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand</a> (char *command, int socket)</td></tr>
+<tr class="memdesc:aa0f032a9f5bfd044370c257459df60b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il comando Close.  <a href="#aa0f032a9f5bfd044370c257459df60b0">Continua...</a><br /></td></tr>
+<tr class="separator:aa0f032a9f5bfd044370c257459df60b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
-<a class="anchor" id="a33e9a4daafbf6ec7b0b6e2a2309acf3e"></a>
+<a class="anchor" id="a21857a51925ee30db458ebcdaba4681a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getChunkPosition </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prende in input il comando, ed estrare la posizione della write. </p>
+<p>es: "POS 0 SIZE 1000" torna 0. </p>
+
+<p>Referenziato da <a class="el" href="Server_2CLOSE_8c.html#a29faf0797a0c5b3d36a86e72cc023d85">handleWrites()</a>, e <a class="el" href="prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a08cb38236e114f03ae330076f65a42c0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getChunkSize </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prende in input il comando, ed estrare la dimensione della write. </p>
+<p>es: "POS 0 SIZE 1000" torna 1000. </p>
+
+<p>Referenziato da <a class="el" href="Server_2CLOSE_8c.html#a29faf0797a0c5b3d36a86e72cc023d85">handleWrites()</a>, e <a class="el" href="prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c4e45865ca15361e71d2ab68ec75754"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getNumberOfChanges </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa0f032a9f5bfd044370c257459df60b0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void handleCloseCommand </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>socket</em></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -130,9 +215,65 @@ Funzioni</h2></td></tr>
   </dd>
 </dl>
 
-<p>Referenzia <a class="el" href="StruttureDati_8h.html#a6baf2e6e9935b8ed81bf2c504557bfc2">closeClientSession()</a>, e <a class="el" href="Server_2inc_2Utils_8h.html#a11d37c4ad110f578cbf862fdd1585b71">getptid()</a>.</p>
+<p>Referenzia <a class="el" href="StruttureDati_8h.html#a6baf2e6e9935b8ed81bf2c504557bfc2">closeClientSession()</a>, <a class="el" href="structOpenedFile.html#a9cdcaccacb2eb66a17c0781666c28b15">OpenedFile::fp</a>, <a class="el" href="Client_2CLOSE_8c.html#a8e44338b364d8da7b693226bf600c53c">getNumberOfChanges()</a>, <a class="el" href="StruttureDati_8h.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, <a class="el" href="Server_2inc_2Utils_8h.html#a11d37c4ad110f578cbf862fdd1585b71">getptid()</a>, <a class="el" href="Server_2CLOSE_8c.html#a29faf0797a0c5b3d36a86e72cc023d85">handleWrites()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura()</a>, <a class="el" href="structOpenedFile.html#a6d9f22ff6ba81506ba9c4a60f27c4f32">OpenedFile::modo</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>, e <a class="el" href="Server_2CLOSE_8c.html#a12ee57b78a18d7b6afb04b7ea5a98a80">sendInvalidate()</a>.</p>
 
 <p>Referenziato da <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a29faf0797a0c5b3d36a86e72cc023d85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int handleWrites </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numberOfChanges</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structOpenedFile.html">OpenedFile</a> *&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>gestisce tutte le writes. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Da fare:</a></b></dt><dd>: cambiare a void </dd></dl>
+
+<p>Referenzia <a class="el" href="structOpenedFile.html#a3b2e157f5aad06b65bd017d67fde4eb3">OpenedFile::filesize</a>, <a class="el" href="Server_2inc_2Config_8h.html#a8049c678a855a57b1030eab386393a8f">FILESIZE</a>, <a class="el" href="Server_2CLOSE_8c.html#a21857a51925ee30db458ebcdaba4681a">getChunkPosition()</a>, <a class="el" href="Server_2CLOSE_8c.html#a08cb38236e114f03ae330076f65a42c0">getChunkSize()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, e <a class="el" href="structOpenedFile.html#a122a7d3d722dc1f7c63857af2024f098">OpenedFile::transferSockId</a>.</p>
+
+<p>Referenziato da <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a12ee57b78a18d7b6afb04b7ea5a98a80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sendInvalidate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structOpenedFile.html">OpenedFile</a> *&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Invia il messaggio di invalidazione ai client che hanno il file aperto in lettura. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Da fare:</a></b></dt><dd>da finire. </dd></dl>
+
+<p>Referenzia <a class="el" href="Client_2Heartbeating_8c.html#ab95a74565a85ceabf1a9f1310cdb434f">invalidate()</a>, e <a class="el" href="Server_2Config_8c.html#ad6746bc317b81e89070e24e57e63f760">tempSockMutex</a>.</p>
+
+<p>Referenziato da <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>.</p>
 
 </div>
 </div>

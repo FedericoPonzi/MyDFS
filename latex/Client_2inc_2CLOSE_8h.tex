@@ -22,13 +22,13 @@ int \hyperlink{Client_2inc_2CLOSE_8h_ad666db41278616946fce866250a175af}{mydfs\+\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Restituisce}
--\/1 in caso di errore, 0 altrimenti. 
+-\/1 in caso di errore, 0 altrimenti. Il comando C\+L\+O\+S\+E invia anche il numero di write che sono state eseguite, quindi quante send il client dovra' mandare al server. 
 \end{DoxyReturn}
 
 
-Referenzia C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D, My\+D\+F\+S\+Id\+::filename, My\+D\+F\+S\+Id\+::indirizzo, log\+M(), My\+D\+F\+S\+Id\+::socket\+Id, e My\+D\+F\+S\+Id\+::transfer\+Sock\+Id.
+Referenzia C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D, My\+D\+F\+S\+Id\+::filename, get\+Number\+Of\+Changes(), My\+D\+F\+S\+Id\+::indirizzo, log\+M(), Write\+Op\+::next, Read\+Op\+::next, My\+D\+F\+S\+Id\+::read\+List\+Mutex, My\+D\+F\+S\+Id\+::socket\+Id, My\+D\+F\+S\+Id\+::transfer\+Sock\+Id, e upload\+Changes().
 
 
 
-Referenziato da main().
+Referenziato da main(), test\+Heart\+Beating(), test\+Open(), e test\+Write().
 

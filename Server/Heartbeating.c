@@ -36,9 +36,9 @@ void spawnHeartBeat(int sd)
 void* heartBeat(void *pt_pthreadarg)
 {
 	int temp_sd = ((pthreadArgs*)pt_pthreadarg)->temp_sd;
-	int ptid = ((pthreadArgs*)pt_pthreadarg)->ptid;
+	long unsigned int ptid = ((pthreadArgs*)pt_pthreadarg)->ptid;
 	logM("[Spawining HeartBeating] \n");
-	logM("Tempsd: %d, ptid: %d\n", temp_sd, ptid);
+	logM("Tempsd: %d, ptid: %lu\n", temp_sd, ptid);
 	
 	//struct per settare tempo massimo di attesa in rcv
 	struct timeval tv;
@@ -49,7 +49,7 @@ void* heartBeat(void *pt_pthreadarg)
 	char pong[5];
 	int nRecv;
 
-	//setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
+	setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
 	
 	while(1)
 	{	
@@ -63,7 +63,7 @@ void* heartBeat(void *pt_pthreadarg)
 		nRecv = recv(temp_sd, pong, sizeof(pong), 0);
 		if((nRecv < 0) || (strncmp("pong", pong, 4) != 0)) //Se la socket viene chiusa ritorna -1. quindi esco.
 		{
-			printf("[heartBeat] - connessione %d chiusa: %s\n", ptid, pong);
+			printf("[heartBeat] - connessione %lu chiusa: %s\n", ptid, pong);
 			if(temp_sd > 0)
 			{	
 				closeClientSession(ptid);

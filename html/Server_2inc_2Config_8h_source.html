@@ -118,40 +118,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="Server_2inc_2Config_8h.html#a150eaf10f0e759de665bbe9619cd4a24">   26</a></span>&#160;<span class="preprocessor">#define MULTIPROC 1</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * @brief Nome del file di config</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * Dimensione dei file durante i trasferimenti</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="Server_2inc_2Config_8h.html#ae99ca2d2731dcecf9670d172003c467c">   31</a></span>&#160;<span class="preprocessor">#define CONFIGFILENAME &quot;CONFIG&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="Server_2inc_2Config_8h.html#a8049c678a855a57b1030eab386393a8f">   31</a></span>&#160;<span class="preprocessor">#define FILESIZE 65000</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">extern</span> pthread_mutex_t *<a class="code" href="Server_2inc_2Config_8h.html#a1b7ba52f02ee92a5963c7aa917b10c2b">acceptMutex</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">extern</span> pthread_mutex_t *<a class="code" href="Server_2inc_2Config_8h.html#ad6746bc317b81e89070e24e57e63f760">tempSockMutex</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span>* <a class="code" href="Server_2inc_2Config_8h.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> * Numero di connessioni contemporanee permesse (equivale al numero di threads o processi)</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Server_2inc_2Config_8h.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"> * E&#39; richiesto un processo o un thread?</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Server_2inc_2Config_8h.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> * Numero di porta.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Server_2inc_2Config_8h.html#ae53ea95e0769743e3a9e0935564b3739">portNumber</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> * root path server</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">char</span> <a class="code" href="Server_2inc_2Config_8h.html#a8c5e63abddd4a2647c2310bde6f15fd7">rootPath</a>[40];</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">int</span> <a class="code" href="Server_2inc_2Config_8h.html#a5b6baa60f72c2a81a203e279eff99749">loadConfig</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> * @brief Nome del file di config</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="Server_2inc_2Config_8h.html#ae99ca2d2731dcecf9670d172003c467c">   37</a></span>&#160;<span class="preprocessor">#define CONFIGFILENAME &quot;CONFIG&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">extern</span> pthread_mutex_t *<a class="code" href="Server_2inc_2Config_8h.html#a1b7ba52f02ee92a5963c7aa917b10c2b">acceptMutex</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">extern</span> pthread_mutex_t *<a class="code" href="Server_2inc_2Config_8h.html#ad6746bc317b81e89070e24e57e63f760">tempSockMutex</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span>* <a class="code" href="Server_2inc_2Config_8h.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"> * Numero di connessioni contemporanee permesse (equivale al numero di threads o processi)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Server_2inc_2Config_8h.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> * E&#39; richiesto un processo o un thread?</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Server_2inc_2Config_8h.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> * Numero di porta.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Server_2inc_2Config_8h.html#ae53ea95e0769743e3a9e0935564b3739">portNumber</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"> * root path server</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">char</span> <a class="code" href="Server_2inc_2Config_8h.html#a8c5e63abddd4a2647c2310bde6f15fd7">rootPath</a>[40];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">int</span> <a class="code" href="Server_2inc_2Config_8h.html#a5b6baa60f72c2a81a203e279eff99749">loadConfig</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="Server_2inc_2Config_8h_html_af05e592fecdd2c97fa06eafcb1c8e2c3"><div class="ttname"><a href="Server_2inc_2Config_8h.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a></div><div class="ttdeci">int procOrThread</div><div class="ttdoc">E&#39; richiesto un processo o un thread? </div><div class="ttdef"><b>Definition:</b> Config.c:44</div></div>
 <div class="ttc" id="Server_2inc_2Config_8h_html_a5b6baa60f72c2a81a203e279eff99749"><div class="ttname"><a href="Server_2inc_2Config_8h.html#a5b6baa60f72c2a81a203e279eff99749">loadConfig</a></div><div class="ttdeci">int loadConfig()</div><div class="ttdoc">Carica le impostazioni del config, ed inizializza la memoria. </div><div class="ttdef"><b>Definition:</b> Config.c:49</div></div>
 <div class="ttc" id="Server_2inc_2Config_8h_html_ae53ea95e0769743e3a9e0935564b3739"><div class="ttname"><a href="Server_2inc_2Config_8h.html#ae53ea95e0769743e3a9e0935564b3739">portNumber</a></div><div class="ttdeci">int portNumber</div><div class="ttdoc">Numero di porta. </div><div class="ttdef"><b>Definition:</b> Config.c:45</div></div>

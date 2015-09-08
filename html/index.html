@@ -87,22 +87,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <li>Sulla <a class="el" href="md_READ.html">read</a></li>
 <li>Sulla <a class="el" href="md_WRITE.html">write</a></li>
 <li>Sulla <a class="el" href="md_Cache.html">cache</a></li>
+<li>Sulla <a class="el" href="md_Test.html">configurazione e sui test</a></li>
 </ul>
 <h3>TODOS:</h3>
 <ul>
-<li>Aggiungere heartbeating anche quando un client richiede una lock.</li>
-<li>Migliorare sincronizzazione tra rimozione file a fine connessione e aggiunta di nuovo file in quella successiva</li>
-<li>Aggiungere opzione lock alla open (e spawnare heartbeat).</li>
-<li>Chiudere heartbeating se la connessione si chiude con la close correttamente.</li>
-<li>La OPEN dovrebbe mandare anche la dimensione del file.</li>
+<li>Finire invalidazione heartbeating.</li>
+<li>Aggiungere le cazzate per il lancio.</li>
+<li>Alla fine: Aggingere modalità deamon.</li>
 </ul>
 <h3>Più in là:</h3>
 <ul>
-<li>In <a class="el" href="server_8c.html">server.c</a>: Spawnare gli n threads, poi creare un metodo che ogni 1 secondo (quindi sleep(1)) controlla se ci sono thread/processi da creare.</li>
-</ul>
-<h3>Note:</h3>
-<ul>
-<li>Se passo un oggetto sbagliato a logM, ricevo un errore sulla vprintf. Tipo logM("%d","ciao"); </li>
+<li>In <a class="el" href="server_8c.html">server.c</a>: Spawnare gli n threads, poi creare un metodo che ogni 1 secondo (quindi sleep(1)) controlla se ci sono thread/processi da creare. </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->

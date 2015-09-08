@@ -30,14 +30,14 @@ Referenziato da main().
 \subsubsection[{M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D~2}}\label{Client_2inc_2READ_8h_a7be712d079aae58b8bd11905a426348f}
 
 
-Referenziato da mydfs\+\_\+write().
+Referenziato da main(), mydfs\+\_\+write(), e test\+Write().
 
 \hypertarget{Client_2inc_2READ_8h_a311ded9f138f42b1e84d00459dbb8e0a}{\index{Client/inc/\+R\+E\+A\+D.\+h@{Client/inc/\+R\+E\+A\+D.\+h}!M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T@{M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T}}
 \index{M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T@{M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T}!Client/inc/\+R\+E\+A\+D.\+h@{Client/inc/\+R\+E\+A\+D.\+h}}
 \subsubsection[{M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T~0}}\label{Client_2inc_2READ_8h_a311ded9f138f42b1e84d00459dbb8e0a}
 
 
-Referenziato da main().
+Referenziato da main(), e test\+Write().
 
 
 
@@ -60,7 +60,7 @@ name\+: mydfs\+\_\+read
 \begin{DoxyParams}{Parametri}
 {\em id} & L' id del file da cui vuole leggere. \\
 \hline
-{\em pos} & Posizione da cui vuole leggere \\
+{\em pos} & Posizione da cui vuole leggere (una delle seek). \\
 \hline
 {\em ptr} & puntatore al buffer in cui andra a legere \\
 \hline
@@ -71,12 +71,12 @@ name\+: mydfs\+\_\+read
 -\/1 in caso di errore, n bytes letti altrimenti.
 \end{DoxyReturn}
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000002}{Da fare}]quando ricevo i 65000 bytes di dati, devo stare attento a non sovrascrivere nel file dei dati che ho scritto (e che quindi non dovrei sovrascrivere con una read). \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000002}{Da fare}]per qualche motivo, la fread ritorna 0 O\+\_\+o pero' tipo la copia in un altro file sembra funzionare. \end{DoxyRefDesc}
 
 
-Referenzia append\+Read\+Request(), My\+D\+F\+S\+Id\+::filename, My\+D\+F\+S\+Id\+::fp, log\+M(), read\+From(), read\+Request(), e send\+Read\+Command().
+Referenzia append\+Read\+Request(), My\+D\+F\+S\+Id\+::fp, log\+M(), Cache\+Request\+::pos, read\+From(), read\+Request(), e send\+Read\+Command().
 
 
 
-Referenziato da main().
+Referenziato da main(), e test\+Write().
 
