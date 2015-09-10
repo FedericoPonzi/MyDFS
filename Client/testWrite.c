@@ -23,7 +23,8 @@ int main(int argc, char* argv[])
 		filename=argv[1];
 	}
 	
-	testWrite(filename);
-	
+	//testWrite(filename);
+	printf("\n");
+	testInvalidazioneCache(filename);
 	return 0;	
 }

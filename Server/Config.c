@@ -133,7 +133,6 @@ static void handleLine(char* line)
 void initializeMutex()
 {
 	
-	tempSockMutex = malloc(sizeof(pthread_mutex_t));
 	pthread_mutexattr_t mutex_attr;
 	
     if (pthread_mutexattr_init(&mutex_attr) < 0) 
@@ -167,6 +166,21 @@ void initializeMutex()
         exit(EXIT_FAILURE);
     }
 
+    pthread_mutexattr_t mutex_attr3;
+    if (pthread_mutexattr_init(&mutex_attr3) < 0) {
+        perror("[Initialize Memory] - Failed to initialize mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutexattr_setpshared(&mutex_attr3, PTHREAD_PROCESS_SHARED) < 0) {
+        perror("[Initialize Memory] - Failed to change mutex attributes");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pthread_mutex_init(mutex, &mutex_attr3) < 0) {
+        perror("[Initialize Memory] - Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
 }
 
 
@@ -185,12 +199,12 @@ void allocaEInizializzaMemoria()
 	/* Space for house-keeping pointers */
     region_sz += sizeof(openedFileLinkedList)+sizeof(free_head);
 
-	/* Space for the mutex */
+	/* Spazio per il mutex "mutex" */
     region_sz += sizeof(*mutex);
 	
-	/* Spazio per il mutex dell'accept e dell' int numbero figli vivi */
-	region_sz += sizeof(pthread_mutex_t);
-	region_sz += sizeof(int);
+	/* Spazio per il mutex "acceptMutex" e dell' int numberofiglivivi */
+	region_sz += sizeof(pthread_mutex_t); //acceptMutex
+	region_sz += sizeof(int); //NumeroFigliVivi
 	region_sz += sizeof(FILE*);
 	
 	logM("[Initialize Memory] - Sto per allocare %lu spazio.\n", region_sz);
@@ -227,20 +241,7 @@ void allocaEInizializzaMemoria()
 	}
 
     curr->next = NULL;
-
-    pthread_mutexattr_t mutex_attr;
-    if (pthread_mutexattr_init(&mutex_attr) < 0) {
-        perror("[Initialize Memory] - Failed to initialize mutex attributes");
-        exit(EXIT_FAILURE);
-    }
-
-    if (pthread_mutexattr_setpshared(&mutex_attr, PTHREAD_PROCESS_SHARED) < 0) {
-        perror("[Initialize Memory] - Failed to change mutex attributes");
-        exit(EXIT_FAILURE);
-    }
-
-    if (pthread_mutex_init(mutex, &mutex_attr) < 0) {
-        perror("[Initialize Memory] - Failed to initialize mutex");
-        exit(EXIT_FAILURE);
-    }
+	
+	tempSockMutex = malloc(sizeof(pthread_mutex_t)); //@todo: da liberare!
+	
 }

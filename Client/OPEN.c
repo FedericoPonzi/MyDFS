@@ -66,15 +66,8 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	
 	createTransferSocket(toRet, err);
 
-	if(*err == 0)
-	{
-		createControlSocket(toRet, err);
-	}
-	
-	if(*err == 0 && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
-	{
-		spawnHeartBeat(toRet);
-	}
+	if(*err == 0) createControlSocket(toRet, err);
+	if(*err == 0) spawnHeartBeat(toRet);
 	
 	switch(*err)
 	{
@@ -88,11 +81,17 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 			logM("[Open] Error: errore sul file (ad esempio file aperto in sola lettura che non esiste\n");
 			break;
 	}
+    
+    if(*err == 0)
+    {
+        logM("Creato correttamente: Filename: %s, modo: %d, socketId: %d, transferSock: %d\n", toRet->filename, toRet->modo, toRet->socketId, toRet->transferSockId);
+    }
 	return *err != 0 ? NULL : toRet;
 }
 
 /**
  * Crea la connessione di comunicazione client-server
+ * Setta socketId
  */
 void createTransferSocket(MyDFSId* toRet, int *err)
 {
@@ -167,6 +166,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
  * @brief Crea la socket di controllo 
  *
  * Setta propriamente err se qualcosa va storto, o modifica il campo toRet->transferSockId se tutto va bene.
+ * setta transferSockId
  */
 void createControlSocket(MyDFSId* toRet, int* err)
 {

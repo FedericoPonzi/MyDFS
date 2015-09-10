@@ -87,7 +87,10 @@ int appendOpenedFile(char* nomeFile, int modo)
 	if (n == NULL) 
 	{
 		pthread_mutex_unlock(mutex);
-		assert(0);
+		logM("StrutturaDati: n e' null.\n");
+		numberAliveChilds--;
+		myExit();
+		
 	}
 	
 	char filePath[strlen(nomeFile) + strlen(rootPath)+1];
@@ -222,10 +225,23 @@ int isModoApertura(int modo_client, int modo)
  * @brief Rimuove il nodo openedfile associato al ptid.
  * @todo da fare.
  */
-OpenedFile* closeOpenedFile(int ptid)
+void closeOpenedFile(unsigned long int ptid)
 {
-	return NULL;
+	pthread_mutex_lock(mutex);
+	
+	pthread_mutex_unlock(mutex);
 }
+/**
+ * Libera lo spazio occupato dal puntatore
+ * @todo da finire.
+ */
+void freeOpenedFile(OpenedFile* id)
+{
+	free(id->fileName);
+	fclose(id->fp);
+	memset(id,0,sizeof(OpenedFile));
+}
+
 
 /**
  * @brief rimuove collegamenti tra client e file aperti nella sessione
@@ -254,13 +270,12 @@ void closeClientSession(unsigned long int ptid)
 			
 			if(preIterator == NULL) //primo della lista
 			{
-				logM("[closeClientSession] - individuato file primo: %s - pronto alla chiusura\n", iterator->fileName);
+				logM("[closeClientSession] - individuato file primo: '%s'\n", iterator->fileName);
 				*openedFileLinkedList = iterator->next;
-				
+				freeOpenedFile(iterator);				
 				iterator->next = *free_head;
 				*free_head = iterator;
 				
-				//iterator = temp->next;
 			}
 			else
 			{
@@ -275,11 +290,10 @@ void closeClientSession(unsigned long int ptid)
 				{
 					logM("[closeClientSession] - individuato file medio: %s - pronto alla chiusura\n", iterator->fileName);
 					preIterator->next = iterator->next;
-					
+					freeOpenedFile(iterator);
 					iterator->next = *free_head;
 					*free_head = iterator;
 					
-					//iterator = temp->next;
 				}	
 			}
 			break;
@@ -299,7 +313,7 @@ void closeClientSession(unsigned long int ptid)
 		}
 	}
 	pthread_mutex_unlock(mutex);
-
+	logM("[CloseClientSession] Numero connessioni rimaste: %d\n", countOpenedFile());
 	logM("[closeClientSession] - Connessione chiusa.\n");
 }
 
@@ -360,4 +374,18 @@ OpenedFile* getOpenedFile()
 	
 	pthread_mutex_unlock(mutex);
 	return NULL;
+}
+
+int countOpenedFile()
+{
+	int i = 0;
+	pthread_mutex_lock(mutex);
+	OpenedFile* iterator = *openedFileLinkedList;
+	while(iterator != NULL)
+	{
+		i++;
+		iterator = iterator->next;
+	}
+	pthread_mutex_unlock(mutex);
+	return i;
 }

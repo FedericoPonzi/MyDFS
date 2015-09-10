@@ -19,9 +19,9 @@ typedef struct OpenedFile
 	unsigned long int ptid;
 	int modo;
 	int filesize;
-	int socketId; /** Usata dall' hearbeating */
+	int socketId; 
 	struct OpenedFile* next;
-	int transferSockId;
+	int transferSockId; /** Usata dall' hearbeating +++++ */ 
 	FILE* fp;
 }OpenedFile;
 
@@ -38,9 +38,12 @@ int appendOpenedFile(char* nomefile, int modo);
 int fileAlreadyOpenedInWrite(char* filename);
 int isModoApertura(int modo_client, int modo);
 int checkModoOpen(char *nomeFile , int modo);
+void closeOpenedFile(unsigned long int ptid);
+void freeOpenedFile(OpenedFile* id);
 int getTransferSocket();
 char* getFileName();
 OpenedFile* getOpenedFile();
+int countOpenedFile();
 
 void closeClientSession(unsigned long int ptid);
 

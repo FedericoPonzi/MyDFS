@@ -35,8 +35,7 @@ int mydfs_close(MyDFSId* id)
 		
 		uploadChanges(id);
 		//Cancello tutto quanto:
-
-		close(id->socketId);
+        close(id->socketId);
 		close(id->transferSockId);
 		free(id->indirizzo);
 		unlink(id->filename);
@@ -65,6 +64,7 @@ int mydfs_close(MyDFSId* id)
 		pthread_mutex_unlock(id->readListMutex);
 		free(id->readListMutex);
 		free(id);
+		logM("Chiusura effettuata con successo.");
 		
 		return 0;
 }
@@ -84,7 +84,7 @@ int uploadChanges(MyDFSId* id)
 		printf("Sto inviando il comando: %s\n", buffcommand);
 		if(send(id->transferSockId, buffcommand, sizeof(buffcommand), 0) < 0)
 		{
-			perror("1-send");
+			perror("2-send");
 			return -1;
 		}
 		logM("Fatta la send! dovrei invaire %d dati in teoria. \n", iterator->size);
@@ -105,6 +105,7 @@ int uploadChanges(MyDFSId* id)
 		free(buffer);
 		iterator = iterator->next;		
 	}
+
 	return 0;
 }
 

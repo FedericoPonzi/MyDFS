@@ -49,7 +49,7 @@ extern int* numberAliveChilds;
 extern int numeroCon;
 
 /**
- * E' richiesto un processo o un thread?
+ * E' richiesto un processo o un thread? 0 proc 1 thread
  */
 extern int procOrThread;
 

@@ -122,7 +122,7 @@ void* handleSocket()
 		
 	//Diminuisco il numero di figli vivi.
 	(*numberAliveChilds)--;
-	closeClientSession(temp_sd);
+	closeClientSession(temp_sd);	
 
 	logM("[handleSocket] - Connessione terminata.\n");
 		
@@ -141,7 +141,7 @@ void* handleSocket()
 void spawnThread()
 {
 	pthread_t tid;
-	while(*numberAliveChilds < numeroCon)
+	while(*numberAliveChilds <= numeroCon)
 	{
 		if (pthread_create(&tid, NULL, &handleSocket, NULL) != 0)
 		{
@@ -160,23 +160,24 @@ void spawnThread()
 void spawnProcess()
 {
 	pid_t pid;
-	if(*numberAliveChilds >= numeroCon)
-		return;
-		
-	pid = fork();
-	if(pid < 0)
+	while(*numberAliveChilds < numeroCon)
 	{
-		printErr(5);
-	}
-	else if(!pid)
-	{
-		//Se sono il figlio:
-		logM("[spawnProcess] - Mio pid: %d\n", getpid());
-		handleSocket();
-	}
-	else
-	{
-		//Se sono il padre:
-		(*numberAliveChilds)++;
+			
+		pid = fork();
+		if(pid < 0)
+		{
+			printErr(5);
+		}
+		else if(!pid)
+		{
+			//Se sono il figlio:
+			logM("[spawnProcess] - Mio pid: %d\n", getpid());
+			handleSocket();
+		}
+		else
+		{
+			//Se sono il padre:
+			(*numberAliveChilds)++;
+		}
 	}
 }

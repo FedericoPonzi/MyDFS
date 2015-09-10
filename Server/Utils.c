@@ -36,6 +36,7 @@
 #include <sys/unistd.h>
 #include "inc/Utils.h"
 #include "inc/Config.h"
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/unistd.h>
 
@@ -85,6 +86,12 @@ unsigned long int getptid()
 {
 	return procOrThread? getpid() : pthread_self();
 }
-	
 
-
+/**
+ * @brief interrompe il processo o thread a seconda del modo di avvio, a causa di un errore.
+ */
+void myExit()
+{	
+	if(procOrThread) pthread_exit(NULL);
+	else exit(EXIT_FAILURE);
+}

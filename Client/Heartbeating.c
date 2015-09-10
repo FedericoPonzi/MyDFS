@@ -1,8 +1,3 @@
-/**
- * Client heartbeating
- * 
- */
-
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
@@ -20,12 +15,8 @@
 #include "inc/Utils.h"
 #define BUFFSIZE 30
 
-int invalidate(MyDFSId* id);
+int invalidate(MyDFSId* id); 
 
-/**
- * spawnHeartBeat
- * @brief prende in input l' id il MyDFSId e spawna il thread heartbeating
- */
 void spawnHeartBeat(MyDFSId* id)
 {
 	pthread_t tid;
@@ -41,24 +32,24 @@ void spawnHeartBeat(MyDFSId* id)
  */
 void* heartBeat(void *sd)
 {
-	MyDFSId* id = (MyDFSId *) sd;
-	int controlSd = id->socketId;
-	
-	logM("[Spawining HeartBeating] sd: %d \n", controlSd);
+    MyDFSId* id = (MyDFSId *) sd;
+	int controlSd = id->transferSockId;
+
+    logM("[Spawining HeartBeating] sd: %d \n", controlSd);
 	char ping[5];
 	char pong[5] = "pong";
 	int nRecv;
 	sleep(1);
 	while(1)
 	{
-		nRecv = recv(controlSd, ping, strlen(ping), 0); 
-		printf("ping: %s,\n", ping);
-		if(nRecv > 0) //Se sono meno di zero la connessione e' chiusa.
+		nRecv = recv(controlSd, ping, sizeof(ping), 0);
+		
+		if(nRecv > 0)
 		{
-			
+
 			if(strncmp("INVA", ping, 4) == 0)
 			{
-				logM("[Heartbeating] Ricevuto comando di invalidazione!");
+				logM("[Heartbeating] Ricevuto comando di invalidazione!\n");
 				invalidate(id);
 			}
 			else if(strncmp("ping", ping, 4) == 0)
@@ -74,7 +65,7 @@ void* heartBeat(void *sd)
 		}
 		else
 		{
-			logM("[heartBeat] Connessione chiusa.\n");
+			printf("[HB:%d] Connessione chiusa.\n", controlSd);
 			return NULL;
 		}
 		memset(ping, 0, sizeof(ping));
@@ -88,6 +79,7 @@ void* heartBeat(void *sd)
  */
 int invalidate(MyDFSId* id)
 {
+	logM("[HeartBeating] Ricevuto comando di invalidazione!\n");
 	pthread_mutex_lock(id->readListMutex);
 	ReadOp* iteratorr = id-> readList;
 	ReadOp* tempr;
@@ -98,6 +90,8 @@ int invalidate(MyDFSId* id)
 		iteratorr = tempr;
 	}
 	iteratorr = NULL;
-	pthread_mutex_unlock(id->readListMutex);	
+	pthread_mutex_unlock(id->readListMutex);
+	logM("Reads rimosse con successo!\n");
 	return 0;
 }
+

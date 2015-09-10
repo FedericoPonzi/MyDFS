@@ -97,7 +97,7 @@ int sendReadCommand(MyDFSId* id, int pos)
 
 	char readCommand[strlen(READCOMMAND) + 	getNumberLenght(pos)+1]; //es: "READ 1", con 1 = la posizione
 	sprintf(readCommand, "%s %d\n", READCOMMAND, pos);
-	logM("Mando richiesta di READ:'%s'", readCommand);
+	logM("Mando richiesta di READ:'%s'\n", readCommand);
 	send(id->socketId, readCommand, strlen(readCommand), 0);
 	
 	//Ricevo la dimensione della parte letta

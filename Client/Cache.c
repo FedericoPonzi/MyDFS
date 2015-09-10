@@ -16,7 +16,7 @@ FILE* createTempFile(char* basename)
     fd = mkstemp(tempName);
     unlink(tempName);
 	//Appena mi stacco dall' fd, viene cancellato il file temporaneo:
-    printf("[Cache] Creato temp file: '%s'\n", tempName);
+    //logM("[Cache] Creato temp file: '%s'\n", tempName);
 	toRet = fdopen(fd, "w+b");
 	return toRet;
 }
@@ -142,7 +142,7 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
  */
 int writeCache(MyDFSId* id, void* buffer, int size, int pos)
 {
-	printf("Devo scrivere: %d dati dalla posizione %d", size, pos);
+	printf("Devo scrivere: %d dati dalla posizione %d\n", size, pos);
 	if(size <= 0)
 	{
 		return 0;

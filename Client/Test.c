@@ -50,7 +50,6 @@ int testOpen(char* filename)
 	 int ArrayModoOpen[] = { MYO_RDONLY, MYO_WRONLY, MYO_RDWR, MYO_CREAT, MYO_TRUNC, MYO_EXCL, MYO_EXLOCK};
 
 	printf("\t[INIZIO TEST DELLA OPEN]\n");
-	printf("Verranno testate tutte le modalita' di apertura:\n");
 	int i;
 	MyDFSId* fileId;
 	char* indirizzo = "127.0.0.1";
@@ -73,7 +72,7 @@ int testOpen(char* filename)
 		}
 		mydfs_close(fileId);
 	}
-	printf("\t[/ FINE TEST DELLA OPEN]\n\n");
+	printf("\n\t[V] Test superato correttamente!\n");
 	return error;
 }
 
@@ -86,7 +85,11 @@ int testRead(char* filename)
 }
 
 
-
+/**
+ *@brief Testa l' heartbeating.
+ * Visto che HB si trova su un altro thread, per comodita' non viene effettuata nessuna assert. La corretta uscita da questa
+ * funzione quindi non indica il superamento del test!!
+ */
 int testHeartBeating(char* filename, char* indirizzo)
 {
 	int heartBeatingServer = 2;
@@ -110,6 +113,7 @@ int testWrite(char* filename)
 	char* testo = "Io sono il primo testo";
 	char bufferTesto[strlen(testo)];
 	MyDFSId* fileId = mydfs_open("127.0.0.1", "file.txt", MYO_RDWR, &error);
+	assert(error==0);
 	
 	char* testoDue = "questo e' il secondo test della write.";
 	
@@ -130,7 +134,8 @@ int testWrite(char* filename)
 	}
 	
 	int oldFileSize = fileId->filesize;
-	printf("[X] Test superato.\n\t[SECONDO TEST: SEEK_END]\n");
+	printf("\n\t[V] Test superato correttamente!\n");
+	printf("\n\t[SECONDO TEST: SEEK_END]\n");
 
 	n = mydfs_write(fileId, MYSEEK_END, testoDue, strlen(testoDue));
 
@@ -147,8 +152,55 @@ int testWrite(char* filename)
 		assert(testoDue[i] == bufferPiccolo[oldFileSize]);
 		oldFileSize++;
 	}
-	printf("[X] Test superato.\n");
+	printf("\n\t[V] Test superato correttamente!\n");
 	mydfs_close(fileId);	
 		
 	return 0;
 }
+
+/**
+ * Testa l' invalidazione della cache.
+ */
+void testInvalidazioneCache(char* filename)
+{
+	printf("\t [Test di invalidazione della cache]\n");
+	int error = 0, n;
+	char bufferPrima[100], bufferDopo[100];
+	
+	char* testo = "Questo e' un test per l' invalidazione della cache.";
+
+	MyDFSId* fileRead = mydfs_open("127.0.0.1", "file.txt", MYO_RDONLY, &error);	
+	
+	assert(error == 0);
+	
+	MyDFSId* fileWrite = mydfs_open("127.0.0.1", "file.txt", MYO_RDWR, &error);	
+	
+	assert(error == 0);
+	
+	n = mydfs_read(fileRead, MYSEEK_SET, bufferPrima, sizeof(bufferPrima)-1);
+
+	assert( n > 0);
+	
+	bufferPrima[n] = '\0';
+	
+	printf("BufferPrima: '%s'\n", bufferPrima);
+	
+	n = mydfs_write(fileWrite, MYSEEK_SET, testo, strlen(testo));
+	
+	assert(n > 0);
+	
+	mydfs_close(fileWrite);
+    sleep(5);
+	n = mydfs_read(fileRead, MYSEEK_SET, bufferDopo, sizeof(bufferDopo)-1);
+	
+	assert(n > 0);
+
+	bufferDopo[n] = '\0';
+	printf("BufferDopo : '%s'\n", bufferDopo);
+	mydfs_close(fileRead);
+	
+	assert(strcmp(bufferPrima, bufferDopo));
+	
+	printf("\n\t[V] Test superato correttamente!\n");
+}
+	

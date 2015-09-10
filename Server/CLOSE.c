@@ -19,17 +19,18 @@ void sendInvalidate(OpenedFile* id);
 /**
  * @brief Gestisce il comando Close.
  * @param int socket socket del client che termina sessione
+ * Ci sono casi in cui questa funzione non viene richiamata, ad esempio se l' heartbeating chiude la connessione da solo.
+ * In quel caso, id sara' null.
  */
 void handleCloseCommand(char* command, int socket)
 {	
 	OpenedFile* id = getOpenedFile();
-	if(isModoApertura(id->modo, MYO_WRONLY) || isModoApertura(id->modo, MYO_RDWR))
+	if(id != NULL && ( isModoApertura(id->modo, MYO_WRONLY) || isModoApertura(id->modo, MYO_RDWR)))
 	{	
 		handleWrites(getNumberOfChanges(command), id);
 		sendInvalidate(id);
 	}
 	closeClientSession(getptid());
-	fclose(id->fp);
 	close(socket);	
 }
 
@@ -132,13 +133,31 @@ int getChunkSize(char* buffer)
 
 /** 
  * @brief Invia il messaggio di invalidazione ai client che hanno il file aperto in lettura.
- * @todo da finire.
  */
 void sendInvalidate(OpenedFile* id)
 {
-	//char* invalidate = "INVA";
-	pthread_mutex_lock(tempSockMutex);
-	//send(id->socketId, invalidate, strlen(invalidate), 0);
-	pthread_mutex_unlock(tempSockMutex);
-	
+	logM("[Close] Sto inviando il comando di invalidazione. Mio ptid: %lu \n", id->ptid);
+	pthread_mutex_lock(mutex);
+	char* invalidate = "INVA";
+	OpenedFile* iterator = *openedFileLinkedList;
+	while(iterator != NULL)
+	{
+		if(strcmp(iterator->fileName, id->fileName) == 0)
+		{
+			if(iterator->ptid != id->ptid)
+			{
+				logM("[Close] Trovato client, gli invio il comando\n");
+				logM("Socketid:%d, processo: %lu\n", iterator->transferSockId, iterator->ptid);
+				pthread_mutex_lock(tempSockMutex);
+				if(send(iterator->transferSockId, invalidate, strlen(invalidate), 0) < 0)
+				{
+					perror("[HeartBeating] send INVA");
+				}
+				pthread_mutex_unlock(tempSockMutex);
+			}
+		}
+		iterator = iterator->next;
+	}
+	pthread_mutex_unlock(mutex);
+	logM("[Close] Invalidazione inviata.\n");
 }
