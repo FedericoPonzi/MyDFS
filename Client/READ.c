@@ -37,17 +37,25 @@ int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 	int daRicevere;
 	
 	//Sposto il puntatore:
-	fseek(id->fp, 0, pos);
-	
+    if(pos == MYSEEK_END)
+    {
+        printf("Myseekend\n");
+        fseek(id->fp, id->filesize, SEEK_SET);
+    }
+    else
+    {
+        fseek(id->fp, 0, pos);
+	}
+    
 	//Posizione del puntatore
 	int posizione = ftell(id->fp);
-
+    
 	/*
 	 * Piccolo hack: per qualche motivo, size da dei problemi con la read.
 	 * Per ora mi leggo solo quello che mi serve fino alla fine del file.
 	 */
 	 size = posizione+size > id->filesize ? id->filesize-posizione : size;
-
+    logM("size: %d, filesize:%d \n", size, id->filesize);
 	logM("Posizione del puntatore all' inizio della read:%d\n", posizione);
 	//Mi trovo il primo buco nel file di cache:
 	while(readRequest(id, posizione, size, &req))
@@ -113,6 +121,7 @@ int sendReadCommand(MyDFSId* id, int pos)
 	strcpy(substringa, &fileSize[5]);
 	strcpy(fileSize, substringa);
 	int toRet = strtol(fileSize, NULL, 10);
+    printf("Mi sta mandando: %d dati.", toRet);
 	return toRet;
 }
 

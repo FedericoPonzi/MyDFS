@@ -1,9 +1,14 @@
+#il compilatore:
 CC=gcc
+
 # CFLAGS will be the options passed to the compiler.
 CFLAGS=-c -g -Wall -pthread
+
+#oggetti da creare:
 OBJECTS = Utils.o OPEN.o CLOSE.o READ.o WRITE.o Cache.o Heartbeating.o Test.o
 
-all:prog
+#Creera' tutti questi binari:
+all:prog testopen testread testheartbeating testinvalidazione teststresstest
 
 prog:libmydfs.a
 	gcc -o TestWrite -g -pthread testWrite.c libmydfs.a
@@ -25,3 +30,10 @@ testopen:
 
 testheartbeating:
 	gcc -o TestHeartBeating -g -pthread testHeartBeating.c libmydfs.a
+
+testinvalidazione:
+	gcc -o TestInvalidazione -g -pthread testInvalidazione.c libmydfs.a
+
+teststresstest:
+	gcc -o TestStressTest -g -pthread testStressTest.c libmydfs.a
+

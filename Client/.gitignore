@@ -30,3 +30,7 @@
 
 # Debug files
 *.dSYM/
+
+#cache files:
+.file.txt*
+output.txt

@@ -3,12 +3,14 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <signal.h>
 #include <sys/socket.h>
 #include "inc/OPE.h"
 #include "inc/StruttureDati.h"
 #include "inc/Utils.h"
 #include "inc/CLOSE.h"
 #include "inc/Config.h"
+
 
 int getChunkPosition(char* buffer);
 int getChunkSize(char*);
@@ -148,12 +150,23 @@ void sendInvalidate(OpenedFile* id)
 			{
 				logM("[Close] Trovato client, gli invio il comando\n");
 				logM("Socketid:%d, processo: %lu\n", iterator->transferSockId, iterator->ptid);
-				pthread_mutex_lock(tempSockMutex);
-				if(send(iterator->transferSockId, invalidate, strlen(invalidate), 0) < 0)
-				{
-					perror("[HeartBeating] send INVA");
-				}
-				pthread_mutex_unlock(tempSockMutex);
+                //Se e' un thread
+                if(!procOrThread)
+                {
+    				pthread_mutex_lock(tempSockMutex);
+                    if(send(iterator->transferSockId, invalidate, strlen(invalidate), 0) < 0)
+                    {
+                        perror("Error sending INVA\n");
+                    }
+                    pthread_mutex_unlock(tempSockMutex);
+                }
+                else
+                {
+                    int i;
+                    i = kill(iterator->ptid, SIGUSR1);
+                    if(i < 0) perror("Impossibile mandare segnale inva.\n");
+                    logM("Mandato segnale!");
+                }
 			}
 		}
 		iterator = iterator->next;

@@ -14,7 +14,7 @@
 #include "inc/CommandsHandler.h"
 #include "inc/Error.h"
 #include "inc/StruttureDati.h"
-
+#include <signal.h>
 
 void spawnThread();
 void spawnProcess();
@@ -24,12 +24,32 @@ void* heartBeat(void *temp_sd);
 int sd;
 struct sockaddr_in server;
 
+/**
+ * Signal handler per gestire l' invalidazione.
+ */
+void sig_handler(int signo)
+{
+    if (signo == SIGUSR1)
+    {
+        char* invalidate = "INVA";
+        logM("received SIGUSR1\n");
+        OpenedFile* id = getOpenedFile();
+        if(send(id->transferSockId, invalidate, strlen(invalidate), 0) < 0)
+        {
+            perror("Error sending INVA\n");
+        }
+    }
+}
+
 int main()
 {
 	loadConfig();
 	logM("[Config]\n'%d' numero di connessioni\n'%d' Processo o thread\n'%d' Porta in ascolto.\n\n", numeroCon, procOrThread, portNumber);
 
-
+    if (signal(SIGUSR1, sig_handler) == SIG_ERR)
+    {
+        perror("\ncan't catch SIGUSR1\n");
+    }
 	if((sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
 		printErr(1);
@@ -43,7 +63,7 @@ int main()
 		perror("bind");
 		printErr(2);
 	}
-	if(listen (sd, BACKLOG) < 0)
+	if(listen (sd, SOMAXCONN) < 0)
 	{
 		printErr(3);
 	}	
@@ -141,7 +161,7 @@ void* handleSocket()
 void spawnThread()
 {
 	pthread_t tid;
-	while(*numberAliveChilds <= numeroCon)
+	while(*numberAliveChilds < numeroCon)
 	{
 		if (pthread_create(&tid, NULL, &handleSocket, NULL) != 0)
 		{

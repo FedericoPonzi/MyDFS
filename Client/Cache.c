@@ -142,7 +142,7 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
  */
 int writeCache(MyDFSId* id, void* buffer, int size, int pos)
 {
-	printf("Devo scrivere: %d dati dalla posizione %d\n", size, pos);
+	logM("[WriteCache] Devo scrivere: %d dati dalla posizione %d\n", size, pos);
 	if(size <= 0)
 	{
 		return 0;
@@ -187,7 +187,7 @@ int writeCache(MyDFSId* id, void* buffer, int size, int pos)
 			if(ferror(id->fp))
 				return 1;
 		}
-		logM("[WriteCache] Scritti '%d' dati nella cache.\n", scritti);
+		logM("[WriteCache] Scritti '%d' dati nella cache da posizione: %d.\n", scritti, primaWrite->pos-pos);
 		fseek(id->fp,posAttuale, SEEK_SET);	
 		// Modifico gli indici e richiamo questa funzione ricorsivamente:
 		return writeCache(id, buffer+scritti, size-scritti, pos+scritti);
@@ -204,7 +204,7 @@ int writeCache(MyDFSId* id, void* buffer, int size, int pos)
 			if(ferror(id->fp))
 				return 1;
 		}
-		logM("[WriteCache] Scritti '%d' dati nella cache.\n", s);
+		logM("[WriteCache] Scritti '%d' dati nella cache in posizione %d.\n", s, pos);
 		fseek(id->fp,posAttuale, SEEK_SET);
 		return 0;
 	}

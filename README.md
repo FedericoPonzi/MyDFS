@@ -9,8 +9,7 @@
 * Sulla [configurazione e sui test](Test.md)
 
 ###TODOS:
-* Aggiungere un mutex attorno alla struttura dati (o usare quello esistente) ogni volta che necessario altrimenti genera problemi di sincoronizzazione
-* Finire invalidazione heartbeating.
+* Aggiungere timeout alla socket che aspetta i comandi in modo che se un client che ha aperto in read muore il file viene chiuso.
 * Aggiungere le cazzate per il lancio.
 * Alla fine: Aggingere modalità deamon.
 

@@ -60,28 +60,11 @@ void handleREADCommand(char* command, int socket)
 	OpenedFile* of = getOpenedFile();
 	
 	logM("[READ] File aperto correttamente. \n");
-	
-	//fseek(of->fp, 0, SEEK_CUR);
-/*
-	// obtain file size:
-	fseek (pFile , 0 , SEEK_END);
-	lSize = ftell (pFile);
-	rewind (pFile);
+    
+    fseek(of->fp, pos, SEEK_SET);
+    
+	int nread = fread(buff, 1, BUF_SIZE,of->fp);
 
-	// allocate memory to contain the whole file:
-	buffer = (char*) malloc (sizeof(char)*lSize);
-	if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
-
-	// copy the file into the buffer:
-	result = fread (buffer,1,lSize,pFile);
-	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}
-*/
-
-	int nread = fread(buff,BUF_SIZE,1,of->fp);
-	/*
-	 * There is something tricky going on with read .. 
-	 * Either there was error, or we reached end of file.
-	 */
 	if (nread < BUF_SIZE)
 	{
 		if (feof(of->fp))

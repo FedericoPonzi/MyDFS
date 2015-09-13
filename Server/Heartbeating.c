@@ -16,17 +16,22 @@
 #include "inc/CommandsHandler.h"
 #include "inc/Error.h"
 #include "inc/StruttureDati.h"
-#define BUFFSIZE 30
+#include <signal.h>
 
 
+
+
+/**
+ * Funzione che spawna il thread per l' heartbeating.
+ */
 void spawnHeartBeat(int sd)
 {
-	pthread_t tid;
+    pthread_t tid;
 	pthreadArgs *ptarg;
 	ptarg = malloc(sizeof(pthreadArgs));
 	ptarg->temp_sd = sd;
 	ptarg->ptid = getptid();
-	
+
 	if(pthread_create(&tid, NULL, &heartBeat, ptarg) != 0)
 	{
 		perror("Cant create hb thread");
@@ -82,6 +87,8 @@ void* heartBeat(void *pt_pthreadarg)
 	free(pt_pthreadarg);
 	return NULL;
 }
+
+
 
 
 

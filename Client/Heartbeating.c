@@ -90,8 +90,8 @@ int invalidate(MyDFSId* id)
 		iteratorr = tempr;
 	}
 	iteratorr = NULL;
+    id->readList= NULL;
 	pthread_mutex_unlock(id->readListMutex);
-	logM("Reads rimosse con successo!\n");
 	return 0;
 }
 
