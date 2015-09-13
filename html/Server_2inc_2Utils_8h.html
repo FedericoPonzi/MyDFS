@@ -103,17 +103,20 @@ Funzioni</h2></td></tr>
 <tr class="memitem:ac26fe6c49ab17caab523c2410afb27c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand</a> (char *)</td></tr>
 <tr class="memdesc:ac26fe6c49ab17caab523c2410afb27c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove i primi 4 caratteri (es: 'GET ')  <a href="#ac26fe6c49ab17caab523c2410afb27c1">Continua...</a><br /></td></tr>
 <tr class="separator:ac26fe6c49ab17caab523c2410afb27c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11d37c4ad110f578cbf862fdd1585b71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Utils_8h.html#a11d37c4ad110f578cbf862fdd1585b71">getptid</a> ()</td></tr>
-<tr class="memdesc:a11d37c4ad110f578cbf862fdd1585b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ritorna il numero del processo o del thread che richiama questa funzione.  <a href="#a11d37c4ad110f578cbf862fdd1585b71">Continua...</a><br /></td></tr>
-<tr class="separator:a11d37c4ad110f578cbf862fdd1585b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44499e7455f77c00c1daa769f57eca5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Utils_8h.html#a44499e7455f77c00c1daa769f57eca5c">myExit</a> ()</td></tr>
+<tr class="memdesc:a44499e7455f77c00c1daa769f57eca5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">interrompe il processo o thread a seconda del modo di avvio, a causa di un errore.  <a href="#a44499e7455f77c00c1daa769f57eca5c">Continua...</a><br /></td></tr>
+<tr class="separator:a44499e7455f77c00c1daa769f57eca5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67a6020df08de081237572837b51fb82"><td class="memItemLeft" align="right" valign="top">unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Utils_8h.html#a67a6020df08de081237572837b51fb82">getptid</a> ()</td></tr>
+<tr class="memdesc:a67a6020df08de081237572837b51fb82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ritorna il numero del processo o del thread che richiama questa funzione.  <a href="#a67a6020df08de081237572837b51fb82">Continua...</a><br /></td></tr>
+<tr class="separator:a67a6020df08de081237572837b51fb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
-<a class="anchor" id="a11d37c4ad110f578cbf862fdd1585b71"></a>
+<a class="anchor" id="a67a6020df08de081237572837b51fb82"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int getptid </td>
+          <td class="memname">unsigned long int getptid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -125,7 +128,7 @@ Funzioni</h2></td></tr>
 
 <p>Referenzia <a class="el" href="Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>.</p>
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#a5bd53dd113398b8df28c065f0ef2255e">getFileName()</a>, <a class="el" href="StruttureDati_8c.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#ab227c35b76ef6706729ad091f99e7263">getTransferSocket()</a>, <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>, e <a class="el" href="server_8c.html#af9111700e7416f44aec9f208e66f0d7e">spawnHeartBeat()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#a5bd53dd113398b8df28c065f0ef2255e">getFileName()</a>, <a class="el" href="StruttureDati_8c.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#ab227c35b76ef6706729ad091f99e7263">getTransferSocket()</a>, <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="server_8c.html#af9111700e7416f44aec9f208e66f0d7e">spawnHeartBeat()</a>.</p>
 
 </div>
 </div>
@@ -165,6 +168,27 @@ Funzioni</h2></td></tr>
 <dl class="section see"><dt>Si veda anche</dt><dd>Config.h </dd></dl>
 
 <p>Referenzia <a class="el" href="Client_2inc_2Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a44499e7455f77c00c1daa769f57eca5c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void myExit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>interrompe il processo o thread a seconda del modo di avvio, a causa di un errore. </p>
+
+<p>Referenzia <a class="el" href="Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>.</p>
+
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>.</p>
 
 </div>
 </div>

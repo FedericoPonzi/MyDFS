@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['ope_2ec',['OPE.c',['../OPE_8c.html',1,'']]],
-  ['ope_2eh',['OPE.h',['../OPE_8h.html',1,'']]],
-  ['ope_2emd',['OPE.md',['../OPE_8md.html',1,'']]],
-  ['open_2ec',['OPEN.c',['../OPEN_8c.html',1,'']]],
-  ['open_2eh',['OPEN.h',['../OPEN_8h.html',1,'']]]
+  ['main_2ec',['Main.c',['../Main_8c.html',1,'']]],
+  ['mmap_2ec',['Mmap.c',['../Mmap_8c.html',1,'']]],
+  ['mmapstrutturaeasier_2ec',['mmapStrutturaEasier.c',['../mmapStrutturaEasier_8c.html',1,'']]],
+  ['mmapstrutturedati_2ec',['mmapStruttureDati.c',['../mmapStruttureDati_8c.html',1,'']]]
 ];

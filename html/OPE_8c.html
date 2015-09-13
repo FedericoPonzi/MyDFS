@@ -141,7 +141,7 @@ Funzioni</h2></td></tr>
 <ul>
 <li>Se non e' aperto, aggiunge un nodo in coda a mainOpenedFile</li>
 </ul>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Da fare:</a></b></dt><dd><p class="startdd">dovrebbe mandare una risposta al client in caso di successo o errore </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Da fare:</a></b></dt><dd><p class="startdd">dovrebbe mandare una risposta al client in caso di successo o errore </p>
 <p class="enddd">permettere l' apertura se il modo con cui e' aperto il file e' lettura e viene richiesta la lettura. </p>
 </dd></dl>
 </div><h2 class="groupheader">Documentazione delle definizioni</h2>
@@ -185,7 +185,6 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>crea connessione dati lato server </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Da fare:</a></b></dt><dd>correggere utilizzo vecchio socketDes </dd></dl>
 
 <p>Referenzia <a class="el" href="StruttureDati_8h.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>, e <a class="el" href="structOpenedFile.html#a122a7d3d722dc1f7c63857af2024f098">OpenedFile::transferSockId</a>.</p>
 
@@ -238,9 +237,9 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gestisce il comando Open. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Da fare:</a></b></dt><dd>: Da vedere bene per memory leaks!!!! </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Da fare:</a></b></dt><dd>: Da vedere bene per memory leaks!!!! </dd></dl>
 
-<p>Referenzia <a class="el" href="StruttureDati_8h.html#aa878836a099aa59b3664d853a9c8b2b4">appendOpenedFile()</a>, <a class="el" href="OPE_8c.html#af1f79690eec0a7727a519ba59a891762">createControlSock()</a>, <a class="el" href="structOpenedFile.html#a9cdcaccacb2eb66a17c0781666c28b15">OpenedFile::fp</a>, <a class="el" href="OPE_8c.html#a14798837102781498ee08e3c4cf5561c">getModo()</a>, <a class="el" href="StruttureDati_8h.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#a6d9f22ff6ba81506ba9c4a60f27c4f32">OpenedFile::modo</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>, <a class="el" href="OPE_8c.html#abf5dc13ad8c5442a46d67adb678d1541">PRT_MSG_SIZE</a>, <a class="el" href="Client_2Heartbeating_8c.html#a996f23ff45bfbedeb9b64f6b030122f8">spawnHeartBeat()</a>, e <a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand()</a>.</p>
+<p>Referenzia <a class="el" href="StruttureDati_8h.html#aa878836a099aa59b3664d853a9c8b2b4">appendOpenedFile()</a>, <a class="el" href="OPE_8c.html#af1f79690eec0a7727a519ba59a891762">createControlSock()</a>, <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="structOpenedFile.html#a9cdcaccacb2eb66a17c0781666c28b15">OpenedFile::fp</a>, <a class="el" href="OPE_8c.html#a14798837102781498ee08e3c4cf5561c">getModo()</a>, <a class="el" href="StruttureDati_8h.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, <a class="el" href="Server_2inc_2Utils_8h.html#a67a6020df08de081237572837b51fb82">getptid()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structOpenedFile.html#a6d9f22ff6ba81506ba9c4a60f27c4f32">OpenedFile::modo</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>, <a class="el" href="OPE_8c.html#abf5dc13ad8c5442a46d67adb678d1541">PRT_MSG_SIZE</a>, <a class="el" href="structOpenedFile.html#a2af35018ecff06dbd349d464c815038a">OpenedFile::socketId</a>, <a class="el" href="Client_2Heartbeating_8c.html#a996f23ff45bfbedeb9b64f6b030122f8">spawnHeartBeat()</a>, <a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand()</a>, e <a class="el" href="structOpenedFile.html#a122a7d3d722dc1f7c63857af2024f098">OpenedFile::transferSockId</a>.</p>
 
 <p>Referenziato da <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>.</p>
 

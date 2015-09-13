@@ -1,6 +1,7 @@
 \hypertarget{Test_8c}{\section{Riferimenti per il file Client/\+Test.c}
 \label{Test_8c}\index{Client/\+Test.\+c@{Client/\+Test.\+c}}
 }
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Config.\+h\char`\"{}}\\*
@@ -15,17 +16,43 @@
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{Test_8c_a02a0d651ea65063fb8cb1eda19614d78}{test\+Open} (char $\ast$filename)
+int \hyperlink{Test_8c_a32cb956b20025f532a5f0639615475bc}{test\+Open} (char $\ast$filename, char $\ast$indirizzo)
 \begin{DoxyCompactList}\small\item\em Testa tutte le opzioni di apertura della open. \end{DoxyCompactList}\item 
-int \hyperlink{Test_8c_acf1667aa8cdcd99e7dc342a3e893562c}{test\+Read} (char $\ast$filename)
-\item 
+int \hyperlink{Test_8c_a07d359bacac29bfd639313590a55828e}{test\+Read} (char $\ast$filename, char $\ast$indirizzo)
+\begin{DoxyCompactList}\small\item\em N\+O\+T\+A\+: La parte finale funziona solo in locale. \end{DoxyCompactList}\item 
 int \hyperlink{Test_8c_a3319f5111dc2d6069a31e052cf849223}{test\+Heart\+Beating} (char $\ast$filename, char $\ast$indirizzo)
+\begin{DoxyCompactList}\small\item\em Testa l' heartbeating. \end{DoxyCompactList}\item 
+int \hyperlink{Test_8c_a3c902e8f7045ddc435b1b2c4cf29f0fb}{test\+Write} (char $\ast$filename, char $\ast$indirizzo)
+\begin{DoxyCompactList}\small\item\em Testa la write N\+O\+T\+A\+: bufferpiccolo deve essere maggiore o uguale alla dimensione di file.\+txt altrimenti il test non verra' superato. \end{DoxyCompactList}\item 
+void \hyperlink{Test_8c_abf72a4133c6d5779202038995fc97021}{test\+Invalidazione\+Cache} (char $\ast$filename, char $\ast$indirizzo)
+\begin{DoxyCompactList}\small\item\em Testa l' invalidazione della cache. \end{DoxyCompactList}\item 
+long \hyperlink{Test_8c_ac763275e175d5b2820597aa5223cd05b}{random\+\_\+at\+\_\+most} (long max)
 \item 
-int \hyperlink{Test_8c_a3a5d4c7d0b9aefc5be06d03a85d98e67}{test\+Write} (char $\ast$filename)
+void \hyperlink{Test_8c_a6b06b8b15904218dbd08555b35fa51a2}{switch\+Stdout} (const char $\ast$new\+Stream)
+\item 
+void \hyperlink{Test_8c_a68ba82fb95b1ce53d5c2dce6adf3e5f5}{test\+Stress\+Test} (char $\ast$indirizzo, char $\ast$filename)
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
+\hypertarget{Test_8c_ac763275e175d5b2820597aa5223cd05b}{\index{Test.\+c@{Test.\+c}!random\+\_\+at\+\_\+most@{random\+\_\+at\+\_\+most}}
+\index{random\+\_\+at\+\_\+most@{random\+\_\+at\+\_\+most}!Test.\+c@{Test.\+c}}
+\subsubsection[{random\+\_\+at\+\_\+most}]{\setlength{\rightskip}{0pt plus 5cm}long random\+\_\+at\+\_\+most (
+\begin{DoxyParamCaption}
+\item[{long}]{max}
+\end{DoxyParamCaption}
+)}}\label{Test_8c_ac763275e175d5b2820597aa5223cd05b}
+
+
+Referenziato da test\+Stress\+Test().
+
+\hypertarget{Test_8c_a6b06b8b15904218dbd08555b35fa51a2}{\index{Test.\+c@{Test.\+c}!switch\+Stdout@{switch\+Stdout}}
+\index{switch\+Stdout@{switch\+Stdout}!Test.\+c@{Test.\+c}}
+\subsubsection[{switch\+Stdout}]{\setlength{\rightskip}{0pt plus 5cm}void switch\+Stdout (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{new\+Stream}
+\end{DoxyParamCaption}
+)}}\label{Test_8c_a6b06b8b15904218dbd08555b35fa51a2}
 \hypertarget{Test_8c_a3319f5111dc2d6069a31e052cf849223}{\index{Test.\+c@{Test.\+c}!test\+Heart\+Beating@{test\+Heart\+Beating}}
 \index{test\+Heart\+Beating@{test\+Heart\+Beating}!Test.\+c@{Test.\+c}}
 \subsubsection[{test\+Heart\+Beating}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Heart\+Beating (
@@ -36,19 +63,44 @@ int \hyperlink{Test_8c_a3a5d4c7d0b9aefc5be06d03a85d98e67}{test\+Write} (char $\a
 )}}\label{Test_8c_a3319f5111dc2d6069a31e052cf849223}
 
 
+Testa l' heartbeating. 
+
+Visto che H\+B si trova su un altro thread, per comodita' non viene effettuata nessuna assert. La corretta uscita da questa funzione quindi non indica il superamento del test!! 
+
 Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), e M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y.
 
 
 
 Referenziato da main().
 
-\hypertarget{Test_8c_a02a0d651ea65063fb8cb1eda19614d78}{\index{Test.\+c@{Test.\+c}!test\+Open@{test\+Open}}
+\hypertarget{Test_8c_abf72a4133c6d5779202038995fc97021}{\index{Test.\+c@{Test.\+c}!test\+Invalidazione\+Cache@{test\+Invalidazione\+Cache}}
+\index{test\+Invalidazione\+Cache@{test\+Invalidazione\+Cache}!Test.\+c@{Test.\+c}}
+\subsubsection[{test\+Invalidazione\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Invalidazione\+Cache (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{char $\ast$}]{indirizzo}
+\end{DoxyParamCaption}
+)}}\label{Test_8c_abf72a4133c6d5779202038995fc97021}
+
+
+Testa l' invalidazione della cache. 
+
+
+
+Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y, M\+Y\+O\+\_\+\+R\+D\+W\+R, e M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T.
+
+
+
+Referenziato da main().
+
+\hypertarget{Test_8c_a32cb956b20025f532a5f0639615475bc}{\index{Test.\+c@{Test.\+c}!test\+Open@{test\+Open}}
 \index{test\+Open@{test\+Open}!Test.\+c@{Test.\+c}}
 \subsubsection[{test\+Open}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Open (
 \begin{DoxyParamCaption}
-\item[{char $\ast$}]{filename}
+\item[{char $\ast$}]{filename, }
+\item[{char $\ast$}]{indirizzo}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a02a0d651ea65063fb8cb1eda19614d78}
+)}}\label{Test_8c_a32cb956b20025f532a5f0639615475bc}
 
 
 Testa tutte le opzioni di apertura della open. 
@@ -61,29 +113,59 @@ Referenzia log\+M(), mydfs\+\_\+close(), mydfs\+\_\+open(), M\+Y\+O\+\_\+\+C\+R\
 
 Referenziato da main().
 
-\hypertarget{Test_8c_acf1667aa8cdcd99e7dc342a3e893562c}{\index{Test.\+c@{Test.\+c}!test\+Read@{test\+Read}}
+\hypertarget{Test_8c_a07d359bacac29bfd639313590a55828e}{\index{Test.\+c@{Test.\+c}!test\+Read@{test\+Read}}
 \index{test\+Read@{test\+Read}!Test.\+c@{Test.\+c}}
 \subsubsection[{test\+Read}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Read (
 \begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{char $\ast$}]{indirizzo}
+\end{DoxyParamCaption}
+)}}\label{Test_8c_a07d359bacac29bfd639313590a55828e}
+
+
+N\+O\+T\+A\+: La parte finale funziona solo in locale. 
+
+
+
+Referenzia My\+D\+F\+S\+Id\+::filename, mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+S\+E\+E\+K\+\_\+\+C\+U\+R, M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D, e M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T.
+
+
+
+Referenziato da main(), e test\+Stress\+Test().
+
+\hypertarget{Test_8c_a68ba82fb95b1ce53d5c2dce6adf3e5f5}{\index{Test.\+c@{Test.\+c}!test\+Stress\+Test@{test\+Stress\+Test}}
+\index{test\+Stress\+Test@{test\+Stress\+Test}!Test.\+c@{Test.\+c}}
+\subsubsection[{test\+Stress\+Test}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Stress\+Test (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{indirizzo, }
 \item[{char $\ast$}]{filename}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_acf1667aa8cdcd99e7dc342a3e893562c}
+)}}\label{Test_8c_a68ba82fb95b1ce53d5c2dce6adf3e5f5}
+
+
+Referenzia random\+\_\+at\+\_\+most(), test\+Read(), e test\+Write().
+
 
 
 Referenziato da main().
 
-\hypertarget{Test_8c_a3a5d4c7d0b9aefc5be06d03a85d98e67}{\index{Test.\+c@{Test.\+c}!test\+Write@{test\+Write}}
+\hypertarget{Test_8c_a3c902e8f7045ddc435b1b2c4cf29f0fb}{\index{Test.\+c@{Test.\+c}!test\+Write@{test\+Write}}
 \index{test\+Write@{test\+Write}!Test.\+c@{Test.\+c}}
 \subsubsection[{test\+Write}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Write (
 \begin{DoxyParamCaption}
-\item[{char $\ast$}]{filename}
+\item[{char $\ast$}]{filename, }
+\item[{char $\ast$}]{indirizzo}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a3a5d4c7d0b9aefc5be06d03a85d98e67}
+)}}\label{Test_8c_a3c902e8f7045ddc435b1b2c4cf29f0fb}
+
+
+Testa la write N\+O\+T\+A\+: bufferpiccolo deve essere maggiore o uguale alla dimensione di file.\+txt altrimenti il test non verra' superato. 
+
 
 
 Referenzia My\+D\+F\+S\+Id\+::filesize, mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D, e M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T.
 
 
 
-Referenziato da main().
+Referenziato da main(), e test\+Stress\+Test().
 

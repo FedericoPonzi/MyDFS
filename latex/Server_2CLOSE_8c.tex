@@ -6,6 +6,7 @@
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$unistd.\+h$>$}\\*
 {\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
 {\ttfamily \#include $<$sys/socket.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}inc/\+O\+P\+E.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
@@ -81,12 +82,12 @@ Gestisce il comando Close.
 
 
 \begin{DoxyParams}{Parametri}
-{\em int} & socket socket del client che termina sessione \\
+{\em int} & socket socket del client che termina sessione Ci sono casi in cui questa funzione non viene richiamata, ad esempio se l' heartbeating chiude la connessione da solo. In quel caso, id sara' null. \\
 \hline
 \end{DoxyParams}
 
 
-Referenzia close\+Client\+Session(), Opened\+File\+::fp, get\+Number\+Of\+Changes(), get\+Opened\+File(), getptid(), handle\+Writes(), is\+Modo\+Apertura(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, e send\+Invalidate().
+Referenzia close\+Client\+Session(), get\+Number\+Of\+Changes(), get\+Opened\+File(), getptid(), handle\+Writes(), is\+Modo\+Apertura(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, e send\+Invalidate().
 
 
 
@@ -125,11 +126,9 @@ Referenziato da handle\+Close\+Command().
 
 Invia il messaggio di invalidazione ai client che hanno il file aperto in lettura. 
 
-\begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000005}{Da fare}]da finire. \end{DoxyRefDesc}
 
 
-Referenzia invalidate(), e temp\+Sock\+Mutex.
+Referenzia Opened\+File\+::file\+Name, invalidate(), log\+M(), mutex, Opened\+File\+::next, opened\+File\+Linked\+List, proc\+Or\+Thread, Opened\+File\+::ptid, temp\+Sock\+Mutex, e Opened\+File\+::transfer\+Sock\+Id.
 
 
 

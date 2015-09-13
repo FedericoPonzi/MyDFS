@@ -18,24 +18,14 @@
 {\ttfamily \#include \char`\"{}inc/\+Commands\+Handler.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Error.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
-\subsection*{Definizioni}
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{Server_2Heartbeating_8c_a39912bfe2a55f30e269196f9141d845d}{B\+U\+F\+F\+S\+I\+Z\+E}~30
-\end{DoxyCompactItemize}
+{\ttfamily \#include $<$signal.\+h$>$}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{Server_2Heartbeating_8c_af362ff05e1ca5b06b77aa25e7999c6ee}{spawn\+Heart\+Beat} (int \hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd})
-\item 
+\begin{DoxyCompactList}\small\item\em Funzione che spawna il thread per l' heartbeating. \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{Server_2Heartbeating_8c_a3224550934078a0a93c864a1e3e8e11a}{heart\+Beat} (void $\ast$pt\+\_\+pthreadarg)
 \begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l' heartbeating. \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\subsection{Documentazione delle definizioni}
-\hypertarget{Server_2Heartbeating_8c_a39912bfe2a55f30e269196f9141d845d}{\index{Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}!B\+U\+F\+F\+S\+I\+Z\+E@{B\+U\+F\+F\+S\+I\+Z\+E}}
-\index{B\+U\+F\+F\+S\+I\+Z\+E@{B\+U\+F\+F\+S\+I\+Z\+E}!Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}}
-\subsubsection[{B\+U\+F\+F\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+S\+I\+Z\+E~30}}\label{Server_2Heartbeating_8c_a39912bfe2a55f30e269196f9141d845d}
 
 
 \subsection{Documentazione delle funzioni}
@@ -52,7 +42,7 @@ Main del nuovo thread creato per l' heartbeating.
 
 
 
-Referenzia close\+Client\+Session(), invalidate(), log\+M(), P\+I\+N\+G\+\_\+\+T\+I\+M\+E, My\+D\+F\+S\+Id\+::socket\+Id, e temp\+Sock\+Mutex.
+Referenzia close\+Client\+Session(), invalidate(), log\+M(), P\+I\+N\+G\+\_\+\+T\+I\+M\+E, temp\+Sock\+Mutex, e My\+D\+F\+S\+Id\+::transfer\+Sock\+Id.
 
 \hypertarget{Server_2Heartbeating_8c_af362ff05e1ca5b06b77aa25e7999c6ee}{\index{Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
 \index{spawn\+Heart\+Beat@{spawn\+Heart\+Beat}!Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}}
@@ -61,6 +51,10 @@ Referenzia close\+Client\+Session(), invalidate(), log\+M(), P\+I\+N\+G\+\_\+\+T
 \item[{int}]{sd}
 \end{DoxyParamCaption}
 )}}\label{Server_2Heartbeating_8c_af362ff05e1ca5b06b77aa25e7999c6ee}
+
+
+Funzione che spawna il thread per l' heartbeating. 
+
 
 
 Referenzia getptid(), heart\+Beat(), pthread\+Args\+::ptid, sd, pthread\+Args\+::temp\+\_\+sd, e tid.

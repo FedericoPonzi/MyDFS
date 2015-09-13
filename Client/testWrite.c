@@ -22,9 +22,8 @@ int main(int argc, char* argv[])
 	{
 		filename=argv[1];
 	}
-	
-	//testWrite(filename);
-	printf("\n");
-	testInvalidazioneCache(filename);
+    char* indirizzo = "127.0.0.1";
+
+	testWrite(filename, indirizzo);
 	return 0;	
 }

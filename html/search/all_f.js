@@ -8,6 +8,7 @@ var searchData=
   ['server',['server',['../server_8c.html#a437cecc27162b023659813375ca67d62',1,'server.c']]],
   ['server_2ec',['server.c',['../server_8c.html',1,'']]],
   ['server_5fport',['SERVER_PORT',['../Client_2inc_2Config_8h.html#ac42367fe5c999ec6650de83e9d72fe8c',1,'Config.h']]],
+  ['sig_5fhandler',['sig_handler',['../server_8c.html#a4f31a6fd48ee5d4579ae4aaaa3cae285',1,'server.c']]],
   ['signals_2ec',['signals.c',['../signals_8c.html',1,'']]],
   ['size',['size',['../structWriteOp.html#af804d8a1e3d428ee7275b5e4f467d23a',1,'WriteOp::size()'],['../structReadOp.html#a4ed8bd364b1b3378cc6f4faf750da527',1,'ReadOp::size()'],['../structCacheRequest.html#abc81e438c50064f3dde1835d6146bb1c',1,'CacheRequest::size()']]],
   ['socketid',['socketId',['../structMyDFSId.html#a382a74f109962751085cea7aac2892cc',1,'MyDFSId::socketId()'],['../structSocketIdList.html#ae3472c269defc3b5c5158bb23316989d',1,'SocketIdList::socketId()'],['../structOpenedFile.html#a2af35018ecff06dbd349d464c815038a',1,'OpenedFile::socketId()']]],
@@ -20,5 +21,6 @@ var searchData=
   ['struttura',['Struttura',['../structStruttura.html',1,'Struttura'],['../Mmap_8c.html#a43df2cbbc8d75df3589a1c4cf505f668',1,'Struttura():&#160;Mmap.c']]],
   ['strutturedati_2ec',['StruttureDati.c',['../StruttureDati_8c.html',1,'']]],
   ['strutturedati_2eh',['StruttureDati.h',['../StruttureDati_8h.html',1,'']]],
-  ['swap',['swap',['../BTperTest_8c.html#af2bb6bb3bd12a21a02bd08e94b41085f',1,'BTperTest.c']]]
+  ['swap',['swap',['../BTperTest_8c.html#af2bb6bb3bd12a21a02bd08e94b41085f',1,'BTperTest.c']]],
+  ['switchstdout',['switchStdout',['../Test_8c.html#a6b06b8b15904218dbd08555b35fa51a2',1,'Test.c']]]
 ];

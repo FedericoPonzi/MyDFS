@@ -16,6 +16,7 @@
 {\ttfamily \#include \char`\"{}inc/\+Commands\+Handler.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Error.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,9 +27,11 @@ void \hyperlink{server_8c_a62b9349e06b1fd5e9f6e08e25f5968ab}{spawn\+Process} ()
 void $\ast$ \hyperlink{server_8c_ac53af003472a20c81247bd125288a4c8}{handle\+Socket} ()
 \begin{DoxyCompactList}\small\item\em Gestisce la comunicazione con la socket. \end{DoxyCompactList}\item 
 void \hyperlink{server_8c_af9111700e7416f44aec9f208e66f0d7e}{spawn\+Heart\+Beat} (int temp\+\_\+sd)
-\item 
+\begin{DoxyCompactList}\small\item\em Funzione che spawna il thread per l' heartbeating. \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{server_8c_ac43da3dbb27d7a95bb3fbf75f3dfd99f}{heart\+Beat} (void $\ast$temp\+\_\+sd)
 \begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l' heartbeating. \end{DoxyCompactList}\item 
+void \hyperlink{server_8c_a4f31a6fd48ee5d4579ae4aaaa3cae285}{sig\+\_\+handler} (int signo)
+\begin{DoxyCompactList}\small\item\em Signal handler per gestire l' invalidazione. \end{DoxyCompactList}\item 
 int \hyperlink{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 \end{DoxyCompactItemize}
 \subsection*{Variabili}
@@ -73,7 +76,7 @@ Main del nuovo thread creato per l' heartbeating.
 
 
 
-Referenzia close\+Client\+Session(), invalidate(), log\+M(), P\+I\+N\+G\+\_\+\+T\+I\+M\+E, My\+D\+F\+S\+Id\+::socket\+Id, e temp\+Sock\+Mutex.
+Referenzia close\+Client\+Session(), invalidate(), log\+M(), P\+I\+N\+G\+\_\+\+T\+I\+M\+E, temp\+Sock\+Mutex, e My\+D\+F\+S\+Id\+::transfer\+Sock\+Id.
 
 
 
@@ -88,7 +91,26 @@ Referenziato da spawn\+Heart\+Beat().
 )}}\label{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
 
 
-Referenzia B\+A\+C\+K\+L\+O\+G, load\+Config(), log\+M(), numero\+Con, port\+Number, print\+Err(), proc\+Or\+Thread, sd, server, spawn\+Process(), e spawn\+Thread().
+Referenzia load\+Config(), log\+M(), numero\+Con, port\+Number, print\+Err(), proc\+Or\+Thread, sd, server, sig\+\_\+handler(), spawn\+Process(), e spawn\+Thread().
+
+\hypertarget{server_8c_a4f31a6fd48ee5d4579ae4aaaa3cae285}{\index{server.\+c@{server.\+c}!sig\+\_\+handler@{sig\+\_\+handler}}
+\index{sig\+\_\+handler@{sig\+\_\+handler}!server.\+c@{server.\+c}}
+\subsubsection[{sig\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}void sig\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{int}]{signo}
+\end{DoxyParamCaption}
+)}}\label{server_8c_a4f31a6fd48ee5d4579ae4aaaa3cae285}
+
+
+Signal handler per gestire l' invalidazione. 
+
+
+
+Referenzia get\+Opened\+File(), invalidate(), log\+M(), e Opened\+File\+::transfer\+Sock\+Id.
+
+
+
+Referenziato da main().
 
 \hypertarget{server_8c_af9111700e7416f44aec9f208e66f0d7e}{\index{server.\+c@{server.\+c}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
 \index{spawn\+Heart\+Beat@{spawn\+Heart\+Beat}!server.\+c@{server.\+c}}
@@ -97,6 +119,10 @@ Referenzia B\+A\+C\+K\+L\+O\+G, load\+Config(), log\+M(), numero\+Con, port\+Num
 \item[{int}]{temp\+\_\+sd}
 \end{DoxyParamCaption}
 )}}\label{server_8c_af9111700e7416f44aec9f208e66f0d7e}
+
+
+Funzione che spawna il thread per l' heartbeating. 
+
 
 
 Referenzia getptid(), heart\+Beat(), pthread\+Args\+::ptid, sd, pthread\+Args\+::temp\+\_\+sd, e tid.
@@ -135,7 +161,7 @@ All' arrivo di una connessione, crea un thread e richiama handle\+Socket \begin{
 server.\+c\+::handle\+Socket 
 \end{DoxySeeAlso}
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000011}{Da fare}]dovrebbe passargli dei parametri. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000009}{Da fare}]dovrebbe passargli dei parametri. \end{DoxyRefDesc}
 
 
 Referenzia handle\+Socket(), log\+M(), number\+Alive\+Childs, numero\+Con, e tid.

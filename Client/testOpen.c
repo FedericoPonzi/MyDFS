@@ -22,13 +22,8 @@ int main(int argc, char* argv[])
 	{
 		filename=argv[1];
 	}
-	int i = 10000;	
-	while(i>0)
-	{
-		printf("i: %d\n", i);
-		testOpen(filename);
-		i--;
-		sleep(2);	
-	}
+    char* indirizzo = "127.0.0.1";
+    testOpen(filename, indirizzo);
+
 	return 0;	
 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['elenco_20delle_20cose_20da_20fare',['Elenco delle cose da fare',['../todo.html',1,'']]]
+  ['debug_20dell_27_20applicazione',['Debug dell&apos; applicazione',['../md_DEBUG.html',1,'']]]
 ];

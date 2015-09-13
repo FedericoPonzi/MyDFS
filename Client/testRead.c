@@ -22,8 +22,8 @@ int main(int argc, char* argv[])
 	{
 		filename=argv[1];
 	}
-	
-	testRead(filename);
+	char* indirizzo = "127.0.0.1";
+	testRead(filename, indirizzo);
 	
 	return 0;	
 }

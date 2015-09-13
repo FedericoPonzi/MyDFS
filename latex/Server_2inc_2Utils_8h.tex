@@ -8,18 +8,20 @@ void \hyperlink{Server_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}{log\+M}
 \begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se L\+O\+G vale 0. \end{DoxyCompactList}\item 
 void \hyperlink{Server_2inc_2Utils_8h_ac26fe6c49ab17caab523c2410afb27c1}{strip\+Command} (char $\ast$)
 \begin{DoxyCompactList}\small\item\em Rimuove i primi 4 caratteri (es\+: 'G\+E\+T ') \end{DoxyCompactList}\item 
-int \hyperlink{Server_2inc_2Utils_8h_a11d37c4ad110f578cbf862fdd1585b71}{getptid} ()
+void \hyperlink{Server_2inc_2Utils_8h_a44499e7455f77c00c1daa769f57eca5c}{my\+Exit} ()
+\begin{DoxyCompactList}\small\item\em interrompe il processo o thread a seconda del modo di avvio, a causa di un errore. \end{DoxyCompactList}\item 
+unsigned long int \hyperlink{Server_2inc_2Utils_8h_a67a6020df08de081237572837b51fb82}{getptid} ()
 \begin{DoxyCompactList}\small\item\em Ritorna il numero del processo o del thread che richiama questa funzione. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Server_2inc_2Utils_8h_a11d37c4ad110f578cbf862fdd1585b71}{\index{Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}!getptid@{getptid}}
+\hypertarget{Server_2inc_2Utils_8h_a67a6020df08de081237572837b51fb82}{\index{Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}!getptid@{getptid}}
 \index{getptid@{getptid}!Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}}
-\subsubsection[{getptid}]{\setlength{\rightskip}{0pt plus 5cm}int getptid (
+\subsubsection[{getptid}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int getptid (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{Server_2inc_2Utils_8h_a11d37c4ad110f578cbf862fdd1585b71}
+)}}\label{Server_2inc_2Utils_8h_a67a6020df08de081237572837b51fb82}
 
 
 Ritorna il numero del processo o del thread che richiama questa funzione. 
@@ -30,7 +32,7 @@ Referenzia proc\+Or\+Thread.
 
 
 
-Referenziato da append\+Opened\+File(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), handle\+Close\+Command(), e spawn\+Heart\+Beat().
+Referenziato da append\+Opened\+File(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), handle\+Close\+Command(), handle\+Open\+Command(), e spawn\+Heart\+Beat().
 
 \hypertarget{Server_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}{\index{Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}!log\+M@{log\+M}}
 \index{log\+M@{log\+M}!Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}}
@@ -59,6 +61,25 @@ Config.\+h
 
 
 Referenzia D\+E\+B\+U\+G.
+
+\hypertarget{Server_2inc_2Utils_8h_a44499e7455f77c00c1daa769f57eca5c}{\index{Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}!my\+Exit@{my\+Exit}}
+\index{my\+Exit@{my\+Exit}!Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}}
+\subsubsection[{my\+Exit}]{\setlength{\rightskip}{0pt plus 5cm}void my\+Exit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Server_2inc_2Utils_8h_a44499e7455f77c00c1daa769f57eca5c}
+
+
+interrompe il processo o thread a seconda del modo di avvio, a causa di un errore. 
+
+
+
+Referenzia proc\+Or\+Thread.
+
+
+
+Referenziato da append\+Opened\+File().
 
 \hypertarget{Server_2inc_2Utils_8h_ac26fe6c49ab17caab523c2410afb27c1}{\index{Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}!strip\+Command@{strip\+Command}}
 \index{strip\+Command@{strip\+Command}!Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}}

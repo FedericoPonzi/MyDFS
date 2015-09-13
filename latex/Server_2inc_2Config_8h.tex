@@ -34,7 +34,7 @@ int $\ast$ \hyperlink{Server_2inc_2Config_8h_ad588b9329591f013097f9531c643a262}{
 int \hyperlink{Server_2inc_2Config_8h_a6fa40559d133e806762dd11ebaec522e}{numero\+Con}
 \begin{DoxyCompactList}\small\item\em Numero di connessioni contemporanee permesse (equivale al numero di threads o processi) \end{DoxyCompactList}\item 
 int \hyperlink{Server_2inc_2Config_8h_af05e592fecdd2c97fa06eafcb1c8e2c3}{proc\+Or\+Thread}
-\begin{DoxyCompactList}\small\item\em E' richiesto un processo o un thread? \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em E' richiesto un processo o un thread? 0 proc 1 thread. \end{DoxyCompactList}\item 
 int \hyperlink{Server_2inc_2Config_8h_ae53ea95e0769743e3a9e0935564b3739}{port\+Number}
 \begin{DoxyCompactList}\small\item\em Numero di porta. \end{DoxyCompactList}\item 
 char \hyperlink{Server_2inc_2Config_8h_a8c5e63abddd4a2647c2310bde6f15fd7}{root\+Path} \mbox{[}40\mbox{]}
@@ -48,10 +48,6 @@ char \hyperlink{Server_2inc_2Config_8h_a8c5e63abddd4a2647c2310bde6f15fd7}{root\+
 
 
 Numero di connessioni in ascolto. 
-
-
-
-Referenziato da main().
 
 \hypertarget{Server_2inc_2Config_8h_ae99ca2d2731dcecf9670d172003c467c}{\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E@{C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E}}
 \index{C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E@{C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
@@ -141,7 +137,7 @@ Referenziato da handle\+Socket().
 \subsubsection[{number\+Alive\+Childs}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ number\+Alive\+Childs}}\label{Server_2inc_2Config_8h_ad588b9329591f013097f9531c643a262}
 
 
-Referenziato da spawn\+Process(), e spawn\+Thread().
+Referenziato da append\+Opened\+File(), spawn\+Process(), e spawn\+Thread().
 
 \hypertarget{Server_2inc_2Config_8h_a6fa40559d133e806762dd11ebaec522e}{\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!numero\+Con@{numero\+Con}}
 \index{numero\+Con@{numero\+Con}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
@@ -170,11 +166,11 @@ Referenziato da main().
 \subsubsection[{proc\+Or\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}int proc\+Or\+Thread}}\label{Server_2inc_2Config_8h_af05e592fecdd2c97fa06eafcb1c8e2c3}
 
 
-E' richiesto un processo o un thread? 
+E' richiesto un processo o un thread? 0 proc 1 thread. 
 
 
 
-Referenziato da getptid(), e main().
+Referenziato da getptid(), main(), my\+Exit(), e send\+Invalidate().
 
 \hypertarget{Server_2inc_2Config_8h_a8c5e63abddd4a2647c2310bde6f15fd7}{\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!root\+Path@{root\+Path}}
 \index{root\+Path@{root\+Path}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}

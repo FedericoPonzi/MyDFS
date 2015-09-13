@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write',['WRITE',['../md_WRITE.html',1,'']]]
+  ['invalidazione',['Invalidazione',['../md_Invalidazione.html',1,'']]]
 ];

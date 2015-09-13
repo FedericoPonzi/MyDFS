@@ -87,7 +87,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Definizioni</a> &#124;
 <a href="#func-members">Funzioni</a>  </div>
   <div class="headertitle">
 <div class="title">Riferimenti per il file Heartbeating.c</div>  </div>
@@ -110,33 +109,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <code>#include &quot;<a class="el" href="CommandsHandler_8h_source.html">inc/CommandsHandler.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Error_8h_source.html">inc/Error.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="StruttureDati_8h_source.html">inc/StruttureDati.h</a>&quot;</code><br />
+<code>#include &lt;signal.h&gt;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Definizioni</h2></td></tr>
-<tr class="memitem:a39912bfe2a55f30e269196f9141d845d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2Heartbeating_8c.html#a39912bfe2a55f30e269196f9141d845d">BUFFSIZE</a>&#160;&#160;&#160;30</td></tr>
-<tr class="separator:a39912bfe2a55f30e269196f9141d845d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
 <tr class="memitem:af362ff05e1ca5b06b77aa25e7999c6ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2Heartbeating_8c.html#af362ff05e1ca5b06b77aa25e7999c6ee">spawnHeartBeat</a> (int <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>)</td></tr>
+<tr class="memdesc:af362ff05e1ca5b06b77aa25e7999c6ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione che spawna il thread per l' heartbeating.  <a href="#af362ff05e1ca5b06b77aa25e7999c6ee">Continua...</a><br /></td></tr>
 <tr class="separator:af362ff05e1ca5b06b77aa25e7999c6ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3224550934078a0a93c864a1e3e8e11a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2Heartbeating_8c.html#a3224550934078a0a93c864a1e3e8e11a">heartBeat</a> (void *pt_pthreadarg)</td></tr>
 <tr class="memdesc:a3224550934078a0a93c864a1e3e8e11a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main del nuovo thread creato per l' heartbeating.  <a href="#a3224550934078a0a93c864a1e3e8e11a">Continua...</a><br /></td></tr>
 <tr class="separator:a3224550934078a0a93c864a1e3e8e11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentazione delle definizioni</h2>
-<a class="anchor" id="a39912bfe2a55f30e269196f9141d845d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BUFFSIZE&#160;&#160;&#160;30</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
 <a class="anchor" id="a3224550934078a0a93c864a1e3e8e11a"></a>
 <div class="memitem">
@@ -154,7 +137,7 @@ Funzioni</h2></td></tr>
 
 <p>Main del nuovo thread creato per l' heartbeating. </p>
 
-<p>Referenzia <a class="el" href="StruttureDati_8h.html#a6baf2e6e9935b8ed81bf2c504557bfc2">closeClientSession()</a>, <a class="el" href="Client_2Heartbeating_8c.html#ab95a74565a85ceabf1a9f1310cdb434f">invalidate()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Server_2inc_2Config_8h.html#a21c8feef84ea8774c2061af39050441c">PING_TIME</a>, <a class="el" href="structMyDFSId.html#a382a74f109962751085cea7aac2892cc">MyDFSId::socketId</a>, e <a class="el" href="Server_2Config_8c.html#ad6746bc317b81e89070e24e57e63f760">tempSockMutex</a>.</p>
+<p>Referenzia <a class="el" href="StruttureDati_8h.html#a4d533448d4fea33fea1475cffe4ad377">closeClientSession()</a>, <a class="el" href="Client_2Heartbeating_8c.html#ab95a74565a85ceabf1a9f1310cdb434f">invalidate()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Server_2inc_2Config_8h.html#a21c8feef84ea8774c2061af39050441c">PING_TIME</a>, <a class="el" href="Server_2Config_8c.html#ad6746bc317b81e89070e24e57e63f760">tempSockMutex</a>, e <a class="el" href="structMyDFSId.html#a3b62a6d0f52a871bda4bf9cd56c57ff7">MyDFSId::transferSockId</a>.</p>
 
 </div>
 </div>
@@ -172,7 +155,9 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenzia <a class="el" href="Server_2inc_2Utils_8h.html#a11d37c4ad110f578cbf862fdd1585b71">getptid()</a>, <a class="el" href="Client_2Heartbeating_8c.html#aae3126a1d85426aa8df88b7186611472">heartBeat()</a>, <a class="el" href="structpthreadArgs.html#abc763a99a614f8e00c11fbbece336516">pthreadArgs::ptid</a>, <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>, <a class="el" href="structpthreadArgs.html#a028f49dcb3a6ed77870caacec6f2b968">pthreadArgs::temp_sd</a>, e <a class="el" href="Threading_8c.html#a8d783a9d90fdc4fde93816b56043c24b">tid</a>.</p>
+<p>Funzione che spawna il thread per l' heartbeating. </p>
+
+<p>Referenzia <a class="el" href="Server_2inc_2Utils_8h.html#a67a6020df08de081237572837b51fb82">getptid()</a>, <a class="el" href="Client_2Heartbeating_8c.html#aae3126a1d85426aa8df88b7186611472">heartBeat()</a>, <a class="el" href="structpthreadArgs.html#abc763a99a614f8e00c11fbbece336516">pthreadArgs::ptid</a>, <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>, <a class="el" href="structpthreadArgs.html#a028f49dcb3a6ed77870caacec6f2b968">pthreadArgs::temp_sd</a>, e <a class="el" href="Threading_8c.html#a8d783a9d90fdc4fde93816b56043c24b">tid</a>.</p>
 
 </div>
 </div>

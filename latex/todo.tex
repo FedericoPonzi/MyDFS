@@ -1,19 +1,19 @@
 
 \begin{DoxyRefList}
-\item[\label{todo__todo000013}%
-\hypertarget{todo__todo000013}{}%
-Globale \hyperlink{StruttureDati_8c_ae68c4a04beab2c3add2a48c8c8111742}{close\+Opened\+File} (int ptid)]da fare.  
-\item[\label{todo__todo000010}%
-\hypertarget{todo__todo000010}{}%
-Globale \hyperlink{OPE_8c_af1f79690eec0a7727a519ba59a891762}{create\+Control\+Sock} (int port\+No, int socket\+Id)]correggere utilizzo vecchio socket\+Des  
-\item[\label{todo__todo000006}%
-\hypertarget{todo__todo000006}{}%
+\item[\label{todo__todo000011}%
+\hypertarget{todo__todo000011}{}%
+Globale \hyperlink{StruttureDati_8c_a1b93a1e03b27ca80768a152cebb0fed3}{close\+Opened\+File} (unsigned long int ptid)]da fare.  
+\item[\label{todo__todo000012}%
+\hypertarget{todo__todo000012}{}%
+Globale \hyperlink{StruttureDati_8c_a1674324a5bfcb0d5c3a5547c23a73e5a}{free\+Opened\+File} (\hyperlink{structOpenedFile}{Opened\+File} $\ast$id)]da finire.  
+\item[\label{todo__todo000005}%
+\hypertarget{todo__todo000005}{}%
 Globale \hyperlink{CommandsHandler_8h_a919c7f4b4bcb820f1d6566238178390e}{get\+Command\+I\+D} (char $\ast$)]mergare questa funzione con quella sotto.  
-\item[\label{todo__todo000006}%
-\hypertarget{todo__todo000006}{}%
+\item[\label{todo__todo000005}%
+\hypertarget{todo__todo000005}{}%
 Globale \hyperlink{CommandsHandler_8h_a919c7f4b4bcb820f1d6566238178390e}{get\+Command\+I\+D} (char $\ast$)]mergare questa funzione con quella sotto.  
-\item[\label{todo__todo000009}%
-\hypertarget{todo__todo000009}{}%
+\item[\label{todo__todo000008}%
+\hypertarget{todo__todo000008}{}%
 Globale \hyperlink{OPE_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command} (char $\ast$command, int socket)]\+: Da vedere bene per memory leaks!!!!  
 \item[\label{todo__todo000004}%
 \hypertarget{todo__todo000004}{}%
@@ -24,22 +24,19 @@ Globale \hyperlink{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{mydfs\+\_\
 \item[\label{todo__todo000002}%
 \hypertarget{todo__todo000002}{}%
 Globale \hyperlink{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{mydfs\+\_\+read} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int pos, void $\ast$ptr, unsigned int size)]per qualche motivo, la fread ritorna 0 O\+\_\+o pero' tipo la copia in un altro file sembra funzionare.  
-\item[\label{todo__todo000008}%
-\hypertarget{todo__todo000008}{}%
+\item[\label{todo__todo000007}%
+\hypertarget{todo__todo000007}{}%
 File \hyperlink{OPE_8c}{O\+P\+E.c} ]dovrebbe mandare una risposta al client in caso di successo o errore 
 
 permettere l' apertura se il modo con cui e' aperto il file e' lettura e viene richiesta la lettura.  
 \item[\label{todo__todo000003}%
 \hypertarget{todo__todo000003}{}%
 Globale \hyperlink{Client_2READ_8c_a0b8dfa171c3b5c784fb6cba643728110}{read\+From} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int size\+Rimasta, int pos)]La recv dovrebbe continuare finche' non ho tutto size\+Riamsta.  
-\item[\label{todo__todo000005}%
-\hypertarget{todo__todo000005}{}%
-Globale \hyperlink{Server_2CLOSE_8c_a12ee57b78a18d7b6afb04b7ea5a98a80}{send\+Invalidate} (\hyperlink{structOpenedFile}{Opened\+File} $\ast$id)]da finire.  
-\item[\label{todo__todo000011}%
-\hypertarget{todo__todo000011}{}%
+\item[\label{todo__todo000009}%
+\hypertarget{todo__todo000009}{}%
 Globale \hyperlink{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}{spawn\+Thread} ()]dovrebbe passargli dei parametri.  
-\item[\label{todo__todo000012}%
-\hypertarget{todo__todo000012}{}%
+\item[\label{todo__todo000010}%
+\hypertarget{todo__todo000010}{}%
 File \hyperlink{StruttureDati_8c}{Strutture\+Dati.c} ]Una struttura dati che contenga una lista di sockets 
 
 Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti. N\+O\+T\+A\+: Ricordarsi di eseguire una free() dei Opened\+File-\/$>$file\+Name perchè viene allocata con una malloc in \hyperlink{OPE_8c}{O\+P\+E.\+c} 

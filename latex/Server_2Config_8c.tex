@@ -38,7 +38,7 @@ pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{Server_2Config_8c_ad6746bc317b81e890
 int \hyperlink{Server_2Config_8c_a6fa40559d133e806762dd11ebaec522e}{numero\+Con} = 0
 \begin{DoxyCompactList}\small\item\em Numero di connessioni contemporanee permesse (equivale al numero di threads o processi) \end{DoxyCompactList}\item 
 int \hyperlink{Server_2Config_8c_af05e592fecdd2c97fa06eafcb1c8e2c3}{proc\+Or\+Thread} = 0
-\begin{DoxyCompactList}\small\item\em E' richiesto un processo o un thread? \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em E' richiesto un processo o un thread? 0 proc 1 thread. \end{DoxyCompactList}\item 
 int \hyperlink{Server_2Config_8c_ae53ea95e0769743e3a9e0935564b3739}{port\+Number} = 0
 \begin{DoxyCompactList}\small\item\em Numero di porta. \end{DoxyCompactList}\item 
 char \hyperlink{Server_2Config_8c_a8c5e63abddd4a2647c2310bde6f15fd7}{root\+Path} \mbox{[}40\mbox{]}
@@ -95,7 +95,7 @@ Referenziato da handle\+Socket().
 \subsubsection[{number\+Alive\+Childs}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ number\+Alive\+Childs}}\label{Server_2Config_8c_ad588b9329591f013097f9531c643a262}
 
 
-Referenziato da spawn\+Process(), e spawn\+Thread().
+Referenziato da append\+Opened\+File(), spawn\+Process(), e spawn\+Thread().
 
 \hypertarget{Server_2Config_8c_a6fa40559d133e806762dd11ebaec522e}{\index{Server/\+Config.\+c@{Server/\+Config.\+c}!numero\+Con@{numero\+Con}}
 \index{numero\+Con@{numero\+Con}!Server/\+Config.\+c@{Server/\+Config.\+c}}
@@ -120,11 +120,11 @@ Referenziato da main().
 \subsubsection[{proc\+Or\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}int proc\+Or\+Thread = 0}}\label{Server_2Config_8c_af05e592fecdd2c97fa06eafcb1c8e2c3}
 
 
-E' richiesto un processo o un thread? 
+E' richiesto un processo o un thread? 0 proc 1 thread. 
 
 
 
-Referenziato da getptid(), e main().
+Referenziato da getptid(), main(), my\+Exit(), e send\+Invalidate().
 
 \hypertarget{Server_2Config_8c_a8c5e63abddd4a2647c2310bde6f15fd7}{\index{Server/\+Config.\+c@{Server/\+Config.\+c}!root\+Path@{root\+Path}}
 \index{root\+Path@{root\+Path}!Server/\+Config.\+c@{Server/\+Config.\+c}}

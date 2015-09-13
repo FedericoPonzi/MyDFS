@@ -1,0 +1,25 @@
+\subsubsection*{Messaggi di debug}
+
+Per il debug e' possibile impostare il flag D\+E\+B\+U\+G all' interno di \hyperlink{Server_2inc_2Config_8h}{Server/inc/\+Config.\+h} per il server, e Client/int/\+Config.\+h per il client. Questo stampera' durante l' esecuzione utili messaggi di debug.
+
+\subsubsection*{Wireshark}
+
+Permette di sniffare i pacchetti di rete, una volta avviato si esegue lo sniffing dei pacchetti sull' interfaccia di loopback (lo) in caso stiamo testando l' applicazione in locale.
+
+\subsubsection*{Valgrind}
+
+Usato per testare se ci sono dei memory leaks
+
+\subsubsection*{G\+D\+B}
+
+debugger step by step. Alcuni comandi utili\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily set follow-\/fork-\/mode child}\+: Per debuggare il processo figlio di una fork o un pthread
+\item {\ttfamily r}\+: per avviare il debug
+\item {\ttfamily make} per ricompilare l' eseguibile
+\item {\ttfamily n}\+: prossima istruzione
+\item {\ttfamily b \hyperlink{file_8c}{file.\+c}\+:$<$number$>$}\+: pr bloccare l' esecuzione a una certa lnea di un file, o
+\item {\ttfamily b numefunzione}\+: per bloccare l' eseucizione ad una certa funzione. 
+\end{DoxyItemize}
