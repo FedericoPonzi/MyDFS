@@ -17,6 +17,11 @@ Ogni esito và codificato e rispedito come risposta al client!
 ##Protocollo di comunicazione per la open
 
  1. Client: OPE file.txt 2
- 2. Server: ok
+ 2. Server: 200
  3. Client: port_num 50000
  4. Server: ok
+
+* 1 - Apertura comunicazione: Il client è connesso alla socket del server, invia il comando `OPE <nomefile> modo` dove nomefile deve essere un nome di un file contenuto nel filesystem del server e modo e' un numero definito dalle costanti scritte all' inizio di questo documento (e presenti in OPE.h).
+* 2 - Risposta del server: Riporta un intero negativo in caso di errore nella apertura del file, la dimensione del file altrimenti (necessaria per la read).
+* 3 - Connessione di controllo: Riposta da parte del client che indica su la porta su cui ha creato una socket server a cui il server dovrà connettersi, e che verrà usata per l' heartbeating e le notifiche di invalidazione.
+* 4 - Feedback: ok, o un intero negativo.

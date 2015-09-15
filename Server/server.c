@@ -97,7 +97,12 @@ void* handleSocket()
 	struct sockaddr_in client;
 	socklen_t address_size;
 	address_size = sizeof(client);
-	
+
+	//struct per settare tempo massimo di attesa in rcv
+	/*struct timeval tv;
+    tv.tv_sec = 120; //se entro un minuto l' utente non fa niente, chiudo la connessione 
+	tv.tv_usec = 0;
+    */
 	pthread_mutex_lock(acceptMutex);
 	
 	if((temp_sd = accept(sd, (struct sockaddr *) &client, &address_size))<0)

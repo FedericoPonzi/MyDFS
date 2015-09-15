@@ -140,7 +140,7 @@ void handleOpenCommand(char* command, int socket)
 			spawnHeartBeat(controlSocket);
 		}
 	}
-	send(socket, answer, strlen(answer), 0);
+	send(socket, answer, strlen(answer), 0); //todo: mi sa che questa non ha nessun effetto.
 	logM("[OpenCommand] Connessione creata correttamente.[\n Filename: %s,\n Modo: %d,\n Socket: %d,\n HB: %d,\n ptid: %lu.\n]", id-> fileName, id->modo, id->socketId, id->transferSockId, getptid());
 }
 
