@@ -24,6 +24,6 @@ int main(int argc, char* argv[])
 	}
     char* indirizzo = "127.0.0.1";
 
-	testWrite(filename, indirizzo);
+	testWrite(filename, indirizzo, 1 );
 	return 0;	
 }

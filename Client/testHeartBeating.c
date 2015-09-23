@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 		filename=argv[1];
 	}
 	char* indirizzo = "127.0.0.1";
-	testHeartBeating(filename, indirizzo);
+	testHeartBeating(filename, indirizzo, 1);
 	
 	return 0;	
 }

@@ -16,7 +16,7 @@
 #define PING_TIME 2
 
 /**
- * @brief Se in modalita' debug, stampa utili messaggi di log.
+ * @brief Se in modalita' debug (=1), stampa utili messaggi di log.
  */
 #define DEBUG 1
 

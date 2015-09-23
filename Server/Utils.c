@@ -51,14 +51,19 @@
 void logM (char* messaggio, ...)	
 {
 	va_list args;
-
+    
 	if(DEBUG)
 	{
 		va_start(args, messaggio);
-		//printf("[%d]", getptid());
 		vprintf(messaggio, args);
 		va_end(args);
 	}
+    else
+    {
+        FILE* fp = fopen("Log.txt", "a");
+        fprintf(fp, messaggio, args);
+        fclose(fp);
+    }
 }
 /** * 
  * @brief Rimuove i primi 4 caratteri (es: 'GET ')

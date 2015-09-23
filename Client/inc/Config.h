@@ -1,6 +1,12 @@
 #ifndef CONFIG
 #define CONFIG
-#define DEBUG 1
+
+
+/**
+ * Modalita' debug:
+ */
+#define DEBUG 0
+
 #define OPENCOMMAND "OPE"
 #define CLOSECOMMAND "CLO"
 #define READCOMMAND "REA"

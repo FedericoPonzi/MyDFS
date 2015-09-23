@@ -81,7 +81,7 @@ int uploadChanges(MyDFSId* id)
 		char buffcommand[100]; // "POS %d SIZE %d", iterator->size;
 		memset(buffcommand, 0, 100);
 		sprintf(buffcommand, "POS %d SIZE %d\n", iterator->pos, iterator->size);
-		printf("Sto inviando il comando: %s\n", buffcommand);
+		logM("Sto inviando il comando: %s\n", buffcommand);
 		if(send(id->transferSockId, buffcommand, sizeof(buffcommand), 0) < 0)
 		{
 			perror("2-send");

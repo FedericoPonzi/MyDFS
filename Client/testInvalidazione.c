@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 		filename=argv[1];
 	}
 	char* indirizzo = "127.0.0.1";
-    testInvalidazioneCache(filename, indirizzo);
+    testInvalidazioneCache(filename, indirizzo, 1 );
 	
 	return 0;	
 }

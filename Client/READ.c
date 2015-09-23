@@ -39,7 +39,7 @@ int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 	//Sposto il puntatore:
     if(pos == MYSEEK_END)
     {
-        printf("Myseekend\n");
+        logM("Myseekend\n");
         fseek(id->fp, id->filesize, SEEK_SET);
     }
     else
@@ -121,7 +121,7 @@ int sendReadCommand(MyDFSId* id, int pos)
 	strcpy(substringa, &fileSize[5]);
 	strcpy(fileSize, substringa);
 	int toRet = strtol(fileSize, NULL, 10);
-    printf("Mi sta mandando: %d dati.", toRet);
+    logM("Mi sta mandando: %d dati.", toRet);
 	return toRet;
 }
 

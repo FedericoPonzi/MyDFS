@@ -107,6 +107,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
     if(inet_aton(toRet->indirizzo, &serv_addr.sin_addr) == 0)
     {
 		logM("inet_aton error \n");
+        perror("inet_aton:");
         *err= -2;
         return;
     }

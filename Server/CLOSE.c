@@ -57,7 +57,7 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 			logM("Il peer e' andato.");
 			return 0;
 		}
-		printf("Messaggio: %d dati,  '%s'\n", n,  messaggio);
+		logM("Messaggio: %d dati,  '%s'\n", n,  messaggio);
 		//Mi prendo la quantita e la posizione:
 		int size = getChunkSize(messaggio);
 		int pos = getChunkPosition(messaggio);
@@ -69,20 +69,20 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 		//Nel caso sia una grossa modifica, spezziamo in più writes
 		while(size > 0)
 		{
-			printf("Ricevo dati:\n");
+			logM("Ricevo dati:\n");
 			int buffSize = size > FILESIZE ? FILESIZE : size;
 			char* buffer = malloc(buffSize); /**@todo : cambiare a void*/
 			n = recv(id->transferSockId, buffer, buffSize, 0);
-			printf("Messaggio size: '%d', '%s'\n", n, buffer);
+			logM("Messaggio size: '%d', '%s'\n", n, buffer);
 			
 			if(n < 0)
 			{
 				perror("Recv: ");
 				return -1;
 			}
-			printf("Buffer: %s %lu\n", buffer, ftell(fp));
+			logM("Buffer: %s %lu\n", buffer, ftell(fp));
 			int w = fwrite(buffer, 1, n, fp);
-			printf("Scritti %d dati nel file. \n", w);
+			logM("Scritti %d dati nel file. \n", w);
 			free(buffer);
 			size -= n;
 		}

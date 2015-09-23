@@ -7,15 +7,14 @@
 
 /**
  * @brief Stampa un messaggio di log sullo STDOUT
- * se LOG vale 0
+ * se DEBUG vale 1
  */
 
 void logM (char* messaggio, ...)	
 {
-	va_list args;
-
 	if(DEBUG)
 	{
+        va_list args;
 		va_start(args, messaggio);
 		vprintf(messaggio, args);
 		va_end(args);

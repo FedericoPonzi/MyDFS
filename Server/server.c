@@ -15,6 +15,9 @@
 #include "inc/Error.h"
 #include "inc/StruttureDati.h"
 #include <signal.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <syslog.h>
 
 void spawnThread();
 void spawnProcess();
@@ -41,8 +44,85 @@ void sig_handler(int signo)
     }
 }
 
+/**
+ * Funzione che demonizza il server.
+ * Se la modalita' debug e' attiva non viene attivata la modalita' deamon.
+ */
+void deamonize()
+{
+    if(DEBUG) return;
+    
+    pid_t pid;
+
+    /* Fork off the parent process */
+    pid = fork();
+    
+    /* An error occurred */
+    if (pid < 0)
+    {
+        logM("Errore nella fork");
+        exit(EXIT_FAILURE);
+    }
+    /* Success: Let the parent terminate */
+    if (pid > 0)
+    {
+        logM("addio papy 1\n");
+        exit(EXIT_SUCCESS);
+    }
+    /* On success: The child process becomes session leader */
+    if (setsid() < 0)
+    {
+        logM("Errore sessione leader\n");
+        exit(EXIT_FAILURE);
+    }
+    /* Catch, ignore and handle signals */
+    //TODO: Implement a working signal handler */
+    signal(SIGCHLD, SIG_IGN);
+    signal(SIGHUP, SIG_IGN);
+
+    /* Fork off for the second time*/
+    pid = fork();
+
+    /* An error occurred */
+    if (pid < 0)
+    {
+        FILE* fp = fopen("Log.txt", "a");
+        fprintf(fp, "Errore nella fork 2\n");
+        fclose(fp);
+        exit(EXIT_FAILURE);
+    }
+    /* Success: Let the parent terminate */
+    if (pid > 0)
+    {
+        logM("Seconda fork: addio papy\n");
+        exit(EXIT_SUCCESS);
+    }
+    /* Set new file permissions */
+    umask(0);
+
+    /* Change the working directory to the root directory */
+    /* or another appropriated directory */
+    chdir("/home/isaacisback/Programmazione/programmazionedisistema/Server");
+
+    /* Close all open file descriptors */
+    int x;
+    for (x = sysconf(_SC_OPEN_MAX); x>0; x--)
+    {
+        close (x);
+    }
+
+    /* Open the log file 
+    openlog ("firstdaemon", LOG_PID, LOG_DAEMON);
+    syslog (LOG_NOTICE, "First daemon terminated.");
+*/
+}
+
+
 int main()
 {
+
+    deamonize();
+
 	loadConfig();
 	logM("[Config]\n'%d' numero di connessioni\n'%d' Processo o thread\n'%d' Porta in ascolto.\n\n", numeroCon, procOrThread, portNumber);
 
@@ -63,13 +143,12 @@ int main()
 		perror("bind");
 		printErr(2);
 	}
-	if(listen (sd, SOMAXCONN) < 0)
+	if(listen (sd, numeroCon) < 0)
 	{
 		printErr(3);
 	}	
 
 	logM("Server avviato. Attendo connessioni.\n");
-
 	while(1)
 	{
 		if(procOrThread)
@@ -81,9 +160,14 @@ int main()
 			spawnThread();
 		}
 		sleep(2);
-	}
-	
-	return 0;
+    }
+
+    /*Chiudo il log se non sono in modalita' debug.
+    if(!DEBUG)
+    {
+        closelog();
+    }*/
+	return EXIT_SUCCESS;
 }
 
 /**
@@ -170,7 +254,7 @@ void spawnThread()
 	{
 		if (pthread_create(&tid, NULL, &handleSocket, NULL) != 0)
 		{
-			printf("\n[spawnThread] - can't create thread");
+			logM("\n[spawnThread] - can't create thread");
 			perror("Cant create thread");
 			return;
 		}

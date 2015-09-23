@@ -65,7 +65,7 @@ void* heartBeat(void *sd)
 		}
 		else
 		{
-			printf("[HB:%d] Connessione chiusa.\n", controlSd);
+			logM("[HB:%d] Connessione chiusa.\n", controlSd);
 			return NULL;
 		}
 		memset(ping, 0, sizeof(ping));

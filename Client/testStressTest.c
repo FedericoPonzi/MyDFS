@@ -41,9 +41,11 @@ int main(int argc, char* argv[])
         pid = fork();
         if(!pid)
         {
-            testStressTest(filename, indirizzo);
+            testStressTest(filename, indirizzo, 0);
+            return;
         }
     }
-    printf("processi spawnati.");
+    printf("Processi spawnati. Aspetto che escano\n");
+    wait(NULL);
 	return 0;	
 }

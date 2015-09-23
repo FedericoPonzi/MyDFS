@@ -14,10 +14,16 @@ FILE* createTempFile(char* basename)
 	sprintf(tempName, ".%s-XXXXXX",basename);
 	//Mi creo il file temporaneo:
     fd = mkstemp(tempName);
+    if(fd < 0)
+    {
+        perror("Mkstemp: ");
+        return NULL;
+    }
     unlink(tempName);
 	//Appena mi stacco dall' fd, viene cancellato il file temporaneo:
     //logM("[Cache] Creato temp file: '%s'\n", tempName);
 	toRet = fdopen(fd, "w+b");
+    
 	return toRet;
 }
 
@@ -118,7 +124,7 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 	//Se arrivo fino a qui, vuol dire che ho trovato l' inizio e la fine del buco.
 	//Devo tenere in consideraione anche la dimensione del file.
 	holeSize= pos + holeSize > id->filesize ? id->filesize - pos : holeSize; 
-	printf("holeSize: %d\n", holeSize);
+	logM("holeSize: %d\n", holeSize);
 	req->size = holeSize;
 	req->pos = pos;
 	return 1;
