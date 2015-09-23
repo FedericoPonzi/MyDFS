@@ -16,21 +16,21 @@
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{Test_8c_a32cb956b20025f532a5f0639615475bc}{test\+Open} (char $\ast$filename, char $\ast$indirizzo)
+int \hyperlink{Test_8c_a90d8443b03c7c48c168b313d28fb72b1}{test\+Open} (char $\ast$filename, char $\ast$indirizzo, int debug)
 \begin{DoxyCompactList}\small\item\em Testa tutte le opzioni di apertura della open. \end{DoxyCompactList}\item 
-int \hyperlink{Test_8c_a07d359bacac29bfd639313590a55828e}{test\+Read} (char $\ast$filename, char $\ast$indirizzo)
-\begin{DoxyCompactList}\small\item\em N\+O\+T\+A\+: La parte finale funziona solo in locale. \end{DoxyCompactList}\item 
-int \hyperlink{Test_8c_a3319f5111dc2d6069a31e052cf849223}{test\+Heart\+Beating} (char $\ast$filename, char $\ast$indirizzo)
+int \hyperlink{Test_8c_af1bdec0a156f8dd5ec0ee1a640181db1}{test\+Read} (char $\ast$filename, char $\ast$indirizzo, int debug)
+\begin{DoxyCompactList}\small\item\em N\+O\+T\+A\+: La parte e funziona solo in locale. \end{DoxyCompactList}\item 
+int \hyperlink{Test_8c_a6491367bb2b16a53d1506930ffa9c85c}{test\+Heart\+Beating} (char $\ast$filename, char $\ast$indirizzo, int debug)
 \begin{DoxyCompactList}\small\item\em Testa l' heartbeating. \end{DoxyCompactList}\item 
-int \hyperlink{Test_8c_a3c902e8f7045ddc435b1b2c4cf29f0fb}{test\+Write} (char $\ast$filename, char $\ast$indirizzo)
+int \hyperlink{Test_8c_aeefba065d2a3d2cc6647202058643c82}{test\+Write} (char $\ast$filename, char $\ast$indirizzo, int debug)
 \begin{DoxyCompactList}\small\item\em Testa la write N\+O\+T\+A\+: bufferpiccolo deve essere maggiore o uguale alla dimensione di file.\+txt altrimenti il test non verra' superato. \end{DoxyCompactList}\item 
-void \hyperlink{Test_8c_abf72a4133c6d5779202038995fc97021}{test\+Invalidazione\+Cache} (char $\ast$filename, char $\ast$indirizzo)
+void \hyperlink{Test_8c_a6e3806bfb5ee43f3514fa607c6f1a305}{test\+Invalidazione\+Cache} (char $\ast$filename, char $\ast$indirizzo, int debug)
 \begin{DoxyCompactList}\small\item\em Testa l' invalidazione della cache. \end{DoxyCompactList}\item 
 long \hyperlink{Test_8c_ac763275e175d5b2820597aa5223cd05b}{random\+\_\+at\+\_\+most} (long max)
 \item 
 void \hyperlink{Test_8c_a6b06b8b15904218dbd08555b35fa51a2}{switch\+Stdout} (const char $\ast$new\+Stream)
 \item 
-void \hyperlink{Test_8c_a68ba82fb95b1ce53d5c2dce6adf3e5f5}{test\+Stress\+Test} (char $\ast$indirizzo, char $\ast$filename)
+void \hyperlink{Test_8c_a9cc4d65ba912461794f9b7523ebedca8}{test\+Stress\+Test} (char $\ast$filename, char $\ast$indirizzo, int debug)
 \end{DoxyCompactItemize}
 
 
@@ -53,14 +53,15 @@ Referenziato da test\+Stress\+Test().
 \item[{const char $\ast$}]{new\+Stream}
 \end{DoxyParamCaption}
 )}}\label{Test_8c_a6b06b8b15904218dbd08555b35fa51a2}
-\hypertarget{Test_8c_a3319f5111dc2d6069a31e052cf849223}{\index{Test.\+c@{Test.\+c}!test\+Heart\+Beating@{test\+Heart\+Beating}}
+\hypertarget{Test_8c_a6491367bb2b16a53d1506930ffa9c85c}{\index{Test.\+c@{Test.\+c}!test\+Heart\+Beating@{test\+Heart\+Beating}}
 \index{test\+Heart\+Beating@{test\+Heart\+Beating}!Test.\+c@{Test.\+c}}
 \subsubsection[{test\+Heart\+Beating}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Heart\+Beating (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
-\item[{char $\ast$}]{indirizzo}
+\item[{char $\ast$}]{indirizzo, }
+\item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a3319f5111dc2d6069a31e052cf849223}
+)}}\label{Test_8c_a6491367bb2b16a53d1506930ffa9c85c}
 
 
 Testa l' heartbeating. 
@@ -73,14 +74,15 @@ Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), e M\+Y\+O\+\_\+\+W\+R\+O\+N\+L
 
 Referenziato da main().
 
-\hypertarget{Test_8c_abf72a4133c6d5779202038995fc97021}{\index{Test.\+c@{Test.\+c}!test\+Invalidazione\+Cache@{test\+Invalidazione\+Cache}}
+\hypertarget{Test_8c_a6e3806bfb5ee43f3514fa607c6f1a305}{\index{Test.\+c@{Test.\+c}!test\+Invalidazione\+Cache@{test\+Invalidazione\+Cache}}
 \index{test\+Invalidazione\+Cache@{test\+Invalidazione\+Cache}!Test.\+c@{Test.\+c}}
 \subsubsection[{test\+Invalidazione\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Invalidazione\+Cache (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
-\item[{char $\ast$}]{indirizzo}
+\item[{char $\ast$}]{indirizzo, }
+\item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_abf72a4133c6d5779202038995fc97021}
+)}}\label{Test_8c_a6e3806bfb5ee43f3514fa607c6f1a305}
 
 
 Testa l' invalidazione della cache. 
@@ -93,14 +95,15 @@ Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+
 
 Referenziato da main().
 
-\hypertarget{Test_8c_a32cb956b20025f532a5f0639615475bc}{\index{Test.\+c@{Test.\+c}!test\+Open@{test\+Open}}
+\hypertarget{Test_8c_a90d8443b03c7c48c168b313d28fb72b1}{\index{Test.\+c@{Test.\+c}!test\+Open@{test\+Open}}
 \index{test\+Open@{test\+Open}!Test.\+c@{Test.\+c}}
 \subsubsection[{test\+Open}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Open (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
-\item[{char $\ast$}]{indirizzo}
+\item[{char $\ast$}]{indirizzo, }
+\item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a32cb956b20025f532a5f0639615475bc}
+)}}\label{Test_8c_a90d8443b03c7c48c168b313d28fb72b1}
 
 
 Testa tutte le opzioni di apertura della open. 
@@ -113,17 +116,18 @@ Referenzia log\+M(), mydfs\+\_\+close(), mydfs\+\_\+open(), M\+Y\+O\+\_\+\+C\+R\
 
 Referenziato da main().
 
-\hypertarget{Test_8c_a07d359bacac29bfd639313590a55828e}{\index{Test.\+c@{Test.\+c}!test\+Read@{test\+Read}}
+\hypertarget{Test_8c_af1bdec0a156f8dd5ec0ee1a640181db1}{\index{Test.\+c@{Test.\+c}!test\+Read@{test\+Read}}
 \index{test\+Read@{test\+Read}!Test.\+c@{Test.\+c}}
 \subsubsection[{test\+Read}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Read (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
-\item[{char $\ast$}]{indirizzo}
+\item[{char $\ast$}]{indirizzo, }
+\item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a07d359bacac29bfd639313590a55828e}
+)}}\label{Test_8c_af1bdec0a156f8dd5ec0ee1a640181db1}
 
 
-N\+O\+T\+A\+: La parte finale funziona solo in locale. 
+N\+O\+T\+A\+: La parte e funziona solo in locale. 
 
 
 
@@ -133,14 +137,15 @@ Referenzia My\+D\+F\+S\+Id\+::filename, mydfs\+\_\+close(), mydfs\+\_\+open(), m
 
 Referenziato da main(), e test\+Stress\+Test().
 
-\hypertarget{Test_8c_a68ba82fb95b1ce53d5c2dce6adf3e5f5}{\index{Test.\+c@{Test.\+c}!test\+Stress\+Test@{test\+Stress\+Test}}
+\hypertarget{Test_8c_a9cc4d65ba912461794f9b7523ebedca8}{\index{Test.\+c@{Test.\+c}!test\+Stress\+Test@{test\+Stress\+Test}}
 \index{test\+Stress\+Test@{test\+Stress\+Test}!Test.\+c@{Test.\+c}}
 \subsubsection[{test\+Stress\+Test}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Stress\+Test (
 \begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
 \item[{char $\ast$}]{indirizzo, }
-\item[{char $\ast$}]{filename}
+\item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a68ba82fb95b1ce53d5c2dce6adf3e5f5}
+)}}\label{Test_8c_a9cc4d65ba912461794f9b7523ebedca8}
 
 
 Referenzia random\+\_\+at\+\_\+most(), test\+Read(), e test\+Write().
@@ -149,14 +154,15 @@ Referenzia random\+\_\+at\+\_\+most(), test\+Read(), e test\+Write().
 
 Referenziato da main().
 
-\hypertarget{Test_8c_a3c902e8f7045ddc435b1b2c4cf29f0fb}{\index{Test.\+c@{Test.\+c}!test\+Write@{test\+Write}}
+\hypertarget{Test_8c_aeefba065d2a3d2cc6647202058643c82}{\index{Test.\+c@{Test.\+c}!test\+Write@{test\+Write}}
 \index{test\+Write@{test\+Write}!Test.\+c@{Test.\+c}}
 \subsubsection[{test\+Write}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Write (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
-\item[{char $\ast$}]{indirizzo}
+\item[{char $\ast$}]{indirizzo, }
+\item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a3c902e8f7045ddc435b1b2c4cf29f0fb}
+)}}\label{Test_8c_aeefba065d2a3d2cc6647202058643c82}
 
 
 Testa la write N\+O\+T\+A\+: bufferpiccolo deve essere maggiore o uguale alla dimensione di file.\+txt altrimenti il test non verra' superato. 

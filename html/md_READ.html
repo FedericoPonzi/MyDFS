@@ -81,7 +81,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>#Alcuni appunti sulla READ </p><h2>Funzionamento</h2>
-<p>Quando viene richiesta una mydfs_open, viene eseguita una funzione che controlla quanto manca dalla posizione in cui ho richiesto la read fino alla fine del file. Se questa dimensione è inferiore ad un treshold, viene mandata una richiesta di read al server a partire dalla posizione n (dove n è l'ultimo byte contenuto nel file cachato). Il nuovo pezzo di file viene letto e scritto nel file della cache. In ogni caso, viene eseguita una lettura dal file cachato a partire dalla posizione specificata dal parametro pos (vedi più avanti fseek).</p>
+<p>La funzione mydfs_read funziona per ovvi motivi molto a contatto con il modulo di (Cache)[<a class="el" href="Cache_8md.html">Cache.md</a>].</p>
+<p>Il prototipo di una mydfs_read è:</p>
+<p>Quando un utente richiede la lettura di un file, viene fatta una richiesta alla cache per sapere se i dati richiesti dall' utente sono o meno presenti all' interno della cache.</p><ul>
+<li>In caso di HIT: tutto apposto, viene effettuata una innocua read all' interno del file di cache appositamente creato. Viene aggiornato il puntatore del file (che viene usato proprio per effettuare la read) e riportata la quantità di dati richiesta dall' utente.</li>
+<li>In caso di MISS: la cache riempie una struct CacheReq con la posizione da cui, nel file di cache, c'è un buco che bisogna coprire per permettere all 'utente di effettuare la sua lettura. La read poi si prende carico di inviare la richiesta, e richiede alla cache la scrittura dei dati ricevuti nel file di cache. Premessi n buchi, l' n+1 richiesta alla Cache ci porterà invevitabilmente ad una HIT.</li>
+</ul>
 <h3>fseek</h3>
 <p>Ref: <a href="http://www.cplusplus.com/reference/cstdio/fseek/">http://www.cplusplus.com/reference/cstdio/fseek/</a></p>
 <ul>

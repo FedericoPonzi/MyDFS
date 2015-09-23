@@ -15,14 +15,13 @@
 
 
 \begin{DoxyItemize}
-\item Aggiungere timeout alla socket che aspetta i comandi in modo che se un client che ha aperto in read muore il file viene chiuso.
 \item Aggiungere le cazzate per il lancio.
 \item Alla fine\+: Aggingere modalità deamon.
 \end{DoxyItemize}
 
-\subsubsection*{Più in là\+:}
+\subsubsection*{Idee\+:}
 
 
 \begin{DoxyItemize}
-\item In \hyperlink{server_8c}{server.\+c}\+: Spawnare gli n threads, poi creare un metodo che ogni 1 secondo (quindi sleep(1)) controlla se ci sono thread/processi da creare. 
+\item Aggiungere timeout alla socket che aspetta i comandi in modo che se un client che ha aperto in read muore il file viene chiuso. 
 \end{DoxyItemize}

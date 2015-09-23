@@ -74,6 +74,18 @@ int testOpen(char* filename, char* indirizzo, int  debug)
 }
 
 /**
+ * SimpleRead
+ */
+int testSimpleRead(char* filename, char* indirizzo, int debug)
+{
+    int error;
+    MyDFSId* id = mydfs_open(indirizzo, filename, MYO_RDWR, &error);
+    assert(error == 0);
+    mydfs_close(id);
+    return 0;
+}
+
+/**
  * NOTA: La parte e funziona solo in locale.
  */
 int testRead(char* filename, char* indirizzo, int  debug)

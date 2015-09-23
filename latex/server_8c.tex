@@ -17,6 +17,9 @@
 {\ttfamily \#include \char`\"{}inc/\+Error.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\+h$>$}\\*
+{\ttfamily \#include $<$syslog.\+h$>$}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,6 +35,8 @@ void $\ast$ \hyperlink{server_8c_ac43da3dbb27d7a95bb3fbf75f3dfd99f}{heart\+Beat}
 \begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l' heartbeating. \end{DoxyCompactList}\item 
 void \hyperlink{server_8c_a4f31a6fd48ee5d4579ae4aaaa3cae285}{sig\+\_\+handler} (int signo)
 \begin{DoxyCompactList}\small\item\em Signal handler per gestire l' invalidazione. \end{DoxyCompactList}\item 
+void \hyperlink{server_8c_a0b8ba8aea857bed7c7fd940ea404c3ea}{deamonize} ()
+\begin{DoxyCompactList}\small\item\em Funzione che demonizza il server. \end{DoxyCompactList}\item 
 int \hyperlink{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 \end{DoxyCompactItemize}
 \subsection*{Variabili}
@@ -44,6 +49,25 @@ struct sockaddr\+\_\+in \hyperlink{server_8c_a437cecc27162b023659813375ca67d62}{
 
 
 \subsection{Documentazione delle funzioni}
+\hypertarget{server_8c_a0b8ba8aea857bed7c7fd940ea404c3ea}{\index{server.\+c@{server.\+c}!deamonize@{deamonize}}
+\index{deamonize@{deamonize}!server.\+c@{server.\+c}}
+\subsubsection[{deamonize}]{\setlength{\rightskip}{0pt plus 5cm}void deamonize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{server_8c_a0b8ba8aea857bed7c7fd940ea404c3ea}
+
+
+Funzione che demonizza il server. 
+
+Se la modalita' debug e' attiva non viene attivata la modalita' deamon. 
+
+Referenzia D\+E\+B\+U\+G, e log\+M().
+
+
+
+Referenziato da main().
+
 \hypertarget{server_8c_ac53af003472a20c81247bd125288a4c8}{\index{server.\+c@{server.\+c}!handle\+Socket@{handle\+Socket}}
 \index{handle\+Socket@{handle\+Socket}!server.\+c@{server.\+c}}
 \subsubsection[{handle\+Socket}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ handle\+Socket (
@@ -91,7 +115,7 @@ Referenziato da spawn\+Heart\+Beat().
 )}}\label{server_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
 
 
-Referenzia load\+Config(), log\+M(), numero\+Con, port\+Number, print\+Err(), proc\+Or\+Thread, sd, server, sig\+\_\+handler(), spawn\+Process(), e spawn\+Thread().
+Referenzia deamonize(), load\+Config(), log\+M(), numero\+Con, port\+Number, print\+Err(), proc\+Or\+Thread, sd, server, sig\+\_\+handler(), spawn\+Process(), e spawn\+Thread().
 
 \hypertarget{server_8c_a4f31a6fd48ee5d4579ae4aaaa3cae285}{\index{server.\+c@{server.\+c}!sig\+\_\+handler@{sig\+\_\+handler}}
 \index{sig\+\_\+handler@{sig\+\_\+handler}!server.\+c@{server.\+c}}

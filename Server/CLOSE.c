@@ -138,7 +138,7 @@ int getChunkSize(char* buffer)
  */
 void sendInvalidate(OpenedFile* id)
 {
-	logM("[Close] Sto inviando il comando di invalidazione. Mio ptid: %lu \n", id->ptid);
+	logM("[Close] Cerco client per messaggio di Invalidazione. Mio ptid: %lu \n", id->ptid);
 	pthread_mutex_lock(mutex);
 	char* invalidate = "INVA";
 	OpenedFile* iterator = *openedFileLinkedList;
@@ -172,5 +172,4 @@ void sendInvalidate(OpenedFile* id)
 		iterator = iterator->next;
 	}
 	pthread_mutex_unlock(mutex);
-	logM("[Close] Invalidazione inviata.\n");
 }

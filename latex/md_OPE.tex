@@ -18,7 +18,14 @@ Ogni esito và codificato e rispedito come risposta al client!
 
 \begin{DoxyEnumerate}
 \item Client\+: O\+P\+E file.\+txt 2
-\item Server\+: ok
+\item Server\+: 200
 \item Client\+: port\+\_\+num 50000
-\item Server\+: ok 
+\item Server\+: ok
 \end{DoxyEnumerate}
+
+1 -\/ Apertura comunicazione\+: Il client è connesso alla socket del server, invia il comando {\ttfamily O\+P\+E $<$nomefile$>$ modo} dove nomefile deve essere un nome di un file contenuto nel filesystem del server e modo e' un numero definito dalle costanti scritte all' inizio di questo documento (e presenti in \hyperlink{OPE_8h}{O\+P\+E.\+h}).
+\begin{DoxyItemize}
+\item 2 -\/ Risposta del server\+: Riporta un intero negativo in caso di errore nella apertura del file, la dimensione del file altrimenti (necessaria per la read).
+\item 3 -\/ Connessione di controllo\+: Riposta da parte del client che indica su la porta su cui ha creato una socket server a cui il server dovrà connettersi, e che verrà usata per l' heartbeating e le notifiche di invalidazione.
+\item 4 -\/ Feedback\+: ok, o un intero negativo. 
+\end{DoxyItemize}
