@@ -12,25 +12,14 @@
 
 int main(int argc, char* argv[])
 {
-    printf("Usage: TestStressTest filename.txt <numclients>\n\n");
+    printf("Usage: TestStressTest <numclients> <nomefile>\n");
 	char* filename;
     int clients;
-    if(argc < 3)
-    {
-        clients = 3;
-    }
-    else
-    {
-        clients=strtol(argv[2], NULL, 10);
-    }
-	if(argc < 2)
-	{
-		filename = "file.txt";
-	}
-	else
-	{
-		filename=argv[1];
-	}
+
+    filename = argc < 3 ? "file.txt" : argv[2];
+    clients = argc < 2 ? 5 : strtol(argv[1], NULL, 10);
+
+    printf("Sto' usando: TestStressTest %d %s\n\n", clients, filename);
     char* indirizzo = "127.0.0.1";
 	printf("Benvenuto allo stresstest!\nVerranno spawnati %d clients che tenteranno l'apertura e chiusura in tutte le combinazioni del file '%s'. Assicurati che il client possa servire un numero sufficente di clients prima di iniziare il test.\n\n\n", clients, filename);
 
@@ -49,3 +38,4 @@ int main(int argc, char* argv[])
     wait(NULL);
 	return 0;	
 }
+

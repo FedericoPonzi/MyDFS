@@ -42,6 +42,8 @@
  */
 int testOpen(char* filename, char* indirizzo, int  debug)
 {
+    printf("[TEST OPEN] Iniziato \n");
+
 	/*
 	 * Modalita' delle open:
 	 */	
@@ -68,16 +70,19 @@ int testOpen(char* filename, char* indirizzo, int  debug)
 			assert(0);
 		}
 		mydfs_close(fileId);
+        sleep(0.1);
 	}
 	printf("\n\t[V-%d] Test OPEN superato correttamente!\n", getpid());
     return error;
-}
+}   
 
 /**
  * SimpleRead
  */
 int testSimpleRead(char* filename, char* indirizzo, int debug)
 {
+    printf("Inizio test SimpleRead. Apertura e chiusura.\n");
+    
     int error;
     MyDFSId* id = mydfs_open(indirizzo, filename, MYO_RDWR, &error);
     assert(error == 0);
@@ -90,6 +95,7 @@ int testSimpleRead(char* filename, char* indirizzo, int debug)
  */
 int testRead(char* filename, char* indirizzo, int  debug)
 {
+    printf("[TEST READ] Iniziato \n");
     MyDFSId* id;
     int error, n;
     char* bufferA = "Questo e' un test della read, ma scrivo pure";
@@ -99,7 +105,7 @@ int testRead(char* filename, char* indirizzo, int  debug)
 	if(debug) printf("\n\t [Test della READ %d]:\n", getpid());
 	
 	id = mydfs_open(indirizzo, filename, MYO_RDWR, &error);
-    printf("error:%d\n", error);
+    
     assert(error == 0);
     
     if(debug) printf(" * Scrivo dati nel file (mydfs_write) %d\n", getpid());
@@ -209,7 +215,7 @@ int testHeartBeating(char* filename, char* indirizzo, int  debug)
 	fileId = mydfs_open(indirizzo, filename, MYO_WRONLY, &error);
 	sleep(sleepTime); // 3 ping
 	mydfs_close(fileId);
-	if(debug) printf("Quante sono i ping? 3 = passato\n");
+	printf("Quante sono i ping? 3 = passato\n");
 	return 0;
 }
 
@@ -219,18 +225,20 @@ int testHeartBeating(char* filename, char* indirizzo, int  debug)
  */
 int testWrite(char* filename, char* indirizzo, int  debug)
 {
+    printf("[TEST WRITE] Iniziato \n");
+
     int pid = getpid();
 	if(debug) printf("\t[TEST WRITE-%d]\n", pid);
 
 	int n, error = 0, i = 0;
-	char bufferPiccolo[400];
+	char bufferPiccolo[1024];
 	
-	char* testo = "Io sono il primo testo";
+	char* testo = "Primo";
 	char bufferTesto[strlen(testo)+1];
-	MyDFSId* fileId = mydfs_open("127.0.0.1", "file.txt", MYO_RDWR, &error);
+	MyDFSId* fileId = mydfs_open(indirizzo, filename, MYO_RDWR, &error);
 	assert(error==0);
 	
-	char* testoDue = "questo e' il secondo test della write.";
+	char* testoDue = "Secondo";
 	
 	if(debug) printf("\n\t[PRIMO TEST WRITE-%d: SEEK_SET]\n", getpid());
 	
@@ -263,13 +271,17 @@ int testWrite(char* filename, char* indirizzo, int  debug)
 	
 	bufferPiccolo[n] = '\0';
     if(debug) printf("Letto: %s", bufferPiccolo);
-	mydfs_close(fileId);		
-	for(i = 0; i < strlen(testoDue); i++)
-	{        
+	mydfs_close(fileId);
+    for(i = 0; i < strlen(testoDue); i++)
+	{
+        if(!testoDue[i] == bufferPiccolo[oldFileSize])
+        {
+            printf("Mi aspetto: %s, ho trovato :%s, sono: %d\n", testoDue, bufferPiccolo, getpid());
+        }
 		assert(testoDue[i] == bufferPiccolo[oldFileSize]);
 		oldFileSize++;
 	}
-	if(debug) printf("\n\t[V-%d] Test WRITE superato correttamente!\n", getpid());
+	printf("\n\t[V-%d] Test WRITE superato correttamente!\n", getpid());
 
 		
 	return 0;
@@ -280,6 +292,8 @@ int testWrite(char* filename, char* indirizzo, int  debug)
  */
 void testInvalidazioneCache(char* filename, char* indirizzo, int  debug)
 {
+    printf("[TEST INVALIDAZIONECACHE] Iniziato \n");
+
 	if(debug) printf("\t [Test di invalidazione della cache]\n");
 	int error = 0, n;
 	char bufferPrima[100], bufferDopo[100];
@@ -318,53 +332,60 @@ void testInvalidazioneCache(char* filename, char* indirizzo, int  debug)
 	
 	assert(strcmp(bufferPrima, bufferDopo));
 	
-	if(debug) printf("\n\t[V-%d] Test INVALIDAZIONECACHE superato correttamente!\n", getpid());
+	printf("\n\t[V-%d] Test INVALIDAZIONECACHE superato correttamente!\n", getpid());
     }
 
-// Assumes 0 <= max <= RAND_MAX
-// Returns in the half-open interval [0, max]
-long random_at_most(long max) {
-  unsigned long
-    // max <= RAND_MAX < ULONG_MAX, so this is okay.
-    num_bins = (unsigned long) max + 1,
-    num_rand = (unsigned long) RAND_MAX + 1,
-    bin_size = num_rand / num_bins,
-    defect   = num_rand % num_bins;
+/* Returns an integer in the range [0, n).
+ *
+ * Uses rand(), and so is affected-by/affects the same seed.
+ */
+int randint(int n) {
+  if ((n - 1) == RAND_MAX) {
+    return rand();
+  } else {
+    // Chop off all of the values that would cause skew...
+    long end = RAND_MAX / n; // truncate skew
+    assert (end > 0L);
+    end *= n;
 
-  long x;
-  do {
-   x = random();
+    // ... and ignore results from rand() that fall above that limit.
+    // (Worst case the loop condition should succeed 50% of the time,
+    // so we can expect to bail out of this loop pretty quickly.)
+    int r;
+    while ((r = rand()) >= end);
+
+    return r % n;
   }
-  // This is carefully written not to overflow
-  while (num_rand - defect <= (unsigned long)x);
-
-  // Truncated division is intentional
-  return x/bin_size;
 }
 
-
-void switchStdout(const char *newStream)
-{
-    FILE* out = fopen(newStream, "w+");
-    dup2(fileno(out), STDOUT_FILENO);
-}
-
+/**
+ * Sceglie un test a caso e lo esegue
+ */
 void testStressTest(char* filename, char* indirizzo, int debug)
 {
-    //cambio stdout:
-    char file[100];
-    sprintf(file, "stdout-%d.txt", getpid());
-    //switchStdout(file);
-      
+    
 	if(debug) printf("\n\t [Test stress%d:]\n", getpid());
-    int readOrWrite;
-	sleep(random_at_most(2));
-    if((readOrWrite = random_at_most(10)) > 0)
+    int test = randint(8);
+    printf("test vale:%d\n", test);
+	sleep(randint(2));
+    if(test > 8)
     {
         testRead(filename, indirizzo, debug);
     }
-    else
+    else if(test > 4)
     {
         testWrite(filename, indirizzo, debug);
+    }
+    else if(test > 2)
+    {
+        testInvalidazioneCache(filename, indirizzo, debug);
+    }
+    /*else if(test > 2)
+    {
+        testLongHold(filename, indirizzo, debug);
+    }*/
+    else
+    {
+        testOpen(filename, indirizzo, debug);
     }
 }

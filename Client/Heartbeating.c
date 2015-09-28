@@ -39,7 +39,7 @@ void* heartBeat(void *sd)
 	char ping[5];
 	char pong[5] = "pong";
 	int nRecv;
-	sleep(1);
+	sleep(2);
 	while(1)
 	{
 		nRecv = recv(controlSd, ping, sizeof(ping), 0);

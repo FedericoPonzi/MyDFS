@@ -55,7 +55,7 @@ void* heartBeat(void *pt_pthreadarg)
 	int nRecv;
     int nSend;
 	setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
-	
+	sleep(1);
 	while(1)
 	{	
 		//wait tot secondi

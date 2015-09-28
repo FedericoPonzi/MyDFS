@@ -97,7 +97,7 @@ void handleOpenCommand(char* command, int socket)
 	//Mando il codice di errore se presente, e se c'e' un errore mi fermo.
 	if(send(socket, ret_val, strlen(ret_val), 0) < 0 || err_code != 0)
 	{ 
-		logM("Errore nell' apertura del file, byebye\n");
+		logM("Errore nell' apertura del file (o nella send), byebye\n");
 		close(socket);
 		return;
 	}
@@ -140,7 +140,11 @@ void handleOpenCommand(char* command, int socket)
 			spawnHeartBeat(controlSocket);
 		}
 	}
-	send(socket, answer, strlen(answer), 0); //todo: mi sa che questa non ha nessun effetto.
+	if(send(socket, answer, strlen(answer), 0) < 0)
+    {
+        perror("SEND: ");
+        closeClientSession(getptid());
+    }
 	logM("[OpenCommand] Connessione creata correttamente.[\n Filename: %s,\n Modo: %d,\n Socket: %d,\n HB: %d,\n ptid: %lu.\n]", id-> fileName, id->modo, id->socketId, id->transferSockId, getptid());
 }
 

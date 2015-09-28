@@ -211,7 +211,7 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	logM("Sto richiedendo la connessione sulla porta numero: %d\n", ntohs(sin.sin_port));
 	sprintf(buffer, "port_num %d", ntohs(sin.sin_port));
 	
-	listen(sockfd, 1);
+	listen(sockfd, 10);
 	clilen = sizeof(cli_addr);
 
 	/* Accept actual connection from the client */

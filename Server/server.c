@@ -159,7 +159,7 @@ int main()
 		{
 			spawnThread();
 		}
-		sleep(10);
+		sleep(2);
     }
 
     /*Chiudo il log se non sono in modalita' debug.
@@ -268,7 +268,6 @@ void spawnThread()
  */
 void spawnProcess()
 {
-    logM("Sto vedendo i processi da spawnare: %d\n", getpid());
 	pid_t pid;
 	while(*numberAliveChilds < numeroCon)
 	{
@@ -283,7 +282,7 @@ void spawnProcess()
 			//Se sono il figlio:
 			logM("[spawnProcess] - Mio pid: %d, babbopid: %d\n", getpid(), getppid());
 			handleSocket();
-            return;
+            exit(EXIT_SUCCESS);
 		}
 		else
 		{
