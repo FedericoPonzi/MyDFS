@@ -90,7 +90,7 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 }
 
 /**
- * Crea la connessione di comunicazione client-server
+ * Crea la connessione di comunicazione client-server usata per lì invio di comandi e di files.
  * Setta socketId
  */
 void createTransferSocket(MyDFSId* toRet, int *err)
@@ -160,7 +160,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 	buffer[nRecv]='\0';
 
 	toRet->filesize = strtol(buffer, NULL, 10);
-	
+    logM("Creata connessione per il trasferimento dei dati con sd: %d", toRet->socketId);
 }
 
 /**
@@ -211,7 +211,7 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	logM("Sto richiedendo la connessione sulla porta numero: %d\n", ntohs(sin.sin_port));
 	sprintf(buffer, "port_num %d", ntohs(sin.sin_port));
 	
-	listen(sockfd, 10);
+	listen(sockfd, 1);
 	clilen = sizeof(cli_addr);
 
 	/* Accept actual connection from the client */
@@ -224,7 +224,7 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	}
 
 	toRet->transferSockId = newsockfd;
-	logM("[OPEN] Aperta connessione di controllo.\n");
+	logM("[OPEN] Aperta connessione di Controllo.");
 
 	if ((recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{

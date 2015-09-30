@@ -8,6 +8,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h> 
 #include <unistd.h>
+#include <pthread.h>
 #include <errno.h>
 
 int getNumberOfChanges(MyDFSId* id);
@@ -36,11 +37,12 @@ int mydfs_close(MyDFSId* id)
 		uploadChanges(id);
 		//Cancello tutto quanto:
         close(id->socketId);
+        id->socketId=-1;
 		close(id->transferSockId);
+        id->transferSockId=-1;
 		free(id->indirizzo);
-		unlink(id->filename);
 		free(id->filename);
-		
+
 		WriteOp* iteratorw = id->writeList;
 		WriteOp* temp;
 		while(iteratorw != NULL)

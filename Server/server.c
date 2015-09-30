@@ -224,14 +224,13 @@ void* handleSocket()
 			continue;
 		}
 		handleCommand(buff, temp_sd);
-				
 		logM("\n\n");
 	}
 	while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
 		
 	//Diminuisco il numero di figli vivi.
 	(*numberAliveChilds)--;
-	closeClientSession(temp_sd);	
+	closeClientSession(getptid());	
 
 	logM("[handleSocket] - Connessione terminata.\n");
 		

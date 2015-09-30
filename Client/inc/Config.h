@@ -5,7 +5,7 @@
 /**
  * Modalita' debug:
  */
-#define DEBUG 0
+#define DEBUG 1
 
 #define OPENCOMMAND "OPE"
 #define CLOSECOMMAND "CLO"
@@ -46,7 +46,6 @@ typedef struct MyDFSId {
 	WriteOp* writeList; /** Lista di operazioni di scrittura avvenute nel file */
 	ReadOp* readList; /**Come sopra, ma read */
 	FILE* fp; /** Puntatore al file */
-	
 } MyDFSId;
 
 /**

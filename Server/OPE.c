@@ -67,7 +67,9 @@ void handleOpenCommand(char* command, int socket)
 	stripCommand(command);
 	char answer[3] = "ok";
 	char ret_val[30];
-	int err_code;
+	int err_code, controlSocket, port_num, nRecv;
+	char prt_msg[PRT_MSG_SIZE+1];
+    
 	OpenedFile* id;
 	char* nomeFile = getFileNameFromCommand(command);	 /** @todo : Da vedere bene per memory leaks!!!!*/
 
@@ -75,9 +77,14 @@ void handleOpenCommand(char* command, int socket)
 	int modo = getModo(command);
 	//logM("[OPEN] Modo di apertura: '%d'\n", modo);
 	
-	if(!(err_code = appendOpenedFile(nomeFile, modo)))
+	if((err_code = appendOpenedFile(nomeFile, modo)))
 	{
-		//Mando la dimensione del file
+		logM("[appendOpenedFile] - Non posso farlo john\n");
+		sprintf(ret_val, "%s", ((err_code == -3) ? "-3\n" : "-1\n"));
+	}
+    else
+    {
+        //Mando la dimensione del file
 		id = getOpenedFile();
 		fseek(id->fp,0,SEEK_END);
 		int fileSize = ftell(id->fp);
@@ -87,65 +94,65 @@ void handleOpenCommand(char* command, int socket)
 		fseek(id->fp,0, SEEK_SET);
 		sprintf(ret_val, "%d", fileSize);
 		//logM("Answer: %s\n", ret_val);
-	}
-	else
-	{
-		logM("[appendOpenedFile] - Non posso farlo john\n");
-		sprintf(ret_val, "%s", ((err_code == -3) ? "-3\n" : "-1\n"));
-	}
+    }
 	
 	//Mando il codice di errore se presente, e se c'e' un errore mi fermo.
 	if(send(socket, ret_val, strlen(ret_val), 0) < 0 || err_code != 0)
-	{ 
+	{
 		logM("Errore nell' apertura del file (o nella send), byebye\n");
-		close(socket);
+		closeClientSession(getptid());
+        close(socket);
 		return;
 	}
 
-	//server di nuovo in ascolto per fetch port number
-	int nRecv;
-	char prt_msg[PRT_MSG_SIZE+1];
-	int port_num;
-	
+	//server di nuovo in ascolto per fetch port number	
 	if((nRecv = recv(socket, prt_msg, sizeof(prt_msg), 0)) < 0)
 	{
 		logM("[handleOpenCommand] - errore rcv port no\n");
-		strcpy(answer, "-2");
+        err_code = -2;
 	}
 	
 	if(strncmp(prt_msg, "port_num", 8))
 	{
-		logM("[handleOpenCommand] - errore formato port no");
-		strcpy(answer, "-2");
+		logM("[handleOpenCommand] - errore formato port no\n");
+        err_code = -2;
 	}
 	else
 	{
 		prt_msg[nRecv] = '\0';
 		port_num = strtol(prt_msg+(strlen("port_num ")), NULL, 10);
+        if(errno == EINVAL || errno == ERANGE)
+        {
+            err_code = -2;
+        }
 	}
-	
-	//logM("Il client ha richiesto la connessione sulla port: %d\n", port_num);
-	
-	int controlSocket;
-
+    
 	//Se c'e' gia' un errore, non devo creare la socket di controllo.
-	if ((strncmp(answer, "-2", 2) == 0) || (controlSocket = createControlSock(port_num, socket)) < 1)
+	if(err_code || (controlSocket = createControlSock(port_num, socket)) < 1)
 	{
-		strcpy(answer, "-2");
+        err_code = -2;
 	}
-	else
-	{
-		if(!err_code && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
-		{
-			spawnHeartBeat(controlSocket);
-		}
-	}
-	if(send(socket, answer, strlen(answer), 0) < 0)
+
+    //Se e' in modalita' scrittura, spawno l' heartbeating
+    if(!err_code && (isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
     {
-        perror("SEND: ");
-        closeClientSession(getptid());
+        spawnHeartBeat(controlSocket);
     }
-	logM("[OpenCommand] Connessione creata correttamente.[\n Filename: %s,\n Modo: %d,\n Socket: %d,\n HB: %d,\n ptid: %lu.\n]", id-> fileName, id->modo, id->socketId, id->transferSockId, getptid());
+
+    if(err_code)
+    {
+        sprintf(answer, "-2");
+    }
+    //Provo a mandare eventuale messaggio d' errore.
+	if(send(socket, answer, strlen(answer), 0) < 0 || err_code)
+    {
+        closeClientSession(getptid());
+        close(socket);
+        return;
+    }
+
+    logM("[OpenCommand] Connessione creata correttamente.[\n Filename: %s,\n Modo: %d,\n Socket: %d,\n HB: %d,\n ptid: %lu.\n]", id->
+    fileName, id->modo, id->socketId, id->transferSockId, getptid());
 }
 
 /**

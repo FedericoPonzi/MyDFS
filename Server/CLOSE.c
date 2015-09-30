@@ -151,22 +151,21 @@ void sendInvalidate(OpenedFile* id)
 				logM("[Close] Trovato client, gli invio il comando\n");
 				logM("Socketid:%d, processo: %lu\n", iterator->transferSockId, iterator->ptid);
                 //Se e' un thread
-                if(!procOrThread)
-                {
-    				pthread_mutex_lock(tempSockMutex);
-                    if(send(iterator->transferSockId, invalidate, strlen(invalidate), 0) < 0)
-                    {
-                        perror("Error sending INVA\n");
-                    }
-                    pthread_mutex_unlock(tempSockMutex);
-                }
-                else
+                if(procOrThread)
                 {
                     int i;
                     i = kill(iterator->ptid, SIGUSR1);
                     if(i < 0) perror("Impossibile mandare segnale inva.\n");
                     logM("Mandato segnale!");
                 }
+                else
+                {
+                    pthread_mutex_lock(tempSockMutex);
+                    if(send(iterator->transferSockId, invalidate, strlen(invalidate), 0) < 0)
+                    {
+                        perror("Error sending INVA\n");
+                    }
+                    pthread_mutex_unlock(tempSockMutex);                }
 			}
 		}
 		iterator = iterator->next;

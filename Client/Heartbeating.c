@@ -24,6 +24,8 @@ void spawnHeartBeat(MyDFSId* id)
 	{
 		perror("Cant create hb_thread");
 	}
+     sleep(0.1); //Mi serve perche' la recv del thread dell' hb deve avvenire il prima possibile
+     
 }
 
 /**
@@ -39,7 +41,7 @@ void* heartBeat(void *sd)
 	char ping[5];
 	char pong[5] = "pong";
 	int nRecv;
-	sleep(2);
+
 	while(1)
 	{
 		nRecv = recv(controlSd, ping, sizeof(ping), 0);
