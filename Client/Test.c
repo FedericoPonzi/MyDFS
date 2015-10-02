@@ -330,7 +330,7 @@ void testInvalidazioneCache(char* filename, char* indirizzo, int  debug)
 
 	mydfs_close(fileRead);
 	
-	assert(strcmp(bufferPrima, bufferDopo));
+	assert(!strcmp(bufferPrima, bufferDopo));
 	
 	printf("\n\t[V-%d] Test INVALIDAZIONECACHE superato correttamente!\n", getpid());
     }
