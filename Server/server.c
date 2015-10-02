@@ -102,7 +102,7 @@ void deamonize()
 
     /* Change the working directory to the root directory */
     /* or another appropriated directory */
-    chdir("/home/isaacisback/Programmazione/programmazionedisistema/Server");
+    //chdir("/home/isaacisback/Programmazione/programmazionedisistema/Server");
 
     /* Close all open file descriptors */
     int x;
@@ -111,19 +111,43 @@ void deamonize()
         close (x);
     }
 
-    /* Open the log file 
-    openlog ("firstdaemon", LOG_PID, LOG_DAEMON);
-    syslog (LOG_NOTICE, "First daemon terminated.");
-*/
 }
 
 
-int main()
+/**
+ * Parsa l' input, e modifica le impostazioni di conseguenza.
+ * ./Server [-p<port>] [-d<path>] [-c<numberofconnection>] [-h]
+ *
+ */
+void parseInput(int argc, char* argv[])
 {
+    int i;
+    for(i = 1; i < argc; i++)
+    {
+        switch(* (argv[i]+1))
+        {
+            case 'd':
+                strcpy(rootPath, argv[i]+2);
+                break;
+            case 'p':
+                portNumber = strtol(argv[i]+2, NULL, 10);
+                break;
+            case 'c':
+                numeroCon = strtol(argv[i]+2, NULL, 10);
+                break;
+            case 'h':
+                printf("Usage: ./Server [-p<port>] [-d<path>] [-c<numberofconnection>] [-h]");
+                exit(0);
+        }
+    }
+}
 
+int main(int argc, char* argv[])
+{
+	loadConfig();
+    parseInput(argc, argv);
     deamonize();
 
-	loadConfig();
 	logM("[Config]\n'%d' numero di connessioni\n'%d' Processo o thread\n'%d' Porta in ascolto.\n\n", numeroCon, procOrThread, portNumber);
 
     if (signal(SIGUSR1, sig_handler) == SIG_ERR)
