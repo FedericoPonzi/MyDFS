@@ -1,0 +1,210 @@
+13468 execve("./TestInvalidazione", ["./TestInvalidazione"], [/* 51 vars */]) = 0
+13468 brk(0)                            = 0x8c8000
+13468 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+13468 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe90ac83000
+13468 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+13468 open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+13468 fstat(3, {st_mode=S_IFREG|0644, st_size=123079, ...}) = 0
+13468 mmap(NULL, 123079, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fe90ac64000
+13468 close(3)                          = 0
+13468 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+13468 open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+13468 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0po\0\0\0\0\0\0"..., 832) = 832
+13468 fstat(3, {st_mode=S_IFREG|0755, st_size=141574, ...}) = 0
+13468 mmap(NULL, 2217264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe90a845000
+13468 mprotect(0x7fe90a85e000, 2093056, PROT_NONE) = 0
+13468 mmap(0x7fe90aa5d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7fe90aa5d000
+13468 mmap(0x7fe90aa5f000, 13616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fe90aa5f000
+13468 close(3)                          = 0
+13468 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+13468 open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+13468 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\37\2\0\0\0\0\0"..., 832) = 832
+13468 fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
+13468 mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe90a480000
+13468 mprotect(0x7fe90a63b000, 2093056, PROT_NONE) = 0
+13468 mmap(0x7fe90a83a000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7fe90a83a000
+13468 mmap(0x7fe90a840000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fe90a840000
+13468 close(3)                          = 0
+13468 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe90ac63000
+13468 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe90ac61000
+13468 arch_prctl(ARCH_SET_FS, 0x7fe90ac61740) = 0
+13468 mprotect(0x7fe90a83a000, 16384, PROT_READ) = 0
+13468 mprotect(0x7fe90aa5d000, 4096, PROT_READ) = 0
+13468 mprotect(0x606000, 4096, PROT_READ) = 0
+13468 mprotect(0x7fe90ac85000, 4096, PROT_READ) = 0
+13468 munmap(0x7fe90ac64000, 123079)    = 0
+13468 set_tid_address(0x7fe90ac61a10)   = 13468
+13468 set_robust_list(0x7fe90ac61a20, 24) = 0
+13468 futex(0x7ffd0cd658f0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7fe90ac61740) = -1 EAGAIN (Resource temporarily unavailable)
+13468 rt_sigaction(SIGRTMIN, {0x7fe90a84b9f0, [], SA_RESTORER|SA_SIGINFO, 0x7fe90a855340}, NULL, 8) = 0
+13468 rt_sigaction(SIGRT_1, {0x7fe90a84ba80, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7fe90a855340}, NULL, 8) = 0
+13468 rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+13468 getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+13468 fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 1), ...}) = 0
+13468 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe90ac82000
+13468 write(1, "[TEST INVALIDAZIONECACHE] Inizia"..., 36) = 36
+13468 write(1, "\t [Test di invalidazione della c"..., 38) = 38
+13468 brk(0)                            = 0x8c8000
+13468 brk(0x8e9000)                     = 0x8e9000
+13468 open(".file.txt-7TMMY5", O_RDWR|O_CREAT|O_EXCL, 0600) = 3
+13468 write(1, "[Cache] Creato temp file: '.file"..., 45) = 45
+13468 fcntl(3, F_GETFL)                 = 0x8002 (flags O_RDWR|O_LARGEFILE)
+13468 fstat(3, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
+13468 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe90ac81000
+13468 lseek(3, 0, SEEK_CUR)             = 0
+13468 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 4
+13468 connect(4, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+13468 sendto(4, "OPE file.txt 1\n\0", 16, 0, NULL, 0) = 16
+13468 recvfrom(4, "110", 29, 0, NULL, NULL) = 3
+13468 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 5
+13468 bind(5, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+13468 getsockname(5, {sa_family=AF_INET, sin_port=htons(34885), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
+13468 write(1, "Sto richiedendo la connessione s"..., 57) = 57
+13468 listen(5, 1)                      = 0
+13468 sendto(4, "port_num 34885", 14, 0, NULL, 0) = 14
+13468 accept(5, {sa_family=AF_INET, sin_port=htons(34280), sin_addr=inet_addr("127.0.0.1")}, [16]) = 6
+13468 recvfrom(4, "ok", 14, 0, NULL, NULL) = 2
+13468 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7fe909c7f000
+13468 mprotect(0x7fe909c7f000, 4096, PROT_NONE) = 0
+13468 clone(child_stack=0x7fe90a47efb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7fe90a47f9d0, tls=0x7fe90a47f700, child_tidptr=0x7fe90a47f9d0) = 13469
+13468 write(1, "[OPEN] Aperta connessione di Con"..., 119) = 119
+13468 open(".file.txt-nmk9Pw", O_RDWR|O_CREAT|O_EXCL, 0600 <unfinished ...>
+13469 set_robust_list(0x7fe90a47f9e0, 24 <unfinished ...>
+13468 <... open resumed> )              = 7
+13468 write(1, "[Cache] Creato temp file: '.file"..., 45 <unfinished ...>
+13469 <... set_robust_list resumed> )   = 0
+13468 <... write resumed> )             = 45
+13469 futex(0x7fe90a8409e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+13468 futex(0x7fe90a8409e0, FUTEX_WAKE_PRIVATE, 1) = 0
+13468 fcntl(7, F_GETFL <unfinished ...>
+13469 <... futex resumed> )             = -1 EAGAIN (Resource temporarily unavailable)
+13468 <... fcntl resumed> )             = 0x8002 (flags O_RDWR|O_LARGEFILE)
+13469 write(1, "[Spawining HeartBeating] sd: 6 \n", 32 <unfinished ...>
+13468 fstat(7, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
+13469 <... write resumed> )             = 32
+13468 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+13469 futex(0x7fe90a8409e0, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+13468 <... mmap resumed> )              = 0x7fe90ac80000
+13469 <... futex resumed> )             = 0
+13468 lseek(7, 0, SEEK_CUR <unfinished ...>
+13469 recvfrom(6,  <unfinished ...>
+13468 <... lseek resumed> )             = 0
+13468 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 8
+13468 connect(8, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+13468 sendto(8, "OPE file.txt 4\n\0", 16, 0, NULL, 0) = 16
+13468 recvfrom(8, "110", 29, 0, NULL, NULL) = 3
+13468 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 9
+13468 bind(9, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+13468 getsockname(9, {sa_family=AF_INET, sin_port=htons(51018), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
+13468 write(1, "Sto richiedendo la connessione s"..., 57) = 57
+13468 listen(9, 1)                      = 0
+13468 sendto(8, "port_num 51018", 14, 0, NULL, 0) = 14
+13468 accept(9, {sa_family=AF_INET, sin_port=htons(47432), sin_addr=inet_addr("127.0.0.1")}, [16]) = 10
+13468 recvfrom(8, "ok", 14, 0, NULL, NULL) = 2
+13468 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7fe90947e000
+13468 mprotect(0x7fe90947e000, 4096, PROT_NONE) = 0
+13468 clone(child_stack=0x7fe909c7dfb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7fe909c7e9d0, tls=0x7fe909c7e700, child_tidptr=0x7fe909c7e9d0) = 13471
+13468 write(1, "[OPEN] Aperta connessione di Con"..., 120 <unfinished ...>
+13471 set_robust_list(0x7fe909c7e9e0, 24 <unfinished ...>
+13468 <... write resumed> )             = 120
+13471 <... set_robust_list resumed> )   = 0
+13468 lseek(3, 0, SEEK_SET)             = 0
+13468 write(1, "size: 99, filesize:110 \n", 24 <unfinished ...>
+13471 futex(0x7fe90a8409e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+13468 <... write resumed> )             = 24
+13468 futex(0x7fe90a8409e0, FUTEX_WAKE_PRIVATE, 1) = 0
+13471 <... futex resumed> )             = -1 EAGAIN (Resource temporarily unavailable)
+13468 write(1, "Posizione del puntatore all' ini"..., 49 <unfinished ...>
+13471 futex(0x7fe90a8409e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+13468 <... write resumed> )             = 49
+13468 futex(0x7fe90a8409e0, FUTEX_WAKE_PRIVATE, 1) = 1
+13471 <... futex resumed> )             = 0
+13468 write(1, "holeSize: 99\n", 13 <unfinished ...>
+13471 futex(0x7fe90a8409e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+13468 <... write resumed> )             = 13
+13468 futex(0x7fe90a8409e0, FUTEX_WAKE_PRIVATE, 1) = 1
+13471 <... futex resumed> )             = 0
+13471 write(1, "[Spawining HeartBeating] sd: 10 "..., 33) = 33
+13468 futex(0x7fe90a8409e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+13471 futex(0x7fe90a8409e0, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+13468 <... futex resumed> )             = -1 EAGAIN (Resource temporarily unavailable)
+13471 <... futex resumed> )             = 0
+13468 write(1, "mydfs_read: primo buco: 0\n", 26 <unfinished ...>
+13471 recvfrom(10,  <unfinished ...>
+13468 <... write resumed> )             = 26
+13468 futex(0x7fe90a8409e0, FUTEX_WAKE_PRIVATE, 1) = 0
+13468 write(1, "Mando richiesta di READ:'REA 0\n", 31) = 31
+13468 write(1, "'\n", 2)                = 2
+13468 sendto(4, "REA 0\n", 6, 0, NULL, 0) = 6
+13468 recvfrom(4, "size 110\0", 99, 0, NULL, NULL) = 9
+13468 write(1, "Mi sta mandando: 110 dati.\n", 27) = 27
+13468 recvfrom(4, "Questo e' un test per l' invalid"..., 110, 0, NULL, NULL) = 110
+13468 write(1, "ricevuto: 'Questo e' un test per"..., 121) = 121
+13468 write(1, "'[WriteCache] Devo scrivere: 110"..., 56) = 56
+13468 lseek(3, 0, SEEK_SET)             = 0
+13468 write(1, "[WriteCache] Scritti '110' dati "..., 60) = 60
+13468 write(3, "Questo e' un test per l' invalid"..., 110) = 110
+13468 lseek(3, 0, SEEK_SET)             = 0
+13468 read(3, "Questo e' un test per l' invalid"..., 4096) = 110
+13468 write(1, "Posizione del puntatore ala fine"..., 47) = 47
+13468 write(1, "Bufferprima Questo e' un test pe"..., 112) = 112
+13468 lseek(7, 0, SEEK_SET)             = 0
+13468 write(1, "[Close] 'file.txt'\n", 19) = 19
+13468 sendto(8, "CLO 1\n\0\0\0\0\0\0\0\0\0\0\260W\326\f\375\177\0\0/>@\0\0\0\0\0"..., 100, 0, NULL, 0) = 100
+13468 write(1, "Sto inviando il comando: POS 0 S"..., 39) = 39
+13468 write(1, "\n", 1)                 = 1
+13468 sendto(10, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, 0) = 100
+13468 write(1, "Fatta la send! dovrei invaire 51"..., 50) = 50
+13468 write(7, "Questo e' un test per l' invalid"..., 51) = 51
+13468 lseek(7, 0, SEEK_SET)             = 0
+13468 read(7, "Questo e' un test per l' invalid"..., 4096) = 51
+13468 write(1, "Sto inviando 51 dati.\n", 22) = 22
+13468 sendto(10, "Questo e' un test per l' invalid"..., 51, 0, NULL, 0) = 51
+13468 close(8)                          = 0
+13468 close(10)                         = 0
+13468 write(1, "Chiusura effettuata con successo"..., 34) = 34
+13468 write(1, "Aspetto 2 secondi di ricevere il"..., 61) = 61
+13468 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+13468 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+13468 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+13468 nanosleep({2, 0},  <unfinished ...>
+13469 <... recvfrom resumed> "INVA", 5, 0, NULL, NULL) = 4
+13469 write(1, "[Heartbeating 6] Ricevuto comand"..., 52) = 52
+13469 recvfrom(6,  <unfinished ...>
+13471 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
+13471 write(1, "[HB:10] Connessione chiusa.\n", 28) = 28
+13471 madvise(0x7fe90947e000, 8368128, MADV_DONTNEED) = 0
+13471 _exit(0)                          = ?
+13471 +++ exited with 0 +++
+13468 <... nanosleep resumed> 0x7ffd0cd65620) = 0
+13468 lseek(3, 110, SEEK_SET)           = 110
+13468 write(1, "size: 99, filesize:110 \n", 24) = 24
+13468 write(1, "Posizione del puntatore all' ini"..., 49) = 49
+13468 write(1, "holeSize: 99\n", 13)    = 13
+13468 write(1, "mydfs_read: primo buco: 0\n", 26) = 26
+13468 write(1, "Mando richiesta di READ:'REA 0\n", 31) = 31
+13468 write(1, "'\n", 2)                = 2
+13468 sendto(4, "REA 0\n", 6, 0, NULL, 0) = 6
+13468 recvfrom(4, "size 110\0", 99, 0, NULL, NULL) = 9
+13468 write(1, "Mi sta mandando: 110 dati.\n", 27) = 27
+13468 recvfrom(4, "Questo e' un test per l' invalid"..., 110, 0, NULL, NULL) = 110
+13468 write(1, "ricevuto: 'Questo e' un test per"..., 121) = 121
+13468 write(1, "'[WriteCache] Devo scrivere: 110"..., 56) = 56
+13468 lseek(3, 110, SEEK_SET)           = 110
+13468 write(1, "[WriteCache] Scritti '110' dati "..., 60) = 60
+13468 lseek(3, -110, SEEK_CUR)          = 0
+13468 write(3, "Questo e' un test per l' invalid"..., 110) = 110
+13468 lseek(3, 0, SEEK_SET)             = 0
+13468 read(3, "Questo e' un test per l' invalid"..., 4096) = 110
+13468 write(1, "Posizione del puntatore ala fine"..., 47) = 47
+13468 write(1, "Bufferdopo: Questo e' un test pe"..., 130) = 130
+13468 sendto(4, "CLO 0\n\0\0\0\23@\0\0\0\0\0000Z\326\f\375\177\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, 0) = 100
+13468 close(4)                          = 0
+13468 close(6)                          = 0
+13468 write(1, "Chiusura effettuata con successo"..., 34) = 34
+13468 write(1, "\n", 1)                 = 1
+13468 write(1, "\t[V-13468] Test INVALIDAZIONECAC"..., 59) = 59
+13468 lseek(3, -11, SEEK_CUR)           = 99
+13468 exit_group(0)                     = ?
+13469 +++ exited with 0 +++
+13468 +++ exited with 0 +++
