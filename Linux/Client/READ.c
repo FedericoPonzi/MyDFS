@@ -14,7 +14,6 @@
 
 int sendReadCommand(MyDFSId* id, int pos);
 int readFrom(MyDFSId* id, int sizeRimasta, int pos );
-int byteMancanti(FILE* fp);
 int appendReadRequest(MyDFSId* id, int pos, int size);
 /**
  * name: mydfs_read
@@ -166,19 +165,6 @@ int readFrom(MyDFSId* id, int sizeRimasta,  int pos )
 	
 }
 
-
-/**
- * @brief Torna il numero di byte prima della fine del file puntato da fp
- */
-int byteMancanti(FILE* fp)
-{
-	int posAttuale, dimen;
-	posAttuale = ftell(fp);
-	fseek(fp,0,SEEK_END);
-	dimen = ftell(fp);
-	fseek(fp,posAttuale,SEEK_SET);
-	return dimen-posAttuale;
-}
 
 /**
  * @brief Aggiunge un nodo alla lista di reads
