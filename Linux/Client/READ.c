@@ -54,7 +54,7 @@ int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 	 * Piccolo hack: per qualche motivo, size da dei problemi con la read.
 	 * Per ora mi leggo solo quello che mi serve fino alla fine del file.
 	 */
-	 size = posizione+size > id->filesize ? id->filesize-posizione : size;
+	 size = posizione+size >= id->filesize ? id->filesize-posizione : size;
     logM("size: %d, filesize:%d \n", size, id->filesize);
 	logM("Posizione del puntatore all' inizio della read:%d\n", posizione);
 	//Mi trovo il primo buco nel file di cache:

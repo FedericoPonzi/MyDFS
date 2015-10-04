@@ -77,7 +77,7 @@ void handleOpenCommand(char* command, int socket)
 	int modo = getModo(command);
 	//logM("[OPEN] Modo di apertura: '%d'\n", modo);
 	
-	if((err_code = appendOpenedFile(nomeFile, modo)))
+	if((err_code = appendOpenedFile(nomeFile, modo, &id)))
 	{
 		logM("[appendOpenedFile] - Non posso farlo john\n");
 		sprintf(ret_val, "%s", ((err_code == -3) ? "-3\n" : "-1\n"));

@@ -41,8 +41,6 @@
 #include "inc/StruttureDati.h"
 #include "inc/READ.h"
 #include "inc/Config.h"
-
-#define BUF_SIZE 65000
 int getPosFromCommand(char*);
 
 void handleREADCommand(char* command, int socket)
@@ -55,7 +53,7 @@ void handleREADCommand(char* command, int socket)
 	sprintf(filePath, "%s%s", rootPath,fileName);
 	logM("[READ] Provo ad aprire: '%s'\n", filePath);
 
-	char buff[BUF_SIZE];
+	char buff[FILESIZE];
 	
 	OpenedFile* of = getOpenedFile();
 	
@@ -63,13 +61,13 @@ void handleREADCommand(char* command, int socket)
     
     fseek(of->fp, pos, SEEK_SET);
     
-	int nread = fread(buff, 1, BUF_SIZE,of->fp);
+	int nread = fread(buff, 1, FILESIZE,of->fp);
 
-	if (nread < BUF_SIZE)
+	if (nread < FILESIZE)
 	{
 		if (feof(of->fp))
 		{
-			nread = strlen(buff);
+			logM("File terminato.\n");
 		}
 		if (ferror(getOpenedFile()->fp))
 		{
@@ -87,11 +85,10 @@ void handleREADCommand(char* command, int socket)
 		sprintf(message, "size %d", nread);
 		
 		//Mando la dimensione della parte che ho letto
-		write(socket, message, strlen(message)+1);
-		
-		//Mando la parte letta
-		logM("Transfer socket: '%d'\n", getTransferSocket());
-		write(socket, buff, nread);
+		send(socket, message, strlen(message)+1, 0);
+
+        //Mando la parte letta:
+		send(socket, buff, nread, 0);
 	}
 	
 

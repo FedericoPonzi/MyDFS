@@ -35,7 +35,7 @@ extern OpenedFile **openedFileLinkedList;
 
 extern OpenedFile **free_head;
 
-int appendOpenedFile(char* nomefile, int modo);
+int appendOpenedFile(char* nomefile, int modo, OpenedFile** id );
 int fileAlreadyOpenedInWrite(char* filename);
 int isModoApertura(int modo_client, int modo);
 int checkModoOpen(char *nomeFile , int modo);

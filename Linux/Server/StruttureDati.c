@@ -64,7 +64,7 @@ pthread_mutex_t *mutex;
  * Se non esiste la radice mainFile la crea. Altrimenti scorre tutti i nodi fino ad arrivare all' elemento in coda, crea un nuovo
  * nodo con i dati in input e lo appende alla fine.
  */
-int appendOpenedFile(char* nomeFile, int modo)
+int appendOpenedFile(char* nomeFile, int modo, OpenedFile** id)
 {
 	logM("[appendOpenedFile] - Appendo il file aperto.\n");
 	//Se richiede una scrittura, e il file e' già aperto in scrittura:
@@ -122,14 +122,19 @@ int appendOpenedFile(char* nomeFile, int modo)
 		n->fp = fopen(filePath, "w+b");
 	}
 	else
-	{
-		n->fp = fopen(filePath, "r+b");
-	}
+    {
+        if(isModoApertura(modo, MYO_CREAT))
+        {
+            n->fp = fopen(filePath, "a");
+            fclose(n->fp);
+        }
+        n->fp = fopen(filePath, "r+b");
+    }
 
 	*openedFileLinkedList = n;
 
 	pthread_mutex_unlock(mutex);
-
+    *id = n;
 	return 0;
 }
 
