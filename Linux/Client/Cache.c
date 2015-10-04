@@ -74,7 +74,7 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 			else
 			{
 				//Richiamo quest funzione spostando pos
-				return readRequest(id, iteratorw->pos+iteratorw->size, size-iteratorw->size, req);
+				return readRequest(id, iteratorw->pos+iteratorw->size, (size+pos)-(iteratorw->pos+iteratorw->size), req);
 			}
 		}
 		iteratorw = iteratorw->next;
@@ -87,7 +87,7 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 		if(iteratorr->pos <= pos && iteratorr->pos+iteratorr->size > pos)
 		{
 
-			//Controllo se e' contenuto totalmente nella write op.
+			//Controllo se e' contenuto totalmente nella read op.
 			if(pos+size < iteratorr->pos+iteratorr->size)
 			{
 				pthread_mutex_unlock(id->readListMutex);
@@ -98,9 +98,8 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 			else
 			{
 				pthread_mutex_unlock(id->readListMutex);
-
 				//Richiamo quest funzione spostando pos
-				return readRequest(id, iteratorr->pos+iteratorr->size, size-iteratorr->size, req); //@todo manca un argomento LOL anche la parte dopo
+				return readRequest(id, iteratorr->pos+iteratorr->size, (size+pos)-(iteratorr->pos+iteratorr->size), req);
 			}
 		}
 		iteratorr = iteratorr->next;
@@ -118,6 +117,7 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 		//L' inizio del blocco contenuto in cache, deve essere compreso all' interno dell' area che sto considerando.
 		if(iteratorw->pos > pos && pos+size > iteratorw->pos)
 		{
+            
 			//Non solo compreso, voglio proprio l' inizio del blocco subito dopo il buco.
 			holeSize = iteratorw->pos < pos + holeSize? iteratorw->pos-pos : holeSize; 
 		}
@@ -138,7 +138,6 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 	//Se arrivo fino a qui, vuol dire che ho trovato l' inizio e la fine del buco.
 	//Devo tenere in consideraione anche la dimensione del file.
 	holeSize= pos + holeSize > id->filesize ? id->filesize - pos : holeSize; 
-	logM("holeSize: %d\n", holeSize);
 	req->size = holeSize;
 	req->pos = pos;
 	return 1;

@@ -138,7 +138,7 @@ int readFrom(MyDFSId* id, int sizeRimasta,  int pos )
 {
 	char temp[sizeRimasta];
 	char buff[sizeRimasta];
-    char prova[sizeRimasta+1];
+
 	int i = 0;
 	int nRecv = 0;
 	/*
@@ -147,10 +147,11 @@ int readFrom(MyDFSId* id, int sizeRimasta,  int pos )
 	while( i < sizeRimasta)  
 	{
 		nRecv = recv(id->socketId, temp, sizeRimasta, 0);
-		memcpy(buff+i, temp, nRecv);
-        memcpy(prova, buff, sizeof(buff));
-        prova[sizeof(buff)] = '\0';
-        printf("ricevuto: '%s'",temp);
+        if(nRecv < 0)
+        {
+            perror("[readFrom] recv:");
+        }
+        memcpy(buff+i, temp, nRecv);
 		i+=sizeRimasta;
 	}
 	if(nRecv < 0)

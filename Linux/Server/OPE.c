@@ -85,15 +85,16 @@ void handleOpenCommand(char* command, int socket)
     else
     {
         //Mando la dimensione del file
-		id = getOpenedFile();
-		fseek(id->fp,0,SEEK_END);
-		int fileSize = ftell(id->fp);
-		id->filesize = fileSize;
+        int fileSize = 0;
+        if(access(id->fileName, F_OK))
+        {
+            fseek(id->fp,0,SEEK_END);
+            fileSize = ftell(id->fp);
+            fseek(id->fp,0, SEEK_SET);
+        }
+        id->filesize = fileSize;
 		id->socketId = socket;
-		//logM("[OPEN] File Size: '%d'\n", fileSize);
-		fseek(id->fp,0, SEEK_SET);
 		sprintf(ret_val, "%d", fileSize);
-		//logM("Answer: %s\n", ret_val);
     }
 	
 	//Mando il codice di errore se presente, e se c'e' un errore mi fermo.
