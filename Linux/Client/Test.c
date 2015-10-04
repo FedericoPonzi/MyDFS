@@ -313,7 +313,6 @@ void testInvalidazioneCache(char* filename, char* indirizzo, int  debug)
 	assert( n > 0);
 	
 	bufferPrima[n] = '\0';
-
 	
 	n = mydfs_write(fileWrite, MYSEEK_SET, testo, strlen(testo));
 	

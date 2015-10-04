@@ -126,7 +126,7 @@ int sendReadCommand(MyDFSId* id, int pos)
 	strcpy(fileSize, substringa);
 
     int toRet = strtol(fileSize, NULL, 10);
-    
+    printf("filesize: %s\n", fileSize);
     logM("Mi sta mandando: %d dati.\n", toRet);
 	return toRet;
 }
@@ -156,20 +156,19 @@ int readFrom(MyDFSId* id, int sizeRimasta,  int pos )
         if(nRecv < 0)
         {
             perror("[readFrom] recv:");
+            return 1;
         }
+        else if(nRecv == 0)
+        {
+            perror("recv: connessione andata");
+            return 1;
+        }
+        logM("Ricevuto per ora: %d\n", nRecv);
         memcpy(buff+i, temp, nRecv);
-		i+=sizeRimasta;
+		i+=nRecv;
 	}
-	if(nRecv < 0)
-	{
-		return 1;
-	}
-	else
-	{
 		//Scrivo il contenuto nella cache:
 		return writeCache(id, buff, i, pos);
-	}
-	
 }
 
 

@@ -1,3450 +1,400 @@
 root_path = /tmp/
-[Initialize Memory] - Sto per allocare 204 spazio.
+[Initialize Memory] - Sto per allocare 588 spazio.
 [Config]
-'1' numero di connessioni
+'5' numero di connessioni
 '1' Processo o thread
 '9001' Porta in ascolto.
 
 Server avviato. Attendo connessioni.
-[spawnProcess] - Mio pid: 5631, babbopid: 5630
+[spawnProcess] - Mio pid: 9196, babbopid: 9193
 [handleSocket] - Collegamento effettuato.
-[handleSocket] - Client:'OPE /prova/binario.jpg 1
+[handleSocket] - Client:'OPE file.txt 4
 '
 [handleCommand] Ricevuta richiesta OPEN
 [appendOpenedFile] - Appendo il file aperto.
-[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: '/prova/binario.jpg' 
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+filename: file.txt
+
+[Spawining HeartBeating] Tempsd: 7, ptid: 9196
 [OpenCommand] Connessione creata correttamente.[
- Filename: /prova/binario.jpg,
+ Filename: file.txt,
+ Modo: 4,
+ Socket: 5,
+ HB: 7,
+ ptid: 9196.
+]
+
+[handleSocket] - Client:'CLO 1
+'
+[handleCommand] Ricevuta richiesta CLOSE
+HandleWrites: 1 numero di cambiamenti. 
+Messaggio: 100 dati,  'POS 0 SIZE 51
+'
+Ricevo dati:
+Messaggio size: '51', 'Questo e' un test per l' invalidazione della cache.'
+Buffer: Questo e' un test per l' invalidazione della cache. 0
+Scritti 51 dati nel file. 
+[Close] Cerco client per messaggio di Invalidazione. Mio ptid: 9196 
+[Close] Trovato client, gli invio il comando
+Socketid:7, processo: 9194
+Mandato segnale![closeClientSession] - individuato file primo: 'file.txt'
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
+
+
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
+[handleSocket] - Connessione terminata.
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 588 spazio.
+[Config]
+'5' numero di connessioni
+'1' Processo o thread
+'9001' Porta in ascolto.
+
+Server avviato. Attendo connessioni.
+[spawnProcess] - Mio pid: 9194, babbopid: 9193
+[handleSocket] - Collegamento effettuato.
+[handleSocket] - Client:'OPE file.txt 1
+'
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+filename: file.txt
+
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
  Modo: 1,
  Socket: 5,
  HB: 7,
- ptid: 5631.
+ ptid: 9194.
 ]
 
 [handleSocket] - Client:'REA 0'
 [handleCommand] Ricevuta richiesta READ
 [READ]: Ricevuta richiesta read. Command = REA 0
 pos = 0
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'ˇÿˇ‡'
+File terminato.
+[READ] Bytes letti: 138 
 [READ] Invio file...
 
 
-[handleSocket] - Client:'REA 65000'
+received SIGUSR1
+[handleSocket] - Client:'REA 0'
 [handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65000
-pos = 65000
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'ÔàdY˝óé√TBˆ∫\Æq€¬·À”≥ãºª\∫g0`~U ¿(ªÔ⁄Á'
+[READ]: Ricevuta richiesta read. Command = REA 0
+pos = 0
+File terminato.
+[READ] Bytes letti: 138 
 [READ] Invio file...
 
 
-[handleSocket] - Client:'REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 6500'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 6500
-pos = 65000
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'ÔàdY˝óé√TBˆ∫\Æq€¬·À”≥ãºª\∫g0`~U ¿(ªÔ⁄Á'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65000
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 650'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 6500'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 6500
-pos = 65005
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'óé√TBˆ∫\Æq€¬·À”≥ãºª\∫g0`~U ¿(ªÔ⁄Á'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 650'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'05
-REA 65005
-REA 65005
-REA 65005
-REA 65005
-REA 65013
-REA 65013
-REA 65013
-REA 65013
-REA 65013
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'013
-REA 65013
-REA 65013
-REA 65013
-REA 65013
-REA 65013
-REA 65013
-REA 65013
-REA 65013
-REA 65013
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5013
-REA 65013
-REA 65013
-REA 65013
-REA 65013
-REA 65020
-REA 65020
-REA 65029
-REA 65029
-REA 65029
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65029
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65029
-REA 65029
-REA 65029
-REA 65029
-REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65034
+[handleSocket] - Client:'CLO 0
 '
-[handleCommand] Comando sconosciuto.
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
 
 
-[handleSocket] - Client:'EA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65034'
-[handleCommand] Comando sconosciuto.
+[handleSocket] - Connessione terminata.
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 588 spazio.
+[Config]
+'5' numero di connessioni
+'1' Processo o thread
+'9001' Porta in ascolto.
 
-
-[handleSocket] - Client:'REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 6504'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65034
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 6504
-pos = 65034
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '(ªÔ⁄Á'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 650'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'1
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'41
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA 65041
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5041
-REA 65048
-REA 65048
-REA 65053
-REA 65053
-REA 65053
-REA 65053
-REA 65053
-REA 65053
-REA 65053
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65053
-REA 65053
-REA 65053
-REA 65053
-REA 65053
-REA 65053
-REA 65053
-REA 65053
-REA 65053
-REA 65060
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65060
+Server avviato. Attendo connessioni.
+[spawnProcess] - Mio pid: 9197, babbopid: 9193
+[handleSocket] - Collegamento effettuato.
+[handleSocket] - Client:'OPE file.txt 4
 '
-[handleCommand] Comando sconosciuto.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+filename: file.txt
 
+[Spawining HeartBeating] Tempsd: 7, ptid: 9197
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 4,
+ Socket: 5,
+ HB: 7,
+ ptid: 9197.
+]
 
-[handleSocket] - Client:'EA 65060
-REA 65060
-REA 65060
-REA 65060
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 6506'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 6506
-pos = 65069
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '∂ó¢-Éä^ÉıßoûÎõP—Yæ-k?∑6z◊N˛úœOLN]Ï≥y˝ù;6äÇ/Õ°c—%˛ÄŸø+1’ò'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 650'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'9
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'69
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 65069
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'069
-REA 65069
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65075
-REA 65076
-REA 65076
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65076
-REA 65076
-REA 65076
-REA 65076
-REA 65076
-REA 65076
-REA 65076
-REA 65076
-REA 65076
-REA 65084
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
+[handleSocket] - Client:'CLO 1
 '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'EA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 6508'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 6508
-pos = 65084
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'õP—Yæ-k?∑6z◊N˛úœOLN]Ï≥y˝ù;6äÇ/Õ°c—%˛ÄŸø+1’ò'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 65084
-REA 650'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'4
-REA 65084
-REA 65088
-REA 65088
-REA 65088
-REA 65088
-REA 65088
-REA 65088
-REA 65088
-REA 65088
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'88
-REA 65088
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65090
-REA 65095
-REA 65095
-REA 65095
-REA 65095
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65095
-REA 65095
-REA 65095
-REA 65095
-REA 65095
-REA 65095
-REA 65104
-REA 65104
-REA 65104
-REA 65104
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65104
-REA 65104
-REA 65104
-REA 65104
-REA 65104
-REA 65104
-REA 65112
-REA 65112
-REA 65116
-REA 65116
+[handleCommand] Ricevuta richiesta CLOSE
+HandleWrites: 1 numero di cambiamenti. 
+Messaggio: 100 dati,  'POS 0 SIZE 51
 '
-[handleCommand] Comando sconosciuto.
+Ricevo dati:
+Messaggio size: '51', 'Questo e' un test per l' invalidazione della cache.'
+Buffer: Questo e' un test per l' invalidazione della cache. 0
+Scritti 51 dati nel file. 
+[Close] Cerco client per messaggio di Invalidazione. Mio ptid: 9197 
+[Close] Trovato client, gli invio il comando
+Socketid:7, processo: 9195
+Mandato segnale![closeClientSession] - individuato file primo: 'file.txt'
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
 
 
-[handleSocket] - Client:'EA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116'
-[handleCommand] Comando sconosciuto.
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
+[handleSocket] - Connessione terminata.
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 588 spazio.
+[Config]
+'5' numero di connessioni
+'1' Processo o thread
+'9001' Porta in ascolto.
 
-
-[handleSocket] - Client:'REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 6511'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 6511
-pos = 65116
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '°c—%˛ÄŸø+1’ò'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 651'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'6
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'16
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65116
-REA 65123
-REA 65123
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65123
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65131
-REA 65137
+Server avviato. Attendo connessioni.
+[spawnProcess] - Mio pid: 9195, babbopid: 9193
+[handleSocket] - Collegamento effettuato.
+[handleSocket] - Client:'OPE file.txt 1
 '
-[handleCommand] Comando sconosciuto.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+filename: file.txt
 
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 1,
+ Socket: 5,
+ HB: 7,
+ ptid: 9195.
+]
 
-[handleSocket] - Client:'EA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 6513'
+[handleSocket] - Client:'REA 0'
 [handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 6513
-pos = 65137
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '&˘=Õ=eƒü©Q&∂hõñ
-¯ÑıvÅã*OVi%9_gyp∆~€•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
+[READ]: Ricevuta richiesta read. Command = REA 0
+pos = 0
+File terminato.
+[READ] Bytes letti: 110 
 [READ] Invio file...
 
 
-[handleSocket] - Client:'
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 65137
-REA 651'
-[handleCommand] Comando sconosciuto.
+received SIGUSR1
+[handleSocket] - Client:'REA 0'
+[handleCommand] Ricevuta richiesta READ
+[READ]: Ricevuta richiesta read. Command = REA 0
+pos = 0
+File terminato.
+[READ] Bytes letti: 110 
+[READ] Invio file...
 
 
-[handleSocket] - Client:'1
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'41
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA 65141
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5141
-REA 65141
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65150
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
+[handleSocket] - Client:'CLO 0
 '
-[handleCommand] Comando sconosciuto.
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
 
 
-[handleSocket] - Client:'EA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159'
-[handleCommand] Comando sconosciuto.
+[handleSocket] - Connessione terminata.
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 588 spazio.
+[Config]
+'5' numero di connessioni
+'1' Processo o thread
+'9001' Porta in ascolto.
 
-
-[handleSocket] - Client:'REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 6516'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 65159
-REA 6516
-pos = 65159
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'vÅã*OVi%9_gyp∆~€•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 651'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'4
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65164
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'64
-REA 65164
-REA 65170
-REA 65170
-REA 65170
-REA 65170
-REA 65170
-REA 65170
-REA 65170
-REA 65170
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'170
-REA 65170
-REA 65170
-REA 65170
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178
+Server avviato. Attendo connessioni.
+[spawnProcess] - Mio pid: 9208, babbopid: 9193
+[handleSocket] - Collegamento effettuato.
+[handleSocket] - Client:'OPE file.txt 4
 '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'EA 65178
-REA 65178
-REA 65178
-REA 65178
-REA 65178'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65178'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65178
-pos = 65178
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '•I’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65180'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65180
-pos = 65180
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '’[¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65182'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65182
-pos = 65182
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¸—ùﬂUÑ›LH⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65190'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65190
-pos = 65190
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'H⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65190'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65190
-pos = 65190
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'H⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65190'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65190
-pos = 65190
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'H⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65190'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65190
-pos = 65190
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'H⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65190'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65190
-pos = 65190
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'H⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 6519'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 6519
-pos = 65190
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'H⁄ØÕDƒÃ7R‰u-f1¡ü.{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 651'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'0
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65190
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'90
-REA 65190
-REA 65190
-REA 65190
-REA 65197
-REA 65197
-REA 65197
-REA 65197
-REA 65197
-REA 65197
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'197
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-REA 65199
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65199
-REA 65199
-REA 65199
-REA 65207
-REA 65207
-REA 65207
-REA 65207
-REA 65207
-REA 65207
-REA 65207
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+filename: file.txt
+
+[Spawining HeartBeating] Tempsd: 7, ptid: 9208
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 4,
+ Socket: 5,
+ HB: 7,
+ ptid: 9208.
+]
+
+[handleSocket] - Client:'CLO 1
 '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'EA 65207
-REA 65207
-REA 65207
-REA 65207
-REA 65207
-REA 65207
-REA 65207
-REA 65207
-REA 65207
-REA 65207'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 6520'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 6520
-pos = 65209
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65209
-REA 65209'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 6520'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 6520
-pos = 65209
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '{÷÷È…¯K÷"ÈÀ')<+”-÷Ó‘9ƒm√ÇΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 652'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'9
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'09
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65209
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA 65214
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65214
-REA 65214
-REA 65219
-REA 65219
-REA 65219
-REA 65219
-REA 65219
-REA 65219
-REA 65219
-REA 65219
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65223
-REA 65223
-REA 65228
-REA 65228
-REA 65228
-REA 65228
-REA 65228
-REA 65228
-REA 65228
-REA 65228
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65228
-REA 65228
-REA 65228
-REA 65228
-REA 65228
-REA 65228
-REA 65228
-REA 65228
-REA 65228
-REA 65235
+[handleCommand] Ricevuta richiesta CLOSE
+HandleWrites: 1 numero di cambiamenti. 
+Messaggio: 100 dati,  'POS 0 SIZE 51
 '
-[handleCommand] Comando sconosciuto.
+Ricevo dati:
+Messaggio size: '51', 'Questo e' un test per l' invalidazione della cache.'
+Buffer: Questo e' un test per l' invalidazione della cache. 0
+Scritti 51 dati nel file. 
+[Close] Cerco client per messaggio di Invalidazione. Mio ptid: 9208 
+[Close] Trovato client, gli invio il comando
+Socketid:7, processo: 9198
+Mandato segnale![closeClientSession] - individuato file primo: 'file.txt'
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
 
 
-[handleSocket] - Client:'EA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235'
-[handleCommand] Comando sconosciuto.
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
+[handleSocket] - Connessione terminata.
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 588 spazio.
+[Config]
+'5' numero di connessioni
+'1' Processo o thread
+'9001' Porta in ascolto.
 
-
-[handleSocket] - Client:'REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 6523'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 6523
-pos = 65235
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'ΩmZ∏‡dÒ[òÔÂ◊Éπ}gÿΩt-È•îE%Óçœ»˘˚¨π:«q’Ò‰œì«+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 652'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'35
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA 65235
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65244
-REA 65260
-REA 65260
-REA 65260
-REA 65260
-REA 65260
-REA 65260
-REA 65260
-REA 65260
-REA 65260
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65260
-REA 65260
-REA 65260
-REA 65260
-REA 65260
-REA 65260
-REA 65260
-REA 65267
-REA 65267
-REA 65267
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65267
-REA 65267
-REA 65267
-REA 65267
-REA 65267
-REA 65267
-REA 65267
-REA 65267
-REA 65267
-REA 65267
+Server avviato. Attendo connessioni.
+[spawnProcess] - Mio pid: 9198, babbopid: 9193
+[handleSocket] - Collegamento effettuato.
+[handleSocket] - Client:'OPE file.txt 1
 '
-[handleCommand] Comando sconosciuto.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+filename: file.txt
 
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 1,
+ Socket: 5,
+ HB: 7,
+ ptid: 9198.
+]
 
-[handleSocket] - Client:'EA 65267
-REA 65267
-REA 65275
-REA 65275
-REA 65275
-REA 65275
-REA 65275
-REA 65275
-REA 65275
-REA 65281'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 6528'
+[handleSocket] - Client:'REA 0'
 [handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 6528
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
+[READ]: Ricevuta richiesta read. Command = REA 0
+pos = 0
+File terminato.
+[READ] Bytes letti: 110 
 [READ] Invio file...
 
 
-[handleSocket] - Client:'
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 652'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'1
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'81
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5281
-REA 65281
-REA 65281'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65281'
+received SIGUSR1
+[handleSocket] - Client:'REA 0'
 [handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
+[READ]: Ricevuta richiesta read. Command = REA 0
+pos = 0
+File terminato.
+[READ] Bytes letti: 110 
 [READ] Invio file...
 
 
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 6528'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 6528
-pos = 65281
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '+≠æÉ•}≠ìKcxíı]≥}¢ûM#Ñ¿'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 65281
-REA 652'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'1
-REA 65364
-REA 65364
-REA 65364
-REA 65364
-REA 65364
-REA 65364
-REA 65373
-REA 65373
-REA 65373
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'73
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA 65373
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5373
-REA 65381
-REA 65381
-REA 65381
-REA 65381
-REA 65381
-REA 65381
-REA 65381
-REA 65381
-REA 65381
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65381
-REA 65381
-REA 65381
-REA 65381
-REA 65381
-REA 65381
-REA 65405
-REA 65405
-REA 65405
-REA 65405
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65405
-REA 65411
-REA 65411
-REA 65411
-REA 65411
-REA 65411
-REA 65411
-REA 65411
-REA 65420
-REA 65420
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65420
-REA 65420
-REA 65420
-REA 65420
-REA 65420
-REA 65420
-REA 65427
-REA 65431
-REA 65431
-REA 65431
+[handleSocket] - Client:'CLO 0
 '
-[handleCommand] Comando sconosciuto.
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
 
 
-[handleSocket] - Client:'EA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431'
-[handleCommand] Comando sconosciuto.
+[handleSocket] - Connessione terminata.
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 588 spazio.
+[Config]
+'5' numero di connessioni
+'1' Processo o thread
+'9001' Porta in ascolto.
 
-
-[handleSocket] - Client:'REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 6543'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 6543
-pos = 65431
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '¥ﬁpÊÇ‰V[ñ˛‹k£Ycéπy$˛∂Ò¥UÆòFÌ–∑tÃ5ŒBˆa~ùéÿÎlèc˛ÿæœË:`fìÏÏìjK®çAlM€G çŸ∫≈w9^Lﬂi~—ı›s„–Ùò˙CÓcﬁ	{xø{»aºˆ˙ZZŒ˚«S˚±SìÉ¨sÚø‘ø˛G“˝üJ√¢_B'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 654'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'1
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65431
-REA 65440
-REA 65440
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'40
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
+Server avviato. Attendo connessioni.
+[spawnProcess] - Mio pid: 9234, babbopid: 9193
+[handleSocket] - Collegamento effettuato.
+[handleSocket] - Client:'OPE file.txt 4
 '
-[handleCommand] Comando sconosciuto.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+filename: file.txt
 
+[Spawining HeartBeating] Tempsd: 7, ptid: 9234
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 4,
+ Socket: 5,
+ HB: 7,
+ ptid: 9234.
+]
 
-[handleSocket] - Client:'EA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65446
-REA 65446
-REA 65446
-REA 65452
-REA 6545'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65440
-REA 65446
-REA 65446
-REA 65446
-REA 65452
-REA 6545
-pos = 65440
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: 'ñ˛‹k£Ycéπy$˛∂Ò¥UÆòFÌ–∑tÃ5ŒBˆa~ùéÿÎlèc˛ÿæœË:`fìÏÏìjK®çAlM€G çŸ∫≈w9^Lﬂi~—ı›s„–Ùò˙CÓcﬁ	{xø{»aºˆ˙ZZŒ˚«S˚±SìÉ¨sÚø‘ø˛G“˝üJ√¢_B'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 654'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'2
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'52
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65452
-REA 65459
-REA 65459
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'459
-REA 65459
-REA 65459
-REA 65459
-REA 65459
-REA 65459
-REA 65459
-REA 65459
-REA 65459
-REA 65459
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5459
-REA 65459
-REA 65459
-REA 65459
-REA 65467
-REA 65467
-REA 65467
-REA 65467
-REA 65467
-REA 65467
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65467
-REA 65467
-REA 65467
-REA 65467
-REA 65467
-REA 65469
-REA 65469
-REA 65469
-REA 65469
-REA 65473
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
+[handleSocket] - Client:'CLO 1
 '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'EA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65480
-REA 6548'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65473
-REA 65480
-REA 6548
-pos = 65473
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '~ùéÿÎlèc˛ÿæœË:`fìÏÏìjK®çAlM€G çŸ∫≈w9^Lﬂi~—ı›s„–Ùò˙CÓcﬁ	{xø{»aºˆ˙ZZŒ˚«S˚±SìÉ¨sÚø‘ø˛G“˝üJ√¢_B'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 654'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'0
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'80
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 65480
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'480
-REA 65480
-REA 65480
-REA 65480
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
+[handleCommand] Ricevuta richiesta CLOSE
+HandleWrites: 1 numero di cambiamenti. 
+Messaggio: 100 dati,  'POS 0 SIZE 51
 '
-[handleCommand] Comando sconosciuto.
+Ricevo dati:
+Messaggio size: '51', 'Questo e' un test per l' invalidazione della cache.'
+Buffer: Questo e' un test per l' invalidazione della cache. 0
+Scritti 51 dati nel file. 
+[Close] Cerco client per messaggio di Invalidazione. Mio ptid: 9234 
+[Close] Trovato client, gli invio il comando
+Socketid:7, processo: 9216
+Mandato segnale![closeClientSession] - individuato file primo: 'file.txt'
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
 
 
-[handleSocket] - Client:'EA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484'
-[handleCommand] Comando sconosciuto.
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
+[handleSocket] - Connessione terminata.
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 588 spazio.
+[Config]
+'5' numero di connessioni
+'1' Processo o thread
+'9001' Porta in ascolto.
 
-
-[handleSocket] - Client:'REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 6548'
-[handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 6548
-pos = 65484
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '˛ÿæœË:`fìÏÏìjK®çAlM€G çŸ∫≈w9^Lﬂi~—ı›s„–Ùò˙CÓcﬁ	{xø{»aºˆ˙ZZŒ˚«S˚±SìÉ¨sÚø‘ø˛G“˝üJ√¢_B'
-[READ] Invio file...
-
-
-[handleSocket] - Client:'
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 654'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'4
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'84
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65484
-REA 65485
-REA 65485
-REA 65485
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA '
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'5485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-RE'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:' 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-R'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'A 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
+Server avviato. Attendo connessioni.
+[spawnProcess] - Mio pid: 9216, babbopid: 9193
+[handleSocket] - Collegamento effettuato.
+[handleSocket] - Client:'OPE file.txt 1
 '
-[handleCommand] Comando sconosciuto.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+filename: file.txt
 
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 1,
+ Socket: 5,
+ HB: 7,
+ ptid: 9216.
+]
 
-[handleSocket] - Client:'EA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65485
-REA 65490'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'REA 65490
-REA 65490
-REA 65490
-REA 65490
-REA 65490
-REA 65490
-REA 65496
-REA 65496
-REA 65496
-REA 6549'
+[handleSocket] - Client:'REA 0'
 [handleCommand] Ricevuta richiesta READ
-[READ]: Ricevuta richiesta read. Command = REA 65490
-REA 65490
-REA 65490
-REA 65490
-REA 65490
-REA 65490
-REA 65496
-REA 65496
-REA 65496
-REA 6549
-pos = 65490
-[READ] Provo ad aprire: '/tmp//prova/binario.jpg'
-[READ] File aperto correttamente. 
-[READ] Bytes letti: 65000 
-[READ] Contenuto letto: '`fìÏÏìjK®çAlM€G çŸ∫≈w9^Lﬂi~—ı›s„–Ùò˙CÓcﬁ	{xø{»aºˆ˙ZZŒ˚«S˚±SìÉ¨sÚø‘ø˛G“˝üJ√¢_B'
+[READ]: Ricevuta richiesta read. Command = REA 0
+pos = 0
+File terminato.
+[READ] Bytes letti: 110 
 [READ] Invio file...
 
 
-[handleSocket] - Client:'
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 655'
-[handleCommand] Comando sconosciuto.
+received SIGUSR1
+[handleSocket] - Client:'REA 0'
+[handleCommand] Ricevuta richiesta READ
+[READ]: Ricevuta richiesta read. Command = REA 0
+pos = 0
+File terminato.
+[READ] Bytes letti: 110 
+[READ] Invio file...
 
 
-[handleSocket] - Client:'0
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65'
-[handleCommand] Comando sconosciuto.
+[handleSocket] - Client:'CLO 0
+'
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
 
 
-[handleSocket] - Client:'00
-REA 65500
-REA 65500
-REA 65500
-REA 65500
-REA 65508
-REA 65508
-REA 65508
-REA 65508
-REA 65508
-REA 6'
-[handleCommand] Comando sconosciuto.
-
-
-[handleSocket] - Client:'508
+[handleSocket] - Connessione terminata.

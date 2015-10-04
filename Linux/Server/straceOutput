@@ -1,1346 +1,648 @@
-6622  execve("./Server", ["./Server"], [/* 52 vars */]) = 0
-6622  brk(0)                            = 0x8ae000
-6622  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-6622  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe83fa17000
-6622  access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
-6622  open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
-6622  fstat(3, {st_mode=S_IFREG|0644, st_size=123079, ...}) = 0
-6622  mmap(NULL, 123079, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fe83f9f8000
-6622  close(3)                          = 0
-6622  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-6622  open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
-6622  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0po\0\0\0\0\0\0"..., 832) = 832
-6622  fstat(3, {st_mode=S_IFREG|0755, st_size=141574, ...}) = 0
-6622  mmap(NULL, 2217264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe83f5d9000
-6622  mprotect(0x7fe83f5f2000, 2093056, PROT_NONE) = 0
-6622  mmap(0x7fe83f7f1000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7fe83f7f1000
-6622  mmap(0x7fe83f7f3000, 13616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fe83f7f3000
-6622  close(3)                          = 0
-6622  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-6622  open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
-6622  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\37\2\0\0\0\0\0"..., 832) = 832
-6622  fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
-6622  mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe83f214000
-6622  mprotect(0x7fe83f3cf000, 2093056, PROT_NONE) = 0
-6622  mmap(0x7fe83f5ce000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7fe83f5ce000
-6622  mmap(0x7fe83f5d4000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fe83f5d4000
-6622  close(3)                          = 0
-6622  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe83f9f7000
-6622  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe83f9f5000
-6622  arch_prctl(ARCH_SET_FS, 0x7fe83f9f5740) = 0
-6622  mprotect(0x7fe83f5ce000, 16384, PROT_READ) = 0
-6622  mprotect(0x7fe83f7f1000, 4096, PROT_READ) = 0
-6622  mprotect(0x605000, 4096, PROT_READ) = 0
-6622  mprotect(0x7fe83fa19000, 4096, PROT_READ) = 0
-6622  munmap(0x7fe83f9f8000, 123079)    = 0
-6622  set_tid_address(0x7fe83f9f5a10)   = 6622
-6622  set_robust_list(0x7fe83f9f5a20, 24) = 0
-6622  futex(0x7ffc08441820, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7fe83f9f5740) = -1 EAGAIN (Resource temporarily unavailable)
-6622  rt_sigaction(SIGRTMIN, {0x7fe83f5df9f0, [], SA_RESTORER|SA_SIGINFO, 0x7fe83f5e9340}, NULL, 8) = 0
-6622  rt_sigaction(SIGRT_1, {0x7fe83f5dfa80, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7fe83f5e9340}, NULL, 8) = 0
-6622  rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
-6622  getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
-6622  brk(0)                            = 0x8ae000
-6622  brk(0x8cf000)                     = 0x8cf000
-6622  open("CONFIG", O_RDONLY)          = 3
-6622  fstat(3, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
-6622  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe83fa16000
-6622  read(3, "##FILE DI CONFIG\n\n###\n##Numero m"..., 4096) = 295
-6622  fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 1), ...}) = 0
-6622  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe83fa15000
-6622  write(1, "root_path = /tmp/\n", 18) = 18
-6622  read(3, "", 4096)                 = 0
-6622  write(1, "[Initialize Memory] - Sto per al"..., 51) = 51
-6622  mmap(NULL, 204, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, 0, 0) = 0x7fe83fa14000
-6622  write(1, "[Config]\n", 9)         = 9
-6622  write(1, "'1' numero di connessioni\n", 26) = 26
-6622  write(1, "'1' Processo o thread\n", 22) = 22
-6622  write(1, "'9001' Porta in ascolto.\n\n", 26) = 26
-6622  rt_sigaction(SIGUSR1, {0x401a4b, [USR1], SA_RESTORER|SA_RESTART, 0x7fe83f24ad40}, {SIG_DFL, [], 0}, 8) = 0
-6622  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 4
-6622  bind(4, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-6622  listen(4, 1)                      = 0
-6622  write(1, "Server avviato. Attendo connessi"..., 37) = 37
-6622  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fe83f9f5a10) = 6623
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
-6623  set_robust_list(0x7fe83f9f5a20, 24 <unfinished ...>
-6622  <... rt_sigprocmask resumed> [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
-6623  <... set_robust_list resumed> )   = 0
-6622  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0},  <unfinished ...>
-6623  getppid()                         = 6622
-6623  write(1, "[spawnProcess] - Mio pid: 6623, "..., 47) = 47
-6623  accept(4, {sa_family=AF_INET, sin_port=htons(51900), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
-6623  write(1, "[handleSocket] - Collegamento ef"..., 42) = 42
-6623  recvfrom(5, "OPE /prova/binario.jpg 1\n\0", 99, 0, NULL, NULL) = 26
-6623  write(1, "[handleSocket] - Client:'OPE /pr"..., 50) = 50
-6623  write(1, "'\n", 2)                = 2
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
-6623  write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 100) = 100
-6623  access("/tmp//prova/binario.jpg", F_OK) = 0
-6623  open("/tmp//prova/binario.jpg", O_RDWR) = 6
-6623  write(1, "filename: /prova/binario.jpg\n\n", 30) = 30
-6623  access("/tmp//prova/binario.jpg", F_OK) = 0
-6623  fstat(6, {st_mode=S_IFREG|0644, st_size=158697, ...}) = 0
-6623  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe83fa13000
-6623  fstat(6, {st_mode=S_IFREG|0644, st_size=158697, ...}) = 0
-6623  lseek(6, 155648, SEEK_SET)        = 155648
-6623  read(6, "\235@\223\300\312ey\372\275N\367\0264\373\7q\335FWK\307\37+\244ju&c\341\203\200\271"..., 3049) = 3049
-6623  lseek(6, 0, SEEK_SET)             = 0
-6623  sendto(5, "158697", 6, 0, NULL, 0) = 6
-6623  recvfrom(5, "port_num 36419", 15, 0, NULL, NULL) = 14
-6623  getpeername(5, {sa_family=AF_INET, sin_port=htons(51900), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
-6623  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
-6623  connect(7, {sa_family=AF_INET, sin_port=htons(36419), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-6623  sendto(5, "ok", 2, 0, NULL, 0)    = 2
-6623  write(1, "[OpenCommand] Connessione creata"..., 49) = 49
-6623  write(1, " Filename: /prova/binario.jpg,\n", 31) = 31
-6623  write(1, " Modo: 1,\n", 10)       = 10
-6623  write(1, " Socket: 5,\n", 12)     = 12
-6623  write(1, " HB: 7,\n", 8)          = 8
-6623  write(1, " ptid: 6623.\n", 13)    = 13
-6623  write(1, "]\n\n", 3)              = 3
-6623  recvfrom(5, "REA 0\n", 99, 0, NULL, NULL) = 6
-6623  write(1, "[handleSocket] - Client:'REA 0'\n", 32) = 32
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 49) = 49
-6623  write(1, "pos = 0\n", 8)          = 8
-6623  lseek(6, 0, SEEK_SET)             = 0
-6623  read(6, "\377\330\377\340\0\20JFIF\0\1\1\0\0\1\0\1\0\0\377\333\0C\0\3\2\2\3\2\2\3"..., 61440) = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '\377\330\377\340'\n", 31) = 31
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "\377\330\377\340\0\20JFIF\0\1\1\0\0\1\0\1\0\0\377\333\0C\0\3\2\2\3\2\2\3"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\nREA 65535\n", 99, 0, NULL, NULL) = 20
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 35) = 35
-6623  write(1, "REA 65535'\n", 11)      = 11
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "REA 65535\n", 10)       = 10
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65535\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65535\n", 12)     = 12
-6623  lseek(6, 61440, SEEK_SET)         = 61440
-6623  read(6, "\305\3273\233\264\321U\351\2220?5nhq\362V\241\233@\0PZ3\221\316\330\310\335\346\225\354"..., 4096) = 4096
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 61440) = 61440
-6623  read(6, "6\263\360\214\371@\2713l5\223EW\270\34\205n\366\344\220\26n\3245\274d\241>\324\367Sr"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '{\310a\274\366\30\372"..., 64) = 64
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "{\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65540\nREA 65540\n", 99, 0, NULL, NULL) = 20
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 35) = 35
-6623  write(1, "REA 65540'\n", 11)      = 11
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "REA 65540\n", 10)       = 10
-6623  write(1, "pos = 65540\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '\30\372ZZ\316\373\307"..., 59) = 59
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303\26\242_B"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65540\nREA 65540\nREA 65540\nRE"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 115) = 115
-6623  write(1, "REA 6554'\n", 10)       = 10
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 133) = 133
-6623  write(1, "REA 6554\n", 9)         = 9
-6623  write(1, "pos = 65540\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '\30\372ZZ\316\373\307"..., 59) = 59
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303\26\242_B"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "\nREA 65540\nREA 65540\nREA 65540\nR"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'\nREA 65"..., 116) = 116
-6623  write(1, "REA 655'\n", 9)         = 9
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "0\nREA 65540\nREA 65540\nREA 65540\n"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'0\nREA 6"..., 117) = 117
-6623  write(1, "REA 65'\n", 8)          = 8
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "40\nREA 65540\nREA 65540\nREA 65540"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'40\nREA "..., 118) = 118
-6623  write(1, "REA 6'\n", 7)           = 7
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "540\nREA 65540\nREA 65540\nREA 6554"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'540\nREA"..., 119) = 119
-6623  write(1, "REA '\n", 6)            = 6
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "5548\nREA 65548\nREA 65548\nREA 655"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'5548\nRE"..., 120) = 120
-6623  write(1, "REA'\n", 5)             = 5
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "65548\nREA 65548\nREA 65548\nREA 65"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'65548\nR"..., 121) = 121
-6623  write(1, "RE'\n", 4)              = 4
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, " 65564\nREA 65564\nREA 65564\nREA 6"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:' 65564\n"..., 122) = 122
-6623  write(1, "R'\n", 3)               = 3
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "A 65564\nREA 65564\nREA 65564\nREA "..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'A 65564"..., 123) = 123
-6623  write(1, "'\n", 2)                = 2
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "EA 65564\nREA 65564\nREA 65564\nREA"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'EA 6556"..., 114) = 114
-6623  write(1, "REA 65569'\n", 11)      = 11
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65569\nREA 65569\nREA 65569\nRE"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 115) = 115
-6623  write(1, "REA 6556'\n", 10)       = 10
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 133) = 133
-6623  write(1, "REA 6556\n", 9)         = 9
-6623  write(1, "pos = 65569\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '\242_B'\n", 30) = 30
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "\242_B\0\322\3434\256\332\312\34\222V?h\376\332\351t\321\276\30$:\251\3v4\302\r8\362"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "\nREA 65569\nREA 65569\nREA 65569\nR"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'\nREA 65"..., 116) = 116
-6623  write(1, "REA 655'\n", 9)         = 9
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "6\nREA 65576\nREA 65576\nREA 65576\n"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'6\nREA 6"..., 117) = 117
-6623  write(1, "REA 65'\n", 8)          = 8
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "76\nREA 65576\nREA 65576\nREA 65576"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'76\nREA "..., 118) = 118
-6623  write(1, "REA 6'\n", 7)           = 7
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "576\nREA 65576\nREA 65576\nREA 6557"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'576\nREA"..., 119) = 119
-6623  write(1, "REA '\n", 6)            = 6
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "5576\nREA 65576\nREA 65576\nREA 655"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'5576\nRE"..., 120) = 120
-6623  write(1, "REA'\n", 5)             = 5
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "65576\nREA 65583\nREA 65583\nREA 65"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'65576\nR"..., 121) = 121
-6623  write(1, "RE'\n", 4)              = 4
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, " 65588\nREA 65588\nREA 65588\nREA 6"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:' 65588\n"..., 122) = 122
-6623  write(1, "R'\n", 3)               = 3
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "A 65595\nREA 65595\nREA 65595\nREA "..., 99, 0, NULL, NULL) = 98
-6623  write(1, "[handleSocket] - Client:'A 65595"..., 113) = 113
-6623  write(1, "REA 65595'\n", 11)      = 11
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65595\nREA 65595\nREA 65595\nRE"..., 99, 0, NULL, NULL) = 90
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 105) = 105
-6623  write(1, "REA 65595'\n", 11)      = 11
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 123) = 123
-6623  write(1, "REA 65595\n", 10)       = 10
-6623  write(1, "pos = 65595\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: 'v4\302\r8\362\16"..., 68) = 68
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "v4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65595\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65595\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: 'v4\302\r8\362\16"..., 68) = 68
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "v4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\nREA 65596\n", 99, 0, NULL, NULL) = 20
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 35) = 35
-6623  write(1, "REA 65596'\n", 11)      = 11
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "REA 65596\n", 10)       = 10
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\nREA 65596\n", 99, 0, NULL, NULL) = 20
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 35) = 35
-6623  write(1, "REA 65596'\n", 11)      = 11
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "REA 65596\n", 10)       = 10
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\nREA 65596\n", 99, 0, NULL, NULL) = 20
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 35) = 35
-6623  write(1, "REA 65596'\n", 11)      = 11
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "REA 65596\n", 10)       = 10
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\nREA 65596\n", 99, 0, NULL, NULL) = 20
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 35) = 35
-6623  write(1, "REA 65596'\n", 11)      = 11
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "REA 65596\n", 10)       = 10
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\nREA 65596\n", 99, 0, NULL, NULL) = 20
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 35) = 35
-6623  write(1, "REA 65596'\n", 11)      = 11
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "REA 65596\n", 10)       = 10
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\nREA 65596\n", 99, 0, NULL, NULL) = 20
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 35) = 35
-6623  write(1, "REA 65596'\n", 11)      = 11
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "REA 65596\n", 10)       = 10
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\n", 99, 0, NULL, NULL) = 10
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 36) = 36
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 53) = 53
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\nREA 65596\nREA 65596\nRE"..., 99, 0, NULL, NULL) = 40
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 55) = 55
-6623  write(1, "REA 65596'\n", 11)      = 11
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 73) = 73
-6623  write(1, "REA 65596\n", 10)       = 10
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\nREA 65596\nREA 65596\nRE"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 115) = 115
-6623  write(1, "REA 6559'\n", 10)       = 10
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 133) = 133
-6623  write(1, "REA 6559\n", 9)         = 9
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0 <unfinished ...>
-6622  <... nanosleep resumed> 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0},  <unfinished ...>
-6623  <... sendto resumed> )            = 65535
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "\nREA 65596\nREA 65596\nREA 65596\nR"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'\nREA 65"..., 116) = 116
-6623  write(1, "REA 655'\n", 9)         = 9
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "6\nREA 65596\nREA 65596\nREA 65596\n"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'6\nREA 6"..., 117) = 117
-6623  write(1, "REA 65'\n", 8)          = 8
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "96\nREA 65596\nREA 65596\nREA 65596"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'96\nREA "..., 118) = 118
-6623  write(1, "REA 6'\n", 7)           = 7
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "596\nREA 65596\nREA 65596\nREA 6559"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'596\nREA"..., 119) = 119
-6623  write(1, "REA '\n", 6)            = 6
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "5596\nREA 65596\nREA 65596\nREA 655"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'5596\nRE"..., 120) = 120
-6623  write(1, "REA'\n", 5)             = 5
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "65596\nREA 65596\nREA 65596\nREA 65"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'65596\nR"..., 121) = 121
-6623  write(1, "RE'\n", 4)              = 4
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, " 65596\nREA 65596\nREA 65596\nREA 6"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:' 65596\n"..., 122) = 122
-6623  write(1, "R'\n", 3)               = 3
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "A 65596\nREA 65596\nREA 65596\nREA "..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'A 65596"..., 123) = 123
-6623  write(1, "'\n", 2)                = 2
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "EA 65596\nREA 65596\nREA 65596\nREA"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'EA 6559"..., 114) = 114
-6623  write(1, "REA 65596'\n", 11)      = 11
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65596\nREA 65596\nREA 65596\nRE"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'REA 655"..., 115) = 115
-6623  write(1, "REA 6559'\n", 10)       = 10
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 133) = 133
-6623  write(1, "REA 6559\n", 9)         = 9
-6623  write(1, "pos = 65596\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '4\302\r8\362\16\356"..., 67) = 67
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = 11
-6623  sendto(5, "4\302\r8\362\16\356+\351|\360\243\241\177\263n\255\327\36>\365\257v\243\323y\3664\227\32w&"..., 65535, 0, NULL, 0) = 62900
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "\nREA 65596\nREA 65596\nREA 65596\nR"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'\nREA 65"..., 116) = 116
-6623  write(1, "REA 656'\n", 9)         = 9
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "9\nREA 65609\nREA 65609\nREA 65609\n"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'9\nREA 6"..., 117) = 117
-6623  write(1, "REA 65'\n", 8)          = 8
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "09\nREA 65609\nREA 65609\nREA 65609"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'09\nREA "..., 118) = 118
-6623  write(1, "REA 6'\n", 7)           = 7
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "609\nREA 65609\nREA 65609\nREA 6560"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'609\nREA"..., 119) = 119
-6623  write(1, "REA '\n", 6)            = 6
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "5613\nREA 65613\nREA 65613\nREA 656"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'5613\nRE"..., 120) = 120
-6623  write(1, "REA'\n", 5)             = 5
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "65617\nREA 65617\nREA 65617\nREA 65"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'65617\nR"..., 121) = 121
-6623  write(1, "RE'\n", 4)              = 4
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, " 65621\nREA 65621\nREA 65621\nREA 6"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:' 65621\n"..., 122) = 122
-6623  write(1, "R'\n", 3)               = 3
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "A 65621\nREA 65621\nREA 65621\nREA "..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'A 65621"..., 123) = 123
-6623  write(1, "'\n", 2)                = 2
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "EA 65630\nREA 65630\nREA 65630\nREA"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'EA 6563"..., 114) = 114
-6623  write(1, "REA 65630'\n", 11)      = 11
-6623  write(1, "[handleCommand] Comando sconosci"..., 37) = 37
-6623  write(1, "\n\n", 2)               = 2
-6623  recvfrom(5, "REA 65630\nREA 65630\nREA 65630\nRE"..., 99, 0, NULL, NULL) = 99
-6623  write(1, "[handleSocket] - Client:'REA 656"..., 115) = 115
-6623  write(1, "REA 6563'\n", 10)       = 10
-6623  write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
-6623  write(1, "[READ]: Ricevuta richiesta read."..., 133) = 133
-6623  write(1, "REA 6563\n", 9)         = 9
-6623  write(1, "pos = 65630\n", 12)     = 12
-6623  lseek(6, 65536, SEEK_SET)         = 65536
-6623  read(6, "\310a\274\366\30\372ZZ\316\373\307S\373\261S\223\203\31\254s\362\277\324\277\376G\322\375\237\22J\303"..., 4096) = 4096
-6623  read(6, "EK\232\251$N\24\247\374\251)\246D)w\n\324=%%\10B,T\244T\216B\243\302\225\24"..., 61440) = 61440
-6623  read(6, "\177\10\5\207\v\371\243C\1\351\375W\356\317\25$/ \202hVG\364+\263\343a\206x\345\36_"..., 4096) = 4096
-6623  write(1, "[READ] Bytes letti: 65535 \n", 27) = 27
-6623  write(1, "[READ] Contenuto letto: '3\332\253\v\271\377'"..., 33) = 33
-6623  write(1, "[READ] Invio file...\n", 21) = 21
-6623  sendto(5, "size 65535\0", 11, 0, NULL, 0) = -1 ECONNRESET (Connection reset by peer)
-6623  sendto(5, "3\332\253\v\271\377\0b \350\372\250\342\364\334\371\232s,\316\334\341\233\272\30\4y\1a\177O\317"..., 65535, 0, NULL, 0) = -1 EPIPE (Broken pipe)
-6623  --- SIGPIPE {si_signo=SIGPIPE, si_code=SI_USER, si_pid=6623, si_uid=1000} ---
-6623  +++ killed by SIGPIPE +++
-6622  <... nanosleep resumed> {1, 875961776}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-6622  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_KILLED, si_pid=6623, si_status=SIGPIPE, si_utime=0, si_stime=1} ---
-6622  restart_syscall(<... resuming interrupted call ...>) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, 0x7ffc08441690) = 0
-6622  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-6622  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-6622  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-6622  nanosleep({2, 0}, {1, 841296163}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-6622  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL, si_value={int=13, ptr=0xd}} ---
-6622  +++ killed by SIGINT +++
+9193  execve("./Server", ["./Server"], [/* 52 vars */]) = 0
+9193  brk(0)                            = 0x1681000
+9193  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+9193  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa15344d000
+9193  access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+9193  open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+9193  fstat(3, {st_mode=S_IFREG|0644, st_size=123079, ...}) = 0
+9193  mmap(NULL, 123079, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fa15342e000
+9193  close(3)                          = 0
+9193  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+9193  open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+9193  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0po\0\0\0\0\0\0"..., 832) = 832
+9193  fstat(3, {st_mode=S_IFREG|0755, st_size=141574, ...}) = 0
+9193  mmap(NULL, 2217264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fa15300f000
+9193  mprotect(0x7fa153028000, 2093056, PROT_NONE) = 0
+9193  mmap(0x7fa153227000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7fa153227000
+9193  mmap(0x7fa153229000, 13616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fa153229000
+9193  close(3)                          = 0
+9193  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+9193  open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+9193  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\37\2\0\0\0\0\0"..., 832) = 832
+9193  fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
+9193  mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fa152c4a000
+9193  mprotect(0x7fa152e05000, 2093056, PROT_NONE) = 0
+9193  mmap(0x7fa153004000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7fa153004000
+9193  mmap(0x7fa15300a000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fa15300a000
+9193  close(3)                          = 0
+9193  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa15342d000
+9193  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa15342b000
+9193  arch_prctl(ARCH_SET_FS, 0x7fa15342b740) = 0
+9193  mprotect(0x7fa153004000, 16384, PROT_READ) = 0
+9193  mprotect(0x7fa153227000, 4096, PROT_READ) = 0
+9193  mprotect(0x605000, 4096, PROT_READ) = 0
+9193  mprotect(0x7fa15344f000, 4096, PROT_READ) = 0
+9193  munmap(0x7fa15342e000, 123079)    = 0
+9193  set_tid_address(0x7fa15342ba10)   = 9193
+9193  set_robust_list(0x7fa15342ba20, 24) = 0
+9193  futex(0x7ffcd322d3e0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7fa15342b740) = -1 EAGAIN (Resource temporarily unavailable)
+9193  rt_sigaction(SIGRTMIN, {0x7fa1530159f0, [], SA_RESTORER|SA_SIGINFO, 0x7fa15301f340}, NULL, 8) = 0
+9193  rt_sigaction(SIGRT_1, {0x7fa153015a80, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7fa15301f340}, NULL, 8) = 0
+9193  rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+9193  getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+9193  brk(0)                            = 0x1681000
+9193  brk(0x16a2000)                    = 0x16a2000
+9193  open("CONFIG", O_RDONLY)          = 3
+9193  fstat(3, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
+9193  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa15344c000
+9193  read(3, "##FILE DI CONFIG\n\n###\n##Numero m"..., 4096) = 295
+9193  fstat(1, {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+9193  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa15344b000
+9193  read(3, "", 4096)                 = 0
+9193  mmap(NULL, 588, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, 0, 0) = 0x7fa15344a000
+9193  rt_sigaction(SIGUSR1, {0x401a4b, [USR1], SA_RESTORER|SA_RESTART, 0x7fa152c80d40}, {SIG_DFL, [], 0}, 8) = 0
+9193  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 4
+9193  bind(4, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+9193  listen(4, 5)                      = 0
+9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9194
+9193  clone( <unfinished ...>
+9194  set_robust_list(0x7fa15342ba20, 24) = 0
+9193  <... clone resumed> child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9195
+9193  clone( <unfinished ...>
+9194  getppid()                         = 9193
+9193  <... clone resumed> child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9196
+9195  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
+9196  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
+9195  <... set_robust_list resumed> )   = 0
+9196  <... set_robust_list resumed> )   = 0
+9193  clone( <unfinished ...>
+9194  accept(4,  <unfinished ...>
+9196  getppid()                         = 9193
+9195  getppid()                         = 9193
+9193  <... clone resumed> child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9197
+9196  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9193  clone( <unfinished ...>
+9195  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9197  set_robust_list(0x7fa15342ba20, 24) = 0
+9193  <... clone resumed> child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9198
+9198  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
+9197  getppid( <unfinished ...>
+9198  <... set_robust_list resumed> )   = 0
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+9197  <... getppid resumed> )           = 9193
+9193  <... rt_sigprocmask resumed> [], 8) = 0
+9193  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+9198  getppid( <unfinished ...>
+9193  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+9198  <... getppid resumed> )           = 9193
+9193  rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+9197  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9193  <... rt_sigprocmask resumed> NULL, 8) = 0
+9193  nanosleep({2, 0},  <unfinished ...>
+9198  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9194  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52213), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+9194  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
+9196  <... futex resumed> )             = 0
+9194  <... futex resumed> )             = 1
+9196  accept(4,  <unfinished ...>
+9194  recvfrom(5, "OPE file.txt 1\n\0", 99, 0, NULL, NULL) = 16
+9194  access("/tmp/file.txt", F_OK)     = 0
+9194  open("/tmp/file.txt", O_RDWR)     = 6
+9194  access("/tmp/file.txt", F_OK)     = 0
+9194  fstat(6, {st_mode=S_IFREG|0644, st_size=138, ...}) = 0
+9194  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
+9194  fstat(6, {st_mode=S_IFREG|0644, st_size=138, ...}) = 0
+9194  lseek(6, 0, SEEK_SET)             = 0
+9194  read(6, "Questo e' un test per l' invalid"..., 138) = 138
+9194  lseek(6, 138, SEEK_SET)           = 138
+9194  sendto(5, "138", 3, 0, NULL, 0)   = 3
+9194  recvfrom(5, "port_num 41297", 15, 0, NULL, NULL) = 14
+9194  getpeername(5, {sa_family=AF_INET, sin_port=htons(52213), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+9194  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+9194  connect(7, {sa_family=AF_INET, sin_port=htons(41297), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+9194  sendto(5, "ok", 2, 0, NULL, 0)    = 2
+9194  recvfrom(5,  <unfinished ...>
+9196  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52215), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+9196  futex(0x7fa15344a640, FUTEX_WAKE, 1) = 1
+9195  <... futex resumed> )             = 0
+9196  recvfrom(5,  <unfinished ...>
+9195  accept(4,  <unfinished ...>
+9196  <... recvfrom resumed> "OPE file.txt 4\n\0", 99, 0, NULL, NULL) = 16
+9196  access("/tmp/file.txt", F_OK)     = 0
+9196  open("/tmp/file.txt", O_RDWR)     = 6
+9196  access("/tmp/file.txt", F_OK)     = 0
+9196  fstat(6, {st_mode=S_IFREG|0644, st_size=138, ...}) = 0
+9196  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
+9196  fstat(6, {st_mode=S_IFREG|0644, st_size=138, ...}) = 0
+9196  lseek(6, 0, SEEK_SET)             = 0
+9196  read(6, "Questo e' un test per l' invalid"..., 138) = 138
+9196  lseek(6, 138, SEEK_SET)           = 138
+9196  sendto(5, "138", 3, 0, NULL, 0)   = 3
+9196  recvfrom(5, "port_num 50748", 15, 0, NULL, NULL) = 14
+9196  getpeername(5, {sa_family=AF_INET, sin_port=htons(52215), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+9196  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+9196  connect(7, {sa_family=AF_INET, sin_port=htons(50748), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+9196  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7fa152449000
+9196  mprotect(0x7fa152449000, 4096, PROT_NONE) = 0
+9196  clone( <unfinished ...>
+9206  set_robust_list(0x7fa152c499e0, 24 <unfinished ...>
+9196  <... clone resumed> child_stack=0x7fa152c48fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7fa152c499d0, tls=0x7fa152c49700, child_tidptr=0x7fa152c499d0) = 9206
+9206  <... set_robust_list resumed> )   = 0
+9196  sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
+9206  setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16 <unfinished ...>
+9196  <... sendto resumed> )            = 2
+9206  <... setsockopt resumed> )        = 0
+9196  recvfrom(5,  <unfinished ...>
+9206  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+9206  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9206  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9206  nanosleep({1, 0},  <unfinished ...>
+9194  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
+9194  lseek(6, 138, SEEK_SET)           = 138
+9194  read(6, "", 61440)                = 0
+9194  sendto(5, "size 138\0", 9, 0, NULL, 0) = 9
+9194  sendto(5, "Questo e' un test per l' invalid"..., 138, 0, NULL, 0) = 138
+9194  recvfrom(5,  <unfinished ...>
+9196  <... recvfrom resumed> "CLO 1\n\0\0\0\0\0\0\0\0\0\0\0C)\303\374\177\0\0k=@\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
+9196  recvfrom(7, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, NULL) = 100
+9196  lseek(6, 138, SEEK_SET)           = 138
+9196  recvfrom(7, "Questo e' un test per l' invalid"..., 51, 0, NULL, NULL) = 51
+9196  kill(9194, SIGUSR1)               = 0
+9194  <... recvfrom resumed> 0x7ffcd322d370, 99, 0, 0, 0) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+9194  --- SIGUSR1 {si_signo=SIGUSR1, si_code=SI_USER, si_pid=9196, si_uid=1000} ---
+9196  lseek(6, -138, SEEK_CUR <unfinished ...>
+9194  futex(0x7fa15344a000, FUTEX_WAIT, 2, NULL <unfinished ...>
+9196  <... lseek resumed> )             = 0
+9196  write(6, "Questo e' un test per l' invalid"..., 51) = 51
+9196  close(6)                          = 0
+9196  munmap(0x7fa153449000, 4096)      = 0
+9196  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 1
+9194  <... futex resumed> )             = 0
+9196  close(5 <unfinished ...>
+9194  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 0
+9196  <... close resumed> )             = 0
+9194  sendto(7, "INVA", 4, 0, NULL, 0 <unfinished ...>
+9196  write(1, "root_path = /tmp/\n[Initialize Me"..., 1454 <unfinished ...>
+9194  <... sendto resumed> )            = 4
+9196  <... write resumed> )             = 1454
+9194  rt_sigreturn( <unfinished ...>
+9196  exit_group(0)                     = ?
+9194  <... rt_sigreturn resumed> )      = 45
+9206  +++ exited with 0 +++
+9196  +++ exited with 0 +++
+9194  recvfrom(5,  <unfinished ...>
+9193  <... nanosleep resumed> {0, 822432637}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9196, si_status=0, si_utime=0, si_stime=0} ---
+9193  restart_syscall(<... resuming interrupted call ...>) = 0
+9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9208
+9208  set_robust_list(0x7fa15342ba20, 24) = 0
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+9208  getppid( <unfinished ...>
+9193  <... rt_sigprocmask resumed> [], 8) = 0
+9208  <... getppid resumed> )           = 9193
+9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9208  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0},  <unfinished ...>
+9194  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
+9194  lseek(6, 0, SEEK_SET)             = 0
+9194  read(6, "Questo e' un test per l' invalid"..., 61440) = 138
+9194  read(6, "", 61440)                = 0
+9194  sendto(5, "size 138\0", 9, 0, NULL, 0) = 9
+9194  sendto(5, "Questo e' un test per l' invalid"..., 138, 0, NULL, 0) = 138
+9194  recvfrom(5, "CLO 0\n\0\0@\23@\0\0\0\0\0\200E)\303\374\177\0\0\0\0\0\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
+9194  close(6)                          = 0
+9194  munmap(0x7fa153449000, 4096)      = 0
+9194  close(5)                          = 0
+9194  write(1, "root_path = /tmp/\n[Initialize Me"..., 1302) = 1302
+9194  exit_group(0)                     = ?
+9194  +++ exited with 0 +++
+9193  <... nanosleep resumed> {0, 820140382}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9194, si_status=0, si_utime=0, si_stime=0} ---
+9193  restart_syscall(<... resuming interrupted call ...>) = 0
+9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9216
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+9216  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
+9193  <... rt_sigprocmask resumed> [], 8) = 0
+9216  <... set_robust_list resumed> )   = 0
+9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0},  <unfinished ...>
+9216  getppid()                         = 9193
+9216  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9193  <... nanosleep resumed> 0x7ffcd322d250) = 0
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0}, 0x7ffcd322d250) = 0
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0}, 0x7ffcd322d250) = 0
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0}, 0x7ffcd322d250) = 0
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0},  <unfinished ...>
+9195  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52217), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+9195  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
+9197  <... futex resumed> )             = 0
+9195  <... futex resumed> )             = 1
+9197  accept(4,  <unfinished ...>
+9195  recvfrom(5, "OPE file.txt 1\n\0", 99, 0, NULL, NULL) = 16
+9195  access("/tmp/file.txt", F_OK)     = 0
+9195  open("/tmp/file.txt", O_RDWR)     = 6
+9195  access("/tmp/file.txt", F_OK)     = 0
+9195  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9195  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
+9195  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9195  lseek(6, 0, SEEK_SET)             = 0
+9195  read(6, "CIAO MONDO SONO UN FILE DI TEST!"..., 110) = 110
+9195  lseek(6, 110, SEEK_SET)           = 110
+9195  sendto(5, "110", 3, 0, NULL, 0)   = 3
+9195  recvfrom(5, "port_num 53996", 15, 0, NULL, NULL) = 14
+9195  getpeername(5, {sa_family=AF_INET, sin_port=htons(52217), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+9195  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+9195  connect(7, {sa_family=AF_INET, sin_port=htons(53996), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+9195  sendto(5, "ok", 2, 0, NULL, 0)    = 2
+9195  recvfrom(5,  <unfinished ...>
+9197  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52219), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+9197  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
+9198  <... futex resumed> )             = 0
+9197  <... futex resumed> )             = 1
+9198  accept(4,  <unfinished ...>
+9197  recvfrom(5, "OPE file.txt 4\n\0", 99, 0, NULL, NULL) = 16
+9197  access("/tmp/file.txt", F_OK)     = 0
+9197  open("/tmp/file.txt", O_RDWR)     = 6
+9197  access("/tmp/file.txt", F_OK)     = 0
+9197  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9197  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
+9197  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9197  lseek(6, 0, SEEK_SET)             = 0
+9197  read(6, "CIAO MONDO SONO UN FILE DI TEST!"..., 110) = 110
+9197  lseek(6, 110, SEEK_SET)           = 110
+9197  sendto(5, "110", 3, 0, NULL, 0)   = 3
+9197  recvfrom(5, "port_num 34599", 15, 0, NULL, NULL) = 14
+9197  getpeername(5, {sa_family=AF_INET, sin_port=htons(52219), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+9197  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+9197  connect(7, {sa_family=AF_INET, sin_port=htons(34599), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+9197  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7fa152449000
+9197  mprotect(0x7fa152449000, 4096, PROT_NONE) = 0
+9197  clone( <unfinished ...>
+9232  set_robust_list(0x7fa152c499e0, 24 <unfinished ...>
+9197  <... clone resumed> child_stack=0x7fa152c48fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7fa152c499d0, tls=0x7fa152c49700, child_tidptr=0x7fa152c499d0) = 9232
+9232  <... set_robust_list resumed> )   = 0
+9197  sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
+9232  setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16) = 0
+9197  <... sendto resumed> )            = 2
+9232  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+9197  recvfrom(5,  <unfinished ...>
+9232  <... rt_sigprocmask resumed> [], 8) = 0
+9232  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9232  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9232  nanosleep({1, 0},  <unfinished ...>
+9195  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
+9195  lseek(6, 110, SEEK_SET)           = 110
+9195  read(6, "", 61440)                = 0
+9195  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
+9195  sendto(5, "CIAO MONDO SONO UN FILE DI TEST!"..., 110, 0, NULL, 0) = 110
+9195  recvfrom(5,  <unfinished ...>
+9197  <... recvfrom resumed> "CLO 1\n\0\0\0\0\0\0\0\0\0\0p\351\241-\375\177\0\0k=@\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
+9197  recvfrom(7, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, NULL) = 100
+9197  lseek(6, 110, SEEK_SET)           = 110
+9197  recvfrom(7, "Questo e' un test per l' invalid"..., 51, 0, NULL, NULL) = 51
+9197  kill(9195, SIGUSR1)               = 0
+9195  <... recvfrom resumed> 0x7ffcd322d370, 99, 0, 0, 0) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+9197  lseek(6, -110, SEEK_CUR <unfinished ...>
+9195  --- SIGUSR1 {si_signo=SIGUSR1, si_code=SI_USER, si_pid=9197, si_uid=1000} ---
+9197  <... lseek resumed> )             = 0
+9195  futex(0x7fa15344a000, FUTEX_WAIT, 2, NULL <unfinished ...>
+9197  write(6, "Questo e' un test per l' invalid"..., 51) = 51
+9197  close(6)                          = 0
+9197  munmap(0x7fa153449000, 4096)      = 0
+9197  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 1
+9195  <... futex resumed> )             = 0
+9197  close(5 <unfinished ...>
+9195  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 0
+9197  <... close resumed> )             = 0
+9195  sendto(7, "INVA", 4, 0, NULL, 0 <unfinished ...>
+9197  write(1, "root_path = /tmp/\n[Initialize Me"..., 1454 <unfinished ...>
+9195  <... sendto resumed> )            = 4
+9197  <... write resumed> )             = 1454
+9195  rt_sigreturn( <unfinished ...>
+9197  exit_group(0)                     = ?
+9195  <... rt_sigreturn resumed> )      = 45
+9195  recvfrom(5,  <unfinished ...>
+9232  +++ exited with 0 +++
+9197  +++ exited with 0 +++
+9193  <... nanosleep resumed> {1, 369774445}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9197, si_status=0, si_utime=0, si_stime=0} ---
+9193  restart_syscall(<... resuming interrupted call ...>) = 0
+9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9234
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+9234  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
+9193  <... rt_sigprocmask resumed> [], 8) = 0
+9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9234  <... set_robust_list resumed> )   = 0
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0},  <unfinished ...>
+9234  getppid()                         = 9193
+9234  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9195  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
+9195  lseek(6, 0, SEEK_SET)             = 0
+9195  read(6, "Questo e' un test per l' invalid"..., 61440) = 110
+9195  read(6, "", 61440)                = 0
+9195  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
+9195  sendto(5, "Questo e' un test per l' invalid"..., 110, 0, NULL, 0) = 110
+9195  recvfrom(5, "CLO 0\n\0\0@\23@\0\0\0\0\0\360\353\241-\375\177\0\0\0\0\0\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
+9195  close(6)                          = 0
+9195  munmap(0x7fa153449000, 4096)      = 0
+9195  close(5)                          = 0
+9195  write(1, "root_path = /tmp/\n[Initialize Me"..., 1302) = 1302
+9195  exit_group(0)                     = ?
+9195  +++ exited with 0 +++
+9193  <... nanosleep resumed> {1, 367438944}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9195, si_status=0, si_utime=0, si_stime=0} ---
+9193  restart_syscall(<... resuming interrupted call ...>) = 0
+9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9242
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+9242  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
+9193  <... rt_sigprocmask resumed> [], 8) = 0
+9193  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+9242  <... set_robust_list resumed> )   = 0
+9193  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0},  <unfinished ...>
+9242  getppid()                         = 9193
+9242  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9198  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52221), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+9198  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
+9208  <... futex resumed> )             = 0
+9198  <... futex resumed> )             = 1
+9208  accept(4,  <unfinished ...>
+9198  recvfrom(5, "OPE file.txt 1\n\0", 99, 0, NULL, NULL) = 16
+9198  access("/tmp/file.txt", F_OK)     = 0
+9198  open("/tmp/file.txt", O_RDWR)     = 6
+9198  access("/tmp/file.txt", F_OK)     = 0
+9198  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9198  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
+9198  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9198  lseek(6, 0, SEEK_SET)             = 0
+9198  read(6, "Questo e' un test per l' invalid"..., 110) = 110
+9198  lseek(6, 110, SEEK_SET)           = 110
+9198  sendto(5, "110", 3, 0, NULL, 0)   = 3
+9198  recvfrom(5, "port_num 42012", 15, 0, NULL, NULL) = 14
+9198  getpeername(5, {sa_family=AF_INET, sin_port=htons(52221), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+9198  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+9198  connect(7, {sa_family=AF_INET, sin_port=htons(42012), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+9198  sendto(5, "ok", 2, 0, NULL, 0)    = 2
+9198  recvfrom(5,  <unfinished ...>
+9208  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52223), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+9208  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
+9216  <... futex resumed> )             = 0
+9208  <... futex resumed> )             = 1
+9216  accept(4,  <unfinished ...>
+9208  recvfrom(5, "OPE file.txt 4\n\0", 99, 0, NULL, NULL) = 16
+9208  access("/tmp/file.txt", F_OK)     = 0
+9208  open("/tmp/file.txt", O_RDWR)     = 6
+9208  access("/tmp/file.txt", F_OK)     = 0
+9208  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9208  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
+9208  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9208  lseek(6, 0, SEEK_SET)             = 0
+9208  read(6, "Questo e' un test per l' invalid"..., 110) = 110
+9208  lseek(6, 110, SEEK_SET)           = 110
+9208  sendto(5, "110", 3, 0, NULL, 0)   = 3
+9208  recvfrom(5, "port_num 39069", 15, 0, NULL, NULL) = 14
+9208  getpeername(5, {sa_family=AF_INET, sin_port=htons(52223), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+9208  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+9208  connect(7, {sa_family=AF_INET, sin_port=htons(39069), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+9208  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7fa152449000
+9208  mprotect(0x7fa152449000, 4096, PROT_NONE) = 0
+9208  clone( <unfinished ...>
+9250  set_robust_list(0x7fa152c499e0, 24 <unfinished ...>
+9208  <... clone resumed> child_stack=0x7fa152c48fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7fa152c499d0, tls=0x7fa152c49700, child_tidptr=0x7fa152c499d0) = 9250
+9250  <... set_robust_list resumed> )   = 0
+9208  sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
+9250  setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16 <unfinished ...>
+9208  <... sendto resumed> )            = 2
+9250  <... setsockopt resumed> )        = 0
+9208  recvfrom(5,  <unfinished ...>
+9250  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+9250  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9250  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9250  nanosleep({1, 0},  <unfinished ...>
+9198  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
+9198  lseek(6, 110, SEEK_SET)           = 110
+9198  read(6, "", 61440)                = 0
+9198  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
+9198  sendto(5, "Questo e' un test per l' invalid"..., 110, 0, NULL, 0) = 110
+9198  recvfrom(5,  <unfinished ...>
+9208  <... recvfrom resumed> "CLO 1\n\0\0\0\0\0\0\0\0\0\0\220\v\342p\375\177\0\0k=@\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
+9208  recvfrom(7, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, NULL) = 100
+9208  lseek(6, 110, SEEK_SET)           = 110
+9208  recvfrom(7, "Questo e' un test per l' invalid"..., 51, 0, NULL, NULL) = 51
+9208  kill(9198, SIGUSR1)               = 0
+9208  lseek(6, -110, SEEK_CUR)          = 0
+9208  write(6, "Questo e' un test per l' invalid"..., 51) = 51
+9208  close(6)                          = 0
+9208  munmap(0x7fa153449000, 4096)      = 0
+9208  close(5)                          = 0
+9198  <... recvfrom resumed> 0x7ffcd322d370, 99, 0, 0, 0) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+9198  --- SIGUSR1 {si_signo=SIGUSR1, si_code=SI_USER, si_pid=9208, si_uid=1000} ---
+9208  write(1, "root_path = /tmp/\n[Initialize Me"..., 1454 <unfinished ...>
+9198  sendto(7, "INVA", 4, 0, NULL, 0 <unfinished ...>
+9208  <... write resumed> )             = 1454
+9208  exit_group(0)                     = ?
+9198  <... sendto resumed> )            = 4
+9250  +++ exited with 0 +++
+9208  +++ exited with 0 +++
+9193  <... nanosleep resumed> {0, 962871983}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9208, si_status=0, si_utime=0, si_stime=0} ---
+9193  restart_syscall(<... resuming interrupted call ...> <unfinished ...>
+9198  rt_sigreturn()                    = 45
+9198  recvfrom(5,  <unfinished ...>
+9193  <... restart_syscall resumed> )   = 0
+9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9252
+9252  set_robust_list(0x7fa15342ba20, 24) = 0
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+9252  getppid( <unfinished ...>
+9193  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+9252  <... getppid resumed> )           = 9193
+9193  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+9252  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0},  <unfinished ...>
+9198  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
+9198  lseek(6, 0, SEEK_SET)             = 0
+9198  read(6, "Questo e' un test per l' invalid"..., 61440) = 110
+9198  read(6, "", 61440)                = 0
+9198  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
+9198  sendto(5, "Questo e' un test per l' invalid"..., 110, 0, NULL, 0) = 110
+9198  recvfrom(5, "CLO 0\n\0\0@\23@\0\0\0\0\0\20\16\342p\375\177\0\0\0\0\0\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
+9198  close(6)                          = 0
+9198  munmap(0x7fa153449000, 4096)      = 0
+9198  close(5)                          = 0
+9198  write(1, "root_path = /tmp/\n[Initialize Me"..., 1302) = 1302
+9198  exit_group(0)                     = ?
+9198  +++ exited with 0 +++
+9193  <... nanosleep resumed> {0, 961297935}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9198, si_status=0, si_utime=0, si_stime=0} ---
+9193  restart_syscall(<... resuming interrupted call ...>) = 0
+9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9260
+9260  set_robust_list(0x7fa15342ba20, 24) = 0
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+9260  getppid( <unfinished ...>
+9193  <... rt_sigprocmask resumed> [], 8) = 0
+9260  <... getppid resumed> )           = 9193
+9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9260  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0}, 0x7ffcd322d250) = 0
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0},  <unfinished ...>
+9216  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52225), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+9216  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
+9234  <... futex resumed> )             = 0
+9216  <... futex resumed> )             = 1
+9234  accept(4,  <unfinished ...>
+9216  recvfrom(5, "OPE file.txt 1\n\0", 99, 0, NULL, NULL) = 16
+9216  access("/tmp/file.txt", F_OK)     = 0
+9216  open("/tmp/file.txt", O_RDWR)     = 6
+9216  access("/tmp/file.txt", F_OK)     = 0
+9216  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9216  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
+9216  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9216  lseek(6, 0, SEEK_SET)             = 0
+9216  read(6, "CIAO MONDO SONO UN FILE DI TEST!"..., 110) = 110
+9216  lseek(6, 110, SEEK_SET)           = 110
+9216  sendto(5, "110", 3, 0, NULL, 0)   = 3
+9216  recvfrom(5, "port_num 34629", 15, 0, NULL, NULL) = 14
+9216  getpeername(5, {sa_family=AF_INET, sin_port=htons(52225), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+9216  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+9216  connect(7, {sa_family=AF_INET, sin_port=htons(34629), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+9216  sendto(5, "ok", 2, 0, NULL, 0)    = 2
+9216  recvfrom(5,  <unfinished ...>
+9234  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52227), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+9234  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
+9242  <... futex resumed> )             = 0
+9242  accept(4,  <unfinished ...>
+9234  <... futex resumed> )             = 1
+9234  recvfrom(5, "OPE file.txt 4\n\0", 99, 0, NULL, NULL) = 16
+9234  access("/tmp/file.txt", F_OK)     = 0
+9234  open("/tmp/file.txt", O_RDWR)     = 6
+9234  access("/tmp/file.txt", F_OK)     = 0
+9234  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9234  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
+9234  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+9234  lseek(6, 0, SEEK_SET)             = 0
+9234  read(6, "CIAO MONDO SONO UN FILE DI TEST!"..., 110) = 110
+9234  lseek(6, 110, SEEK_SET)           = 110
+9234  sendto(5, "110", 3, 0, NULL, 0)   = 3
+9234  recvfrom(5, "port_num 47075", 15, 0, NULL, NULL) = 14
+9234  getpeername(5, {sa_family=AF_INET, sin_port=htons(52227), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+9234  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+9234  connect(7, {sa_family=AF_INET, sin_port=htons(47075), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+9234  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7fa152449000
+9234  mprotect(0x7fa152449000, 4096, PROT_NONE) = 0
+9234  clone(child_stack=0x7fa152c48fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7fa152c499d0, tls=0x7fa152c49700, child_tidptr=0x7fa152c499d0) = 9276
+9276  set_robust_list(0x7fa152c499e0, 24 <unfinished ...>
+9234  sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
+9276  <... set_robust_list resumed> )   = 0
+9276  setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16 <unfinished ...>
+9234  <... sendto resumed> )            = 2
+9276  <... setsockopt resumed> )        = 0
+9234  recvfrom(5,  <unfinished ...>
+9276  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+9276  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+9276  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9276  nanosleep({1, 0},  <unfinished ...>
+9216  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
+9216  lseek(6, 110, SEEK_SET)           = 110
+9216  read(6, "", 61440)                = 0
+9216  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
+9216  sendto(5, "CIAO MONDO SONO UN FILE DI TEST!"..., 110, 0, NULL, 0) = 110
+9216  recvfrom(5,  <unfinished ...>
+9234  <... recvfrom resumed> "CLO 1\n\0\0\0\0\0\0\0\0\0\0`\223\302G\374\177\0\0k=@\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
+9234  recvfrom(7, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, NULL) = 100
+9234  lseek(6, 110, SEEK_SET)           = 110
+9234  recvfrom(7, "Questo e' un test per l' invalid"..., 51, 0, NULL, NULL) = 51
+9234  kill(9216, SIGUSR1)               = 0
+9216  <... recvfrom resumed> 0x7ffcd322d370, 99, 0, 0, 0) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+9234  lseek(6, -110, SEEK_CUR <unfinished ...>
+9216  --- SIGUSR1 {si_signo=SIGUSR1, si_code=SI_USER, si_pid=9234, si_uid=1000} ---
+9234  <... lseek resumed> )             = 0
+9234  write(6, "Questo e' un test per l' invalid"..., 51 <unfinished ...>
+9216  futex(0x7fa15344a000, FUTEX_WAIT, 2, NULL <unfinished ...>
+9234  <... write resumed> )             = 51
+9234  close(6)                          = 0
+9234  munmap(0x7fa153449000, 4096)      = 0
+9234  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 1
+9216  <... futex resumed> )             = 0
+9234  close(5 <unfinished ...>
+9216  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 0
+9234  <... close resumed> )             = 0
+9216  sendto(7, "INVA", 4, 0, NULL, 0 <unfinished ...>
+9234  write(1, "root_path = /tmp/\n[Initialize Me"..., 1454 <unfinished ...>
+9216  <... sendto resumed> )            = 4
+9234  <... write resumed> )             = 1454
+9216  rt_sigreturn( <unfinished ...>
+9234  exit_group(0)                     = ?
+9216  <... rt_sigreturn resumed> )      = 45
+9276  +++ exited with 0 +++
+9234  +++ exited with 0 +++
+9193  <... nanosleep resumed> {0, 763607639}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9234, si_status=0, si_utime=0, si_stime=0} ---
+9193  restart_syscall(<... resuming interrupted call ...> <unfinished ...>
+9216  recvfrom(5,  <unfinished ...>
+9193  <... restart_syscall resumed> )   = 0
+9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9278
+9278  set_robust_list(0x7fa15342ba20, 24) = 0
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+9278  getppid( <unfinished ...>
+9193  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+9278  <... getppid resumed> )           = 9193
+9193  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+9193  rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+9278  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
+9193  <... rt_sigprocmask resumed> NULL, 8) = 0
+9193  nanosleep({2, 0},  <unfinished ...>
+9216  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
+9216  lseek(6, 0, SEEK_SET)             = 0
+9216  read(6, "Questo e' un test per l' invalid"..., 61440) = 110
+9216  read(6, "", 61440)                = 0
+9216  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
+9216  sendto(5, "Questo e' un test per l' invalid"..., 110, 0, NULL, 0) = 110
+9216  recvfrom(5, "CLO 0\n\0\0@\23@\0\0\0\0\0\340\225\302G\374\177\0\0\0\0\0\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
+9216  close(6)                          = 0
+9216  munmap(0x7fa153449000, 4096)      = 0
+9216  close(5)                          = 0
+9216  write(1, "root_path = /tmp/\n[Initialize Me"..., 1302) = 1302
+9216  exit_group(0)                     = ?
+9216  +++ exited with 0 +++
+9193  <... nanosleep resumed> {0, 762335252}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9216, si_status=0, si_utime=0, si_stime=0} ---
+9193  restart_syscall(<... resuming interrupted call ...>) = 0
+9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9286
+9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+9286  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
+9193  <... rt_sigprocmask resumed> [], 8) = 0
+9193  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+9286  <... set_robust_list resumed> )   = 0
+9193  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+9193  nanosleep({2, 0},  <unfinished ...>
+9286  getppid()                         = 9193
+9286  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+9193  <... nanosleep resumed> {0, 941035581}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+9286  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+9193  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+9278  <... futex resumed> )             = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+9286  +++ killed by SIGINT +++
+9278  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+9193  +++ killed by SIGINT +++
+9260  <... futex resumed> )             = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+9260  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+9278  +++ killed by SIGINT +++
+9260  +++ killed by SIGINT +++
+9252  <... futex resumed> )             = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+9242  <... accept resumed> 0x7ffcd322d320, 0x7ffcd322d314) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+9252  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+9242  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+9252  +++ killed by SIGINT +++
+9242  +++ killed by SIGINT +++

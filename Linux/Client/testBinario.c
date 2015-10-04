@@ -24,7 +24,7 @@ int main()
 
     while((i = mydfs_read(id, MYSEEK_CUR, buffer, 60000)) > 0)
     {
-        fwrite(buffer, 1, 2, fp);
+        fwrite(buffer, 1, 60000, fp);
     }
     mydfs_close(id);
     fclose(fp);
