@@ -45,6 +45,7 @@
 #include "inc/StruttureDati.h"
 #include "inc/Utils.h"
 #include "inc/CLOSE.h"
+#include "inc/Config.h"
 #include <limits.h>
 #include <errno.h>
 #include <sys/socket.h>
@@ -86,7 +87,12 @@ void handleOpenCommand(char* command, int socket)
     {
         //Mando la dimensione del file
         int fileSize = 0;
-        if(access(id->fileName, F_OK))
+        logM("filename: %s\n\n", id->fileName);
+        char temp_path[40];
+        strcpy(temp_path, rootPath);
+        strcat(temp_path, nomeFile);
+        
+        if(access(temp_path, F_OK) != -1) //Se esiste mi calcolo la dimensione
         {
             fseek(id->fp,0,SEEK_END);
             fileSize = ftell(id->fp);

@@ -48,17 +48,10 @@ void handleREADCommand(char* command, int socket)
 	logM("[READ]: Ricevuta richiesta read. Command = %s\n", command);
 	int pos = getPosFromCommand(command);
 	logM("pos = %d\n", pos);
-	char* fileName = getFileName();
-	char filePath[strlen(fileName) + strlen(rootPath)+1];
-	sprintf(filePath, "%s%s", rootPath,fileName);
-	logM("[READ] Provo ad aprire: '%s'\n", filePath);
-
-	char buff[FILESIZE];
+    char buff[FILESIZE];
 	
 	OpenedFile* of = getOpenedFile();
 	
-	logM("[READ] File aperto correttamente. \n");
-    
     fseek(of->fp, pos, SEEK_SET);
     
 	int nread = fread(buff, 1, FILESIZE,of->fp);

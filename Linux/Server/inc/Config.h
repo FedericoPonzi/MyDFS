@@ -28,7 +28,7 @@
 /**
  * Dimensione dei file durante i trasferimenti
  */
-#define FILESIZE 65000
+#define FILESIZE 65535
 
 
 /**

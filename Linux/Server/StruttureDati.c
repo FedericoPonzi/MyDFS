@@ -117,6 +117,7 @@ int appendOpenedFile(char* nomeFile, int modo, OpenedFile** id)
 	n->next = *openedFileLinkedList;
 	
 	//Il controllo per vedere se il file esiste e tornare errore in caso, lo faccio prima
+    
 	if(isModoApertura(modo, MYO_CREAT) && isModoApertura(modo, MYO_TRUNC))
 	{
 		n->fp = fopen(filePath, "w+b");

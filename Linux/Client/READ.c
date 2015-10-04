@@ -114,12 +114,19 @@ int sendReadCommand(MyDFSId* id, int pos)
 	{
 		perror("Read command recv:");
 	}
+    else if(nRecv == 0)
+    {
+        perror("recv: il peer e' andato.");
+    }
 
 	//Metto dentro a fileSize la quantita' di byte che mi aspetto di trovare nella socket:
+    fileSize[nRecv] = '\0';
 	char substringa[strlen(fileSize+5)];
 	strcpy(substringa, &fileSize[5]);
 	strcpy(fileSize, substringa);
-	int toRet = strtol(fileSize, NULL, 10);
+
+    int toRet = strtol(fileSize, NULL, 10);
+    
     logM("Mi sta mandando: %d dati.\n", toRet);
 	return toRet;
 }
