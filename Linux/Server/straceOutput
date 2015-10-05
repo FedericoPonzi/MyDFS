@@ -1,648 +1,1056 @@
-9193  execve("./Server", ["./Server"], [/* 52 vars */]) = 0
-9193  brk(0)                            = 0x1681000
-9193  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-9193  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa15344d000
-9193  access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
-9193  open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
-9193  fstat(3, {st_mode=S_IFREG|0644, st_size=123079, ...}) = 0
-9193  mmap(NULL, 123079, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fa15342e000
-9193  close(3)                          = 0
-9193  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-9193  open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
-9193  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0po\0\0\0\0\0\0"..., 832) = 832
-9193  fstat(3, {st_mode=S_IFREG|0755, st_size=141574, ...}) = 0
-9193  mmap(NULL, 2217264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fa15300f000
-9193  mprotect(0x7fa153028000, 2093056, PROT_NONE) = 0
-9193  mmap(0x7fa153227000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7fa153227000
-9193  mmap(0x7fa153229000, 13616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fa153229000
-9193  close(3)                          = 0
-9193  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-9193  open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
-9193  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\37\2\0\0\0\0\0"..., 832) = 832
-9193  fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
-9193  mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fa152c4a000
-9193  mprotect(0x7fa152e05000, 2093056, PROT_NONE) = 0
-9193  mmap(0x7fa153004000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7fa153004000
-9193  mmap(0x7fa15300a000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fa15300a000
-9193  close(3)                          = 0
-9193  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa15342d000
-9193  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa15342b000
-9193  arch_prctl(ARCH_SET_FS, 0x7fa15342b740) = 0
-9193  mprotect(0x7fa153004000, 16384, PROT_READ) = 0
-9193  mprotect(0x7fa153227000, 4096, PROT_READ) = 0
-9193  mprotect(0x605000, 4096, PROT_READ) = 0
-9193  mprotect(0x7fa15344f000, 4096, PROT_READ) = 0
-9193  munmap(0x7fa15342e000, 123079)    = 0
-9193  set_tid_address(0x7fa15342ba10)   = 9193
-9193  set_robust_list(0x7fa15342ba20, 24) = 0
-9193  futex(0x7ffcd322d3e0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7fa15342b740) = -1 EAGAIN (Resource temporarily unavailable)
-9193  rt_sigaction(SIGRTMIN, {0x7fa1530159f0, [], SA_RESTORER|SA_SIGINFO, 0x7fa15301f340}, NULL, 8) = 0
-9193  rt_sigaction(SIGRT_1, {0x7fa153015a80, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7fa15301f340}, NULL, 8) = 0
-9193  rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
-9193  getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
-9193  brk(0)                            = 0x1681000
-9193  brk(0x16a2000)                    = 0x16a2000
-9193  open("CONFIG", O_RDONLY)          = 3
-9193  fstat(3, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
-9193  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa15344c000
-9193  read(3, "##FILE DI CONFIG\n\n###\n##Numero m"..., 4096) = 295
-9193  fstat(1, {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
-9193  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa15344b000
-9193  read(3, "", 4096)                 = 0
-9193  mmap(NULL, 588, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, 0, 0) = 0x7fa15344a000
-9193  rt_sigaction(SIGUSR1, {0x401a4b, [USR1], SA_RESTORER|SA_RESTART, 0x7fa152c80d40}, {SIG_DFL, [], 0}, 8) = 0
-9193  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 4
-9193  bind(4, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-9193  listen(4, 5)                      = 0
-9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9194
-9193  clone( <unfinished ...>
-9194  set_robust_list(0x7fa15342ba20, 24) = 0
-9193  <... clone resumed> child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9195
-9193  clone( <unfinished ...>
-9194  getppid()                         = 9193
-9193  <... clone resumed> child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9196
-9195  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
-9196  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
-9195  <... set_robust_list resumed> )   = 0
-9196  <... set_robust_list resumed> )   = 0
-9193  clone( <unfinished ...>
-9194  accept(4,  <unfinished ...>
-9196  getppid()                         = 9193
-9195  getppid()                         = 9193
-9193  <... clone resumed> child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9197
-9196  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9193  clone( <unfinished ...>
-9195  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9197  set_robust_list(0x7fa15342ba20, 24) = 0
-9193  <... clone resumed> child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9198
-9198  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
-9197  getppid( <unfinished ...>
-9198  <... set_robust_list resumed> )   = 0
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
-9197  <... getppid resumed> )           = 9193
-9193  <... rt_sigprocmask resumed> [], 8) = 0
-9193  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
-9198  getppid( <unfinished ...>
-9193  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
-9198  <... getppid resumed> )           = 9193
-9193  rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-9197  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9193  <... rt_sigprocmask resumed> NULL, 8) = 0
-9193  nanosleep({2, 0},  <unfinished ...>
-9198  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9194  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52213), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
-9194  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
-9196  <... futex resumed> )             = 0
-9194  <... futex resumed> )             = 1
-9196  accept(4,  <unfinished ...>
-9194  recvfrom(5, "OPE file.txt 1\n\0", 99, 0, NULL, NULL) = 16
-9194  access("/tmp/file.txt", F_OK)     = 0
-9194  open("/tmp/file.txt", O_RDWR)     = 6
-9194  access("/tmp/file.txt", F_OK)     = 0
-9194  fstat(6, {st_mode=S_IFREG|0644, st_size=138, ...}) = 0
-9194  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
-9194  fstat(6, {st_mode=S_IFREG|0644, st_size=138, ...}) = 0
-9194  lseek(6, 0, SEEK_SET)             = 0
-9194  read(6, "Questo e' un test per l' invalid"..., 138) = 138
-9194  lseek(6, 138, SEEK_SET)           = 138
-9194  sendto(5, "138", 3, 0, NULL, 0)   = 3
-9194  recvfrom(5, "port_num 41297", 15, 0, NULL, NULL) = 14
-9194  getpeername(5, {sa_family=AF_INET, sin_port=htons(52213), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
-9194  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
-9194  connect(7, {sa_family=AF_INET, sin_port=htons(41297), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-9194  sendto(5, "ok", 2, 0, NULL, 0)    = 2
-9194  recvfrom(5,  <unfinished ...>
-9196  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52215), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
-9196  futex(0x7fa15344a640, FUTEX_WAKE, 1) = 1
-9195  <... futex resumed> )             = 0
-9196  recvfrom(5,  <unfinished ...>
-9195  accept(4,  <unfinished ...>
-9196  <... recvfrom resumed> "OPE file.txt 4\n\0", 99, 0, NULL, NULL) = 16
-9196  access("/tmp/file.txt", F_OK)     = 0
-9196  open("/tmp/file.txt", O_RDWR)     = 6
-9196  access("/tmp/file.txt", F_OK)     = 0
-9196  fstat(6, {st_mode=S_IFREG|0644, st_size=138, ...}) = 0
-9196  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
-9196  fstat(6, {st_mode=S_IFREG|0644, st_size=138, ...}) = 0
-9196  lseek(6, 0, SEEK_SET)             = 0
-9196  read(6, "Questo e' un test per l' invalid"..., 138) = 138
-9196  lseek(6, 138, SEEK_SET)           = 138
-9196  sendto(5, "138", 3, 0, NULL, 0)   = 3
-9196  recvfrom(5, "port_num 50748", 15, 0, NULL, NULL) = 14
-9196  getpeername(5, {sa_family=AF_INET, sin_port=htons(52215), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
-9196  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
-9196  connect(7, {sa_family=AF_INET, sin_port=htons(50748), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-9196  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7fa152449000
-9196  mprotect(0x7fa152449000, 4096, PROT_NONE) = 0
-9196  clone( <unfinished ...>
-9206  set_robust_list(0x7fa152c499e0, 24 <unfinished ...>
-9196  <... clone resumed> child_stack=0x7fa152c48fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7fa152c499d0, tls=0x7fa152c49700, child_tidptr=0x7fa152c499d0) = 9206
-9206  <... set_robust_list resumed> )   = 0
-9196  sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
-9206  setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16 <unfinished ...>
-9196  <... sendto resumed> )            = 2
-9206  <... setsockopt resumed> )        = 0
-9196  recvfrom(5,  <unfinished ...>
-9206  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-9206  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9206  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9206  nanosleep({1, 0},  <unfinished ...>
-9194  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
-9194  lseek(6, 138, SEEK_SET)           = 138
-9194  read(6, "", 61440)                = 0
-9194  sendto(5, "size 138\0", 9, 0, NULL, 0) = 9
-9194  sendto(5, "Questo e' un test per l' invalid"..., 138, 0, NULL, 0) = 138
-9194  recvfrom(5,  <unfinished ...>
-9196  <... recvfrom resumed> "CLO 1\n\0\0\0\0\0\0\0\0\0\0\0C)\303\374\177\0\0k=@\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
-9196  recvfrom(7, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, NULL) = 100
-9196  lseek(6, 138, SEEK_SET)           = 138
-9196  recvfrom(7, "Questo e' un test per l' invalid"..., 51, 0, NULL, NULL) = 51
-9196  kill(9194, SIGUSR1)               = 0
-9194  <... recvfrom resumed> 0x7ffcd322d370, 99, 0, 0, 0) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
-9194  --- SIGUSR1 {si_signo=SIGUSR1, si_code=SI_USER, si_pid=9196, si_uid=1000} ---
-9196  lseek(6, -138, SEEK_CUR <unfinished ...>
-9194  futex(0x7fa15344a000, FUTEX_WAIT, 2, NULL <unfinished ...>
-9196  <... lseek resumed> )             = 0
-9196  write(6, "Questo e' un test per l' invalid"..., 51) = 51
-9196  close(6)                          = 0
-9196  munmap(0x7fa153449000, 4096)      = 0
-9196  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 1
-9194  <... futex resumed> )             = 0
-9196  close(5 <unfinished ...>
-9194  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 0
-9196  <... close resumed> )             = 0
-9194  sendto(7, "INVA", 4, 0, NULL, 0 <unfinished ...>
-9196  write(1, "root_path = /tmp/\n[Initialize Me"..., 1454 <unfinished ...>
-9194  <... sendto resumed> )            = 4
-9196  <... write resumed> )             = 1454
-9194  rt_sigreturn( <unfinished ...>
-9196  exit_group(0)                     = ?
-9194  <... rt_sigreturn resumed> )      = 45
-9206  +++ exited with 0 +++
-9196  +++ exited with 0 +++
-9194  recvfrom(5,  <unfinished ...>
-9193  <... nanosleep resumed> {0, 822432637}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9196, si_status=0, si_utime=0, si_stime=0} ---
-9193  restart_syscall(<... resuming interrupted call ...>) = 0
-9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9208
-9208  set_robust_list(0x7fa15342ba20, 24) = 0
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
-9208  getppid( <unfinished ...>
-9193  <... rt_sigprocmask resumed> [], 8) = 0
-9208  <... getppid resumed> )           = 9193
-9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9208  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0},  <unfinished ...>
-9194  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
-9194  lseek(6, 0, SEEK_SET)             = 0
-9194  read(6, "Questo e' un test per l' invalid"..., 61440) = 138
-9194  read(6, "", 61440)                = 0
-9194  sendto(5, "size 138\0", 9, 0, NULL, 0) = 9
-9194  sendto(5, "Questo e' un test per l' invalid"..., 138, 0, NULL, 0) = 138
-9194  recvfrom(5, "CLO 0\n\0\0@\23@\0\0\0\0\0\200E)\303\374\177\0\0\0\0\0\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
-9194  close(6)                          = 0
-9194  munmap(0x7fa153449000, 4096)      = 0
-9194  close(5)                          = 0
-9194  write(1, "root_path = /tmp/\n[Initialize Me"..., 1302) = 1302
-9194  exit_group(0)                     = ?
-9194  +++ exited with 0 +++
-9193  <... nanosleep resumed> {0, 820140382}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9194, si_status=0, si_utime=0, si_stime=0} ---
-9193  restart_syscall(<... resuming interrupted call ...>) = 0
-9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9216
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
-9216  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
-9193  <... rt_sigprocmask resumed> [], 8) = 0
-9216  <... set_robust_list resumed> )   = 0
-9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0},  <unfinished ...>
-9216  getppid()                         = 9193
-9216  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9193  <... nanosleep resumed> 0x7ffcd322d250) = 0
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0}, 0x7ffcd322d250) = 0
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0}, 0x7ffcd322d250) = 0
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0}, 0x7ffcd322d250) = 0
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0},  <unfinished ...>
-9195  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52217), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
-9195  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
-9197  <... futex resumed> )             = 0
-9195  <... futex resumed> )             = 1
-9197  accept(4,  <unfinished ...>
-9195  recvfrom(5, "OPE file.txt 1\n\0", 99, 0, NULL, NULL) = 16
-9195  access("/tmp/file.txt", F_OK)     = 0
-9195  open("/tmp/file.txt", O_RDWR)     = 6
-9195  access("/tmp/file.txt", F_OK)     = 0
-9195  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9195  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
-9195  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9195  lseek(6, 0, SEEK_SET)             = 0
-9195  read(6, "CIAO MONDO SONO UN FILE DI TEST!"..., 110) = 110
-9195  lseek(6, 110, SEEK_SET)           = 110
-9195  sendto(5, "110", 3, 0, NULL, 0)   = 3
-9195  recvfrom(5, "port_num 53996", 15, 0, NULL, NULL) = 14
-9195  getpeername(5, {sa_family=AF_INET, sin_port=htons(52217), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
-9195  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
-9195  connect(7, {sa_family=AF_INET, sin_port=htons(53996), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-9195  sendto(5, "ok", 2, 0, NULL, 0)    = 2
-9195  recvfrom(5,  <unfinished ...>
-9197  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52219), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
-9197  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
-9198  <... futex resumed> )             = 0
-9197  <... futex resumed> )             = 1
-9198  accept(4,  <unfinished ...>
-9197  recvfrom(5, "OPE file.txt 4\n\0", 99, 0, NULL, NULL) = 16
-9197  access("/tmp/file.txt", F_OK)     = 0
-9197  open("/tmp/file.txt", O_RDWR)     = 6
-9197  access("/tmp/file.txt", F_OK)     = 0
-9197  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9197  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
-9197  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9197  lseek(6, 0, SEEK_SET)             = 0
-9197  read(6, "CIAO MONDO SONO UN FILE DI TEST!"..., 110) = 110
-9197  lseek(6, 110, SEEK_SET)           = 110
-9197  sendto(5, "110", 3, 0, NULL, 0)   = 3
-9197  recvfrom(5, "port_num 34599", 15, 0, NULL, NULL) = 14
-9197  getpeername(5, {sa_family=AF_INET, sin_port=htons(52219), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
-9197  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
-9197  connect(7, {sa_family=AF_INET, sin_port=htons(34599), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-9197  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7fa152449000
-9197  mprotect(0x7fa152449000, 4096, PROT_NONE) = 0
-9197  clone( <unfinished ...>
-9232  set_robust_list(0x7fa152c499e0, 24 <unfinished ...>
-9197  <... clone resumed> child_stack=0x7fa152c48fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7fa152c499d0, tls=0x7fa152c49700, child_tidptr=0x7fa152c499d0) = 9232
-9232  <... set_robust_list resumed> )   = 0
-9197  sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
-9232  setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16) = 0
-9197  <... sendto resumed> )            = 2
-9232  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
-9197  recvfrom(5,  <unfinished ...>
-9232  <... rt_sigprocmask resumed> [], 8) = 0
-9232  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9232  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9232  nanosleep({1, 0},  <unfinished ...>
-9195  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
-9195  lseek(6, 110, SEEK_SET)           = 110
-9195  read(6, "", 61440)                = 0
-9195  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
-9195  sendto(5, "CIAO MONDO SONO UN FILE DI TEST!"..., 110, 0, NULL, 0) = 110
-9195  recvfrom(5,  <unfinished ...>
-9197  <... recvfrom resumed> "CLO 1\n\0\0\0\0\0\0\0\0\0\0p\351\241-\375\177\0\0k=@\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
-9197  recvfrom(7, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, NULL) = 100
-9197  lseek(6, 110, SEEK_SET)           = 110
-9197  recvfrom(7, "Questo e' un test per l' invalid"..., 51, 0, NULL, NULL) = 51
-9197  kill(9195, SIGUSR1)               = 0
-9195  <... recvfrom resumed> 0x7ffcd322d370, 99, 0, 0, 0) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
-9197  lseek(6, -110, SEEK_CUR <unfinished ...>
-9195  --- SIGUSR1 {si_signo=SIGUSR1, si_code=SI_USER, si_pid=9197, si_uid=1000} ---
-9197  <... lseek resumed> )             = 0
-9195  futex(0x7fa15344a000, FUTEX_WAIT, 2, NULL <unfinished ...>
-9197  write(6, "Questo e' un test per l' invalid"..., 51) = 51
-9197  close(6)                          = 0
-9197  munmap(0x7fa153449000, 4096)      = 0
-9197  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 1
-9195  <... futex resumed> )             = 0
-9197  close(5 <unfinished ...>
-9195  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 0
-9197  <... close resumed> )             = 0
-9195  sendto(7, "INVA", 4, 0, NULL, 0 <unfinished ...>
-9197  write(1, "root_path = /tmp/\n[Initialize Me"..., 1454 <unfinished ...>
-9195  <... sendto resumed> )            = 4
-9197  <... write resumed> )             = 1454
-9195  rt_sigreturn( <unfinished ...>
-9197  exit_group(0)                     = ?
-9195  <... rt_sigreturn resumed> )      = 45
-9195  recvfrom(5,  <unfinished ...>
-9232  +++ exited with 0 +++
-9197  +++ exited with 0 +++
-9193  <... nanosleep resumed> {1, 369774445}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9197, si_status=0, si_utime=0, si_stime=0} ---
-9193  restart_syscall(<... resuming interrupted call ...>) = 0
-9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9234
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
-9234  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
-9193  <... rt_sigprocmask resumed> [], 8) = 0
-9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9234  <... set_robust_list resumed> )   = 0
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0},  <unfinished ...>
-9234  getppid()                         = 9193
-9234  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9195  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
-9195  lseek(6, 0, SEEK_SET)             = 0
-9195  read(6, "Questo e' un test per l' invalid"..., 61440) = 110
-9195  read(6, "", 61440)                = 0
-9195  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
-9195  sendto(5, "Questo e' un test per l' invalid"..., 110, 0, NULL, 0) = 110
-9195  recvfrom(5, "CLO 0\n\0\0@\23@\0\0\0\0\0\360\353\241-\375\177\0\0\0\0\0\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
-9195  close(6)                          = 0
-9195  munmap(0x7fa153449000, 4096)      = 0
-9195  close(5)                          = 0
-9195  write(1, "root_path = /tmp/\n[Initialize Me"..., 1302) = 1302
-9195  exit_group(0)                     = ?
-9195  +++ exited with 0 +++
-9193  <... nanosleep resumed> {1, 367438944}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9195, si_status=0, si_utime=0, si_stime=0} ---
-9193  restart_syscall(<... resuming interrupted call ...>) = 0
-9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9242
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
-9242  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
-9193  <... rt_sigprocmask resumed> [], 8) = 0
-9193  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
-9242  <... set_robust_list resumed> )   = 0
-9193  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0},  <unfinished ...>
-9242  getppid()                         = 9193
-9242  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9198  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52221), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
-9198  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
-9208  <... futex resumed> )             = 0
-9198  <... futex resumed> )             = 1
-9208  accept(4,  <unfinished ...>
-9198  recvfrom(5, "OPE file.txt 1\n\0", 99, 0, NULL, NULL) = 16
-9198  access("/tmp/file.txt", F_OK)     = 0
-9198  open("/tmp/file.txt", O_RDWR)     = 6
-9198  access("/tmp/file.txt", F_OK)     = 0
-9198  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9198  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
-9198  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9198  lseek(6, 0, SEEK_SET)             = 0
-9198  read(6, "Questo e' un test per l' invalid"..., 110) = 110
-9198  lseek(6, 110, SEEK_SET)           = 110
-9198  sendto(5, "110", 3, 0, NULL, 0)   = 3
-9198  recvfrom(5, "port_num 42012", 15, 0, NULL, NULL) = 14
-9198  getpeername(5, {sa_family=AF_INET, sin_port=htons(52221), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
-9198  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
-9198  connect(7, {sa_family=AF_INET, sin_port=htons(42012), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-9198  sendto(5, "ok", 2, 0, NULL, 0)    = 2
-9198  recvfrom(5,  <unfinished ...>
-9208  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52223), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
-9208  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
-9216  <... futex resumed> )             = 0
-9208  <... futex resumed> )             = 1
-9216  accept(4,  <unfinished ...>
-9208  recvfrom(5, "OPE file.txt 4\n\0", 99, 0, NULL, NULL) = 16
-9208  access("/tmp/file.txt", F_OK)     = 0
-9208  open("/tmp/file.txt", O_RDWR)     = 6
-9208  access("/tmp/file.txt", F_OK)     = 0
-9208  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9208  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
-9208  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9208  lseek(6, 0, SEEK_SET)             = 0
-9208  read(6, "Questo e' un test per l' invalid"..., 110) = 110
-9208  lseek(6, 110, SEEK_SET)           = 110
-9208  sendto(5, "110", 3, 0, NULL, 0)   = 3
-9208  recvfrom(5, "port_num 39069", 15, 0, NULL, NULL) = 14
-9208  getpeername(5, {sa_family=AF_INET, sin_port=htons(52223), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
-9208  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
-9208  connect(7, {sa_family=AF_INET, sin_port=htons(39069), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-9208  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7fa152449000
-9208  mprotect(0x7fa152449000, 4096, PROT_NONE) = 0
-9208  clone( <unfinished ...>
-9250  set_robust_list(0x7fa152c499e0, 24 <unfinished ...>
-9208  <... clone resumed> child_stack=0x7fa152c48fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7fa152c499d0, tls=0x7fa152c49700, child_tidptr=0x7fa152c499d0) = 9250
-9250  <... set_robust_list resumed> )   = 0
-9208  sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
-9250  setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16 <unfinished ...>
-9208  <... sendto resumed> )            = 2
-9250  <... setsockopt resumed> )        = 0
-9208  recvfrom(5,  <unfinished ...>
-9250  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-9250  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9250  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9250  nanosleep({1, 0},  <unfinished ...>
-9198  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
-9198  lseek(6, 110, SEEK_SET)           = 110
-9198  read(6, "", 61440)                = 0
-9198  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
-9198  sendto(5, "Questo e' un test per l' invalid"..., 110, 0, NULL, 0) = 110
-9198  recvfrom(5,  <unfinished ...>
-9208  <... recvfrom resumed> "CLO 1\n\0\0\0\0\0\0\0\0\0\0\220\v\342p\375\177\0\0k=@\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
-9208  recvfrom(7, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, NULL) = 100
-9208  lseek(6, 110, SEEK_SET)           = 110
-9208  recvfrom(7, "Questo e' un test per l' invalid"..., 51, 0, NULL, NULL) = 51
-9208  kill(9198, SIGUSR1)               = 0
-9208  lseek(6, -110, SEEK_CUR)          = 0
-9208  write(6, "Questo e' un test per l' invalid"..., 51) = 51
-9208  close(6)                          = 0
-9208  munmap(0x7fa153449000, 4096)      = 0
-9208  close(5)                          = 0
-9198  <... recvfrom resumed> 0x7ffcd322d370, 99, 0, 0, 0) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
-9198  --- SIGUSR1 {si_signo=SIGUSR1, si_code=SI_USER, si_pid=9208, si_uid=1000} ---
-9208  write(1, "root_path = /tmp/\n[Initialize Me"..., 1454 <unfinished ...>
-9198  sendto(7, "INVA", 4, 0, NULL, 0 <unfinished ...>
-9208  <... write resumed> )             = 1454
-9208  exit_group(0)                     = ?
-9198  <... sendto resumed> )            = 4
-9250  +++ exited with 0 +++
-9208  +++ exited with 0 +++
-9193  <... nanosleep resumed> {0, 962871983}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9208, si_status=0, si_utime=0, si_stime=0} ---
-9193  restart_syscall(<... resuming interrupted call ...> <unfinished ...>
-9198  rt_sigreturn()                    = 45
-9198  recvfrom(5,  <unfinished ...>
-9193  <... restart_syscall resumed> )   = 0
-9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9252
-9252  set_robust_list(0x7fa15342ba20, 24) = 0
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-9252  getppid( <unfinished ...>
-9193  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
-9252  <... getppid resumed> )           = 9193
-9193  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
-9252  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0},  <unfinished ...>
-9198  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
-9198  lseek(6, 0, SEEK_SET)             = 0
-9198  read(6, "Questo e' un test per l' invalid"..., 61440) = 110
-9198  read(6, "", 61440)                = 0
-9198  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
-9198  sendto(5, "Questo e' un test per l' invalid"..., 110, 0, NULL, 0) = 110
-9198  recvfrom(5, "CLO 0\n\0\0@\23@\0\0\0\0\0\20\16\342p\375\177\0\0\0\0\0\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
-9198  close(6)                          = 0
-9198  munmap(0x7fa153449000, 4096)      = 0
-9198  close(5)                          = 0
-9198  write(1, "root_path = /tmp/\n[Initialize Me"..., 1302) = 1302
-9198  exit_group(0)                     = ?
-9198  +++ exited with 0 +++
-9193  <... nanosleep resumed> {0, 961297935}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9198, si_status=0, si_utime=0, si_stime=0} ---
-9193  restart_syscall(<... resuming interrupted call ...>) = 0
-9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9260
-9260  set_robust_list(0x7fa15342ba20, 24) = 0
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
-9260  getppid( <unfinished ...>
-9193  <... rt_sigprocmask resumed> [], 8) = 0
-9260  <... getppid resumed> )           = 9193
-9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9260  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0}, 0x7ffcd322d250) = 0
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-9193  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0},  <unfinished ...>
-9216  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52225), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
-9216  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
-9234  <... futex resumed> )             = 0
-9216  <... futex resumed> )             = 1
-9234  accept(4,  <unfinished ...>
-9216  recvfrom(5, "OPE file.txt 1\n\0", 99, 0, NULL, NULL) = 16
-9216  access("/tmp/file.txt", F_OK)     = 0
-9216  open("/tmp/file.txt", O_RDWR)     = 6
-9216  access("/tmp/file.txt", F_OK)     = 0
-9216  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9216  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
-9216  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9216  lseek(6, 0, SEEK_SET)             = 0
-9216  read(6, "CIAO MONDO SONO UN FILE DI TEST!"..., 110) = 110
-9216  lseek(6, 110, SEEK_SET)           = 110
-9216  sendto(5, "110", 3, 0, NULL, 0)   = 3
-9216  recvfrom(5, "port_num 34629", 15, 0, NULL, NULL) = 14
-9216  getpeername(5, {sa_family=AF_INET, sin_port=htons(52225), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
-9216  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
-9216  connect(7, {sa_family=AF_INET, sin_port=htons(34629), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-9216  sendto(5, "ok", 2, 0, NULL, 0)    = 2
-9216  recvfrom(5,  <unfinished ...>
-9234  <... accept resumed> {sa_family=AF_INET, sin_port=htons(52227), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
-9234  futex(0x7fa15344a640, FUTEX_WAKE, 1 <unfinished ...>
-9242  <... futex resumed> )             = 0
-9242  accept(4,  <unfinished ...>
-9234  <... futex resumed> )             = 1
-9234  recvfrom(5, "OPE file.txt 4\n\0", 99, 0, NULL, NULL) = 16
-9234  access("/tmp/file.txt", F_OK)     = 0
-9234  open("/tmp/file.txt", O_RDWR)     = 6
-9234  access("/tmp/file.txt", F_OK)     = 0
-9234  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9234  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa153449000
-9234  fstat(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
-9234  lseek(6, 0, SEEK_SET)             = 0
-9234  read(6, "CIAO MONDO SONO UN FILE DI TEST!"..., 110) = 110
-9234  lseek(6, 110, SEEK_SET)           = 110
-9234  sendto(5, "110", 3, 0, NULL, 0)   = 3
-9234  recvfrom(5, "port_num 47075", 15, 0, NULL, NULL) = 14
-9234  getpeername(5, {sa_family=AF_INET, sin_port=htons(52227), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
-9234  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
-9234  connect(7, {sa_family=AF_INET, sin_port=htons(47075), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-9234  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7fa152449000
-9234  mprotect(0x7fa152449000, 4096, PROT_NONE) = 0
-9234  clone(child_stack=0x7fa152c48fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7fa152c499d0, tls=0x7fa152c49700, child_tidptr=0x7fa152c499d0) = 9276
-9276  set_robust_list(0x7fa152c499e0, 24 <unfinished ...>
-9234  sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
-9276  <... set_robust_list resumed> )   = 0
-9276  setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16 <unfinished ...>
-9234  <... sendto resumed> )            = 2
-9276  <... setsockopt resumed> )        = 0
-9234  recvfrom(5,  <unfinished ...>
-9276  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-9276  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-9276  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9276  nanosleep({1, 0},  <unfinished ...>
-9216  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
-9216  lseek(6, 110, SEEK_SET)           = 110
-9216  read(6, "", 61440)                = 0
-9216  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
-9216  sendto(5, "CIAO MONDO SONO UN FILE DI TEST!"..., 110, 0, NULL, 0) = 110
-9216  recvfrom(5,  <unfinished ...>
-9234  <... recvfrom resumed> "CLO 1\n\0\0\0\0\0\0\0\0\0\0`\223\302G\374\177\0\0k=@\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
-9234  recvfrom(7, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, NULL) = 100
-9234  lseek(6, 110, SEEK_SET)           = 110
-9234  recvfrom(7, "Questo e' un test per l' invalid"..., 51, 0, NULL, NULL) = 51
-9234  kill(9216, SIGUSR1)               = 0
-9216  <... recvfrom resumed> 0x7ffcd322d370, 99, 0, 0, 0) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
-9234  lseek(6, -110, SEEK_CUR <unfinished ...>
-9216  --- SIGUSR1 {si_signo=SIGUSR1, si_code=SI_USER, si_pid=9234, si_uid=1000} ---
-9234  <... lseek resumed> )             = 0
-9234  write(6, "Questo e' un test per l' invalid"..., 51 <unfinished ...>
-9216  futex(0x7fa15344a000, FUTEX_WAIT, 2, NULL <unfinished ...>
-9234  <... write resumed> )             = 51
-9234  close(6)                          = 0
-9234  munmap(0x7fa153449000, 4096)      = 0
-9234  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 1
-9216  <... futex resumed> )             = 0
-9234  close(5 <unfinished ...>
-9216  futex(0x7fa15344a000, FUTEX_WAKE, 1) = 0
-9234  <... close resumed> )             = 0
-9216  sendto(7, "INVA", 4, 0, NULL, 0 <unfinished ...>
-9234  write(1, "root_path = /tmp/\n[Initialize Me"..., 1454 <unfinished ...>
-9216  <... sendto resumed> )            = 4
-9234  <... write resumed> )             = 1454
-9216  rt_sigreturn( <unfinished ...>
-9234  exit_group(0)                     = ?
-9216  <... rt_sigreturn resumed> )      = 45
-9276  +++ exited with 0 +++
-9234  +++ exited with 0 +++
-9193  <... nanosleep resumed> {0, 763607639}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9234, si_status=0, si_utime=0, si_stime=0} ---
-9193  restart_syscall(<... resuming interrupted call ...> <unfinished ...>
-9216  recvfrom(5,  <unfinished ...>
-9193  <... restart_syscall resumed> )   = 0
-9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9278
-9278  set_robust_list(0x7fa15342ba20, 24) = 0
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-9278  getppid( <unfinished ...>
-9193  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
-9278  <... getppid resumed> )           = 9193
-9193  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
-9193  rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-9278  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL <unfinished ...>
-9193  <... rt_sigprocmask resumed> NULL, 8) = 0
-9193  nanosleep({2, 0},  <unfinished ...>
-9216  <... recvfrom resumed> "REA 0\n", 99, 0, NULL, NULL) = 6
-9216  lseek(6, 0, SEEK_SET)             = 0
-9216  read(6, "Questo e' un test per l' invalid"..., 61440) = 110
-9216  read(6, "", 61440)                = 0
-9216  sendto(5, "size 110\0", 9, 0, NULL, 0) = 9
-9216  sendto(5, "Questo e' un test per l' invalid"..., 110, 0, NULL, 0) = 110
-9216  recvfrom(5, "CLO 0\n\0\0@\23@\0\0\0\0\0\340\225\302G\374\177\0\0\0\0\0\0\0\0\0\0"..., 99, 0, NULL, NULL) = 99
-9216  close(6)                          = 0
-9216  munmap(0x7fa153449000, 4096)      = 0
-9216  close(5)                          = 0
-9216  write(1, "root_path = /tmp/\n[Initialize Me"..., 1302) = 1302
-9216  exit_group(0)                     = ?
-9216  +++ exited with 0 +++
-9193  <... nanosleep resumed> {0, 762335252}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-9193  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9216, si_status=0, si_utime=0, si_stime=0} ---
-9193  restart_syscall(<... resuming interrupted call ...>) = 0
-9193  clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa15342ba10) = 9286
-9193  rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
-9286  set_robust_list(0x7fa15342ba20, 24 <unfinished ...>
-9193  <... rt_sigprocmask resumed> [], 8) = 0
-9193  rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
-9286  <... set_robust_list resumed> )   = 0
-9193  <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
-9193  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-9193  nanosleep({2, 0},  <unfinished ...>
-9286  getppid()                         = 9193
-9286  futex(0x7fa15344a640, FUTEX_WAIT, 2, NULL) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
-9193  <... nanosleep resumed> {0, 941035581}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
-9286  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
-9193  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
-9278  <... futex resumed> )             = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
-9286  +++ killed by SIGINT +++
-9278  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
-9193  +++ killed by SIGINT +++
-9260  <... futex resumed> )             = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
-9260  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
-9278  +++ killed by SIGINT +++
-9260  +++ killed by SIGINT +++
-9252  <... futex resumed> )             = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
-9242  <... accept resumed> 0x7ffcd322d320, 0x7ffcd322d314) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
-9252  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
-9242  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
-9252  +++ killed by SIGINT +++
-9242  +++ killed by SIGINT +++
+11950 execve("./Server", ["./Server"], [/* 51 vars */]) = 0
+11950 brk(0)                            = 0x1f03000
+11950 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+11950 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec354000
+11950 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+11950 open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+11950 fstat(3, {st_mode=S_IFREG|0644, st_size=123079, ...}) = 0
+11950 mmap(NULL, 123079, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f12ec335000
+11950 close(3)                          = 0
+11950 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+11950 open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+11950 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0po\0\0\0\0\0\0"..., 832) = 832
+11950 fstat(3, {st_mode=S_IFREG|0755, st_size=141574, ...}) = 0
+11950 mmap(NULL, 2217264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f12ebf16000
+11950 mprotect(0x7f12ebf2f000, 2093056, PROT_NONE) = 0
+11950 mmap(0x7f12ec12e000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7f12ec12e000
+11950 mmap(0x7f12ec130000, 13616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f12ec130000
+11950 close(3)                          = 0
+11950 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+11950 open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+11950 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\37\2\0\0\0\0\0"..., 832) = 832
+11950 fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
+11950 mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f12ebb51000
+11950 mprotect(0x7f12ebd0c000, 2093056, PROT_NONE) = 0
+11950 mmap(0x7f12ebf0b000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7f12ebf0b000
+11950 mmap(0x7f12ebf11000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f12ebf11000
+11950 close(3)                          = 0
+11950 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec334000
+11950 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec332000
+11950 arch_prctl(ARCH_SET_FS, 0x7f12ec332740) = 0
+11950 mprotect(0x7f12ebf0b000, 16384, PROT_READ) = 0
+11950 mprotect(0x7f12ec12e000, 4096, PROT_READ) = 0
+11950 mprotect(0x605000, 4096, PROT_READ) = 0
+11950 mprotect(0x7f12ec356000, 4096, PROT_READ) = 0
+11950 munmap(0x7f12ec335000, 123079)    = 0
+11950 set_tid_address(0x7f12ec332a10)   = 11950
+11950 set_robust_list(0x7f12ec332a20, 24) = 0
+11950 futex(0x7ffd31236070, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7f12ec332740) = -1 EAGAIN (Resource temporarily unavailable)
+11950 rt_sigaction(SIGRTMIN, {0x7f12ebf1c9f0, [], SA_RESTORER|SA_SIGINFO, 0x7f12ebf26340}, NULL, 8) = 0
+11950 rt_sigaction(SIGRT_1, {0x7f12ebf1ca80, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7f12ebf26340}, NULL, 8) = 0
+11950 rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+11950 getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+11950 brk(0)                            = 0x1f03000
+11950 brk(0x1f24000)                    = 0x1f24000
+11950 open("CONFIG", O_RDONLY)          = 3
+11950 fstat(3, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
+11950 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec353000
+11950 read(3, "##FILE DI CONFIG\n\n###\n##Numero m"..., 4096) = 295
+11950 fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 1), ...}) = 0
+11950 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec352000
+11950 write(1, "root_path = /tmp/\n", 18) = 18
+11950 read(3, "", 4096)                 = 0
+11950 write(1, "[Initialize Memory] - Sto per al"..., 51) = 51
+11950 mmap(NULL, 204, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, 0, 0) = 0x7f12ec351000
+11950 write(1, "[Config]\n", 9)         = 9
+11950 write(1, "'1' numero di connessioni\n", 26) = 26
+11950 write(1, "'1' Processo o thread\n", 22) = 22
+11950 write(1, "'9001' Porta in ascolto.\n\n", 26) = 26
+11950 rt_sigaction(SIGUSR1, {0x401a4b, [USR1], SA_RESTORER|SA_RESTART, 0x7f12ebb87d40}, {SIG_DFL, [], 0}, 8) = 0
+11950 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 4
+11950 bind(4, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+11950 listen(4, 1)                      = 0
+11950 write(1, "Server avviato. Attendo connessi"..., 37) = 37
+11950 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f12ec332a10) = 11951
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+11951 set_robust_list(0x7f12ec332a20, 24 <unfinished ...>
+11950 <... rt_sigprocmask resumed> [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+11951 <... set_robust_list resumed> )   = 0
+11950 <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+11951 getppid()                         = 11950
+11951 write(1, "[spawnProcess] - Mio pid: 11951,"..., 49) = 49
+11951 accept(4,  <unfinished ...>
+11950 <... nanosleep resumed> 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+11951 <... accept resumed> {sa_family=AF_INET, sin_port=htons(52460), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+11951 write(1, "[handleSocket] - Collegamento ef"..., 42) = 42
+11951 recvfrom(5, "OPE prova/file.txt 1\n\0", 99, 0, NULL, NULL) = 22
+11951 write(1, "[handleSocket] - Client:'OPE pro"..., 46) = 46
+11951 write(1, "'\n", 2)                = 2
+11951 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+11951 write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
+11951 write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 96) = 96
+11951 access("/tmp/prova/file.txt", F_OK) = 0
+11951 open("/tmp/prova/file.txt", O_RDWR) = 6
+11951 write(1, "filename: prova/file.txt\n\n", 26) = 26
+11951 access("/tmp/prova/file.txt", F_OK) = 0
+11951 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+11951 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec350000
+11951 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+11951 lseek(6, 1036288, SEEK_SET)       = 1036288
+11951 read(6, "\nciao mondo questo e' un testo a"..., 554) = 554
+11951 lseek(6, 0, SEEK_SET)             = 0
+11951 sendto(5, "1036842", 7, 0, NULL, 0) = 7
+11951 recvfrom(5, "port_num 39324", 15, 0, NULL, NULL) = 14
+11951 getpeername(5, {sa_family=AF_INET, sin_port=htons(52460), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+11951 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+11951 connect(7, {sa_family=AF_INET, sin_port=htons(39324), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+11951 sendto(5, "ok", 2, 0, NULL, 0)    = 2
+11951 write(1, "[OpenCommand] Connessione creata"..., 49) = 49
+11951 write(1, " Filename: prova/file.txt,\n", 27) = 27
+11951 write(1, " Modo: 1,\n", 10)       = 10
+11951 write(1, " Socket: 5,\n", 12)     = 12
+11951 write(1, " HB: 7,\n", 8)          = 8
+11951 write(1, " ptid: 11951.\n", 14)   = 14
+11951 write(1, "]\n\n", 3)              = 3
+11951 recvfrom(5, "CLO 0\n\0\0\20\320>\1\0\0\0\0\0\0\0\0\0\0\0\0\0\347\255\331o\177\0\0"..., 99, 0, NULL, NULL) = 99
+11951 write(1, "[handleSocket] - Client:'CLO 0\n", 31) = 31
+11951 write(1, "'\n", 2)                = 2
+11951 write(1, "[handleCommand] Ricevuta richies"..., 41) = 41
+11951 write(1, "[closeClientSession] - individua"..., 64) = 64
+11951 close(6)                          = 0
+11951 munmap(0x7f12ec350000, 4096)      = 0
+11951 write(1, "[CloseClientSession] Numero conn"..., 51) = 51
+11951 write(1, "[closeClientSession] - Connessio"..., 43) = 43
+11951 close(5)                          = 0
+11951 write(1, "\n\n", 2)               = 2
+11951 write(1, "[handleSocket] - Connessione ter"..., 40) = 40
+11951 exit_group(0)                     = ?
+11951 +++ exited with 0 +++
+11950 <... nanosleep resumed> {1, 464672768}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+11950 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=11951, si_status=0, si_utime=0, si_stime=0} ---
+11950 restart_syscall(<... resuming interrupted call ...>) = 0
+11950 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f12ec332a10) = 11955
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+11955 set_robust_list(0x7f12ec332a20, 24 <unfinished ...>
+11950 <... rt_sigprocmask resumed> [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+11955 <... set_robust_list resumed> )   = 0
+11950 <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+11955 getppid()                         = 11950
+11955 write(1, "[spawnProcess] - Mio pid: 11955,"..., 49) = 49
+11955 accept(4, {sa_family=AF_INET, sin_port=htons(52462), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+11955 write(1, "[handleSocket] - Collegamento ef"..., 42) = 42
+11955 recvfrom(5, "OPE prova/file.txt 2\n\0", 99, 0, NULL, NULL) = 22
+11955 write(1, "[handleSocket] - Client:'OPE pro"..., 46) = 46
+11955 write(1, "'\n", 2)                = 2
+11955 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+11955 write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
+11955 write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 96) = 96
+11955 access("/tmp/prova/file.txt", F_OK) = 0
+11955 open("/tmp/prova/file.txt", O_RDWR) = 6
+11955 write(1, "filename: prova/file.txt\n\n", 26) = 26
+11955 access("/tmp/prova/file.txt", F_OK) = 0
+11955 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+11955 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec350000
+11955 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+11955 lseek(6, 1036288, SEEK_SET)       = 1036288
+11955 read(6, "\nciao mondo questo e' un testo a"..., 554) = 554
+11955 lseek(6, 0, SEEK_SET)             = 0
+11955 sendto(5, "1036842", 7, 0, NULL, 0) = 7
+11955 recvfrom(5, "port_num 40441", 15, 0, NULL, NULL) = 14
+11955 getpeername(5, {sa_family=AF_INET, sin_port=htons(52462), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+11955 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+11955 connect(7, {sa_family=AF_INET, sin_port=htons(40441), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+11955 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f12eb350000
+11955 mprotect(0x7f12eb350000, 4096, PROT_NONE) = 0
+11955 clone( <unfinished ...>
+11956 set_robust_list(0x7f12ebb509e0, 24 <unfinished ...>
+11955 <... clone resumed> child_stack=0x7f12ebb4ffb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f12ebb509d0, tls=0x7f12ebb50700, child_tidptr=0x7f12ebb509d0) = 11956
+11956 <... set_robust_list resumed> )   = 0
+11955 sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
+11956 write(1, "[Spawining HeartBeating] Tempsd:"..., 48 <unfinished ...>
+11955 <... sendto resumed> )            = 2
+11956 <... write resumed> )             = 48
+11955 futex(0x7f12ebf119e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+11956 futex(0x7f12ebf119e0, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+11955 <... futex resumed> )             = -1 EAGAIN (Resource temporarily unavailable)
+11956 <... futex resumed> )             = 0
+11955 write(1, "[OpenCommand] Connessione creata"..., 49 <unfinished ...>
+11956 setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16) = 0
+11955 <... write resumed> )             = 49
+11956 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+11955 write(1, " Filename: prova/file.txt,\n", 27 <unfinished ...>
+11956 <... rt_sigprocmask resumed> [], 8) = 0
+11956 rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+11955 <... write resumed> )             = 27
+11956 <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+11955 write(1, " Modo: 2,\n", 10 <unfinished ...>
+11956 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11955 <... write resumed> )             = 10
+11956 nanosleep({1, 0},  <unfinished ...>
+11955 write(1, " Socket: 5,\n", 12)     = 12
+11955 write(1, " HB: 7,\n", 8)          = 8
+11955 write(1, " ptid: 11955.\n", 14)   = 14
+11955 futex(0x7f12ebf119e0, FUTEX_WAKE_PRIVATE, 1) = 0
+11955 write(1, "]\n\n", 3)              = 3
+11955 recvfrom(5,  <unfinished ...>
+11956 <... nanosleep resumed> 0x7f12ebb4fcc0) = 0
+11956 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11956 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11956 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11956 nanosleep({2, 0},  <unfinished ...>
+11950 <... nanosleep resumed> 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+11956 <... nanosleep resumed> 0x7f12ebb4fcc0) = 0
+11956 write(1, "[HB:11955] PING!\n", 17) = 17
+11956 sendto(7, "ping\0", 5, 0, NULL, 0) = 5
+11956 recvfrom(7,  <unfinished ...>
+11950 <... nanosleep resumed> 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+11956 <... recvfrom resumed> 0x7f12ebb4fef0, 5, 0, 0, 0) = -1 EAGAIN (Resource temporarily unavailable)
+11956 write(1, "[heartBeat] - connessione 11955 "..., 40) = 40
+11956 write(1, "[closeClientSession] - individua"..., 64) = 64
+11956 close(6)                          = 0
+11956 munmap(0x7f12ec350000, 4096)      = 0
+11956 write(1, "[CloseClientSession] Numero conn"..., 51) = 51
+11956 write(1, "[closeClientSession] - Connessio"..., 43) = 43
+11956 close(7)                          = 0
+11956 madvise(0x7f12eb350000, 8368128, MADV_DONTNEED) = 0
+11956 _exit(0)                          = ?
+11956 +++ exited with 0 +++
+11950 <... nanosleep resumed> 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+11955 <... recvfrom resumed> "", 99, 0, NULL, NULL) = 0
+11955 write(1, "[handleSocket] - Connessione ter"..., 40) = 40
+11955 exit_group(0)                     = ?
+11955 +++ exited with 0 +++
+11950 <... nanosleep resumed> {1, 560474238}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+11950 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=11955, si_status=0, si_utime=0, si_stime=0} ---
+11950 restart_syscall(<... resuming interrupted call ...>) = 0
+11950 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f12ec332a10) = 12108
+12108 set_robust_list(0x7f12ec332a20, 24) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+12108 getppid( <unfinished ...>
+11950 <... rt_sigprocmask resumed> [], 8) = 0
+12108 <... getppid resumed> )           = 11950
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+12108 write(1, "[spawnProcess] - Mio pid: 12108,"..., 49 <unfinished ...>
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+12108 <... write resumed> )             = 49
+11950 nanosleep({2, 0},  <unfinished ...>
+12108 accept(4,  <unfinished ...>
+11950 <... nanosleep resumed> 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0}, 0x7ffd31235ee0) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+12108 <... accept resumed> {sa_family=AF_INET, sin_port=htons(52465), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+12108 write(1, "[handleSocket] - Collegamento ef"..., 42) = 42
+12108 recvfrom(5, "OPE prova/file.txt 1\n\0", 99, 0, NULL, NULL) = 22
+12108 write(1, "[handleSocket] - Client:'OPE pro"..., 46) = 46
+12108 write(1, "'\n", 2)                = 2
+12108 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+12108 write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
+12108 write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 96) = 96
+12108 access("/tmp/prova/file.txt", F_OK) = 0
+12108 open("/tmp/prova/file.txt", O_RDWR) = 6
+12108 write(1, "filename: prova/file.txt\n\n", 26) = 26
+12108 access("/tmp/prova/file.txt", F_OK) = 0
+12108 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12108 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec350000
+12108 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12108 lseek(6, 1036288, SEEK_SET)       = 1036288
+12108 read(6, "\nciao mondo questo e' un testo a"..., 554) = 554
+12108 lseek(6, 0, SEEK_SET)             = 0
+12108 sendto(5, "1036842", 7, 0, NULL, 0) = 7
+12108 recvfrom(5, "port_num 38290", 15, 0, NULL, NULL) = 14
+12108 getpeername(5, {sa_family=AF_INET, sin_port=htons(52465), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+12108 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+12108 connect(7, {sa_family=AF_INET, sin_port=htons(38290), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+12108 sendto(5, "ok", 2, 0, NULL, 0)    = 2
+12108 write(1, "[OpenCommand] Connessione creata"..., 49) = 49
+12108 write(1, " Filename: prova/file.txt,\n", 27) = 27
+12108 write(1, " Modo: 1,\n", 10)       = 10
+12108 write(1, " Socket: 5,\n", 12)     = 12
+12108 write(1, " HB: 7,\n", 8)          = 8
+12108 write(1, " ptid: 12108.\n", 14)   = 14
+12108 write(1, "]\n\n", 3)              = 3
+12108 recvfrom(5, "CLO 0\n\0\0\20\300%\1\0\0\0\0\0\0\0\0\0\0\0\0\0W\331Qj\177\0\0"..., 99, 0, NULL, NULL) = 99
+12108 write(1, "[handleSocket] - Client:'CLO 0\n", 31) = 31
+12108 write(1, "'\n", 2)                = 2
+12108 write(1, "[handleCommand] Ricevuta richies"..., 41) = 41
+12108 write(1, "[closeClientSession] - individua"..., 64) = 64
+12108 close(6)                          = 0
+12108 munmap(0x7f12ec350000, 4096)      = 0
+12108 write(1, "[CloseClientSession] Numero conn"..., 51) = 51
+12108 write(1, "[closeClientSession] - Connessio"..., 43) = 43
+12108 close(5)                          = 0
+12108 write(1, "\n\n", 2)               = 2
+12108 write(1, "[handleSocket] - Connessione ter"..., 40) = 40
+12108 exit_group(0)                     = ?
+12108 +++ exited with 0 +++
+11950 <... nanosleep resumed> {1, 204093272}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+11950 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=12108, si_status=0, si_utime=0, si_stime=0} ---
+11950 restart_syscall(<... resuming interrupted call ...>) = 0
+11950 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f12ec332a10) = 12127
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+12127 set_robust_list(0x7f12ec332a20, 24 <unfinished ...>
+11950 <... rt_sigprocmask resumed> [], 8) = 0
+12127 <... set_robust_list resumed> )   = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+12127 getppid()                         = 11950
+12127 write(1, "[spawnProcess] - Mio pid: 12127,"..., 49) = 49
+12127 accept(4, {sa_family=AF_INET, sin_port=htons(52467), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+12127 write(1, "[handleSocket] - Collegamento ef"..., 42) = 42
+12127 recvfrom(5, "OPE prova/file.txt 2\n\0", 99, 0, NULL, NULL) = 22
+12127 write(1, "[handleSocket] - Client:'OPE pro"..., 46) = 46
+12127 write(1, "'\n", 2)                = 2
+12127 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+12127 write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
+12127 write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 96) = 96
+12127 access("/tmp/prova/file.txt", F_OK) = 0
+12127 open("/tmp/prova/file.txt", O_RDWR) = 6
+12127 write(1, "filename: prova/file.txt\n\n", 26) = 26
+12127 access("/tmp/prova/file.txt", F_OK) = 0
+12127 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12127 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec350000
+12127 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12127 lseek(6, 1036288, SEEK_SET)       = 1036288
+12127 read(6, "\nciao mondo questo e' un testo a"..., 554) = 554
+12127 lseek(6, 0, SEEK_SET)             = 0
+12127 sendto(5, "1036842", 7, 0, NULL, 0) = 7
+12127 recvfrom(5, "port_num 34060", 15, 0, NULL, NULL) = 14
+12127 getpeername(5, {sa_family=AF_INET, sin_port=htons(52467), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+12127 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+12127 connect(7, {sa_family=AF_INET, sin_port=htons(34060), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+12127 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f12eb350000
+12127 mprotect(0x7f12eb350000, 4096, PROT_NONE) = 0
+12127 clone( <unfinished ...>
+12128 set_robust_list(0x7f12ebb509e0, 24 <unfinished ...>
+12127 <... clone resumed> child_stack=0x7f12ebb4ffb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f12ebb509d0, tls=0x7f12ebb50700, child_tidptr=0x7f12ebb509d0) = 12128
+12128 <... set_robust_list resumed> )   = 0
+12127 sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
+12128 write(1, "[Spawining HeartBeating] Tempsd:"..., 48 <unfinished ...>
+12127 <... sendto resumed> )            = 2
+12128 <... write resumed> )             = 48
+12128 setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16 <unfinished ...>
+12127 write(1, "[OpenCommand] Connessione creata"..., 49 <unfinished ...>
+12128 <... setsockopt resumed> )        = 0
+12127 <... write resumed> )             = 49
+12128 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+12127 write(1, " Filename: prova/file.txt,\n", 27 <unfinished ...>
+12128 <... rt_sigprocmask resumed> [], 8) = 0
+12127 <... write resumed> )             = 27
+12128 rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+12127 write(1, " Modo: 2,\n", 10 <unfinished ...>
+12128 <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+12128 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+12127 <... write resumed> )             = 10
+12128 <... rt_sigprocmask resumed> NULL, 8) = 0
+12127 write(1, " Socket: 5,\n", 12 <unfinished ...>
+12128 nanosleep({1, 0},  <unfinished ...>
+12127 <... write resumed> )             = 12
+12127 write(1, " HB: 7,\n", 8)          = 8
+12127 write(1, " ptid: 12127.\n", 14)   = 14
+12127 write(1, "]\n\n", 3)              = 3
+12127 recvfrom(5, "CLO 0\n\0\0\20\300%\1\0\0\0\0\0\0\0\0\0\0\0\0\0GYQj\177\0\0"..., 99, 0, NULL, NULL) = 99
+12127 write(1, "[handleSocket] - Client:'CLO 0\n", 31) = 31
+12127 write(1, "'\n", 2)                = 2
+12127 write(1, "[handleCommand] Ricevuta richies"..., 41) = 41
+12127 write(1, "HandleWrites: 0 numero di cambia"..., 40) = 40
+12127 write(1, "[Close] Cerco client per messagg"..., 70) = 70
+12127 write(1, "[closeClientSession] - individua"..., 64) = 64
+12127 close(6)                          = 0
+12127 munmap(0x7f12ec350000, 4096)      = 0
+12127 write(1, "[CloseClientSession] Numero conn"..., 51) = 51
+12127 write(1, "[closeClientSession] - Connessio"..., 43) = 43
+12127 close(5)                          = 0
+12127 write(1, "\n\n", 2)               = 2
+12127 write(1, "[handleSocket] - Connessione ter"..., 40) = 40
+12127 exit_group(0)                     = ?
+12128 +++ exited with 0 +++
+12127 +++ exited with 0 +++
+11950 <... nanosleep resumed> {1, 996803425}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+11950 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=12127, si_status=0, si_utime=0, si_stime=0} ---
+11950 restart_syscall(<... resuming interrupted call ...>) = 0
+11950 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f12ec332a10) = 12130
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+12130 set_robust_list(0x7f12ec332a20, 24 <unfinished ...>
+11950 <... rt_sigprocmask resumed> [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+12130 <... set_robust_list resumed> )   = 0
+11950 <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+12130 getppid()                         = 11950
+12130 write(1, "[spawnProcess] - Mio pid: 12130,"..., 49) = 49
+12130 accept(4, {sa_family=AF_INET, sin_port=htons(52469), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+12130 write(1, "[handleSocket] - Collegamento ef"..., 42) = 42
+12130 recvfrom(5, "OPE prova/file.txt 4\n\0", 99, 0, NULL, NULL) = 22
+12130 write(1, "[handleSocket] - Client:'OPE pro"..., 46) = 46
+12130 write(1, "'\n", 2)                = 2
+12130 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+12130 write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
+12130 write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 96) = 96
+12130 access("/tmp/prova/file.txt", F_OK) = 0
+12130 open("/tmp/prova/file.txt", O_RDWR) = 6
+12130 write(1, "filename: prova/file.txt\n\n", 26) = 26
+12130 access("/tmp/prova/file.txt", F_OK) = 0
+12130 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12130 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec350000
+12130 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12130 lseek(6, 1036288, SEEK_SET)       = 1036288
+12130 read(6, "\nciao mondo questo e' un testo a"..., 554) = 554
+12130 lseek(6, 0, SEEK_SET)             = 0
+12130 sendto(5, "1036842", 7, 0, NULL, 0) = 7
+12130 recvfrom(5, "port_num 58278", 15, 0, NULL, NULL) = 14
+12130 getpeername(5, {sa_family=AF_INET, sin_port=htons(52469), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+12130 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+12130 connect(7, {sa_family=AF_INET, sin_port=htons(58278), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+12130 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f12eb350000
+12130 mprotect(0x7f12eb350000, 4096, PROT_NONE) = 0
+12130 clone(child_stack=0x7f12ebb4ffb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f12ebb509d0, tls=0x7f12ebb50700, child_tidptr=0x7f12ebb509d0) = 12131
+12131 set_robust_list(0x7f12ebb509e0, 24 <unfinished ...>
+12130 sendto(5, "ok", 2, 0, NULL, 0 <unfinished ...>
+12131 <... set_robust_list resumed> )   = 0
+12131 write(1, "[Spawining HeartBeating] Tempsd:"..., 48 <unfinished ...>
+12130 <... sendto resumed> )            = 2
+12131 <... write resumed> )             = 48
+12130 futex(0x7f12ebf119e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+12131 futex(0x7f12ebf119e0, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+12130 <... futex resumed> )             = -1 EAGAIN (Resource temporarily unavailable)
+12131 <... futex resumed> )             = 0
+12130 write(1, "[OpenCommand] Connessione creata"..., 49 <unfinished ...>
+12131 setsockopt(7, SOL_SOCKET, SO_RCVTIMEO, "\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16 <unfinished ...>
+12130 <... write resumed> )             = 49
+12131 <... setsockopt resumed> )        = 0
+12130 write(1, " Filename: prova/file.txt,\n", 27 <unfinished ...>
+12131 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+12130 <... write resumed> )             = 27
+12131 <... rt_sigprocmask resumed> [], 8) = 0
+12130 write(1, " Modo: 4,\n", 10 <unfinished ...>
+12131 rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+12130 <... write resumed> )             = 10
+12131 <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+12130 write(1, " Socket: 5,\n", 12 <unfinished ...>
+12131 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+12130 <... write resumed> )             = 12
+12131 <... rt_sigprocmask resumed> NULL, 8) = 0
+12130 write(1, " HB: 7,\n", 8 <unfinished ...>
+12131 nanosleep({1, 0},  <unfinished ...>
+12130 <... write resumed> )             = 8
+12130 write(1, " ptid: 12130.\n", 14)   = 14
+12130 futex(0x7f12ebf119e0, FUTEX_WAKE_PRIVATE, 1) = 0
+12130 write(1, "]\n\n", 3)              = 3
+12130 recvfrom(5, "CLO 0\n\0\0\20\300%\1\0\0\0\0\0\0\0\0\0\0\0\0\0007\331Pj\177\0\0"..., 99, 0, NULL, NULL) = 99
+12130 write(1, "[handleSocket] - Client:'CLO 0\n", 31) = 31
+12130 write(1, "'\n", 2)                = 2
+12130 write(1, "[handleCommand] Ricevuta richies"..., 41) = 41
+12130 write(1, "HandleWrites: 0 numero di cambia"..., 40) = 40
+12130 write(1, "[Close] Cerco client per messagg"..., 70) = 70
+12130 write(1, "[closeClientSession] - individua"..., 64) = 64
+12130 close(6)                          = 0
+12130 munmap(0x7f12ec350000, 4096)      = 0
+12130 write(1, "[CloseClientSession] Numero conn"..., 51) = 51
+12130 write(1, "[closeClientSession] - Connessio"..., 43) = 43
+12130 close(5)                          = 0
+12130 write(1, "\n\n", 2)               = 2
+12130 write(1, "[handleSocket] - Connessione ter"..., 40) = 40
+12130 exit_group(0)                     = ?
+12131 +++ exited with 0 +++
+12130 +++ exited with 0 +++
+11950 <... nanosleep resumed> {1, 996820733}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+11950 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=12130, si_status=0, si_utime=0, si_stime=0} ---
+11950 restart_syscall(<... resuming interrupted call ...>) = 0
+11950 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f12ec332a10) = 12133
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+12133 set_robust_list(0x7f12ec332a20, 24 <unfinished ...>
+11950 <... rt_sigprocmask resumed> [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+12133 <... set_robust_list resumed> )   = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+12133 getppid()                         = 11950
+12133 write(1, "[spawnProcess] - Mio pid: 12133,"..., 49) = 49
+12133 accept(4, {sa_family=AF_INET, sin_port=htons(52471), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+12133 write(1, "[handleSocket] - Collegamento ef"..., 42) = 42
+12133 recvfrom(5, "OPE prova/file.txt 8\n\0", 99, 0, NULL, NULL) = 22
+12133 write(1, "[handleSocket] - Client:'OPE pro"..., 46) = 46
+12133 write(1, "'\n", 2)                = 2
+12133 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+12133 write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
+12133 write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 96) = 96
+12133 access("/tmp/prova/file.txt", F_OK) = 0
+12133 open("/tmp/prova/file.txt", O_WRONLY|O_CREAT|O_APPEND, 0666) = 6
+12133 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12133 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec350000
+12133 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12133 lseek(6, 1036842, SEEK_SET)       = 1036842
+12133 close(6)                          = 0
+12133 munmap(0x7f12ec350000, 4096)      = 0
+12133 open("/tmp/prova/file.txt", O_RDWR) = 6
+12133 write(1, "filename: prova/file.txt\n\n", 26) = 26
+12133 access("/tmp/prova/file.txt", F_OK) = 0
+12133 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12133 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec350000
+12133 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12133 lseek(6, 1036288, SEEK_SET)       = 1036288
+12133 read(6, "\nciao mondo questo e' un testo a"..., 554) = 554
+12133 lseek(6, 0, SEEK_SET)             = 0
+12133 sendto(5, "1036842", 7, 0, NULL, 0) = 7
+12133 recvfrom(5, "port_num 34290", 15, 0, NULL, NULL) = 14
+12133 getpeername(5, {sa_family=AF_INET, sin_port=htons(52471), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+12133 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+12133 connect(7, {sa_family=AF_INET, sin_port=htons(34290), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+12133 sendto(5, "ok", 2, 0, NULL, 0)    = 2
+12133 write(1, "[OpenCommand] Connessione creata"..., 49) = 49
+12133 write(1, " Filename: prova/file.txt,\n", 27) = 27
+12133 write(1, " Modo: 8,\n", 10)       = 10
+12133 write(1, " Socket: 5,\n", 12)     = 12
+12133 write(1, " HB: 7,\n", 8)          = 8
+12133 write(1, " ptid: 12133.\n", 14)   = 14
+12133 write(1, "]\n\n", 3)              = 3
+12133 recvfrom(5, "CLO 0\n\0\0\20\300%\1\0\0\0\0\0\0\0\0\0\0\0\0\0'YPj\177\0\0"..., 99, 0, NULL, NULL) = 99
+12133 write(1, "[handleSocket] - Client:'CLO 0\n", 31) = 31
+12133 write(1, "'\n", 2)                = 2
+12133 write(1, "[handleCommand] Ricevuta richies"..., 41) = 41
+12133 write(1, "[closeClientSession] - individua"..., 64) = 64
+12133 close(6)                          = 0
+12133 munmap(0x7f12ec350000, 4096)      = 0
+12133 write(1, "[CloseClientSession] Numero conn"..., 51) = 51
+12133 write(1, "[closeClientSession] - Connessio"..., 43) = 43
+12133 close(5)                          = 0
+12133 write(1, "\n\n", 2)               = 2
+12133 write(1, "[handleSocket] - Connessione ter"..., 40) = 40
+12133 exit_group(0)                     = ?
+12133 +++ exited with 0 +++
+11950 <... nanosleep resumed> {1, 998601670}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+11950 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=12133, si_status=0, si_utime=0, si_stime=0} ---
+11950 restart_syscall(<... resuming interrupted call ...>) = 0
+11950 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f12ec332a10) = 12135
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+12135 set_robust_list(0x7f12ec332a20, 24 <unfinished ...>
+11950 <... rt_sigprocmask resumed> [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+12135 <... set_robust_list resumed> )   = 0
+11950 <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+12135 getppid()                         = 11950
+12135 write(1, "[spawnProcess] - Mio pid: 12135,"..., 49) = 49
+12135 accept(4, {sa_family=AF_INET, sin_port=htons(52473), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+12135 write(1, "[handleSocket] - Collegamento ef"..., 42) = 42
+12135 recvfrom(5, "OPE prova/file.txt 16\n", 99, 0, NULL, NULL) = 22
+12135 write(1, "[handleSocket] - Client:'OPE pro"..., 48) = 48
+12135 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+12135 write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
+12135 write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 96) = 96
+12135 access("/tmp/prova/file.txt", F_OK) = 0
+12135 open("/tmp/prova/file.txt", O_RDWR) = 6
+12135 write(1, "filename: prova/file.txt\n\n", 26) = 26
+12135 access("/tmp/prova/file.txt", F_OK) = 0
+12135 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12135 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec350000
+12135 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12135 lseek(6, 1036288, SEEK_SET)       = 1036288
+12135 read(6, "\nciao mondo questo e' un testo a"..., 554) = 554
+12135 lseek(6, 0, SEEK_SET)             = 0
+12135 sendto(5, "1036842", 7, 0, NULL, 0) = 7
+12135 recvfrom(5, "port_num 37733", 15, 0, NULL, NULL) = 14
+12135 getpeername(5, {sa_family=AF_INET, sin_port=htons(52473), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+12135 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+12135 connect(7, {sa_family=AF_INET, sin_port=htons(37733), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+12135 sendto(5, "ok", 2, 0, NULL, 0)    = 2
+12135 write(1, "[OpenCommand] Connessione creata"..., 49) = 49
+12135 write(1, " Filename: prova/file.txt,\n", 27) = 27
+12135 write(1, " Modo: 16,\n", 11)      = 11
+12135 write(1, " Socket: 5,\n", 12)     = 12
+12135 write(1, " HB: 7,\n", 8)          = 8
+12135 write(1, " ptid: 12135.\n", 14)   = 14
+12135 write(1, "]\n\n", 3)              = 3
+12135 recvfrom(5, "CLO 0\n\0\0\20\300%\1\0\0\0\0\0\0\0\0\0\0\0\0\0\27\331Oj\177\0\0"..., 99, 0, NULL, NULL) = 99
+12135 write(1, "[handleSocket] - Client:'CLO 0\n", 31) = 31
+12135 write(1, "'\n", 2)                = 2
+12135 write(1, "[handleCommand] Ricevuta richies"..., 41) = 41
+12135 write(1, "[closeClientSession] - individua"..., 64) = 64
+12135 close(6)                          = 0
+12135 munmap(0x7f12ec350000, 4096)      = 0
+12135 write(1, "[CloseClientSession] Numero conn"..., 51) = 51
+12135 write(1, "[closeClientSession] - Connessio"..., 43) = 43
+12135 close(5)                          = 0
+12135 write(1, "\n\n", 2)               = 2
+12135 write(1, "[handleSocket] - Connessione ter"..., 40) = 40
+12135 exit_group(0)                     = ?
+12135 +++ exited with 0 +++
+11950 <... nanosleep resumed> {1, 997293382}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+11950 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=12135, si_status=0, si_utime=0, si_stime=0} ---
+11950 restart_syscall(<... resuming interrupted call ...>) = 0
+11950 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f12ec332a10) = 12137
+12137 set_robust_list(0x7f12ec332a20, 24) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+12137 getppid( <unfinished ...>
+11950 rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+12137 <... getppid resumed> )           = 11950
+11950 <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+12137 write(1, "[spawnProcess] - Mio pid: 12137,"..., 49 <unfinished ...>
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+12137 <... write resumed> )             = 49
+11950 nanosleep({2, 0},  <unfinished ...>
+12137 accept(4, {sa_family=AF_INET, sin_port=htons(52475), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+12137 write(1, "[handleSocket] - Collegamento ef"..., 42) = 42
+12137 recvfrom(5, "OPE prova/file.txt 32\n", 99, 0, NULL, NULL) = 22
+12137 write(1, "[handleSocket] - Client:'OPE pro"..., 48) = 48
+12137 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+12137 write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
+12137 write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 96) = 96
+12137 access("/tmp/prova/file.txt", F_OK) = 0
+12137 write(1, "CheckModoOpen error\n", 20) = 20
+12137 write(1, "[appendOpenedFile] - Non posso f"..., 42) = 42
+12137 sendto(5, "-3\n", 3, 0, NULL, 0)  = 3
+12137 write(1, "Errore nell' apertura del file ("..., 54) = 54
+12137 close(5)                          = 0
+12137 write(1, "\n\n", 2)               = 2
+12137 recvfrom(5, 0x7ffd31236000, 99, 0, 0, 0) = -1 EBADF (Bad file descriptor)
+12137 write(1, "[handleSocket] - Connessione ter"..., 40) = 40
+12137 exit_group(0)                     = ?
+12137 +++ exited with 0 +++
+11950 <... nanosleep resumed> {1, 998497964}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+11950 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=12137, si_status=0, si_utime=0, si_stime=0} ---
+11950 restart_syscall(<... resuming interrupted call ...>) = 0
+11950 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f12ec332a10) = 12150
+12150 set_robust_list(0x7f12ec332a20, 24) = 0
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+12150 getppid()                         = 11950
+11950 <... rt_sigprocmask resumed> [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+12150 write(1, "[spawnProcess] - Mio pid: 12150,"..., 49 <unfinished ...>
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+12150 <... write resumed> )             = 49
+11950 nanosleep({2, 0},  <unfinished ...>
+12150 accept(4, {sa_family=AF_INET, sin_port=htons(52476), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+12150 write(1, "[handleSocket] - Collegamento ef"..., 42) = 42
+12150 recvfrom(5, "OPE prova/file.txt 64\n", 99, 0, NULL, NULL) = 22
+12150 write(1, "[handleSocket] - Client:'OPE pro"..., 48) = 48
+12150 write(1, "[handleCommand] Ricevuta richies"..., 40) = 40
+12150 write(1, "[appendOpenedFile] - Appendo il "..., 45) = 45
+12150 write(1, "[fileAlreadyOpenedInWrite] - Nes"..., 96) = 96
+12150 access("/tmp/prova/file.txt", F_OK) = 0
+12150 open("/tmp/prova/file.txt", O_RDWR) = 6
+12150 write(1, "filename: prova/file.txt\n\n", 26) = 26
+12150 access("/tmp/prova/file.txt", F_OK) = 0
+12150 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12150 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f12ec350000
+12150 fstat(6, {st_mode=S_IFREG|0644, st_size=1036842, ...}) = 0
+12150 lseek(6, 1036288, SEEK_SET)       = 1036288
+12150 read(6, "\nciao mondo questo e' un testo a"..., 554) = 554
+12150 lseek(6, 0, SEEK_SET)             = 0
+12150 sendto(5, "1036842", 7, 0, NULL, 0) = 7
+12150 recvfrom(5, "port_num 40072", 15, 0, NULL, NULL) = 14
+12150 getpeername(5, {sa_family=AF_INET, sin_port=htons(52476), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+12150 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+12150 connect(7, {sa_family=AF_INET, sin_port=htons(40072), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+12150 sendto(5, "ok", 2, 0, NULL, 0)    = 2
+12150 write(1, "[OpenCommand] Connessione creata"..., 49) = 49
+12150 write(1, " Filename: prova/file.txt,\n", 27) = 27
+12150 write(1, " Modo: 64,\n", 11)      = 11
+12150 write(1, " Socket: 5,\n", 12)     = 12
+12150 write(1, " HB: 7,\n", 8)          = 8
+12150 write(1, " ptid: 12150.\n", 14)   = 14
+12150 write(1, "]\n\n", 3)              = 3
+12150 recvfrom(5, "CLO 0\n\0\0\360\323%\1\0\0\0\0\0\0\0\0\0\0\0\0\0\7YOj\177\0\0"..., 99, 0, NULL, NULL) = 99
+12150 write(1, "[handleSocket] - Client:'CLO 0\n", 31) = 31
+12150 write(1, "'\n", 2)                = 2
+12150 write(1, "[handleCommand] Ricevuta richies"..., 41) = 41
+12150 write(1, "[closeClientSession] - individua"..., 64) = 64
+12150 close(6)                          = 0
+12150 munmap(0x7f12ec350000, 4096)      = 0
+12150 write(1, "[CloseClientSession] Numero conn"..., 51) = 51
+12150 write(1, "[closeClientSession] - Connessio"..., 43) = 43
+12150 close(5)                          = 0
+12150 write(1, "\n\n", 2)               = 2
+12150 write(1, "[handleSocket] - Connessione ter"..., 40) = 40
+12150 exit_group(0)                     = ?
+12150 +++ exited with 0 +++
+11950 <... nanosleep resumed> {1, 998780774}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+11950 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=12150, si_status=0, si_utime=0, si_stime=0} ---
+11950 restart_syscall(<... resuming interrupted call ...>) = 0
+11950 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f12ec332a10) = 12159
+11950 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+12159 set_robust_list(0x7f12ec332a20, 24 <unfinished ...>
+11950 <... rt_sigprocmask resumed> [], 8) = 0
+11950 rt_sigaction(SIGCHLD, NULL,  <unfinished ...>
+12159 <... set_robust_list resumed> )   = 0
+11950 <... rt_sigaction resumed> {SIG_DFL, [], 0}, 8) = 0
+11950 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+11950 nanosleep({2, 0},  <unfinished ...>
+12159 getppid()                         = 11950
+12159 write(1, "[spawnProcess] - Mio pid: 12159,"..., 49) = 49
+12159 accept(4,  <unfinished ...>
+11950 <... nanosleep resumed> {0, 179723212}) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+12159 <... accept resumed> 0x7ffd31235fb0, [16]) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+11950 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+11950 +++ killed by SIGINT +++
+12159 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+12159 +++ killed by SIGINT +++

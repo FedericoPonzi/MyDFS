@@ -17,26 +17,42 @@
 
 int invalidate(MyDFSId* id); 
 
+typedef struct ThreadArgs{
+    MyDFSId* id;
+    pthread_barrier_t barriera;
+}ThreadArgs; 
+
+/**
+ * Se il processo esegue una OPEN poi una CLOSE e poi di nuovo OPEN il sd della connessione dati della seconda connessione potrebbe coincidere col sd dell' heartbeating. L' HB potrebbe andare in recv, dopo la CLOSE e finire a fare la recv sulla connessione dati della successiva OPEN.
+ */
 void spawnHeartBeat(MyDFSId* id)
 {
+    ThreadArgs *threadArg = (ThreadArgs*) malloc( sizeof(ThreadArgs));
+    threadArg->id = id;
+    pthread_barrier_init(&threadArg->barriera, NULL, 2);
+    
 	pthread_t tid;
-	if(pthread_create(&tid, NULL, &heartBeat, id) != 0)
+	if(pthread_create(&tid, NULL, &heartBeat, threadArg) != 0)
 	{
 		perror("Cant create hb_thread");
 	}
-     sleep(0.1); //Mi serve perche' la recv del thread dell' hb deve avvenire il prima possibile
-     
+    
+    //Mi serve perche' la recv del thread dell' hb deve avvenire il prima possibile
+    pthread_barrier_wait(&threadArg->barriera);     
 }
 
 /**
  * @brief Main del nuovo thread creato per l' heartbeating.
  * 
  */
-void* heartBeat(void *sd)
+void* heartBeat(void *tA)
 {
-    MyDFSId* id = (MyDFSId *) sd;
+    ThreadArgs* targ = (ThreadArgs * ) tA;
+    
+    MyDFSId* id = targ-> id;
+    
 	int controlSd = id->transferSockId;
-
+    
     logM("[Spawining HeartBeating] sd: %d \n", controlSd);
 	char ping[5];
 	char pong[5] = "pong";
@@ -44,6 +60,7 @@ void* heartBeat(void *sd)
 
 	while(1)
 	{
+        pthread_barrier_wait(&targ->barriera);
 		nRecv = recv(controlSd, ping, sizeof(ping), 0);
 		if(nRecv > 0)
 		{
