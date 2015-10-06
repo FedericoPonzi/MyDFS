@@ -14,7 +14,6 @@
 #include "inc/Config.h"
 #include "inc/Utils.h"
 #include "inc/CommandsHandler.h"
-#include "inc/Error.h"
 #include "inc/StruttureDati.h"
 #include <signal.h>
 

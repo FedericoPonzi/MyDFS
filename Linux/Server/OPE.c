@@ -106,7 +106,7 @@ void handleOpenCommand(char* command, int socket)
     }
 	
 	//Mando il codice di errore o ok se presente, e se c'e' un errore mi fermo.
-	if(send(socket, filesize_msg, strlen(filesize_msg), 0) < 0 || !err_code)
+	if(send(socket, filesize_msg, strlen(filesize_msg), 0) < 0 || err_code)
 	{
 		logM("Errore nell' apertura del file (o nella send)\n");
 		closeClientSession(getptid());
