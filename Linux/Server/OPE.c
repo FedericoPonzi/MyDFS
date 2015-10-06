@@ -57,6 +57,7 @@
 
 static char* getFileNameFromCommand(char* command);
 int getModo(char* command);
+int createControlSock(int portNo, int socketId, OpenedFile* id);
 
 /**
  * @brief Gestisce il comando Open.
@@ -67,10 +68,10 @@ void handleOpenCommand(char* command, int socket)
 {
 	stripCommand(command);
 	char answer[3] = "ok";
-	char ret_val[30];
+	char filesize_msg[100];
     char prt_msg[PRT_MSG_SIZE+1];
     
-	int err_code, controlSocket, port_num, nRecv;
+	int err_code, port_num, nRecv;
 
 	OpenedFile* id;
 
@@ -81,9 +82,10 @@ void handleOpenCommand(char* command, int socket)
 	if((err_code = appendOpenedFile(nomeFile, modo, &id)))
 	{
 		logM("[appendOpenedFile] - Errore. \n");
-		sprintf(ret_val, "%s", ((err_code == -3) ? "-3\n" : "-1\n"));
+		sprintf(filesize_msg, "%s", ((err_code == -3) ? "-3\n" : "-1\n"));
 	}
-    else
+    
+    if(!err_code)
     {
         //Mando la dimensione del file
         int fileSize = 0;
@@ -100,18 +102,18 @@ void handleOpenCommand(char* command, int socket)
         }
         id->filesize = fileSize;
 		id->socketId = socket;
-		sprintf(ret_val, "%d", fileSize);
+		sprintf(filesize_msg, "%d", fileSize);
     }
 	
-	//Mando il codice di errore se presente, e se c'e' un errore mi fermo.
-	if(send(socket, ret_val, strlen(ret_val), 0) < 0 || err_code != 0)
+	//Mando il codice di errore o ok se presente, e se c'e' un errore mi fermo.
+	if(send(socket, filesize_msg, strlen(filesize_msg), 0) < 0 || !err_code)
 	{
-		logM("Errore nell' apertura del file (o nella send), byebye\n");
+		logM("Errore nell' apertura del file (o nella send)\n");
 		closeClientSession(getptid());
         close(socket);
 		return;
 	}
-
+    
 	//server di nuovo in ascolto per fetch port number	
 	if((nRecv = recv(socket, prt_msg, sizeof(prt_msg), 0)) < 0)
 	{
@@ -121,7 +123,7 @@ void handleOpenCommand(char* command, int socket)
 	
 	if(strncmp(prt_msg, "port_num", 8))
 	{
-		logM("[handleOpenCommand] - errore formato port no\n");
+		logM("[handleOpenCommand] Errore port number\n");
         err_code = -2;
 	}
 	else
@@ -130,12 +132,13 @@ void handleOpenCommand(char* command, int socket)
 		port_num = strtol(prt_msg+(strlen("port_num ")), NULL, 10);
         if(errno == EINVAL || errno == ERANGE)
         {
+            logM("[handleOpenCommand] Errore formato port number\n");
             err_code = -2;
         }
 	}
     
 	//Se c'e' gia' un errore, non devo creare la socket di controllo.
-	if(err_code || (controlSocket = createControlSock(port_num, socket)) < 1)
+	if(err_code || (createControlSock(port_num, socket, id)) < 1)
 	{
         err_code = -2;
 	}
@@ -150,7 +153,7 @@ void handleOpenCommand(char* command, int socket)
     {
         sprintf(answer, "-2");
     }
-    //Provo a mandare eventuale messaggio d' errore.
+    //Provo a mandare eventuale messaggio d' errore e se c'è un errore esco.
 	if(send(socket, answer, strlen(answer), 0) < 0 || err_code)
     {
         closeClientSession(getptid());
@@ -163,24 +166,29 @@ void handleOpenCommand(char* command, int socket)
 }
 
 /**
- * @brief crea connessione dati lato server
- *
+ * @brief crea connessione di controllo (heartbeating e invalidazione) lato server
+ * @return 0 se c'è un errore, il socked descriptor del control socket altrimenti.
  */
-int createControlSock(int portNo, int socketId)
+int createControlSock(int portNo, int socketId, OpenedFile* file)
 {
+    int sd;
 	socklen_t len;
 	struct sockaddr_storage addr;
 	char ipstr[INET6_ADDRSTRLEN];
 
-	len = sizeof addr;
+	len = sizeof(addr);
     
-	getpeername(socketId, (struct sockaddr*)&addr, &len);
+	if(getpeername(socketId, (struct sockaddr*)&addr, &len))
+    {
+        perror("GetPeerName:");
+        return 0;
+    }
 
-	//deal with both IPv4 and IPv6:
-	
 	struct sockaddr_in *s = (struct sockaddr_in *)&addr;
-	inet_ntop(AF_INET, &s->sin_addr, ipstr, sizeof ipstr);
-	//logM("indirizzo = %s\n", ipstr);
+    if(inet_ntop(AF_INET, &s->sin_addr, ipstr, sizeof ipstr) == NULL)
+    {
+        return 0;
+    }
     
     struct sockaddr_in serv_addr;
 		
@@ -194,9 +202,7 @@ int createControlSock(int portNo, int socketId)
 		logM("error inet_aton\n");
         return 0;
     }
-    
-    int sd;
-    
+        
     if(( sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
         perror("socket");
@@ -207,8 +213,8 @@ int createControlSock(int portNo, int socketId)
     {
 	   perror("connect");
 	   return 0;
-    }	
-    OpenedFile* file = getOpenedFile(); //@todo: passarlo come parametro.
+    }
+    
     file->transferSockId = sd;
     
     return sd;	
@@ -221,7 +227,6 @@ int createControlSock(int portNo, int socketId)
  */
 char* getFileNameFromCommand(char* command)
 {
-
 	int i = strlen(command);
 	while(!isspace(command[i]))
 	{
@@ -233,9 +238,7 @@ char* getFileNameFromCommand(char* command)
     memcpy(nomeFile, command, i);
 
     nomeFile[i] = '\0';
-
-    //logM("nomeFile = '%s'\n", nomeFile);
-
+    
     return nomeFile;
 }
 

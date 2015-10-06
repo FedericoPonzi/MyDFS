@@ -10,6 +10,5 @@
 #define MYO_EXLOCK 64
 
 void handleOpenCommand(char* command, int socket);
-int createControlSock(int portNo, int socketId);
 
 #endif
