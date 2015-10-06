@@ -97,8 +97,9 @@ int appendOpenedFile(char* nomeFile, int modo, OpenedFile** id)
 	sprintf(filePath, "%s%s", rootPath,nomeFile);
 	
 	*free_head = (*free_head)->next;
-	n->fileName = nomeFile;
-	n->ptid = getptid();
+    
+    strcpy(n->fileName, nomeFile);
+    n->ptid = getptid();
 	n->modo = modo;
     pthread_mutexattr_t mutex_attr;
 	

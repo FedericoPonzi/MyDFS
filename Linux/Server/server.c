@@ -207,10 +207,10 @@ void* handleSocket()
 	address_size = sizeof(client);
 
 	//struct per settare tempo massimo di attesa in rcv
-	/*struct timeval tv;
-    tv.tv_sec = 120; //se entro un minuto l' utente non fa niente, chiudo la connessione 
+	struct timeval tv;
+    tv.tv_sec = RECV_TIMEOUT; //se entro un minuto l' utente non fa niente, chiudo la connessione 
 	tv.tv_usec = 0;
-    */
+    
 	pthread_mutex_lock(acceptMutex);
 	
 	if((temp_sd = accept(sd, (struct sockaddr *) &client, &address_size))<0)
@@ -242,7 +242,6 @@ void* handleSocket()
 
 		logM("[handleSocket] - Client:'%s'\n", buff);
 		
-		//Se ha mandato solo invio - ok e' per debugging c:
 		if(strlen(buff) == 0)
 		{	
 			continue;
@@ -250,7 +249,8 @@ void* handleSocket()
 		handleCommand(buff, temp_sd);
 		logM("\n\n");
 	}
-	while(getCommandID(buff) != 2 && nRecv != 0); // Finche' non ricevo il messaggio BYE. o la connessione non e' chiusa
+    // Finche' non ricevo il messaggio CLO. o la connessione non e' chiusa
+	while(strncmp("CLO", buff, 3) == 0 && nRecv != 0); 
 		
 	//Diminuisco il numero di figli vivi.
 	(*numberAliveChilds)--;

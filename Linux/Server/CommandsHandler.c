@@ -7,51 +7,31 @@
 #include "inc/READ.h"
 
 
-
-/**
- * Ritorna un numero corrispondente ad un comando.
- *  @todo mergare questa funzione con quella sotto.
- */
-int getCommandID(char* input)
-{
-	if(strncmp("OPE", input, 3) == 0)
-	{
-		return 1;
-	}
-	if(strncmp("CLO", input, 3) == 0)
-	{
-		return 2;
-	}
-	if(strncmp("REA", input, 3) == 0)
-	{
-		return 3;
-	}
-	return -1;
-}
-
-
 /**
  * @brief Gestisce il comando ricevuto dal client.
  * 
  */
 void handleCommand(char* buff, int socket)
 {
-	switch(getCommandID(buff))
+
+	if(strncmp("OPE", buff, 3) == 0)
 	{
-		case 1:
-			logM("[handleCommand] Ricevuta richiesta OPEN\n");
-			handleOpenCommand(buff, socket);
-			break;
-		case 2:
-			logM("[handleCommand] Ricevuta richiesta CLOSE\n");
-			handleCloseCommand(buff, socket);
-			break;
-		case 3:
-			logM("[handleCommand] Ricevuta richiesta READ\n");
-			handleREADCommand(buff, socket);
-			break;
-		default:
-			logM("[handleCommand] Comando sconosciuto.\n");
+		logM("[handleCommand] Ricevuta richiesta OPEN\n");
+        handleOpenCommand(buff, socket);
 	}
+	else if(strncmp("CLO", buff, 3) == 0)
+	{
+        logM("[handleCommand] Ricevuta richiesta CLOSE\n");
+        handleCloseCommand(buff, socket);
+    }
+	else if(strncmp("REA", buff, 3) == 0)
+	{
+        logM("[handleCommand] Ricevuta richiesta READ\n");
+        handleREADCommand(buff, socket);
+	}
+    else
+    {
+        logM("[handleCommand] Comando sconosciuto.\n");
+    }
 }
 

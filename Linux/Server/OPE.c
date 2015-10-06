@@ -68,16 +68,17 @@ void handleOpenCommand(char* command, int socket)
 	stripCommand(command);
 	char answer[3] = "ok";
 	char ret_val[30];
-	int err_code, controlSocket, port_num, nRecv;
-	char prt_msg[PRT_MSG_SIZE+1];
+    char prt_msg[PRT_MSG_SIZE+1];
     
+	int err_code, controlSocket, port_num, nRecv;
+
+	
 	OpenedFile* id;
+
 	char* nomeFile = getFileNameFromCommand(command);	 /** @todo : Da vedere bene per memory leaks!!!!*/
 
-	//logM("[OPEN] Nome del file: '%s'\n", nomeFile);
-	int modo = getModo(command);
-	//logM("[OPEN] Modo di apertura: '%d'\n", modo);
-	
+    int modo = getModo(command);
+    	
 	if((err_code = appendOpenedFile(nomeFile, modo, &id)))
 	{
 		logM("[appendOpenedFile] - Non posso farlo john\n");
@@ -157,7 +158,7 @@ void handleOpenCommand(char* command, int socket)
         close(socket);
         return;
     }
-
+    free(nomeFile);
     logM("[OpenCommand] Connessione creata correttamente.[\n Filename: %s,\n Modo: %d,\n Socket: %d,\n HB: %d,\n ptid: %lu.\n]", id->
     fileName, id->modo, id->socketId, id->transferSockId, getptid());
 }
@@ -173,6 +174,7 @@ int createControlSock(int portNo, int socketId)
 	char ipstr[INET6_ADDRSTRLEN];
 
 	len = sizeof addr;
+    
 	getpeername(socketId, (struct sockaddr*)&addr, &len);
 
 	//deal with both IPv4 and IPv6:
@@ -234,14 +236,14 @@ char* getFileNameFromCommand(char* command)
 }
 
 /**
- * @brief Ritorna il modo, sia se e' a una cifra che se e' a due cifre :D
+ * @brief Ritorna il modo dalla stringa del comando
  * 
  */
 int getModo(char* command)
 {
 	if(isspace(*(command+strlen(command)-2)))
 	{
-		return *(command+strlen(command)-1) - '0'; // magic don't touch
+		return *(command+strlen(command)-1) - '0'; // magic
 	}
 	return strtol(command+strlen(command)-2, NULL, 10);
 }

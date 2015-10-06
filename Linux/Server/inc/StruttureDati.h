@@ -15,7 +15,7 @@ typedef struct SocketIdList //struct per lista socket attive
 
 typedef struct OpenedFile
 {
-	char* fileName;
+	char fileName [FILENAME_MAX]; 
 	unsigned long int ptid;
 	int modo;
 	int filesize;

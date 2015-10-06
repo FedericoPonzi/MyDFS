@@ -11,6 +11,11 @@
 #define BACKLOG 10
 
 /**
+ * @brief Tempo di attesa delle recv (in secondi)
+ */
+#define RECV_TIMEOUT 20
+
+/**
  * @brief Tempo di attesa per heartbeating
  */
 #define PING_TIME 2
@@ -21,20 +26,19 @@
 #define DEBUG 1
 
 /**
- * @brief 1 per multiprocesso, 0 per multithreading:
- */
-#define MULTIPROC 1
-
-/**
  * Dimensione dei file durante i trasferimenti
  */
 #define FILESIZE 65535
-
 
 /**
  * @brief Nome del file di config
  */
 #define CONFIGFILENAME "CONFIG"
+
+/**
+ * @brief Indica la lunghezza del buffer del nome del file.
+ * @todo da quantificare bene.
+ *#define FILENAME_MAX 150*/
 
 
 extern pthread_mutex_t *acceptMutex;

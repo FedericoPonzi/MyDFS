@@ -67,7 +67,7 @@ int testOpen(char* filename, char* indirizzo, int  debug)
 		if(error != 0)
 		{
 			if(debug) printf("[TestOpen-%d] Errore %d\n", getpid(), error);
-			assert(0);
+
 		}
 		mydfs_close(fileId);
         sleep(0.2);

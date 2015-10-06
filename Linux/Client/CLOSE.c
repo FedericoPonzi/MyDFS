@@ -28,7 +28,7 @@ int mydfs_close(MyDFSId* id)
 		
 		sprintf(closeCommand, "%s %d\n", CLOSECOMMAND, getNumberOfChanges(id));
 		
-		if(send(id->socketId, closeCommand, sizeof(closeCommand), 0) < 0)
+		if(send(id->socketId, closeCommand, strlen(closeCommand), 0) < 0)
 		{
 			perror("1-send");
 			return -1;
