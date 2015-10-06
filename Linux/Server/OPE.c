@@ -72,7 +72,6 @@ void handleOpenCommand(char* command, int socket)
     
 	int err_code, controlSocket, port_num, nRecv;
 
-	
 	OpenedFile* id;
 
 	char* nomeFile = getFileNameFromCommand(command);	 /** @todo : Da vedere bene per memory leaks!!!!*/
@@ -81,7 +80,7 @@ void handleOpenCommand(char* command, int socket)
     	
 	if((err_code = appendOpenedFile(nomeFile, modo, &id)))
 	{
-		logM("[appendOpenedFile] - Non posso farlo john\n");
+		logM("[appendOpenedFile] - Errore. \n");
 		sprintf(ret_val, "%s", ((err_code == -3) ? "-3\n" : "-1\n"));
 	}
     else

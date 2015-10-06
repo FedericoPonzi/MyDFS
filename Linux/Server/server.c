@@ -12,7 +12,6 @@
 #include "inc/Config.h"
 #include "inc/Utils.h"
 #include "inc/CommandsHandler.h"
-#include "inc/Error.h"
 #include "inc/StruttureDati.h"
 #include <signal.h>
 #include <sys/types.h>
@@ -100,8 +99,6 @@ void deamonize()
     /* Set new file permissions */
     umask(0);
 
-    /* Change the working directory to the root directory */
-    /* or another appropriated directory */
     //chdir("/home/isaacisback/Programmazione/programmazionedisistema/Server");
 
     /* Close all open file descriptors */
@@ -137,27 +134,37 @@ void parseInput(int argc, char* argv[])
                 break;
             case 'h':
                 printf("Usage: ./Server [-p<port>] [-d<path>] [-c<numberofconnection>] [-h]\n");
-                exit(0);
+                exit(EXIT_SUCCESS);
         }
     }
 }
 
 int main(int argc, char* argv[])
 {
+    //Carico il file di Config:
 	loadConfig();
+
+    //Parso l' input (ha la precedenza sul file di configurazione)
     parseInput(argc, argv);
+
+    //Demonizzo il server
     deamonize();
 
 	logM("[Config]\n'%d' numero di connessioni\n'%d' Processo o thread\n'%d' Porta in ascolto.\n\n", numeroCon, procOrThread, portNumber);
 
+    //Installo il Signal Handler:
     if (signal(SIGUSR1, sig_handler) == SIG_ERR)
     {
         perror("\ncan't catch SIGUSR1\n");
+        exit(EXIT_FAILURE);
     }
+    
 	if((sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
-		printErr(1);
+        perror("Socket:");
+        exit(EXIT_FAILURE);
 	}
+    
 	server.sin_family = AF_INET;
 	server.sin_port = htons(portNumber);
 	server.sin_addr.s_addr= INADDR_ANY;
@@ -165,14 +172,15 @@ int main(int argc, char* argv[])
 	if(bind(sd, (struct sockaddr *) &server, sizeof(server)) <0)
 	{
 		perror("bind");
-		printErr(2);
+        exit(EXIT_FAILURE);
 	}
 	if(listen (sd, numeroCon) < 0)
 	{
-		printErr(3);
+        perror("Listen:");
+        exit(EXIT_FAILURE);
 	}	
 
-	logM("Server avviato. Attendo connessioni.\n");
+    //Pre-threaded o Pre-forked:
 	while(1)
 	{
 		if(procOrThread)
@@ -186,11 +194,6 @@ int main(int argc, char* argv[])
 		sleep(2);
     }
 
-    /*Chiudo il log se non sono in modalita' debug.
-    if(!DEBUG)
-    {
-        closelog();
-    }*/
 	return EXIT_SUCCESS;
 }
 
@@ -208,53 +211,54 @@ void* handleSocket()
 
 	//struct per settare tempo massimo di attesa in rcv
 	struct timeval tv;
-    tv.tv_sec = RECV_TIMEOUT; //se entro un minuto l' utente non fa niente, chiudo la connessione 
+    tv.tv_sec = RECV_TIMEOUT;
 	tv.tv_usec = 0;
+
+    setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
     
 	pthread_mutex_lock(acceptMutex);
 	
 	if((temp_sd = accept(sd, (struct sockaddr *) &client, &address_size))<0)
 	{
-		printErr(4);
+		logM("Errore nella creazione della socket.\n");
+        exit(EXIT_FAILURE);
 	}
 
 	pthread_mutex_unlock(acceptMutex);
 
-	char answer[50];
 	int nRecv;
 	char buff[100];
 
 	logM("[handleSocket] - Collegamento effettuato.\n");
+
 	do
 	{
-		bzero(answer, sizeof(answer));
+        
 		bzero(buff, sizeof(buff));
 		
 		nRecv = recv(temp_sd, buff, sizeof(buff)-1, 0);
 		
-		// Connessione chiusa
-		if(nRecv < 0 || nRecv == 0)
+		// Connessione chiusa o errore
+		if(nRecv <= 0)
 		{
 			break;
 		}
-		buff[nRecv-1] = '\0';
-		
+        
+		buff[nRecv] = '\0';
 
-		logM("[handleSocket] - Client:'%s'\n", buff);
-		
-		if(strlen(buff) == 0)
-		{	
-			continue;
-		}
+		//logM("[handleSocket] - Client:'%s'\n", buff);
+        		
 		handleCommand(buff, temp_sd);
-		logM("\n\n");
+
+        logM("\n\n");
 	}
-    // Finche' non ricevo il messaggio CLO. o la connessione non e' chiusa
-	while(strncmp("CLO", buff, 3) == 0 && nRecv != 0); 
-		
+	while(strncmp("CLO", buff, 3) == 0);     // Finche' non ricevo il messaggio CLO
+    
 	//Diminuisco il numero di figli vivi.
-	(*numberAliveChilds)--;
-	closeClientSession(getptid());	
+	*numberAliveChilds = *numberAliveChilds - 1;
+
+    //Mi assicuro di liberare la tabella
+    closeClientSession(getptid());	
 
 	logM("[handleSocket] - Connessione terminata.\n");
 		
@@ -277,12 +281,11 @@ void spawnThread()
 	{
 		if (pthread_create(&tid, NULL, &handleSocket, NULL) != 0)
 		{
-			logM("\n[spawnThread] - can't create thread");
-			perror("Cant create thread");
-			return;
+			perror("Spawnthread:");
+			exit(EXIT_FAILURE);
 		}
 		logM("[spawnThread] - Mio tid: %d\n", getpid());
-		(*numberAliveChilds)++;
+		*numberAliveChilds = *numberAliveChilds + 1;
 	}
 }
 
@@ -298,19 +301,20 @@ void spawnProcess()
 		pid = fork();
 		if(pid < 0)
 		{
-			printErr(5);
+            perror("Fork");
+            exit(EXIT_FAILURE);
 		}
 		else if(!pid)
 		{
 			//Se sono il figlio:
-			logM("[spawnProcess] - Mio pid: %d, babbopid: %d\n", getpid(), getppid());
+			logM("[spawnProcess] - Mio pid: %d\n", getpid());
 			handleSocket();
             exit(EXIT_SUCCESS);
 		}
 		else
 		{
 			//Se sono il padre:
-			(*numberAliveChilds)++;
+			*numberAliveChilds = *numberAliveChilds + 1;
 		}
 	}
 }
