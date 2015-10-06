@@ -258,7 +258,7 @@ void closeOpenedFile(unsigned long int ptid)
  */
 void freeOpenedFile(OpenedFile* id)
 {
-	free(id->fileName);
+	//free(id->fileName);
 	fclose(id->fp);
 	memset(id,0,sizeof(OpenedFile));
 }

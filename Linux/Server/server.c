@@ -208,13 +208,6 @@ void* handleSocket()
 	struct sockaddr_in client;
 	socklen_t address_size;
 	address_size = sizeof(client);
-
-	//struct per settare tempo massimo di attesa in rcv
-	struct timeval tv;
-    tv.tv_sec = RECV_TIMEOUT;
-	tv.tv_usec = 0;
-
-    setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
     
 	pthread_mutex_lock(acceptMutex);
 	
@@ -225,6 +218,14 @@ void* handleSocket()
 	}
 
 	pthread_mutex_unlock(acceptMutex);
+
+	//struct per settare tempo massimo di attesa in rcv
+	struct timeval tv;
+    tv.tv_sec = RECV_TIMEOUT;
+	tv.tv_usec = 0;
+
+    setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
+
 
 	int nRecv;
 	char buff[100];

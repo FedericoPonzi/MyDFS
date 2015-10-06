@@ -215,23 +215,28 @@ int createControlSock(int portNo, int socketId)
 }
 
 /**
- * @brief Torna il nome (o path del file richiesto
+ * @brief Torna il nome (o path del file richiesto)
  * 
  * Mi calcolo dalla fine il primo spazio, e uso quello come delimitatore come nome del file.
  */
 char* getFileNameFromCommand(char* command)
 {
-	char* nomeFile = malloc(30*sizeof(char));
-	int lunghezza = strlen(command);
-	int i = lunghezza;
+
+	int i = strlen(command);
 	while(!isspace(command[i]))
 	{
 		i--;
 	}
-	memcpy(nomeFile, command, lunghezza);
-	nomeFile[i] = '\0';
-	//logM("nomeFile = '%s'\n", nomeFile);
-	return nomeFile;
+    
+    char* nomeFile = malloc(i);
+
+    memcpy(nomeFile, command, i);
+
+    nomeFile[i] = '\0';
+
+    //logM("nomeFile = '%s'\n", nomeFile);
+
+    return nomeFile;
 }
 
 /**
