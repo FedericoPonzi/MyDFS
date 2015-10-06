@@ -219,13 +219,13 @@ void* handleSocket()
 
 	pthread_mutex_unlock(acceptMutex);
 
-	//struct per settare tempo massimo di attesa in rcv
+	/*//struct per settare tempo massimo di attesa in rcv
 	struct timeval tv;
     tv.tv_sec = RECV_TIMEOUT;
 	tv.tv_usec = 0;
 
     setsockopt(temp_sd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
-
+*/
 
 	int nRecv;
 	char buff[100];
@@ -253,7 +253,7 @@ void* handleSocket()
 
         logM("\n\n");
 	}
-	while(strncmp("CLO", buff, 3) == 0);     // Finche' non ricevo il messaggio CLO
+	while(strncmp("CLO", buff, 3) != 0);     // Finche' non ricevo il messaggio CLO
     
 	//Diminuisco il numero di figli vivi.
 	*numberAliveChilds = *numberAliveChilds - 1;

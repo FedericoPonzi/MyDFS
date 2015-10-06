@@ -62,6 +62,7 @@ void* heartBeat(void *tA)
 	{
         pthread_barrier_wait(&targ->barriera);
 		nRecv = recv(controlSd, ping, sizeof(ping), 0);
+        
 		if(nRecv > 0)
 		{
     

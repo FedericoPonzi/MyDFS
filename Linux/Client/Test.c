@@ -228,6 +228,7 @@ int testWrite(char* filename, char* indirizzo, int  debug)
     printf("[TEST WRITE] Iniziato \n");
 
     int pid = getpid();
+    
 	if(debug) printf("\t[TEST WRITE-%d]\n", pid);
 
 	int n, error = 0, i = 0;
@@ -236,7 +237,8 @@ int testWrite(char* filename, char* indirizzo, int  debug)
 	char* testo = "Primo";
 	char bufferTesto[strlen(testo)+1];
 	MyDFSId* fileId = mydfs_open(indirizzo, filename, MYO_RDWR, &error);
-	assert(error==0);
+
+    assert(error==0);
 	
 	char* testoDue = "Secondo";
 	

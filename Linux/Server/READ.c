@@ -51,7 +51,8 @@ void handleREADCommand(char* command, int socket)
     char buff[FILESIZE];
 	
 	OpenedFile* of = getOpenedFile();
-	
+
+    //Mi sposto all' offset indicato dal client:
     fseek(of->fp, pos, SEEK_SET);
     
 	int nread = fread(buff, 1, FILESIZE,of->fp);
@@ -68,12 +69,13 @@ void handleREADCommand(char* command, int socket)
 			/* Error*/
 		}
 	}
-	logM("[READ] Bytes letti: %d \n", nread);        
+	logM("[READ] Bytes letti: %d \n", nread);     
 
 	if(nread > 0)
 	{
 		logM("[READ] Invio file...\n");
-		char message[20];
+		char message[15]; // strlen("size 65535") e' il massimo che mandero'.
+        
 		sprintf(message, "size %d", nread);
 		int nSend;
 		//Mando la dimensione della parte che ho letto
@@ -81,12 +83,18 @@ void handleREADCommand(char* command, int socket)
         if(nSend < 0)
         {
             perror("1-send");
+            closeClientSession(getppid());
+            close(socket);
+            return;
         }
         //Mando la parte letta:
 		nSend = send(socket, buff, nread, 0);
         if(nSend<0)
         {
             perror("2-send");
+            closeClientSession(getppid());
+            close(socket);
+            return;
         }
 	}
 	
