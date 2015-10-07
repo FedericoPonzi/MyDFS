@@ -29,7 +29,6 @@ int appendReadRequest(MyDFSId* id, int pos, int size);
 int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 {
 
-	
 	CacheRequest req;
 
 	long daRicevere;
@@ -111,7 +110,7 @@ long sendReadCommand(MyDFSId* id, long pos)
 	
 	//Ricevo la dimensione della parte letta
 	char fileSize[15]; // il massimo che mi manda e' definito in Config.h
-	int nRecv = recv(id->socketId, fileSize, sizeof(fileSize)-1, 0);
+	int nRecv = recv(id->socketId, fileSize, sizeof(fileSize), 0);
 	if(nRecv <= 0)
 	{
 		perror("[sendReadCommand] recv:");
@@ -122,6 +121,7 @@ long sendReadCommand(MyDFSId* id, long pos)
     fileSize[nRecv] = '\0';
     if(strncmp("size ", fileSize, 5) != 0)
     {
+        logM("Size message Non contiene size\n");
         return -1;
     }
     
@@ -148,7 +148,6 @@ long sendReadCommand(MyDFSId* id, long pos)
  
 int readFrom(MyDFSId* id, int sizeRimasta,  int pos )
 {
-	char temp[sizeRimasta];
 	char buff[sizeRimasta];
 
 	int i = 0;
@@ -156,9 +155,10 @@ int readFrom(MyDFSId* id, int sizeRimasta,  int pos )
 	/*
 	 * Potrei ricevere meno di sizeRimasta la prima volta. Finche' non ricevo tutti i dati continuo la recv.
 	 */
-	while( i < sizeRimasta)  
+	while(sizeRimasta> 0)  
 	{
-		nRecv = recv(id->socketId, temp, sizeRimasta, 0);
+        logM("Size rimasta: %d", sizeRimasta);
+		nRecv = recv(id->socketId, buff+i, sizeRimasta, 0);
         if(nRecv < 0)
         {
             perror("[readFrom] recv:");
@@ -170,7 +170,6 @@ int readFrom(MyDFSId* id, int sizeRimasta,  int pos )
             return 1;
         }
         logM("Ricevuto per ora: %d\n", nRecv);
-        memcpy(buff+i, temp, nRecv);
 		i+=nRecv;
         sizeRimasta -= nRecv;
 	}
