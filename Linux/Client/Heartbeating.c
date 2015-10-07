@@ -57,11 +57,11 @@ void* heartBeat(void *tA)
 	char ping[5];
 	char pong[5] = "pong";
 	int nRecv;
-
+    pthread_barrier_wait(&targ->barriera);
+		
 	while(1)
 	{
-        pthread_barrier_wait(&targ->barriera);
-		nRecv = recv(controlSd, ping, sizeof(ping), 0);
+        nRecv = recv(controlSd, ping, sizeof(ping), 0);
         
 		if(nRecv > 0)
 		{
@@ -73,7 +73,11 @@ void* heartBeat(void *tA)
 			}
 			else if(strncmp("ping", ping, 4) == 0)
 			{
-				send(controlSd, pong, strlen(pong), 0);
+				if(send(controlSd, pong, strlen(pong), 0) < 0)
+                {
+                    logM("Heartbeating: errore mandando ping.");
+                    return NULL;
+                }
 				logM("[Heartbeating %d] PONG! %d, '%s'\n",controlSd, strlen(ping), ping);
 			}
 			else
@@ -88,7 +92,7 @@ void* heartBeat(void *tA)
 			return NULL;
 		}
 		memset(ping, 0, sizeof(ping));
-	}			
+	}
 	return NULL;
 }
 
