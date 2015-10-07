@@ -57,20 +57,16 @@ int testOpen(char* filename, char* indirizzo, int  debug)
 	{
 		if(debug) printf("\n * Modo numero: %d (pid:%d)\n", ArrayModoOpen[i], getpid());
 		fileId = mydfs_open(indirizzo, filename, ArrayModoOpen[i], &error);
-		
 		if(ArrayModoOpen[i] == MYO_EXCL)
 		{
-			logM("MYO_EXCL percio' tutto ok c: %d\n", getpid());
+			logM("MYO_EXCL percio' tutto ok%d\n", getpid());
 			error = 0;
 			continue;
 		}
-		if(error != 0)
-		{
-			if(debug) printf("[TestOpen-%d] Errore %d\n", getpid(), error);
-
-		}
+        else
+            assert(fileId != NULL && error == 0);
+		
 		mydfs_close(fileId);
-        sleep(0.2);
 	}
 	printf("\n\t[V-%d] Test OPEN superato correttamente!\n", getpid());
     return error;
@@ -395,21 +391,34 @@ void testOpenErrors(char* filename, char* indirizzo, int debug)
     printf("Creato il file :%s.\n", filename);
     mydfs_close(firstId);
     
-    printf("1 - Test MYO_EXCL\n");
+    if(debug) printf("1 - Test MYO_EXCL\n");
     secondId = mydfs_open(indirizzo, filename, MYO_EXCL, &err);
     assert(err != 0 && secondId == NULL);
-
+    if(debug) printf("[Test MYO_EXCL superato correttamente] \n");
     firstId = mydfs_open(indirizzo, filename, MYO_EXLOCK, &err);
     assert(err == 0 && firstId != NULL);
-
+    
     secondId = mydfs_open(indirizzo, filename, MYO_CREAT, &err);
+    mydfs_close(firstId);
 
-    assert(err != 0 && firstId != NULL);
-    
-    
+    assert(err != 0 && secondId == NULL);
 
-    
+    if(debug) printf("[Test MYO_EXLOCK superato correttamente!");
 
+    if(debug) printf("[Test apertura file gia' aperto in write.\n");
+    
+    firstId = mydfs_open(indirizzo, filename, MYO_WRONLY, &err);
+
+    assert(firstId != NULL && err == 0);
+
+    secondId = mydfs_open(indirizzo, filename, MYO_RDONLY, &err);
+
+    assert(secondId == NULL && err != 0);
+
+    if(debug) printf("[Test superato correttamente.]");
+    
+    printf("[V] Test OPEN Errors superato correttamente!");
+    
 }
     
 

@@ -158,6 +158,7 @@ int checkModoOpen(char *nomeFile, int modo)
 	{
 		if(!isModoApertura(modo, MYO_CREAT))
 		{
+            
 			pthread_mutex_unlock(mutex);
 			logM("File inesistente");			
 			return -3;
@@ -168,7 +169,7 @@ int checkModoOpen(char *nomeFile, int modo)
 		if(isModoApertura(modo, MYO_EXCL))
 		{
 			pthread_mutex_unlock(mutex);
-
+            logM("MYO_EXCL di un file esistente.");
 			return -3;
 		}
 	}
@@ -248,9 +249,7 @@ int isModoApertura(int modo_client, int modo)
  */
 void closeOpenedFile(unsigned long int ptid)
 {
-	pthread_mutex_lock(mutex);
-	
-	pthread_mutex_unlock(mutex);
+    
 }
 /**
  * Libera lo spazio occupato dal puntatore

@@ -89,8 +89,7 @@ void handleOpenCommand(char* command, int socket)
     {
         //Mando la dimensione del file
         int fileSize = 0;
-        logM("filename: %s\n\n", id->fileName);
-        char temp_path[40];
+        char temp_path[FILENAME_MAX];
         strcpy(temp_path, rootPath);
         strcat(temp_path, nomeFile);
         
