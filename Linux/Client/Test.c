@@ -334,41 +334,33 @@ void testInvalidazioneCache(char* filename, char* indirizzo, int  debug)
 	assert(strcmp(bufferPrima, bufferDopo));
 	
 	printf("\n\t[V-%d] Test INVALIDAZIONECACHE superato correttamente!\n", getpid());
-    }
-
-/* Returns an integer in the range [0, n).
- *
- * Uses rand(), and so is affected-by/affects the same seed.
- */
-int randint(int n) {
-  if ((n - 1) == RAND_MAX) {
-    return rand();
-  } else {
-    // Chop off all of the values that would cause skew...
-    long end = RAND_MAX / n; // truncate skew
-    assert (end > 0L);
-    end *= n;
-
-    // ... and ignore results from rand() that fall above that limit.
-    // (Worst case the loop condition should succeed 50% of the time,
-    // so we can expect to bail out of this loop pretty quickly.)
-    int r;
-    while ((r = rand()) >= end);
-
-    return r % n;
-  }
 }
+
+void testReadErrors(char* filename, char* indirizzo, int debug)
+{
+    MyDFSId* id;
+    int err, nRead;
+    char buffer[100];
+    
+    id = mydfs_open(indirizzo, filename, MYO_RDONLY, &err);
+
+    assert(id != NULL && err == 0);
+
+    nRead = mydfs_read(id, MYSEEK_CUR, buffer, 100);
+    printf("%d", nRead);
+}
+
+
 
 /**
  * Sceglie un test a caso e lo esegue
+ * @todo da terminare.
  */
 void testStressTest(char* filename, char* indirizzo, int debug)
 {
-    
-	if(debug) printf("\n\t [Test stress%d:]\n", getpid());
-    int test = randint(8);
-    printf("test vale:%d\n", test);
-	sleep(randint(2));
+    int test = 10;
+	if(debug) printf("\n\t [Test NON FUNZIONA stress%d:]\n", getpid());
+
     if(test > 8)
     {
         testRead(filename, indirizzo, debug);
@@ -390,3 +382,35 @@ void testStressTest(char* filename, char* indirizzo, int debug)
         testOpen(filename, indirizzo, debug);
     }
 }
+
+void testOpenErrors(char* filename, char* indirizzo, int debug)
+{
+    printf("Inizio Test degli errori sulla OPEN.\n\n");
+    int err;
+    
+    MyDFSId* firstId, * secondId;
+    
+    firstId = mydfs_open(indirizzo, filename, MYO_CREAT, &err);
+    assert(firstId != NULL && err == 0);
+    printf("Creato il file :%s.\n", filename);
+    mydfs_close(firstId);
+    
+    printf("1 - Test MYO_EXCL\n");
+    secondId = mydfs_open(indirizzo, filename, MYO_EXCL, &err);
+    assert(err != 0 && secondId == NULL);
+
+    firstId = mydfs_open(indirizzo, filename, MYO_EXLOCK, &err);
+    assert(err == 0 && firstId != NULL);
+
+    secondId = mydfs_open(indirizzo, filename, MYO_CREAT, &err);
+
+    assert(err != 0 && firstId != NULL);
+    
+    
+
+    
+
+}
+    
+
+

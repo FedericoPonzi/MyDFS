@@ -1,7 +1,7 @@
 #ifndef CONFIG
 #define CONFIG
 
-
+#include <errno.h>
 /**
  * Modalita' debug:
  */
@@ -29,17 +29,17 @@ typedef struct WriteOp
  */
 typedef struct ReadOp
 {
-	int pos;
-	int size;
+	long pos;
+	long size;
 	struct ReadOp* next;
 } ReadOp;
 
 typedef struct MyDFSId {  
 	char* indirizzo;
 	char* filename;
-	int filesize; /** Dimensione del file */
+	long filesize; /** Dimensione del file */
 	int modo; /** Modo di apertura */
-	int pos; /** Seek_set seek_cur ecc */
+	//int pos; /** Seek_set seek_cur ecc */
 	int socketId; /** socket id dell' heartbeating */
 	int transferSockId; /** Socket id dei comandi */
 	pthread_mutex_t* readListMutex; /** Mutex per accedere la writelist */

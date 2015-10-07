@@ -167,6 +167,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
  *
  * Setta propriamente err se qualcosa va storto, o modifica il campo toRet->transferSockId se tutto va bene.
  * setta transferSockId
+ * @todo controllo errori
  */
 void createControlSocket(MyDFSId* toRet, int* err)
 {
@@ -210,11 +211,20 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	logM("Sto richiedendo la connessione sulla porta numero: %d\n", ntohs(sin.sin_port));
 	sprintf(buffer, "port_num %d", ntohs(sin.sin_port));
 	
-	listen(sockfd, 1);
+	if( listen(sockfd, 1) < 0)
+    {
+        *err = -2;
+        perror("listen:");
+    }
+    
 	clilen = sizeof(cli_addr);
 
-	/* Accept actual connection from the client */
-	send(toRet->socketId, buffer, strlen(buffer), 0);
+	if(send(toRet->socketId, buffer, strlen(buffer), 0) < 0)
+    {
+        *err = -2;
+        perror("Send:");
+    }
+
 	newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
 	if (newsockfd < 0)
 	{
@@ -227,7 +237,7 @@ void createControlSocket(MyDFSId* toRet, int* err)
 
 	if ((recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{
-		perror("recv");
+		perror("[CreateControlSocket]recv");
 		*err = -2;
 	}
 	if(strncmp(buffer , "-2", 2) == 0)

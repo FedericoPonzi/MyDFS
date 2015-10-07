@@ -44,14 +44,14 @@ FILE* createTempFile(char* basename)
 /**
  * @brief Usato per dire se il dato che voglio leggere si trova in cache oppure no.
  * @return 1 MISS: In caso di MISS, dentro a req verranno messi posizione e size del dato da scaricare.
- * @return 0 HIT: per interrompere il while, torna false.
+ * @return 0 HIT: torna false.
  * 
  * Nota: La miss si riferisce ad un "buco", quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano
  * altri miss.
  * Nota2: Il lock e' in teoria troppo grande. In pratica pero', se fra la prima operazione di lettura e la seconda ci fosse una invalidazione della cache
- * qualcosa di orrendo potrebbe accadere.
+ * qualcosa di orrendo potrebbe accadere. Quindi va bene cosi'.
  */
-int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
+int readRequest(MyDFSId* id, long pos, unsigned int size, CacheRequest* req)
 {
 	if(pos == id->filesize)
 	{
