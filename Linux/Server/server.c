@@ -236,7 +236,7 @@ void* handleSocket()
 	{
         
 		bzero(buff, sizeof(buff));
-		
+
 		nRecv = recv(temp_sd, buff, sizeof(buff)-1, 0);
 		
 		// Connessione chiusa o errore

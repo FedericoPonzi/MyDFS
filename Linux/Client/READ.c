@@ -28,7 +28,6 @@ int appendReadRequest(MyDFSId* id, int pos, int size);
  
 int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 {
-
 	CacheRequest req;
 
 	long daRicevere;
@@ -103,7 +102,7 @@ long sendReadCommand(MyDFSId* id, long pos)
 {
 	//Mando la read
 
-	char readCommand[strlen(READCOMMAND) + 	getNumberLenght(pos)+1]; //es: "READ 1", con 1 = la posizione
+	char readCommand[strlen(READCOMMAND) + 	getNumberLenght(pos)+1]; // es: "READ 1", con 1 = la posizione
 	sprintf(readCommand, "%s %li\n", READCOMMAND, pos);
 	logM("Mando richiesta di READ:'%s'\n", readCommand);
 	send(id->socketId, readCommand, strlen(readCommand), 0);

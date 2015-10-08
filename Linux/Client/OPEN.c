@@ -127,7 +127,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
     
     //Connessione effettuata, invio la richiesta di apertura del file
 
-    char openCommand [strlen(OPENCOMMAND)+strlen(toRet->filename)+5];
+    char openCommand [strlen(OPENCOMMAND)+strlen(toRet->filename)+5]; 
     
     sprintf(openCommand, "%s %s %d\n", OPENCOMMAND, toRet->filename, toRet->modo);
 	

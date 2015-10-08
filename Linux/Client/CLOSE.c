@@ -111,6 +111,9 @@ int uploadChanges(MyDFSId* id)
 	return 0;
 }
 
+/**
+ * Ritorna il numero di write effettuate dal client
+ */
 int getNumberOfChanges(MyDFSId* id)
 {
 	int toRet = 0;

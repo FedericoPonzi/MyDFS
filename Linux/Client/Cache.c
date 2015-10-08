@@ -7,7 +7,10 @@
 #include "inc/Cache.h"
 #include "inc/Utils.h"
 
-
+/**
+ * Ritorna il nome del file
+ */
+ 
 char* getFilename(char* basename)
 {
     int i = strlen(basename);
@@ -21,6 +24,10 @@ char* getFilename(char* basename)
     }
     return basename+i;
 }
+
+/**
+ * Funzione che crea un file temporaneo, e ritorna un puntatore ad esso.
+ */
 FILE* createTempFile(char* basename)
 {
  	char tempName[strlen(basename) + 8];
@@ -34,9 +41,11 @@ FILE* createTempFile(char* basename)
         perror("Mkstemp: ");
         return NULL;
     }
+
+    //Appena mi stacco dall' fd, viene cancellato il file temporaneo:
     unlink(tempName);
-	//Appena mi stacco dall' fd, viene cancellato il file temporaneo:
-    //logM("[Cache] Creato temp file: '%s'\n", tempName);
+
+    logM("[Cache] Creato temp file: '%s'\n", tempName);
 	toRet = fdopen(fd, "w+b");
     
 	return toRet;

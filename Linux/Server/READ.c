@@ -41,13 +41,20 @@
 #include "inc/StruttureDati.h"
 #include "inc/READ.h"
 #include "inc/Config.h"
+#include <errno.h>
+
 int getPosFromCommand(char*);
 
 void handleREADCommand(char* command, int socket)
 {
-	logM("[READ]: Ricevuta richiesta read. Command = %s\n", command);
-	int pos = getPosFromCommand(command);
+    logM("[READ]: Ricevuta richiesta read. Command = %s\n", command);
+
+    int nRead, nSend, pos;
+	
+    pos = getPosFromCommand(command);
+
 	logM("pos = %d\n", pos);
+
     char buff[FILESIZE];
 	
 	OpenedFile* id = getOpenedFile();
@@ -55,25 +62,25 @@ void handleREADCommand(char* command, int socket)
     //Mi sposto all' offset indicato dal client:
     fseek(id->fp, pos, SEEK_SET);
     
-	int nread = fread(buff, 1, FILESIZE, id->fp);
+	nRead = fread(buff, 1, FILESIZE, id->fp);
 
-	if (nread < FILESIZE)
-	{
-		
+	if (nRead < FILESIZE)
+	{		
 		if (ferror(id->fp))
 		{
 			logM("Error reading\n");
 			/* Error*/
-            nread = -1;
+            nRead = -1;
 		}
 	}
-	logM("[READ] Bytes letti: %d \n", nread);     
+    
+	logM("[READ] Bytes letti: %d \n", nRead);     
 
     char message[15]; // strlen("size 65535") e' il massimo che mandero'.
     
-    sprintf(message, "size %d", nread);
+    sprintf(message, "size %d", nRead);
 
-    int nSend;
+
     //Mando la dimensione della parte che ho letto
     nSend = send(socket, message, sizeof(message), 0);
     if(nSend < 0)
@@ -83,12 +90,13 @@ void handleREADCommand(char* command, int socket)
         close(socket);
         return;
     }
-    else if(nread < 0) //diamo al client la possibilita' di riprovare.
+    else if(nRead < 0) //diamo al client la possibilita' di riprovare.
 	{
         return;
     }
     //Mando la parte letta:
-    nSend = send(socket, buff, nread, 0);
+    nSend = send(socket, buff, nRead, 0);
+    
     if(nSend<0)
     {
         perror("[handleReadCommand] 2-send");
@@ -99,7 +107,16 @@ void handleREADCommand(char* command, int socket)
     else printf("Inviati al client %d dati\n", nSend);
 }
 
+/**
+ * Ritorna la posizione della read richiesta dall' utente.
+ */
 int getPosFromCommand(char* command)
 {
-	return strtol(command+4, NULL, 10);
+	int toRet;
+    toRet = strtol(command+4, NULL, 10);
+    if(errno == EINVAL || errno == ERANGE)
+    {
+        toRet = -1;
+    }
+    return toRet;
 }

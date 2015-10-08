@@ -259,7 +259,11 @@ void freeOpenedFile(OpenedFile* id)
 {
 	//free(id->fileName);
 	fclose(id->fp);
+    logM("[FreeOpenedfile] Libero: transfer: %d, sock: %d", id->transferSockId, id->socketId);
+    pthread_mutex_destroy(&id->tempSockMutex);
     close(id->transferSockId);
+    close(id->socketId);
+    
 	memset(id,0,sizeof(OpenedFile));
 }
 
@@ -293,7 +297,7 @@ void closeClientSession(unsigned long int ptid)
 			{
 				logM("[closeClientSession] - individuato file primo: '%s'\n", iterator->fileName);
 				*openedFileLinkedList = iterator->next;
-				freeOpenedFile(iterator);				
+				freeOpenedFile(iterator);
 				iterator->next = *free_head;
 				*free_head = iterator;
 				
@@ -302,6 +306,7 @@ void closeClientSession(unsigned long int ptid)
 			{
 				if(iterator->next == NULL) //ultimo della lista
 				{
+                    freeOpenedFile(iterator);
 					logM("[closeClientSession] - individuato file ultimo: %s - pronto alla chiusura\n", iterator->fileName);
 					iterator->next = *free_head;
 					*free_head = iterator;

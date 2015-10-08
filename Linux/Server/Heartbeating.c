@@ -54,16 +54,28 @@ void* heartBeat(void *args)
 	while(1)
 	{	
 		//wait tot secondi
-		sleep(PING_TIME);	
+		sleep(PING_TIME);
+
+        /*
+         * Evita il seguente problema:
+         *  - Close del client
+         *  - Heartbeating va in sleep
+         *  - Open di un altro client, assegnazione della stessa socket
+         *  - Wake dalla sleep, e recv da una socket a cui non era stato assegnato
+         * Problema ovviamente della modalita' multithreading!
+         */
+        if(id != NULL && ptid != id->ptid)
+        {
+            return NULL;
+        }
 		logM("[HB %d:%lu] PING!\n", temp_sd, ptid);
-        
 		pthread_mutex_lock(&id->tempSockMutex);
 		nSend = send(temp_sd, ping, strlen(ping)+1, 0);				
 		pthread_mutex_unlock(&id->tempSockMutex);
 		if(nSend < 0)
         {
+            logM("[HB %d:%lu] Connessione terminata\n", temp_sd, ptid);
             closeClientSession(ptid);
-            close(temp_sd);
             break;
         }
 		nRecv = recv(temp_sd, pong, sizeof(pong), 0);
