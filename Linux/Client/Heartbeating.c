@@ -75,15 +75,16 @@ void* heartBeat(void *tA)
 			{
 				if(send(controlSd, pong, strlen(pong), 0) < 0)
                 {
-                    logM("Heartbeating: errore mandando ping.");
+                    logM("[Heartbeating %d] errore mandando ping.\n", controlSd);
                     return NULL;
                 }
-				logM("[Heartbeating %d] PONG! %d, '%s'\n",controlSd, strlen(ping), ping);
+                ping[5] = '\0';
+				logM("[Heartbeating %d] PONG! %d, '%s'\n",controlSd, nRecv, ping);
 			}
 			else
 			{
 				ping[nRecv] = '\0';
-				logM("[Heartbeating] Ho ricevuto questo:'%s'",ping);
+				logM("[Heartbeating %d] Ho ricevuto questo:'%s'", controlSd, ping);
 			}
 		}
 		else

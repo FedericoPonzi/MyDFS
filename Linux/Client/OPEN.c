@@ -233,7 +233,7 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	}
 
 	toRet->transferSockId = newsockfd;
-	logM("[OPEN] Aperta connessione di Controllo.");
+	logM("[OPEN] Aperta connessione di Controllo.\n");
 
 	if ((recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{

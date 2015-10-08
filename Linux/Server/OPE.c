@@ -152,6 +152,7 @@ void handleOpenCommand(char* command, int socket)
     {
         sprintf(answer, "-2");
     }
+    logM("[OPE %d] Sto mandando %s sulla socket %d\n", getptid(), answer, socket);
     //Provo a mandare eventuale messaggio d' errore e se c'è un errore esco.
 	if(send(socket, answer, strlen(answer), 0) < 0 || err_code)
     {

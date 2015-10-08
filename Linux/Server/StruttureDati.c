@@ -259,6 +259,7 @@ void freeOpenedFile(OpenedFile* id)
 {
 	//free(id->fileName);
 	fclose(id->fp);
+    close(id->transferSockId);
 	memset(id,0,sizeof(OpenedFile));
 }
 

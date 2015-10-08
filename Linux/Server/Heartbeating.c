@@ -55,12 +55,12 @@ void* heartBeat(void *args)
 	{	
 		//wait tot secondi
 		sleep(PING_TIME);	
-		logM("[HB:%lu] PING!\n", ptid);
+		logM("[HB %d:%lu] PING!\n", temp_sd, ptid);
         
 		pthread_mutex_lock(&id->tempSockMutex);
 		nSend = send(temp_sd, ping, strlen(ping)+1, 0);				
 		pthread_mutex_unlock(&id->tempSockMutex);
-		if(nSend<0)
+		if(nSend < 0)
         {
             closeClientSession(ptid);
             close(temp_sd);
@@ -69,7 +69,7 @@ void* heartBeat(void *args)
 		nRecv = recv(temp_sd, pong, sizeof(pong), 0);
 		if((nRecv <= 0) || (strncmp("pong", pong, 4) != 0)) //Se la socket viene chiusa o non ricevo pong esco.
 		{
-			logM("[heartBeat] - connessione %lu chiusa.\n", ptid);
+			logM("[heartBeat %d] - connessione %lu chiusa.\n", temp_sd, ptid);
 			if(temp_sd > 0)
 			{	
 				closeClientSession(ptid);

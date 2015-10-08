@@ -23,10 +23,10 @@ int main(int argc, char* argv[])
 		filename=argv[1];
 	}
     char* indirizzo = "127.0.0.1";
-    testOpen(filename, indirizzo, 1 );
-    testInvalidazioneCache(filename, indirizzo, 1 );
-    testRead(filename, indirizzo, 1 );
-    testWrite(filename, indirizzo, 1 );
-	testHeartBeating(filename, indirizzo, 1);
+    testOpen(filename, indirizzo, 0 );
+    testInvalidazioneCache(filename, indirizzo, 0 );
+    testRead(filename, indirizzo, 0 );
+    testWrite(filename, indirizzo, 0 );
+	testHeartBeating(filename, indirizzo, 0);
     return 0;	
 }

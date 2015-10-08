@@ -59,7 +59,7 @@ int testOpen(char* filename, char* indirizzo, int  debug)
 		fileId = mydfs_open(indirizzo, filename, ArrayModoOpen[i], &error);
 		if(ArrayModoOpen[i] == MYO_EXCL)
 		{
-			logM("MYO_EXCL percio' tutto ok%d\n", getpid());
+			logM("MYO_EXCL percio' tutto ok\n");
 			error = 0;
 			continue;
 		}
@@ -403,7 +403,7 @@ void testOpenErrors(char* filename, char* indirizzo, int debug)
 
     assert(err != 0 && secondId == NULL);
 
-    if(debug) printf("[Test MYO_EXLOCK superato correttamente!");
+    if(debug) printf("[Test MYO_EXLOCK superato correttamente!\n");
 
     if(debug) printf("[Test apertura file gia' aperto in write.\n");
     
@@ -415,11 +415,17 @@ void testOpenErrors(char* filename, char* indirizzo, int debug)
 
     assert(secondId == NULL && err != 0);
 
-    if(debug) printf("[Test superato correttamente.]");
+    if(debug) printf("[Test superato correttamente.]\n");
     
     printf("[V] Test OPEN Errors superato correttamente!");
     
 }
+
+void testWriteErrors(char* filename, char* indirizzo, int debug)
+{
     
+
+
+}
 
 
