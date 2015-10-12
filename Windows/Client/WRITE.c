@@ -64,7 +64,7 @@ int mydfs_write(MyDFSId* id, int pos, void *ptr, unsigned int size)
 
 int addWriteOp(MyDFSId* id, int pos, int size)
 {
-	WriteOp* writeOp = malloc(sizeof(WriteOp));
+	WriteOp* writeOp = (WriteOp*) malloc(sizeof(WriteOp));
 	writeOp->pos = pos;
 	writeOp->size = size;
 	writeOp->next = NULL;

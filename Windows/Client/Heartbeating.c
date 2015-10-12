@@ -15,21 +15,34 @@
 #include "inc/Heartbeating.h"
 #include "inc/Config.h"
 #include "inc/Utils.h"
-#define BUFFSIZE 30
-
 int invalidate(MyDFSId* id); 
+
+typedef struct ThreadArgs
+{
+    MyDFSId* id;
+    HANDLE barriera;
+}ThreadArgs; 
 
 void spawnHeartBeat(MyDFSId* id)
 {
+    ThreadArgs *threadArg = (ThreadArgs*) malloc( sizeof(ThreadArgs));
+    threadArg->id = id;
+    CreateSemaphore( 
+        NULL,           // default security attributes
+        0,  // initial count
+        1,  // maximum count
+        NULL);      
+    
 	DWORD tid;
 	CreateThread( 
             NULL,                   // default security attributes
             0,                      // use default stack size  
-            heartBeat,       // thread function name
-            id,          // argument to thread function 
+            &heartBeat,       // thread function name
+            threadArg,          // argument to thread function 
             0,                      // use default creation flags 
             &tid); 
-    
+    WaitForSingleObject(threadArg->barriera, INFINITE);
+
 }
 
 /**
@@ -38,15 +51,17 @@ void spawnHeartBeat(MyDFSId* id)
  */
 void* heartBeat(void *sd)
 {
-    MyDFSId* id = (MyDFSId *) sd;
+    ThreadArgs* tArgs = (ThreadArgs*) sd;
+    MyDFSId* id = (MyDFSId *) tArgs;
 	int controlSd = id->transferSockId;
 
     logM("[Spawining HeartBeating] sd: %d \n", controlSd);
 	char ping[5];
 	char pong[5] = "pong";
 	int nRecv;
-	Sleep(2);
-	while(1)
+    CloseHandle(tArgs->barriera);
+    
+    while(1)
 	{
 		nRecv = recv(controlSd, ping, sizeof(ping), 0);
 		

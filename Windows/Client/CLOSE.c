@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <windows.h>
+#include <windows.h>   
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <errno.h>
@@ -31,7 +31,7 @@ int mydfs_close(MyDFSId* id)
 		
 		sprintf(closeCommand, "%s %d\n", CLOSECOMMAND, getNumberOfChanges(id));
 		
-		if(send(id->socketId, closeCommand, sizeof(closeCommand), 0) < 0)
+		if(send(id->socketId, closeCommand, strlen(closeCommand), 0) < 0)
 		{
 			perror("1-send");
 			return -1;
@@ -113,6 +113,9 @@ int uploadChanges(MyDFSId* id)
 	return 0;
 }
 
+/**
+ * Ritorna il numero di write effettuate dal client
+ */
 int getNumberOfChanges(MyDFSId* id)
 {
 	int toRet = 0;

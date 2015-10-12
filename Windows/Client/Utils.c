@@ -60,4 +60,3 @@ int getNumberLenght(int n)
 	}
 	return digits;
 }
-

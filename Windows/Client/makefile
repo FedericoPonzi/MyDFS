@@ -4,17 +4,16 @@ CC=gcc
 # CFLAGS will be the options passed to the compiler.
 CFLAGS=-c -g -Wall 
 
+LIBS= libmydfs.a -lWs2_32
+
 #oggetti da creare:
 OBJECTS = Utils.o OPEN.o CLOSE.o READ.o WRITE.o Cache.o Heartbeating.o Test.o
 
 #Creera' tutti questi binari:
-all: testHeartbeating
-#testopen 
-#testread testheartbeating testinvalidazione 
-#teststresstest
+all::prog testopen testread testheartbeating testinvalidazione testfillfs testfilebinario testalltest testopenerrors testreaderrors
 
 prog:libmydfs.a
-	gcc -o TestWrite -g testWrite.c libmydfs.a -lWs2_32
+	gcc -o TestWrite -g testWrite.c libmydfs.a -lWs2_32 
 
 %.o: %.c
 	$(CC) $(CFLAGS) $< -lWs2_32
@@ -26,16 +25,29 @@ clean:
 	rm -rf *.o
 
 testread:
-	gcc -o TestRead -g testRead.c libmydfs.a -lWs2_32
+	gcc -o TestRead -g testRead.c $(LIBS)
 
 testheartbeating:
-	gcc -o TestHeartBeating -g testHeartBeating.c libmydfs.a -lWs2_32 
+	gcc -o TestHeartBeating -g testHeartBeating.c $(LIBS)
 
 testinvalidazione:
-	gcc -o TestInvalidazione -g testInvalidazione.c libmydfs.a -lWs2_32
+	gcc -o TestInvalidazione -g testInvalidazione.c $(LIBS)
 
 testopen:
-	gcc -o TestOpen -g testOpen.c libmydfs.a -lWs2_32
+	gcc -o TestOpen -g testOpen.c $(LIBS)
 
-#teststresstest:
-#	gcc -o TestStressTest -g testStressTest.c libmydfs.a -lWs2_32
+
+testfillfs:
+	gcc -o TestFillFS -g testFillFS.c $(LIBS)
+	
+testfilebinario:
+	gcc -o TestBinario -g testBinario.c $(LIBS)
+
+testopenerrors:
+	gcc -o TestOpenErrors -g testOpenErrors.c $(LIBS)
+
+testreaderrors:
+	gcc -o TestReadErrors -g testOpenErrors.c $(LIBS)
+
+testalltest:
+	gcc -o TestAll -g testAllTests.c $(LIBS)

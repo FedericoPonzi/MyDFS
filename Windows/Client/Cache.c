@@ -15,6 +15,20 @@
 #include "inc/Cache.h"
 #include "inc/Utils.h"
 
+char* getFilename(char* basename)
+{
+    int i = strlen(basename);
+    while(i > 0)
+    {
+        if(*(basename+i) == '/')
+        {
+            break;
+        }
+        i--;
+    }
+    return basename+i;
+}
+
 /**
  * Winready!
  */
@@ -28,7 +42,7 @@ FILE* createTempFile(char* basename)
     GetTempPath(MAX_PATH,          // length of the buffer
                            lpTempPathBuffer); // buffer for path 
     GetTempFileName(lpTempPathBuffer, // directory for tmp files
-                              TEXT(basename),     // temp file name prefix 
+                              TEXT(getFilename(basename)),     // temp file name prefix 
                               0,                // create unique name 
                               szTempFileName);
 
@@ -73,7 +87,7 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 			else
 			{
 				//Richiamo quest funzione spostando pos
-				return readRequest(id, iteratorw->pos+iteratorw->size, size-iteratorw->size, req);
+				return readRequest(id, iteratorw->pos+iteratorw->size, (size+pos)-(iteratorw->pos+iteratorw->size), req);
 			}
 		}
 		iteratorw = iteratorw->next;
@@ -99,7 +113,7 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 				ReleaseMutex(id->readListMutex);
 
 				//Richiamo quest funzione spostando pos
-				return readRequest(id, iteratorr->pos+iteratorr->size, size-iteratorr->size, req); //@todo manca un argomento LOL anche la parte dopo
+				return readRequest(id, iteratorr->pos+iteratorr->size, (size+pos)-(iteratorr->pos+iteratorr->size), req);
 			}
 		}
 		iteratorr = iteratorr->next;

@@ -35,7 +35,6 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	toRet = malloc(sizeof(MyDFSId));
 	toRet->readList = NULL;
 	toRet->writeList = NULL;
-	//toRet->readListMutex = malloc(sizeof(pthread_mutex_t));
 	toRet->indirizzo = malloc(strlen(indirizzo)+1);
 	strcpy(toRet->indirizzo, indirizzo);
 
