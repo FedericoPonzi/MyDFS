@@ -1,809 +1,179 @@
-15379 execve("./TestAll", ["./TestAll"], [/* 52 vars */]) = 0
-15379 brk(0)                            = 0xfee000
-15379 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-15379 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822ac7000
-15379 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
-15379 open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
-15379 fstat(3, {st_mode=S_IFREG|0644, st_size=123817, ...}) = 0
-15379 mmap(NULL, 123817, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f1822aa8000
-15379 close(3)                          = 0
-15379 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-15379 open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
-15379 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0po\0\0\0\0\0\0"..., 832) = 832
-15379 fstat(3, {st_mode=S_IFREG|0755, st_size=141574, ...}) = 0
-15379 mmap(NULL, 2217264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f1822689000
-15379 mprotect(0x7f18226a2000, 2093056, PROT_NONE) = 0
-15379 mmap(0x7f18228a1000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7f18228a1000
-15379 mmap(0x7f18228a3000, 13616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f18228a3000
-15379 close(3)                          = 0
-15379 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-15379 open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
-15379 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\37\2\0\0\0\0\0"..., 832) = 832
-15379 fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
-15379 mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f18222c4000
-15379 mprotect(0x7f182247f000, 2093056, PROT_NONE) = 0
-15379 mmap(0x7f182267e000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7f182267e000
-15379 mmap(0x7f1822684000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f1822684000
-15379 close(3)                          = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822aa7000
-15379 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822aa5000
-15379 arch_prctl(ARCH_SET_FS, 0x7f1822aa5740) = 0
-15379 mprotect(0x7f182267e000, 16384, PROT_READ) = 0
-15379 mprotect(0x7f18228a1000, 4096, PROT_READ) = 0
-15379 mprotect(0x606000, 4096, PROT_READ) = 0
-15379 mprotect(0x7f1822ac9000, 4096, PROT_READ) = 0
-15379 munmap(0x7f1822aa8000, 123817)    = 0
-15379 set_tid_address(0x7f1822aa5a10)   = 15379
-15379 set_robust_list(0x7f1822aa5a20, 24) = 0
-15379 futex(0x7fff5bba5cc0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7f1822aa5740) = -1 EAGAIN (Resource temporarily unavailable)
-15379 rt_sigaction(SIGRTMIN, {0x7f182268f9f0, [], SA_RESTORER|SA_SIGINFO, 0x7f1822699340}, NULL, 8) = 0
-15379 rt_sigaction(SIGRT_1, {0x7f182268fa80, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7f1822699340}, NULL, 8) = 0
-15379 rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
-15379 getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
-15379 fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 5), ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822ac6000
-15379 write(1, "[TEST OPEN] Iniziato \n", 22) = 22
-15379 brk(0)                            = 0xfee000
-15379 brk(0x100f000)                    = 0x100f000
-15379 open("./file.txt-NVP8PE", O_RDWR|O_CREAT|O_EXCL, 0600) = 3
-15379 unlink("./file.txt-NVP8PE")       = 0
-15379 fcntl(3, F_GETFL)                 = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15379 fstat(3, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822ac5000
-15379 lseek(3, 0, SEEK_CUR)             = 0
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 4
-15379 connect(4, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-15379 sendto(4, "OPE prova/file.txt 1\n\0", 22, 0, NULL, 0) = 22
-15379 recvfrom(4, "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 5
-15379 bind(5, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(5, {sa_family=AF_INET, sin_port=htons(38122), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(5, 1)                      = 0
-15379 sendto(4, "port_num 38122", 14, 0, NULL, 0) = 14
-15379 accept(5, {sa_family=AF_INET, sin_port=htons(52158), sin_addr=inet_addr("127.0.0.1")}, [16]) = 6
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(4, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f1821ac3000
-15379 mprotect(0x7f1821ac3000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f18222c2fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f18222c39d0, tls=0x7f18222c3700, child_tidptr=0x7f18222c39d0) = 15380
-15379 futex(0xfee318, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15380 set_robust_list(0x7f18222c39e0, 24) = 0
-15380 write(1, "[Spawining HeartBeating] sd: 6 \n", 32) = 32
-15380 futex(0xfee318, FUTEX_WAKE_PRIVATE, 2147483647) = 1
-15379 <... futex resumed> )             = 0
-15380 recvfrom(6,  <unfinished ...>
-15379 write(1, "Creato correttamente: Filename: "..., 86) = 86
-15379 write(1, "[Close] 'prova/file.txt'\n", 25) = 25
-15379 sendto(4, "CLO 0\n", 6, 0, NULL, 0) = 6
-15379 close(4)                          = 0
-15379 close(6)                          = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 open("./file.txt-4ysey4", O_RDWR|O_CREAT|O_EXCL, 0600) = 4
-15380 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15379 unlink("./file.txt-4ysey4" <unfinished ...>
-15380 write(1, "[HB:6] Connessione chiusa.\n", 27 <unfinished ...>
-15379 <... unlink resumed> )            = 0
-15380 <... write resumed> )             = 27
-15379 fcntl(4, F_GETFL <unfinished ...>
-15380 madvise(0x7f1821ac3000, 8368128, MADV_DONTNEED) = 0
-15380 _exit(0)                          = ?
-15380 +++ exited with 0 +++
-15379 <... fcntl resumed> )             = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15379 fstat(4, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822ac4000
-15379 lseek(4, 0, SEEK_CUR)             = 0
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 6
-15379 connect(6, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-15379 sendto(6, "OPE prova/file.txt 2\n\0", 22, 0, NULL, 0) = 22
-15379 recvfrom(6, "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
-15379 bind(7, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(7, {sa_family=AF_INET, sin_port=htons(41141), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(7, 1)                      = 0
-15379 sendto(6, "port_num 41141", 14, 0, NULL, 0) = 14
-15379 accept(7, {sa_family=AF_INET, sin_port=htons(34225), sin_addr=inet_addr("127.0.0.1")}, [16]) = 8
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(6, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f18212c2000
-15379 mprotect(0x7f18212c2000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f1821ac1fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f1821ac29d0, tls=0x7f1821ac2700, child_tidptr=0x7f1821ac29d0) = 15382
-15382 set_robust_list(0x7f1821ac29e0, 24 <unfinished ...>
-15379 futex(0xfee6a8, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15382 <... set_robust_list resumed> )   = 0
-15382 write(1, "[Spawining HeartBeating] sd: 8 \n", 32) = 32
-15382 futex(0xfee6a8, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-15379 <... futex resumed> )             = 0
-15382 <... futex resumed> )             = 1
-15379 write(1, "Creato correttamente: Filename: "..., 86 <unfinished ...>
-15382 recvfrom(8,  <unfinished ...>
-15379 <... write resumed> )             = 86
-15379 write(1, "[Close] 'prova/file.txt'\n", 25) = 25
-15379 sendto(6, "CLO 0\n", 6, 0, NULL, 0) = 6
-15379 close(6)                          = 0
-15379 close(8)                          = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 open("./file.txt-kvRehu", O_RDWR|O_CREAT|O_EXCL, 0600) = 6
-15379 unlink("./file.txt-kvRehu" <unfinished ...>
-15382 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15379 <... unlink resumed> )            = 0
-15382 write(1, "[HB:8] Connessione chiusa.\n", 27 <unfinished ...>
-15379 fcntl(6, F_GETFL <unfinished ...>
-15382 <... write resumed> )             = 27
-15379 <... fcntl resumed> )             = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15382 madvise(0x7f18212c2000, 8368128, MADV_DONTNEED <unfinished ...>
-15379 fstat(6, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15382 <... madvise resumed> )           = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
-15382 _exit(0)                          = ?
-15379 <... mmap resumed> )              = 0x7f1822ac3000
-15382 +++ exited with 0 +++
-15379 lseek(6, 0, SEEK_CUR)             = 0
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 8
-15379 connect(8, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-15379 sendto(8, "OPE prova/file.txt 4\n\0", 22, 0, NULL, 0) = 22
-15379 recvfrom(8, "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 9
-15379 bind(9, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(9, {sa_family=AF_INET, sin_port=htons(34052), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(9, 1)                      = 0
-15379 sendto(8, "port_num 34052", 14, 0, NULL, 0) = 14
-15379 accept(9, {sa_family=AF_INET, sin_port=htons(52584), sin_addr=inet_addr("127.0.0.1")}, [16]) = 10
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(8, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f1820ac1000
-15379 mprotect(0x7f1820ac1000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f18212c0fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f18212c19d0, tls=0x7f18212c1700, child_tidptr=0x7f18212c19d0) = 15387
-15379 futex(0xfeea38, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15387 set_robust_list(0x7f18212c19e0, 24) = 0
-15387 write(1, "[Spawining HeartBeating] sd: 10 "..., 33) = 33
-15387 futex(0xfeea38, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-15379 <... futex resumed> )             = 0
-15379 write(1, "Creato correttamente: Filename: "..., 87) = 87
-15379 write(1, "[Close] 'prova/file.txt'\n", 25) = 25
-15379 sendto(8, "CLO 0\n", 6, 0, NULL, 0) = 6
-15379 close(8 <unfinished ...>
-15387 <... futex resumed> )             = 1
-15387 recvfrom(10,  <unfinished ...>
-15379 <... close resumed> )             = 0
-15379 close(10)                         = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 open("./file.txt-xxRuUW", O_RDWR|O_CREAT|O_EXCL, 0600) = 8
-15379 unlink("./file.txt-xxRuUW")       = 0
-15379 fcntl(8, F_GETFL)                 = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15379 fstat(8,  <unfinished ...>
-15387 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15379 <... fstat resumed> {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15387 write(1, "[HB:10] Connessione chiusa.\n", 28 <unfinished ...>
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
-15387 <... write resumed> )             = 28
-15379 <... mmap resumed> )              = 0x7f1822ac2000
-15387 madvise(0x7f1820ac1000, 8368128, MADV_DONTNEED <unfinished ...>
-15379 lseek(8, 0, SEEK_CUR <unfinished ...>
-15387 <... madvise resumed> )           = 0
-15379 <... lseek resumed> )             = 0
-15387 _exit(0)                          = ?
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 10
-15387 +++ exited with 0 +++
-15379 connect(10, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-15379 sendto(10, "OPE prova/file.txt 8\n\0", 22, 0, NULL, 0) = 22
-15379 recvfrom(10, "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 11
-15379 bind(11, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(11, {sa_family=AF_INET, sin_port=htons(35213), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(11, 1)                     = 0
-15379 sendto(10, "port_num 35213", 14, 0, NULL, 0) = 14
-15379 accept(11, {sa_family=AF_INET, sin_port=htons(44475), sin_addr=inet_addr("127.0.0.1")}, [16]) = 12
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(10, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f18202c0000
-15379 mprotect(0x7f18202c0000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f1820abffb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f1820ac09d0, tls=0x7f1820ac0700, child_tidptr=0x7f1820ac09d0) = 15388
-15388 set_robust_list(0x7f1820ac09e0, 24 <unfinished ...>
-15379 futex(0xfeedc8, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15388 <... set_robust_list resumed> )   = 0
-15388 write(1, "[Spawining HeartBeating] sd: 12 "..., 33) = 33
-15388 futex(0xfeedc8, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-15379 <... futex resumed> )             = 0
-15388 <... futex resumed> )             = 1
-15379 write(1, "Creato correttamente: Filename: "..., 88 <unfinished ...>
-15388 recvfrom(12,  <unfinished ...>
-15379 <... write resumed> )             = 88
-15379 write(1, "[Close] 'prova/file.txt'\n", 25) = 25
-15379 sendto(10, "CLO 0\n", 6, 0, NULL, 0) = 6
-15379 close(10)                         = 0
-15379 close(12)                         = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 open("./file.txt-cbguyp", O_RDWR|O_CREAT|O_EXCL, 0600) = 10
-15379 unlink("./file.txt-cbguyp" <unfinished ...>
-15388 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15379 <... unlink resumed> )            = 0
-15379 fcntl(10, F_GETFL)                = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15388 write(1, "[HB:12] Connessione chiusa.\n", 28 <unfinished ...>
-15379 fstat(10, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822ac1000
-15379 lseek(10, 0, SEEK_CUR)            = 0
-15388 <... write resumed> )             = 28
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP <unfinished ...>
-15388 madvise(0x7f18202c0000, 8368128, MADV_DONTNEED <unfinished ...>
-15379 <... socket resumed> )            = 12
-15388 <... madvise resumed> )           = 0
-15379 connect(12, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16 <unfinished ...>
-15388 _exit(0)                          = ?
-15388 +++ exited with 0 +++
-15379 <... connect resumed> )           = 0
-15379 sendto(12, "OPE prova/file.txt 16\n", 22, 0, NULL, 0) = 22
-15379 recvfrom(12, "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 13
-15379 bind(13, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(13, {sa_family=AF_INET, sin_port=htons(55512), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(13, 1)                     = 0
-15379 sendto(12, "port_num 55512", 14, 0, NULL, 0) = 14
-15379 accept(13, {sa_family=AF_INET, sin_port=htons(36990), sin_addr=inet_addr("127.0.0.1")}, [16]) = 14
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(12, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f181fabf000
-15379 mprotect(0x7f181fabf000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f18202befb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f18202bf9d0, tls=0x7f18202bf700, child_tidptr=0x7f18202bf9d0) = 15392
-15379 futex(0xfef158, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15392 set_robust_list(0x7f18202bf9e0, 24) = 0
-15392 write(1, "[Spawining HeartBeating] sd: 14 "..., 33) = 33
-15392 futex(0xfef158, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-15379 <... futex resumed> )             = 0
-15392 <... futex resumed> )             = 1
-15379 write(1, "Creato correttamente: Filename: "..., 89 <unfinished ...>
-15392 recvfrom(14,  <unfinished ...>
-15379 <... write resumed> )             = 89
-15379 write(1, "[Close] 'prova/file.txt'\n", 25) = 25
-15379 sendto(12, "CLO 0\n", 6, 0, NULL, 0) = 6
-15379 close(12)                         = 0
-15379 close(14)                         = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 open("./file.txt-jZOkqX", O_RDWR|O_CREAT|O_EXCL, 0600) = 12
-15379 unlink("./file.txt-jZOkqX")       = 0
-15379 fcntl(12, F_GETFL <unfinished ...>
-15392 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15379 <... fcntl resumed> )             = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15392 write(1, "[HB:14] Connessione chiusa.\n", 28 <unfinished ...>
-15379 fstat(12, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822ac0000
-15392 <... write resumed> )             = 28
-15379 lseek(12, 0, SEEK_CUR <unfinished ...>
-15392 madvise(0x7f181fabf000, 8368128, MADV_DONTNEED <unfinished ...>
-15379 <... lseek resumed> )             = 0
-15392 <... madvise resumed> )           = 0
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP <unfinished ...>
-15392 _exit(0)                          = ?
-15379 <... socket resumed> )            = 14
-15379 connect(14, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16 <unfinished ...>
-15392 +++ exited with 0 +++
-15379 <... connect resumed> )           = 0
-15379 sendto(14, "OPE prova/file.txt 32\n", 22, 0, NULL, 0) = 22
-15379 recvfrom(14, "-3\n", 29, 0, NULL, NULL) = 3
-15379 write(1, "[Open] Error: errore sul file (a"..., 85) = 85
-15379 write(1, "MYO_EXCL percio' tutto ok\n", 26) = 26
-15379 open("./file.txt-MUNuiv", O_RDWR|O_CREAT|O_EXCL, 0600) = 15
-15379 unlink("./file.txt-MUNuiv")       = 0
-15379 fcntl(15, F_GETFL)                = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15379 fstat(15, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822abf000
-15379 lseek(15, 0, SEEK_CUR)            = 0
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 16
-15379 connect(16, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-15379 sendto(16, "OPE prova/file.txt 64\n", 22, 0, NULL, 0) = 22
-15379 recvfrom(16, "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 17
-15379 bind(17, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(17, {sa_family=AF_INET, sin_port=htons(45350), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(17, 1)                     = 0
-15379 sendto(16, "port_num 45350", 14, 0, NULL, 0) = 14
-15379 accept(17, {sa_family=AF_INET, sin_port=htons(43271), sin_addr=inet_addr("127.0.0.1")}, [16]) = 18
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(16, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f181f2be000
-15379 mprotect(0x7f181f2be000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f181fabdfb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f181fabe9d0, tls=0x7f181fabe700, child_tidptr=0x7f181fabe9d0) = 15397
-15397 set_robust_list(0x7f181fabe9e0, 24 <unfinished ...>
-15379 futex(0xfef7e8, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15397 <... set_robust_list resumed> )   = 0
-15397 write(1, "[Spawining HeartBeating] sd: 18 "..., 33) = 33
-15397 futex(0xfef7e8, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-15379 <... futex resumed> )             = 0
-15397 <... futex resumed> )             = 1
-15379 write(1, "Creato correttamente: Filename: "..., 89 <unfinished ...>
-15397 recvfrom(18,  <unfinished ...>
-15379 <... write resumed> )             = 89
-15379 write(1, "[Close] 'prova/file.txt'\n", 25) = 25
-15379 sendto(16, "CLO 0\n", 6, 0, NULL, 0) = 6
-15379 close(16)                         = 0
-15379 close(18)                         = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 write(1, "\n", 1)                 = 1
-15379 write(1, "\t[V-15379] Test OPEN superato co"..., 45) = 45
-15379 write(1, "[TEST INVALIDAZIONECACHE] Inizia"..., 36) = 36
-15397 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15379 open(".file.txt-BR7yo8", O_RDWR|O_CREAT|O_EXCL, 0600) = 16
-15379 unlink(".file.txt-BR7yo8" <unfinished ...>
-15397 write(1, "[HB:18] Connessione chiusa.\n", 28 <unfinished ...>
-15379 <... unlink resumed> )            = 0
-15379 fcntl(16, F_GETFL)                = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15379 fstat(16, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
-15397 <... write resumed> )             = 28
-15379 <... mmap resumed> )              = 0x7f1822abe000
-15397 madvise(0x7f181f2be000, 8368128, MADV_DONTNEED <unfinished ...>
-15379 lseek(16, 0, SEEK_CUR)            = 0
-15397 <... madvise resumed> )           = 0
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP <unfinished ...>
-15397 _exit(0)                          = ?
-15379 <... socket resumed> )            = 18
-15379 connect(18, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16 <unfinished ...>
-15397 +++ exited with 0 +++
-15379 <... connect resumed> )           = 0
-15379 sendto(18, "OPE file.txt 1\n\0", 16, 0, NULL, 0) = 16
-15379 recvfrom(18, "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 19
-15379 bind(19, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(19, {sa_family=AF_INET, sin_port=htons(41968), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(19, 1)                     = 0
-15379 sendto(18, "port_num 41968", 14, 0, NULL, 0) = 14
-15379 accept(19, {sa_family=AF_INET, sin_port=htons(49322), sin_addr=inet_addr("127.0.0.1")}, [16]) = 20
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(18, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f181eabd000
-15379 mprotect(0x7f181eabd000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f181f2bcfb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f181f2bd9d0, tls=0x7f181f2bd700, child_tidptr=0x7f181f2bd9d0) = 15398
-15379 futex(0xfefb78, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15398 set_robust_list(0x7f181f2bd9e0, 24) = 0
-15398 write(1, "[Spawining HeartBeating] sd: 20 "..., 33) = 33
-15398 futex(0xfefb78, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-15379 <... futex resumed> )             = 0
-15398 <... futex resumed> )             = 1
-15379 write(1, "Creato correttamente: Filename: "..., 82 <unfinished ...>
-15398 recvfrom(20,  <unfinished ...>
-15379 <... write resumed> )             = 82
-15379 open(".file.txt-q6w4uL", O_RDWR|O_CREAT|O_EXCL, 0600) = 21
-15379 unlink(".file.txt-q6w4uL")        = 0
-15379 fcntl(21, F_GETFL)                = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15379 fstat(21, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822abd000
-15379 lseek(21, 0, SEEK_CUR)            = 0
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 22
-15379 connect(22, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-15379 sendto(22, "OPE file.txt 4\n\0", 16, 0, NULL, 0) = 16
-15379 recvfrom(22, "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 23
-15379 bind(23, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(23, {sa_family=AF_INET, sin_port=htons(37854), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(23, 1)                     = 0
-15379 sendto(22, "port_num 37854", 14, 0, NULL, 0) = 14
-15379 accept(23, {sa_family=AF_INET, sin_port=htons(48975), sin_addr=inet_addr("127.0.0.1")}, [16]) = 24
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(22, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f181e2bc000
-15379 mprotect(0x7f181e2bc000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f181eabbfb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f181eabc9d0, tls=0x7f181eabc700, child_tidptr=0x7f181eabc9d0) = 15402
-15402 set_robust_list(0x7f181eabc9e0, 24 <unfinished ...>
-15379 futex(0xfeffc8, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15402 <... set_robust_list resumed> )   = 0
-15402 write(1, "[Spawining HeartBeating] sd: 24 "..., 33) = 33
-15402 futex(0xfeffc8, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-15379 <... futex resumed> )             = 0
-15402 <... futex resumed> )             = 1
-15379 write(1, "Creato correttamente: Filename: "..., 82 <unfinished ...>
-15402 recvfrom(24,  <unfinished ...>
-15379 <... write resumed> )             = 82
-15379 lseek(16, 0, SEEK_SET)            = 0
-15379 write(1, "size: 99, filesize:108 \n", 24) = 24
-15379 write(1, "Posizione del puntatore all' ini"..., 49) = 49
-15379 write(1, "mydfs_read: primo buco: 0\n", 26) = 26
-15379 write(1, "Mando richiesta di READ:'REA 0\n", 31) = 31
-15379 write(1, "'\n", 2)                = 2
-15379 sendto(18, "REA 0\n", 6, 0, NULL, 0) = 6
-15379 recvfrom(18, "size 108\0\0\0\0\0\0\0", 15, 0, NULL, NULL) = 15
-15379 write(1, "Mi sta mandando: 108 dati.\n", 27) = 27
-15379 recvfrom(18, "CIAO MONDO SONO UN FILE DI TEST!"..., 108, 0, NULL, NULL) = 108
-15379 write(1, "Size rimasta: 108Ricevuto per or"..., 39) = 39
-15379 write(1, "[WriteCache] Devo scrivere: 108 "..., 55) = 55
-15379 lseek(16, 0, SEEK_SET)            = 0
-15379 write(1, "[WriteCache] Scritti '108' dati "..., 60) = 60
-15379 write(16, "CIAO MONDO SONO UN FILE DI TEST!"..., 108) = 108
-15379 lseek(16, 0, SEEK_SET)            = 0
-15379 read(16, "CIAO MONDO SONO UN FILE DI TEST!"..., 4096) = 108
-15379 write(1, "Posizione del puntatore ala fine"..., 47) = 47
-15379 lseek(21, 0, SEEK_SET)            = 0
-15379 write(1, "[Close] 'file.txt'\n", 19) = 19
-15379 sendto(22, "CLO 1\n", 6, 0, NULL, 0) = 6
-15379 write(1, "Sto inviando il comando: POS 0 S"..., 39) = 39
-15379 write(1, "\n", 1)                 = 1
-15379 sendto(24, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, 0) = 100
-15379 write(1, "Fatta la send! dovrei invaire 51"..., 50) = 50
-15379 write(21, "Questo e' un test per l' invalid"..., 51) = 51
-15379 lseek(21, 0, SEEK_SET)            = 0
-15379 read(21, "Questo e' un test per l' invalid"..., 4096) = 51
-15379 write(1, "Sto inviando 51 dati.\n", 22) = 22
-15379 sendto(24, "Questo e' un test per l' invalid"..., 51, 0, NULL, 0) = 51
-15379 close(22)                         = 0
-15379 close(24)                         = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-15379 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-15379 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-15379 nanosleep({2, 0},  <unfinished ...>
-15398 <... recvfrom resumed> "INVA", 5, 0, NULL, NULL) = 4
-15398 write(1, "[Heartbeating 20] Ricevuto coman"..., 53) = 53
-15398 recvfrom(20,  <unfinished ...>
-15402 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15402 write(1, "[HB:24] Connessione chiusa.\n", 28) = 28
-15402 madvise(0x7f181e2bc000, 8368128, MADV_DONTNEED) = 0
-15402 _exit(0)                          = ?
-15402 +++ exited with 0 +++
-15379 <... nanosleep resumed> 0x7fff5bba59f0) = 0
-15379 lseek(16, 108, SEEK_SET)          = 108
-15379 write(1, "size: 99, filesize:108 \n", 24) = 24
-15379 write(1, "Posizione del puntatore all' ini"..., 49) = 49
-15379 write(1, "mydfs_read: primo buco: 0\n", 26) = 26
-15379 write(1, "Mando richiesta di READ:'REA 0\n", 31) = 31
-15379 write(1, "'\n", 2)                = 2
-15379 sendto(18, "REA 0\n", 6, 0, NULL, 0) = 6
-15379 recvfrom(18, "size 108\0\0\0\0\0\0\0", 15, 0, NULL, NULL) = 15
-15379 write(1, "Mi sta mandando: 108 dati.\n", 27) = 27
-15379 recvfrom(18, "Questo e' un test per l' invalid"..., 108, 0, NULL, NULL) = 108
-15379 write(1, "Size rimasta: 108Ricevuto per or"..., 39) = 39
-15379 write(1, "[WriteCache] Devo scrivere: 108 "..., 55) = 55
-15379 lseek(16, 108, SEEK_SET)          = 108
-15379 write(1, "[WriteCache] Scritti '108' dati "..., 60) = 60
-15379 lseek(16, -108, SEEK_CUR)         = 0
-15379 write(16, "Questo e' un test per l' invalid"..., 108) = 108
-15379 lseek(16, 0, SEEK_SET)            = 0
-15379 read(16, "Questo e' un test per l' invalid"..., 4096) = 108
-15379 write(1, "Posizione del puntatore ala fine"..., 47) = 47
-15379 write(1, "[Close] 'file.txt'\n", 19) = 19
-15379 sendto(18, "CLO 0\n", 6, 0, NULL, 0) = 6
-15379 close(18)                         = 0
-15379 close(20)                         = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 write(1, "\n", 1)                 = 1
-15379 write(1, "\t[V-15379] Test INVALIDAZIONECAC"..., 59 <unfinished ...>
-15398 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15398 futex(0x7f18226849e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
-15379 <... write resumed> )             = 59
-15379 futex(0x7f18226849e0, FUTEX_WAKE_PRIVATE, 1) = 1
-15379 write(1, "[TEST READ] Iniziato \n", 22 <unfinished ...>
-15398 <... futex resumed> )             = 0
-15379 <... write resumed> )             = 22
-15398 futex(0x7f18226849e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
-15379 futex(0x7f18226849e0, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
-15398 <... futex resumed> )             = -1 EAGAIN (Resource temporarily unavailable)
-15379 <... futex resumed> )             = 0
-15398 write(1, "[HB:20] Connessione chiusa.\n", 28 <unfinished ...>
-15379 open("./file.txt-L5xR4y", O_RDWR|O_CREAT|O_EXCL, 0600 <unfinished ...>
-15398 <... write resumed> )             = 28
-15398 futex(0x7f18226849e0, FUTEX_WAKE_PRIVATE, 1) = 0
-15379 <... open resumed> )              = 18
-15398 madvise(0x7f181eabd000, 8368128, MADV_DONTNEED <unfinished ...>
-15379 unlink("./file.txt-L5xR4y" <unfinished ...>
-15398 <... madvise resumed> )           = 0
-15379 <... unlink resumed> )            = 0
-15398 _exit(0)                          = ?
-15379 fcntl(18, F_GETFL)                = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15398 +++ exited with 0 +++
-15379 fstat(18, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822abc000
-15379 lseek(18, 0, SEEK_CUR)            = 0
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 20
-15379 connect(20, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-15379 sendto(20, "OPE prova/file.txt 4\n\0", 22, 0, NULL, 0) = 22
-15379 recvfrom(20, "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 22
-15379 bind(22, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(22, {sa_family=AF_INET, sin_port=htons(57990), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(22, 1)                     = 0
-15379 sendto(20, "port_num 57990", 14, 0, NULL, 0) = 14
-15379 accept(22, {sa_family=AF_INET, sin_port=htons(42814), sin_addr=inet_addr("127.0.0.1")}, [16]) = 24
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(20, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f181dabb000
-15379 mprotect(0x7f181dabb000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f181e2bafb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f181e2bb9d0, tls=0x7f181e2bb700, child_tidptr=0x7f181e2bb9d0) = 15406
-15379 futex(0xfefd18, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15406 set_robust_list(0x7f181e2bb9e0, 24) = 0
-15406 write(1, "[Spawining HeartBeating] sd: 24 "..., 33) = 33
-15406 futex(0xfefd18, FUTEX_WAKE_PRIVATE, 2147483647) = 1
-15379 <... futex resumed> )             = 0
-15406 recvfrom(24,  <unfinished ...>
-15379 write(1, "Creato correttamente: Filename: "..., 88) = 88
-15379 lseek(18, 0, SEEK_SET)            = 0
-15379 write(1, "[Close] 'prova/file.txt'\n", 25) = 25
-15379 sendto(20, "CLO 1\n", 6, 0, NULL, 0) = 6
-15379 write(1, "Sto inviando il comando: POS 0 S"..., 39) = 39
-15379 write(1, "\n", 1)                 = 1
-15379 sendto(24, "POS 0 SIZE 44\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, 0) = 100
-15379 write(1, "Fatta la send! dovrei invaire 44"..., 50) = 50
-15379 write(18, "Questo e' un test della read, ma"..., 44) = 44
-15379 lseek(18, 0, SEEK_SET)            = 0
-15379 read(18, "Questo e' un test della read, ma"..., 4096) = 44
-15379 write(1, "Sto inviando 44 dati.\n", 22) = 22
-15379 sendto(24, "Questo e' un test della read, ma"..., 44, 0, NULL, 0) = 44
-15379 close(20)                         = 0
-15379 close(24)                         = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 open("./file.txt-uHjzFm", O_RDWR|O_CREAT|O_EXCL, 0600) = 20
-15379 unlink("./file.txt-uHjzFm")       = 0
-15379 fcntl(20, F_GETFL)                = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15379 fstat(20, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822abb000
-15379 lseek(20, 0, SEEK_CUR)            = 0
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 24
-15379 connect(24, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-15379 sendto(24, "OPE prova/file.txt 1\n\0", 22, 0, NULL, 0) = 22
-15379 recvfrom(24,  <unfinished ...>
-15406 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15406 write(1, "[HB:24] Connessione chiusa.\n", 28) = 28
-15406 madvise(0x7f181dabb000, 8368128, MADV_DONTNEED) = 0
-15406 _exit(0)                          = ?
-15406 +++ exited with 0 +++
-15379 <... recvfrom resumed> "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 25
-15379 bind(25, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(25, {sa_family=AF_INET, sin_port=htons(38687), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(25, 1)                     = 0
-15379 sendto(24, "port_num 38687", 14, 0, NULL, 0) = 14
-15379 accept(25, {sa_family=AF_INET, sin_port=htons(43287), sin_addr=inet_addr("127.0.0.1")}, [16]) = 26
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(24, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f181d2ba000
-15379 mprotect(0x7f181d2ba000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f181dab9fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f181daba9d0, tls=0x7f181daba700, child_tidptr=0x7f181daba9d0) = 15410
-15410 set_robust_list(0x7f181daba9e0, 24 <unfinished ...>
-15379 futex(0xff0738, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15410 <... set_robust_list resumed> )   = 0
-15410 write(1, "[Spawining HeartBeating] sd: 26 "..., 33) = 33
-15410 futex(0xff0738, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-15379 <... futex resumed> )             = 0
-15410 <... futex resumed> )             = 1
-15379 write(1, "Creato correttamente: Filename: "..., 88 <unfinished ...>
-15410 recvfrom(26,  <unfinished ...>
-15379 <... write resumed> )             = 88
-15379 lseek(20, 0, SEEK_SET)            = 0
-15379 write(1, "size: 0, filesize:108 \n", 23) = 23
-15379 write(1, "Posizione del puntatore all' ini"..., 49) = 49
-15379 write(1, "mydfs_read: primo buco: 0\n", 26) = 26
-15379 write(1, "Mando richiesta di READ:'REA 0\n", 31) = 31
-15379 write(1, "'\n", 2)                = 2
-15379 sendto(24, "REA 0\n", 6, 0, NULL, 0) = 6
-15379 recvfrom(24, "size 108\0\0\0\0\0\0\0", 15, 0, NULL, NULL) = 15
-15379 write(1, "Mi sta mandando: 108 dati.\n", 27) = 27
-15379 recvfrom(24, "Questo e' un test della read, ma"..., 108, 0, NULL, NULL) = 108
-15379 write(1, "Size rimasta: 108Ricevuto per or"..., 39) = 39
-15379 write(1, "[WriteCache] Devo scrivere: 108 "..., 55) = 55
-15379 lseek(20, 0, SEEK_SET)            = 0
-15379 write(1, "[WriteCache] Scritti '108' dati "..., 60) = 60
-15379 write(20, "Questo e' un test della read, ma"..., 108) = 108
-15379 lseek(20, 0, SEEK_SET)            = 0
-15379 write(1, "Posizione del puntatore ala fine"..., 46) = 46
-15379 lseek(20, 0, SEEK_SET)            = 0
-15379 write(1, "size: 44, filesize:108 \n", 24) = 24
-15379 write(1, "Posizione del puntatore all' ini"..., 49) = 49
-15379 read(20, "Questo e' un test della read, ma"..., 4096) = 108
-15379 write(1, "Posizione del puntatore ala fine"..., 47) = 47
-15379 write(1, "Myseekend\n", 10)       = 10
-15379 lseek(20, 0, SEEK_SET)            = 0
-15379 read(20, "Questo e' un test della read, ma"..., 4096) = 108
-15379 write(1, "size: 0, filesize:108 \n", 23) = 23
-15379 write(1, "Posizione del puntatore all' ini"..., 51) = 51
-15379 write(1, "Posizione del puntatore ala fine"..., 48) = 48
-15379 lseek(20, 108, SEEK_SET)          = 108
-15379 write(1, "size: 44, filesize:108 \n", 24) = 24
-15379 write(1, "Posizione del puntatore all' ini"..., 49) = 49
-15379 write(1, "Posizione del puntatore ala fine"..., 47) = 47
-15379 lseek(20, 108, SEEK_SET)          = 108
-15379 write(1, "size: 0, filesize:108 \n", 23) = 23
-15379 write(1, "Posizione del puntatore all' ini"..., 49) = 49
-15379 write(1, "Posizione del puntatore ala fine"..., 46) = 46
-15379 lseek(20, 108, SEEK_SET)          = 108
-15379 write(1, "size: 49, filesize:108 \n", 24) = 24
-15379 write(1, "Posizione del puntatore all' ini"..., 49) = 49
-15379 write(1, "Posizione del puntatore ala fine"..., 47) = 47
-15379 lseek(20, 108, SEEK_SET)          = 108
-15379 write(1, "size: 49, filesize:108 \n", 24) = 24
-15379 write(1, "Posizione del puntatore all' ini"..., 50) = 50
-15379 write(1, "Posizione del puntatore ala fine"..., 47) = 47
-15379 lseek(20, 108, SEEK_SET)          = 108
-15379 write(1, "size: 10, filesize:108 \n", 24) = 24
-15379 write(1, "Posizione del puntatore all' ini"..., 50) = 50
-15379 write(1, "Posizione del puntatore ala fine"..., 48) = 48
-15379 lseek(20, 0, SEEK_SET)            = 0
-15379 read(20, "Questo e' un test della read, ma"..., 4096) = 108
-15379 write(1, "size: 0, filesize:108 \n", 23) = 23
-15379 write(1, "Posizione del puntatore all' ini"..., 51) = 51
-15379 write(1, "Posizione del puntatore ala fine"..., 48) = 48
-15379 open("/tmp/prova/file.txt", O_RDONLY) = 27
-15379 fstat(27, {st_mode=S_IFREG|0644, st_size=108, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1822aba000
-15379 read(27, "Questo e' un test della read, ma"..., 4096) = 108
-15379 read(27, "", 4096)                = 0
-15379 read(27, "", 4096)                = 0
-15379 write(1, "[Close] 'prova/file.txt'\n", 25) = 25
-15379 sendto(24, "CLO 0\n", 6, 0, NULL, 0) = 6
-15379 close(24)                         = 0
-15379 close(26)                         = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 write(1, "\n", 1)                 = 1
-15379 write(1, "\t[V-15379] Test READ superato co"..., 45) = 45
-15379 write(1, "[TEST WRITE] Iniziato \n", 23 <unfinished ...>
-15410 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15379 <... write resumed> )             = 23
-15410 futex(0x7f18226849e0, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
-15379 futex(0x7f18226849e0, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
-15410 <... futex resumed> )             = -1 EAGAIN (Resource temporarily unavailable)
-15379 <... futex resumed> )             = 0
-15379 open("./file.txt-lRy6zf", O_RDWR|O_CREAT|O_EXCL, 0600 <unfinished ...>
-15410 write(1, "[HB:26] Connessione chiusa.\n", 28) = 28
-15379 <... open resumed> )              = 24
-15410 futex(0x7f18226849e0, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
-15379 unlink("./file.txt-lRy6zf" <unfinished ...>
-15410 <... futex resumed> )             = 0
-15379 <... unlink resumed> )            = 0
-15379 fcntl(24, F_GETFL <unfinished ...>
-15410 madvise(0x7f181d2ba000, 8368128, MADV_DONTNEED <unfinished ...>
-15379 <... fcntl resumed> )             = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15410 <... madvise resumed> )           = 0
-15379 fstat(24,  <unfinished ...>
-15410 _exit(0)                          = ?
-15379 <... fstat resumed> {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
-15410 +++ exited with 0 +++
-15379 <... mmap resumed> )              = 0x7f1822ab9000
-15379 lseek(24, 0, SEEK_CUR)            = 0
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 26
-15379 connect(26, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-15379 sendto(26, "OPE prova/file.txt 4\n\0", 22, 0, NULL, 0) = 22
-15379 recvfrom(26, "108", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 28
-15379 bind(28, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(28, {sa_family=AF_INET, sin_port=htons(45956), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(28, 1)                     = 0
-15379 sendto(26, "port_num 45956", 14, 0, NULL, 0) = 14
-15379 accept(28, {sa_family=AF_INET, sin_port=htons(33012), sin_addr=inet_addr("127.0.0.1")}, [16]) = 29
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(26, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f181cab9000
-15379 mprotect(0x7f181cab9000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f181d2b8fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f181d2b99d0, tls=0x7f181d2b9700, child_tidptr=0x7f181d2b99d0) = 15412
-15412 set_robust_list(0x7f181d2b99e0, 24 <unfinished ...>
-15379 futex(0xff0d08, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15412 <... set_robust_list resumed> )   = 0
-15412 write(1, "[Spawining HeartBeating] sd: 29 "..., 33) = 33
-15412 futex(0xff0d08, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-15379 <... futex resumed> )             = 0
-15412 <... futex resumed> )             = 1
-15379 write(1, "Creato correttamente: Filename: "..., 88 <unfinished ...>
-15412 recvfrom(29,  <unfinished ...>
-15379 <... write resumed> )             = 88
-15379 lseek(24, 0, SEEK_SET)            = 0
-15379 write(24, "Primo", 5)             = 5
-15379 lseek(24, 0, SEEK_SET)            = 0
-15379 write(1, "size: 5, filesize:108 \n", 23) = 23
-15379 write(1, "Posizione del puntatore all' ini"..., 49) = 49
-15379 write(1, "mydfs_read: primo buco: 5\n", 26) = 26
-15379 write(1, "Mando richiesta di READ:'REA 5\n", 31) = 31
-15379 write(1, "'\n", 2)                = 2
-15379 sendto(26, "REA 5\n", 6, 0, NULL, 0) = 6
-15379 recvfrom(26, "size 103\0\0\0\0\0\0\0", 15, 0, NULL, NULL) = 15
-15379 write(1, "Mi sta mandando: 103 dati.\n", 27) = 27
-15379 recvfrom(26, "o e' un test della read, ma scri"..., 103, 0, NULL, NULL) = 103
-15379 write(1, "Size rimasta: 103Ricevuto per or"..., 39) = 39
-15379 write(1, "[WriteCache] Devo scrivere: 103 "..., 55) = 55
-15379 lseek(24, 0, SEEK_SET)            = 0
-15379 read(24, "Primo", 5)              = 5
-15379 write(1, "[WriteCache] Scritti '103' dati "..., 60) = 60
-15379 write(24, "o e' un test della read, ma scri"..., 103) = 103
-15379 lseek(24, 0, SEEK_SET)            = 0
-15379 read(24, "Primoo e' un test della read, ma"..., 4096) = 108
-15379 write(1, "Posizione del puntatore ala fine"..., 46) = 46
-15379 lseek(24, 0, SEEK_SET)            = 0
-15379 read(24, "Primoo e' un test della read, ma"..., 4096) = 108
-15379 write(24, "Secondo", 7)           = 7
-15379 lseek(24, 0, SEEK_SET)            = 0
-15379 write(1, "size: 115, filesize:115 \n", 25) = 25
-15379 write(1, "Posizione del puntatore all' ini"..., 49) = 49
-15379 read(24, "Primoo e' un test della read, ma"..., 4096) = 115
-15379 write(1, "Posizione del puntatore ala fine"..., 48) = 48
-15379 write(1, "[Close] 'prova/file.txt'\n", 25) = 25
-15379 sendto(26, "CLO 2\n", 6, 0, NULL, 0) = 6
-15379 write(1, "Sto inviando il comando: POS 0 S"..., 38) = 38
-15379 write(1, "\n", 1)                 = 1
-15379 sendto(29, "POS 0 SIZE 5\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, 0) = 100
-15379 write(1, "Fatta la send! dovrei invaire 5 "..., 49) = 49
-15379 lseek(24, 115, SEEK_SET)          = 115
-15379 write(1, "Sto inviando 5 dati.\n", 21) = 21
-15379 sendto(29, "Primo", 5, 0, NULL, 0) = 5
-15379 write(1, "Sto inviando il comando: POS 108"..., 40) = 40
-15379 write(1, "\n", 1)                 = 1
-15379 sendto(29, "POS 108 SIZE 7\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, 0) = 100
-15379 write(1, "Fatta la send! dovrei invaire 7 "..., 49) = 49
-15379 lseek(24, 115, SEEK_SET)          = 115
-15379 write(1, "Sto inviando 7 dati.\n", 21) = 21
-15379 sendto(29, "Secondo", 7, 0, NULL, 0) = 7
-15379 close(26)                         = 0
-15379 close(29)                         = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 write(1, "\n", 1)                 = 1
-15379 write(1, "\t[V-15379] Test WRITE superato c"..., 46) = 46
-15379 open("./file.txt-mOpYB8", O_RDWR|O_CREAT|O_EXCL, 0600) = 26
-15379 unlink("./file.txt-mOpYB8")       = 0
-15379 fcntl(26, F_GETFL)                = 0x8002 (flags O_RDWR|O_LARGEFILE)
-15379 fstat(26, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-15379 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
-15412 <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-15379 <... mmap resumed> )              = 0x7f1822ab8000
-15412 write(1, "[HB:29] Connessione chiusa.\n", 28 <unfinished ...>
-15379 lseek(26, 0, SEEK_CUR)            = 0
-15412 <... write resumed> )             = 28
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 29
-15412 madvise(0x7f181cab9000, 8368128, MADV_DONTNEED <unfinished ...>
-15379 connect(29, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16 <unfinished ...>
-15412 <... madvise resumed> )           = 0
-15412 _exit(0)                          = ?
-15379 <... connect resumed> )           = 0
-15412 +++ exited with 0 +++
-15379 sendto(29, "OPE prova/file.txt 2\n\0", 22, 0, NULL, 0) = 22
-15379 recvfrom(29, "115", 29, 0, NULL, NULL) = 3
-15379 socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 30
-15379 bind(30, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-15379 getsockname(30, {sa_family=AF_INET, sin_port=htons(42487), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-15379 write(1, "Sto richiedendo la connessione s"..., 57) = 57
-15379 listen(30, 1)                     = 0
-15379 sendto(29, "port_num 42487", 14, 0, NULL, 0) = 14
-15379 accept(30, {sa_family=AF_INET, sin_port=htons(41606), sin_addr=inet_addr("127.0.0.1")}, [16]) = 31
-15379 write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-15379 recvfrom(29, "ok", 14, 0, NULL, NULL) = 2
-15379 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f181c2b8000
-15379 mprotect(0x7f181c2b8000, 4096, PROT_NONE) = 0
-15379 clone(child_stack=0x7f181cab7fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f181cab89d0, tls=0x7f181cab8700, child_tidptr=0x7f181cab89d0) = 15417
-15417 set_robust_list(0x7f181cab89e0, 24 <unfinished ...>
-15379 futex(0xff1098, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-15417 <... set_robust_list resumed> )   = 0
-15417 write(1, "[Spawining HeartBeating] sd: 31 "..., 33) = 33
-15417 futex(0xff1098, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-15379 <... futex resumed> )             = 0
-15417 <... futex resumed> )             = 1
-15379 write(1, "Creato correttamente: Filename: "..., 88 <unfinished ...>
-15417 recvfrom(31,  <unfinished ...>
-15379 <... write resumed> )             = 88
-15379 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-15379 rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-15379 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-15379 nanosleep({8, 0},  <unfinished ...>
-15417 <... recvfrom resumed> "ping\0", 5, 0, NULL, NULL) = 5
-15417 sendto(31, "pong", 4, 0, NULL, 0) = 4
-15417 write(1, "[Heartbeating 31] PONG! 4, 'ping"..., 34) = 34
-15417 recvfrom(31, "ping\0", 5, 0, NULL, NULL) = 5
-15417 sendto(31, "pong", 4, 0, NULL, 0) = 4
-15417 write(1, "[Heartbeating 31] PONG! 4, 'ping"..., 34) = 34
-15417 recvfrom(31, "ping\0", 5, 0, NULL, NULL) = 5
-15417 sendto(31, "pong", 4, 0, NULL, 0) = 4
-15417 write(1, "[Heartbeating 31] PONG! 4, 'ping"..., 34) = 34
-15417 recvfrom(31,  <unfinished ...>
-15379 <... nanosleep resumed> 0x7fff5bba5ac0) = 0
-15379 write(1, "[Close] 'prova/file.txt'\n", 25) = 25
-15379 sendto(29, "CLO 0\n", 6, 0, NULL, 0) = 6
-15379 close(29)                         = 0
-15379 close(31)                         = 0
-15379 write(1, "Chiusura effettuata con successo"..., 34) = 34
-15379 write(1, "Quante sono i ping? 3 = passato\n", 32) = 32
-15379 lseek(16, -9, SEEK_CUR)           = 99
-15379 exit_group(0)                     = ?
-15417 +++ exited with 0 +++
-15379 +++ exited with 0 +++
+3432  execve("./TestInvalidazione", ["./TestInvalidazione"], [/* 53 vars */]) = 0
+3432  brk(0)                            = 0x24b4000
+3432  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+3432  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d0ba000
+3432  access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+3432  open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+3432  fstat(3, {st_mode=S_IFREG|0644, st_size=124144, ...}) = 0
+3432  mmap(NULL, 124144, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f1c4d09b000
+3432  close(3)                          = 0
+3432  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+3432  open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+3432  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0po\0\0\0\0\0\0"..., 832) = 832
+3432  fstat(3, {st_mode=S_IFREG|0755, st_size=141574, ...}) = 0
+3432  mmap(NULL, 2217264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f1c4cc7c000
+3432  mprotect(0x7f1c4cc95000, 2093056, PROT_NONE) = 0
+3432  mmap(0x7f1c4ce94000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7f1c4ce94000
+3432  mmap(0x7f1c4ce96000, 13616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f1c4ce96000
+3432  close(3)                          = 0
+3432  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+3432  open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+3432  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\37\2\0\0\0\0\0"..., 832) = 832
+3432  fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
+3432  mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f1c4c8b7000
+3432  mprotect(0x7f1c4ca72000, 2093056, PROT_NONE) = 0
+3432  mmap(0x7f1c4cc71000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7f1c4cc71000
+3432  mmap(0x7f1c4cc77000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f1c4cc77000
+3432  close(3)                          = 0
+3432  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d09a000
+3432  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d098000
+3432  arch_prctl(ARCH_SET_FS, 0x7f1c4d098740) = 0
+3432  mprotect(0x7f1c4cc71000, 16384, PROT_READ) = 0
+3432  mprotect(0x7f1c4ce94000, 4096, PROT_READ) = 0
+3432  mprotect(0x606000, 4096, PROT_READ) = 0
+3432  mprotect(0x7f1c4d0bc000, 4096, PROT_READ) = 0
+3432  munmap(0x7f1c4d09b000, 124144)    = 0
+3432  set_tid_address(0x7f1c4d098a10)   = 3432
+3432  set_robust_list(0x7f1c4d098a20, 24) = 0
+3432  futex(0x7ffc9d0ea9a0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7f1c4d098740) = -1 EAGAIN (Resource temporarily unavailable)
+3432  rt_sigaction(SIGRTMIN, {0x7f1c4cc829f0, [], SA_RESTORER|SA_SIGINFO, 0x7f1c4cc8c340}, NULL, 8) = 0
+3432  rt_sigaction(SIGRT_1, {0x7f1c4cc82a80, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7f1c4cc8c340}, NULL, 8) = 0
+3432  rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+3432  getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+3432  brk(0)                            = 0x24b4000
+3432  brk(0x24db000)                    = 0x24db000
+3432  rt_sigaction(SIGPROF, {0x7f1c4c9b38c0, ~[], SA_RESTORER|SA_RESTART, 0x7f1c4c8edd40}, {SIG_DFL, [], 0}, 8) = 0
+3432  setitimer(ITIMER_PROF, {it_interval={0, 10000}, it_value={0, 10000}}, {it_interval={0, 0}, it_value={0, 0}}) = 0
+3432  fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 1), ...}) = 0
+3432  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d0b9000
+3432  write(1, "[TEST INVALIDAZIONECACHE] Inizia"..., 36) = 36
+3432  write(1, "\t [Test di invalidazione della c"..., 38) = 38
+3432  open(".file.txt-FFh9nw", O_RDWR|O_CREAT|O_EXCL, 0600) = 3
+3432  unlink(".file.txt-FFh9nw")        = 0
+3432  write(1, "[Cache] Creato temp file: '.file"..., 45) = 45
+3432  fcntl(3, F_GETFL)                 = 0x8002 (flags O_RDWR|O_LARGEFILE)
+3432  fstat(3, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
+3432  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d0b8000
+3432  lseek(3, 0, SEEK_CUR)             = 0
+3432  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 4
+3432  connect(4, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+3432  sendto(4, "OPE file.txt 1\n\0", 16, 0, NULL, 0) = 16
+3432  recvfrom(4, "108", 29, 0, NULL, NULL) = 3
+3432  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 5
+3432  bind(5, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+3432  getsockname(5, {sa_family=AF_INET, sin_port=htons(39866), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
+3432  write(1, "Sto richiedendo la connessione s"..., 57) = 57
+3432  listen(5, 1)                      = 0
+3432  sendto(4, "port_num 39866", 14, 0, NULL, 0) = 14
+3432  accept(5, {sa_family=AF_INET, sin_port=htons(33314), sin_addr=inet_addr("127.0.0.1")}, [16]) = 6
+3432  write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
+3432  recvfrom(4, "ok", 14, 0, NULL, NULL) = 2
+3432  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f1c4c0b6000
+3432  mprotect(0x7f1c4c0b6000, 4096, PROT_NONE) = 0
+3432  clone(child_stack=0x7f1c4c8b5fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f1c4c8b69d0, tls=0x7f1c4c8b6700, child_tidptr=0x7f1c4c8b69d0) = 3433
+3432  futex(0x24ba468, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
+3433  set_robust_list(0x7f1c4c8b69e0, 24) = 0
+3433  write(1, "[Spawining HeartBeating] sd: 6 \n", 32) = 32
+3433  futex(0x24ba468, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+3432  <... futex resumed> )             = 0
+3433  recvfrom(6,  <unfinished ...>
+3432  write(1, "Creato correttamente: Filename: "..., 80) = 80
+3432  open(".file.txt-7No413", O_RDWR|O_CREAT|O_EXCL, 0600) = 7
+3432  unlink(".file.txt-7No413")        = 0
+3432  write(1, "[Cache] Creato temp file: '.file"..., 45) = 45
+3432  fcntl(7, F_GETFL)                 = 0x8002 (flags O_RDWR|O_LARGEFILE)
+3432  fstat(7, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
+3432  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d0b7000
+3432  lseek(7, 0, SEEK_CUR)             = 0
+3432  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 8
+3432  connect(8, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+3432  sendto(8, "OPE file.txt 4\n\0", 16, 0, NULL, 0) = 16
+3432  recvfrom(8, "108", 29, 0, NULL, NULL) = 3
+3432  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 9
+3432  bind(9, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+3432  getsockname(9, {sa_family=AF_INET, sin_port=htons(39016), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
+3432  write(1, "Sto richiedendo la connessione s"..., 57) = 57
+3432  listen(9, 1)                      = 0
+3432  sendto(8, "port_num 39016", 14, 0, NULL, 0) = 14
+3432  accept(9, {sa_family=AF_INET, sin_port=htons(39256), sin_addr=inet_addr("127.0.0.1")}, [16]) = 10
+3432  write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
+3432  recvfrom(8, "ok", 14, 0, NULL, NULL) = 2
+3432  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f1c4b8b5000
+3432  mprotect(0x7f1c4b8b5000, 4096, PROT_NONE) = 0
+3432  clone(child_stack=0x7f1c4c0b4fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f1c4c0b59d0, tls=0x7f1c4c0b5700, child_tidptr=0x7f1c4c0b59d0) = 3435
+3435  set_robust_list(0x7f1c4c0b59e0, 24 <unfinished ...>
+3432  futex(0x24ba8b8, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
+3435  <... set_robust_list resumed> )   = 0
+3435  write(1, "[Spawining HeartBeating] sd: 10 "..., 33) = 33
+3435  futex(0x24ba8b8, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+3432  <... futex resumed> )             = 0
+3435  <... futex resumed> )             = 1
+3432  write(1, "Creato correttamente: Filename: "..., 81 <unfinished ...>
+3435  recvfrom(10,  <unfinished ...>
+3432  <... write resumed> )             = 81
+3432  lseek(3, 0, SEEK_SET)             = 0
+3432  write(1, "size: 99, filesize:108 \n", 24) = 24
+3432  write(1, "Posizione del puntatore all' ini"..., 49) = 49
+3432  write(1, "mydfs_read: primo buco: 0\n", 26) = 26
+3432  write(1, "Mando richiesta di READ:'REA 0\n", 31) = 31
+3432  write(1, "'\n", 2)                = 2
+3432  sendto(4, "REA 0\n", 6, 0, NULL, 0) = 6
+3432  recvfrom(4, "size 108\0\0\0\0\0\0\0", 15, 0, NULL, NULL) = 15
+3432  write(1, "Mi sta mandando: 108 dati.\n", 27) = 27
+3432  recvfrom(4, "Questo e' un test per l' invalid"..., 108, 0, NULL, NULL) = 108
+3432  write(1, "Size rimasta: 108Ricevuto per or"..., 39) = 39
+3432  write(1, "[WriteCache] Devo scrivere: 108 "..., 55) = 55
+3432  lseek(3, 0, SEEK_SET)             = 0
+3432  write(1, "[WriteCache] Scritti '108' dati "..., 60) = 60
+3432  write(3, "Questo e' un test per l' invalid"..., 108) = 108
+3432  lseek(3, 0, SEEK_SET)             = 0
+3432  read(3, "Questo e' un test per l' invalid"..., 4096) = 108
+3432  write(1, "Posizione del puntatore ala fine"..., 47) = 47
+3432  lseek(7, 0, SEEK_SET)             = 0
+3432  write(1, "[Close] 'file.txt'\n", 19) = 19
+3432  sendto(8, "CLO 1\n", 6, 0, NULL, 0) = 6
+3432  write(1, "Sto inviando il comando: POS 0 S"..., 39) = 39
+3432  write(1, "\n", 1)                 = 1
+3432  sendto(10, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, 0) = 100
+3432  write(1, "Fatta la send! dovrei invaire 51"..., 50) = 50
+3432  write(7, "Questo e' un test per l' invalid"..., 51) = 51
+3432  lseek(7, 0, SEEK_SET)             = 0
+3432  read(7, "Questo e' un test per l' invalid"..., 4096) = 51
+3432  write(1, "Sto inviando 51 dati.\n", 22) = 22
+3432  sendto(10, "Questo e' un test per l' invalid"..., 51, 0, NULL, 0) = 51
+3432  close(8)                          = 0
+3432  close(10)                         = 0
+3432  write(1, "Chiusura effettuata con successo"..., 34) = 34
+3432  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+3432  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+3432  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+3432  nanosleep({2, 0},  <unfinished ...>
+3435  <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
+3435  write(1, "[HB:10] Connessione chiusa.\n", 28) = 28
+3435  madvise(0x7f1c4b8b5000, 8368128, MADV_DONTNEED) = 0
+3435  _exit(0)                          = ?
+3435  +++ exited with 0 +++
+3433  <... recvfrom resumed> "INVA", 5, 0, NULL, NULL) = 4
+3433  write(1, "[Heartbeating 6] Ricevuto comand"..., 52) = 52
+3433  recvfrom(6, "", 5, 0, NULL, NULL) = 0
+3433  write(1, "[HB:6] Connessione chiusa.\n", 27) = 27
+3433  madvise(0x7f1c4c0b6000, 8368128, MADV_DONTNEED) = 0
+3433  _exit(0)                          = ?
+3433  +++ exited with 0 +++
+3432  <... nanosleep resumed> 0x7ffc9d0ea6d0) = 0
+3432  lseek(3, 108, SEEK_SET)           = 108
+3432  write(1, "size: 99, filesize:108 \n", 24) = 24
+3432  write(1, "Posizione del puntatore all' ini"..., 49) = 49
+3432  write(1, "mydfs_read: primo buco: 0\n", 26) = 26
+3432  write(1, "Mando richiesta di READ:'REA 0\n", 31) = 31
+3432  write(1, "'\n", 2)                = 2
+3432  sendto(4, "REA 0\n", 6, 0, NULL, 0) = 6
+3432  recvfrom(4, "", 15, 0, NULL, NULL) = 0
+3432  write(1, "Size message Non contiene size\n", 31) = 31
+3432  write(2, "TestInvalidazione: Test.c:328: t"..., 81) = 81
+3432  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d0b6000
+3432  rt_sigprocmask(SIG_UNBLOCK, [ABRT], NULL, 8) = 0
+3432  write(1, "sendReadCommand: error", 22) = 22
+3432  tgkill(3432, 3432, SIGABRT)       = 0
+3432  --- SIGABRT {si_signo=SIGABRT, si_code=SI_TKILL, si_pid=3432, si_uid=1000} ---
+3432  +++ killed by SIGABRT +++

@@ -101,7 +101,7 @@ int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 long sendReadCommand(MyDFSId* id, long pos)
 {
 	//Mando la read
-
+    int nRecv;
 	char readCommand[strlen(READCOMMAND) + 	getNumberLenght(pos)+1]; // es: "READ 1", con 1 = la posizione
 	sprintf(readCommand, "%s %li\n", READCOMMAND, pos);
 	logM("Mando richiesta di READ:'%s'\n", readCommand);
@@ -109,10 +109,10 @@ long sendReadCommand(MyDFSId* id, long pos)
 	
 	//Ricevo la dimensione della parte letta
 	char fileSize[15]; // il massimo che mi manda e' definito in Config.h
-	int nRecv = recv(id->socketId, fileSize, sizeof(fileSize), 0);
-	if(nRecv <= 0)
+	nRecv = recv(id->socketId, fileSize, sizeof(fileSize), 0);
+	if(nRecv < 0)
 	{
-		perror("[sendReadCommand] recv:");
+		perror("[sendReadCommand] recv");
         return -1;
     }
 

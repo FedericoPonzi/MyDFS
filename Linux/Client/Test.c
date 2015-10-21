@@ -322,6 +322,7 @@ void testInvalidazioneCache(char* filename, char* indirizzo, int  debug)
 	mydfs_close(fileWrite);
 
     sleep(2);
+    
 	n = mydfs_read(fileRead, MYSEEK_SET, bufferDopo, sizeof(bufferDopo)-1);
 	
 	assert(n > 0);

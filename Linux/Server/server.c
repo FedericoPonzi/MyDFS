@@ -17,6 +17,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <syslog.h>
+#include <errno.h>
 
 void spawnThread();
 void spawnProcess();
@@ -29,9 +30,9 @@ struct sockaddr_in server;
 /**
  * Signal handler per gestire l' invalidazione.
  */
-void sig_handler(int signo)
+void sig_handler(int sig, siginfo_t *siginfo, void *context)
 {
-    if (signo == SIGUSR1)
+    if (sig == SIGUSR1)
     {
         char* invalidate = "INVA";
         logM("received SIGUSR1\n");
@@ -152,13 +153,17 @@ int main(int argc, char* argv[])
 
 	logM("[Config]\n'%d' numero di connessioni\n'%d' Processo o thread\n'%d' Porta in ascolto.\n\n", numeroCon, procOrThread, portNumber);
 
-    //Installo il Signal Handler:
-    if (signal(SIGUSR1, sig_handler) == SIG_ERR)
-    {
-        perror("\ncan't catch SIGUSR1\n");
-        exit(EXIT_FAILURE);
-    }
-    
+    struct sigaction act;
+	memset (&act, '\0', sizeof(act));
+
+    act.sa_sigaction = &sig_handler;
+	act.sa_flags = SA_RESTART;
+ 
+	if (sigaction(SIGUSR1, &act, NULL) < 0) {
+		perror ("Sigaction: ");
+		exit(EXIT_FAILURE);
+	}
+
 	if((sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
         perror("Socket:");
@@ -242,6 +247,13 @@ void* handleSocket()
 		// Connessione chiusa o errore
 		if(nRecv <= 0)
 		{
+            //Se la syscall e' stata interrotta a causa del signal handler, la riprovo
+            if(errno == EINTR)
+            {
+                continue;
+            }
+            logM("Errore nRecv o connessione chiusa!");
+            perror("[server] recv ");
 			break;
 		}
         
