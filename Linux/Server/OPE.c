@@ -108,8 +108,9 @@ void handleOpenCommand(char* command, int socket)
 	if(send(socket, filesize_msg, strlen(filesize_msg), 0) < 0 || err_code)
 	{
 		logM("Errore nell' apertura del file (o nella send)\n");
-		closeClientSession(getptid());
+        free(nomeFile);
         close(socket);
+        closeClientSession(getptid());
 		return;
 	}
     
@@ -156,10 +157,12 @@ void handleOpenCommand(char* command, int socket)
     //Provo a mandare eventuale messaggio d' errore e se c'è un errore esco.
 	if(send(socket, answer, strlen(answer), 0) < 0 || err_code)
     {
-        closeClientSession(getptid());
+        free(nomeFile);
         close(socket);
+        closeClientSession(getptid());
         return;
     }
+    
     free(nomeFile);
     logM("[OpenCommand] Connessione creata correttamente.[\n Filename: %s,\n Modo: %d,\n Socket: %d,\n HB: %d,\n ptid: %lu.\n]", id->
     fileName, id->modo, id->socketId, id->transferSockId, getptid());

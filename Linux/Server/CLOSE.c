@@ -42,17 +42,17 @@ void handleCloseCommand(char* command, int socket)
 int handleWrites(int numberOfChanges, OpenedFile* id)
 {
 	logM("HandleWrites: %d numero di cambiamenti. \n", numberOfChanges);
-	int i = 0, n = 0;
+	int i = 0, nRecv = 0;
 	char messaggio[100];
 	while(i < numberOfChanges)
 	{
-		n = recv (id->transferSockId, messaggio, sizeof(messaggio), 0);
-		if(n < 0)
+		nRecv = recv (id->transferSockId, messaggio, sizeof(messaggio), 0);
+		if(nRecv < 0)
 		{
 			perror("Error on recv.");
 			return -1;
 		}
-		else if(n == 0)
+		else if(nRecv == 0)
 		{
 			logM("Il peer e' andato.");
 			return 0;
@@ -64,6 +64,7 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 		
 		//Preparo il file pointer:
 		FILE* fp = id->fp;
+
 		fseek(fp, pos, SEEK_SET);
 
 		//Nel caso sia una grossa modifica, spezziamo in più writes
@@ -72,15 +73,14 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 			logM("Ricevo dati:\n");
 			int buffSize = size > FILESIZE ? FILESIZE : size;
 			char* buffer = malloc(buffSize); /**@todo : cambiare a void*/
-			n = recv(id->transferSockId, buffer, buffSize, 0);
-			logM("Messaggio size: '%d', '%s'\n", n, buffer);
-			
-			if(n < 0)
+			nRecv = recv(id->transferSockId, buffer, buffSize, 0);
+			if(nRecv < 0)
 			{
 				perror("Recv: ");
 				return -1;
 			}
-			logM("Buffer: %s %lu\n", buffer, ftell(fp));
+			logM("Messaggio size: '%d', in posizione: %lu, buff: '%s'\n", nRecv, ftell(fp), buffer);
+            
 			int w = fwrite(buffer, 1, n, fp);
 			logM("Scritti %d dati nel file. \n", w);
 			free(buffer);
