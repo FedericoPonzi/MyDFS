@@ -321,7 +321,7 @@ void testInvalidazioneCache(char* filename, char* indirizzo, int  debug)
 	
 	mydfs_close(fileWrite);
 
-    Sleep(2);
+    Sleep(3000);
 	n = mydfs_read(fileRead, MYSEEK_SET, bufferDopo, sizeof(bufferDopo)-1);
 	
 	assert(n > 0);
@@ -329,7 +329,7 @@ void testInvalidazioneCache(char* filename, char* indirizzo, int  debug)
 	bufferDopo[n] = '\0';
 
 	mydfs_close(fileRead);
-    
+    printf("buffer prima: '%s', bufferdopo: '%s', strcmp:'%d'\n",bufferPrima, bufferDopo, strcmp(bufferPrima, bufferDopo));
 	assert(strcmp(bufferPrima, bufferDopo));
 	
 	printf("\n\t[V-%d] Test INVALIDAZIONECACHE superato correttamente!\n", getpid());

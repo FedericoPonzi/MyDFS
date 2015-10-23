@@ -39,8 +39,8 @@ int mydfs_close(MyDFSId* id)
 		
 		uploadChanges(id);
 		//Cancello tutto quanto:
-        closesocket(id->socketId);
-		closesocket(id->transferSockId);
+        //shutdown(id->socketId, SD_SEND);
+		//closesocket(id->transferSockId);
 		free(id->indirizzo);
 		unlink(id->filename);
 		free(id->filename);
@@ -105,7 +105,8 @@ int uploadChanges(MyDFSId* id)
 			perror("Send error sending write.");
 			return -1;
 		}
-		
+        //@todo: forse bisognerebbe aspettare un messaggio di rs
+		logM("Inviati.");
 		free(buffer);
 		iterator = iterator->next;		
 	}

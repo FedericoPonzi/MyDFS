@@ -52,7 +52,7 @@ void spawnHeartBeat(MyDFSId* id)
 void* heartBeat(void *sd)
 {
     ThreadArgs* tArgs = (ThreadArgs*) sd;
-    MyDFSId* id = (MyDFSId *) tArgs;
+    MyDFSId* id = tArgs->id;
 	int controlSd = id->transferSockId;
 
     logM("[Spawining HeartBeating] sd: %d \n", controlSd);
@@ -100,7 +100,6 @@ void* heartBeat(void *sd)
  */
 int invalidate(MyDFSId* id)
 {
-	logM("[HeartBeating] Ricevuto comando di invalidazione!\n");
 	WaitForSingleObject(id->readListMutex, INFINITE);
 	ReadOp* iteratorr = id-> readList;
 	ReadOp* tempr;

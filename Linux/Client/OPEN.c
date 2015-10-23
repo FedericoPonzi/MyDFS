@@ -158,8 +158,9 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 		return;
 	}
 	buffer[nRecv]='\0';
-
+    
 	toRet->filesize = strtol(buffer, NULL, 10);
+
 }
 
 /**
