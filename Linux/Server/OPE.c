@@ -57,7 +57,7 @@
 
 static char* getFileNameFromCommand(char* command);
 int getModo(char* command);
-int createControlSock(int portNo, int socketId, OpenedFile* id);
+int createControlSock(int portNo, int transferSocketId, OpenedFile* id);
 
 /**
  * @brief Gestisce il comando Open.
@@ -100,7 +100,7 @@ void handleOpenCommand(char* command, int socket)
             fseek(id->fp,0, SEEK_SET);
         }
         id->filesize = fileSize;
-		id->socketId = socket;
+		id->transferSocketId = socket;
 		sprintf(filesize_msg, "%d", fileSize);
     }
 	
@@ -165,14 +165,14 @@ void handleOpenCommand(char* command, int socket)
     
     free(nomeFile);
     logM("[OpenCommand] Connessione creata correttamente.[\n Filename: %s,\n Modo: %d,\n Socket: %d,\n HB: %d,\n ptid: %lu.\n]", id->
-    fileName, id->modo, id->socketId, id->transferSockId, getptid());
+    fileName, id->modo, id->transferSocketId, id->controlSocketId, getptid());
 }
 
 /**
  * @brief crea connessione di controllo (heartbeating e invalidazione) lato server
  * @return 0 se c'è un errore, il socked descriptor del control socket altrimenti.
  */
-int createControlSock(int portNo, int socketId, OpenedFile* file)
+int createControlSock(int portNo, int transferSocketId, OpenedFile* file)
 {
     int sd;
 	socklen_t len;
@@ -181,7 +181,7 @@ int createControlSock(int portNo, int socketId, OpenedFile* file)
 
 	len = sizeof(addr);
     
-	if(getpeername(socketId, (struct sockaddr*)&addr, &len))
+	if(getpeername(transferSocketId, (struct sockaddr*)&addr, &len))
     {
         perror("GetPeerName:");
         return 0;
@@ -218,7 +218,7 @@ int createControlSock(int portNo, int socketId, OpenedFile* file)
 	   return 0;
     }
     
-    file->transferSockId = sd;
+    file->controlSocketId = sd;
     
     return sd;	
 }

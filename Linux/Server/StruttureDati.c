@@ -109,7 +109,7 @@ int appendOpenedFile(char* nomeFile, int modo, OpenedFile** id)
         return -3;
     }
     
-    if (pthread_mutex_init(&n->tempSockMutex, &mutex_attr) < 0) 
+    if (pthread_mutex_init(&n->controlSocketMutex, &mutex_attr) < 0) 
     {
         perror("Failed to initialize mutex");
         return -3;
@@ -259,10 +259,10 @@ void freeOpenedFile(OpenedFile* id)
 {
 	//free(id->fileName);
 	fclose(id->fp);
-    logM("[FreeOpenedfile] Libero: transfer: %d, sock: %d", id->transferSockId, id->socketId);
-    pthread_mutex_destroy(&id->tempSockMutex);
-    close(id->transferSockId);
-    close(id->socketId);
+    logM("[FreeOpenedfile] Libero: transfer: %d, sock: %d", id->controlSocketId, id->transferSocketId);
+    pthread_mutex_destroy(&id->controlSocketMutex);
+    close(id->controlSocketId);
+    close(id->transferSocketId);
     
 	memset(id,0,sizeof(OpenedFile));
 }
@@ -352,7 +352,7 @@ int getTransferSocket()
 		if(iterator->ptid == getptid())
 		{
 			pthread_mutex_unlock(mutex);
-			return iterator->transferSockId;
+			return iterator->controlSocketId;
 		}
 		iterator = iterator->next;
 	}

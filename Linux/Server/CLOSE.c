@@ -46,7 +46,7 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 	char messaggio[100];
 	while(i < numberOfChanges)
 	{
-		nRecv = recv (id->transferSockId, messaggio, sizeof(messaggio), 0);
+		nRecv = recv (id->controlSocketId, messaggio, sizeof(messaggio), 0);
 		if(nRecv < 0)
 		{
 			perror("Error on recv.");
@@ -73,7 +73,7 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 			logM("Ricevo dati:\n");
 			int buffSize = size > FILESIZE ? FILESIZE : size;
 			char* buffer = malloc(buffSize); /**@todo : cambiare a void*/
-			nRecv = recv(id->transferSockId, buffer, buffSize, 0);
+			nRecv = recv(id->controlSocketId, buffer, buffSize, 0);
 			if(nRecv < 0)
 			{
 				perror("Recv: ");
@@ -149,7 +149,7 @@ void sendInvalidate(OpenedFile* id)
 			if(iterator->ptid != id->ptid)
 			{
 				logM("[Close] Trovato client, gli invio il comando\n");
-				logM("Socketid:%d, processo: %lu\n", iterator->transferSockId, iterator->ptid);
+				logM("Socketid:%d, processo: %lu\n", iterator->controlSocketId, iterator->ptid);
                 //Se e' un thread
                 if(procOrThread)
                 {
@@ -160,12 +160,12 @@ void sendInvalidate(OpenedFile* id)
                 }
                 else
                 {
-                    pthread_mutex_lock(&iterator->tempSockMutex);
-                    if(send(iterator->transferSockId, invalidate, strlen(invalidate), 0) < 0)
+                    pthread_mutex_lock(&iterator->controlSocketMutex);
+                    if(send(iterator->controlSocketId, invalidate, strlen(invalidate), 0) < 0)
                     {
                         perror("Error sending INVA\n");
                     }
-                    pthread_mutex_unlock(&iterator->tempSockMutex);
+                    pthread_mutex_unlock(&iterator->controlSocketMutex);
                 }
 			}
 		}

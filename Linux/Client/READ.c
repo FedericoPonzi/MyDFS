@@ -105,11 +105,11 @@ long sendReadCommand(MyDFSId* id, long pos)
 	char readCommand[strlen(READCOMMAND) + 	getNumberLenght(pos)+1]; // es: "READ 1", con 1 = la posizione
 	sprintf(readCommand, "%s %li\n", READCOMMAND, pos);
 	logM("Mando richiesta di READ:'%s'\n", readCommand);
-	send(id->socketId, readCommand, strlen(readCommand), 0);
+	send(id->transferSocketId, readCommand, strlen(readCommand), 0);
 	
 	//Ricevo la dimensione della parte letta
 	char fileSize[15]; // il massimo che mi manda e' definito in Config.h
-	nRecv = recv(id->socketId, fileSize, sizeof(fileSize), 0);
+	nRecv = recv(id->transferSocketId, fileSize, sizeof(fileSize), 0);
 	if(nRecv < 0)
 	{
 		perror("[sendReadCommand] recv");
@@ -157,7 +157,7 @@ int readFrom(MyDFSId* id, int sizeRimasta,  int pos )
 	while(sizeRimasta> 0)  
 	{
         logM("Size rimasta: %d", sizeRimasta);
-		nRecv = recv(id->socketId, buff+i, sizeRimasta, 0);
+		nRecv = recv(id->transferSocketId, buff+i, sizeRimasta, 0);
         if(nRecv < 0)
         {
             perror("[readFrom] recv:");

@@ -51,7 +51,7 @@ void* heartBeat(void *tA)
     
     MyDFSId* id = targ-> id;
     
-	int controlSd = id->transferSockId;
+	int controlSd = id->controlSocketId;
     
     logM("[Spawining HeartBeating] sd: %d \n", controlSd);
 	char ping[5];

@@ -36,7 +36,7 @@ void spawnHeartBeat(OpenedFile* id)
 void* heartBeat(void *args)
 {
     OpenedFile* id = (OpenedFile*) args;
-	int temp_sd = id->transferSockId;
+	int temp_sd = id->controlSocketId;
 	long unsigned int ptid = id->ptid;
 	logM("[Spawining HeartBeating] Tempsd: %d, ptid: %lu\n", temp_sd, ptid);
 	
@@ -70,9 +70,9 @@ void* heartBeat(void *args)
             return NULL;
         }
 		logM("[HB %d:%lu] PING!\n", temp_sd, ptid);
-		pthread_mutex_lock(&id->tempSockMutex);
+		pthread_mutex_lock(&id->controlSocketMutex);
 		nSend = send(temp_sd, ping, strlen(ping)+1, 0);				
-		pthread_mutex_unlock(&id->tempSockMutex);
+		pthread_mutex_unlock(&id->controlSocketMutex);
 		if(nSend < 0)
         {
             logM("[HB %d:%lu] Connessione terminata\n", temp_sd, ptid);

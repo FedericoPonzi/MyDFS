@@ -8,7 +8,7 @@
 
 typedef struct SocketIdList //struct per lista socket attive
 {
-	int socketId;
+	int transferSocketId;
 	struct SocketIdList* next;
 	int modo;
 }SocketIdList;
@@ -19,10 +19,10 @@ typedef struct OpenedFile
 	unsigned long int ptid;
 	int modo;
 	int filesize;
-	int socketId; 
+	int transferSocketId; 
 	struct OpenedFile* next;
-	int transferSockId; /** Usata dall' hearbeating +++++ */
-    pthread_mutex_t tempSockMutex;
+	int controlSocketId; /** Usata dall' hearbeating +++++ */
+    pthread_mutex_t controlSocketMutex;
 	FILE* fp;
 }OpenedFile;
 

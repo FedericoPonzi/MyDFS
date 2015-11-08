@@ -37,7 +37,7 @@ void sig_handler(int sig, siginfo_t *siginfo, void *context)
         char* invalidate = "INVA";
         logM("received SIGUSR1\n");
         OpenedFile* id = getOpenedFile();
-        if(send(id->transferSockId, invalidate, strlen(invalidate), 0) < 0)
+        if(send(id->controlSocketId, invalidate, strlen(invalidate), 0) < 0)
         {
             perror("Error sending INVA\n");
         }
@@ -252,8 +252,10 @@ void* handleSocket()
             {
                 continue;
             }
-            logM("Errore nRecv o connessione chiusa!");
-            perror("[server] recv ");
+            if(nRecv< 0)
+            {
+                perror("[server] recv ");
+            }
 			break;
 		}
         
