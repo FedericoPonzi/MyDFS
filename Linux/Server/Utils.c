@@ -66,18 +66,16 @@ void logM (char* messaggio, ...)
     }
 }
 /** * 
- * @brief Rimuove i primi 4 caratteri (es: 'GET ')
+ * @brief Rimuove i primi 4+1 caratteri (es: 'GET ')
  * 
- * @param La linea del comando a cui vogliamo togliere i primi 4 caratteri.
+ * @param La linea del comando da cui vogliamo togliere il nome del comando.
  */
 void stripCommand(char* input)
 {
-	
 	char substringa[strlen(input)];
-	strcpy(substringa, &input[4]);
+	strcpy(substringa, &input[5]);
 	strcpy(input, substringa);
 	
-	//TODO: Per le prove, da netcat ho anche un "a capo". Così lo tolgo dai piedi.
 	if(input[strlen(input)-1] == '\n')
 	{
 		input[strlen(input)-1] = '\0';

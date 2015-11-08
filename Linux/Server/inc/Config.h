@@ -3,6 +3,10 @@
 
 #include <pthread.h>
 
+#define OPENCOMMAND "OPEN"
+#define CLOSECOMMAND "CLOS"
+#define READCOMMAND "READ"
+
 
 /**
  * @brief Numero di connessioni in ascolto
@@ -65,8 +69,6 @@ extern int portNumber;
  * root path server
  */
 extern char rootPath[40];
-
-
 
 int loadConfig();
 

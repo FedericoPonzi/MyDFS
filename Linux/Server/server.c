@@ -258,8 +258,6 @@ void* handleSocket()
 		}
         
 		buff[nRecv] = '\0';
-
-		//logM("[handleSocket] - Client:'%s'\n", buff);
         		
 		handleCommand(buff, temp_sd);
 

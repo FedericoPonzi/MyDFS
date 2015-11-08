@@ -1,179 +1,166 @@
-3432  execve("./TestInvalidazione", ["./TestInvalidazione"], [/* 53 vars */]) = 0
-3432  brk(0)                            = 0x24b4000
-3432  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-3432  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d0ba000
-3432  access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
-3432  open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
-3432  fstat(3, {st_mode=S_IFREG|0644, st_size=124144, ...}) = 0
-3432  mmap(NULL, 124144, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f1c4d09b000
-3432  close(3)                          = 0
-3432  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-3432  open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
-3432  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0po\0\0\0\0\0\0"..., 832) = 832
-3432  fstat(3, {st_mode=S_IFREG|0755, st_size=141574, ...}) = 0
-3432  mmap(NULL, 2217264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f1c4cc7c000
-3432  mprotect(0x7f1c4cc95000, 2093056, PROT_NONE) = 0
-3432  mmap(0x7f1c4ce94000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7f1c4ce94000
-3432  mmap(0x7f1c4ce96000, 13616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f1c4ce96000
-3432  close(3)                          = 0
-3432  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
-3432  open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
-3432  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\37\2\0\0\0\0\0"..., 832) = 832
-3432  fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
-3432  mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f1c4c8b7000
-3432  mprotect(0x7f1c4ca72000, 2093056, PROT_NONE) = 0
-3432  mmap(0x7f1c4cc71000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7f1c4cc71000
-3432  mmap(0x7f1c4cc77000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f1c4cc77000
-3432  close(3)                          = 0
-3432  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d09a000
-3432  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d098000
-3432  arch_prctl(ARCH_SET_FS, 0x7f1c4d098740) = 0
-3432  mprotect(0x7f1c4cc71000, 16384, PROT_READ) = 0
-3432  mprotect(0x7f1c4ce94000, 4096, PROT_READ) = 0
-3432  mprotect(0x606000, 4096, PROT_READ) = 0
-3432  mprotect(0x7f1c4d0bc000, 4096, PROT_READ) = 0
-3432  munmap(0x7f1c4d09b000, 124144)    = 0
-3432  set_tid_address(0x7f1c4d098a10)   = 3432
-3432  set_robust_list(0x7f1c4d098a20, 24) = 0
-3432  futex(0x7ffc9d0ea9a0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7f1c4d098740) = -1 EAGAIN (Resource temporarily unavailable)
-3432  rt_sigaction(SIGRTMIN, {0x7f1c4cc829f0, [], SA_RESTORER|SA_SIGINFO, 0x7f1c4cc8c340}, NULL, 8) = 0
-3432  rt_sigaction(SIGRT_1, {0x7f1c4cc82a80, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7f1c4cc8c340}, NULL, 8) = 0
-3432  rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
-3432  getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
-3432  brk(0)                            = 0x24b4000
-3432  brk(0x24db000)                    = 0x24db000
-3432  rt_sigaction(SIGPROF, {0x7f1c4c9b38c0, ~[], SA_RESTORER|SA_RESTART, 0x7f1c4c8edd40}, {SIG_DFL, [], 0}, 8) = 0
-3432  setitimer(ITIMER_PROF, {it_interval={0, 10000}, it_value={0, 10000}}, {it_interval={0, 0}, it_value={0, 0}}) = 0
-3432  fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 1), ...}) = 0
-3432  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d0b9000
-3432  write(1, "[TEST INVALIDAZIONECACHE] Inizia"..., 36) = 36
-3432  write(1, "\t [Test di invalidazione della c"..., 38) = 38
-3432  open(".file.txt-FFh9nw", O_RDWR|O_CREAT|O_EXCL, 0600) = 3
-3432  unlink(".file.txt-FFh9nw")        = 0
-3432  write(1, "[Cache] Creato temp file: '.file"..., 45) = 45
-3432  fcntl(3, F_GETFL)                 = 0x8002 (flags O_RDWR|O_LARGEFILE)
-3432  fstat(3, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-3432  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d0b8000
-3432  lseek(3, 0, SEEK_CUR)             = 0
-3432  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 4
-3432  connect(4, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-3432  sendto(4, "OPE file.txt 1\n\0", 16, 0, NULL, 0) = 16
-3432  recvfrom(4, "108", 29, 0, NULL, NULL) = 3
-3432  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 5
-3432  bind(5, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-3432  getsockname(5, {sa_family=AF_INET, sin_port=htons(39866), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-3432  write(1, "Sto richiedendo la connessione s"..., 57) = 57
-3432  listen(5, 1)                      = 0
-3432  sendto(4, "port_num 39866", 14, 0, NULL, 0) = 14
-3432  accept(5, {sa_family=AF_INET, sin_port=htons(33314), sin_addr=inet_addr("127.0.0.1")}, [16]) = 6
-3432  write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-3432  recvfrom(4, "ok", 14, 0, NULL, NULL) = 2
-3432  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f1c4c0b6000
-3432  mprotect(0x7f1c4c0b6000, 4096, PROT_NONE) = 0
-3432  clone(child_stack=0x7f1c4c8b5fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f1c4c8b69d0, tls=0x7f1c4c8b6700, child_tidptr=0x7f1c4c8b69d0) = 3433
-3432  futex(0x24ba468, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-3433  set_robust_list(0x7f1c4c8b69e0, 24) = 0
-3433  write(1, "[Spawining HeartBeating] sd: 6 \n", 32) = 32
-3433  futex(0x24ba468, FUTEX_WAKE_PRIVATE, 2147483647) = 1
-3432  <... futex resumed> )             = 0
-3433  recvfrom(6,  <unfinished ...>
-3432  write(1, "Creato correttamente: Filename: "..., 80) = 80
-3432  open(".file.txt-7No413", O_RDWR|O_CREAT|O_EXCL, 0600) = 7
-3432  unlink(".file.txt-7No413")        = 0
-3432  write(1, "[Cache] Creato temp file: '.file"..., 45) = 45
-3432  fcntl(7, F_GETFL)                 = 0x8002 (flags O_RDWR|O_LARGEFILE)
-3432  fstat(7, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
-3432  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d0b7000
-3432  lseek(7, 0, SEEK_CUR)             = 0
-3432  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 8
-3432  connect(8, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
-3432  sendto(8, "OPE file.txt 4\n\0", 16, 0, NULL, 0) = 16
-3432  recvfrom(8, "108", 29, 0, NULL, NULL) = 3
-3432  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 9
-3432  bind(9, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
-3432  getsockname(9, {sa_family=AF_INET, sin_port=htons(39016), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
-3432  write(1, "Sto richiedendo la connessione s"..., 57) = 57
-3432  listen(9, 1)                      = 0
-3432  sendto(8, "port_num 39016", 14, 0, NULL, 0) = 14
-3432  accept(9, {sa_family=AF_INET, sin_port=htons(39256), sin_addr=inet_addr("127.0.0.1")}, [16]) = 10
-3432  write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
-3432  recvfrom(8, "ok", 14, 0, NULL, NULL) = 2
-3432  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f1c4b8b5000
-3432  mprotect(0x7f1c4b8b5000, 4096, PROT_NONE) = 0
-3432  clone(child_stack=0x7f1c4c0b4fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f1c4c0b59d0, tls=0x7f1c4c0b5700, child_tidptr=0x7f1c4c0b59d0) = 3435
-3435  set_robust_list(0x7f1c4c0b59e0, 24 <unfinished ...>
-3432  futex(0x24ba8b8, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
-3435  <... set_robust_list resumed> )   = 0
-3435  write(1, "[Spawining HeartBeating] sd: 10 "..., 33) = 33
-3435  futex(0x24ba8b8, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-3432  <... futex resumed> )             = 0
-3435  <... futex resumed> )             = 1
-3432  write(1, "Creato correttamente: Filename: "..., 81 <unfinished ...>
-3435  recvfrom(10,  <unfinished ...>
-3432  <... write resumed> )             = 81
-3432  lseek(3, 0, SEEK_SET)             = 0
-3432  write(1, "size: 99, filesize:108 \n", 24) = 24
-3432  write(1, "Posizione del puntatore all' ini"..., 49) = 49
-3432  write(1, "mydfs_read: primo buco: 0\n", 26) = 26
-3432  write(1, "Mando richiesta di READ:'REA 0\n", 31) = 31
-3432  write(1, "'\n", 2)                = 2
-3432  sendto(4, "REA 0\n", 6, 0, NULL, 0) = 6
-3432  recvfrom(4, "size 108\0\0\0\0\0\0\0", 15, 0, NULL, NULL) = 15
-3432  write(1, "Mi sta mandando: 108 dati.\n", 27) = 27
-3432  recvfrom(4, "Questo e' un test per l' invalid"..., 108, 0, NULL, NULL) = 108
-3432  write(1, "Size rimasta: 108Ricevuto per or"..., 39) = 39
-3432  write(1, "[WriteCache] Devo scrivere: 108 "..., 55) = 55
-3432  lseek(3, 0, SEEK_SET)             = 0
-3432  write(1, "[WriteCache] Scritti '108' dati "..., 60) = 60
-3432  write(3, "Questo e' un test per l' invalid"..., 108) = 108
-3432  lseek(3, 0, SEEK_SET)             = 0
-3432  read(3, "Questo e' un test per l' invalid"..., 4096) = 108
-3432  write(1, "Posizione del puntatore ala fine"..., 47) = 47
-3432  lseek(7, 0, SEEK_SET)             = 0
-3432  write(1, "[Close] 'file.txt'\n", 19) = 19
-3432  sendto(8, "CLO 1\n", 6, 0, NULL, 0) = 6
-3432  write(1, "Sto inviando il comando: POS 0 S"..., 39) = 39
-3432  write(1, "\n", 1)                 = 1
-3432  sendto(10, "POS 0 SIZE 51\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 100, 0, NULL, 0) = 100
-3432  write(1, "Fatta la send! dovrei invaire 51"..., 50) = 50
-3432  write(7, "Questo e' un test per l' invalid"..., 51) = 51
-3432  lseek(7, 0, SEEK_SET)             = 0
-3432  read(7, "Questo e' un test per l' invalid"..., 4096) = 51
-3432  write(1, "Sto inviando 51 dati.\n", 22) = 22
-3432  sendto(10, "Questo e' un test per l' invalid"..., 51, 0, NULL, 0) = 51
-3432  close(8)                          = 0
-3432  close(10)                         = 0
-3432  write(1, "Chiusura effettuata con successo"..., 34) = 34
-3432  rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
-3432  rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
-3432  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-3432  nanosleep({2, 0},  <unfinished ...>
-3435  <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
-3435  write(1, "[HB:10] Connessione chiusa.\n", 28) = 28
-3435  madvise(0x7f1c4b8b5000, 8368128, MADV_DONTNEED) = 0
-3435  _exit(0)                          = ?
-3435  +++ exited with 0 +++
-3433  <... recvfrom resumed> "INVA", 5, 0, NULL, NULL) = 4
-3433  write(1, "[Heartbeating 6] Ricevuto comand"..., 52) = 52
-3433  recvfrom(6, "", 5, 0, NULL, NULL) = 0
-3433  write(1, "[HB:6] Connessione chiusa.\n", 27) = 27
-3433  madvise(0x7f1c4c0b6000, 8368128, MADV_DONTNEED) = 0
-3433  _exit(0)                          = ?
-3433  +++ exited with 0 +++
-3432  <... nanosleep resumed> 0x7ffc9d0ea6d0) = 0
-3432  lseek(3, 108, SEEK_SET)           = 108
-3432  write(1, "size: 99, filesize:108 \n", 24) = 24
-3432  write(1, "Posizione del puntatore all' ini"..., 49) = 49
-3432  write(1, "mydfs_read: primo buco: 0\n", 26) = 26
-3432  write(1, "Mando richiesta di READ:'REA 0\n", 31) = 31
-3432  write(1, "'\n", 2)                = 2
-3432  sendto(4, "REA 0\n", 6, 0, NULL, 0) = 6
-3432  recvfrom(4, "", 15, 0, NULL, NULL) = 0
-3432  write(1, "Size message Non contiene size\n", 31) = 31
-3432  write(2, "TestInvalidazione: Test.c:328: t"..., 81) = 81
-3432  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1c4d0b6000
-3432  rt_sigprocmask(SIG_UNBLOCK, [ABRT], NULL, 8) = 0
-3432  write(1, "sendReadCommand: error", 22) = 22
-3432  tgkill(3432, 3432, SIGABRT)       = 0
-3432  --- SIGABRT {si_signo=SIGABRT, si_code=SI_TKILL, si_pid=3432, si_uid=1000} ---
-3432  +++ killed by SIGABRT +++
+3272  execve("./TestOpen", ["./TestOpen"], [/* 52 vars */]) = 0
+3272  brk(0)                            = 0xbef000
+3272  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+3272  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f463c2da000
+3272  access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+3272  open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+3272  fstat(3, {st_mode=S_IFREG|0644, st_size=125468, ...}) = 0
+3272  mmap(NULL, 125468, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f463c2bb000
+3272  close(3)                          = 0
+3272  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+3272  open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+3272  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0po\0\0\0\0\0\0"..., 832) = 832
+3272  fstat(3, {st_mode=S_IFREG|0755, st_size=141574, ...}) = 0
+3272  mmap(NULL, 2217264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f463be9c000
+3272  mprotect(0x7f463beb5000, 2093056, PROT_NONE) = 0
+3272  mmap(0x7f463c0b4000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7f463c0b4000
+3272  mmap(0x7f463c0b6000, 13616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f463c0b6000
+3272  close(3)                          = 0
+3272  access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+3272  open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+3272  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\37\2\0\0\0\0\0"..., 832) = 832
+3272  fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
+3272  mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f463bad7000
+3272  mprotect(0x7f463bc92000, 2093056, PROT_NONE) = 0
+3272  mmap(0x7f463be91000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7f463be91000
+3272  mmap(0x7f463be97000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f463be97000
+3272  close(3)                          = 0
+3272  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f463c2ba000
+3272  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f463c2b8000
+3272  arch_prctl(ARCH_SET_FS, 0x7f463c2b8740) = 0
+3272  mprotect(0x7f463be91000, 16384, PROT_READ) = 0
+3272  mprotect(0x7f463c0b4000, 4096, PROT_READ) = 0
+3272  mprotect(0x606000, 4096, PROT_READ) = 0
+3272  mprotect(0x7f463c2dc000, 4096, PROT_READ) = 0
+3272  munmap(0x7f463c2bb000, 125468)    = 0
+3272  set_tid_address(0x7f463c2b8a10)   = 3272
+3272  set_robust_list(0x7f463c2b8a20, 24) = 0
+3272  futex(0x7fffea01fcb0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7f463c2b8740) = -1 EAGAIN (Resource temporarily unavailable)
+3272  rt_sigaction(SIGRTMIN, {0x7f463bea29f0, [], SA_RESTORER|SA_SIGINFO, 0x7f463beac340}, NULL, 8) = 0
+3272  rt_sigaction(SIGRT_1, {0x7f463bea2a80, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7f463beac340}, NULL, 8) = 0
+3272  rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+3272  getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+3272  brk(0)                            = 0xbef000
+3272  brk(0xc16000)                     = 0xc16000
+3272  rt_sigaction(SIGPROF, {0x7f463bbd38c0, ~[], SA_RESTORER|SA_RESTART, 0x7f463bb0dd40}, {SIG_DFL, [], 0}, 8) = 0
+3272  setitimer(ITIMER_PROF, {it_interval={0, 10000}, it_value={0, 10000}}, {it_interval={0, 0}, it_value={0, 0}}) = 0
+3272  fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 1), ...}) = 0
+3272  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f463c2d9000
+3272  write(1, "[TEST OPEN] Iniziato \n", 22) = 22
+3272  write(1, "\t[INIZIO TEST DELLA OPEN3272]\n", 30) = 30
+3272  write(1, "\n", 1)                 = 1
+3272  write(1, " * Modo numero: 1 (pid:3272)\n", 29) = 29
+3272  open(".file.txt-O33qgG", O_RDWR|O_CREAT|O_EXCL, 0600) = 3
+3272  unlink(".file.txt-O33qgG")        = 0
+3272  write(1, "[Cache] Creato temp file: '.file"..., 45) = 45
+3272  fcntl(3, F_GETFL)                 = 0x8002 (flags O_RDWR|O_LARGEFILE)
+3272  fstat(3, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
+3272  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f463c2d8000
+3272  lseek(3, 0, SEEK_CUR)             = 0
+3272  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 4
+3272  connect(4, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("192.168.43.119")}, 16) = 0
+3272  sendto(4, "OPE file.txt 1\n\0", 16, 0, NULL, 0) = 16
+3272  recvfrom(4, "32", 29, 0, NULL, NULL) = 2
+3272  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 5
+3272  bind(5, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+3272  getsockname(5, {sa_family=AF_INET, sin_port=htons(33014), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
+3272  write(1, "Sto richiedendo la connessione s"..., 57) = 57
+3272  listen(5, 1)                      = 0
+3272  sendto(4, "port_num 33014", 14, 0, NULL, 0) = 14
+3272  accept(5, {sa_family=AF_INET, sin_port=htons(51627), sin_addr=inet_addr("192.168.43.119")}, [16]) = 6
+3272  write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
+3272  recvfrom(4, "ok", 14, 0, NULL, NULL) = 2
+3272  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f463b2d6000
+3272  mprotect(0x7f463b2d6000, 4096, PROT_NONE) = 0
+3272  clone(child_stack=0x7f463bad5fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f463bad69d0, tls=0x7f463bad6700, child_tidptr=0x7f463bad69d0) = 3273
+3272  futex(0xbf54a8, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
+3273  set_robust_list(0x7f463bad69e0, 24) = 0
+3273  write(1, "[Spawining HeartBeating] sd: 6 \n", 32) = 32
+3273  futex(0xbf54a8, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+3272  <... futex resumed> )             = 0
+3273  recvfrom(6,  <unfinished ...>
+3272  write(1, "Creato correttamente: Filename: "..., 80) = 80
+3272  write(1, "[Close] 'file.txt'\n", 19) = 19
+3272  sendto(4, "CLO 0\n", 6, 0, NULL, 0) = 6
+3272  close(4)                          = 0
+3272  close(6)                          = 0
+3272  write(1, "Chiusura effettuata con successo"..., 34) = 34
+3272  write(1, "\n", 1)                 = 1
+3272  write(1, " * Modo numero: 2 (pid:3272)\n", 29) = 29
+3272  open(".file.txt-006N8j", O_RDWR|O_CREAT|O_EXCL, 0600) = 4
+3272  unlink(".file.txt-006N8j")        = 0
+3272  write(1, "[Cache] Creato temp file: '.file"..., 45) = 45
+3272  fcntl(4, F_GETFL)                 = 0x8002 (flags O_RDWR|O_LARGEFILE)
+3272  fstat(4, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
+3272  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f463c2d7000
+3272  lseek(4, 0, SEEK_CUR)             = 0
+3272  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 6
+3272  connect(6, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("192.168.43.119")}, 16) = 0
+3272  sendto(6, "OPE file.txt 2\n\0", 16, 0, NULL, 0) = 16
+3272  recvfrom(6,  <unfinished ...>
+3273  <... recvfrom resumed> "", 5, 0, NULL, NULL) = 0
+3273  write(1, "[HB:6] Connessione chiusa.\n", 27) = 27
+3273  madvise(0x7f463b2d6000, 8368128, MADV_DONTNEED) = 0
+3273  _exit(0)                          = ?
+3273  +++ exited with 0 +++
+3272  <... recvfrom resumed> "32", 29, 0, NULL, NULL) = 2
+3272  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 7
+3272  bind(7, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+3272  getsockname(7, {sa_family=AF_INET, sin_port=htons(38992), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
+3272  write(1, "Sto richiedendo la connessione s"..., 57) = 57
+3272  listen(7, 1)                      = 0
+3272  sendto(6, "port_num 38992", 14, 0, NULL, 0) = 14
+3272  accept(7, {sa_family=AF_INET, sin_port=htons(51628), sin_addr=inet_addr("192.168.43.119")}, [16]) = 8
+3272  write(1, "[OPEN] Aperta connessione di Con"..., 40) = 40
+3272  recvfrom(6, "ok", 14, 0, NULL, NULL) = 2
+3272  mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f463aad5000
+3272  mprotect(0x7f463aad5000, 4096, PROT_NONE) = 0
+3272  clone(child_stack=0x7f463b2d4fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f463b2d59d0, tls=0x7f463b2d5700, child_tidptr=0x7f463b2d59d0) = 3274
+3272  futex(0xbf5838, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
+3274  set_robust_list(0x7f463b2d59e0, 24) = 0
+3274  write(1, "[Spawining HeartBeating] sd: 8 \n", 32) = 32
+3274  futex(0xbf5838, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+3272  <... futex resumed> )             = 0
+3274  <... futex resumed> )             = 1
+3272  write(1, "Creato correttamente: Filename: "..., 80 <unfinished ...>
+3274  recvfrom(8,  <unfinished ...>
+3272  <... write resumed> )             = 80
+3272  write(1, "[Close] 'file.txt'\n", 19) = 19
+3272  sendto(6, "CLO 0\n", 6, 0, NULL, 0) = 6
+3272  close(6)                          = 0
+3272  close(8)                          = 0
+3272  write(1, "Chiusura effettuata con successo"..., 34) = 34
+3272  write(1, "\n", 1)                 = 1
+3272  write(1, " * Modo numero: 4 (pid:3272)\n", 29) = 29
+3272  open(".file.txt-qf3k3X", O_RDWR|O_CREAT|O_EXCL, 0600) = 6
+3272  unlink(".file.txt-qf3k3X")        = 0
+3272  write(1, "[Cache] Creato temp file: '.file"..., 45) = 45
+3272  fcntl(6, F_GETFL)                 = 0x8002 (flags O_RDWR|O_LARGEFILE)
+3272  fstat(6, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
+3272  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f463c2d6000
+3272  lseek(6, 0, SEEK_CUR)             = 0
+3272  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 8
+3272  connect(8, {sa_family=AF_INET, sin_port=htons(9001), sin_addr=inet_addr("192.168.43.119")}, 16) = 0
+3272  sendto(8, "OPE file.txt 4\n\0", 16, 0, NULL, 0) = 16
+3272  recvfrom(8,  <unfinished ...>
+3274  <... recvfrom resumed> "ping\0", 5, 0, NULL, NULL) = 5
+3274  sendto(8, "pong", 4, 0, NULL, 0)  = 4
+3274  write(1, "[Heartbeating 8] PONG! 5, 'ping'"..., 33) = 33
+3274  recvfrom(8,  <unfinished ...>
+3272  <... recvfrom resumed> "32", 29, 0, NULL, NULL) = 2
+3272  socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 9
+3272  bind(9, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+3272  getsockname(9, {sa_family=AF_INET, sin_port=htons(44082), sin_addr=inet_addr("0.0.0.0")}, [16]) = 0
+3272  write(1, "Sto richiedendo la connessione s"..., 57) = 57
+3272  listen(9, 1)                      = 0
+3272  sendto(8, "port_num 44082", 14, 0, NULL, 0) = 14
+3272  accept(9,  <unfinished ...>
+3274  <... recvfrom resumed> "-2", 5, 0, NULL, NULL) = 2
+3274  recvfrom(8, "", 5, 0, NULL, NULL) = 0
+3274  write(1, "[Heartbeating 8] Ho ricevuto que"..., 67) = 67
+3274  madvise(0x7f463aad5000, 8368128, MADV_DONTNEED) = 0
+3274  _exit(0)                          = ?
+3274  +++ exited with 0 +++
+3272  <... accept resumed> 0x7fffea01fbf0, [16]) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+3272  --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+3272  +++ killed by SIGINT +++

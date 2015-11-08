@@ -19,7 +19,7 @@ int main()
     void *buffer = malloc(60000);
     MyDFSId *id;
     id = mydfs_open("127.0.0.1", filepath, MYO_RDONLY, &err);
-    FILE* fp = fopen("binario.jpg", "w+");
+    FILE* fp = fopen("binario.jpg", "w+b");
     
 
     while((i = mydfs_read(id, MYSEEK_CUR, buffer, 60000)) > 0)

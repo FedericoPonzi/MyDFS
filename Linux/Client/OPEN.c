@@ -35,7 +35,8 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	toRet->readList = NULL;
 	toRet->writeList = NULL;
 	toRet->readListMutex = malloc(sizeof(pthread_mutex_t));
-	toRet->indirizzo = malloc(strlen(indirizzo)+1);
+
+    toRet->indirizzo = malloc(strlen(indirizzo)+1);
 	strcpy(toRet->indirizzo, indirizzo);
 	
 	
@@ -160,7 +161,11 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 	buffer[nRecv]='\0';
     
 	toRet->filesize = strtol(buffer, NULL, 10);
-
+    if(errno == EINVAL || errno == ERANGE)
+    {
+        perror("strtol");
+        *err = -3;
+    }
 }
 
 /**

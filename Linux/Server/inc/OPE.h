@@ -1,5 +1,5 @@
-#ifndef OPENCOMMAND
-#define OPENCOMMAND
+#ifndef OPENCOMMAND_H
+#define OPENCOMMAND_H
 
 #define MYO_RDONLY 1
 #define MYO_WRONLY 2

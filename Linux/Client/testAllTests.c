@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 	{
 		filename=argv[1];
 	}
-    char* indirizzo = "127.0.0.1";
+    char* indirizzo = "192.168.43.119";
     testOpen(filename, indirizzo, 0 );
     //testInvalidazioneCache(filename, indirizzo, 0 );
     testRead(filename, indirizzo, 0 );

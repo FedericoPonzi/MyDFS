@@ -57,7 +57,7 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 			logM("Il peer e' andato.");
 			return 0;
 		}
-		logM("Messaggio: %d dati,  '%s'\n", n,  messaggio);
+
 		//Mi prendo la quantita e la posizione:
 		int size = getChunkSize(messaggio);
 		int pos = getChunkPosition(messaggio);
@@ -81,10 +81,10 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 			}
 			logM("Messaggio size: '%d', in posizione: %lu, buff: '%s'\n", nRecv, ftell(fp), buffer);
             
-			int w = fwrite(buffer, 1, n, fp);
+			int w = fwrite(buffer, 1, nRecv, fp);
 			logM("Scritti %d dati nel file. \n", w);
 			free(buffer);
-			size -= n;
+			size -= nRecv;
 		}
 		//Aggiorno la dimensione del file:
 		if(pos >= id->filesize)

@@ -66,6 +66,7 @@ void* heartBeat(void *args)
          */
         if(id != NULL && ptid != id->ptid)
         {
+            logM("[HB %d:%lu] Connessione terminata\n", temp_sd, ptid);
             return NULL;
         }
 		logM("[HB %d:%lu] PING!\n", temp_sd, ptid);
