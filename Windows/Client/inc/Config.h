@@ -7,9 +7,9 @@
  */
 #define DEBUG 1
 #define READLISTMUTEX "readlistmutex"
-#define OPENCOMMAND "OPE"
-#define CLOSECOMMAND "CLO"
-#define READCOMMAND "REA"
+#define OPENCOMMAND "OPEN"
+#define CLOSECOMMAND "CLOS"
+#define READCOMMAND "READ"
 #define SERVER_PORT "9001"
 #define BUFFSIZEREAD 65535
 #include <windows.h>
