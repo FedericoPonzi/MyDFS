@@ -70,14 +70,14 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
     
     if(*err == 0)
     {
-        logM("Creato correttamente: Filename: %s, modo: %d, socketId: %d, transferSock: %d\n", toRet->filename, toRet->modo, toRet->socketId, toRet->transferSockId);
+        logM("Creato correttamente: Filename: %s, modo: %d, transferSocketId: %d, transferSock: %d\n", toRet->filename, toRet->modo, toRet->transferSocketId, toRet->controlSocketId);
     }
 	return *err != 0 ? NULL : toRet;
 }
 
 /**
  * Crea la connessione di comunicazione client-server
- * Setta socketId
+ * Setta transferSocketId
  * 
  * WINREADY! @todo: forse si puo fare meglio, hints non serve!
  */
@@ -105,9 +105,9 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 	for(ptr=result; ptr != NULL ;ptr=ptr->ai_next) {
 
         // Create a SOCKET for connecting to server
-    toRet->socketId = socket(ptr->ai_family, ptr->ai_socktype, 
+    toRet->transferSocketId = socket(ptr->ai_family, ptr->ai_socktype, 
         ptr->ai_protocol);
-    if (toRet->socketId == INVALID_SOCKET) {
+    if (toRet->transferSocketId == INVALID_SOCKET) {
         printf("socket failed with error: %ld\n", WSAGetLastError());
         WSACleanup();
         *err = -2;
@@ -115,10 +115,10 @@ void createTransferSocket(MyDFSId* toRet, int *err)
     }
 
         // Connect to server.
-        iResult = connect( toRet->socketId, ptr->ai_addr, (int)ptr->ai_addrlen);
-        if (toRet->socketId == SOCKET_ERROR) {
-            closesocket(toRet->socketId);
-            toRet->socketId = INVALID_SOCKET;
+        iResult = connect( toRet->transferSocketId, ptr->ai_addr, (int)ptr->ai_addrlen);
+        if (toRet->transferSocketId == SOCKET_ERROR) {
+            closesocket(toRet->transferSocketId);
+            toRet->transferSocketId = INVALID_SOCKET;
             continue;
         }
         break;
@@ -132,7 +132,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 
     sprintf(openCommand, "%s %s %d\n", OPENCOMMAND, toRet->filename, toRet->modo);
 	
-    if(send(toRet->socketId, openCommand, sizeof(openCommand), 0) < 0)
+    if(send(toRet->transferSocketId, openCommand, sizeof(openCommand), 0) < 0)
     {
 		perror("send");
 		*err = -2;
@@ -142,7 +142,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 	/*
 	 * Controllo per vedere se non ci sono errori nell' apertura
 	 */
-	if ((iResult = recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
+	if ((iResult = recv(toRet->transferSocketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{
 		perror("recv");
 		*err = -2;
@@ -167,8 +167,8 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 /**
  * @brief Crea la socket di controllo 
  *
- * Setta propriamente err se qualcosa va storto, o modifica il campo toRet->transferSockId se tutto va bene.
- * setta transferSockId
+ * Setta propriamente err se qualcosa va storto, o modifica il campo toRet->controlSocketId se tutto va bene.
+ * setta controlSocketId
  * WINREady!
  */
 void createControlSocket(MyDFSId* toRet, int* err)
@@ -217,7 +217,7 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	clilen = sizeof(cli_addr);
 
 	/* Accept actual connection from the client */
-	send(toRet->socketId, buffer, strlen(buffer), 0);
+	send(toRet->transferSocketId, buffer, strlen(buffer), 0);
 	newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
 	if (newsockfd < 0)
 	{
@@ -225,10 +225,10 @@ void createControlSocket(MyDFSId* toRet, int* err)
 		*err = -2;
 	}
 
-	toRet->transferSockId = newsockfd;
+	toRet->controlSocketId = newsockfd;
 	logM("[OPEN] Aperta connessione di controllo.\n");
 
-	if ((recv(toRet->socketId, buffer, sizeof(buffer)-1, 0)) < 0)
+	if ((recv(toRet->transferSocketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{
 		perror("recv");
 		*err = -2;

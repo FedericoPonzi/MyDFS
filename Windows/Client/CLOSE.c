@@ -31,7 +31,7 @@ int mydfs_close(MyDFSId* id)
 		
 		sprintf(closeCommand, "%s %d\n", CLOSECOMMAND, getNumberOfChanges(id));
 		
-		if(send(id->socketId, closeCommand, strlen(closeCommand), 0) < 0)
+		if(send(id->transferSocketId, closeCommand, strlen(closeCommand), 0) < 0)
 		{
 			perror("1-send");
 			return -1;
@@ -39,8 +39,8 @@ int mydfs_close(MyDFSId* id)
 		
 		uploadChanges(id);
 		//Cancello tutto quanto:
-        //shutdown(id->socketId, SD_SEND);
-		//closesocket(id->transferSockId);
+        //shutdown(id->transferSocketId, SD_SEND);
+		//closesocket(id->controlSocketId);
 		free(id->indirizzo);
 		unlink(id->filename);
 		free(id->filename);
@@ -86,7 +86,7 @@ int uploadChanges(MyDFSId* id)
 		memset(buffcommand, 0, 100);
 		sprintf(buffcommand, "POS %d SIZE %d\n", iterator->pos, iterator->size);
 		logM("Sto inviando il comando: %s\n", buffcommand);
-		if(send(id->transferSockId, buffcommand, sizeof(buffcommand), 0) < 0)
+		if(send(id->controlSocketId, buffcommand, sizeof(buffcommand), 0) < 0)
 		{
 			perror("2-send");
 			return -1;
@@ -100,7 +100,7 @@ int uploadChanges(MyDFSId* id)
 		fread(buffer, 1, iterator->size, id->fp);
 		
 		logM("Sto inviando %d dati.\n", iterator->size);
-		if(send(id->transferSockId, buffer, iterator->size, 0) <0)
+		if(send(id->controlSocketId, buffer, iterator->size, 0) <0)
 		{
 			perror("Send error sending write.");
 			return -1;

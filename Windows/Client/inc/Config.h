@@ -43,8 +43,8 @@ typedef struct MyDFSId {
 	int filesize; /** Dimensione del file */
 	int modo; /** Modo di apertura */
 	int pos; /** Seek_set seek_cur ecc */
-	SOCKET socketId; /** socket id dell' heartbeating */
-	SOCKET transferSockId; /** Socket id dei comandi */
+	SOCKET transferSocketId; /** socket id dell' heartbeating */
+	SOCKET controlSocketId; /** Socket id dei comandi */
 	HANDLE readListMutex; /** Mutex per accedere la writelist */
 	WriteOp* writeList; /** Lista di operazioni di scrittura avvenute nel file */
 	ReadOp* readList; /**Come sopra, ma read */
