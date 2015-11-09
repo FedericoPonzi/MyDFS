@@ -261,7 +261,7 @@ void freeOpenedFile(OpenedFile* id)
 	fclose(id->fp);
     logM("[FreeOpenedfile] Libero: transfer: %d, sock: %d", id->controlSocketId, id->transferSocketId);
     pthread_mutex_destroy(&id->controlSocketMutex);
-    close(id->controlSocketId);
+    shutdown(id->controlSocketId, SHUT_RDWR);
     close(id->transferSocketId);
     
 	memset(id,0,sizeof(OpenedFile));
