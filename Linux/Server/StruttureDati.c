@@ -263,8 +263,7 @@ void freeOpenedFile(OpenedFile* id)
     pthread_mutex_destroy(&id->controlSocketMutex);
     shutdown(id->controlSocketId, SHUT_RDWR);
     close(id->transferSocketId);
-    
-	memset(id,0,sizeof(OpenedFile));
+	bzero(id, sizeof(OpenedFile));
 }
 
 
@@ -386,11 +385,11 @@ char* getFileName()
 OpenedFile* getOpenedFile()
 {
 	pthread_mutex_lock(mutex);
-
+    long unsigned ptid = getptid();
 	OpenedFile* iterator = *openedFileLinkedList;
 	while(iterator != NULL)
 	{
-		if(iterator->ptid == getptid())
+		if(iterator->ptid == ptid)
 		{
 			pthread_mutex_unlock(mutex);
 			return iterator;
@@ -402,6 +401,9 @@ OpenedFile* getOpenedFile()
 	return NULL;
 }
 
+/**
+ * Ritorna il numero di righe della tabella con i file aperti.
+ */
 int countOpenedFile()
 {
 	int i = 0;
@@ -409,8 +411,8 @@ int countOpenedFile()
 	OpenedFile* iterator = *openedFileLinkedList;
 	while(iterator != NULL)
 	{
-		i++;
 		iterator = iterator->next;
+        i++;
 	}
 	pthread_mutex_unlock(mutex);
 	return i;

@@ -13,13 +13,13 @@
 int main()
 {
     printf("Test copia un file binario :D\n");
-    char* filepath ="/prova/binario.jpg";
+    char* filepath ="binario.tar.gz";
     int err = 0;
     int i = 0;
     void *buffer = malloc(60000);
     MyDFSId *id;
     id = mydfs_open("127.0.0.1", filepath, MYO_RDONLY, &err);
-    FILE* fp = fopen("binario.jpg", "w+b");
+    FILE* fp = fopen("binario.tar.gz", "w+b");
     
 
     while((i = mydfs_read(id, MYSEEK_CUR, buffer, 60000)) > 0)
