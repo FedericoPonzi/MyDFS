@@ -27,11 +27,12 @@ void spawnHeartBeat(MyDFSId* id)
 {
     ThreadArgs *threadArg = (ThreadArgs*) malloc( sizeof(ThreadArgs));
     threadArg->id = id;
+    //threadArg->barriera = 
     CreateSemaphore( 
         NULL,           // default security attributes
         0,  // initial count
         1,  // maximum count
-        NULL);      
+        NULL);
     
 	DWORD tid;
 	CreateThread( 

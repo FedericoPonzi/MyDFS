@@ -53,6 +53,8 @@ int loadConfig()
 	{	
 		handleLine(buf);
 	}
+    
+    fclose(filePointer);
 
 	// Inizializzo la memoria per le strutture dati:
 	allocaEInizializzaMemoria();

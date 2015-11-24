@@ -38,6 +38,7 @@ int mydfs_close(MyDFSId* id)
 		//Cancello tutto quanto:
         close(id->transferSocketId);
         id->transferSocketId=-1;
+        
 		shutdown(id->controlSocketId, SHUT_RDWR);
         id->controlSocketId=-1;
 		free(id->indirizzo);

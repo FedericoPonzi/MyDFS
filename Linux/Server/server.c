@@ -297,7 +297,7 @@ void spawnThread()
 			perror("Spawnthread:");
 			exit(EXIT_FAILURE);
 		}
-		logM("[spawnThread] - Mio tid: %d\n", getptid());
+		logM("[spawnThread] - Mio tid: %d\n", tid);
 		*numberAliveChilds = *numberAliveChilds + 1;
 	}
 }

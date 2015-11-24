@@ -231,12 +231,12 @@ int createControlSock(int portNo, int transferSocketId, OpenedFile* file)
 char* getFileNameFromCommand(char* command)
 {
 	int i = strlen(command);
-	while(!isspace(command[i]))
+	while(!isspace(command[i]) || i == 0)
 	{
 		i--;
 	}
     
-    char* nomeFile = malloc(i);
+    char* nomeFile = malloc(i+1);
 
     memcpy(nomeFile, command, i);
 

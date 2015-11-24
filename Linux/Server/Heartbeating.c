@@ -30,6 +30,7 @@ void spawnHeartBeat(OpenedFile* id)
 	if(pthread_create(&tid, NULL, &heartBeat, id) != 0)
 	{
 		perror("Cant create hb thread");
+        myExit();
 	}
 }
 
@@ -60,7 +61,7 @@ void* heartBeat(void *args)
 		pthread_mutex_lock(&id->controlSocketMutex);
 		nSend = send(temp_sd, ping, strlen(ping)+1, 0);				
 		pthread_mutex_unlock(&id->controlSocketMutex);
-		if(nSend < 0)
+		if(nSend <= 0)
         {
             logM("[HB %d:%lu] Connessione terminata\n", temp_sd, ptid);
             closeClientSession(ptid);
@@ -77,7 +78,7 @@ void* heartBeat(void *args)
 			}
 			break;
 		}
-		memset(pong, 0, sizeof(pong));
+		bzero(pong, sizeof(pong));
 	}
 	return NULL;
 }

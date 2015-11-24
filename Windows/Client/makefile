@@ -4,13 +4,13 @@ CC=gcc
 # CFLAGS will be the options passed to the compiler.
 CFLAGS=-c -g -Wall 
 
-LIBS= libmydfs.a -lWs2_32
+LIBS= libmydfs.a -lWs2_32 
 
 #oggetti da creare:
 OBJECTS = Utils.o OPEN.o CLOSE.o READ.o WRITE.o Cache.o Heartbeating.o Test.o
 
 #Creera' tutti questi binari: testread   testfillfs testfilebinario testalltest testopenerrors testreaderrors
-all::prog topen  testinvalidazione testheartbeating
+all::prog topen  testinvalidazione testheartbeating testread  testfilfs testfilebinario testalltest testopenerrors testreaderrors
  
 prog:libmydfs.a
 	gcc -o TestWrite -g testWrite.c libmydfs.a -lWs2_32 
@@ -36,7 +36,7 @@ testinvalidazione:
 topen:
 	gcc -o TestOpen -g testOpen.c $(LIBS)
 
-testfillfs:
+testfilfs:
 	gcc -o TestFillFS -g testFillFS.c $(LIBS)
 	
 testfilebinario:

@@ -86,7 +86,7 @@ void handleREADCommand(char* command, int socket)
     if(nSend < 0)
     {
         perror("[handleReadCommand] 1-send");
-        closeClientSession(getppid());
+        closeClientSession(getptid());
         close(socket);
         return;
     }
@@ -100,7 +100,7 @@ void handleREADCommand(char* command, int socket)
     if(nSend<0)
     {
         perror("[handleReadCommand] 2-send");
-        closeClientSession(getppid());
+        closeClientSession(getptid());
         close(socket);
         return;
     }	
