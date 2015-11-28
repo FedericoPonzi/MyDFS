@@ -47,7 +47,7 @@ void* heartBeat(void *args)
     SOCKET transferSocket = id->transferSocketId;
     HANDLE controlSocketMutex = id->controlSocketMutex;
 	long unsigned int ptid = id->ptid;
-	printf("[Spawining HeartBeating] Tempsd: %d, ptid: %lu\n", controlSd, ptid);
+	//printf("[Spawining HeartBeating] Tempsd: %d, ptid: %lu\n", controlSd, ptid);
 	
 	//struct per settare tempo massimo di attesa in rcv
 	struct timeval tv;

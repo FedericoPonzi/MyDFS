@@ -86,8 +86,7 @@ void handleOpenCommand(char* command, int socket)
 	{
 		printf("Errore nell' apertura del file (o nella send)\n");
         free(nomeFile);
-        closesocket(socket);
-        closeClientSession(getptid());
+        shutdown(socket, SD_BOTH);
 		return;
 	}
     
@@ -161,14 +160,12 @@ void handleOpenCommand(char* command, int socket)
     {
         printf("[OPE %lu Errore o nella send o precedente.", getptid());
         free(nomeFile);
-        closesocket(socket);
-        closeClientSession(getptid());
+        shutdown(socket, SD_BOTH);
         return;
     }
     
     free(nomeFile);
-    printf("[OpenCommand] Connessione creata correttamente.[\n Filename: %s,\n Modo: %d,\n Socket: %d,\n HB: %d,\n ptid: %lu.\n]", id->
-    fileName, id->modo, id->transferSocketId, id->controlSocketId, getptid());
+    //logM("[OpenCommand] Connessione creata correttamente.[\n Filename: %s,\n Modo: %d,\n Socket: %d,\n HBsocket: %d,\n ptid: %lu.\n]", id-> fileName, id->modo, id->transferSocketId, id->controlSocketId, getptid());
 }
 
 /**
@@ -229,7 +226,6 @@ int createControlSock(int portNo, int socketId, OpenedFile* file)
  */
 char* getFileNameFromCommand(char* command)
 {
-    printf("Command '%s'\n", command);
 	int i = strlen(command);
 	while(!isspace(command[i]) || i == 0)
 	{
@@ -241,7 +237,6 @@ char* getFileNameFromCommand(char* command)
     memcpy(nomeFile, command, i);
 
     nomeFile[i] = '\0';
-    printf("nomeFile: '%s', strlen: %d", nomeFile, strlen(nomeFile));
     return nomeFile;
 }
 

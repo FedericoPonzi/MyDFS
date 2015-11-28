@@ -45,13 +45,11 @@ void handleCommand(char* buff, int socket)
  */
 void* handleSocket(SOCKET *sdp)
 {
-    SOCKET mainSd = *sdp;
 	SOCKET temp_sd = INVALID_SOCKET;
 	struct sockaddr_in client;
 	socklen_t address_size;
     address_size = sizeof(client);
     
-    printf("mainSd: %u, sdp: %p\n", mainSd, sdp);
 	WaitForSingleObject(acceptMutex, INFINITE);
     
 	if((temp_sd = accept(*sdp, (struct sockaddr *) &client, &address_size)) == INVALID_SOCKET)
@@ -65,7 +63,6 @@ void* handleSocket(SOCKET *sdp)
         //myExit();
 	}
 	ReleaseMutex(acceptMutex);
-    printf("temp_sd: %d, sd: %d, ptid: %lu \n", temp_sd, mainSd, getptid());
 
 	//struct per settare tempo massimo di attesa in rcv
 	/*struct timeval tv;
@@ -88,17 +85,18 @@ void* handleSocket(SOCKET *sdp)
 		nRecv = recv(temp_sd, buff, sizeof(buff)-1, 0);
 		
 		// Connessione chiusa o errore
-		if(nRecv <= 0)
+		if(nRecv == 0 || nRecv == SOCKET_ERROR)
 		{
-            if(nRecv< 0)
+            //Se nRecv = 0 e' stata chiusa bene. Altrimenti:
+            if(nRecv == SOCKET_ERROR)
             {
-                printf("[server] recv Error: %d", WSAGetLastError());
+                printf("[server] Recv Error: (%d)", WSAGetLastError());
             }
 			break;
 		}
         
 		buff[nRecv] = '\0';
-        		
+        
 		handleCommand(buff, temp_sd);
 
         printf("\n\n");
