@@ -39,8 +39,8 @@ int mydfs_close(MyDFSId* id)
 		
 		uploadChanges(id);
 		//Cancello tutto quanto:
-        //shutdown(id->transferSocketId, SD_SEND);
-		//closesocket(id->controlSocketId);
+        shutdown(id->transferSocketId, SD_BOTH);
+		closesocket(id->controlSocketId);
 		free(id->indirizzo);
 		unlink(id->filename);
 		free(id->filename);

@@ -44,7 +44,9 @@ int main(int argc, char* argv[])
     char* indirizzo = "127.0.0.1";
     
     printf("Sizeof(Handle): %lu, sizeof(pvoid): %lu", sizeof(HANDLE), sizeof(PVOID));
-    testOpen(filename, indirizzo, 1 );
+    int i  = 0;
+    for(i = 0; i< 50; i++) 
+        testOpen(filename, indirizzo, 1 );
 
 	return 0;	
 }

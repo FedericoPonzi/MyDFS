@@ -70,7 +70,7 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
     
     if(*err == 0)
     {
-        logM("Creato correttamente: Filename: %s, modo: %d, transferSocketId: %d, transferSock: %d\n", toRet->filename, toRet->modo, toRet->transferSocketId, toRet->controlSocketId);
+        logM("Creato correttamente: Filename: %s, modo: %d, transferSocketId: %d, ControlSocketId: %d\n", toRet->filename, toRet->modo, toRet->transferSocketId, toRet->controlSocketId);
     }
 	return *err != 0 ? NULL : toRet;
 }
@@ -103,17 +103,19 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 	iResult = getaddrinfo(toRet->indirizzo, SERVER_PORT, &hints, &result);
 	
 	for(ptr=result; ptr != NULL ;ptr=ptr->ai_next) {
-
+    
+    toRet->transferSocketId = INVALID_SOCKET;
+    
         // Create a SOCKET for connecting to server
     toRet->transferSocketId = socket(ptr->ai_family, ptr->ai_socktype, 
         ptr->ai_protocol);
+
     if (toRet->transferSocketId == INVALID_SOCKET) {
         printf("socket failed with error: %ld\n", WSAGetLastError());
         WSACleanup();
         *err = -2;
         return;
     }
-
         // Connect to server.
         iResult = connect( toRet->transferSocketId, ptr->ai_addr, (int)ptr->ai_addrlen);
         if (toRet->transferSocketId == SOCKET_ERROR) {
@@ -123,7 +125,6 @@ void createTransferSocket(MyDFSId* toRet, int *err)
         }
         break;
 	}
-	
     
     
     //Connessione effettuata, invio la richiesta di apertura del file
@@ -181,7 +182,7 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	socklen_t clilen;
 	/* First call to socket() function */
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
-
+    printf("Base socket: %d\n", sockfd);
 	if (sockfd < 0)
 	{
 		perror("ERROR opening socket");
@@ -216,7 +217,6 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	listen(sockfd, 10);
 	clilen = sizeof(cli_addr);
 
-	/* Accept actual connection from the client */
 	send(toRet->transferSocketId, buffer, strlen(buffer), 0);
 	newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
 	if (newsockfd < 0)
@@ -224,8 +224,9 @@ void createControlSocket(MyDFSId* toRet, int* err)
 		perror("ERROR on accept");
 		*err = -2;
 	}
-
+    closesocket(sockfd);
 	toRet->controlSocketId = newsockfd;
+    printf("ControlsocketId: %d\n", newsockfd);
 	logM("[OPEN] Aperta connessione di controllo.\n");
 
 	if ((recv(toRet->transferSocketId, buffer, sizeof(buffer)-1, 0)) < 0)

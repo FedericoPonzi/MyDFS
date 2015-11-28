@@ -1,0 +1,21 @@
+##FILE DI CONFIG
+
+###
+##Numero massimo di connessioni contemporanee:
+###
+NUMBER_OF_CONNECTION 2
+
+###
+## 0 per usare i threads 1 per usare i processi
+###
+PROCESS_OR_THREAD 0
+
+###
+## Numero di porta su cui ascoltare la connessione:
+###
+PORT_NUMBER 9001
+
+###
+## Root path file
+###
+ROOT_PATH C:\\Users\\FedericoPonzi\\Documents\\

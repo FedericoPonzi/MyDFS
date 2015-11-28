@@ -1,0 +1,11 @@
+root_path = C:\\Users\\FedericoPonzi\\Documents\\
+[Initialize Memory] - Sto per allocare 620 spazio.
+Ptr vale: 002B0000
+Curr: 002B0018, passo 0, size: 300
+Curr: 002B0270, passo 1, size: 300
+acceptMutex(00407060): 00000070
+[Config]
+'2' numero di connessioni
+'0' Processo o thread
+'9001' Porta in ascolto.
+

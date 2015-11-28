@@ -87,6 +87,7 @@ void* heartBeat(void *sd)
 		}
 		else
 		{
+            closesocket(controlSd);
 			logM("[HB:%d] Connessione chiusa.\n", controlSd);
 			return NULL;
 		}

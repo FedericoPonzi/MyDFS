@@ -237,7 +237,8 @@ void createControlSocket(MyDFSId* toRet, int* err)
 		perror("ERROR on accept");
 		*err = -2;
 	}
-
+    close(sockfd);
+    
 	toRet->controlSocketId = newsockfd;
 	logM("[OPEN] Aperta connessione di Controllo.\n");
 
