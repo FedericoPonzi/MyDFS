@@ -1,2 +1,282 @@
 Logging info...
 Logging info...
+root_path = 
+[Initialize Memory] - Sto per allocare 140730565554520 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'1667134136' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140726000811080 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'1397357992' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+[spawnThread] - Mio tid: 1397357960
+[spawnThread] - Mio tid: 1397357960
+root_path = 
+[Initialize Memory] - Sto per allocare 140737488346184 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-8792' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140737488346184 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-8792' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140737488346184 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-8792' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140737488346184 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-8792' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+[handleSocket] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'Ð|ž$È' 
+[OPE 614366360] Sto mandando [OPE %d] Sto mandando %s sulla socket %d
+ sulla socket -1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: 1,
+ Modo: 4212904,
+ Socket: -1,
+ HB: 0,
+ ptid: 72058142045110274.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: ''
+[FreeOpenedfile] Libero: transfer: 614370536, sock: 4213440[CloseClientSession] Numero connessioni rimaste: 614370568
+[handleSocket] - Collegamento effettuato.
+[closeClientSession] - Connessione chiusa.
+
+
+[handleCommand] Ricevuta richiesta OPEN
+[handleSocket] - Connessione terminata.
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'Ðl$È' 
+[OPE 605973656] Sto mandando [OPE %d] Sto mandando %s sulla socket %d
+ sulla socket -1
+[Spawining HeartBeating] Tempsd: 597585352, ptid: 4214744
+[OpenCommand] Connessione creata correttamente.[
+ Filename: 1,
+ Modo: 4212904,
+ Socket: -1,
+ HB: 0,
+ ptid: 140497592952564.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+HandleWrites: 605977704 numero di cambiamenti. 
+[Close] Cerco client per messaggio di Invalidazione. Mio ptid: 140497576164600 
+[closeClientSession] - individuato file primo: ''
+[FreeOpenedfile] Libero: transfer: 605977832, sock: 4213440[CloseClientSession] Numero connessioni rimaste: 605977864
+[closeClientSession] - Connessione chiusa.
+
+
+[handleSocket] - Connessione terminata.
+[spawnThread] - Mio tid: 1397357960
+[handleSocket] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[spawnThread] - Mio tid: 1397357960
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'ÐL#È' 
+[OPE 589188248] Sto mandando [OPE %d] Sto mandando %s sulla socket %d
+ sulla socket -1
+[Spawining HeartBeating] Tempsd: 572407240, ptid: 4214744
+[OpenCommand] Connessione creata correttamente.[
+ Filename: 1,
+ Modo: 4212904,
+ Socket: -1,
+ HB: 0,
+ ptid: 140497592952564.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+HandleWrites: 589192296 numero di cambiamenti. 
+[Close] Cerco client per messaggio di Invalidazione. Mio ptid: 140497559379192 
+[closeClientSession] - individuato file primo: ''
+[FreeOpenedfile] Libero: transfer: 589192424, sock: 4213440[CloseClientSession] Numero connessioni rimaste: 589192456
+[closeClientSession] - Connessione chiusa.
+
+
+[handleCommand] Ricevuta richiesta OPEN
+[handleSocket] - Connessione terminata.
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'Ð<ž"È' 
+[OPE 580795544] Sto mandando [OPE %d] Sto mandando %s sulla socket %d
+ sulla socket -1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: 1,
+ Modo: 4212904,
+ Socket: -1,
+ HB: 0,
+ ptid: 72058141403316226.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: ''
+[FreeOpenedfile] Libero: transfer: 580799720, sock: 4213440[CloseClientSession] Numero connessioni rimaste: 580799752
+[closeClientSession] - Connessione chiusa.
+
+
+[handleSocket] - Connessione terminata.
+[spawnThread] - Mio tid: 1397357960
+[handleSocket] - Collegamento effettuato.
+[spawnThread] - Mio tid: 1397357960
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'Ðž!È' 
+[OPE 564010136] Sto mandando [OPE %d] Sto mandando %s sulla socket %d
+ sulla socket -1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: 1,
+ Modo: 4212904,
+ Socket: -1,
+ HB: 0,
+ ptid: 72058142629560322.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: ''
+[FreeOpenedfile] Libero: transfer: 564014312, sock: 4213440[CloseClientSession] Numero connessioni rimaste: 564014344
+[closeClientSession] - Connessione chiusa.
+[handleSocket] - Collegamento effettuato.
+
+
+[handleSocket] - Connessione terminata.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'Ð!È' 
+MYO_EXCL di un file esistente.CheckModoOpen error
+[appendOpenedFile] - Errore. 
+Errore nell' apertura del file (o nella send)
+
+
+[handleSocket] - Connessione terminata.
+[HB 597585352:4214792] PING!
+root_path = 
+[Initialize Memory] - Sto per allocare 140728837915176 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-60505208' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140726895539992 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-2002880392' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140724795741432 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'192288344' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140726556743736 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'1953290648' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140722691210920 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-1912242168' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140723758457944 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-844995144' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140732987331000 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-206056680' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140726898946136 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-1999474248' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140724561745640 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'-41707448' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140729980733336 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'1082312952' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+
+root_path = 
+[Initialize Memory] - Sto per allocare 140722390342440 spazio.
+addio papy 1
+Seconda fork: addio papy
+[Config]
+'2081856648' numero di connessioni
+'4212264' Processo o thread
+'-1' Porta in ascolto.
+

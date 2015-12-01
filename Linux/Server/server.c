@@ -254,7 +254,7 @@ void* handleSocket()
             }
             if(nRecv< 0)
             {
-                perror("[server] recv: ");
+                perror("[HandleCommand] recv");
             }
 			break;
 		}
