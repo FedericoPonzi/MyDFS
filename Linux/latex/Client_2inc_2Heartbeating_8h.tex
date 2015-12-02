@@ -11,7 +11,7 @@ struct \hyperlink{structpthreadArgs}{pthread\+Args}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{Client_2inc_2Heartbeating_8h_a996f23ff45bfbedeb9b64f6b030122f8}{spawn\+Heart\+Beat} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
-\item 
+\begin{DoxyCompactList}\small\item\em Se il processo esegue una O\+P\+E\+N poi una C\+L\+O\+S\+E e poi di nuovo O\+P\+E\+N il sd della connessione dati della seconda connessione potrebbe coincidere col sd dell' heartbeating. \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{Client_2inc_2Heartbeating_8h_aae3126a1d85426aa8df88b7186611472}{heart\+Beat} (void $\ast$\hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd})
 \begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l' heartbeating. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variabili}
@@ -42,7 +42,11 @@ Main del nuovo thread creato per l' heartbeating.
 )}}\label{Client_2inc_2Heartbeating_8h_a996f23ff45bfbedeb9b64f6b030122f8}
 
 
-Referenzia heart\+Beat(), e tid.
+Se il processo esegue una O\+P\+E\+N poi una C\+L\+O\+S\+E e poi di nuovo O\+P\+E\+N il sd della connessione dati della seconda connessione potrebbe coincidere col sd dell' heartbeating. 
+
+L' H\+B potrebbe andare in recv, dopo la C\+L\+O\+S\+E e finire a fare la recv sulla connessione dati della successiva O\+P\+E\+N. 
+
+Referenzia Thread\+Args\+::barriera, heart\+Beat(), Thread\+Args\+::id, e tid.
 
 
 

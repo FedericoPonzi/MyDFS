@@ -33,8 +33,6 @@ int $\ast$ \hyperlink{Server_2Config_8c_ad588b9329591f013097f9531c643a262}{numbe
 \item 
 pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{Server_2Config_8c_a1b7ba52f02ee92a5963c7aa917b10c2b}{accept\+Mutex}
 \begin{DoxyCompactList}\small\item\em Mutex dell' accept. \end{DoxyCompactList}\item 
-pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{Server_2Config_8c_ad6746bc317b81e89070e24e57e63f760}{temp\+Sock\+Mutex}
-\begin{DoxyCompactList}\small\item\em Mutex della socket temporanea. \end{DoxyCompactList}\item 
 int \hyperlink{Server_2Config_8c_a6fa40559d133e806762dd11ebaec522e}{numero\+Con} = 0
 \begin{DoxyCompactList}\small\item\em Numero di connessioni contemporanee permesse (equivale al numero di threads o processi) \end{DoxyCompactList}\item 
 int \hyperlink{Server_2Config_8c_af05e592fecdd2c97fa06eafcb1c8e2c3}{proc\+Or\+Thread} = 0
@@ -74,7 +72,7 @@ Carica le impostazioni del config, ed inizializza la memoria.
 
 
 
-Referenzia C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E, e handle\+Line().
+Referenzia C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E, handle\+Line(), e log\+M().
 
 
 
@@ -86,7 +84,7 @@ Referenzia C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E, e handle\+Line().
 
 Mutex dell' accept. 
 
-
+Indica la lunghezza del buffer del nome del file. 
 
 Referenziato da handle\+Socket().
 
@@ -95,7 +93,7 @@ Referenziato da handle\+Socket().
 \subsubsection[{number\+Alive\+Childs}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ number\+Alive\+Childs}}\label{Server_2Config_8c_ad588b9329591f013097f9531c643a262}
 
 
-Referenziato da append\+Opened\+File(), spawn\+Process(), e spawn\+Thread().
+Referenziato da append\+Opened\+File(), handle\+Socket(), spawn\+Process(), e spawn\+Thread().
 
 \hypertarget{Server_2Config_8c_a6fa40559d133e806762dd11ebaec522e}{\index{Server/\+Config.\+c@{Server/\+Config.\+c}!numero\+Con@{numero\+Con}}
 \index{numero\+Con@{numero\+Con}!Server/\+Config.\+c@{Server/\+Config.\+c}}
@@ -113,7 +111,7 @@ Numero di porta.
 
 
 
-Referenziato da main().
+Referenziato da main(), e parse\+Input().
 
 \hypertarget{Server_2Config_8c_af05e592fecdd2c97fa06eafcb1c8e2c3}{\index{Server/\+Config.\+c@{Server/\+Config.\+c}!proc\+Or\+Thread@{proc\+Or\+Thread}}
 \index{proc\+Or\+Thread@{proc\+Or\+Thread}!Server/\+Config.\+c@{Server/\+Config.\+c}}
@@ -135,16 +133,5 @@ root path server
 
 
 
-Referenziato da append\+Opened\+File(), check\+Modo\+Open(), e handle\+R\+E\+A\+D\+Command().
-
-\hypertarget{Server_2Config_8c_ad6746bc317b81e89070e24e57e63f760}{\index{Server/\+Config.\+c@{Server/\+Config.\+c}!temp\+Sock\+Mutex@{temp\+Sock\+Mutex}}
-\index{temp\+Sock\+Mutex@{temp\+Sock\+Mutex}!Server/\+Config.\+c@{Server/\+Config.\+c}}
-\subsubsection[{temp\+Sock\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ temp\+Sock\+Mutex}}\label{Server_2Config_8c_ad6746bc317b81e89070e24e57e63f760}
-
-
-Mutex della socket temporanea. 
-
-
-
-Referenziato da heart\+Beat(), e send\+Invalidate().
+Referenziato da append\+Opened\+File(), check\+Modo\+Open(), handle\+Open\+Command(), e parse\+Input().
 

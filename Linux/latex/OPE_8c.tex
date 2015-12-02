@@ -16,6 +16,7 @@ Gestisce il comando O\+P\+E(\+N)
 {\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+C\+L\+O\+S\+E.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Config.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$limits.\+h$>$}\\*
 {\ttfamily \#include $<$errno.\+h$>$}\\*
 {\ttfamily \#include $<$sys/socket.\+h$>$}\\*
@@ -31,11 +32,11 @@ Gestisce il comando O\+P\+E(\+N)
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{OPE_8c_a14798837102781498ee08e3c4cf5561c}{get\+Modo} (char $\ast$command)
-\begin{DoxyCompactList}\small\item\em Ritorna il modo, sia se e' a una cifra che se e' a due cifre \+:D. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Ritorna il modo dalla stringa del comando. \end{DoxyCompactList}\item 
+int \hyperlink{OPE_8c_abe1808712348b8e60af0a99293115f87}{create\+Control\+Sock} (int port\+No, int transfer\+Socket\+Id, \hyperlink{structOpenedFile}{Opened\+File} $\ast$file)
+\begin{DoxyCompactList}\small\item\em crea connessione di controllo (heartbeating e invalidazione) lato server \end{DoxyCompactList}\item 
 void \hyperlink{OPE_8c_a6eccb6ec6ec9c8375e70ab4088b511a5}{handle\+Open\+Command} (char $\ast$command, int socket)
-\begin{DoxyCompactList}\small\item\em Gestisce il comando Open. \end{DoxyCompactList}\item 
-int \hyperlink{OPE_8c_af1f79690eec0a7727a519ba59a891762}{create\+Control\+Sock} (int port\+No, int socket\+Id)
-\begin{DoxyCompactList}\small\item\em crea connessione dati lato server \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gestisce il comando Open. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descrizione dettagliata}
@@ -73,21 +74,25 @@ Referenziato da handle\+Open\+Command().
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{OPE_8c_af1f79690eec0a7727a519ba59a891762}{\index{O\+P\+E.\+c@{O\+P\+E.\+c}!create\+Control\+Sock@{create\+Control\+Sock}}
+\hypertarget{OPE_8c_abe1808712348b8e60af0a99293115f87}{\index{O\+P\+E.\+c@{O\+P\+E.\+c}!create\+Control\+Sock@{create\+Control\+Sock}}
 \index{create\+Control\+Sock@{create\+Control\+Sock}!O\+P\+E.\+c@{O\+P\+E.\+c}}
 \subsubsection[{create\+Control\+Sock}]{\setlength{\rightskip}{0pt plus 5cm}int create\+Control\+Sock (
 \begin{DoxyParamCaption}
 \item[{int}]{port\+No, }
-\item[{int}]{socket\+Id}
+\item[{int}]{transfer\+Socket\+Id, }
+\item[{{\bf Opened\+File} $\ast$}]{file}
 \end{DoxyParamCaption}
-)}}\label{OPE_8c_af1f79690eec0a7727a519ba59a891762}
+)}}\label{OPE_8c_abe1808712348b8e60af0a99293115f87}
 
 
-crea connessione dati lato server 
+crea connessione di controllo (heartbeating e invalidazione) lato server 
+
+\begin{DoxyReturn}{Restituisce}
+0 se c'è un errore, il socked descriptor del control socket altrimenti. 
+\end{DoxyReturn}
 
 
-
-Referenzia get\+Opened\+File(), log\+M(), sd, e Opened\+File\+::transfer\+Sock\+Id.
+Referenzia Opened\+File\+::control\+Socket\+Id, log\+M(), e sd.
 
 
 
@@ -102,7 +107,7 @@ Referenziato da handle\+Open\+Command().
 )}}\label{OPE_8c_a14798837102781498ee08e3c4cf5561c}
 
 
-Ritorna il modo, sia se e' a una cifra che se e' a due cifre \+:D. 
+Ritorna il modo dalla stringa del comando. 
 
 
 
@@ -124,7 +129,7 @@ Gestisce il comando Open.
 \item[\hyperlink{todo__todo000008}{Da fare}]\+: Da vedere bene per memory leaks!!!! \end{DoxyRefDesc}
 
 
-Referenzia append\+Opened\+File(), create\+Control\+Sock(), Opened\+File\+::file\+Name, Opened\+File\+::fp, get\+Modo(), get\+Opened\+File(), getptid(), is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E, Opened\+File\+::socket\+Id, spawn\+Heart\+Beat(), strip\+Command(), e Opened\+File\+::transfer\+Sock\+Id.
+Referenzia append\+Opened\+File(), close\+Client\+Session(), Opened\+File\+::control\+Socket\+Id, create\+Control\+Sock(), Opened\+File\+::file\+Name, Opened\+File\+::fp, get\+Modo(), getptid(), is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, P\+R\+T\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E, root\+Path, spawn\+Heart\+Beat(), strip\+Command(), e Opened\+File\+::transfer\+Socket\+Id.
 
 
 

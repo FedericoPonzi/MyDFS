@@ -106,12 +106,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <code>#include &quot;<a class="el" href="Server_2inc_2Config_8h_source.html">inc/Config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Server_2inc_2Utils_8h_source.html">inc/Utils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="CommandsHandler_8h_source.html">inc/CommandsHandler.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Error_8h_source.html">inc/Error.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="StruttureDati_8h_source.html">inc/StruttureDati.h</a>&quot;</code><br />
 <code>#include &lt;signal.h&gt;</code><br />
 <code>#include &lt;sys/types.h&gt;</code><br />
 <code>#include &lt;sys/stat.h&gt;</code><br />
 <code>#include &lt;syslog.h&gt;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
@@ -125,19 +125,21 @@ Funzioni</h2></td></tr>
 <tr class="memdesc:ac53af003472a20c81247bd125288a4c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce la comunicazione con la socket.  <a href="#ac53af003472a20c81247bd125288a4c8">Continua...</a><br /></td></tr>
 <tr class="separator:ac53af003472a20c81247bd125288a4c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9111700e7416f44aec9f208e66f0d7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#af9111700e7416f44aec9f208e66f0d7e">spawnHeartBeat</a> (int temp_sd)</td></tr>
-<tr class="memdesc:af9111700e7416f44aec9f208e66f0d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione che spawna il thread per l' heartbeating.  <a href="#af9111700e7416f44aec9f208e66f0d7e">Continua...</a><br /></td></tr>
 <tr class="separator:af9111700e7416f44aec9f208e66f0d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac43da3dbb27d7a95bb3fbf75f3dfd99f"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#ac43da3dbb27d7a95bb3fbf75f3dfd99f">heartBeat</a> (void *temp_sd)</td></tr>
 <tr class="memdesc:ac43da3dbb27d7a95bb3fbf75f3dfd99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main del nuovo thread creato per l' heartbeating.  <a href="#ac43da3dbb27d7a95bb3fbf75f3dfd99f">Continua...</a><br /></td></tr>
 <tr class="separator:ac43da3dbb27d7a95bb3fbf75f3dfd99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f31a6fd48ee5d4579ae4aaaa3cae285"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a4f31a6fd48ee5d4579ae4aaaa3cae285">sig_handler</a> (int signo)</td></tr>
-<tr class="memdesc:a4f31a6fd48ee5d4579ae4aaaa3cae285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal handler per gestire l' invalidazione.  <a href="#a4f31a6fd48ee5d4579ae4aaaa3cae285">Continua...</a><br /></td></tr>
-<tr class="separator:a4f31a6fd48ee5d4579ae4aaaa3cae285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9c795678d372dfe604060a8ed43c63f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#ae9c795678d372dfe604060a8ed43c63f">sig_handler</a> (int sig, siginfo_t *siginfo, void *context)</td></tr>
+<tr class="memdesc:ae9c795678d372dfe604060a8ed43c63f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal handler per gestire l' invalidazione.  <a href="#ae9c795678d372dfe604060a8ed43c63f">Continua...</a><br /></td></tr>
+<tr class="separator:ae9c795678d372dfe604060a8ed43c63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b8ba8aea857bed7c7fd940ea404c3ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a0b8ba8aea857bed7c7fd940ea404c3ea">deamonize</a> ()</td></tr>
 <tr class="memdesc:a0b8ba8aea857bed7c7fd940ea404c3ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione che demonizza il server.  <a href="#a0b8ba8aea857bed7c7fd940ea404c3ea">Continua...</a><br /></td></tr>
 <tr class="separator:a0b8ba8aea857bed7c7fd940ea404c3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affea8c811909deed86d0167131e471d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#affea8c811909deed86d0167131e471d7">parseInput</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:affea8c811909deed86d0167131e471d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parsa l' input, e modifica le impostazioni di conseguenza.  <a href="#affea8c811909deed86d0167131e471d7">Continua...</a><br /></td></tr>
+<tr class="separator:affea8c811909deed86d0167131e471d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variabili</h2></td></tr>
@@ -165,7 +167,7 @@ Variabili</h2></td></tr>
 
 <p>Referenzia <a class="el" href="Client_2inc_2Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>, e <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>.</p>
 
-<p>Referenziato da <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p>Referenziato da <a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -185,7 +187,7 @@ Variabili</h2></td></tr>
 <p>Gestisce la comunicazione con la socket. </p>
 <p>Riceve un messaggio dalla socket, lo gestisce, e scrive la risposta. </p>
 
-<p>Referenzia <a class="el" href="Server_2Config_8c.html#a1b7ba52f02ee92a5963c7aa917b10c2b">acceptMutex</a>, <a class="el" href="StruttureDati_8h.html#a4d533448d4fea33fea1475cffe4ad377">closeClientSession()</a>, <a class="el" href="CommandsHandler_8c.html#a0c4028eb5c202872c2d81e0861bc9591">getCommandID()</a>, <a class="el" href="CommandsHandler_8c.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Error_8c.html#a950f724a74ee364e724388b8a156f565">printErr()</a>, e <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>.</p>
+<p>Referenzia <a class="el" href="Server_2Config_8c.html#a1b7ba52f02ee92a5963c7aa917b10c2b">acceptMutex</a>, <a class="el" href="StruttureDati_8h.html#a4d533448d4fea33fea1475cffe4ad377">closeClientSession()</a>, <a class="el" href="Server_2inc_2Utils_8h.html#a67a6020df08de081237572837b51fb82">getptid()</a>, <a class="el" href="CommandsHandler_8c.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Server_2Config_8c.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a>, <a class="el" href="Server_2inc_2Config_8h.html#aa882328bca54a0c7249a313d7d1f7d29">RECV_TIMEOUT</a>, e <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>.</p>
 
 <p>Referenziato da <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, e <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>.</p>
 
@@ -207,31 +209,74 @@ Variabili</h2></td></tr>
 
 <p>Main del nuovo thread creato per l' heartbeating. </p>
 
-<p>Referenzia <a class="el" href="StruttureDati_8h.html#a4d533448d4fea33fea1475cffe4ad377">closeClientSession()</a>, <a class="el" href="Client_2Heartbeating_8c.html#ab95a74565a85ceabf1a9f1310cdb434f">invalidate()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Server_2inc_2Config_8h.html#a21c8feef84ea8774c2061af39050441c">PING_TIME</a>, <a class="el" href="Server_2Config_8c.html#ad6746bc317b81e89070e24e57e63f760">tempSockMutex</a>, e <a class="el" href="structMyDFSId.html#a3b62a6d0f52a871bda4bf9cd56c57ff7">MyDFSId::transferSockId</a>.</p>
+<p>Referenzia <a class="el" href="structThreadArgs.html#a7ca0bdd546803a7e595b376aac79347c">ThreadArgs::barriera</a>, <a class="el" href="StruttureDati_8h.html#a4d533448d4fea33fea1475cffe4ad377">closeClientSession()</a>, <a class="el" href="structOpenedFile.html#a591b34fa52d94c831734d7cead0c6630">OpenedFile::controlSocketId</a>, <a class="el" href="structMyDFSId.html#a4b67c0973fca25c75395e001b0bf8fc7">MyDFSId::controlSocketId</a>, <a class="el" href="Client_2Heartbeating_8c.html#ab95a74565a85ceabf1a9f1310cdb434f">invalidate()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, e <a class="el" href="Server_2inc_2Config_8h.html#a21c8feef84ea8774c2061af39050441c">PING_TIME</a>.</p>
 
 <p>Referenziato da <a class="el" href="Client_2inc_2Heartbeating_8h.html#a996f23ff45bfbedeb9b64f6b030122f8">spawnHeartBeat()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int main </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenzia <a class="el" href="server_8c.html#a0b8ba8aea857bed7c7fd940ea404c3ea">deamonize()</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#ad5ed6ddd9940c0097cc91774056df1c2">loadConfig()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>, <a class="el" href="Server_2Config_8c.html#ae53ea95e0769743e3a9e0935564b3739">portNumber</a>, <a class="el" href="Error_8c.html#a950f724a74ee364e724388b8a156f565">printErr()</a>, <a class="el" href="Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>, <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>, <a class="el" href="server_8c.html#a437cecc27162b023659813375ca67d62">server</a>, <a class="el" href="server_8c.html#a4f31a6fd48ee5d4579ae4aaaa3cae285">sig_handler()</a>, <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, e <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>.</p>
+<p>Referenzia <a class="el" href="server_8c.html#a0b8ba8aea857bed7c7fd940ea404c3ea">deamonize()</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#ad5ed6ddd9940c0097cc91774056df1c2">loadConfig()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>, <a class="el" href="server_8c.html#affea8c811909deed86d0167131e471d7">parseInput()</a>, <a class="el" href="Server_2Config_8c.html#ae53ea95e0769743e3a9e0935564b3739">portNumber</a>, <a class="el" href="Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>, <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>, <a class="el" href="server_8c.html#a437cecc27162b023659813375ca67d62">server</a>, <a class="el" href="server_8c.html#ae9c795678d372dfe604060a8ed43c63f">sig_handler()</a>, <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, e <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4f31a6fd48ee5d4579ae4aaaa3cae285"></a>
+<a class="anchor" id="affea8c811909deed86d0167131e471d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void parseInput </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parsa l' input, e modifica le impostazioni di conseguenza. </p>
+<p>./Server [-P&lt;port&gt;] [-d&lt;path&gt;] [-c&lt;numberofconnection&gt;] [-h] </p>
+
+<p>Referenzia <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>, <a class="el" href="Server_2Config_8c.html#ae53ea95e0769743e3a9e0935564b3739">portNumber</a>, e <a class="el" href="Server_2Config_8c.html#a8c5e63abddd4a2647c2310bde6f15fd7">rootPath</a>.</p>
+
+<p>Referenziato da <a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae9c795678d372dfe604060a8ed43c63f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -239,17 +284,33 @@ Variabili</h2></td></tr>
           <td class="memname">void sig_handler </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>signo</em></td><td>)</td>
+          <td class="paramname"><em>sig</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">siginfo_t *&#160;</td>
+          <td class="paramname"><em>siginfo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Signal handler per gestire l' invalidazione. </p>
 
-<p>Referenzia <a class="el" href="StruttureDati_8h.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, <a class="el" href="Client_2Heartbeating_8c.html#ab95a74565a85ceabf1a9f1310cdb434f">invalidate()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, e <a class="el" href="structOpenedFile.html#a122a7d3d722dc1f7c63857af2024f098">OpenedFile::transferSockId</a>.</p>
+<p>Referenzia <a class="el" href="structOpenedFile.html#a591b34fa52d94c831734d7cead0c6630">OpenedFile::controlSocketId</a>, <a class="el" href="StruttureDati_8h.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, <a class="el" href="Client_2Heartbeating_8c.html#ab95a74565a85ceabf1a9f1310cdb434f">invalidate()</a>, e <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>.</p>
 
-<p>Referenziato da <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p>Referenziato da <a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -266,10 +327,6 @@ Variabili</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Funzione che spawna il thread per l' heartbeating. </p>
-
-<p>Referenzia <a class="el" href="Server_2inc_2Utils_8h.html#a67a6020df08de081237572837b51fb82">getptid()</a>, <a class="el" href="Client_2Heartbeating_8c.html#aae3126a1d85426aa8df88b7186611472">heartBeat()</a>, <a class="el" href="structpthreadArgs.html#abc763a99a614f8e00c11fbbece336516">pthreadArgs::ptid</a>, <a class="el" href="server_8c.html#a06b0afe769d54ae94259d8532bc878b0">sd</a>, <a class="el" href="structpthreadArgs.html#a028f49dcb3a6ed77870caacec6f2b968">pthreadArgs::temp_sd</a>, e <a class="el" href="Threading_8c.html#a8d783a9d90fdc4fde93816b56043c24b">tid</a>.</p>
 
 </div>
 </div>
@@ -288,9 +345,9 @@ Variabili</h2></td></tr>
 
 <p>Crea un processo se il numero di processi disponibili e' inferiore a numeroCon. </p>
 
-<p>Referenzia <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Server_2Config_8c.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>, e <a class="el" href="Error_8c.html#a950f724a74ee364e724388b8a156f565">printErr()</a>.</p>
+<p>Referenzia <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Server_2Config_8c.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a>, e <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>.</p>
 
-<p>Referenziato da <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p>Referenziato da <a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -313,7 +370,7 @@ Variabili</h2></td></tr>
 
 <p>Referenzia <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Server_2Config_8c.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a>, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a>, e <a class="el" href="Threading_8c.html#a8d783a9d90fdc4fde93816b56043c24b">tid</a>.</p>
 
-<p>Referenziato da <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p>Referenziato da <a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -328,7 +385,7 @@ Variabili</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="OPE_8c.html#af1f79690eec0a7727a519ba59a891762">createControlSock()</a>, <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>, e <a class="el" href="server_8c.html#af9111700e7416f44aec9f208e66f0d7e">spawnHeartBeat()</a>.</p>
+<p>Referenziato da <a class="el" href="OPE_8c.html#abe1808712348b8e60af0a99293115f87">createControlSock()</a>, <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, e <a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -342,7 +399,7 @@ Variabili</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="server_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p>Referenziato da <a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>

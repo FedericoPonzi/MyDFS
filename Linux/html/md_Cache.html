@@ -85,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <p>Una funzione che crea un file di caching temporaneo con nome .nomefile, che viene cancellato una volta chiuso l' ultimo file descriptor associato al file.</p>
 <h3>2. Hit Or Miss</h3>
 <p>Una funzione che risponde, prima di una lettura, se il dato che si vuole leggere è presente in cache o meno.</p>
-<p>int <a class="el" href="Cache_8h.html#a403785c0f2573dd16d81eff4ab26c20d" title="Usato per dire se il dato che voglio leggere si trova in cache oppure no. ">readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)</a></p>
+<p>int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)</p>
 <p>Nel caso in cui il dato che il client vuole leggere non è presente in cache, la funzione ritorna come valore 0 (FALSE) e inserisce all' interno della struttura dato req: </p><pre class="fragment">typedef struct CacheRequest {
     int pos;
     int size;

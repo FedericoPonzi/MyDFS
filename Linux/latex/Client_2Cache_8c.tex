@@ -12,9 +12,11 @@
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
+char $\ast$ \hyperlink{Client_2Cache_8c_a73ab89ae79c4dad7bd15bd0d3367be07}{get\+Filename} (char $\ast$basename)
+\begin{DoxyCompactList}\small\item\em Ritorna il nome del file. \end{DoxyCompactList}\item 
 F\+I\+L\+E $\ast$ \hyperlink{Client_2Cache_8c_a3bc523df2fea20d9f4d25f2596a66a71}{create\+Temp\+File} (char $\ast$basename)
-\item 
-int \hyperlink{Client_2Cache_8c_a403785c0f2573dd16d81eff4ab26c20d}{read\+Request} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int pos, int size, \hyperlink{structCacheRequest}{Cache\+Request} $\ast$req)
+\begin{DoxyCompactList}\small\item\em Funzione che crea un file temporaneo, e ritorna un puntatore ad esso. \end{DoxyCompactList}\item 
+int \hyperlink{Client_2Cache_8c_ae530ba131c65658674dd0d0b3fb2ea7c}{read\+Request} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, long pos, unsigned int size, \hyperlink{structCacheRequest}{Cache\+Request} $\ast$req)
 \begin{DoxyCompactList}\small\item\em Usato per dire se il dato che voglio leggere si trova in cache oppure no. \end{DoxyCompactList}\item 
 int \hyperlink{Client_2Cache_8c_a686e517ab500f68c40c03bfbc3e2e2fd}{write\+Cache} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, void $\ast$buffer, int size, int pos)
 \begin{DoxyCompactList}\small\item\em Funzione che scrive nel file di cache il contenuto di una read, senza sovrascrivere le parti scritte da write locali. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -30,18 +32,37 @@ int \hyperlink{Client_2Cache_8c_a686e517ab500f68c40c03bfbc3e2e2fd}{write\+Cache}
 )}}\label{Client_2Cache_8c_a3bc523df2fea20d9f4d25f2596a66a71}
 
 
+Funzione che crea un file temporaneo, e ritorna un puntatore ad esso. 
+
+
+
 Referenziato da main(), e mydfs\+\_\+open().
 
-\hypertarget{Client_2Cache_8c_a403785c0f2573dd16d81eff4ab26c20d}{\index{Client/\+Cache.\+c@{Client/\+Cache.\+c}!read\+Request@{read\+Request}}
+\hypertarget{Client_2Cache_8c_a73ab89ae79c4dad7bd15bd0d3367be07}{\index{Client/\+Cache.\+c@{Client/\+Cache.\+c}!get\+Filename@{get\+Filename}}
+\index{get\+Filename@{get\+Filename}!Client/\+Cache.\+c@{Client/\+Cache.\+c}}
+\subsubsection[{get\+Filename}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+Filename (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{basename}
+\end{DoxyParamCaption}
+)}}\label{Client_2Cache_8c_a73ab89ae79c4dad7bd15bd0d3367be07}
+
+
+Ritorna il nome del file. 
+
+
+
+Referenziato da create\+Temp\+File().
+
+\hypertarget{Client_2Cache_8c_ae530ba131c65658674dd0d0b3fb2ea7c}{\index{Client/\+Cache.\+c@{Client/\+Cache.\+c}!read\+Request@{read\+Request}}
 \index{read\+Request@{read\+Request}!Client/\+Cache.\+c@{Client/\+Cache.\+c}}
 \subsubsection[{read\+Request}]{\setlength{\rightskip}{0pt plus 5cm}int read\+Request (
 \begin{DoxyParamCaption}
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
-\item[{int}]{pos, }
-\item[{int}]{size, }
+\item[{long}]{pos, }
+\item[{unsigned int}]{size, }
 \item[{{\bf Cache\+Request} $\ast$}]{req}
 \end{DoxyParamCaption}
-)}}\label{Client_2Cache_8c_a403785c0f2573dd16d81eff4ab26c20d}
+)}}\label{Client_2Cache_8c_ae530ba131c65658674dd0d0b3fb2ea7c}
 
 
 Usato per dire se il dato che voglio leggere si trova in cache oppure no. 
@@ -49,11 +70,11 @@ Usato per dire se il dato che voglio leggere si trova in cache oppure no.
 \begin{DoxyReturn}{Restituisce}
 1 M\+I\+S\+S\+: In caso di M\+I\+S\+S, dentro a req verranno messi posizione e size del dato da scaricare. 
 
-0 H\+I\+T\+: per interrompere il while, torna false.
+0 H\+I\+T\+: torna false.
 \end{DoxyReturn}
-Nota\+: La miss si riferisce ad un \char`\"{}buco\char`\"{}, quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano altri miss. Nota2\+: Il lock e' in teoria troppo grande. In pratica pero', se fra la prima operazione di lettura e la seconda ci fosse una invalidazione della cache qualcosa di orrendo potrebbe accadere. 
+Nota\+: La miss si riferisce ad un \char`\"{}buco\char`\"{}, quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano altri miss. Nota2\+: Il lock e' in teoria troppo grande. In pratica pero', se fra la prima operazione di lettura e la seconda ci fosse una invalidazione della cache qualcosa di orrendo potrebbe accadere. Quindi va bene cosi'. 
 
-Referenzia My\+D\+F\+S\+Id\+::filesize, log\+M(), Write\+Op\+::next, Read\+Op\+::next, Write\+Op\+::pos, Read\+Op\+::pos, Cache\+Request\+::pos, My\+D\+F\+S\+Id\+::read\+List\+Mutex, read\+Request(), Write\+Op\+::size, Read\+Op\+::size, e Cache\+Request\+::size.
+Referenzia My\+D\+F\+S\+Id\+::filesize, Write\+Op\+::next, Read\+Op\+::next, Write\+Op\+::pos, Read\+Op\+::pos, Cache\+Request\+::pos, My\+D\+F\+S\+Id\+::read\+List\+Mutex, read\+Request(), Write\+Op\+::size, Read\+Op\+::size, e Cache\+Request\+::size.
 
 
 

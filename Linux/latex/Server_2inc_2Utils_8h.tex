@@ -7,7 +7,7 @@
 void \hyperlink{Server_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}{log\+M} (char $\ast$messaggio,...)
 \begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se D\+E\+B\+U\+G vale 1. \end{DoxyCompactList}\item 
 void \hyperlink{Server_2inc_2Utils_8h_ac26fe6c49ab17caab523c2410afb27c1}{strip\+Command} (char $\ast$)
-\begin{DoxyCompactList}\small\item\em Rimuove i primi 4 caratteri (es\+: 'G\+E\+T ') \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Rimuove i primi 4+1 caratteri (es\+: 'G\+E\+T ') \end{DoxyCompactList}\item 
 void \hyperlink{Server_2inc_2Utils_8h_a44499e7455f77c00c1daa769f57eca5c}{my\+Exit} ()
 \begin{DoxyCompactList}\small\item\em interrompe il processo o thread a seconda del modo di avvio, a causa di un errore. \end{DoxyCompactList}\item 
 unsigned long int \hyperlink{Server_2inc_2Utils_8h_a67a6020df08de081237572837b51fb82}{getptid} ()
@@ -32,7 +32,7 @@ Referenzia proc\+Or\+Thread.
 
 
 
-Referenziato da append\+Opened\+File(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), handle\+Close\+Command(), handle\+Open\+Command(), e spawn\+Heart\+Beat().
+Referenziato da append\+Opened\+File(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), handle\+Close\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), e handle\+Socket().
 
 \hypertarget{Server_2inc_2Utils_8h_a1f6240c9883eba86a3a1dc5e8ea77338}{\index{Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}!log\+M@{log\+M}}
 \index{log\+M@{log\+M}!Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}}
@@ -79,7 +79,7 @@ Referenzia proc\+Or\+Thread.
 
 
 
-Referenziato da append\+Opened\+File().
+Referenziato da append\+Opened\+File(), e spawn\+Heart\+Beat().
 
 \hypertarget{Server_2inc_2Utils_8h_ac26fe6c49ab17caab523c2410afb27c1}{\index{Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}!strip\+Command@{strip\+Command}}
 \index{strip\+Command@{strip\+Command}!Server/inc/\+Utils.\+h@{Server/inc/\+Utils.\+h}}
@@ -90,13 +90,13 @@ Referenziato da append\+Opened\+File().
 )}}\label{Server_2inc_2Utils_8h_ac26fe6c49ab17caab523c2410afb27c1}
 
 
-Rimuove i primi 4 caratteri (es\+: 'G\+E\+T ') 
+Rimuove i primi 4+1 caratteri (es\+: 'G\+E\+T ') 
 
 
 \begin{DoxyItemize}
 \item 
 \begin{DoxyParams}{Parametri}
-{\em La} & linea del comando a cui vogliamo togliere i primi 4 caratteri. \\
+{\em La} & linea del comando da cui vogliamo togliere il nome del comando. \\
 \hline
 \end{DoxyParams}
 

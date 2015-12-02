@@ -81,34 +81,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
+<dt><a class="anchor" id="_todo000006"></a>Globale <a class="el" href="Server_2Config_8c.html#a1b7ba52f02ee92a5963c7aa917b10c2b">acceptMutex</a>  </dt>
+<dd>da quantificare bene. #define FILENAME_MAX 150  </dd>
 <dt><a class="anchor" id="_todo000011"></a>Globale <a class="el" href="StruttureDati_8c.html#a1b93a1e03b27ca80768a152cebb0fed3">closeOpenedFile</a>  (unsigned long int ptid)</dt>
 <dd>da fare.  </dd>
 <dt><a class="anchor" id="_todo000012"></a>Globale <a class="el" href="StruttureDati_8c.html#a1674324a5bfcb0d5c3a5547c23a73e5a">freeOpenedFile</a>  (<a class="el" href="structOpenedFile.html">OpenedFile</a> *id)</dt>
 <dd>da finire.  </dd>
-<dt><a class="anchor" id="_todo000005"></a>Globale <a class="el" href="CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e">getCommandID</a>  (char *)</dt>
-<dd>mergare questa funzione con quella sotto.  </dd>
-<dt><a class="anchor" id="_todo000005"></a>Globale <a class="el" href="CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e">getCommandID</a>  (char *)</dt>
-<dd>mergare questa funzione con quella sotto.  </dd>
 <dt><a class="anchor" id="_todo000008"></a>Globale <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a>  (char *command, int socket)</dt>
 <dd>: Da vedere bene per memory leaks!!!!  </dd>
 <dt><a class="anchor" id="_todo000004"></a>Globale <a class="el" href="Server_2CLOSE_8c.html#a29faf0797a0c5b3d36a86e72cc023d85">handleWrites</a>  (int numberOfChanges, <a class="el" href="structOpenedFile.html">OpenedFile</a> *id)</dt>
 <dd>: cambiare a void  </dd>
-<dt><a class="anchor" id="_todo000002"></a>Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
-<dd>per qualche motivo, la fread ritorna 0 O_o pero' tipo la copia in un altro file sembra funzionare.  </dd>
-<dt><a class="anchor" id="_todo000002"></a>Globale <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, void *ptr, unsigned int size)</dt>
-<dd>per qualche motivo, la fread ritorna 0 O_o pero' tipo la copia in un altro file sembra funzionare.  </dd>
 <dt><a class="anchor" id="_todo000007"></a>File <a class="el" href="OPE_8c.html">OPE.c</a>  </dt>
 <dd><p class="startdd">dovrebbe mandare una risposta al client in caso di successo o errore </p>
 <p class="enddd">permettere l' apertura se il modo con cui e' aperto il file e' lettura e viene richiesta la lettura.  </p>
 </dd>
-<dt><a class="anchor" id="_todo000003"></a>Globale <a class="el" href="Client_2READ_8c.html#a0b8dfa171c3b5c784fb6cba643728110">readFrom</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int sizeRimasta, int pos)</dt>
-<dd>La recv dovrebbe continuare finche' non ho tutto sizeRiamsta.  </dd>
 <dt><a class="anchor" id="_todo000009"></a>Globale <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread</a>  ()</dt>
 <dd>dovrebbe passargli dei parametri.  </dd>
 <dt><a class="anchor" id="_todo000010"></a>File <a class="el" href="StruttureDati_8c.html">StruttureDati.c</a>  </dt>
 <dd><p class="startdd">Una struttura dati che contenga una lista di sockets </p>
 <p class="enddd">Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti. NOTA: Ricordarsi di eseguire una free() dei OpenedFile-&gt;fileName perchè viene allocata con una malloc in <a class="el" href="OPE_8c.html" title="Gestisce il comando OPE(N) ">OPE.c</a> </p>
 </dd>
+<dt><a class="anchor" id="_todo000003"></a>Globale <a class="el" href="Test_8c.html#a9cc4d65ba912461794f9b7523ebedca8">testStressTest</a>  (char *filename, char *indirizzo, int debug)</dt>
+<dd>da terminare.  </dd>
 <dt><a class="anchor" id="_todo000001"></a>Globale <a class="el" href="Client_2CLOSE_8c.html#affca868a39ef47e0de0a54b7fca94e10">uploadChanges</a>  (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id)</dt>
 <dd>spezzare in piu read. </dd>
 </dl>

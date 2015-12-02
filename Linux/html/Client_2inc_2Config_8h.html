@@ -94,7 +94,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="title">Riferimenti per il file Config.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;pthread.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;errno.h&gt;</code><br />
+<code>#include &lt;pthread.h&gt;</code><br />
 </div>
 <p><a href="Client_2inc_2Config_8h_source.html">Vai al codice sorgente di questo file.</a></p>
 <table class="memberdecls">
@@ -114,14 +115,14 @@ Strutture dati</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Definizioni</h2></td></tr>
-<tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:ad72dbcf6d0153db1b8d8a58001feed83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modalita' debug:  <a href="#ad72dbcf6d0153db1b8d8a58001feed83">Continua...</a><br /></td></tr>
 <tr class="separator:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c7025999674d0b90a4f9498c8ab849e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Config_8h.html#a4c7025999674d0b90a4f9498c8ab849e">OPENCOMMAND</a>&#160;&#160;&#160;&quot;OPE&quot;</td></tr>
+<tr class="memitem:a4c7025999674d0b90a4f9498c8ab849e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Config_8h.html#a4c7025999674d0b90a4f9498c8ab849e">OPENCOMMAND</a>&#160;&#160;&#160;&quot;OPEN&quot;</td></tr>
 <tr class="separator:a4c7025999674d0b90a4f9498c8ab849e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62cb50fa7a98a13378476e83137c8d7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Config_8h.html#a62cb50fa7a98a13378476e83137c8d7f">CLOSECOMMAND</a>&#160;&#160;&#160;&quot;CLO&quot;</td></tr>
+<tr class="memitem:a62cb50fa7a98a13378476e83137c8d7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Config_8h.html#a62cb50fa7a98a13378476e83137c8d7f">CLOSECOMMAND</a>&#160;&#160;&#160;&quot;CLOS&quot;</td></tr>
 <tr class="separator:a62cb50fa7a98a13378476e83137c8d7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add84839609e88a57d40aaa46a9f73ba9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Config_8h.html#add84839609e88a57d40aaa46a9f73ba9">READCOMMAND</a>&#160;&#160;&#160;&quot;REA&quot;</td></tr>
+<tr class="memitem:add84839609e88a57d40aaa46a9f73ba9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Config_8h.html#add84839609e88a57d40aaa46a9f73ba9">READCOMMAND</a>&#160;&#160;&#160;&quot;READ&quot;</td></tr>
 <tr class="separator:add84839609e88a57d40aaa46a9f73ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac42367fe5c999ec6650de83e9d72fe8c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2inc_2Config_8h.html#ac42367fe5c999ec6650de83e9d72fe8c">SERVER_PORT</a>&#160;&#160;&#160;9001</td></tr>
 <tr class="separator:ac42367fe5c999ec6650de83e9d72fe8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,12 +161,12 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CLOSECOMMAND&#160;&#160;&#160;&quot;CLO&quot;</td>
+          <td class="memname">#define CLOSECOMMAND&#160;&#160;&#160;&quot;CLOS&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="Client_2inc_2CLOSE_8h.html#ad666db41278616946fce866250a175af">mydfs_close()</a>.</p>
+<p>Referenziato da <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>, e <a class="el" href="Client_2inc_2CLOSE_8h.html#ad666db41278616946fce866250a175af">mydfs_close()</a>.</p>
 
 </div>
 </div>
@@ -174,7 +175,7 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG&#160;&#160;&#160;0</td>
+          <td class="memname">#define DEBUG&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -190,10 +191,12 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define OPENCOMMAND&#160;&#160;&#160;&quot;OPE&quot;</td>
+          <td class="memname">#define OPENCOMMAND&#160;&#160;&#160;&quot;OPEN&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Referenziato da <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>.</p>
 
 </div>
 </div>
@@ -202,12 +205,12 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define READCOMMAND&#160;&#160;&#160;&quot;REA&quot;</td>
+          <td class="memname">#define READCOMMAND&#160;&#160;&#160;&quot;READ&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenziato da <a class="el" href="Client_2READ_8c.html#a34f4cc3ee1ace86747c737cad2d801e7">sendReadCommand()</a>.</p>
+<p>Referenziato da <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">handleCommand()</a>, e <a class="el" href="Client_2READ_8c.html#a478820e0a2240153b83f6a843fd55c6a">sendReadCommand()</a>.</p>
 
 </div>
 </div>

@@ -8,7 +8,7 @@ Una funzione che crea un file di caching temporaneo con nome .nomefile, che vien
 
 Una funzione che risponde, prima di una lettura, se il dato che si vuole leggere è presente in cache o meno.
 
-int \hyperlink{Cache_8h_a403785c0f2573dd16d81eff4ab26c20d}{read\+Request(\+My\+D\+F\+S\+Id$\ast$ id, int pos, int size, Cache\+Request$\ast$ req)}
+int read\+Request(\+My\+D\+F\+S\+Id$\ast$ id, int pos, int size, Cache\+Request$\ast$ req)
 
 Nel caso in cui il dato che il client vuole leggere non è presente in cache, la funzione ritorna come valore 0 (F\+A\+L\+S\+E) e inserisce all' interno della struttura dato req\+: \begin{DoxyVerb}typedef struct CacheRequest {
     int pos;

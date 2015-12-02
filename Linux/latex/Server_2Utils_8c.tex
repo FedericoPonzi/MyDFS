@@ -15,7 +15,7 @@
 void \hyperlink{Server_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{log\+M} (char $\ast$messaggio,...)
 \begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T. \end{DoxyCompactList}\item 
 void \hyperlink{Server_2Utils_8c_a99eec54b0611d557e3e4eb1e783d9699}{strip\+Command} (char $\ast$input)
-\begin{DoxyCompactList}\small\item\em Rimuove i primi 4 caratteri (es\+: 'G\+E\+T ') \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Rimuove i primi 4+1 caratteri (es\+: 'G\+E\+T ') \end{DoxyCompactList}\item 
 unsigned long int \hyperlink{Server_2Utils_8c_a67a6020df08de081237572837b51fb82}{getptid} ()
 \begin{DoxyCompactList}\small\item\em Ritorna il numero del processo o del thread che richiama questa funzione. \end{DoxyCompactList}\item 
 void \hyperlink{Server_2Utils_8c_a44499e7455f77c00c1daa769f57eca5c}{my\+Exit} ()
@@ -40,7 +40,7 @@ Referenzia proc\+Or\+Thread.
 
 
 
-Referenziato da append\+Opened\+File(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), handle\+Close\+Command(), handle\+Open\+Command(), e spawn\+Heart\+Beat().
+Referenziato da append\+Opened\+File(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), handle\+Close\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), e handle\+Socket().
 
 \hypertarget{Server_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{\index{Server/\+Utils.\+c@{Server/\+Utils.\+c}!log\+M@{log\+M}}
 \index{log\+M@{log\+M}!Server/\+Utils.\+c@{Server/\+Utils.\+c}}
@@ -72,7 +72,7 @@ Referenzia D\+E\+B\+U\+G.
 
 
 
-Referenziato da append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), create\+Control\+Sock(), deamonize(), file\+Already\+Opened\+In\+Write(), handle\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), handle\+Socket(), handle\+Writes(), heart\+Beat(), invalidate(), main(), mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), print\+Err(), print\+Err\+\_\+s(), read\+Request(), send\+Invalidate(), send\+Read\+Command(), sig\+\_\+handler(), spawn\+Process(), spawn\+Thread(), test\+Open(), upload\+Changes(), e write\+Cache().
+Referenziato da append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), create\+Control\+Sock(), create\+Temp\+File(), deamonize(), file\+Already\+Opened\+In\+Write(), free\+Opened\+File(), handle\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), handle\+Socket(), handle\+Writes(), heart\+Beat(), load\+Config(), main(), mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), read\+From(), send\+Invalidate(), send\+Read\+Command(), sig\+\_\+handler(), spawn\+Process(), spawn\+Thread(), test\+Open(), upload\+Changes(), e write\+Cache().
 
 \hypertarget{Server_2Utils_8c_a44499e7455f77c00c1daa769f57eca5c}{\index{Server/\+Utils.\+c@{Server/\+Utils.\+c}!my\+Exit@{my\+Exit}}
 \index{my\+Exit@{my\+Exit}!Server/\+Utils.\+c@{Server/\+Utils.\+c}}
@@ -91,7 +91,7 @@ Referenzia proc\+Or\+Thread.
 
 
 
-Referenziato da append\+Opened\+File().
+Referenziato da append\+Opened\+File(), e spawn\+Heart\+Beat().
 
 \hypertarget{Server_2Utils_8c_a99eec54b0611d557e3e4eb1e783d9699}{\index{Server/\+Utils.\+c@{Server/\+Utils.\+c}!strip\+Command@{strip\+Command}}
 \index{strip\+Command@{strip\+Command}!Server/\+Utils.\+c@{Server/\+Utils.\+c}}
@@ -102,13 +102,13 @@ Referenziato da append\+Opened\+File().
 )}}\label{Server_2Utils_8c_a99eec54b0611d557e3e4eb1e783d9699}
 
 
-Rimuove i primi 4 caratteri (es\+: 'G\+E\+T ') 
+Rimuove i primi 4+1 caratteri (es\+: 'G\+E\+T ') 
 
 
 \begin{DoxyItemize}
 \item 
 \begin{DoxyParams}{Parametri}
-{\em La} & linea del comando a cui vogliamo togliere i primi 4 caratteri. \\
+{\em La} & linea del comando da cui vogliamo togliere il nome del comando. \\
 \hline
 \end{DoxyParams}
 

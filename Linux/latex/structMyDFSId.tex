@@ -12,15 +12,13 @@ char $\ast$ \hyperlink{structMyDFSId_ac8c10a1a5b18776bf5e5585ee9e26331}{indirizz
 \item 
 char $\ast$ \hyperlink{structMyDFSId_ac0e1b8c96d859982c1a7d49f9e929e48}{filename}
 \item 
-int \hyperlink{structMyDFSId_a2b7cf19c5ac22e03ae8abf7e688fee2a}{filesize}
+long \hyperlink{structMyDFSId_a394540d568f1fa235d096fd790d2891f}{filesize}
 \item 
 int \hyperlink{structMyDFSId_a98bc5ce1a7734459d8b81c997da4e9f0}{modo}
 \begin{DoxyCompactList}\small\item\em Dimensione del file. \end{DoxyCompactList}\item 
-int \hyperlink{structMyDFSId_aaeac229fb85c313f91a76f00be916832}{pos}
+int \hyperlink{structMyDFSId_a8d5f597502e29e2edc6d2f46c2323b1d}{transfer\+Socket\+Id}
 \begin{DoxyCompactList}\small\item\em Modo di apertura. \end{DoxyCompactList}\item 
-int \hyperlink{structMyDFSId_a382a74f109962751085cea7aac2892cc}{socket\+Id}
-\begin{DoxyCompactList}\small\item\em Seek\+\_\+set seek\+\_\+cur ecc. \end{DoxyCompactList}\item 
-int \hyperlink{structMyDFSId_a3b62a6d0f52a871bda4bf9cd56c57ff7}{transfer\+Sock\+Id}
+int \hyperlink{structMyDFSId_a4b67c0973fca25c75395e001b0bf8fc7}{control\+Socket\+Id}
 \begin{DoxyCompactList}\small\item\em socket id dell' heartbeating \end{DoxyCompactList}\item 
 pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{structMyDFSId_a71f51c82d7133bfc16fcffeb4c395da0}{read\+List\+Mutex}
 \begin{DoxyCompactList}\small\item\em Socket id dei comandi. \end{DoxyCompactList}\item 
@@ -33,6 +31,17 @@ F\+I\+L\+E $\ast$ \hyperlink{structMyDFSId_ae2badd91d3b506420a9e49554df8212d}{fp
 
 
 \subsection{Documentazione dei campi}
+\hypertarget{structMyDFSId_a4b67c0973fca25c75395e001b0bf8fc7}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!control\+Socket\+Id@{control\+Socket\+Id}}
+\index{control\+Socket\+Id@{control\+Socket\+Id}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
+\subsubsection[{control\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::control\+Socket\+Id}}\label{structMyDFSId_a4b67c0973fca25c75395e001b0bf8fc7}
+
+
+socket id dell' heartbeating 
+
+
+
+Referenziato da heart\+Beat(), mydfs\+\_\+close(), mydfs\+\_\+open(), e upload\+Changes().
+
 \hypertarget{structMyDFSId_ac0e1b8c96d859982c1a7d49f9e929e48}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!filename@{filename}}
 \index{filename@{filename}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
 \subsubsection[{filename}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ My\+D\+F\+S\+Id\+::filename}}\label{structMyDFSId_ac0e1b8c96d859982c1a7d49f9e929e48}
@@ -40,9 +49,9 @@ F\+I\+L\+E $\ast$ \hyperlink{structMyDFSId_ae2badd91d3b506420a9e49554df8212d}{fp
 
 Referenziato da mydfs\+\_\+close(), mydfs\+\_\+open(), e test\+Read().
 
-\hypertarget{structMyDFSId_a2b7cf19c5ac22e03ae8abf7e688fee2a}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!filesize@{filesize}}
+\hypertarget{structMyDFSId_a394540d568f1fa235d096fd790d2891f}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!filesize@{filesize}}
 \index{filesize@{filesize}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{filesize}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::filesize}}\label{structMyDFSId_a2b7cf19c5ac22e03ae8abf7e688fee2a}
+\subsubsection[{filesize}]{\setlength{\rightskip}{0pt plus 5cm}long My\+D\+F\+S\+Id\+::filesize}}\label{structMyDFSId_a394540d568f1fa235d096fd790d2891f}
 
 
 Referenziato da mydfs\+\_\+read(), mydfs\+\_\+write(), read\+Request(), e test\+Write().
@@ -76,13 +85,6 @@ Dimensione del file.
 
 Referenziato da mydfs\+\_\+open(), e mydfs\+\_\+write().
 
-\hypertarget{structMyDFSId_aaeac229fb85c313f91a76f00be916832}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!pos@{pos}}
-\index{pos@{pos}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{pos}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::pos}}\label{structMyDFSId_aaeac229fb85c313f91a76f00be916832}
-
-
-Modo di apertura. 
-
 \hypertarget{structMyDFSId_a8a4360512d45c22b6d8e980967c7dd32}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!read\+List@{read\+List}}
 \index{read\+List@{read\+List}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
 \subsubsection[{read\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Read\+Op}$\ast$ My\+D\+F\+S\+Id\+::read\+List}}\label{structMyDFSId_a8a4360512d45c22b6d8e980967c7dd32}
@@ -105,27 +107,16 @@ Socket id dei comandi.
 
 Referenziato da append\+Read\+Request(), invalidate(), mydfs\+\_\+close(), mydfs\+\_\+open(), e read\+Request().
 
-\hypertarget{structMyDFSId_a382a74f109962751085cea7aac2892cc}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!socket\+Id@{socket\+Id}}
-\index{socket\+Id@{socket\+Id}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::socket\+Id}}\label{structMyDFSId_a382a74f109962751085cea7aac2892cc}
+\hypertarget{structMyDFSId_a8d5f597502e29e2edc6d2f46c2323b1d}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!transfer\+Socket\+Id@{transfer\+Socket\+Id}}
+\index{transfer\+Socket\+Id@{transfer\+Socket\+Id}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
+\subsubsection[{transfer\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::transfer\+Socket\+Id}}\label{structMyDFSId_a8d5f597502e29e2edc6d2f46c2323b1d}
 
 
-Seek\+\_\+set seek\+\_\+cur ecc. 
+Modo di apertura. 
 
 
 
 Referenziato da mydfs\+\_\+close(), mydfs\+\_\+open(), read\+From(), e send\+Read\+Command().
-
-\hypertarget{structMyDFSId_a3b62a6d0f52a871bda4bf9cd56c57ff7}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!transfer\+Sock\+Id@{transfer\+Sock\+Id}}
-\index{transfer\+Sock\+Id@{transfer\+Sock\+Id}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{transfer\+Sock\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::transfer\+Sock\+Id}}\label{structMyDFSId_a3b62a6d0f52a871bda4bf9cd56c57ff7}
-
-
-socket id dell' heartbeating 
-
-
-
-Referenziato da heart\+Beat(), mydfs\+\_\+close(), mydfs\+\_\+open(), e upload\+Changes().
 
 \hypertarget{structMyDFSId_a0f7d2a9c60ddc649ee7e65b8b9295432}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!write\+List@{write\+List}}
 \index{write\+List@{write\+List}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
