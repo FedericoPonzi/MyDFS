@@ -27,10 +27,10 @@
 /**
  * @brief Se in modalita' debug (=1), stampa utili messaggi di log.
  */
-#define DEBUG 1
+#define DEBUG 0
 
 /**
- * Dimensione dei file durante i trasferimenti
+ * @brief Dimensione dei file durante i trasferimenti
  */
 #define FILESIZE 65535
 
@@ -40,35 +40,35 @@
 #define CONFIGFILENAME "CONFIG"
 
 /**
- * @brief Indica la lunghezza del buffer del nome del file.
- * @todo da quantificare bene.
- *#define FILENAME_MAX 150*/
-
-
+ * @brief Mutex dell' accept
+ */
 extern pthread_mutex_t *acceptMutex;
 
-
+/**
+ * @brief numero di processi/threads figli attualmente vivi
+ */
 extern int* numberAliveChilds;
 
 /**
- * Numero di connessioni contemporanee permesse (equivale al numero di threads o processi)
+ * @brief Numero di connessioni contemporanee permesse (equivale al numero di threads o processi)
  */
 extern int numeroCon;
 
 /**
- * E' richiesto un processo o un thread? 0 proc 1 thread
+ * @brief E' richiesto un processo o un thread? 0 proc 1 thread
  */
 extern int procOrThread;
 
 /**
- * Numero di porta.
+ * @brief Numero di porta.
  */
 extern int portNumber;
 
 /**
- * root path server
+ * @brief root path server
  */
 extern char rootPath[40];
+
 
 int loadConfig();
 

@@ -115,7 +115,7 @@ Definizioni</h2></td></tr>
 <tr class="memitem:a21c8feef84ea8774c2061af39050441c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#a21c8feef84ea8774c2061af39050441c">PING_TIME</a>&#160;&#160;&#160;2</td></tr>
 <tr class="memdesc:a21c8feef84ea8774c2061af39050441c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tempo di attesa per heartbeating.  <a href="#a21c8feef84ea8774c2061af39050441c">Continua...</a><br /></td></tr>
 <tr class="separator:a21c8feef84ea8774c2061af39050441c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:ad72dbcf6d0153db1b8d8a58001feed83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se in modalita' debug (=1), stampa utili messaggi di log.  <a href="#ad72dbcf6d0153db1b8d8a58001feed83">Continua...</a><br /></td></tr>
 <tr class="separator:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8049c678a855a57b1030eab386393a8f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#a8049c678a855a57b1030eab386393a8f">FILESIZE</a>&#160;&#160;&#160;65535</td></tr>
@@ -134,9 +134,10 @@ Funzioni</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variabili</h2></td></tr>
 <tr class="memitem:a1b7ba52f02ee92a5963c7aa917b10c2b"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#a1b7ba52f02ee92a5963c7aa917b10c2b">acceptMutex</a></td></tr>
-<tr class="memdesc:a1b7ba52f02ee92a5963c7aa917b10c2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica la lunghezza del buffer del nome del file.  <a href="#a1b7ba52f02ee92a5963c7aa917b10c2b">Continua...</a><br /></td></tr>
+<tr class="memdesc:a1b7ba52f02ee92a5963c7aa917b10c2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex dell' accept.  <a href="#a1b7ba52f02ee92a5963c7aa917b10c2b">Continua...</a><br /></td></tr>
 <tr class="separator:a1b7ba52f02ee92a5963c7aa917b10c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad588b9329591f013097f9531c643a262"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#ad588b9329591f013097f9531c643a262">numberAliveChilds</a></td></tr>
+<tr class="memdesc:ad588b9329591f013097f9531c643a262"><td class="mdescLeft">&#160;</td><td class="mdescRight">numero di processi/threads figli attualmente vivi  <a href="#ad588b9329591f013097f9531c643a262">Continua...</a><br /></td></tr>
 <tr class="separator:ad588b9329591f013097f9531c643a262"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fa40559d133e806762dd11ebaec522e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Config_8h.html#a6fa40559d133e806762dd11ebaec522e">numeroCon</a></td></tr>
 <tr class="memdesc:a6fa40559d133e806762dd11ebaec522e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numero di connessioni contemporanee permesse (equivale al numero di threads o processi)  <a href="#a6fa40559d133e806762dd11ebaec522e">Continua...</a><br /></td></tr>
@@ -199,7 +200,7 @@ Variabili</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG&#160;&#160;&#160;1</td>
+          <td class="memname">#define DEBUG&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -313,9 +314,7 @@ Variabili</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Indica la lunghezza del buffer del nome del file. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Da fare:</a></b></dt><dd>da quantificare bene. #define FILENAME_MAX 150 </dd></dl>
-<p>Indica la lunghezza del buffer del nome del file. </p>
+<p>Mutex dell' accept. </p>
 
 <p>Referenziato da <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>.</p>
 
@@ -330,6 +329,8 @@ Variabili</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>numero di processi/threads figli attualmente vivi </p>
 
 <p>Referenziato da <a class="el" href="StruttureDati_8c.html#a12dc3ffb088dc6be12e6d5d2ed911031">appendOpenedFile()</a>, <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>, <a class="el" href="server_8c.html#a62b9349e06b1fd5e9f6e08e25f5968ab">spawnProcess()</a>, e <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">spawnThread()</a>.</p>
 

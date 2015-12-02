@@ -23,7 +23,6 @@ var searchData=
   ['testreaderrors_2ec',['testReadErrors.c',['../testReadErrors_8c.html',1,'']]],
   ['testsimpleread',['testSimpleRead',['../Test_8h.html#aa36a0cc154bed9ef71abed169e866e00',1,'testSimpleRead(char *filename, char *indirizzo, int const debug):&#160;Test.c'],['../Test_8c.html#a2cc4287fccdbd6ef633304f7a4f4cf42',1,'testSimpleRead(char *filename, char *indirizzo, int debug):&#160;Test.c']]],
   ['teststresstest',['testStressTest',['../Test_8c.html#a9cc4d65ba912461794f9b7523ebedca8',1,'Test.c']]],
-  ['teststresstest_2ec',['testStressTest.c',['../testStressTest_8c.html',1,'']]],
   ['testwrite',['testWrite',['../Test_8h.html#a0280ce692887a8bd2f381ebcfa0a0dec',1,'testWrite(char *filename, char *indirizzo, int const debug):&#160;Test.c'],['../Test_8c.html#aeefba065d2a3d2cc6647202058643c82',1,'testWrite(char *filename, char *indirizzo, int debug):&#160;Test.c']]],
   ['testwrite_2ec',['testWrite.c',['../testWrite_8c.html',1,'']]],
   ['testwriteerrors',['testWriteErrors',['../Test_8c.html#a14dcb4adf96943f70d08c304b4ae56e1',1,'Test.c']]],

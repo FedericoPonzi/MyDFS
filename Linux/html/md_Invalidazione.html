@@ -81,8 +81,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>L' invalidazione. Quando la CLOSE del processo che comunica con uno scrittore vuole segnalare i client lettori che la loro cache non e' più valida avrebbe bisogno di accedere alla socket di questa. Se siamo in un ambiente multithreading questo certamente funzionerà, ma in multiprocesso non è valido in quanto ogni processo ha le sue socket associate.</p>
+<h3>Linux</h3>
 <p>Per questo motivo, abbiamo bisogno di installare un signal handler all' interno di ogni processo (<a class="el" href="server_8c.html">server.c</a>) che permetta di inviare la segnalazione di invalidazione al client al momento più opportuno.</p>
-<p>Se siamo procOrThread == 1 allora siamo in modalità processo e viene mandato un signal al processo responsabile di servire il client. Altrimenti se procOrThread == 0 allora siamo in modalità threading e possiamo direttamente comunicare al lcient l' invalidazione. </p>
+<p>Se siamo procOrThread == 1 allora siamo in modalità processo e viene mandato un signal al processo responsabile di servire il client. Altrimenti se procOrThread == 0 allora siamo in modalità threading e possiamo direttamente comunicare al lcient l' invalidazione.</p>
+<h3>Windows</h3>
+<p>Ogni processo ha una pipe che usa il pid come nome, e un thread costantemente in ascolto di questa pipe che, se riceve un messaggio di invalidazione, recapiterà al client il messaggio sulla socket.</p>
+<p>Se siamo procOrThread == 1 allora siamo in modalità processo e viene mandato un messaggio di invalidazione tramite pipe al processo responsabile di servire il client. Altrimenti se procOrThread == 0 allora siamo in modalità threading e possiamo direttamente comunicare al lcient l' invalidazione.</p>
+<h3>Client</h3>
+<p>Il client riceverà un messaggio sulla socket di controllo, che verrà gestito dall' heartbeating: questo prenderà possesso della lista di operazioni di lettura del client, e le cancellerà facendo risultare alla cache vuoto le parti di file già lette dal client. Quando quindi verrà richiesta la lettura di una parte del file già presente fisicamente, verrà inviata una nuova richiesta al server e aggiornato il file. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

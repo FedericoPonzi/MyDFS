@@ -21,8 +21,6 @@ Lo storico delle operazioni di scrittura e lettura viene mantenuto nelle rispett
 
 
 ##3. Write cache
-
 La write cache è una funzione utilizzata dalla read per scrivere nella cache. Le read
 non devono sovrascrivere le write effettuate dal client con i dati ricevuti dal server, quindi si usa questa funzione di supporto per
 scrivere nella cache senza andare a sovrascrivere zone di memoria protette.
-

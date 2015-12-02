@@ -4,7 +4,16 @@ Per il debug e' possibile impostare il flag D\+E\+B\+U\+G all' interno di \hyper
 
 \subsubsection*{Wireshark}
 
-Permette di sniffare i pacchetti di rete, una volta avviato si esegue lo sniffing dei pacchetti sull' interfaccia di loopback (lo) in caso stiamo testando l' applicazione in locale.
+Permette di sniffare i pacchetti di rete, una volta avviato si esegue lo sniffing dei pacchetti sull' interfaccia di loopback (lo) in caso stiamo testando l' applicazione in locale. Per windows è necessario qualche passaggio in più\+:
+\begin{DoxyEnumerate}
+\item Scaricare \href{http://www.netresec.com/?page=RawCap}{\tt Raw\+Pack}
+\item Lanciare in una shell\+: {\ttfamily Raw\+Cap.\+exe -\/f 127.\+0.\+0.\+1 dumpfile.\+pcap}
+\item Lanciare in un'altra shell\+: {\ttfamily tail -\/c +0 -\/f dumpfile.\+pcap $\vert$ Wireshark.\+exe -\/k -\/i -\/}
+\end{DoxyEnumerate}
+
+\subsubsection*{Strace}
+
+Usato per tenere traccia delle chiamate di sistema.
 
 \subsubsection*{Valgrind}
 
@@ -21,5 +30,9 @@ debugger step by step. Alcuni comandi utili\+:
 \item {\ttfamily make} per ricompilare l' eseguibile
 \item {\ttfamily n}\+: prossima istruzione
 \item {\ttfamily b \hyperlink{file_8c}{file.\+c}\+:$<$number$>$}\+: pr bloccare l' esecuzione a una certa lnea di un file, o
-\item {\ttfamily b numefunzione}\+: per bloccare l' eseucizione ad una certa funzione. 
+\item {\ttfamily b numefunzione}\+: per bloccare l' eseucizione ad una certa funzione.
 \end{DoxyItemize}
+
+\subsection*{Dr\+Memory}
+
+Simile a Valgrind, ma per windows. 

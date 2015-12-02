@@ -127,9 +127,6 @@ Funzioni</h2></td></tr>
 <tr class="memitem:a6e2594e56afc29e961a1797a0bd8d262"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a6e2594e56afc29e961a1797a0bd8d262">isModoApertura</a> (int modo_client, int modo)</td></tr>
 <tr class="memdesc:a6e2594e56afc29e961a1797a0bd8d262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dice se modo_client contiene il modo "modo".  <a href="#a6e2594e56afc29e961a1797a0bd8d262">Continua...</a><br /></td></tr>
 <tr class="separator:a6e2594e56afc29e961a1797a0bd8d262"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b93a1e03b27ca80768a152cebb0fed3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a1b93a1e03b27ca80768a152cebb0fed3">closeOpenedFile</a> (unsigned long int ptid)</td></tr>
-<tr class="memdesc:a1b93a1e03b27ca80768a152cebb0fed3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove il nodo openedfile associato al ptid.  <a href="#a1b93a1e03b27ca80768a152cebb0fed3">Continua...</a><br /></td></tr>
-<tr class="separator:a1b93a1e03b27ca80768a152cebb0fed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1674324a5bfcb0d5c3a5547c23a73e5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StruttureDati_8c.html#a1674324a5bfcb0d5c3a5547c23a73e5a">freeOpenedFile</a> (<a class="el" href="structOpenedFile.html">OpenedFile</a> *id)</td></tr>
 <tr class="memdesc:a1674324a5bfcb0d5c3a5547c23a73e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libera lo spazio occupato dal puntatore.  <a href="#a1674324a5bfcb0d5c3a5547c23a73e5a">Continua...</a><br /></td></tr>
 <tr class="separator:a1674324a5bfcb0d5c3a5547c23a73e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,11 +160,6 @@ Variabili</h2></td></tr>
 <p>Contiene le funzioni di utilita' per le Strutture Dati.</p>
 <dl class="section author"><dt>Autore</dt><dd>Federico Ponzi </dd></dl>
 <dl class="section date"><dt>Data</dt><dd>18.07.2015</dd></dl>
-<dl class="section author"><dt>Autore</dt><dd>Federico Ponzi </dd></dl>
-<dl class="section date"><dt>Data</dt><dd>11.07.2015 </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Da fare:</a></b></dt><dd><p class="startdd">Una struttura dati che contenga una lista di sockets </p>
-<p class="enddd">Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti. NOTA: Ricordarsi di eseguire una free() dei OpenedFile-&gt;fileName perchè viene allocata con una malloc in <a class="el" href="OPE_8c.html" title="Gestisce il comando OPE(N) ">OPE.c</a></p>
-</dd></dl>
 <p>Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell' header di questo modulo. </p>
 </div><h2 class="groupheader">Documentazione delle funzioni</h2>
 <a class="anchor" id="a12dc3ffb088dc6be12e6d5d2ed911031"></a>
@@ -269,25 +261,6 @@ Variabili</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1b93a1e03b27ca80768a152cebb0fed3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void closeOpenedFile </td>
-          <td>(</td>
-          <td class="paramtype">unsigned long int&#160;</td>
-          <td class="paramname"><em>ptid</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Rimuove il nodo openedfile associato al ptid. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Da fare:</a></b></dt><dd>da fare. </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="ae45ca2477d989c728fe47566c9f5b95a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -346,7 +319,6 @@ Variabili</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Libera lo spazio occupato dal puntatore. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Da fare:</a></b></dt><dd>da finire. </dd></dl>
 
 <p>Referenzia <a class="el" href="structOpenedFile.html#a591b34fa52d94c831734d7cead0c6630">OpenedFile::controlSocketId</a>, <a class="el" href="structOpenedFile.html#a9cdcaccacb2eb66a17c0781666c28b15">OpenedFile::fp</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, e <a class="el" href="structOpenedFile.html#a2b10a150aba89a8d193cd251012682a7">OpenedFile::transferSocketId</a>.</p>
 

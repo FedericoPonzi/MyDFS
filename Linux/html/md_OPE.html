@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="title">Alcuni appunti sulla open </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Nelle specifiche: Per quanto riguarda il modo, devono essere supportate le seguenti modalità (per il significato vedere la documentazione sulla open Unix): O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_TRUNC, O_EXCL, O_EXLOCK</p>
+<div class="textblock"><h3>Modalità di apertura:</h3>
 <ul>
 <li>O_RDONLY: Apre il file in lettura, altri client possono richiedere lo stesso file. Se non esiste, ERRORE.</li>
 <li>O_WRONLY: Apre il file in scrittura. Invia un messaggio di invalidazione a tutti i client che lo hanno aperto in lettura. Se e' già aperto in scrittura, ERRORE</li>
@@ -88,14 +88,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <li>O_CREAT: Crea il file se non esiste</li>
 <li>O_TRUNC: Cancella e ricrea il file sostanzialmente. Deve essere associato a O_WRONLY o O_RDWR altrimenti non ha senso.</li>
 <li>O_EXLOCK: Crea un lock esclusivo sul file (se è aperto in lettura nessuno può leggerlo o scriverlo). Da implementare in LINUX!</li>
-<li>O_EXCL: Da usare assieme a O_CREAT. Se cerca di fare la open di un file che esiste già con O_EXCL|O_CREAT allora la open fallisce.</li>
-</ul>
-<p>Ogni esito và codificato e rispedito come risposta al client! </p><hr/>
+<li>O_EXCL: Da usare assieme a O_CREAT. Se cerca di fare la open di un file che esiste già con O_EXCL|O_CREAT allora la open fallisce. <hr/>
  <h2>Protocollo di comunicazione per la open</h2>
+</li>
+</ul>
 <ol type="1">
-<li>Client: OPE file.txt 2</li>
-<li>Server: 200</li>
-<li>Client: port_num 50000</li>
+<li>Client: OPEN nomefile modo</li>
+<li>Server: filesize</li>
+<li>Client: port_num n</li>
 <li>Server: ok</li>
 </ol>
 <p>1 - Apertura comunicazione: Il client è connesso alla socket del server, invia il comando <code>OPE &lt;nomefile&gt; modo</code> dove nomefile deve essere un nome di un file contenuto nel filesystem del server e modo e' un numero definito dalle costanti scritte all' inizio di questo documento (e presenti in <a class="el" href="OPE_8h.html">OPE.h</a>).</p><ul>

@@ -1,5 +1,3 @@
-
-
 ##Configurazione
 Il file di configurazione contiene le impostazioni per il server. Le righe che iniziano con un simbolo `#` sono considerate commenti.
 Le impostazioni necessarie sono:
@@ -32,3 +30,25 @@ Le impostazioni necessarie sono:
 	## Root path file
 	###
 	ROOT_PATH /tmp/
+
+##Esempio di programma base
+Un esempio di programma minimale che esegue una open e una close e' il seguente:
+    #include <stdio.h>
+    #include "inc/OPEN.h"
+    #include "inc/CLOSE.h"
+    #include "assert.h"
+    #include <string.h>
+    #include "inc/Test.h"
+    int main()
+    {
+        printf("[TEST OPEN] Iniziato \n");
+        MyDFSId* fileId;
+        int error = 0;
+        fileId = mydfs_open(indirizzo, filename, MYO_CREAT, &error);
+        assert(fileId != NULL && error == 0);
+        mydfs_close(fileId);
+        printf("[Test OPEN superato correttamente!]\n");
+        
+        return EXIT_SUCCESS;
+    }
+

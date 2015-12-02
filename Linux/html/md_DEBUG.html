@@ -83,7 +83,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="textblock"><h3>Messaggi di debug</h3>
 <p>Per il debug e' possibile impostare il flag DEBUG all' interno di <a class="el" href="Server_2inc_2Config_8h.html">Server/inc/Config.h</a> per il server, e Client/int/Config.h per il client. Questo stampera' durante l' esecuzione utili messaggi di debug.</p>
 <h3>Wireshark</h3>
-<p>Permette di sniffare i pacchetti di rete, una volta avviato si esegue lo sniffing dei pacchetti sull' interfaccia di loopback (lo) in caso stiamo testando l' applicazione in locale.</p>
+<p>Permette di sniffare i pacchetti di rete, una volta avviato si esegue lo sniffing dei pacchetti sull' interfaccia di loopback (lo) in caso stiamo testando l' applicazione in locale. Per windows è necessario qualche passaggio in più:</p><ol type="1">
+<li>Scaricare <a href="http://www.netresec.com/?page=RawCap">RawPack</a></li>
+<li>Lanciare in una shell: <code>RawCap.exe -f 127.0.0.1 dumpfile.pcap</code></li>
+<li>Lanciare in un'altra shell: <code>tail -c +0 -f dumpfile.pcap | Wireshark.exe -k -i -</code></li>
+</ol>
+<h3>Strace</h3>
+<p>Usato per tenere traccia delle chiamate di sistema.</p>
 <h3>Valgrind</h3>
 <p>Usato per testare se ci sono dei memory leaks</p>
 <h3>GDB</h3>
@@ -94,8 +100,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <li><code>make</code> per ricompilare l' eseguibile</li>
 <li><code>n</code>: prossima istruzione</li>
 <li><code>b <a class="el" href="file_8c.html">file.c</a>:&lt;number&gt;</code>: pr bloccare l' esecuzione a una certa lnea di un file, o</li>
-<li><code>b numefunzione</code>: per bloccare l' eseucizione ad una certa funzione. </li>
+<li><code>b numefunzione</code>: per bloccare l' eseucizione ad una certa funzione.</li>
 </ul>
+<h2>DrMemory</h2>
+<p>Simile a Valgrind, ma per windows. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

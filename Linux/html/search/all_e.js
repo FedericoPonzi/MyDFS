@@ -1,7 +1,7 @@
 var searchData=
 [
   ['read',['READ',['../md_READ.html',1,'']]],
-  ['relazione',['relazione',['../md_relazione.html',1,'']]],
+  ['relazione_20programmazione_20di_20sistema',['Relazione Programmazione di sistema',['../md_relazione.html',1,'']]],
   ['read_2ec',['READ.c',['../Client_2READ_8c.html',1,'']]],
   ['read_2ec',['READ.c',['../Server_2READ_8c.html',1,'']]],
   ['read_2eh',['READ.h',['../Client_2inc_2READ_8h.html',1,'']]],

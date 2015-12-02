@@ -17,7 +17,7 @@
 \begin{DoxyCompactList}\small\item\em Tempo di attesa delle recv (in secondi) \end{DoxyCompactList}\item 
 \#define \hyperlink{Server_2inc_2Config_8h_a21c8feef84ea8774c2061af39050441c}{P\+I\+N\+G\+\_\+\+T\+I\+M\+E}~2
 \begin{DoxyCompactList}\small\item\em Tempo di attesa per heartbeating. \end{DoxyCompactList}\item 
-\#define \hyperlink{Server_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\+E\+B\+U\+G}~1
+\#define \hyperlink{Server_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\+E\+B\+U\+G}~0
 \begin{DoxyCompactList}\small\item\em Se in modalita' debug (=1), stampa utili messaggi di log. \end{DoxyCompactList}\item 
 \#define \hyperlink{Server_2inc_2Config_8h_a8049c678a855a57b1030eab386393a8f}{F\+I\+L\+E\+S\+I\+Z\+E}~65535
 \begin{DoxyCompactList}\small\item\em Dimensione dei file durante i trasferimenti. \end{DoxyCompactList}\item 
@@ -32,9 +32,9 @@ int \hyperlink{Server_2inc_2Config_8h_a5b6baa60f72c2a81a203e279eff99749}{load\+C
 \begin{DoxyCompactItemize}
 \item 
 pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{Server_2inc_2Config_8h_a1b7ba52f02ee92a5963c7aa917b10c2b}{accept\+Mutex}
-\begin{DoxyCompactList}\small\item\em Indica la lunghezza del buffer del nome del file. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Mutex dell' accept. \end{DoxyCompactList}\item 
 int $\ast$ \hyperlink{Server_2inc_2Config_8h_ad588b9329591f013097f9531c643a262}{number\+Alive\+Childs}
-\item 
+\begin{DoxyCompactList}\small\item\em numero di processi/threads figli attualmente vivi \end{DoxyCompactList}\item 
 int \hyperlink{Server_2inc_2Config_8h_a6fa40559d133e806762dd11ebaec522e}{numero\+Con}
 \begin{DoxyCompactList}\small\item\em Numero di connessioni contemporanee permesse (equivale al numero di threads o processi) \end{DoxyCompactList}\item 
 int \hyperlink{Server_2inc_2Config_8h_af05e592fecdd2c97fa06eafcb1c8e2c3}{proc\+Or\+Thread}
@@ -69,7 +69,7 @@ Referenziato da load\+Config().
 
 \hypertarget{Server_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!D\+E\+B\+U\+G@{D\+E\+B\+U\+G}}
 \index{D\+E\+B\+U\+G@{D\+E\+B\+U\+G}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
-\subsubsection[{D\+E\+B\+U\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+U\+G~1}}\label{Server_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}
+\subsubsection[{D\+E\+B\+U\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+U\+G~0}}\label{Server_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}
 
 
 Se in modalita' debug (=1), stampa utili messaggi di log. 
@@ -143,19 +143,19 @@ Referenziato da main().
 \subsubsection[{accept\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ accept\+Mutex}}\label{Server_2inc_2Config_8h_a1b7ba52f02ee92a5963c7aa917b10c2b}
 
 
-Indica la lunghezza del buffer del nome del file. 
-
-\begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000006}{Da fare}]da quantificare bene. \#define F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+M\+A\+X 150 \end{DoxyRefDesc}
+Mutex dell' accept. 
 
 
-Indica la lunghezza del buffer del nome del file. 
 
 Referenziato da handle\+Socket().
 
 \hypertarget{Server_2inc_2Config_8h_ad588b9329591f013097f9531c643a262}{\index{Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}!number\+Alive\+Childs@{number\+Alive\+Childs}}
 \index{number\+Alive\+Childs@{number\+Alive\+Childs}!Server/inc/\+Config.\+h@{Server/inc/\+Config.\+h}}
 \subsubsection[{number\+Alive\+Childs}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ number\+Alive\+Childs}}\label{Server_2inc_2Config_8h_ad588b9329591f013097f9531c643a262}
+
+
+numero di processi/threads figli attualmente vivi 
+
 
 
 Referenziato da append\+Opened\+File(), handle\+Socket(), spawn\+Process(), e spawn\+Thread().

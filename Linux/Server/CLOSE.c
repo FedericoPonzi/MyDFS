@@ -72,7 +72,7 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 		{
 			logM("Ricevo dati:\n");
 			int buffSize = size > FILESIZE ? FILESIZE : size;
-			char* buffer = malloc(buffSize); /**@todo : cambiare a void*/
+			char* buffer = malloc(buffSize);
 			nRecv = recv(id->controlSocketId, buffer, buffSize, 0);
 			if(nRecv < 0)
 			{

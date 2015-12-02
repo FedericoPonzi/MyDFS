@@ -30,7 +30,7 @@ int \hyperlink{Server_2Config_8c_a5b6baa60f72c2a81a203e279eff99749}{load\+Config
 \begin{DoxyCompactItemize}
 \item 
 int $\ast$ \hyperlink{Server_2Config_8c_ad588b9329591f013097f9531c643a262}{number\+Alive\+Childs}
-\item 
+\begin{DoxyCompactList}\small\item\em numero di processi/threads figli attualmente vivi \end{DoxyCompactList}\item 
 pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{Server_2Config_8c_a1b7ba52f02ee92a5963c7aa917b10c2b}{accept\+Mutex}
 \begin{DoxyCompactList}\small\item\em Mutex dell' accept. \end{DoxyCompactList}\item 
 int \hyperlink{Server_2Config_8c_a6fa40559d133e806762dd11ebaec522e}{numero\+Con} = 0
@@ -84,13 +84,17 @@ Referenzia C\+O\+N\+F\+I\+G\+F\+I\+L\+E\+N\+A\+M\+E, handle\+Line(), e log\+M().
 
 Mutex dell' accept. 
 
-Indica la lunghezza del buffer del nome del file. 
+
 
 Referenziato da handle\+Socket().
 
 \hypertarget{Server_2Config_8c_ad588b9329591f013097f9531c643a262}{\index{Server/\+Config.\+c@{Server/\+Config.\+c}!number\+Alive\+Childs@{number\+Alive\+Childs}}
 \index{number\+Alive\+Childs@{number\+Alive\+Childs}!Server/\+Config.\+c@{Server/\+Config.\+c}}
 \subsubsection[{number\+Alive\+Childs}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ number\+Alive\+Childs}}\label{Server_2Config_8c_ad588b9329591f013097f9531c643a262}
+
+
+numero di processi/threads figli attualmente vivi 
+
 
 
 Referenziato da append\+Opened\+File(), handle\+Socket(), spawn\+Process(), e spawn\+Thread().

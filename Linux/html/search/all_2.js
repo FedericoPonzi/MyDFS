@@ -15,7 +15,7 @@ var searchData=
   ['close_2eh',['CLOSE.h',['../Server_2inc_2CLOSE_8h.html',1,'']]],
   ['closeclientsession',['closeClientSession',['../StruttureDati_8h.html#a4d533448d4fea33fea1475cffe4ad377',1,'closeClientSession(unsigned long int ptid):&#160;StruttureDati.c'],['../StruttureDati_8c.html#a4d533448d4fea33fea1475cffe4ad377',1,'closeClientSession(unsigned long int ptid):&#160;StruttureDati.c']]],
   ['closecommand',['CLOSECOMMAND',['../Client_2inc_2Config_8h.html#a62cb50fa7a98a13378476e83137c8d7f',1,'CLOSECOMMAND():&#160;Config.h'],['../Server_2inc_2Config_8h.html#a62cb50fa7a98a13378476e83137c8d7f',1,'CLOSECOMMAND():&#160;Config.h']]],
-  ['closeopenedfile',['closeOpenedFile',['../StruttureDati_8h.html#a1b93a1e03b27ca80768a152cebb0fed3',1,'closeOpenedFile(unsigned long int ptid):&#160;StruttureDati.c'],['../StruttureDati_8c.html#a1b93a1e03b27ca80768a152cebb0fed3',1,'closeOpenedFile(unsigned long int ptid):&#160;StruttureDati.c']]],
+  ['closeopenedfile',['closeOpenedFile',['../StruttureDati_8h.html#a1b93a1e03b27ca80768a152cebb0fed3',1,'StruttureDati.h']]],
   ['commandshandler_2ec',['CommandsHandler.c',['../CommandsHandler_8c.html',1,'']]],
   ['commandshandler_2eh',['CommandsHandler.h',['../CommandsHandler_8h.html',1,'']]],
   ['config_2ec',['Config.c',['../Prove_2Parsing_01file_01Config_2Config_8c.html',1,'']]],

@@ -294,7 +294,6 @@ void* handleSocket()
  * 
  * All' arrivo di una connessione, crea un thread e richiama handleSocket
  * @see server.c#handleSocket
- * @todo dovrebbe passargli dei parametri.
  */
 void spawnThread()
 {
