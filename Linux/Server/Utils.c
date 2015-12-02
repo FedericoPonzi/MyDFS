@@ -60,9 +60,15 @@ void logM (char* messaggio, ...)
 	}
     else
     {
-        FILE* fp = fopen("Log.txt", "a");
-        fprintf(fp, messaggio, args);
-        fclose(fp);
+        FILE *saved = stdout;
+        stdout = fopen("Log.txt", "a");
+
+        va_start(args, messaggio);
+		vprintf(messaggio, args);
+		va_end(args);
+
+        fclose(stdout);
+        stdout = saved; 
     }
 }
 /** * 
