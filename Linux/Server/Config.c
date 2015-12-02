@@ -47,8 +47,17 @@ int loadConfig()
 {
 	
 	char* filename = CONFIGFILENAME;
-	FILE* filePointer = fopen(filename, "ru");
-	char buf[256];
+    FILE* filePointer = fopen(filename, "ru");
+    if(filePointer == NULL)
+    {
+        logM("File di config non trovato.\n");
+        return EXIT_FAILURE;
+    }
+    else
+    {
+        logM("File di config trovato\n");
+    }
+    char buf[256];
 	while (fgets (buf, sizeof(buf), filePointer)) 
 	{	
 		handleLine(buf);

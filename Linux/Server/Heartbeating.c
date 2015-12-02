@@ -38,6 +38,7 @@ void* heartBeat(void *args)
 {
     OpenedFile* id = (OpenedFile*) args;
 	int temp_sd = id->controlSocketId;
+    pthread_mutex_t *controlSocketMutex = &id->controlSocketMutex;
 	long unsigned int ptid = id->ptid;
 	logM("[Spawining HeartBeating] Tempsd: %d, ptid: %lu\n", temp_sd, ptid);
 	
@@ -58,13 +59,15 @@ void* heartBeat(void *args)
 		sleep(PING_TIME);
 
 		logM("[HB %d:%lu] PING!\n", temp_sd, ptid);
-		pthread_mutex_lock(&id->controlSocketMutex);
+		pthread_mutex_lock(controlSocketMutex);
 		nSend = send(temp_sd, ping, strlen(ping)+1, 0);				
-		pthread_mutex_unlock(&id->controlSocketMutex);
+		pthread_mutex_unlock(controlSocketMutex);
 		if(nSend <= 0)
         {
             logM("[HB %d:%lu] Connessione terminata\n", temp_sd, ptid);
+            pthread_mutex_destroy(controlSocketMutex);
             closeClientSession(ptid);
+            close(temp_sd);
             break;
         }
 		nRecv = recv(temp_sd, pong, sizeof(pong), 0);
@@ -72,7 +75,8 @@ void* heartBeat(void *args)
 		{
 			logM("[heartBeat %d] - connessione %lu chiusa.\n", temp_sd, ptid);
 			if(temp_sd > 0)
-			{	
+			{
+                pthread_mutex_destroy(controlSocketMutex);
 				closeClientSession(ptid);
 				close(temp_sd);
 			}
