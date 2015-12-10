@@ -25,13 +25,10 @@ int appendReadRequest(MyDFSId* id, int pos, int size);
  * @param size: quanto vuole leggere
  * @return -1 in caso di errore, n bytes letti altrimenti.
  * 
- * WinReady!
  */
  
 int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
-{
-
-	
+{	
 	CacheRequest req;
 
 	long daRicevere;
@@ -39,7 +36,6 @@ int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 	//Sposto il puntatore:
     if(pos == MYSEEK_END)
     {
-        logM("Myseekend\n");
         fseek(id->fp, id->filesize, SEEK_SET);
     }
     else
@@ -50,6 +46,10 @@ int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 	//Posizione del puntatore
 	long posizione = ftell(id->fp);
 
+	/*
+	 * Piccolo hack: per qualche motivo, size da dei problemi con la read.
+	 * Mi leggo solo quello che mi serve fino alla fine del file (e non oltre).
+	 */
     size = posizione+size >= id->filesize ? id->filesize-posizione : size;
     logM("size: %d, filesize:%d \n", size, id->filesize);
 	logM("Posizione del puntatore all' inizio della read:%d\n", posizione);
@@ -96,7 +96,8 @@ int mydfs_read(MyDFSId* id, int pos, void *ptr, unsigned int size)
 
 /**
  * @brief Manda il comando di READ, e aspetta come risposta la dimensione di quanto deve leggere all'interno della risposta.
- * WinReady
+ * @return -1 se c'e' un errore,
+ * @return altrimeni la dimensione che sta mandando il server.
  */
 long sendReadCommand(MyDFSId* id, long pos)
 {
@@ -105,7 +106,11 @@ long sendReadCommand(MyDFSId* id, long pos)
 	char readCommand[strlen(READCOMMAND) + 	getNumberLenght(pos)+1]; //es: "READ 1", con 1 = la posizione
 	sprintf(readCommand, "%s %li\n", READCOMMAND, pos);
 	logM("Mando richiesta di READ:'%s'\n", readCommand);
-	send(id->transferSocketId, readCommand, strlen(readCommand), 0);
+	if(send(id->transferSocketId, readCommand, strlen(readCommand), 0) < 0)
+    {
+        perror("[sendReadCommand] send");
+        return -1;
+    }
 	
 	//Ricevo la dimensione della parte letta
 	char fileSize[15];
@@ -141,14 +146,11 @@ long sendReadCommand(MyDFSId* id, long pos)
 
 /**
  * @brief Legge dalla socket di trasferimento buffsize dati.
- * @return 1 se c'e' un errore con la recv
- * il risultato di writeCache altrimenti.
+ * @return 1 se c'e' un errore con la recv,
+ * @return il risultato di writeCache altrimenti.
  * 
  * @see writeCache
- * @todo La recv dovrebbe continuare finche' non ho tutto sizeRiamsta.
- * Winready
  */
- 
 int readFrom(MyDFSId* id, int sizeRimasta,  int pos )
 {
 	char buff[sizeRimasta];
@@ -191,14 +193,15 @@ int appendReadRequest(MyDFSId* id, int pos, int size)
 	WaitForSingleObject(id->readListMutex, INFINITE);
 
 	ReadOp* readOp = malloc(sizeof(ReadOp));
+	if(readOp == NULL)
+	{
+        perror("[appendReadRequest] malloc e' fallita.");
+		return 1;
+	}
 	readOp->pos = pos;
 	readOp->size = size;
 	readOp->next = NULL;
-	
-	if(readOp == NULL)
-	{
-		return 1;
-	}		
+		
 	ReadOp* iterator = id->readList;
 	while(iterator != NULL && iterator->next != NULL)
 	{

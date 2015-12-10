@@ -8,7 +8,8 @@
 #include "inc/Utils.h"
 
 /**
- * Ritorna il nome del file
+ * @brief Ritorna il nome del file
+ * @param basename puntatore ad una path che termina col nome di un file.
  */
  
 char* getFilename(char* basename)
@@ -26,7 +27,7 @@ char* getFilename(char* basename)
 }
 
 /**
- * Funzione che crea un file temporaneo, e ritorna un puntatore ad esso.
+ * @brief Funzione che crea un file temporaneo, e ritorna un puntatore ad esso.
  */
 FILE* createTempFile(char* basename)
 {

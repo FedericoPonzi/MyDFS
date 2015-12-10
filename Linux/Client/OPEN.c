@@ -19,7 +19,7 @@ static void createControlSocket(MyDFSId* toRet, int *err);
 
 
 /**
- * name: mydfs_open
+ * @brief Operazione di Open
  * @param indirizzo: l' indirizzo ipv4 a cui vogliamo connetterci,
  * @param nomefile: nome del file richiesto,
  * @param modo: modo, che puo essere:  O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_TRUNC, O_EXCL,  O_EXLOCK
@@ -76,10 +76,10 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 			logM("[Open] Errore: File aperto in scrittura da un altro client\n");
 			break;
 		case -2:
-			logM("[Open] Error: il server non sia raggiungibile\n");
+			logM("[Open] Errore: sembra che il server non sia raggiungibile\n");
 			break;
 		case -3:
-			logM("[Open] Error: errore sul file (ad esempio file aperto in sola lettura che non esiste\n");
+			logM("[Open] Errore: errore sul file (ad esempio file aperto in sola lettura o file che non esiste)\n");
 			break;
 	}
     
@@ -91,7 +91,7 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 }
 
 /**
- * Crea la connessione di comunicazione client-server usata per lì invio di comandi e di files.
+ * @brief Crea la connessione di comunicazione client-server usata per lì invio di comandi e di files.
  * Setta transferSocketId
  */
 void createTransferSocket(MyDFSId* toRet, int *err)
@@ -107,8 +107,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 
     if(inet_aton(toRet->indirizzo, &serv_addr.sin_addr) == 0)
     {
-		logM("inet_aton error \n");
-        perror("inet_aton:");
+        perror("[createTransferSocket] inet_aton");
         *err= -2;
         return;
     }
@@ -122,7 +121,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
     if((connect(toRet->transferSocketId, (struct sockaddr *)&serv_addr, sizeof(serv_addr))) != 0)
     {
        *err= -2;
-	   perror("connect");
+	   perror("[createTransferSocket] connect");
        return;
     }
     
@@ -134,7 +133,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 	
     if(send(toRet->transferSocketId, openCommand, sizeof(openCommand), 0) < 0)
     {
-		perror("send");
+		perror("[createTransferSocket] send");
 		*err = -2;
 		return;
 	}
@@ -144,17 +143,20 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 	 */
 	if ((nRecv = recv(toRet->transferSocketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{
-		perror("recv");
+		perror("[createTransferSocket] recv");
 		*err = -2;
 	}
 	
 	if(strncmp(buffer, "-1", 2) == 0)
 	{
+        logM("[createTransferSocket] Errore in apertura del file lato server 1");
 		*err = -1;
 		return;
 	}
 	else if(strncmp(buffer , "-3", 2) == 0)
 	{
+        logM("[createTransferSocket] Errore in apertura del file lato server 2");
+
 		*err = -3;
 		return;
 	}
@@ -163,7 +165,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
 	toRet->filesize = strtol(buffer, NULL, 10);
     if(errno == EINVAL || errno == ERANGE)
     {
-        perror("strtol");
+        perror("[createTransferSocket] strtol");
         *err = -3;
     }
 }
@@ -173,7 +175,6 @@ void createTransferSocket(MyDFSId* toRet, int *err)
  *
  * Setta propriamente err se qualcosa va storto, o modifica il campo toRet->controlSocketId se tutto va bene.
  * setta controlSocketId
- * @todo controllo errori
  */
 void createControlSocket(MyDFSId* toRet, int* err)
 {
@@ -183,13 +184,14 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	char buffer[15];
 	struct sockaddr_in serv_addr, cli_addr;
 	socklen_t clilen;
-	/* First call to socket() function */
+
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
 	if (sockfd < 0)
 	{
-		perror("ERROR opening socket");
+		perror("[createControlSocket] socket");
 		*err = -2;
+        return;
 	}
 
 	bzero((char *) &serv_addr, sizeof(serv_addr));
@@ -199,11 +201,12 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	serv_addr.sin_addr.s_addr = INADDR_ANY;
 	serv_addr.sin_port = htons(0);
 
-	/* Now bind the host address using bind() call.*/
+
 	if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0)
 	{
-		perror("ERROR on binding");
+		perror("[createControlSocket] binding");
 		*err = -2;
+        return;
 	}
 	struct sockaddr_in sin;
 	socklen_t len = sizeof(sin);
@@ -211,16 +214,19 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	if (getsockname(sockfd, (struct sockaddr *)&sin, &len) == -1)
 	{
 		*err = -2;
-		perror("getsockname");
+		perror("[createControlSocket] getsockname");
+        return;
 	}
 
 	logM("Sto richiedendo la connessione sulla porta numero: %d\n", ntohs(sin.sin_port));
-	sprintf(buffer, "port_num %d", ntohs(sin.sin_port));
+
+    sprintf(buffer, "port_num %d", ntohs(sin.sin_port));
 	
 	if( listen(sockfd, 1) < 0)
     {
         *err = -2;
-        perror("listen:");
+        perror("[createControlSocket] listen");
+        return;
     }
     
 	clilen = sizeof(cli_addr);
@@ -228,27 +234,32 @@ void createControlSocket(MyDFSId* toRet, int* err)
 	if(send(toRet->transferSocketId, buffer, strlen(buffer), 0) < 0)
     {
         *err = -2;
-        perror("Send:");
+        perror("[createControlSocket] Send");
+        return;
     }
 
 	newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
 	if (newsockfd < 0)
 	{
-		perror("ERROR on accept");
+		perror("[createControlSocket] accept");
 		*err = -2;
+        return;
 	}
     close(sockfd);
     
 	toRet->controlSocketId = newsockfd;
-	logM("[OPEN] Aperta connessione di Controllo.\n");
+
+    logM("[OPEN] Aperta connessione di Controllo.\n");
 
 	if ((recv(toRet->transferSocketId, buffer, sizeof(buffer)-1, 0)) < 0)
 	{
-		perror("[CreateControlSocket]recv");
+		perror("[CreateControlSocket] recv");
 		*err = -2;
+        return;
 	}
 	if(strncmp(buffer , "-2", 2) == 0)
 	{
+        logM("[createControlSocket] Errori lato server");
 		*err = -2;
 	}
 }

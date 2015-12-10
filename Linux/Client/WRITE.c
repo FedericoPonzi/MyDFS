@@ -1,4 +1,4 @@
-    #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
@@ -17,20 +17,21 @@ int addWriteOp(MyDFSId* id, int pos, int size);
 int writeTo(FILE* id, void* ptr, int size);
 
 /**
- * -1 in caso di errore;
- * >= 0 ed uguale al numero di byte effettivamente scritti.
+ * @brief Operazione mydfs_write definita come da specifiche
+ * @return -1 in caso di errore;
+ * @return >= 0 ed uguale al numero di byte effettivamente scritti.
  * 
- * Pos puo essere MYSEEK_SET,MYSEEK_CUR, MYSEEK_END
- */
- 
+ * @param pos puo essere MYSEEK_SET,MYSEEK_CUR, MYSEEK_END
+ */ 
 int mydfs_write(MyDFSId* id, int pos, void *ptr, unsigned int size)
 {
 	if(!isModoApertura(id->modo, MYO_WRONLY) && !isModoApertura(id->modo, MYO_RDWR))
 	{
-		logM("Non hai aperto in modo di scrittura\n");
+		logM("[mydfs_write] Non hai aperto in modo di scrittura\n");
 		return -1;
 	}
-	//NEl caso sia end, mi sposto alla fine del file (che conosco da id->filesize)
+    
+	//Nel caso sia end, mi sposto alla fine del file (che conosco da id->filesize)
 	if(pos == MYSEEK_END)
 	{
 		fseek(id->fp, id->filesize, SEEK_SET);
@@ -57,18 +58,22 @@ int mydfs_write(MyDFSId* id, int pos, void *ptr, unsigned int size)
 	return n;
 
 }
-
+/**
+ * @brief Aggiunge un nodo alla lista di operazioni di scrittura
+ */
 int addWriteOp(MyDFSId* id, int pos, int size)
 {
 	WriteOp* writeOp = malloc(sizeof(WriteOp));
+	if(writeOp == NULL)
+	{
+        perror("[addWriteOp] malloc e' fallita.");
+		return 1;
+	}
 	writeOp->pos = pos;
 	writeOp->size = size;
 	writeOp->next = NULL;
 	
-	if(writeOp == NULL)
-	{
-		return 1;
-	}		
+
 	WriteOp* iterator = id->writeList;
 	while(iterator != NULL && iterator->next != NULL)
 	{
@@ -85,6 +90,9 @@ int addWriteOp(MyDFSId* id, int pos, int size)
 	return 0;	
 }
 
+/**
+ * @brief Wrapper per la scrittura su file
+ */
 int writeTo(FILE* id, void* ptr, int size)
 {
 	return fwrite(ptr, 1, size, id);

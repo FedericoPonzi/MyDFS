@@ -15,6 +15,10 @@
 #include "inc/Cache.h"
 #include "inc/Utils.h"
 
+/**
+ * @brief Ritorna il nome del file
+ * @param basename puntatore ad una path che termina col nome di un file.
+ */
 char* getFilename(char* basename)
 {
     int i = strlen(basename);
@@ -30,7 +34,7 @@ char* getFilename(char* basename)
 }
 
 /**
- * Winready!
+ * @brief Funzione che crea un file temporaneo, e ritorna un puntatore ad esso.
  */
 FILE* createTempFile(char* basename)
 {
@@ -62,7 +66,6 @@ FILE* createTempFile(char* basename)
  * altri miss.
  * Nota2: Il lock e' in teoria troppo grande. In pratica pero', se fra la prima operazione di lettura e la seconda ci fosse una invalidazione della cache
  * qualcosa di orrendo potrebbe accadere.
- * WinReady!
  */
 int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
 {
@@ -173,7 +176,6 @@ int readRequest(MyDFSId* id, int pos, int size, CacheRequest* req)
  * 
  * @return 1 se tutto e' ok, 0 se qualcosa e' andata storta		
  * 
- * WinReady!
  */
 int writeCache(MyDFSId* id, void* buffer, int size, int pos)
 {

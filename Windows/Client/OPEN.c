@@ -20,7 +20,7 @@ static void createControlSocket(MyDFSId* toRet, int *err);
 
 
 /**
- * name: mydfs_open
+ * @brief Operazione di Open
  * @param indirizzo: l' indirizzo ipv4 a cui vogliamo connetterci,
  * @param nomefile: nome del file richiesto,
  * @param modo: modo, che puo essere:  O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_TRUNC, O_EXCL,  O_EXLOCK
@@ -61,10 +61,10 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 			logM("[Open] Errore: File aperto in scrittura da un altro client\n");
 			break;
 		case -2:
-			logM("[Open] Error: il server non sia raggiungibile\n");
+			logM("[Open] Errore: sembra che il server non sia raggiungibile\n");
 			break;
 		case -3:
-			logM("[Open] Error: errore sul file (ad esempio file aperto in sola lettura che non esiste\n");
+			logM("[Open] Errore: errore sul file (ad esempio file aperto in sola lettura o file che non esiste)\n");
 			break;
 	}
     
@@ -76,10 +76,10 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 }
 
 /**
- * Crea la connessione di comunicazione client-server
+ * @brief Crea la connessione di comunicazione client-server
  * Setta transferSocketId
  * 
- * WINREADY! @todo: forse si puo fare meglio, hints non serve!
+ * @todo forse si puo fare meglio, hints non serve!
  */
 void createTransferSocket(MyDFSId* toRet, int *err)
 {
@@ -170,7 +170,7 @@ void createTransferSocket(MyDFSId* toRet, int *err)
  *
  * Setta propriamente err se qualcosa va storto, o modifica il campo toRet->controlSocketId se tutto va bene.
  * setta controlSocketId
- * WINREady!
+ * @todo controllo errori
  */
 void createControlSocket(MyDFSId* toRet, int* err)
 {
@@ -178,11 +178,12 @@ void createControlSocket(MyDFSId* toRet, int* err)
 
 	int sockfd, newsockfd;
 	char buffer[15];
+
 	struct sockaddr_in serv_addr, cli_addr;
 	socklen_t clilen;
-	/* First call to socket() function */
+
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    printf("Base socket: %d\n", sockfd);
+
 	if (sockfd < 0)
 	{
 		perror("ERROR opening socket");
