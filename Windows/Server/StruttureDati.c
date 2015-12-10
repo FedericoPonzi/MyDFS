@@ -25,11 +25,9 @@
 #include "inc/StruttureDati.h"
 #include "inc/OPE.h"
 
-
-OpenedFile ** openedFileLinkedList = NULL;
-OpenedFile ** free_head;
 HANDLE mutex;
 
+OpenedFile* openedFileLL;
 
 
 /**
@@ -71,10 +69,9 @@ int appendOpenedFile(char* nomeFile, int modo, OpenedFile** id)
 	}
 	char filePath[strlen(nomeFile) + strlen(rootPath)+1];
 	sprintf(filePath, "%s%s", rootPath,nomeFile);
+    strcpy(n->fileName, nomeFile);
     
     n->used = 1;
-    strcpy(n->fileName, nomeFile);
-
     n->ptid = getptid();
 	n->modo = modo;
     n->controlSocketMutex = CreateMutex(NULL, FALSE, NULL);
@@ -115,7 +112,6 @@ int checkModoOpen(char *nomeFile, int modo)
 	{
 		if(!isModoApertura(modo, MYO_CREAT))
 		{
-			ReleaseMutex(mutex);
 			printf("File inesistente");			
 			return -3;
 		}
@@ -123,8 +119,7 @@ int checkModoOpen(char *nomeFile, int modo)
 	else
 	{
 		if(isModoApertura(modo, MYO_EXCL))
-		{
-			ReleaseMutex(mutex);
+		{            
             printf("MYO_EXCL di un file esistente.");
 			return -3;
 		}
@@ -165,11 +160,6 @@ int fileAlreadyOpenedInWrite(char* filename)
 {
 	WaitForSingleObject(mutex, INFINITE);
 		
-	if(openedFileLinkedList == NULL)
-	{
-		ReleaseMutex(mutex);		
-		return FALSE;
-	}
 	OpenedFile* iterator = openedFileLL;
 	while(iterator != NULL)
 	{
@@ -206,25 +196,18 @@ int isModoApertura(int modo_client, int modo)
 	return FALSE;
 }
 
-/**
- * @brief Rimuove il nodo openedfile associato al ptid.
- * @todo da fare.
- */
-void closeOpenedFile(unsigned long int ptid)
-{
-    
-}
+
 /**
  * Libera lo spazio occupato dal puntatore
- * @todo da finire.
+
  */
 void freeOpenedFile(OpenedFile* id)
 {
 	fclose(id->fp);
-    printf("[FreeOpenedfile] Libero: transfer: %d, sock: %d\n", id->controlSocketId, id->transferSocketId);
+    logM("[FreeOpenedfile] Libero: transfer: %d, sock: %d\n", id->controlSocketId, id->transferSocketId);
     
     //Se al momento della OPE ho creato l' heartbeating, eseguo solo lo shutdown della socket e lascio la closesocket all' heartbeating
-    if(isModoApertura(id->modo, MYO_WRONLY) || !isModoApertura(id->modo, MYO_RDWR))
+    if((isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
     {
         shutdown(id->controlSocketId, SD_BOTH);
         shutdown(id->transferSocketId, SD_BOTH);
@@ -236,7 +219,6 @@ void freeOpenedFile(OpenedFile* id)
         closesocket(id->controlSocketId);
         closesocket(id->transferSocketId);
     }
-    id->used = 0;
    
     //Se sono in modalita multiprocesso, chiudo le winsock.
     if(procOrThread)
@@ -244,9 +226,11 @@ void freeOpenedFile(OpenedFile* id)
         WSACleanup();
     }
     
-    int nextOffset = id->nextOffset;
+    long unsigned int nextOffset = id->nextOffset;
 	ZeroMemory(id, sizeof(OpenedFile));
     id->nextOffset = nextOffset;
+    id->used = 0;
+
 }
 
 

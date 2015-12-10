@@ -6,14 +6,6 @@
 #include <ws2tcpip.h>
 #include <stdio.h>
 
-//typedef enum { MYO_RDONLY, MYO_WRONLY, MYO_RDWR, MYO_CREAT, MYO_TRUNC, MYO_EXCL, MYO_EXLOCK} modoApertura_t;
-
-typedef struct SocketIdList //struct per lista socket attive
-{
-	int transferSocketId;
-	struct SocketIdList* next;
-	int modo;
-}SocketIdList;
 
 typedef struct OpenedFile
 {
@@ -35,9 +27,6 @@ typedef struct OpenedFile
  */
 extern HANDLE mutex; 
 
-extern OpenedFile **openedFileLinkedList;
-
-extern OpenedFile **free_head;
 
 OpenedFile* openedFileLL;
 

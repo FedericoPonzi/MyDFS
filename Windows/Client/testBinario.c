@@ -18,7 +18,7 @@ int main()
     int i = 0;
     void *buffer = malloc(60000);
     MyDFSId *id;
-    id = mydfs_open("192.168.0.9", filepath, MYO_RDONLY, &err);
+    id = mydfs_open("127.0.0.1", filepath, MYO_RDONLY, &err);
     assert(id != NULL && err == 0);
     FILE* fp = fopen("binario.jpg", "w+b");
 
@@ -29,6 +29,6 @@ int main()
     mydfs_close(id);
     fclose(fp);
     free(buffer);
-    getchar();
+    printf("[Test binario superato correttamente!]");
     return 0;
 }  

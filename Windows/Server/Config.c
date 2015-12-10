@@ -18,8 +18,6 @@ static void allocaEInizializzaMemoria();
 
 /**
  * @file StruttureDati.c
- * @author Federico Ponzi
- * @date 18.07.2015
  * @brief Contiene funzioni utilizzate per caricare il file di configurazione
  * 
  * 
@@ -39,7 +37,7 @@ int portNumber = 0;
 char rootPath[FILENAME_MAX];
 static void handleLine(char* line);
 static void initializeMutex();
-OpenedFile* openedFileLL;
+
 
 /**
  * @brief Carica le impostazioni del config, ed inizializza la memoria.
@@ -140,7 +138,7 @@ void allocaEInizializzaMemoria()
 {
     
     region_sz += sizeof(OpenedFile)*numeroCon;
-    region_sz += sizeof(openedFileLinkedList)+sizeof(free_head);    
+    region_sz += sizeof(openedFileLL);    
 	/* Spazio per il mutex "mutex" */
     region_sz += sizeof(HANDLE);
 	/* Spazio per il mutex "acceptMutex" e dell' int numberofiglivivi */
@@ -175,11 +173,10 @@ void allocaEInizializzaMemoria()
     int i;
     for (i=0, curr = openedFileLL; i < numeroCon; i++, curr++) 
     {
-        logM("Curr: %p, passo %d, size: %lu\n", curr, i, sizeof(OpenedFile));
         curr->nextOffset = offset + sizeof(OpenedFile);
         curr->used = 0;
         offset = curr->nextOffset; //Mi salvo il precedente
-        curr= openedFileLL + 1;
+        curr= curr + 1;
 	}
     curr->nextOffset = -1;
 }
@@ -212,18 +209,7 @@ void inizializzaPuntatori()
     numberAliveChilds =  (int* )acceptMutex + sizeof(HANDLE);
     
     openedFileLL = (OpenedFile*)((char*) numberAliveChilds + sizeof(int));
-    
-    /**
-    free_head = (OpenedFile **) (((char *) numberAliveChilds)+sizeof(int));
-   
-    openedFileLinkedList = free_head+1;
 
-    *free_head = (OpenedFile *) (openedFileLinkedList+1);
-
-    *openedFileLinkedList = NULL;
-    
-    ptr = *free_head;//Puntatore all' inizio della lista linkata
-    */
 }
 
 /**
@@ -238,7 +224,7 @@ void initializeMutex()
         &security,              
         FALSE,             
         NULL);
-    printf("acceptMutex(%p): %p\n", &acceptMutex, acceptMutex);
+
     SECURITY_ATTRIBUTES securityTwo = { 
         sizeof(securityTwo), NULL, TRUE
     };    

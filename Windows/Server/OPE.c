@@ -6,9 +6,6 @@
  *  * Se non e' aperto, aggiunge un nodo in coda a mainOpenedFile
  * 
  * 
- * 
- * @todo dovrebbe mandare una risposta al client in caso di successo o errore
- * @todo permettere l' apertura se il modo con cui e' aperto il file e' lettura e viene richiesta la lettura.
  */
 #include <stdlib.h> 
 #include <string.h>

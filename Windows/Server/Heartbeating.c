@@ -84,7 +84,7 @@ void* heartBeat(void *args)
 			printf("[heartBeat %d] - connessione %lu chiusa.\n", controlSd, ptid);
             CloseHandle(controlSocketMutex);
             closesocket(controlSd);
-            //closesocket(transferSocket);
+            closesocket(transferSocket);
 			break;
 		}
 		ZeroMemory(pong, sizeof(pong));

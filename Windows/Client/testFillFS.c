@@ -27,6 +27,7 @@ int main()
         assert(ret > 0);
         mydfs_close(id);
     }
+    printf("[Test superato correttamente!]");
 
     return 0;
 }
