@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <errno.h>
 
 #include <winsock2.h>
 #include <windows.h>
@@ -48,7 +49,7 @@ void handleCloseCommand(char* command, int socket)
  */
 int handleWrites(int numberOfChanges, OpenedFile* id)
 {
-	printf("HandleWrites: %d numero di cambiamenti. \n", numberOfChanges);
+	printf("[handleWrites] %d numero di cambiamenti. \n", numberOfChanges);
 	int i = 0, nRecv = 0;
 	char messaggio[100];
 	while(i < numberOfChanges)
@@ -56,12 +57,12 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 		nRecv = recv (id->controlSocketId, messaggio, sizeof(messaggio), 0);
 		if(nRecv < 0)
 		{
-			perror("Error on recv.");
+			perror("[handleWrites] Error on recv.");
 			return -1;
 		}
 		else if(nRecv == 0)
 		{
-			printf("Il peer e' andato.");
+			printf("[handleWrites] Il peer e' andato.");
 			return 0;
 		}
 
@@ -72,24 +73,28 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 		//Preparo il file pointer:
 		FILE* fp = id->fp;
 
-		fseek(fp, pos, SEEK_SET);
-
+        if(fseek(fp, pos, SEEK_SET))
+        {
+            perror("[handleWrites] Fseek:");
+            return -1;
+        }
+        
 		//Nel caso sia una grossa modifica, spezziamo in più writes
 		while(size > 0)
 		{
-			printf("Ricevo dati:\n");
+			printf("[handleWrites] Ricevo dati:\n");
 			int buffSize = size > FILESIZE ? FILESIZE : size;
 			char* buffer = malloc(buffSize);
 			nRecv = recv(id->controlSocketId, buffer, buffSize, 0);
 			if(nRecv < 0)
 			{
-				perror("Recv: ");
+				perror("[handleWrites] Recv: ");
 				return -1;
 			}
-			printf("Messaggio size: '%d', in posizione: %lu, buff: '%s'\n", nRecv, ftell(fp), buffer);
+			printf("[handleWrites] Messaggio size: '%d', in posizione: %lu, buff: '%s'\n", nRecv, ftell(fp), buffer);
             
 			int w = fwrite(buffer, 1, nRecv, fp);
-			printf("Scritti %d dati nel file. \n", w);
+			printf("[handleWrites] Scritti %d dati nel file. \n", w);
 			free(buffer);
 			size -= nRecv;
 		}
@@ -107,12 +112,19 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 
 
 /**
- * Ritorna il numero di cambiamenti n specificato dal comando CLO n
+ * @brief Ritorna il numero di cambiamenti n dal comando CLOS n
+ * @return n numero di cambiamenti
+ * @return -1 se strtol e' fallita
  */
 int getNumberOfChanges(char* command)
 {
+	
 	int toRet;
-	toRet = strtol(command+strlen(CLOSECOMMAND)+1, 0, 10); // "CLOS 0" close e' lungo 5.
+	toRet = strtol(command+4, 0, 10); // "CLO 0" close e' lungo 5.
+    if(errno == EINVAL || errno == ERANGE)
+    {
+        toRet = -1;
+    } 
 	return toRet;
 }
 
@@ -124,22 +136,11 @@ int getChunkPosition(char* buffer)
 {
 	int toRet;
 	toRet = strtol(buffer + strlen("POS "), 0, 10);
-	return toRet;
-}
-
-/**
- * @brief Prende in input il comando, ed estrare la dimensione della write.
- * es: "POS 0 SIZE 1000" torna 1000.
- */
-int getChunkSize(char* buffer)
-{
-	int toRet;
-	int i = 0;
-
-	while(strncmp(buffer+i, "SIZE ", strlen("SIZE ")) != 0) i++;
-	i+= strlen("SIZE ");
-	toRet = strtol(buffer + i, 0, 10);
-	return toRet;
+    if(errno == EINVAL || errno == ERANGE)
+    {
+        toRet = -1;
+    }
+    return toRet;
 }
 
 /** 

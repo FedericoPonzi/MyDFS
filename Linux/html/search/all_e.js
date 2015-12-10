@@ -1,7 +1,6 @@
 var searchData=
 [
   ['read',['READ',['../md_READ.html',1,'']]],
-  ['relazione_20programmazione_20di_20sistema',['Relazione Programmazione di sistema',['../md_relazione.html',1,'']]],
   ['read_2ec',['READ.c',['../Client_2READ_8c.html',1,'']]],
   ['read_2ec',['READ.c',['../Server_2READ_8c.html',1,'']]],
   ['read_2eh',['READ.h',['../Client_2inc_2READ_8h.html',1,'']]],
@@ -16,6 +15,5 @@ var searchData=
   ['readop',['ReadOp',['../structReadOp.html',1,'ReadOp'],['../Client_2inc_2Config_8h.html#a9073086354960a2d9ee6972ce86a7cc8',1,'ReadOp():&#160;Config.h']]],
   ['readrequest',['readRequest',['../Client_2Cache_8c.html#ae530ba131c65658674dd0d0b3fb2ea7c',1,'readRequest(MyDFSId *id, long pos, unsigned int size, CacheRequest *req):&#160;Cache.c'],['../Cache_8h.html#ae530ba131c65658674dd0d0b3fb2ea7c',1,'readRequest(MyDFSId *id, long pos, unsigned int size, CacheRequest *req):&#160;Cache.c']]],
   ['recv_5ftimeout',['RECV_TIMEOUT',['../Server_2inc_2Config_8h.html#aa882328bca54a0c7249a313d7d1f7d29',1,'Config.h']]],
-  ['relazione_2emd',['relazione.md',['../relazione_8md.html',1,'']]],
   ['rootpath',['rootPath',['../Server_2Config_8c.html#a8c5e63abddd4a2647c2310bde6f15fd7',1,'rootPath():&#160;Config.c'],['../Server_2inc_2Config_8h.html#a8c5e63abddd4a2647c2310bde6f15fd7',1,'rootPath():&#160;Config.c'],['../Server_2Config_8c.html#a940ff87c8a72e7a67a558568d5852c62',1,'ROOTPATH():&#160;Config.c']]]
 ];

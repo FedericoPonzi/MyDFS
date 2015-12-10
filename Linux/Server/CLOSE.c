@@ -5,11 +5,13 @@
 #include <sys/types.h>
 #include <signal.h>
 #include <sys/socket.h>
+#include <errno.h>
 #include "inc/OPE.h"
 #include "inc/StruttureDati.h"
 #include "inc/Utils.h"
 #include "inc/CLOSE.h"
 #include "inc/Config.h"
+
 
 
 int getChunkPosition(char* buffer);
@@ -41,7 +43,7 @@ void handleCloseCommand(char* command, int socket)
  */
 int handleWrites(int numberOfChanges, OpenedFile* id)
 {
-	logM("HandleWrites: %d numero di cambiamenti. \n", numberOfChanges);
+	logM("[handleWrites] %d numero di cambiamenti. \n", numberOfChanges);
 	int i = 0, nRecv = 0;
 	char messaggio[100];
 	while(i < numberOfChanges)
@@ -49,40 +51,55 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 		nRecv = recv (id->controlSocketId, messaggio, sizeof(messaggio), 0);
 		if(nRecv < 0)
 		{
-			perror("Error on recv.");
+			perror("[handleWrites] Error on recv.");
 			return -1;
 		}
 		else if(nRecv == 0)
 		{
-			logM("Il peer e' andato.");
+			logM("[handleWrites] Il peer e' andato.");
 			return 0;
 		}
 
 		//Mi prendo la quantita e la posizione:
 		int size = getChunkSize(messaggio);
 		int pos = getChunkPosition(messaggio);
+        if(size< 0 || pos < 0)
+        {
+            logM("[handleWrites] Error receving chunk size(%d) or position(%d).", size, pos);
+            return -1;
+        }
 		
 		//Preparo il file pointer:
 		FILE* fp = id->fp;
 
-		fseek(fp, pos, SEEK_SET);
+		if(fseek(fp, pos, SEEK_SET))
+        {
+            perror("[handleWrites] Fseek:");
+            return -1;
+        }
+        
 
 		//Nel caso sia una grossa modifica, spezziamo in più writes
 		while(size > 0)
 		{
-			logM("Ricevo dati:\n");
+			logM("[handleWrites] Ricevo dati:\n");
 			int buffSize = size > FILESIZE ? FILESIZE : size;
 			char* buffer = malloc(buffSize);
+            if(buffer == NULL)
+            {
+                perror("[handleWrites] Malloc:");
+                return -1;
+            }
 			nRecv = recv(id->controlSocketId, buffer, buffSize, 0);
 			if(nRecv < 0)
 			{
-				perror("Recv: ");
+				perror("[handleWrites] Recv: ");
 				return -1;
 			}
-			logM("Messaggio size: '%d', in posizione: %lu, buff: '%s'\n", nRecv, ftell(fp), buffer);
+			logM("[handleWrites] Messaggio size: '%d', in posizione: %lu, buff: '%s'\n", nRecv, ftell(fp), buffer);
             
 			int w = fwrite(buffer, 1, nRecv, fp);
-			logM("Scritti %d dati nel file. \n", w);
+			logM("[handleWrites] Scritti %d dati nel file. \n", w);
 			free(buffer);
 			size -= nRecv;
 		}
@@ -98,12 +115,20 @@ int handleWrites(int numberOfChanges, OpenedFile* id)
 	return 0;
 }
 
-
+/**
+ * @brief Ritorna il numero di cambiamenti n dal comando CLOS n
+ * @return n numero di cambiamenti
+ * @return -1 se strtol e' fallita
+ */
 int getNumberOfChanges(char* command)
 {
 	
 	int toRet;
 	toRet = strtol(command+4, 0, 10); // "CLO 0" close e' lungo 5.
+    if(errno == EINVAL || errno == ERANGE)
+    {
+        toRet = -1;
+    } 
 	return toRet;
 }
 
@@ -115,7 +140,11 @@ int getChunkPosition(char* buffer)
 {
 	int toRet;
 	toRet = strtol(buffer + strlen("POS "), 0, 10);
-	return toRet;
+    if(errno == EINVAL || errno == ERANGE)
+    {
+        toRet = -1;
+    }
+    return toRet;
 }
 
 /**
@@ -129,7 +158,12 @@ int getChunkSize(char* buffer)
 
 	while(strncmp(buffer+i, "SIZE ", strlen("SIZE ")) != 0) i++;
 	i+= strlen("SIZE ");
-	toRet = strtol(buffer + i, 0, 10);
+
+    toRet = strtol(buffer + i, 0, 10);
+    if(errno == EINVAL || errno == ERANGE)
+    {
+        toRet = -1;
+    }
 	return toRet;
 }
 
@@ -149,14 +183,13 @@ void sendInvalidate(OpenedFile* id)
 			if(iterator->ptid != id->ptid)
 			{
 				logM("[Close] Trovato client, gli invio il comando\n");
-				logM("Socketid:%d, processo: %lu\n", iterator->controlSocketId, iterator->ptid);
-                //Se e' un thread
+				//Se e' un thread
                 if(procOrThread)
                 {
                     int i;
                     i = kill(iterator->ptid, SIGUSR1);
                     if(i < 0) perror("Impossibile mandare segnale inva.\n");
-                    logM("Mandato segnale!");
+                    logM("Mandato segnale!\n");
                 }
                 else
                 {

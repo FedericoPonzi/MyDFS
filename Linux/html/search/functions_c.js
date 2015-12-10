@@ -5,9 +5,7 @@ var searchData=
   ['testopen',['testOpen',['../Test_8h.html#aabf4057b7dcde48d9dff14797351235e',1,'testOpen(char *filename, char *indirizzo, int const debug):&#160;Test.c'],['../Test_8c.html#a90d8443b03c7c48c168b313d28fb72b1',1,'testOpen(char *filename, char *indirizzo, int debug):&#160;Test.c']]],
   ['testopenerrors',['testOpenErrors',['../Test_8c.html#a79b2f3f1a8562425da6aad86fb32c327',1,'Test.c']]],
   ['testread',['testRead',['../Test_8h.html#adfdc0eba97e8023f64c192dbac90b52e',1,'testRead(char *filename, char *indirizzo, int const debug):&#160;Test.c'],['../Test_8c.html#af1bdec0a156f8dd5ec0ee1a640181db1',1,'testRead(char *filename, char *indirizzo, int debug):&#160;Test.c']]],
-  ['testreaderrors',['testReadErrors',['../Test_8c.html#a5e2a9fe26399d64f155227a7c8d7593a',1,'Test.c']]],
   ['testsimpleread',['testSimpleRead',['../Test_8h.html#aa36a0cc154bed9ef71abed169e866e00',1,'testSimpleRead(char *filename, char *indirizzo, int const debug):&#160;Test.c'],['../Test_8c.html#a2cc4287fccdbd6ef633304f7a4f4cf42',1,'testSimpleRead(char *filename, char *indirizzo, int debug):&#160;Test.c']]],
   ['teststresstest',['testStressTest',['../Test_8c.html#a9cc4d65ba912461794f9b7523ebedca8',1,'Test.c']]],
-  ['testwrite',['testWrite',['../Test_8h.html#a0280ce692887a8bd2f381ebcfa0a0dec',1,'testWrite(char *filename, char *indirizzo, int const debug):&#160;Test.c'],['../Test_8c.html#aeefba065d2a3d2cc6647202058643c82',1,'testWrite(char *filename, char *indirizzo, int debug):&#160;Test.c']]],
-  ['testwriteerrors',['testWriteErrors',['../Test_8c.html#a14dcb4adf96943f70d08c304b4ae56e1',1,'Test.c']]]
+  ['testwrite',['testWrite',['../Test_8h.html#a0280ce692887a8bd2f381ebcfa0a0dec',1,'testWrite(char *filename, char *indirizzo, int const debug):&#160;Test.c'],['../Test_8c.html#aeefba065d2a3d2cc6647202058643c82',1,'testWrite(char *filename, char *indirizzo, int debug):&#160;Test.c']]]
 ];

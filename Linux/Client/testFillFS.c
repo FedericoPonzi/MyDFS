@@ -20,7 +20,7 @@ int main()
     int ret = 0;
     for(i = 0; i < 4; i++)
     {
-        id = mydfs_open("192.168.43.119", files[i], MYO_CREAT | MYO_WRONLY, &err);
+        id = mydfs_open("127.0.0.1", files[i], MYO_CREAT | MYO_WRONLY, &err);
         assert(err == 0);
         sprintf(buffer, "CIAO MONDO :D Sono il file: '%s'", files[i]);
         ret = mydfs_write(id, MYSEEK_SET, buffer, strlen(buffer));

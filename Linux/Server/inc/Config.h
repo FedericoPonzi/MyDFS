@@ -7,6 +7,10 @@
 #define CLOSECOMMAND "CLOS"
 #define READCOMMAND "READ"
 
+/**
+ * @brief Se in modalita' debug (=1), stampa utili messaggi di log.
+ */
+#define DEBUG 1
 
 /**
  * @brief Numero di connessioni in ascolto
@@ -23,11 +27,6 @@
  * @brief Tempo di attesa per heartbeating
  */
 #define PING_TIME 2
-
-/**
- * @brief Se in modalita' debug (=1), stampa utili messaggi di log.
- */
-#define DEBUG 0
 
 /**
  * @brief Dimensione dei file durante i trasferimenti

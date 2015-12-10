@@ -24,18 +24,24 @@ int getPosFromCommand(char*);
 
 void handleREADCommand(char* command, int socket)
 {
-    printf("[READ]: Ricevuta richiesta read. Command = %s\n", command);
+    logM("[READ]: Ricevuta richiesta read. Command = %s\n", command);
 
     int nRead, nSend, pos;
 	
     pos = getPosFromCommand(command);
-
+    if(pos < 0)
+    {
+        logM("[READ] Error strtol");
+        closeClientSession(getptid());
+        close(socket);
+        return;
+    }
 	printf("pos = %d\n", pos);
 
     char buff[FILESIZE];
 	
-	//OpenedFile* id = getOpenedFile();
-    FILE* fp = getOpenedFile()->fp;
+	OpenedFile* id = getOpenedFile();
+    FILE* fp = id->fp;
     //Mi sposto all' offset indicato dal client:
     fseek(fp, pos, SEEK_SET);
     
@@ -81,7 +87,10 @@ void handleREADCommand(char* command, int socket)
         closesocket(socket);
         return;
     }	
-    else printf("Inviati al client %d dati\n", nSend);
+    else
+    {
+        logM("Inviati al client %d dati\n", nSend);
+    }
 }
 
 /**

@@ -11,6 +11,10 @@
 
 #define PIPEPREFIX "\\\\.\\pipe\\"
 
+/**
+ * @brief Se in modalita' debug (=1), stampa utili messaggi di log.
+ */
+#define DEBUG 1
 
 /**
  * @brief Numero di connessioni in ascolto
@@ -27,11 +31,6 @@
  * @brief Tempo di attesa per heartbeating in millisecondi
  */
 #define PING_TIME 2000
-
-/**
- * @brief Se in modalita' debug (=1), stampa utili messaggi di log.
- */
-#define DEBUG 1
 
 /**
  * Dimensione dei file durante i trasferimenti

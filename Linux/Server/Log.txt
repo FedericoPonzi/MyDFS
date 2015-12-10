@@ -441,3 +441,25 @@ Scritti 41 dati nel file.
  HeartBeating: 3,
  Ptid: 24377.
 ][spawnProcess] - Mio pid: 24382
+File di config trovato
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 8468 spazio.
+Prima fork
+Seconda fork.
+[Config]
+'2' numero di connessioni
+'0' Processo o thread
+'9001' Porta in ascolto.
+
+[spawnThread] - Mio tid: 140125204924160
+[spawnThread] - Mio tid: 140125196531456
+File di config trovato
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 8468 spazio.
+Prima fork
+Seconda fork.
+[Config]
+'2' numero di connessioni
+'0' Processo o thread
+'9001' Porta in ascolto.
+

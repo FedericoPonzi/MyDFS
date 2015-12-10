@@ -2,17 +2,17 @@
 #define CONFIG
 
 #include <errno.h>
+#include <pthread.h>
+
 /**
  * Modalita' debug:
  */
 #define DEBUG 1
-
 #define OPENCOMMAND "OPEN"
 #define CLOSECOMMAND "CLOS"
 #define READCOMMAND "READ"
 #define SERVER_PORT 9001
 #define BUFFSIZEREAD 65535
-#include <pthread.h>
 
 /**
  * @brief Lista di operaioni di scrittura
@@ -34,12 +34,14 @@ typedef struct ReadOp
 	struct ReadOp* next;
 } ReadOp;
 
+/**
+ * @brief Contiene tutte le informazioni utili per gestire il flusso di operazioni
+ */
 typedef struct MyDFSId {  
-	char* indirizzo;
-	char* filename;
+	char* indirizzo; /** Indirizzo */
+	char* filename; /** Nome del file */
 	long filesize; /** Dimensione del file */
 	int modo; /** Modo di apertura */
-	//int pos; /** Seek_set seek_cur ecc */
 	int transferSocketId; /** socket id dell' heartbeating */
 	int controlSocketId; /** Socket id dei comandi */
 	pthread_mutex_t* readListMutex; /** Mutex per accedere la writelist */

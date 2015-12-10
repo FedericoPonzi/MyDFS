@@ -5,7 +5,7 @@
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{WRITE_8h_aba2d6c2aad45c7165d6aeb0cee704d3f}{mydfs\+\_\+write} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$dfsid, int pos, void $\ast$ptr, unsigned int size)
-\begin{DoxyCompactList}\small\item\em -\/1 in caso di errore; $>$= 0 ed uguale al numero di byte effettivamente scritti. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Operazione mydfs\+\_\+write definita come da specifiche. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
@@ -21,9 +21,19 @@ int \hyperlink{WRITE_8h_aba2d6c2aad45c7165d6aeb0cee704d3f}{mydfs\+\_\+write} (\h
 )}}\label{WRITE_8h_aba2d6c2aad45c7165d6aeb0cee704d3f}
 
 
--\/1 in caso di errore; $>$= 0 ed uguale al numero di byte effettivamente scritti. 
+Operazione mydfs\+\_\+write definita come da specifiche. 
 
-Pos puo essere M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T,M\+Y\+S\+E\+E\+K\+\_\+\+C\+U\+R, M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D 
+\begin{DoxyReturn}{Restituisce}
+-\/1 in caso di errore; 
+
+$>$= 0 ed uguale al numero di byte effettivamente scritti.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parametri}
+{\em pos} & puo essere M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T,M\+Y\+S\+E\+E\+K\+\_\+\+C\+U\+R, M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D \\
+\hline
+\end{DoxyParams}
+
 
 Referenzia add\+Write\+Op(), My\+D\+F\+S\+Id\+::filesize, My\+D\+F\+S\+Id\+::fp, is\+Modo\+Apertura(), log\+M(), My\+D\+F\+S\+Id\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D, e write\+To().
 

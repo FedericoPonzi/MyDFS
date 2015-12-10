@@ -6,6 +6,7 @@
  * Modalita' debug:
  */
 #define DEBUG 1
+
 #define READLISTMUTEX "readlistmutex"
 #define OPENCOMMAND "OPEN"
 #define CLOSECOMMAND "CLOS"
@@ -37,10 +38,13 @@ typedef struct ReadOp
 	struct ReadOp* next;
 } ReadOp;
 
+/**
+ * @brief Contiene tutte le informazioni utili per gestire il flusso di operazioni
+ */
 typedef struct MyDFSId {  
-	char* indirizzo;
-	char* filename;
-	int filesize; /** Dimensione del file */
+	char* indirizzo; /** Indirizzo */
+	char* filename; /** Nome del file */
+	long filesize; /** Dimensione del file */
 	int modo; /** Modo di apertura */
 	int pos; /** Seek_set seek_cur ecc */
 	SOCKET transferSocketId; /** socket id dell' heartbeating */
@@ -49,7 +53,6 @@ typedef struct MyDFSId {
 	WriteOp* writeList; /** Lista di operazioni di scrittura avvenute nel file */
 	ReadOp* readList; /**Come sopra, ma read */
 	FILE* fp; /** Puntatore al file */
-	
 } MyDFSId;
 
 /**

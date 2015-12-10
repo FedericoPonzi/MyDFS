@@ -39,6 +39,9 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
 	strcpy(toRet->indirizzo, indirizzo);
 
 	//Creo il mutex:
+    /**
+     * @todo Rimuovere il nome!!!
+     */
 	toRet->readListMutex = CreateMutex( NULL, FALSE, READLISTMUTEX);
 
 	toRet->modo = modo;

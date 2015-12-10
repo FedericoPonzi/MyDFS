@@ -22,7 +22,8 @@ int appendReadRequest(MyDFSId* id, int pos, int size);
  * @param pos: Posizione da cui vuole leggere (una delle seek).
  * @param ptr: puntatore al buffer in cui andra a legere
  * @param size: quanto vuole leggere
- * @return -1 in caso di errore, n bytes letti altrimenti.
+ * @return -1 in caso di errore
+ * @return n bytes letti altrimenti
  *
  */
  

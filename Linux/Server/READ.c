@@ -52,7 +52,13 @@ void handleREADCommand(char* command, int socket)
     int nRead, nSend, pos;
 	
     pos = getPosFromCommand(command);
-
+    if(pos < 0)
+    {
+        logM("[READ] Error strtol");
+        closeClientSession(getptid());
+        close(socket);
+        return;
+    }
 	logM("pos = %d\n", pos);
 
     char buff[FILESIZE];
@@ -104,7 +110,10 @@ void handleREADCommand(char* command, int socket)
         close(socket);
         return;
     }	
-    else printf("Inviati al client %d dati\n", nSend);
+    else
+    {
+        logM("Inviati al client %d dati\n", nSend);
+    }
 }
 
 /**
