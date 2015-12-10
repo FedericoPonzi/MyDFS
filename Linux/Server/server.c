@@ -66,7 +66,7 @@ void deamonize()
     /* Success: Let the parent terminate */
     if (pid > 0)
     {
-        logM("addio papy 1\n");
+        logM("Prima fork\n");
         exit(EXIT_SUCCESS);
     }
     /* On success: The child process becomes session leader */
@@ -76,7 +76,7 @@ void deamonize()
         exit(EXIT_FAILURE);
     }
     /* Catch, ignore and handle signals */
-    //TODO: Implement a working signal handler */
+    
     signal(SIGCHLD, SIG_IGN);
     signal(SIGHUP, SIG_IGN);
 
@@ -94,20 +94,23 @@ void deamonize()
     /* Success: Let the parent terminate */
     if (pid > 0)
     {
-        logM("Seconda fork: addio papy\n");
+        logM("Seconda fork.\n");
         exit(EXIT_SUCCESS);
     }
     /* Set new file permissions */
     umask(0);
 
-    //chdir("/home/isaacisback/Programmazione/programmazionedisistema/Server");
+    chdir("/home/isaacisback/Programmazione/programmazionedisistema/Linux/Server");
 
-    /* Close all open file descriptors */
+    close(STDIN_FILENO);
+    close(STDOUT_FILENO);
+    close(STDERR_FILENO);
+    /* Close all open file descriptors 
     int x;
     for (x = sysconf(_SC_OPEN_MAX); x>0; x--)
     {
         close (x);
-    }
+    }*/
 
 }
 
@@ -142,14 +145,19 @@ void parseInput(int argc, char* argv[])
 
 int main(int argc, char* argv[])
 {
-    //Carico il file di Config:
-	loadConfig();
-
     //Parso l' input (ha la precedenza sul file di configurazione)
-    parseInput(argc, argv);
+    parseInput(argc, argv);    
+
+    //Carico il file di Config:
+	if(loadConfig() == EXIT_FAILURE)
+    {
+        logM("Config non trovato");
+        exit(EXIT_FAILURE);
+    }
 
     //Demonizzo il server
     deamonize();
+    
 
 	logM("[Config]\n'%d' numero di connessioni\n'%d' Processo o thread\n'%d' Porta in ascolto.\n\n", numeroCon, procOrThread, portNumber);
 
@@ -158,11 +166,12 @@ int main(int argc, char* argv[])
 
     act.sa_sigaction = &sig_handler;
 	act.sa_flags = SA_RESTART;
- 
 	if (sigaction(SIGUSR1, &act, NULL) < 0) {
 		perror ("Sigaction: ");
 		exit(EXIT_FAILURE);
 	}
+
+    signal(SIGPIPE, SIG_IGN);
 
 	if((sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
@@ -235,7 +244,7 @@ void* handleSocket()
 	int nRecv;
 	char buff[100];
 
-	logM("[handleSocket] - Collegamento effettuato.\n");
+	logM("[handleSocket:%lu] - Collegamento effettuato.\n", getptid());
 
 	do
 	{
@@ -254,7 +263,7 @@ void* handleSocket()
             }
             if(nRecv< 0)
             {
-                perror("[server] recv: ");
+                perror("[HandleCommand] recv");
             }
 			break;
 		}
@@ -267,14 +276,14 @@ void* handleSocket()
 	}
 	while(strncmp("CLO", buff, 3) != 0);     // Finche' non ricevo il messaggio CLO
     
-	//Diminuisco il numero di figli vivi.
-	*numberAliveChilds = *numberAliveChilds - 1;
-
     //Mi assicuro di liberare la tabella
     closeClientSession(getptid());	
 
+	//Diminuisco il numero di figli vivi.
+	*numberAliveChilds = *numberAliveChilds - 1;
+    
 	logM("[handleSocket] - Connessione terminata.\n");
-		
+	logM("\n\n");	
 	return NULL;
 }
 
@@ -285,7 +294,6 @@ void* handleSocket()
  * 
  * All' arrivo di una connessione, crea un thread e richiama handleSocket
  * @see server.c#handleSocket
- * @todo dovrebbe passargli dei parametri.
  */
 void spawnThread()
 {
@@ -295,9 +303,10 @@ void spawnThread()
 		if (pthread_create(&tid, NULL, &handleSocket, NULL) != 0)
 		{
 			perror("Spawnthread:");
+            logM("[SpawnThread] impossibile spawnare thread.");
 			exit(EXIT_FAILURE);
 		}
-		logM("[spawnThread] - Mio tid: %d\n", tid);
+		logM("[spawnThread] - Mio tid: %lu\n", tid);
 		*numberAliveChilds = *numberAliveChilds + 1;
 	}
 }

@@ -15,10 +15,20 @@
 {\ttfamily \#include \char`\"{}inc/\+Heartbeating.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Config.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
+\subsection*{Strutture dati}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structThreadArgs}{Thread\+Args}
+\end{DoxyCompactItemize}
 \subsection*{Definizioni}
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{Client_2Heartbeating_8c_a39912bfe2a55f30e269196f9141d845d}{B\+U\+F\+F\+S\+I\+Z\+E}~30
+\end{DoxyCompactItemize}
+\subsection*{Ridefinizioni di tipo (typedef)}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structThreadArgs}{Thread\+Args} \hyperlink{Client_2Heartbeating_8c_aa9b2d8627ecc6bba91f8f1fa704f393d}{Thread\+Args}
 \end{DoxyCompactItemize}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
@@ -26,8 +36,8 @@
 int \hyperlink{Client_2Heartbeating_8c_ab95a74565a85ceabf1a9f1310cdb434f}{invalidate} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
 \begin{DoxyCompactList}\small\item\em Rimuove la lista di read\+List a seguito della ricezione di un comando di invalidazione. \end{DoxyCompactList}\item 
 void \hyperlink{Client_2Heartbeating_8c_a996f23ff45bfbedeb9b64f6b030122f8}{spawn\+Heart\+Beat} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
-\item 
-void $\ast$ \hyperlink{Client_2Heartbeating_8c_aae3126a1d85426aa8df88b7186611472}{heart\+Beat} (void $\ast$\hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd})
+\begin{DoxyCompactList}\small\item\em Se il processo esegue una O\+P\+E\+N poi una C\+L\+O\+S\+E e poi di nuovo O\+P\+E\+N il sd della connessione dati della seconda connessione potrebbe coincidere col sd dell' heartbeating. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{Client_2Heartbeating_8c_ac0251d094362d92791cda41e3a72592b}{heart\+Beat} (void $\ast$t\+A)
 \begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l' heartbeating. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -37,14 +47,20 @@ void $\ast$ \hyperlink{Client_2Heartbeating_8c_aae3126a1d85426aa8df88b7186611472
 \subsubsection[{B\+U\+F\+F\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+S\+I\+Z\+E~30}}\label{Client_2Heartbeating_8c_a39912bfe2a55f30e269196f9141d845d}
 
 
+\subsection{Documentazione delle ridefinizioni di tipo (typedef)}
+\hypertarget{Client_2Heartbeating_8c_aa9b2d8627ecc6bba91f8f1fa704f393d}{\index{Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}!Thread\+Args@{Thread\+Args}}
+\index{Thread\+Args@{Thread\+Args}!Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}}
+\subsubsection[{Thread\+Args}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Thread\+Args} {\bf Thread\+Args}}}\label{Client_2Heartbeating_8c_aa9b2d8627ecc6bba91f8f1fa704f393d}
+
+
 \subsection{Documentazione delle funzioni}
-\hypertarget{Client_2Heartbeating_8c_aae3126a1d85426aa8df88b7186611472}{\index{Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}!heart\+Beat@{heart\+Beat}}
+\hypertarget{Client_2Heartbeating_8c_ac0251d094362d92791cda41e3a72592b}{\index{Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}!heart\+Beat@{heart\+Beat}}
 \index{heart\+Beat@{heart\+Beat}!Client/\+Heartbeating.\+c@{Client/\+Heartbeating.\+c}}
 \subsubsection[{heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ heart\+Beat (
 \begin{DoxyParamCaption}
-\item[{void $\ast$}]{sd}
+\item[{void $\ast$}]{t\+A}
 \end{DoxyParamCaption}
-)}}\label{Client_2Heartbeating_8c_aae3126a1d85426aa8df88b7186611472}
+)}}\label{Client_2Heartbeating_8c_ac0251d094362d92791cda41e3a72592b}
 
 
 Main del nuovo thread creato per l' heartbeating. 
@@ -66,7 +82,7 @@ Rimuove la lista di read\+List a seguito della ricezione di un comando di invali
 
 
 
-Referenzia log\+M(), Read\+Op\+::next, e My\+D\+F\+S\+Id\+::read\+List\+Mutex.
+Referenzia Read\+Op\+::next, e My\+D\+F\+S\+Id\+::read\+List\+Mutex.
 
 
 
@@ -81,7 +97,11 @@ Referenziato da heart\+Beat(), send\+Invalidate(), e sig\+\_\+handler().
 )}}\label{Client_2Heartbeating_8c_a996f23ff45bfbedeb9b64f6b030122f8}
 
 
-Referenzia heart\+Beat(), e tid.
+Se il processo esegue una O\+P\+E\+N poi una C\+L\+O\+S\+E e poi di nuovo O\+P\+E\+N il sd della connessione dati della seconda connessione potrebbe coincidere col sd dell' heartbeating. 
+
+L' H\+B potrebbe andare in recv, dopo la C\+L\+O\+S\+E e finire a fare la recv sulla connessione dati della successiva O\+P\+E\+N. 
+
+Referenzia Thread\+Args\+::barriera, heart\+Beat(), Thread\+Args\+::id, e tid.
 
 
 

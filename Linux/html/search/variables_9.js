@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['portnumber',['portNumber',['../Server_2Config_8c.html#ae53ea95e0769743e3a9e0935564b3739',1,'portNumber():&#160;Config.c'],['../Server_2inc_2Config_8h.html#ae53ea95e0769743e3a9e0935564b3739',1,'portNumber():&#160;Config.c']]],
-  ['pos',['pos',['../structWriteOp.html#a0cd1c3d781c93b6feaaa5d01606fdc3d',1,'WriteOp::pos()'],['../structReadOp.html#a2615c975be53dbd950cb51959009257a',1,'ReadOp::pos()'],['../structMyDFSId.html#aaeac229fb85c313f91a76f00be916832',1,'MyDFSId::pos()'],['../structCacheRequest.html#a9b1e1f0498ee02f22da75fe915334873',1,'CacheRequest::pos()']]],
-  ['procorthread',['procOrThread',['../Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3',1,'procOrThread():&#160;Config.c'],['../Server_2inc_2Config_8h.html#af05e592fecdd2c97fa06eafcb1c8e2c3',1,'procOrThread():&#160;Config.c']]],
-  ['procortre',['procortre',['../Prove_2Parsing_01file_01Config_2Config_8c.html#af535b5ec1e9fcaae5cb21dcae8890bea',1,'Config.c']]],
-  ['prova',['prova',['../structStruttura.html#a6bed68a71bad8da4f22e93def9c759af',1,'Struttura']]],
-  ['ptid',['ptid',['../structpthreadArgs.html#abc763a99a614f8e00c11fbbece336516',1,'pthreadArgs::ptid()'],['../structpthreadArgs.html#a124b4bdead648caebf7ac91e41fef5dc',1,'pthreadArgs::ptid()'],['../structOpenedFile.html#a33cb5376fd14129a1635cf142c0781a6',1,'OpenedFile::ptid()']]]
+  ['next',['next',['../structWriteOp.html#ab10157ced397c43b41d1e77a6372a43c',1,'WriteOp::next()'],['../structReadOp.html#ac84186a2d784cb2fbd0c71dd7d5df78d',1,'ReadOp::next()'],['../structNodo.html#a2cf9f6e7df85ad3e124ba92fcb784ad3',1,'Nodo::next()'],['../structStruttura.html#a2694fc2200e10bf8dcdc32bf7d8b9642',1,'Struttura::next()'],['../structlist__node.html#ad7161aa64a7b9659180387062bf096c2',1,'list_node::next()'],['../structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2',1,'OpenedFile::next()'],['../structSocketIdList.html#a6a4ac9d91704e30a162d520bca97a270',1,'SocketIdList::next()']]],
+  ['numberalivechilds',['numberAliveChilds',['../Server_2Config_8c.html#ad588b9329591f013097f9531c643a262',1,'numberAliveChilds():&#160;Config.c'],['../Server_2inc_2Config_8h.html#ad588b9329591f013097f9531c643a262',1,'numberAliveChilds():&#160;Config.c']]],
+  ['numerocon',['numeroCon',['../Prove_2Parsing_01file_01Config_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e',1,'numeroCon():&#160;Config.c'],['../Server_2Config_8c.html#a6fa40559d133e806762dd11ebaec522e',1,'numeroCon():&#160;Config.c'],['../Server_2inc_2Config_8h.html#a6fa40559d133e806762dd11ebaec522e',1,'numeroCon():&#160;Config.c']]]
 ];

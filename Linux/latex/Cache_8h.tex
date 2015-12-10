@@ -5,8 +5,8 @@
 \begin{DoxyCompactItemize}
 \item 
 F\+I\+L\+E $\ast$ \hyperlink{Cache_8h_ab85cfa2751c24894cd4bdca9254ed117}{create\+Temp\+File} (char $\ast$basename)
-\item 
-int \hyperlink{Cache_8h_a403785c0f2573dd16d81eff4ab26c20d}{read\+Request} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int pos, int size, \hyperlink{structCacheRequest}{Cache\+Request} $\ast$req)
+\begin{DoxyCompactList}\small\item\em Funzione che crea un file temporaneo, e ritorna un puntatore ad esso. \end{DoxyCompactList}\item 
+int \hyperlink{Cache_8h_ae530ba131c65658674dd0d0b3fb2ea7c}{read\+Request} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, long pos, unsigned int size, \hyperlink{structCacheRequest}{Cache\+Request} $\ast$req)
 \begin{DoxyCompactList}\small\item\em Usato per dire se il dato che voglio leggere si trova in cache oppure no. \end{DoxyCompactList}\item 
 int \hyperlink{Cache_8h_a686e517ab500f68c40c03bfbc3e2e2fd}{write\+Cache} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, void $\ast$buffer, int size, int pos)
 \begin{DoxyCompactList}\small\item\em Funzione che scrive nel file di cache il contenuto di una read, senza sovrascrivere le parti scritte da write locali. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -22,18 +22,26 @@ int \hyperlink{Cache_8h_a686e517ab500f68c40c03bfbc3e2e2fd}{write\+Cache} (\hyper
 )}}\label{Cache_8h_ab85cfa2751c24894cd4bdca9254ed117}
 
 
+Funzione che crea un file temporaneo, e ritorna un puntatore ad esso. 
+
+
+
+Referenzia get\+Filename(), e log\+M().
+
+
+
 Referenziato da main(), e mydfs\+\_\+open().
 
-\hypertarget{Cache_8h_a403785c0f2573dd16d81eff4ab26c20d}{\index{Cache.\+h@{Cache.\+h}!read\+Request@{read\+Request}}
+\hypertarget{Cache_8h_ae530ba131c65658674dd0d0b3fb2ea7c}{\index{Cache.\+h@{Cache.\+h}!read\+Request@{read\+Request}}
 \index{read\+Request@{read\+Request}!Cache.\+h@{Cache.\+h}}
 \subsubsection[{read\+Request}]{\setlength{\rightskip}{0pt plus 5cm}int read\+Request (
 \begin{DoxyParamCaption}
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
-\item[{int}]{pos, }
-\item[{int}]{size, }
+\item[{long}]{pos, }
+\item[{unsigned int}]{size, }
 \item[{{\bf Cache\+Request} $\ast$}]{req}
 \end{DoxyParamCaption}
-)}}\label{Cache_8h_a403785c0f2573dd16d81eff4ab26c20d}
+)}}\label{Cache_8h_ae530ba131c65658674dd0d0b3fb2ea7c}
 
 
 Usato per dire se il dato che voglio leggere si trova in cache oppure no. 
@@ -41,11 +49,11 @@ Usato per dire se il dato che voglio leggere si trova in cache oppure no.
 \begin{DoxyReturn}{Restituisce}
 1 M\+I\+S\+S\+: In caso di M\+I\+S\+S, dentro a req verranno messi posizione e size del dato da scaricare. 
 
-0 H\+I\+T\+: per interrompere il while, torna false.
+0 H\+I\+T\+: torna false.
 \end{DoxyReturn}
-Nota\+: La miss si riferisce ad un \char`\"{}buco\char`\"{}, quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano altri miss. Nota2\+: Il lock e' in teoria troppo grande. In pratica pero', se fra la prima operazione di lettura e la seconda ci fosse una invalidazione della cache qualcosa di orrendo potrebbe accadere. 
+Nota\+: La miss si riferisce ad un \char`\"{}buco\char`\"{}, quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano altri miss. Nota2\+: Il lock e' in teoria troppo grande. In pratica pero', se fra la prima operazione di lettura e la seconda ci fosse una invalidazione della cache qualcosa di orrendo potrebbe accadere. Quindi va bene cosi'. 
 
-Referenzia My\+D\+F\+S\+Id\+::filesize, log\+M(), Write\+Op\+::next, Read\+Op\+::next, Write\+Op\+::pos, Read\+Op\+::pos, Cache\+Request\+::pos, My\+D\+F\+S\+Id\+::read\+List\+Mutex, read\+Request(), Write\+Op\+::size, Read\+Op\+::size, e Cache\+Request\+::size.
+Referenzia My\+D\+F\+S\+Id\+::filesize, Write\+Op\+::next, Read\+Op\+::next, Write\+Op\+::pos, Read\+Op\+::pos, Cache\+Request\+::pos, My\+D\+F\+S\+Id\+::read\+List\+Mutex, read\+Request(), Write\+Op\+::size, Read\+Op\+::size, e Cache\+Request\+::size.
 
 
 

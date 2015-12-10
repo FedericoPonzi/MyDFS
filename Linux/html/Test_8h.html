@@ -100,6 +100,9 @@ Funzioni</h2></td></tr>
 <tr class="memitem:aabf4057b7dcde48d9dff14797351235e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Test_8h.html#aabf4057b7dcde48d9dff14797351235e">testOpen</a> (char *filename, char *indirizzo, int const debug)</td></tr>
 <tr class="memdesc:aabf4057b7dcde48d9dff14797351235e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Testa tutte le opzioni di apertura della open.  <a href="#aabf4057b7dcde48d9dff14797351235e">Continua...</a><br /></td></tr>
 <tr class="separator:aabf4057b7dcde48d9dff14797351235e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36a0cc154bed9ef71abed169e866e00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Test_8h.html#aa36a0cc154bed9ef71abed169e866e00">testSimpleRead</a> (char *filename, char *indirizzo, int const debug)</td></tr>
+<tr class="memdesc:aa36a0cc154bed9ef71abed169e866e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">SimpleRead.  <a href="#aa36a0cc154bed9ef71abed169e866e00">Continua...</a><br /></td></tr>
+<tr class="separator:aa36a0cc154bed9ef71abed169e866e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfdc0eba97e8023f64c192dbac90b52e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Test_8h.html#adfdc0eba97e8023f64c192dbac90b52e">testRead</a> (char *filename, char *indirizzo, int const debug)</td></tr>
 <tr class="memdesc:adfdc0eba97e8023f64c192dbac90b52e"><td class="mdescLeft">&#160;</td><td class="mdescRight">NOTA: La parte e funziona solo in locale.  <a href="#adfdc0eba97e8023f64c192dbac90b52e">Continua...</a><br /></td></tr>
 <tr class="separator:adfdc0eba97e8023f64c192dbac90b52e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,7 +152,7 @@ Funzioni</h2></td></tr>
 
 <p>Referenzia <a class="el" href="Client_2CLOSE_8c.html#a8aefec12977b01fcb2e74b1d2e2ba49b">mydfs_close()</a>, <a class="el" href="OPEN_8h.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, e <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>.</p>
 
-<p>Referenziato da <a class="el" href="testHeartBeating_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+<p>Referenziato da <a class="el" href="testAllTests_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -187,7 +190,7 @@ Funzioni</h2></td></tr>
 
 <p>Referenzia <a class="el" href="Client_2CLOSE_8c.html#a8aefec12977b01fcb2e74b1d2e2ba49b">mydfs_close()</a>, <a class="el" href="OPEN_8h.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7d847ae719301345714844133a3eca16">mydfs_read()</a>, <a class="el" href="WRITE_8h.html#aba2d6c2aad45c7165d6aeb0cee704d3f">mydfs_write()</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4">MYO_RDONLY</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, e <a class="el" href="Client_2inc_2READ_8h.html#a311ded9f138f42b1e84d00459dbb8e0a">MYSEEK_SET</a>.</p>
 
-<p>Referenziato da <a class="el" href="testInvalidazione_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+<p>Referenziato da <a class="el" href="testInvalidazione_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, e <a class="el" href="Test_8c.html#a9cc4d65ba912461794f9b7523ebedca8">testStressTest()</a>.</p>
 
 </div>
 </div>
@@ -225,7 +228,7 @@ Funzioni</h2></td></tr>
 
 <p>Referenzia <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Client_2CLOSE_8c.html#a8aefec12977b01fcb2e74b1d2e2ba49b">mydfs_close()</a>, <a class="el" href="OPEN_8h.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2acd94c1364b54176c33db8e16d263de03">MYO_CREAT</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a3953b9709f1c1785bd4fea87219f4812">MYO_EXCL</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aab8e8202127d927cceb0537868046e22">MYO_EXLOCK</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4">MYO_RDONLY</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a21f9e8be974e0f89946dca14009e9a56">MYO_TRUNC</a>, e <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2ad18c400c1971751daa8f76d2a4f634f1">MYO_WRONLY</a>.</p>
 
-<p>Referenziato da <a class="el" href="testOpen_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+<p>Referenziato da <a class="el" href="testAllTests_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, e <a class="el" href="Test_8c.html#a9cc4d65ba912461794f9b7523ebedca8">testStressTest()</a>.</p>
 
 </div>
 </div>
@@ -263,7 +266,43 @@ Funzioni</h2></td></tr>
 
 <p>Referenzia <a class="el" href="structMyDFSId.html#ac0e1b8c96d859982c1a7d49f9e929e48">MyDFSId::filename</a>, <a class="el" href="Client_2CLOSE_8c.html#a8aefec12977b01fcb2e74b1d2e2ba49b">mydfs_close()</a>, <a class="el" href="OPEN_8h.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7d847ae719301345714844133a3eca16">mydfs_read()</a>, <a class="el" href="WRITE_8h.html#aba2d6c2aad45c7165d6aeb0cee704d3f">mydfs_write()</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2aff698ca2dbe818566787c179af7fbaf4">MYO_RDONLY</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="Client_2inc_2READ_8h.html#aa27786e84a80f9d170bcf99e4b7fd8ef">MYSEEK_CUR</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7be712d079aae58b8bd11905a426348f">MYSEEK_END</a>, e <a class="el" href="Client_2inc_2READ_8h.html#a311ded9f138f42b1e84d00459dbb8e0a">MYSEEK_SET</a>.</p>
 
-<p>Referenziato da <a class="el" href="testRead_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, e <a class="el" href="Test_8c.html#a9cc4d65ba912461794f9b7523ebedca8">testStressTest()</a>.</p>
+<p>Referenziato da <a class="el" href="testAllTests_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, e <a class="el" href="Test_8c.html#a9cc4d65ba912461794f9b7523ebedca8">testStressTest()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa36a0cc154bed9ef71abed169e866e00"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int testSimpleRead </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>indirizzo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int const&#160;</td>
+          <td class="paramname"><em>debug</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SimpleRead. </p>
+
+<p>Referenzia <a class="el" href="Client_2CLOSE_8c.html#a8aefec12977b01fcb2e74b1d2e2ba49b">mydfs_close()</a>, <a class="el" href="OPEN_8h.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, e <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>.</p>
 
 </div>
 </div>
@@ -299,9 +338,9 @@ Funzioni</h2></td></tr>
 
 <p>Testa la write NOTA: bufferpiccolo deve essere maggiore o uguale alla dimensione di file.txt altrimenti il test non verra' superato. </p>
 
-<p>Referenzia <a class="el" href="structMyDFSId.html#a2b7cf19c5ac22e03ae8abf7e688fee2a">MyDFSId::filesize</a>, <a class="el" href="Client_2CLOSE_8c.html#a8aefec12977b01fcb2e74b1d2e2ba49b">mydfs_close()</a>, <a class="el" href="OPEN_8h.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7d847ae719301345714844133a3eca16">mydfs_read()</a>, <a class="el" href="WRITE_8h.html#aba2d6c2aad45c7165d6aeb0cee704d3f">mydfs_write()</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7be712d079aae58b8bd11905a426348f">MYSEEK_END</a>, e <a class="el" href="Client_2inc_2READ_8h.html#a311ded9f138f42b1e84d00459dbb8e0a">MYSEEK_SET</a>.</p>
+<p>Referenzia <a class="el" href="structMyDFSId.html#a394540d568f1fa235d096fd790d2891f">MyDFSId::filesize</a>, <a class="el" href="Client_2CLOSE_8c.html#a8aefec12977b01fcb2e74b1d2e2ba49b">mydfs_close()</a>, <a class="el" href="OPEN_8h.html#a846cf2a86ab9bdb1a8496e03b93d6db8">mydfs_open()</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7d847ae719301345714844133a3eca16">mydfs_read()</a>, <a class="el" href="WRITE_8h.html#aba2d6c2aad45c7165d6aeb0cee704d3f">mydfs_write()</a>, <a class="el" href="enum_8c.html#a6880e4562590c12cf8c358fa5f779bb2a12579c0bf4db402859c420bb46694e83">MYO_RDWR</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7be712d079aae58b8bd11905a426348f">MYSEEK_END</a>, e <a class="el" href="Client_2inc_2READ_8h.html#a311ded9f138f42b1e84d00459dbb8e0a">MYSEEK_SET</a>.</p>
 
-<p>Referenziato da <a class="el" href="testWrite_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, e <a class="el" href="Test_8c.html#a9cc4d65ba912461794f9b7523ebedca8">testStressTest()</a>.</p>
+<p>Referenziato da <a class="el" href="testAllTests_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, e <a class="el" href="Test_8c.html#a9cc4d65ba912461794f9b7523ebedca8">testStressTest()</a>.</p>
 
 </div>
 </div>

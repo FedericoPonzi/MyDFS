@@ -1,34 +1,7 @@
-/*
- * 
- * Copyright 2015 Federico Ponzi <federicoponzi@federicos-ubuntu>
- * 
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- * CHANGELOG:
- * 	11.07.2015: Creazione del file.
- * 
- */
+
 /**
  * @file StruttureDati.c
- * @author Federico Ponzi
- * @date 11.07.2015
  * @brief Contiene le funzioni di utilita' per le Strutture Dati
- * 
- * @todo Una struttura dati che contenga una lista di sockets
- * @todo Remove e add di una socket nella lista di sockets, remove di un file dalla lista di file aperti.
- * NOTA: Ricordarsi di eseguire una free() dei OpenedFile->fileName perchè viene allocata con una malloc in OPE.c
  * 
  * Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell' header di questo modulo.
  * 
@@ -244,24 +217,13 @@ int isModoApertura(int modo_client, int modo)
 }
 
 /**
- * @brief Rimuove il nodo openedfile associato al ptid.
- * @todo da fare.
- */
-void closeOpenedFile(unsigned long int ptid)
-{
-    
-}
-/**
- * Libera lo spazio occupato dal puntatore
- * @todo da finire.
+ * @brief Libera lo spazio occupato dal puntatore
  */
 void freeOpenedFile(OpenedFile* id)
 {
-	//free(id->fileName);
 	fclose(id->fp);
-    logM("[FreeOpenedfile] Libero: transfer: %d, sock: %d", id->controlSocketId, id->transferSocketId);
-    pthread_mutex_destroy(&id->controlSocketMutex);
-    shutdown(id->controlSocketId, SHUT_RDWR);
+    logM("[FreeOpenedfile] Libero: transfer: %d, sock: %d\n", id->controlSocketId, id->transferSocketId);
+    shutdown(id->controlSocketId, SHUT_RD);
     close(id->transferSocketId);
 	bzero(id, sizeof(OpenedFile));
 }

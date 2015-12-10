@@ -8,9 +8,11 @@
 \subsection*{Campi}
 \begin{DoxyCompactItemize}
 \item 
-char $\ast$ \hyperlink{structOpenedFile_abcff0610dfa8b1e3836b3f5bac40c8f5}{file\+Name}
+char $\ast$ \hyperlink{structOpenedFile_aedf1760d8d86e2f3efbb12cc7f4ce13e}{file\+Name}
 \item 
 struct \hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{structOpenedFile_a9b8c8b995cdda6da249a6ce9a9df98b2}{next}
+\item 
+char \hyperlink{structOpenedFile_a060ea540c44e9570b59a0e2297e9d47b}{file\+Name} \mbox{[}F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+M\+A\+X\mbox{]}
 \item 
 unsigned long int \hyperlink{structOpenedFile_a33cb5376fd14129a1635cf142c0781a6}{ptid}
 \item 
@@ -18,22 +20,45 @@ int \hyperlink{structOpenedFile_a6d9f22ff6ba81506ba9c4a60f27c4f32}{modo}
 \item 
 int \hyperlink{structOpenedFile_a3b2e157f5aad06b65bd017d67fde4eb3}{filesize}
 \item 
-int \hyperlink{structOpenedFile_a2af35018ecff06dbd349d464c815038a}{socket\+Id}
+int \hyperlink{structOpenedFile_a2b10a150aba89a8d193cd251012682a7}{transfer\+Socket\+Id}
 \item 
-int \hyperlink{structOpenedFile_a122a7d3d722dc1f7c63857af2024f098}{transfer\+Sock\+Id}
+int \hyperlink{structOpenedFile_a591b34fa52d94c831734d7cead0c6630}{control\+Socket\+Id}
 \item 
+pthread\+\_\+mutex\+\_\+t \hyperlink{structOpenedFile_a59d8fd7142cc9f6a40828160a0f5fc08}{control\+Socket\+Mutex}
+\begin{DoxyCompactList}\small\item\em Usata dall' hearbeating +++++. \end{DoxyCompactList}\item 
 F\+I\+L\+E $\ast$ \hyperlink{structOpenedFile_a9cdcaccacb2eb66a17c0781666c28b15}{fp}
-\begin{DoxyCompactList}\small\item\em Usata dall' hearbeating +++++. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione dei campi}
-\hypertarget{structOpenedFile_abcff0610dfa8b1e3836b3f5bac40c8f5}{\index{Opened\+File@{Opened\+File}!file\+Name@{file\+Name}}
+\hypertarget{structOpenedFile_a591b34fa52d94c831734d7cead0c6630}{\index{Opened\+File@{Opened\+File}!control\+Socket\+Id@{control\+Socket\+Id}}
+\index{control\+Socket\+Id@{control\+Socket\+Id}!Opened\+File@{Opened\+File}}
+\subsubsection[{control\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int Opened\+File\+::control\+Socket\+Id}}\label{structOpenedFile_a591b34fa52d94c831734d7cead0c6630}
+
+
+Referenziato da create\+Control\+Sock(), free\+Opened\+File(), get\+Transfer\+Socket(), handle\+Open\+Command(), handle\+Writes(), heart\+Beat(), send\+Invalidate(), e sig\+\_\+handler().
+
+\hypertarget{structOpenedFile_a59d8fd7142cc9f6a40828160a0f5fc08}{\index{Opened\+File@{Opened\+File}!control\+Socket\+Mutex@{control\+Socket\+Mutex}}
+\index{control\+Socket\+Mutex@{control\+Socket\+Mutex}!Opened\+File@{Opened\+File}}
+\subsubsection[{control\+Socket\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t Opened\+File\+::control\+Socket\+Mutex}}\label{structOpenedFile_a59d8fd7142cc9f6a40828160a0f5fc08}
+
+
+Usata dall' hearbeating +++++. 
+
+
+
+Referenziato da append\+Opened\+File(), e send\+Invalidate().
+
+\hypertarget{structOpenedFile_aedf1760d8d86e2f3efbb12cc7f4ce13e}{\index{Opened\+File@{Opened\+File}!file\+Name@{file\+Name}}
 \index{file\+Name@{file\+Name}!Opened\+File@{Opened\+File}}
-\subsubsection[{file\+Name}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ Opened\+File\+::file\+Name}}\label{structOpenedFile_abcff0610dfa8b1e3836b3f5bac40c8f5}
+\subsubsection[{file\+Name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Opened\+File\+::file\+Name}}\label{structOpenedFile_aedf1760d8d86e2f3efbb12cc7f4ce13e}
 
 
-Referenziato da append(), append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), file\+Already\+Open(), file\+Already\+Opened\+In\+Write(), free\+Opened\+File(), get\+File\+Name(), handle\+Open\+Command(), main(), printa\+Struct(), e send\+Invalidate().
+Referenziato da append(), append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), file\+Already\+Open(), file\+Already\+Opened\+In\+Write(), get\+File\+Name(), handle\+Open\+Command(), main(), printa\+Struct(), e send\+Invalidate().
 
+\hypertarget{structOpenedFile_a060ea540c44e9570b59a0e2297e9d47b}{\index{Opened\+File@{Opened\+File}!file\+Name@{file\+Name}}
+\index{file\+Name@{file\+Name}!Opened\+File@{Opened\+File}}
+\subsubsection[{file\+Name}]{\setlength{\rightskip}{0pt plus 5cm}char Opened\+File\+::file\+Name\mbox{[}F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+M\+A\+X\mbox{]}}}\label{structOpenedFile_a060ea540c44e9570b59a0e2297e9d47b}
 \hypertarget{structOpenedFile_a3b2e157f5aad06b65bd017d67fde4eb3}{\index{Opened\+File@{Opened\+File}!filesize@{filesize}}
 \index{filesize@{filesize}!Opened\+File@{Opened\+File}}
 \subsubsection[{filesize}]{\setlength{\rightskip}{0pt plus 5cm}int Opened\+File\+::filesize}}\label{structOpenedFile_a3b2e157f5aad06b65bd017d67fde4eb3}
@@ -44,10 +69,6 @@ Referenziato da handle\+Writes().
 \hypertarget{structOpenedFile_a9cdcaccacb2eb66a17c0781666c28b15}{\index{Opened\+File@{Opened\+File}!fp@{fp}}
 \index{fp@{fp}!Opened\+File@{Opened\+File}}
 \subsubsection[{fp}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+L\+E$\ast$ Opened\+File\+::fp}}\label{structOpenedFile_a9cdcaccacb2eb66a17c0781666c28b15}
-
-
-Usata dall' hearbeating +++++. 
-
 
 
 Referenziato da append\+Opened\+File(), free\+Opened\+File(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), e main().
@@ -73,19 +94,12 @@ Referenziato da append(), append\+Opened\+File(), check\+Modo\+Open(), close\+Cl
 
 Referenziato da append\+Opened\+File(), close\+Client\+Session(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), e send\+Invalidate().
 
-\hypertarget{structOpenedFile_a2af35018ecff06dbd349d464c815038a}{\index{Opened\+File@{Opened\+File}!socket\+Id@{socket\+Id}}
-\index{socket\+Id@{socket\+Id}!Opened\+File@{Opened\+File}}
-\subsubsection[{socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int Opened\+File\+::socket\+Id}}\label{structOpenedFile_a2af35018ecff06dbd349d464c815038a}
+\hypertarget{structOpenedFile_a2b10a150aba89a8d193cd251012682a7}{\index{Opened\+File@{Opened\+File}!transfer\+Socket\+Id@{transfer\+Socket\+Id}}
+\index{transfer\+Socket\+Id@{transfer\+Socket\+Id}!Opened\+File@{Opened\+File}}
+\subsubsection[{transfer\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int Opened\+File\+::transfer\+Socket\+Id}}\label{structOpenedFile_a2b10a150aba89a8d193cd251012682a7}
 
 
-Referenziato da handle\+Open\+Command().
-
-\hypertarget{structOpenedFile_a122a7d3d722dc1f7c63857af2024f098}{\index{Opened\+File@{Opened\+File}!transfer\+Sock\+Id@{transfer\+Sock\+Id}}
-\index{transfer\+Sock\+Id@{transfer\+Sock\+Id}!Opened\+File@{Opened\+File}}
-\subsubsection[{transfer\+Sock\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int Opened\+File\+::transfer\+Sock\+Id}}\label{structOpenedFile_a122a7d3d722dc1f7c63857af2024f098}
-
-
-Referenziato da create\+Control\+Sock(), get\+Transfer\+Socket(), handle\+Open\+Command(), handle\+Writes(), send\+Invalidate(), e sig\+\_\+handler().
+Referenziato da free\+Opened\+File(), e handle\+Open\+Command().
 
 
 

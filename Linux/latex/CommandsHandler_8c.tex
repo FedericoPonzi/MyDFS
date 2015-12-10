@@ -8,33 +8,15 @@
 {\ttfamily \#include \char`\"{}inc/\+O\+P\+E.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+R\+E\+A\+D.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}inc/\+Config.\+h\char`\"{}}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{CommandsHandler_8c_a0c4028eb5c202872c2d81e0861bc9591}{get\+Command\+I\+D} (char $\ast$input)
-\begin{DoxyCompactList}\small\item\em Ritorna un numero corrispondente ad un comando. \end{DoxyCompactList}\item 
 void \hyperlink{CommandsHandler_8c_af50eb510202dbf6e4e65c56a6e0c8fd5}{handle\+Command} (char $\ast$buff, int socket)
 \begin{DoxyCompactList}\small\item\em Gestisce il comando ricevuto dal client. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{CommandsHandler_8c_a0c4028eb5c202872c2d81e0861bc9591}{\index{Commands\+Handler.\+c@{Commands\+Handler.\+c}!get\+Command\+I\+D@{get\+Command\+I\+D}}
-\index{get\+Command\+I\+D@{get\+Command\+I\+D}!Commands\+Handler.\+c@{Commands\+Handler.\+c}}
-\subsubsection[{get\+Command\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Command\+I\+D (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{input}
-\end{DoxyParamCaption}
-)}}\label{CommandsHandler_8c_a0c4028eb5c202872c2d81e0861bc9591}
-
-
-Ritorna un numero corrispondente ad un comando. 
-
-\begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000005}{Da fare}]mergare questa funzione con quella sotto. \end{DoxyRefDesc}
-
-
-Referenziato da handle\+Command(), e handle\+Socket().
-
 \hypertarget{CommandsHandler_8c_af50eb510202dbf6e4e65c56a6e0c8fd5}{\index{Commands\+Handler.\+c@{Commands\+Handler.\+c}!handle\+Command@{handle\+Command}}
 \index{handle\+Command@{handle\+Command}!Commands\+Handler.\+c@{Commands\+Handler.\+c}}
 \subsubsection[{handle\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Command (
@@ -49,7 +31,7 @@ Gestisce il comando ricevuto dal client.
 
 
 
-Referenzia get\+Command\+I\+D(), handle\+Close\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), e log\+M().
+Referenzia C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D, handle\+Close\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), log\+M(), O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D, e R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D.
 
 
 

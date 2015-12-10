@@ -108,7 +108,11 @@ PORT_NUMBER 9001
 ###
 ## Root path file
 ###
-ROOT_PATH /tmp/</pre> </div></div><!-- contents -->
+ROOT_PATH /tmp/
+</pre><h2>Esempio di programma base</h2>
+<p>Un esempio di programma minimale che esegue una open e una close e' il seguente: #include &lt;stdio.h&gt; #include "inc/OPEN.h" #include "inc/CLOSE.h" #include "assert.h" #include &lt;string.h&gt; #include "inc/Test.h" int <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a> { printf("[TEST OPEN] Iniziato \n"); MyDFSId* fileId; int error = 0; fileId = mydfs_open(indirizzo, filename, MYO_CREAT, &amp;error); assert(fileId != NULL &amp;&amp; error == 0); mydfs_close(fileId); printf("[Test OPEN superato correttamente!]\n");</p>
+<p>return EXIT_SUCCESS; } </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generato da &#160;<a href="http://www.doxygen.org/index.html">

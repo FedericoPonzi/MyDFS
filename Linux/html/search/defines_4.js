@@ -1,7 +1,6 @@
 var searchData=
 [
   ['max_5flist_5fsz',['MAX_LIST_SZ',['../mmapStrutturaEasier_8c.html#ae06497c49839d6a9370f554a5dfa9072',1,'MAX_LIST_SZ():&#160;mmapStrutturaEasier.c'],['../mmapStruttureDati_8c.html#ae06497c49839d6a9370f554a5dfa9072',1,'MAX_LIST_SZ():&#160;mmapStruttureDati.c']]],
-  ['multiproc',['MULTIPROC',['../Server_2inc_2Config_8h.html#a150eaf10f0e759de665bbe9619cd4a24',1,'Config.h']]],
   ['myo_5fcreat',['MYO_CREAT',['../OPEN_8h.html#ab8181332ab18dffb096fd34bb09d50ba',1,'MYO_CREAT():&#160;OPEN.h'],['../OPE_8h.html#ab8181332ab18dffb096fd34bb09d50ba',1,'MYO_CREAT():&#160;OPE.h']]],
   ['myo_5fexcl',['MYO_EXCL',['../OPEN_8h.html#a143323b4e3aee4c7d2e296e06b114c13',1,'MYO_EXCL():&#160;OPEN.h'],['../OPE_8h.html#a143323b4e3aee4c7d2e296e06b114c13',1,'MYO_EXCL():&#160;OPE.h']]],
   ['myo_5fexlock',['MYO_EXLOCK',['../OPEN_8h.html#a8150949fd71074229bee31cd830c1ffa',1,'MYO_EXLOCK():&#160;OPEN.h'],['../OPE_8h.html#a8150949fd71074229bee31cd830c1ffa',1,'MYO_EXLOCK():&#160;OPE.h']]],

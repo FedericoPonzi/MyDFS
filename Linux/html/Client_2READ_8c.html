@@ -106,15 +106,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:a34f4cc3ee1ace86747c737cad2d801e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2READ_8c.html#a34f4cc3ee1ace86747c737cad2d801e7">sendReadCommand</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos)</td></tr>
-<tr class="memdesc:a34f4cc3ee1ace86747c737cad2d801e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manda il comando di READ, e aspetta come risposta la dimensione di quanto deve leggere all'interno della risposta.  <a href="#a34f4cc3ee1ace86747c737cad2d801e7">Continua...</a><br /></td></tr>
-<tr class="separator:a34f4cc3ee1ace86747c737cad2d801e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a478820e0a2240153b83f6a843fd55c6a"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2READ_8c.html#a478820e0a2240153b83f6a843fd55c6a">sendReadCommand</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, long pos)</td></tr>
+<tr class="memdesc:a478820e0a2240153b83f6a843fd55c6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manda il comando di READ, e aspetta come risposta la dimensione di quanto deve leggere all'interno della risposta.  <a href="#a478820e0a2240153b83f6a843fd55c6a">Continua...</a><br /></td></tr>
+<tr class="separator:a478820e0a2240153b83f6a843fd55c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b8dfa171c3b5c784fb6cba643728110"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2READ_8c.html#a0b8dfa171c3b5c784fb6cba643728110">readFrom</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int sizeRimasta, int pos)</td></tr>
 <tr class="memdesc:a0b8dfa171c3b5c784fb6cba643728110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legge dalla socket di trasferimento buffsize dati.  <a href="#a0b8dfa171c3b5c784fb6cba643728110">Continua...</a><br /></td></tr>
 <tr class="separator:a0b8dfa171c3b5c784fb6cba643728110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad48e629c770d8352db6aa53fcbc3ece7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2READ_8c.html#ad48e629c770d8352db6aa53fcbc3ece7">byteMancanti</a> (FILE *fp)</td></tr>
-<tr class="memdesc:ad48e629c770d8352db6aa53fcbc3ece7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Torna il numero di byte prima della fine del file puntato da fp.  <a href="#ad48e629c770d8352db6aa53fcbc3ece7">Continua...</a><br /></td></tr>
-<tr class="separator:ad48e629c770d8352db6aa53fcbc3ece7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc0e31d500c5ae7b2a0f1aaa5a4ab78b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Client_2READ_8c.html#afc0e31d500c5ae7b2a0f1aaa5a4ab78b">appendReadRequest</a> (<a class="el" href="structMyDFSId.html">MyDFSId</a> *id, int pos, int size)</td></tr>
 <tr class="memdesc:afc0e31d500c5ae7b2a0f1aaa5a4ab78b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiunge un nodo alla lista di reads.  <a href="#afc0e31d500c5ae7b2a0f1aaa5a4ab78b">Continua...</a><br /></td></tr>
 <tr class="separator:afc0e31d500c5ae7b2a0f1aaa5a4ab78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,27 +155,9 @@ Funzioni</h2></td></tr>
 <dd>
 1 errore </dd></dl>
 
-<p>Referenzia <a class="el" href="structReadOp.html#ac84186a2d784cb2fbd0c71dd7d5df78d">ReadOp::next</a>, <a class="el" href="structReadOp.html#a2615c975be53dbd950cb51959009257a">ReadOp::pos</a>, <a class="el" href="structMyDFSId.html#a71f51c82d7133bfc16fcffeb4c395da0">MyDFSId::readListMutex</a>, e <a class="el" href="structReadOp.html#a4ed8bd364b1b3378cc6f4faf750da527">ReadOp::size</a>.</p>
+<p>Referenzia <a class="el" href="structReadOp.html#ac84186a2d784cb2fbd0c71dd7d5df78d">ReadOp::next</a>, <a class="el" href="structReadOp.html#a5659a814b4b0696cc017d5ea088eb2c1">ReadOp::pos</a>, <a class="el" href="structMyDFSId.html#a71f51c82d7133bfc16fcffeb4c395da0">MyDFSId::readListMutex</a>, e <a class="el" href="structReadOp.html#a2562187098302a2641f29f89e77748b0">ReadOp::size</a>.</p>
 
 <p>Referenziato da <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad48e629c770d8352db6aa53fcbc3ece7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int byteMancanti </td>
-          <td>(</td>
-          <td class="paramtype">FILE *&#160;</td>
-          <td class="paramname"><em>fp</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Torna il numero di byte prima della fine del file puntato da fp. </p>
 
 </div>
 </div>
@@ -228,10 +207,9 @@ Funzioni</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Restituisce</dt><dd>-1 in caso di errore, n bytes letti altrimenti.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Da fare:</a></b></dt><dd>per qualche motivo, la fread ritorna 0 O_o pero' tipo la copia in un altro file sembra funzionare. </dd></dl>
+<dl class="section return"><dt>Restituisce</dt><dd>-1 in caso di errore, n bytes letti altrimenti. </dd></dl>
 
-<p>Referenzia <a class="el" href="Client_2READ_8c.html#afc0e31d500c5ae7b2a0f1aaa5a4ab78b">appendReadRequest()</a>, <a class="el" href="structMyDFSId.html#a2b7cf19c5ac22e03ae8abf7e688fee2a">MyDFSId::filesize</a>, <a class="el" href="structMyDFSId.html#ae2badd91d3b506420a9e49554df8212d">MyDFSId::fp</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7be712d079aae58b8bd11905a426348f">MYSEEK_END</a>, <a class="el" href="structCacheRequest.html#a9b1e1f0498ee02f22da75fe915334873">CacheRequest::pos</a>, <a class="el" href="Client_2READ_8c.html#a0b8dfa171c3b5c784fb6cba643728110">readFrom()</a>, <a class="el" href="Client_2Cache_8c.html#a403785c0f2573dd16d81eff4ab26c20d">readRequest()</a>, e <a class="el" href="Client_2READ_8c.html#a34f4cc3ee1ace86747c737cad2d801e7">sendReadCommand()</a>.</p>
+<p>Referenzia <a class="el" href="Client_2READ_8c.html#afc0e31d500c5ae7b2a0f1aaa5a4ab78b">appendReadRequest()</a>, <a class="el" href="structMyDFSId.html#a394540d568f1fa235d096fd790d2891f">MyDFSId::filesize</a>, <a class="el" href="structMyDFSId.html#ae2badd91d3b506420a9e49554df8212d">MyDFSId::fp</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Client_2inc_2READ_8h.html#a7be712d079aae58b8bd11905a426348f">MYSEEK_END</a>, <a class="el" href="structCacheRequest.html#a9b1e1f0498ee02f22da75fe915334873">CacheRequest::pos</a>, <a class="el" href="Client_2READ_8c.html#a0b8dfa171c3b5c784fb6cba643728110">readFrom()</a>, <a class="el" href="Client_2Cache_8c.html#ae530ba131c65658674dd0d0b3fb2ea7c">readRequest()</a>, e <a class="el" href="Client_2READ_8c.html#a478820e0a2240153b83f6a843fd55c6a">sendReadCommand()</a>.</p>
 
 <p>Referenziato da <a class="el" href="client_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, <a class="el" href="Test_8c.html#a6e3806bfb5ee43f3514fa607c6f1a305">testInvalidazioneCache()</a>, <a class="el" href="Test_8c.html#af1bdec0a156f8dd5ec0ee1a640181db1">testRead()</a>, e <a class="el" href="Test_8c.html#aeefba065d2a3d2cc6647202058643c82">testWrite()</a>.</p>
 
@@ -268,22 +246,21 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Legge dalla socket di trasferimento buffsize dati. </p>
-<dl class="section return"><dt>Restituisce</dt><dd>1 se c'e' un errore con la recv il risultato di writeCache altrimenti.</dd></dl>
+<dl class="section return"><dt>Restituisce</dt><dd>1 se c'e' un errore con la recv, il risultato di writeCache altrimenti.</dd></dl>
 <dl class="section see"><dt>Si veda anche</dt><dd><a class="el" href="Cache_8h.html#a686e517ab500f68c40c03bfbc3e2e2fd" title="Funzione che scrive nel file di cache il contenuto di una read, senza sovrascrivere le parti scritte ...">writeCache</a> </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Da fare:</a></b></dt><dd>La recv dovrebbe continuare finche' non ho tutto sizeRiamsta. </dd></dl>
 
-<p>Referenzia <a class="el" href="structMyDFSId.html#a382a74f109962751085cea7aac2892cc">MyDFSId::socketId</a>, e <a class="el" href="Client_2Cache_8c.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache()</a>.</p>
+<p>Referenzia <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structMyDFSId.html#a8d5f597502e29e2edc6d2f46c2323b1d">MyDFSId::transferSocketId</a>, e <a class="el" href="Client_2Cache_8c.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache()</a>.</p>
 
 <p>Referenziato da <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a34f4cc3ee1ace86747c737cad2d801e7"></a>
+<a class="anchor" id="a478820e0a2240153b83f6a843fd55c6a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int sendReadCommand </td>
+          <td class="memname">long sendReadCommand </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structMyDFSId.html">MyDFSId</a> *&#160;</td>
           <td class="paramname"><em>id</em>, </td>
@@ -291,7 +268,7 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">long&#160;</td>
           <td class="paramname"><em>pos</em>&#160;</td>
         </tr>
         <tr>
@@ -303,8 +280,9 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Manda il comando di READ, e aspetta come risposta la dimensione di quanto deve leggere all'interno della risposta. </p>
+<dl class="section return"><dt>Restituisce</dt><dd>-1 se c'e' un errore, la dimensione che sta mandando il server altrimenti. </dd></dl>
 
-<p>Referenzia <a class="el" href="Client_2inc_2Utils_8h.html#ab79ad909806935a9a392a5fb44b47197">getNumberLenght()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Client_2inc_2Config_8h.html#add84839609e88a57d40aaa46a9f73ba9">READCOMMAND</a>, e <a class="el" href="structMyDFSId.html#a382a74f109962751085cea7aac2892cc">MyDFSId::socketId</a>.</p>
+<p>Referenzia <a class="el" href="Client_2inc_2Utils_8h.html#ab79ad909806935a9a392a5fb44b47197">getNumberLenght()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="Client_2inc_2Config_8h.html#add84839609e88a57d40aaa46a9f73ba9">READCOMMAND</a>, e <a class="el" href="structMyDFSId.html#a8d5f597502e29e2edc6d2f46c2323b1d">MyDFSId::transferSocketId</a>.</p>
 
 <p>Referenziato da <a class="el" href="Client_2READ_8c.html#aa4b63039ca9686f5666ce6bbb33317d7">mydfs_read()</a>.</p>
 

@@ -13,38 +13,28 @@
 {\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+R\+E\+A\+D.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Config.\+h\char`\"{}}\\*
-\subsection*{Definizioni}
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{Server_2READ_8c_a6821bafc3c88dfb2e433a095df9940c6}{B\+U\+F\+\_\+\+S\+I\+Z\+E}~65000
-\end{DoxyCompactItemize}
+{\ttfamily \#include $<$errno.\+h$>$}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{Server_2READ_8c_a936ab4848cf83a445f5e038926a46dae}{get\+Pos\+From\+Command} (char $\ast$)
-\item 
+int \hyperlink{Server_2READ_8c_a7693e61685c7d3f6b4fe3b682a5e626d}{get\+Pos\+From\+Command} (char $\ast$command)
+\begin{DoxyCompactList}\small\item\em Ritorna la posizione della read richiesta dall' utente. \end{DoxyCompactList}\item 
 void \hyperlink{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}{handle\+R\+E\+A\+D\+Command} (char $\ast$command, int socket)
 \end{DoxyCompactItemize}
 
 
-\subsection{Documentazione delle definizioni}
-\hypertarget{Server_2READ_8c_a6821bafc3c88dfb2e433a095df9940c6}{\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!B\+U\+F\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+\_\+\+S\+I\+Z\+E}}
-\index{B\+U\+F\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+\_\+\+S\+I\+Z\+E}!Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}}
-\subsubsection[{B\+U\+F\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+\_\+\+S\+I\+Z\+E~65000}}\label{Server_2READ_8c_a6821bafc3c88dfb2e433a095df9940c6}
-
-
-Referenziato da handle\+R\+E\+A\+D\+Command().
-
-
-
 \subsection{Documentazione delle funzioni}
-\hypertarget{Server_2READ_8c_a936ab4848cf83a445f5e038926a46dae}{\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!get\+Pos\+From\+Command@{get\+Pos\+From\+Command}}
+\hypertarget{Server_2READ_8c_a7693e61685c7d3f6b4fe3b682a5e626d}{\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!get\+Pos\+From\+Command@{get\+Pos\+From\+Command}}
 \index{get\+Pos\+From\+Command@{get\+Pos\+From\+Command}!Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}}
 \subsubsection[{get\+Pos\+From\+Command}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Pos\+From\+Command (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{command}
 \end{DoxyParamCaption}
-)}}\label{Server_2READ_8c_a936ab4848cf83a445f5e038926a46dae}
+)}}\label{Server_2READ_8c_a7693e61685c7d3f6b4fe3b682a5e626d}
+
+
+Ritorna la posizione della read richiesta dall' utente. 
+
 
 
 Referenziato da handle\+R\+E\+A\+D\+Command().
@@ -59,7 +49,7 @@ Referenziato da handle\+R\+E\+A\+D\+Command().
 )}}\label{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}
 
 
-Referenzia B\+U\+F\+\_\+\+S\+I\+Z\+E, Opened\+File\+::fp, get\+File\+Name(), get\+Opened\+File(), get\+Pos\+From\+Command(), get\+Transfer\+Socket(), log\+M(), e root\+Path.
+Referenzia close\+Client\+Session(), F\+I\+L\+E\+S\+I\+Z\+E, Opened\+File\+::fp, get\+Opened\+File(), get\+Pos\+From\+Command(), getptid(), e log\+M().
 
 
 

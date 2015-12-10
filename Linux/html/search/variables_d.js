@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['val',['val',['../structNodo.html#a8b3b2d0588fbc13d39d42ddcd0bd7a4f',1,'Nodo']]],
-  ['value',['value',['../structlist__node.html#a783a68ff4a5e89d6739e38d708d13734',1,'list_node']]]
+  ['sd',['sd',['../server_8c.html#a06b0afe769d54ae94259d8532bc878b0',1,'server.c']]],
+  ['server',['server',['../server_8c.html#a437cecc27162b023659813375ca67d62',1,'server.c']]],
+  ['size',['size',['../structWriteOp.html#af804d8a1e3d428ee7275b5e4f467d23a',1,'WriteOp::size()'],['../structReadOp.html#a2562187098302a2641f29f89e77748b0',1,'ReadOp::size()'],['../structCacheRequest.html#abc81e438c50064f3dde1835d6146bb1c',1,'CacheRequest::size()']]]
 ];

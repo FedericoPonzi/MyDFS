@@ -11,12 +11,13 @@
 {\ttfamily \#include $<$sys/socket.\+h$>$}\\*
 {\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
 {\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
 {\ttfamily \#include $<$errno.\+h$>$}\\*
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{Client_2CLOSE_8c_a8e44338b364d8da7b693226bf600c53c}{get\+Number\+Of\+Changes} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
-\item 
+\begin{DoxyCompactList}\small\item\em Ritorna il numero di write effettuate dal client. \end{DoxyCompactList}\item 
 int \hyperlink{Client_2CLOSE_8c_affca868a39ef47e0de0a54b7fca94e10}{upload\+Changes} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
 \begin{DoxyCompactList}\small\item\em Carica i cambiamenti fatti dal client con le write sul server. \end{DoxyCompactList}\item 
 int \hyperlink{Client_2CLOSE_8c_a8aefec12977b01fcb2e74b1d2e2ba49b}{mydfs\+\_\+close} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
@@ -31,6 +32,10 @@ int \hyperlink{Client_2CLOSE_8c_a8aefec12977b01fcb2e74b1d2e2ba49b}{mydfs\+\_\+cl
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id}
 \end{DoxyParamCaption}
 )}}\label{Client_2CLOSE_8c_a8e44338b364d8da7b693226bf600c53c}
+
+
+Ritorna il numero di write effettuate dal client. 
+
 
 
 Referenzia Write\+Op\+::next.
@@ -56,11 +61,11 @@ Referenziato da handle\+Close\+Command(), e mydfs\+\_\+close().
 \end{DoxyReturn}
 
 
-Referenzia C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D, My\+D\+F\+S\+Id\+::filename, get\+Number\+Of\+Changes(), My\+D\+F\+S\+Id\+::indirizzo, log\+M(), Write\+Op\+::next, Read\+Op\+::next, My\+D\+F\+S\+Id\+::read\+List\+Mutex, My\+D\+F\+S\+Id\+::socket\+Id, My\+D\+F\+S\+Id\+::transfer\+Sock\+Id, e upload\+Changes().
+Referenzia C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D, My\+D\+F\+S\+Id\+::control\+Socket\+Id, My\+D\+F\+S\+Id\+::filename, get\+Number\+Of\+Changes(), My\+D\+F\+S\+Id\+::indirizzo, log\+M(), Write\+Op\+::next, Read\+Op\+::next, My\+D\+F\+S\+Id\+::read\+List\+Mutex, My\+D\+F\+S\+Id\+::transfer\+Socket\+Id, e upload\+Changes().
 
 
 
-Referenziato da main(), test\+Heart\+Beating(), test\+Invalidazione\+Cache(), test\+Open(), test\+Read(), e test\+Write().
+Referenziato da main(), test\+Heart\+Beating(), test\+Invalidazione\+Cache(), test\+Open(), test\+Open\+Errors(), test\+Read(), test\+Simple\+Read(), e test\+Write().
 
 \hypertarget{Client_2CLOSE_8c_affca868a39ef47e0de0a54b7fca94e10}{\index{Client/\+C\+L\+O\+S\+E.\+c@{Client/\+C\+L\+O\+S\+E.\+c}!upload\+Changes@{upload\+Changes}}
 \index{upload\+Changes@{upload\+Changes}!Client/\+C\+L\+O\+S\+E.\+c@{Client/\+C\+L\+O\+S\+E.\+c}}
@@ -77,7 +82,7 @@ Carica i cambiamenti fatti dal client con le write sul server.
 \item[\hyperlink{todo__todo000001}{Da fare}]spezzare in piu read. \end{DoxyRefDesc}
 
 
-Referenzia My\+D\+F\+S\+Id\+::fp, log\+M(), Write\+Op\+::next, Write\+Op\+::pos, Write\+Op\+::size, e My\+D\+F\+S\+Id\+::transfer\+Sock\+Id.
+Referenzia My\+D\+F\+S\+Id\+::control\+Socket\+Id, My\+D\+F\+S\+Id\+::fp, log\+M(), Write\+Op\+::next, Write\+Op\+::pos, e Write\+Op\+::size.
 
 
 

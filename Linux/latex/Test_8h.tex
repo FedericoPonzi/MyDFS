@@ -6,6 +6,8 @@
 \item 
 int \hyperlink{Test_8h_aabf4057b7dcde48d9dff14797351235e}{test\+Open} (char $\ast$filename, char $\ast$indirizzo, int const debug)
 \begin{DoxyCompactList}\small\item\em Testa tutte le opzioni di apertura della open. \end{DoxyCompactList}\item 
+int \hyperlink{Test_8h_aa36a0cc154bed9ef71abed169e866e00}{test\+Simple\+Read} (char $\ast$filename, char $\ast$indirizzo, int const debug)
+\begin{DoxyCompactList}\small\item\em Simple\+Read. \end{DoxyCompactList}\item 
 int \hyperlink{Test_8h_adfdc0eba97e8023f64c192dbac90b52e}{test\+Read} (char $\ast$filename, char $\ast$indirizzo, int const debug)
 \begin{DoxyCompactList}\small\item\em N\+O\+T\+A\+: La parte e funziona solo in locale. \end{DoxyCompactList}\item 
 int \hyperlink{Test_8h_a0280ce692887a8bd2f381ebcfa0a0dec}{test\+Write} (char $\ast$filename, char $\ast$indirizzo, int const debug)
@@ -57,7 +59,7 @@ Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+
 
 
 
-Referenziato da main().
+Referenziato da main(), e test\+Stress\+Test().
 
 \hypertarget{Test_8h_aabf4057b7dcde48d9dff14797351235e}{\index{Test.\+h@{Test.\+h}!test\+Open@{test\+Open}}
 \index{test\+Open@{test\+Open}!Test.\+h@{Test.\+h}}
@@ -78,7 +80,7 @@ Referenzia log\+M(), mydfs\+\_\+close(), mydfs\+\_\+open(), M\+Y\+O\+\_\+\+C\+R\
 
 
 
-Referenziato da main().
+Referenziato da main(), e test\+Stress\+Test().
 
 \hypertarget{Test_8h_adfdc0eba97e8023f64c192dbac90b52e}{\index{Test.\+h@{Test.\+h}!test\+Read@{test\+Read}}
 \index{test\+Read@{test\+Read}!Test.\+h@{Test.\+h}}
@@ -100,6 +102,23 @@ Referenzia My\+D\+F\+S\+Id\+::filename, mydfs\+\_\+close(), mydfs\+\_\+open(), m
 
 
 Referenziato da main(), e test\+Stress\+Test().
+
+\hypertarget{Test_8h_aa36a0cc154bed9ef71abed169e866e00}{\index{Test.\+h@{Test.\+h}!test\+Simple\+Read@{test\+Simple\+Read}}
+\index{test\+Simple\+Read@{test\+Simple\+Read}!Test.\+h@{Test.\+h}}
+\subsubsection[{test\+Simple\+Read}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Simple\+Read (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{char $\ast$}]{indirizzo, }
+\item[{int const}]{debug}
+\end{DoxyParamCaption}
+)}}\label{Test_8h_aa36a0cc154bed9ef71abed169e866e00}
+
+
+Simple\+Read. 
+
+
+
+Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), e M\+Y\+O\+\_\+\+R\+D\+W\+R.
 
 \hypertarget{Test_8h_a0280ce692887a8bd2f381ebcfa0a0dec}{\index{Test.\+h@{Test.\+h}!test\+Write@{test\+Write}}
 \index{test\+Write@{test\+Write}!Test.\+h@{Test.\+h}}

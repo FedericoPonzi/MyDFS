@@ -1,6 +1,7 @@
 \hypertarget{Client_2inc_2Config_8h}{\section{Riferimenti per il file Client/inc/\+Config.h}
 \label{Client_2inc_2Config_8h}\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
 }
+{\ttfamily \#include $<$errno.\+h$>$}\\*
 {\ttfamily \#include $<$pthread.\+h$>$}\\*
 \subsection*{Strutture dati}
 \begin{DoxyCompactItemize}
@@ -16,13 +17,13 @@ struct \hyperlink{structCacheRequest}{Cache\+Request}
 \subsection*{Definizioni}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\+E\+B\+U\+G}~0
+\#define \hyperlink{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\+E\+B\+U\+G}~1
 \begin{DoxyCompactList}\small\item\em Modalita' debug\+: \end{DoxyCompactList}\item 
-\#define \hyperlink{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D}~\char`\"{}O\+P\+E\char`\"{}
+\#define \hyperlink{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D}~\char`\"{}O\+P\+E\+N\char`\"{}
 \item 
-\#define \hyperlink{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D}~\char`\"{}C\+L\+O\char`\"{}
+\#define \hyperlink{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D}~\char`\"{}C\+L\+O\+S\char`\"{}
 \item 
-\#define \hyperlink{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D}~\char`\"{}R\+E\+A\char`\"{}
+\#define \hyperlink{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D}~\char`\"{}R\+E\+A\+D\char`\"{}
 \item 
 \#define \hyperlink{Client_2inc_2Config_8h_ac42367fe5c999ec6650de83e9d72fe8c}{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T}~9001
 \item 
@@ -47,14 +48,14 @@ typedef struct \hyperlink{structCacheRequest}{Cache\+Request} \hyperlink{Client_
 \subsubsection[{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D~65535}}\label{Client_2inc_2Config_8h_af9a3b0ff5be08d6b9a70217971e632b9}
 \hypertarget{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D@{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D}}
 \index{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D@{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D~\char`\"{}C\+L\+O\char`\"{}}}\label{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}
+\subsubsection[{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D~\char`\"{}C\+L\+O\+S\char`\"{}}}\label{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}
 
 
-Referenziato da mydfs\+\_\+close().
+Referenziato da handle\+Command(), e mydfs\+\_\+close().
 
 \hypertarget{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!D\+E\+B\+U\+G@{D\+E\+B\+U\+G}}
 \index{D\+E\+B\+U\+G@{D\+E\+B\+U\+G}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{D\+E\+B\+U\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+U\+G~0}}\label{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}
+\subsubsection[{D\+E\+B\+U\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+U\+G~1}}\label{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}
 
 
 Modalita' debug\+: 
@@ -65,13 +66,17 @@ Referenziato da deamonize(), e log\+M().
 
 \hypertarget{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D@{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D}}
 \index{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D@{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D~\char`\"{}O\+P\+E\char`\"{}}}\label{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}
+\subsubsection[{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D~\char`\"{}O\+P\+E\+N\char`\"{}}}\label{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}
+
+
+Referenziato da handle\+Command().
+
 \hypertarget{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D@{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D}}
 \index{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D@{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D~\char`\"{}R\+E\+A\char`\"{}}}\label{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}
+\subsubsection[{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D~\char`\"{}R\+E\+A\+D\char`\"{}}}\label{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}
 
 
-Referenziato da send\+Read\+Command().
+Referenziato da handle\+Command(), e send\+Read\+Command().
 
 \hypertarget{Client_2inc_2Config_8h_ac42367fe5c999ec6650de83e9d72fe8c}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T@{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T}}
 \index{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T@{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}

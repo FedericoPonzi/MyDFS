@@ -1,2 +1,443 @@
-Logging info...
-Logging info...
+Filename: CONFIG
+Config filename: CONFIG
+File di config trovato
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 8468 spazio.
+Prima fork
+Seconda fork.
+[Config]
+'2' numero di connessioni
+'0' Processo o thread
+'9001' Porta in ascolto.
+
+[handleSocket:21746] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[OPE 21746] Sto mandando ok sulla socket 1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 1,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 21746.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+
+
+[handleSocket:21752] - Collegamento effettuato.
+[handleSocket] - Connessione terminata.
+
+
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[OPE 21752] Sto mandando ok sulla socket 1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 2,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 21752.
+]
+
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+[handleSocket] - Connessione terminata.
+
+
+[Spawining HeartBeating] Tempsd: 3, ptid: 21752
+[spawnProcess] - Mio pid: 21798
+[handleSocket:21798] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[spawnProcess] - Mio pid: 21799
+[OPE 21798] Sto mandando ok sulla socket 1
+[Spawining HeartBeating] Tempsd: 3, ptid: 21798
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 4,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 21798.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+HandleWrites: 0 numero di cambiamenti. 
+[Close] Cerco client per messaggio di Invalidazione. Mio ptid: 21798 
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[handleSocket:21799] - Collegamento effettuato.
+[CloseClientSession] Numero connessioni rimaste: 0
+[handleCommand] Ricevuta richiesta OPEN
+[closeClientSession] - Connessione chiusa.
+
+
+[appendOpenedFile] - Appendo il file aperto.
+[handleSocket] - Connessione terminata.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+
+
+[OPE 21799] Sto mandando ok sulla socket 1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 8,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 21799.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+
+
+[handleSocket] - Connessione terminata.
+
+
+[spawnProcess] - Mio pid: 21804
+[handleSocket:21804] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[spawnProcess] - Mio pid: 21805
+[OPE 21804] Sto mandando ok sulla socket 1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 16,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 21804.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+[handleSocket:21805] - Collegamento effettuato.
+
+
+[handleSocket] - Connessione terminata.
+
+
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+MYO_EXCL di un file esistente.CheckModoOpen error
+[appendOpenedFile] - Errore. 
+Errore nell' apertura del file(err_code:-3)
+
+
+[handleSocket] - Connessione terminata.
+
+
+[spawnProcess] - Mio pid: 21810
+[handleSocket:21810] - Collegamento effettuato.
+[spawnProcess] - Mio pid: 21811
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[OPE 21810] Sto mandando ok sulla socket 1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 64,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 21810.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+
+
+[handleSocket] - Connessione terminata.
+
+
+[spawnProcess] - Mio pid: 21816
+File di config trovato
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 8468 spazio.
+Prima fork
+Seconda fork.
+[Config]
+'2' numero di connessioni
+'0' Processo o thread
+'9001' Porta in ascolto.
+
+[handleSocket:21811] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[OPE 21811] Sto mandando ok sulla socket 1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 1,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 21811.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[handleSocket:21816] - Collegamento effettuato.
+[closeClientSession] - Connessione chiusa.
+
+
+[handleCommand] Ricevuta richiesta OPEN
+[handleSocket] - Connessione terminata.
+
+
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[OPE 21816] Sto mandando ok sulla socket 1
+[Spawining HeartBeating] Tempsd: 3, ptid: 21816
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 2,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 21816.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+HandleWrites: 0 numero di cambiamenti. 
+[Close] Cerco client per messaggio di Invalidazione. Mio ptid: 21816 
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+
+
+[handleSocket] - Connessione terminata.
+
+
+[spawnProcess] - Mio pid: 23540
+[handleSocket:23540] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[spawnProcess] - Mio pid: 23541
+[OPE 23540] Sto mandando ok sulla socket 1
+[Spawining HeartBeating] Tempsd: 3, ptid: 23540
+
+
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+[handleSocket] - Connessione terminata.
+
+
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 4,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 23540.
+][handleSocket:23541] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[OPE 23541] Sto mandando ok sulla socket 1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 8,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 23541.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+
+
+[handleSocket] - Connessione terminata.
+
+
+[spawnProcess] - Mio pid: 23548
+[spawnProcess] - Mio pid: 23549
+[handleSocket:23548] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[OPE 23548] Sto mandando ok sulla socket 1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 16,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 23548.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+[handleSocket:23549] - Collegamento effettuato.
+
+
+[handleSocket] - Connessione terminata.
+[handleCommand] Ricevuta richiesta OPEN
+
+
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+MYO_EXCL di un file esistente.CheckModoOpen error
+[appendOpenedFile] - Errore. 
+Errore nell' apertura del file(err_code:-3)
+
+
+[handleSocket] - Connessione terminata.
+
+
+[spawnProcess] - Mio pid: 23568
+[handleSocket:23568] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file.txt' 
+[spawnProcess] - Mio pid: 23569
+[OPE 23568] Sto mandando ok sulla socket 1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file.txt,
+ Modo: 64,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 23568.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+[closeClientSession] - individuato file primo: 'file.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+
+
+[handleSocket] - Connessione terminata.
+
+
+[spawnProcess] - Mio pid: 23575
+File di config trovato
+root_path = /tmp/
+[Initialize Memory] - Sto per allocare 8468 spazio.
+Prima fork
+Seconda fork.
+[Config]
+'2' numero di connessioni
+'0' Processo o thread
+'9001' Porta in ascolto.
+
+[handleSocket:23569] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file1.txt' 
+[OPE 23569] Sto mandando ok sulla socket 1
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file1.txt,
+ Modo: 10,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 23569.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+HandleWrites: 1 numero di cambiamenti. 
+Ricevo dati:
+Messaggio size: '39', in posizione: 0, buff: 'CIAO MONDO :D Sono il file: 'file1.txt''
+Scritti 39 dati nel file. 
+[Close] Cerco client per messaggio di Invalidazione. Mio ptid: 23569 
+[closeClientSession] - individuato file primo: 'file1.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 0
+[closeClientSession] - Connessione chiusa.
+
+
+[handleSocket] - Connessione terminata.
+
+
+[handleSocket:23575] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'file2.txt' 
+[OPE 23575] Sto mandando ok sulla socket 1
+[Spawining HeartBeating] Tempsd: 3, ptid: 23575
+[OpenCommand] Connessione creata correttamente.[
+ Filename: file2.txt,
+ Modo: 10,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 23575.
+][spawnProcess] - Mio pid: 24374
+[handleSocket:24374] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'fileLOl.mp3' 
+[OPE 24374] Sto mandando ok sulla socket 1
+[Spawining HeartBeating] Tempsd: 3, ptid: 24374
+[OpenCommand] Connessione creata correttamente.[
+ Filename: fileLOl.mp3,
+ Modo: 10,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 24374.
+]
+
+[handleCommand] Ricevuta richiesta CLOSE
+HandleWrites: 1 numero di cambiamenti. 
+Ricevo dati:
+Messaggio size: '41', in posizione: 0, buff: 'CIAO MONDO :D Sono il file: 'fileLOl.mp3''
+Scritti 41 dati nel file. 
+[Close] Cerco client per messaggio di Invalidazione. Mio ptid: 24374 
+[closeClientSession] - individuato file primo: 'fileLOl.mp3'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
+
+
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
+[handleSocket] - Connessione terminata.
+
+
+[spawnProcess] - Mio pid: 24377
+[handleSocket:24377] - Collegamento effettuato.
+[handleCommand] Ricevuta richiesta OPEN
+[appendOpenedFile] - Appendo il file aperto.
+[fileAlreadyOpenedInWrite] - Nessun file aperto con questo nome in scrittura: 'mioFile.txt' 
+[OPE 24377] Sto mandando ok sulla socket 1
+[Spawining HeartBeating] Tempsd: 3, ptid: 24377
+
+
+[closeClientSession] - individuato file primo: 'mioFile.txt'
+[FreeOpenedfile] Libero: transfer: 3, sock: 1
+[CloseClientSession] Numero connessioni rimaste: 1
+[closeClientSession] - Connessione chiusa.
+[handleSocket] - Connessione terminata.
+
+
+[OpenCommand] Connessione creata correttamente.[
+ Filename: mioFile.txt,
+ Modo: 10,
+ Socket: 1,
+ HeartBeating: 3,
+ Ptid: 24377.
+][spawnProcess] - Mio pid: 24382

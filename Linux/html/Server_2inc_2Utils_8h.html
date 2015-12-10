@@ -101,7 +101,7 @@ Funzioni</h2></td></tr>
 <tr class="memdesc:a1f6240c9883eba86a3a1dc5e8ea77338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stampa un messaggio di log sullo STDOUT se DEBUG vale 1.  <a href="#a1f6240c9883eba86a3a1dc5e8ea77338">Continua...</a><br /></td></tr>
 <tr class="separator:a1f6240c9883eba86a3a1dc5e8ea77338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac26fe6c49ab17caab523c2410afb27c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">stripCommand</a> (char *)</td></tr>
-<tr class="memdesc:ac26fe6c49ab17caab523c2410afb27c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove i primi 4 caratteri (es: 'GET ')  <a href="#ac26fe6c49ab17caab523c2410afb27c1">Continua...</a><br /></td></tr>
+<tr class="memdesc:ac26fe6c49ab17caab523c2410afb27c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove i primi 4+1 caratteri (es: 'GET ')  <a href="#ac26fe6c49ab17caab523c2410afb27c1">Continua...</a><br /></td></tr>
 <tr class="separator:ac26fe6c49ab17caab523c2410afb27c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44499e7455f77c00c1daa769f57eca5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Server_2inc_2Utils_8h.html#a44499e7455f77c00c1daa769f57eca5c">myExit</a> ()</td></tr>
 <tr class="memdesc:a44499e7455f77c00c1daa769f57eca5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">interrompe il processo o thread a seconda del modo di avvio, a causa di un errore.  <a href="#a44499e7455f77c00c1daa769f57eca5c">Continua...</a><br /></td></tr>
@@ -128,7 +128,7 @@ Funzioni</h2></td></tr>
 
 <p>Referenzia <a class="el" href="Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>.</p>
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#a5bd53dd113398b8df28c065f0ef2255e">getFileName()</a>, <a class="el" href="StruttureDati_8c.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#ab227c35b76ef6706729ad091f99e7263">getTransferSocket()</a>, <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, e <a class="el" href="server_8c.html#af9111700e7416f44aec9f208e66f0d7e">spawnHeartBeat()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a12dc3ffb088dc6be12e6d5d2ed911031">appendOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#a5bd53dd113398b8df28c065f0ef2255e">getFileName()</a>, <a class="el" href="StruttureDati_8c.html#a47a975b11b2dad0a1142c7313a7d2f19">getOpenedFile()</a>, <a class="el" href="StruttureDati_8c.html#ab227c35b76ef6706729ad091f99e7263">getTransferSocket()</a>, <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>, <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand()</a>, <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">handleREADCommand()</a>, e <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">handleSocket()</a>.</p>
 
 </div>
 </div>
@@ -188,7 +188,7 @@ Funzioni</h2></td></tr>
 
 <p>Referenzia <a class="el" href="Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>.</p>
 
-<p>Referenziato da <a class="el" href="StruttureDati_8c.html#af0ef3b536c7d46d8be4f3d0ed1365d4d">appendOpenedFile()</a>.</p>
+<p>Referenziato da <a class="el" href="StruttureDati_8c.html#a12dc3ffb088dc6be12e6d5d2ed911031">appendOpenedFile()</a>, e <a class="el" href="Server_2inc_2Heartbeating_8h.html#a7a884e9c69d08e30f16519fcea98169d">spawnHeartBeat()</a>.</p>
 
 </div>
 </div>
@@ -206,11 +206,11 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Rimuove i primi 4 caratteri (es: 'GET ') </p>
+<p>Rimuove i primi 4+1 caratteri (es: 'GET ') </p>
 <ul>
 <li><dl class="params"><dt>Parametri</dt><dd>
   <table class="params">
-    <tr><td class="paramname">La</td><td>linea del comando a cui vogliamo togliere i primi 4 caratteri. </td></tr>
+    <tr><td class="paramname">La</td><td>linea del comando da cui vogliamo togliere il nome del comando. </td></tr>
   </table>
   </dd>
 </dl>

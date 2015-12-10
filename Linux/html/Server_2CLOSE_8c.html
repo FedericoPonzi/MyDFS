@@ -247,9 +247,8 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>gestisce tutte le writes. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Da fare:</a></b></dt><dd>: cambiare a void </dd></dl>
 
-<p>Referenzia <a class="el" href="structOpenedFile.html#a3b2e157f5aad06b65bd017d67fde4eb3">OpenedFile::filesize</a>, <a class="el" href="Server_2inc_2Config_8h.html#a8049c678a855a57b1030eab386393a8f">FILESIZE</a>, <a class="el" href="Server_2CLOSE_8c.html#a21857a51925ee30db458ebcdaba4681a">getChunkPosition()</a>, <a class="el" href="Server_2CLOSE_8c.html#a08cb38236e114f03ae330076f65a42c0">getChunkSize()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, e <a class="el" href="structOpenedFile.html#a122a7d3d722dc1f7c63857af2024f098">OpenedFile::transferSockId</a>.</p>
+<p>Referenzia <a class="el" href="structOpenedFile.html#a591b34fa52d94c831734d7cead0c6630">OpenedFile::controlSocketId</a>, <a class="el" href="structOpenedFile.html#a3b2e157f5aad06b65bd017d67fde4eb3">OpenedFile::filesize</a>, <a class="el" href="Server_2inc_2Config_8h.html#a8049c678a855a57b1030eab386393a8f">FILESIZE</a>, <a class="el" href="Server_2CLOSE_8c.html#a21857a51925ee30db458ebcdaba4681a">getChunkPosition()</a>, <a class="el" href="Server_2CLOSE_8c.html#a08cb38236e114f03ae330076f65a42c0">getChunkSize()</a>, e <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>.</p>
 
 <p>Referenziato da <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>.</p>
 
@@ -271,7 +270,7 @@ Funzioni</h2></td></tr>
 
 <p>Invia il messaggio di invalidazione ai client che hanno il file aperto in lettura. </p>
 
-<p>Referenzia <a class="el" href="structOpenedFile.html#abcff0610dfa8b1e3836b3f5bac40c8f5">OpenedFile::fileName</a>, <a class="el" href="Client_2Heartbeating_8c.html#ab95a74565a85ceabf1a9f1310cdb434f">invalidate()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="StruttureDati_8h.html#a8647861982974418fd65cf3dca69c54e">mutex</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8h.html#ac6c781406efae2362705c3a19a96474a">openedFileLinkedList</a>, <a class="el" href="Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>, <a class="el" href="structOpenedFile.html#a33cb5376fd14129a1635cf142c0781a6">OpenedFile::ptid</a>, <a class="el" href="Server_2Config_8c.html#ad6746bc317b81e89070e24e57e63f760">tempSockMutex</a>, e <a class="el" href="structOpenedFile.html#a122a7d3d722dc1f7c63857af2024f098">OpenedFile::transferSockId</a>.</p>
+<p>Referenzia <a class="el" href="structOpenedFile.html#a591b34fa52d94c831734d7cead0c6630">OpenedFile::controlSocketId</a>, <a class="el" href="structOpenedFile.html#a59d8fd7142cc9f6a40828160a0f5fc08">OpenedFile::controlSocketMutex</a>, <a class="el" href="structOpenedFile.html#aedf1760d8d86e2f3efbb12cc7f4ce13e">OpenedFile::fileName</a>, <a class="el" href="Client_2Heartbeating_8c.html#ab95a74565a85ceabf1a9f1310cdb434f">invalidate()</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="StruttureDati_8h.html#a8647861982974418fd65cf3dca69c54e">mutex</a>, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile::next</a>, <a class="el" href="StruttureDati_8h.html#ac6c781406efae2362705c3a19a96474a">openedFileLinkedList</a>, <a class="el" href="Server_2Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3">procOrThread</a>, e <a class="el" href="structOpenedFile.html#a33cb5376fd14129a1635cf142c0781a6">OpenedFile::ptid</a>.</p>
 
 <p>Referenziato da <a class="el" href="Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0">handleCloseCommand()</a>.</p>
 
