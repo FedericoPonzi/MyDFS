@@ -27,23 +27,22 @@ void spawnHeartBeat(MyDFSId* id)
 {
     ThreadArgs *threadArg = (ThreadArgs*) malloc( sizeof(ThreadArgs));
     threadArg->id = id;
-    //threadArg->barriera = 
-    CreateSemaphore( 
+    threadArg->barriera = CreateSemaphore( 
         NULL,           // default security attributes
         0,  // initial count
         1,  // maximum count
         NULL);
     
 	DWORD tid;
-	CreateThread( 
+	HANDLE tHandle = CreateThread( 
             NULL,                   // default security attributes
             0,                      // use default stack size  
             &heartBeat,       // thread function name
             threadArg,          // argument to thread function 
             0,                      // use default creation flags 
             &tid); 
+    CloseHandle(tHandle);
     WaitForSingleObject(threadArg->barriera, INFINITE);
-
 }
 
 /**

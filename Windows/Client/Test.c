@@ -413,28 +413,5 @@ void testOpenErrors(char* filename, char* indirizzo, int debug)
 	printf("\n\t[V-%d] Test OPEN Errors superato correttamente!\n", getpid());    
 }
 
-void testReadErrors(char* filename, char* indirizzo, int debug)
-{
-    /*
-    MyDFSId* id;
-    int err, nRead;
-    char buffer[100];
-    
-    id = mydfs_open(indirizzo, filename, MYO_RDONLY, &err);
-
-    assert(id != NULL && err == 0);
-
-    nRead = mydfs_read(id, MYSEEK_CUR, buffer, 100);
-    printf("%d", nRead);
-    */
-}
-
-void testWriteErrors(char* filename, char* indirizzo, int debug)
-{
-    
-
-
-}
-
 
 

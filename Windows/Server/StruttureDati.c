@@ -207,7 +207,7 @@ void freeOpenedFile(OpenedFile* id)
     logM("[FreeOpenedfile] Libero: transfer: %d, sock: %d\n", id->controlSocketId, id->transferSocketId);
     
     //Se al momento della OPE ho creato l' heartbeating, eseguo solo lo shutdown della socket e lascio la closesocket all' heartbeating
-    if((isModoApertura(modo, MYO_WRONLY) || isModoApertura(modo, MYO_RDWR)))
+    if((isModoApertura(id->modo, MYO_WRONLY) || isModoApertura(id->modo, MYO_RDWR)))
     {
         shutdown(id->controlSocketId, SD_BOTH);
         shutdown(id->transferSocketId, SD_BOTH);

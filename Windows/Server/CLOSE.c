@@ -127,7 +127,25 @@ int getNumberOfChanges(char* command)
     } 
 	return toRet;
 }
+/**
+ * @brief Prende in input il comando, ed estrare la dimensione della write.
+ * es: "POS 0 SIZE 1000" torna 1000.
+ */
+int getChunkSize(char* buffer)
+{
+	int toRet;
+	int i = 0;
 
+	while(strncmp(buffer+i, "SIZE ", strlen("SIZE ")) != 0) i++;
+	i+= strlen("SIZE ");
+
+    toRet = strtol(buffer + i, 0, 10);
+    if(errno == EINVAL || errno == ERANGE)
+    {
+        toRet = -1;
+    }
+	return toRet;
+}
 /**
  * @brief Prende in input il comando, ed estrare la posizione della write.
  * es: "POS 0 SIZE 1000" torna 0.

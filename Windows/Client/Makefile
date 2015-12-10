@@ -10,7 +10,7 @@ LIBS= libmydfs.a -lWs2_32
 OBJECTS = Utils.o OPEN.o CLOSE.o READ.o WRITE.o Cache.o Heartbeating.o Test.o
 
 #Creera' tutti questi binari: testread   testfillfs testfilebinario testalltest testopenerrors testreaderrors
-all::prog topen  testinvalidazione testheartbeating testread  testfilfs testfilebinario testalltest testopenerrors testreaderrors
+all::prog topen  testinvalidazione testheartbeating testread  testfilfs testfilebinario testopenerrors
  
 prog:libmydfs.a
 	gcc -o TestWrite -g testWrite.c libmydfs.a -lWs2_32 
@@ -22,7 +22,7 @@ libmydfs.a:$(OBJECTS)
 	ar rvs libmydfs.a $(OBJECTS)
 
 clean:
-	rm -rf *.o
+	rm -rf *.o TestRead TestOpen TestHeartBeating TestInvalidazione TestFillFs TestBinario TestOpenErrors TestWrite TestFillFS 
 
 testread:
 	gcc -o TestRead -g testRead.c $(LIBS)
@@ -44,9 +44,3 @@ testfilebinario:
 
 testopenerrors:
 	gcc -o TestOpenErrors -g testOpenErrors.c $(LIBS)
-
-testreaderrors:
-	gcc -o TestReadErrors -g testOpenErrors.c $(LIBS)
-
-testalltest:
-	gcc -o TestAll -g testAllTests.c $(LIBS)
