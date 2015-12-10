@@ -16,7 +16,7 @@ prog:libmydfs.a
 	gcc -o TestWrite -g testWrite.c libmydfs.a -lWs2_32 
 
 %.o: %.c
-	$(CC) $(CFLAGS) $< -lWs2_32
+	$(CC) $(CFLAGS) $<
 
 libmydfs.a:$(OBJECTS)
 	ar rvs libmydfs.a $(OBJECTS)
