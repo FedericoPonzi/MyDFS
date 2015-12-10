@@ -8,7 +8,7 @@ CFLAGS=-c -g -Wall -pthread -pg
 OBJECTS = Utils.o OPEN.o CLOSE.o READ.o WRITE.o Cache.o Heartbeating.o Test.o
 
 #Creera' tutti questi binari:
-all:prog testopen testread testheartbeating testinvalidazione testfillfs testfilebinario testalltest testopenerrors testreaderrors
+all:prog testopen testread testheartbeating testinvalidazione testfillfs testfilebinario testopenerrors
 
 prog:libmydfs.a
 	gcc -o TestWrite -g -pg -pthread testWrite.c libmydfs.a
@@ -20,7 +20,7 @@ libmydfs.a:$(OBJECTS)
 	ar rvs libmydfs.a $(OBJECTS)
 
 clean:
-	rm -rf *.o
+	rm -rf *.o TestRead TestOpen TestHeartBeating TestInvalidazione TestFillFs TestBinario TestOpenErrors TestWrite TestFillFS 
 
 testread:
 	gcc -o TestRead -g -pg -pthread testRead.c libmydfs.a
@@ -42,10 +42,3 @@ testfilebinario:
 
 testopenerrors:
 	gcc -o TestOpenErrors -g -pg -pthread testOpenErrors.c libmydfs.a
-
-testreaderrors:
-	gcc -o TestReadErrors -g -pg -pthread testOpenErrors.c libmydfs.a
-
-
-testalltest:
-	gcc -o TestAll -g -pthread testAllTests.c libmydfs.a
