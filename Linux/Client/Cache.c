@@ -44,7 +44,7 @@ FILE* createTempFile(char* basename)
     }
 
     //Appena mi stacco dall' fd, viene cancellato il file temporaneo:
-    unlink(tempName);
+    //unlink(tempName);
 
     logM("[Cache] Creato temp file: '%s'\n", tempName);
 	toRet = fdopen(fd, "w+b");

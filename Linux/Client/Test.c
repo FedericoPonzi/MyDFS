@@ -1,25 +1,3 @@
-/*
- * Test.c
- * 
- * Copyright 2015 isaacisback <isaacisback@mrisaac>
- * 
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- * 
- * Questo modulo contiene tutti i testi per tutte le funzioni da richiamare da un programma.
- */
 #include <stdlib.h>
 #include <stdio.h>
 #include "inc/Utils.h"
@@ -235,7 +213,8 @@ int testWrite(char* filename, char* indirizzo, int  debug)
 	
 	char* testo = "Primo";
 	char bufferTesto[strlen(testo)+1];
-	MyDFSId* fileId = mydfs_open(indirizzo, filename, MYO_RDWR, &error);
+    
+	MyDFSId* fileId = mydfs_open(indirizzo, filename, MYO_CREAT|MYO_RDWR, &error);
 
     assert(error==0);
 	
@@ -244,11 +223,12 @@ int testWrite(char* filename, char* indirizzo, int  debug)
 	if(debug) printf("\n\t[PRIMO TEST WRITE-%d: SEEK_SET]\n", getpid());
 	
 	n = mydfs_write(fileId, MYSEEK_SET, testo, strlen(testo));
-
+    
 	assert(n > 0);
 	
 	n = mydfs_read(fileId, MYSEEK_SET, bufferTesto, sizeof(bufferTesto)-1);	
-	assert(n > 0);
+
+    assert(n > 0);
 	
 	bufferTesto[n] = '\0';
 	

@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0050)http://www.iac.rm.cnr.it/~massimo/PONE2014_15.html -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    
+    <title>Progetto per chi intende sostenere Sistemi Operativi II e Laboratorio
+      II</title>
+  <style type="text/css">.fancybox-margin{margin-right:15px;}</style></head>
+  <body>
+    <div align="center">
+      <h3><font face="Verdana" size="2">Progetto per l'esame di Programmazione
+          di Sistema A.A. 2014/2015</font></h3>
+    </div>
+    <div align="center">
+      <h5><font face="Verdana" size="2"><font face="Verdana" size="2">(bozza
+            aggiornata al 16 gennaio 2015) </font></font></h5>
+    </div>
+    <font face="Verdana" size="2"><font face="Verdana" size="2"><b>Attenzione!&nbsp;
+Controllare
+          periodicamente questa pagina per possibili aggiornamenti.</b><br>
+        <b><br>
+          <big> Scopo:</big><br>
+        </b></font></font><br>
+    <div style="text-align: justify;">
+      <div style="text-align: left;"> Sviluppo di un semplice file system
+        distribuito. Il file system ha l'equivalente delle <small><big><span style="color: #0000ee;"><span style="color: black;">primitive</span></span></big></small>
+        <em>open, close, read </em>e <em>write</em><span style="color: #0000ee;"><span style="text-decoration: underline;"><span style="font-weight: bold;"></span></span></span><small><big><span style="color: #0000ee;"><span style="color: black;">.<br>
+                I dati dei file sono mantenuti in una copia primaria da parte
+                del server ed in copie secondarie da parte dei client. <br>
+                La coerenza è mantenuta attraverso un meccanismo di
+                invalidazione (attivato dal server) delle cache dei client. <br>
+              </span></span></big></small></div>
+      <small><big><span style="color: #0000ee;"><span style="text-decoration: underline;"><span style="font-weight: bold;"></span></span></span></big></small></div>
+    <small><big><strong></strong>Il server deve supportare sia la modalità
+        multi-processo che multi-thread selezionabile da file di configurazione.<br>
+        Nel seguito xxx.yyy.www.zzz sta ad indicare un indirizzo IPv4 nella
+        forma "dotted decimal" (<em>e.g.</em>, 150.146.2.201) ma l'indirizzo <br>
+        del server deve poter essere specificato anche con il nome mnemonico (<em>e.g.,</em>
+        twin.iac.rm.cnr.it).<font size="2"><span style="   font-family: Verdana;"><br>
+          </span></font><small><br>
+          <big><span style="font-weight: bold;">Caratteristiche:</span></big></small></big></small><small><big><small><big><span style="font-weight: bold;">
+            </span></big></small></big></small>
+    <div class="page" title="Page 3"> </div>
+    <small><big>
+        <ul>
+        </ul>
+        <ul>
+          <li> <font face="Verdana" size="2"><font face="Verdana" size="2">Il
+                server gestisce in maniera concorrente le richieste dei client</font></font><font size="2"><span style="font-family: Verdana;"><em></em></span></font></li>
+          <li><font size="2"><span style=" font-family: Verdana;">Il server è in
+                ascolto, per <em>default,</em> sulla porta TCP <strong>6020</strong>.
+                La porta può essere modificata da file di configurazione o da
+                linea comandi tramite l'opzione <strong>-P </strong></span></font><font size="2"><span style=" font-family: Verdana;"><strong></strong></span></font></li>
+          <li><font size="2"><span style="  font-family: Verdana;">Il client
+                utilizza una libreria</span></font> (<em>libmydfs.a) </em><small><big><font size="2"><span style="  font-family: Verdana;">che
+                    supporta le seguenti quattro primitive:</span></font></big></small></li>
+          <ul>
+            <li><small><big><font size="2"><span style="   font-family: Verdana;"><span style="font-weight: bold;">MyDFSId</span>
+                      *mydfs_open(xxx.yyy.www.zzz, char *<span style="font-weight: bold;">nomefile</span>,
+                      int <span style="font-weight: bold;">modo, </span>int <strong></strong><span style="font-weight: bold;"><strong>*err</strong></span>)</span></font></big></small></li>
+            <li><small><big><small><big><font size="2"><span style="   font-family: Verdana;">int
+                          mydfs_close(<span style="font-weight: bold;">MyDFSId</span>)</span></font></big></small></big></small></li>
+            <li><small><big><small><big><font size="2"><span style="    font-family: Verdana;">int
+                          mydfs_read(<span style="font-weight: bold;">MyDFSId</span>,
+                          int <span style="font-weight: bold;">pos</span>, void
+                          *<span style="font-weight: bold;">ptr</span>, unsigned
+                          int <span style="font-weight: bold;">size</span>)</span></font></big></small></big></small></li>
+            <li><small><big><small><big><font size="2"><span style="    font-family: Verdana;"></span></font></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="    font-family: Verdana;">int
+                              mydfs_write(<span style="font-weight: bold;">MyDFSId</span>,
+                              int <span style="font-weight: bold;">pos</span>,
+                              void *<span style="font-weight: bold;">ptr</span>,
+                              unsigned int <span style="font-weight: bold;">size</span>)</span></font></big></small></big></small></big></small></li>
+          </ul>
+        </ul>
+        <small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp; MyDFSId è un identificatore del file.
+                        Si può assumere una definizione del tipo <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; typedef
+                        struct mydfsid { xxx; yyy; zzz; } <span style="font-weight: bold;">MyDFSId</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dove per il
+                        numero di elementi della struttura (ed il loro tipo) non
+                        esistono vincoli <br>
+                        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; (ovviamente la
+                        struttura deve avere almeno un elemento).<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Per quanto riguarda il
+                        nome del file (parametro </span></font></big></small></big></small></big></small></big></small><small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;"><small><big><small><big><font size="2"><span style="   font-family: Verdana;"><span style="font-weight: bold;">nomefile</span></span></font></big></small></big></small>)
+                        deve essere un path specificato rispetto ad una
+                        directory di base predefinita nel&nbsp; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; file di configurazione
+                        (nello stile Unix, con separatore <strong>/</strong>).
+                        &nbsp; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Per quanto riguarda il <strong>modo</strong>,
+                        devono essere supportate le seguenti modalità (per il
+                        significato vedere la documentazione sulla <em>open</em>
+                        Unix):<br>
+                      </span></font></big></small></big></small></big></small></big></small>
+    <ul>
+      <ul>
+        <li><small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">&nbsp;O_RDONLY,
+                              O_WRONLY, O_RDWR, O_CREAT, O_TRUNC, O_EXCL,&nbsp;
+                              O_EXLOCK&nbsp;</span></font></big></small></big></small></big></small></big></small></li>
+      </ul>
+    </ul>
+    <small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">&nbsp;&nbsp;&nbsp;&nbsp;
+                        per <em>default</em> i file sono condivisi in lettura.<br>
+                        &nbsp; &nbsp;&nbsp; I parametri </span></font></big></small></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="    font-family: Verdana;"><span style="font-weight: bold;">ptr
+                      </span></span></font></big></small></big></small></big></small><small><big><small><big><small><big><small><big><font size="2"><span style="    font-family: Verdana;">e
+                        <span style="font-weight: bold;">size</span></span></font></big></small></big></small></big></small></big></small>
+    <small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">hanno
+                        lo stesso significato della <em>read <span style="text-decoration: underline;"></span></em>Unix.</span></font></big></small></big></small></big></small></big></small><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">Il
+                        parametro </span></font></big></small></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="    font-family: Verdana;"><span style="font-weight: bold;">pos
+                      </span></span></font></big></small></big></small></big></small><small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">indica
+                        la posizione rispetto cui effettuare l'operazione di
+                        lettura o scrittura. <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp; Può assumere i valori <span style="font-weight: bold;">SEEK_SET,
+                          SEEK_CUR</span>, o<span style="font-weight: bold;">
+                          SEEK_END </span></span></font></big></small></big></small></big></small></big></small><small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">con
+                        gli stessi significati che hanno per la <em>fseek.<br>
+                        </em></span></font></big></small></big></small></big></small></big></small>
+    <ul>
+      <ul>
+        <li><small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">Il
+                              valore di ritorno della </span></font></big></small></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">mydfs_open
+                          è:</span></font></big></small></big></small></big></small></li>
+        <ul>
+          <li><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">un
+                            puntatore ad un MyDFSId se l'operazione è andata a
+                            buon fine;</span></font></big></small></big></small></big></small></li>
+          <li><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">NULL
+                            in caso di errore. In questo caso </span></font></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">la
+                            locazione puntata da <strong>err </strong></span></font></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;"><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">conterrà
+                                            </span></font></big></small></big></small></big></small><strong>
+                            </strong></span></font></big></small></big></small></big></small></li>
+          <ul>
+            <li><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;"><strong></strong>-1
+                              in caso il file è aperto in scrittura da un altro
+                              client;</span></font></big></small></big></small></big></small></li>
+            <li><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">-2
+                              in caso il server non sia raggiungibile;</span></font></big></small></big></small></big></small></li>
+            <li><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">-3
+                              in caso di errore sul file (ad esempio file aperto
+                              in sola lettura che non esiste);</span></font></big></small></big></small></big></small></li>
+          </ul>
+        </ul>
+        <li><small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">Il
+                              valore di ritorno della </span></font></big></small></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">mydfs_close
+                          è:</span></font></big></small></big></small></big></small></li>
+        <ul>
+          <li><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">0
+                            se l'operazione è andata a buon fine;</span></font></big></small></big></small></big></small></li>
+          <li><small><big><small><big><small><big><font size="2"><span style="    font-family: Verdana;">-1
+                            in caso di errore.</span></font></big></small></big></small></big></small></li>
+        </ul>
+        <li><small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">Il
+                              valore di ritorno della </span></font></big></small></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">mydfs_read
+                          è:</span></font></big></small></big></small></big></small></li>
+        <ul>
+          <li><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">0
+                            se il file è stato completamente letto;</span></font></big></small></big></small></big></small></li>
+          <li><small><big><small><big><small><big><font size="2"><span style="    font-family: Verdana;">-1
+                            in caso di errore;</span></font></big></small></big></small></big></small></li>
+          <li><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">&gt;0
+                            ed uguale al numero di byte effettivamente letti.</span></font></big></small></big></small></big></small></li>
+        </ul>
+        <li><small><big><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">Il
+                              valore di ritorno della </span></font></big></small></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">mydfs_write
+                          è:</span></font></big></small></big></small></big></small></li>
+        <ul>
+          <li><small><big><small><big><small><big><font size="2"><span style="    font-family: Verdana;">-1
+                            in caso di errore;</span></font></big></small></big></small></big></small></li>
+          <li><small><big><small><big><small><big><font size="2"><span style="     font-family: Verdana;">&gt;=
+                            0 ed uguale al numero di byte effettivamente
+                            scritti.</span></font></big></small></big></small></big></small></li>
+        </ul>
+      </ul>
+      <li><small><big><small><big><small><big><font size="2"><span style="      font-family: Verdana;">La
+                        libreria implementa un meccanismo di <em>caching </em>sia
+                        in lettura, sia in scrittura. <br>
+                      </span></font></big></small></big></small></big></small></li>
+      <ul>
+        <li><small><big><small><big><small><big><font size="2"><span style="      font-family: Verdana;">In
+                          lettura il client accede i dati dalla propria cache,
+                          se disponibili. Altrimenti richiede al server i dati
+                          necessari. Ogni richiesta viene effettuata in unitù di
+                          un blocco logico la cui dimensione è 65536 byte. Se il
+                          file è più piccolo oppure se l'ultimo frammento del
+                          file è più piccolo viene ritornato il numero di byte
+                          effettivamente disponbile.</span></font></big></small></big></small></big></small></li>
+        <ul>
+          <li><small><big><small><big><small><big><font size="2"><span style="       font-family: Verdana;">Per
+                            mantenere la coerenza, <strong>prima </strong>di
+                            ogni operazione di lettura dalla cache il client
+                            deve controllare se ha ricevuto dal server un
+                            messaggio di invalidazione della cache (vedi punto
+                            successivo).</span></font></big></small></big></small></big></small></li>
+          <li><small><big><small><big><small><big><font size="2"><span style="        font-family: Verdana;">Risulta
+                            quindi necessario che ogni client abbia una
+                            connessione di <em>controllo</em> su cui ricevere i
+                            messaggi di invalidazione.<br>
+                          </span></font></big></small></big></small></big></small></li>
+        </ul>
+        <li><small><big><small><big><small><big><font size="2"><span style="       font-family: Verdana;">In
+                          scrittura, le operazioni sono effettuate sulla cache
+                          locale e sono inviate al server quando viene invocata
+                          la</span></font></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">
+                          <em>mydfs_close.</em></span></font></big></small></big></small></big></small></li>
+      </ul>
+      <li><small><big><small><big><small><big><font size="2"><span style="    font-family: Verdana;">Quando
+                        un file viene aperto in scrittura, viene assegnato un
+                        lock al client che ha invocato la </span></font></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">mydfs_open.
+                        Se il file è già aperto in scrittura da parte di un
+                        altro client viene ritornato un errore specifico (vedi
+                        descrizione della </span></font></big></small></big></small></big></small><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">mydfs_open).
+                        Se un file viene aperto in scrittura tutte le copie
+                        tenute in cache dai client vengono invalidate.
+                        L'invalidazione avviene tramite un messaggio inviato dal
+                        server ai client che hanno una copia del file in cache.
+                        A questo scopo il server mantiene una<span style="font-style: italic;">
+                        </span>tabella che contiene una riga per ogni file
+                        aperto ed in&nbsp; cui sono elencati tutti i client che
+                        hanno il file aperto in lettura. <br>
+                      </span></font></big></small></big></small></big></small></li>
+      <li><small><big><small><big><small><big><font size="2"><span style="    font-family: Verdana;">Per
+                        evitare che un client che abbia aperto il file in
+                        scrittura lo tenga bloccato anche se termina in maniera
+                        anomale (senza effettuare la mydfs_close), deve essere
+                        implementato un meccanismo di <em>heart-beating: </em>periodicamente
+                        (ad esempio ogni minuto) il server contatta i client che
+                        tengono file aperti in scrittura inviando un messaggio
+                        sulla connessione di controllo. Se il client non
+                        risponde entro un certo intervallo di tempo, il server
+                        assume che il client non sia più attivo e riprende il
+                        lock sul file.<br>
+                      </span></font></big></small></big></small></big></small></li>
+      <li style="text-align: justify;"><small><big><small><big><small><big><font size="2"><span style="   font-family: Verdana;">I
+                        file possono essere creati tramite la mydfs_open oppure
+                        essere pre-esistenti. <br>
+                      </span></font></big></small></big></small></big></small></li>
+      <li style="text-align: justify;"><font face="Verdana" size="2"><font face="Verdana" size="2">Il
+            server ed il client devono offrire le stesse funzionalità sotto
+            Linux e Windows ed essere interoperabili (server Linux, client
+            Windows oppure server Windows, client Linux oltre a, ovviamente,
+            configurazioni solo Linux o solo Windows)<br>
+          </font></font></li>
+      <ul>
+        <li><font face="Verdana" size="2"><font face="Verdana" size="2">la
+              scelta della modalità (multi-thread o multi-processo) del server
+              deve poter essere effettuata all'atto della</font></font><br>
+          <font face="Verdana" size="2"><font face="Verdana" size="2"> partenze
+              (tramite opzioni e/o lettura di un file di configurazione).</font></font></li>
+        <li><font face="Verdana" size="2"><font face="Verdana" size="2">le
+              scelte sul numero di thread o processi e sulla porta su cui rimane
+              in attesa il server devono essere modificabili tramite opzioni e/o
+              lettura di un file di configurazione.</font></font></li>
+      </ul>
+      <li><font face="Verdana" size="2"><font face="Verdana" size="2">Il file
+            system non fa distinzione tra file binari o di testo.<br>
+          </font></font></li>
+      <ul>
+      </ul>
+      <ul>
+        <ul>
+        </ul>
+      </ul>
+      <ul>
+        <ul>
+        </ul>
+      </ul>
+      <li><big><small>Il server deve funzionare in modalità <span style="font-style: italic;">daemon
+              </span>sotto Unix/Linux.</small></big></li>
+    </ul>
+    <small><big>
+        <p><font face="Verdana" size="2"><font face="Verdana" size="2"><small><big><small><big><span style="font-weight: bold;">Suggerimenti:</span></big></small></big></small></font></font></p>
+      </big></small>
+    <ul>
+      <li><font size="2"><span style="font-family: Verdana;">Definire un
+            semplice protocollo per lo scambio delle informazioni tra client e
+            server (comando-risposta);</span></font></li>
+      <li><font size="2"><span style=" font-family: Verdana;">Utilizzare una
+            connessione distinta per i dati e una per il controllo;<br>
+          </span></font></li>
+      <li><font size="2"><span style=" font-family: Verdana;">Per il meccanismo
+            di caching utilizzare i concetti di file mapping (è un suggerimento
+            non è vincolante);</span></font></li>
+      <li><font size="2"><span style="  font-family: Verdana;">Per il meccanismo
+            di <em>heart-beating </em>usare un thread separato oppure un
+            meccanismo tipo <em>signal;</em><br>
+          </span></font></li>
+      <ul>
+      </ul>
+      <li><font size="2"><span style="   font-family: Verdana;">client e server
+            <strong>devono </strong>essere provati NON solo in locale (sullo
+            stesso sistema) ma anche su sistemi distinti.<br>
+          </span></font></li>
+    </ul>
+    <small><big>
+        <p><font face="Verdana" size="2"><font face="Verdana" size="2">Il
+              progetto può essere realizzato in gruppi di <strong>due </strong>persone.<br>
+            </font></font></p>
+        <p><font face="Verdana" size="2"><font face="Verdana" size="2"> Al
+              progetto andrà allegata una breve (5-10 pagine) relazione che
+              descriva (e motivi) le scelte progettuali. </font></font></p>
+      </big></small>
+  
+
+</body></html>

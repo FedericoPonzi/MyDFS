@@ -55,8 +55,7 @@ MyDFSId* mydfs_open(char* indirizzo, char *nomefile, int modo, int *err)
         perror("Failed to initialize mutex");
         exit(EXIT_FAILURE);
     }
-    
-	toRet->modo = modo;
+    toRet->modo = modo;
 	
 	*err = 0;
 
