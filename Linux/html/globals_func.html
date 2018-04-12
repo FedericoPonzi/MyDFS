@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>MyDFS: Elementi globali</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MyDFS
    &#160;<span id="projectnumber">1</span>
    </div>
@@ -32,7 +33,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generato da Doxygen 1.8.7 -->
+<!-- Generato da Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
@@ -72,8 +73,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       <li class="current"><a href="globals_func.html"><span>Funzioni</span></a></li>
       <li><a href="globals_vars.html"><span>Variabili</span></a></li>
       <li><a href="globals_type.html"><span>Ridefinizioni&#160;di&#160;tipo&#160;(typedef)</span></a></li>
-      <li><a href="globals_enum.html"><span>Tipi&#160;enumerati&#160;(enum)</span></a></li>
-      <li><a href="globals_eval.html"><span>Valori&#160;del&#160;tipo&#160;enumerato</span></a></li>
       <li><a href="globals_defs.html"><span>Definizioni</span></a></li>
     </ul>
   </div>
@@ -102,7 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valori del tipo enumerato</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definizioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pagine</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,19 +114,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 &#160;
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
-<li>addNode()
-: <a class="el" href="DataStrutePointToPoint_8c.html#a78600e35b64549caa6dec8ab6d031eca">DataStrutePointToPoint.c</a>
-</li>
 <li>addWriteOp()
 : <a class="el" href="WRITE_8c.html#af30a6d079f7040855c747e2bea7a0e1b">WRITE.c</a>
 </li>
-<li>append()
-: <a class="el" href="second_8h.html#ad680a12a996d3e8e592d522751bffba6">second.h</a>
-, <a class="el" href="second_8c.html#a686d51d0e8d925b7b5d49bf1cc6fa260">second.c</a>
-</li>
 <li>appendOpenedFile()
-: <a class="el" href="StruttureDati_8c.html#a12dc3ffb088dc6be12e6d5d2ed911031">StruttureDati.c</a>
-, <a class="el" href="StruttureDati_8h.html#ae7b0c6e030593fdd15b723ef1c643b12">StruttureDati.h</a>
+: <a class="el" href="StruttureDati_8h.html#ae7b0c6e030593fdd15b723ef1c643b12">StruttureDati.h</a>
+, <a class="el" href="StruttureDati_8c.html#a12dc3ffb088dc6be12e6d5d2ed911031">StruttureDati.c</a>
 </li>
 <li>appendReadRequest()
 : <a class="el" href="Client_2READ_8c.html#afc0e31d500c5ae7b2a0f1aaa5a4ab78b">READ.c</a>
@@ -136,34 +128,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
-<li>cant_change()
-: <a class="el" href="pointerToPointers_8c.html#ad310ab9a64c4411194d542db5295f1a9">pointerToPointers.c</a>
-</li>
-<li>change()
-: <a class="el" href="pointerToPointers_8c.html#a3697e486ca1913f0c3e556507879f31a">pointerToPointers.c</a>
-</li>
 <li>checkModoOpen()
-: <a class="el" href="StruttureDati_8c.html#aa089645f4772b1d34f2808e1f913eb45">StruttureDati.c</a>
-, <a class="el" href="StruttureDati_8h.html#aa089645f4772b1d34f2808e1f913eb45">StruttureDati.h</a>
+: <a class="el" href="StruttureDati_8h.html#aa089645f4772b1d34f2808e1f913eb45">StruttureDati.h</a>
+, <a class="el" href="StruttureDati_8c.html#aa089645f4772b1d34f2808e1f913eb45">StruttureDati.c</a>
 </li>
 <li>closeClientSession()
-: <a class="el" href="StruttureDati_8h.html#a4d533448d4fea33fea1475cffe4ad377">StruttureDati.h</a>
-, <a class="el" href="StruttureDati_8c.html#a4d533448d4fea33fea1475cffe4ad377">StruttureDati.c</a>
+: <a class="el" href="StruttureDati_8c.html#a4d533448d4fea33fea1475cffe4ad377">StruttureDati.c</a>
+, <a class="el" href="StruttureDati_8h.html#a4d533448d4fea33fea1475cffe4ad377">StruttureDati.h</a>
 </li>
 <li>closeOpenedFile()
 : <a class="el" href="StruttureDati_8h.html#a1b93a1e03b27ca80768a152cebb0fed3">StruttureDati.h</a>
 </li>
 <li>countOpenedFile()
-: <a class="el" href="StruttureDati_8h.html#ae45ca2477d989c728fe47566c9f5b95a">StruttureDati.h</a>
-, <a class="el" href="StruttureDati_8c.html#ae45ca2477d989c728fe47566c9f5b95a">StruttureDati.c</a>
+: <a class="el" href="StruttureDati_8c.html#ae45ca2477d989c728fe47566c9f5b95a">StruttureDati.c</a>
+, <a class="el" href="StruttureDati_8h.html#ae45ca2477d989c728fe47566c9f5b95a">StruttureDati.h</a>
 </li>
 <li>createControlSock()
 : <a class="el" href="OPE_8c.html#abe1808712348b8e60af0a99293115f87">OPE.c</a>
 </li>
 <li>createTempFile()
-: <a class="el" href="Client_2Cache_8c.html#a3bc523df2fea20d9f4d25f2596a66a71">Cache.c</a>
+: <a class="el" href="Cache_8c.html#ab85cfa2751c24894cd4bdca9254ed117">Cache.c</a>
 , <a class="el" href="Cache_8h.html#ab85cfa2751c24894cd4bdca9254ed117">Cache.h</a>
-, <a class="el" href="Prove_2Cache_2Cache_8c.html#ab85cfa2751c24894cd4bdca9254ed117">Cache.c</a>
 </li>
 </ul>
 
@@ -172,28 +157,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <li>deamonize()
 : <a class="el" href="server_8c.html#a0b8ba8aea857bed7c7fd940ea404c3ea">server.c</a>
 </li>
-<li>do_work()
-: <a class="el" href="mmapStrutturaEasier_8c.html#a0cb8cb8c77cbac7dadd20d22dbc9319b">mmapStrutturaEasier.c</a>
-, <a class="el" href="mmapStruttureDati_8c.html#a0cb8cb8c77cbac7dadd20d22dbc9319b">mmapStruttureDati.c</a>
-</li>
-<li>doSomeThing()
-: <a class="el" href="Threading_8c.html#a8e75fdb9c7a597b4be5544bf52abaf15">Threading.c</a>
-</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
-<li>fileAlreadyOpen()
-: <a class="el" href="second_8c.html#ab14411cf7570093d3f4b4640a29d1917">second.c</a>
-, <a class="el" href="second_8h.html#ab14411cf7570093d3f4b4640a29d1917">second.h</a>
-</li>
 <li>fileAlreadyOpenedInWrite()
-: <a class="el" href="StruttureDati_8c.html#a53729d51218aa9a03ba46e8b1fa89875">StruttureDati.c</a>
-, <a class="el" href="StruttureDati_8h.html#a53729d51218aa9a03ba46e8b1fa89875">StruttureDati.h</a>
+: <a class="el" href="StruttureDati_8h.html#a53729d51218aa9a03ba46e8b1fa89875">StruttureDati.h</a>
+, <a class="el" href="StruttureDati_8c.html#a53729d51218aa9a03ba46e8b1fa89875">StruttureDati.c</a>
 </li>
 <li>freeOpenedFile()
-: <a class="el" href="StruttureDati_8c.html#a1674324a5bfcb0d5c3a5547c23a73e5a">StruttureDati.c</a>
-, <a class="el" href="StruttureDati_8h.html#a1674324a5bfcb0d5c3a5547c23a73e5a">StruttureDati.h</a>
+: <a class="el" href="StruttureDati_8h.html#a1674324a5bfcb0d5c3a5547c23a73e5a">StruttureDati.h</a>
+, <a class="el" href="StruttureDati_8c.html#a1674324a5bfcb0d5c3a5547c23a73e5a">StruttureDati.c</a>
 </li>
 </ul>
 
@@ -213,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 , <a class="el" href="StruttureDati_8c.html#a5bd53dd113398b8df28c065f0ef2255e">StruttureDati.c</a>
 </li>
 <li>getFilename()
-: <a class="el" href="Client_2Cache_8c.html#a73ab89ae79c4dad7bd15bd0d3367be07">Cache.c</a>
+: <a class="el" href="Cache_8c.html#a73ab89ae79c4dad7bd15bd0d3367be07">Cache.c</a>
 </li>
 <li>getModo()
 : <a class="el" href="OPE_8c.html#a14798837102781498ee08e3c4cf5561c">OPE.c</a>
@@ -252,16 +226,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 : <a class="el" href="CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5">CommandsHandler.h</a>
 , <a class="el" href="CommandsHandler_8c.html#af50eb510202dbf6e4e65c56a6e0c8fd5">CommandsHandler.c</a>
 </li>
-<li>handleLine()
-: <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#a273482281a7c4e340879ab4d5b81f0a3">Config.c</a>
-</li>
 <li>handleOpenCommand()
 : <a class="el" href="OPE_8h.html#a6eccb6ec6ec9c8375e70ab4088b511a5">OPE.h</a>
 , <a class="el" href="OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5">OPE.c</a>
 </li>
 <li>handleREADCommand()
-: <a class="el" href="Server_2inc_2READ_8h.html#a11a14c030d3457d46ad960cf8bc15a4a">READ.h</a>
-, <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">READ.c</a>
+: <a class="el" href="Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a">READ.c</a>
+, <a class="el" href="Server_2inc_2READ_8h.html#a11a14c030d3457d46ad960cf8bc15a4a">READ.h</a>
 </li>
 <li>handleSocket()
 : <a class="el" href="server_8c.html#ac53af003472a20c81247bd125288a4c8">server.c</a>
@@ -294,11 +265,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>loadConfig()
-: <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#ad5ed6ddd9940c0097cc91774056df1c2">Config.c</a>
+: <a class="el" href="Config_8c.html#a5b6baa60f72c2a81a203e279eff99749">Config.c</a>
 , <a class="el" href="Server_2inc_2Config_8h.html#a5b6baa60f72c2a81a203e279eff99749">Config.h</a>
 </li>
 <li>logM()
-: <a class="el" href="Client_2Utils_8c.html#a1f6240c9883eba86a3a1dc5e8ea77338">Utils.c</a>
+: <a class="el" href="Server_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">Utils.h</a>
+, <a class="el" href="Client_2Utils_8c.html#a1f6240c9883eba86a3a1dc5e8ea77338">Utils.c</a>
 , <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">Utils.h</a>
 , <a class="el" href="Server_2Utils_8c.html#a1f6240c9883eba86a3a1dc5e8ea77338">Utils.c</a>
 </li>
@@ -309,33 +281,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <li>main()
 : <a class="el" href="testBinario_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">testBinario.c</a>
 , <a class="el" href="testFillFS_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">testFillFS.c</a>
-, <a class="el" href="testHeartBeating_8c.html#a0ddf1224851353fc92bfbff6f499fa97">testHeartBeating.c</a>
 , <a class="el" href="testInvalidazione_8c.html#a0ddf1224851353fc92bfbff6f499fa97">testInvalidazione.c</a>
-, <a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">server.c</a>
-, <a class="el" href="testOpenErrors_8c.html#a0ddf1224851353fc92bfbff6f499fa97">testOpenErrors.c</a>
-, <a class="el" href="enum_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">enum.c</a>
 , <a class="el" href="testWrite_8c.html#a0ddf1224851353fc92bfbff6f499fa97">testWrite.c</a>
-, <a class="el" href="Prove_2Cache_2Cache_8c.html#a840291bc02cba5474a4cb46a9b9566fe">Cache.c</a>
-, <a class="el" href="file_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">file.c</a>
-, <a class="el" href="Prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">Prova.c</a>
-, <a class="el" href="Prove_2Parsing_01file_01Config_2Config_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">Config.c</a>
-, <a class="el" href="write_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">write.c</a>
-, <a class="el" href="copy_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">copy.c</a>
-, <a class="el" href="Threading_8c.html#a840291bc02cba5474a4cb46a9b9566fe">Threading.c</a>
-, <a class="el" href="testRead_8c.html#a0ddf1224851353fc92bfbff6f499fa97">testRead.c</a>
-, <a class="el" href="Open_01e_01modalita_01apertura_2prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">prova.c</a>
-, <a class="el" href="parseinput_8c.html#a0ddf1224851353fc92bfbff6f499fa97">parseinput.c</a>
+, <a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">server.c</a>
 , <a class="el" href="testOpen_8c.html#a0ddf1224851353fc92bfbff6f499fa97">testOpen.c</a>
-, <a class="el" href="pointerToPointers_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">pointerToPointers.c</a>
-, <a class="el" href="prova_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">prova.c</a>
-, <a class="el" href="mmapStruttureDati_8c.html#a840291bc02cba5474a4cb46a9b9566fe">mmapStruttureDati.c</a>
-, <a class="el" href="read__copy_8c.html#a0ddf1224851353fc92bfbff6f499fa97">read_copy.c</a>
-, <a class="el" href="strtol_8c.html#a0ddf1224851353fc92bfbff6f499fa97">strtol.c</a>
-, <a class="el" href="BTperTest_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">BTperTest.c</a>
-, <a class="el" href="mmapStrutturaEasier_8c.html#a840291bc02cba5474a4cb46a9b9566fe">mmapStrutturaEasier.c</a>
-, <a class="el" href="Mmap_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">Mmap.c</a>
-, <a class="el" href="fseek_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">fseek.c</a>
-, <a class="el" href="provasign_8c.html#a840291bc02cba5474a4cb46a9b9566fe">provasign.c</a>
+, <a class="el" href="testHeartBeating_8c.html#a0ddf1224851353fc92bfbff6f499fa97">testHeartBeating.c</a>
+, <a class="el" href="testOpenErrors_8c.html#a0ddf1224851353fc92bfbff6f499fa97">testOpenErrors.c</a>
+, <a class="el" href="testRead_8c.html#a0ddf1224851353fc92bfbff6f499fa97">testRead.c</a>
 </li>
 <li>mydfs_close()
 : <a class="el" href="Client_2CLOSE_8c.html#a8aefec12977b01fcb2e74b1d2e2ba49b">CLOSE.c</a>
@@ -354,33 +306,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 , <a class="el" href="WRITE_8h.html#aba2d6c2aad45c7165d6aeb0cee704d3f">WRITE.h</a>
 </li>
 <li>myExit()
-: <a class="el" href="Server_2Utils_8c.html#a44499e7455f77c00c1daa769f57eca5c">Utils.c</a>
-, <a class="el" href="Server_2inc_2Utils_8h.html#a44499e7455f77c00c1daa769f57eca5c">Utils.h</a>
+: <a class="el" href="Server_2inc_2Utils_8h.html#a44499e7455f77c00c1daa769f57eca5c">Utils.h</a>
+, <a class="el" href="Server_2Utils_8c.html#a44499e7455f77c00c1daa769f57eca5c">Utils.c</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
 <li>parseInput()
-: <a class="el" href="parseinput_8c.html#affea8c811909deed86d0167131e471d7">parseinput.c</a>
-, <a class="el" href="server_8c.html#affea8c811909deed86d0167131e471d7">server.c</a>
-</li>
-<li>permute()
-: <a class="el" href="BTperTest_8c.html#a9536d4b864d34a8c8bef3f7dc3a775d6">BTperTest.c</a>
-</li>
-<li>print_list()
-: <a class="el" href="mmapStrutturaEasier_8c.html#a8d44ef7c1f6aebb2ebce1672ca2661ed">mmapStrutturaEasier.c</a>
-, <a class="el" href="mmapStruttureDati_8c.html#a8d44ef7c1f6aebb2ebce1672ca2661ed">mmapStruttureDati.c</a>
-</li>
-<li>printaStruct()
-: <a class="el" href="terzo_8h.html#a332a74378bd8e4ece2516bcc7b5952c4">terzo.h</a>
-, <a class="el" href="terzo_8c.html#a332a74378bd8e4ece2516bcc7b5952c4">terzo.c</a>
+: <a class="el" href="server_8c.html#affea8c811909deed86d0167131e471d7">server.c</a>
 </li>
 <li>printErr_s()
 : <a class="el" href="Client_2Utils_8c.html#ac590e2c9c7dcdea6f86e8e2a173218fa">Utils.c</a>
-</li>
-<li>prova()
-: <a class="el" href="enum_8c.html#abc6732f40ca2d5171a75be7460aacc07">enum.c</a>
 </li>
 </ul>
 
@@ -391,7 +328,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </li>
 <li>readRequest()
 : <a class="el" href="Cache_8h.html#ae530ba131c65658674dd0d0b3fb2ea7c">Cache.h</a>
-, <a class="el" href="Client_2Cache_8c.html#ae530ba131c65658674dd0d0b3fb2ea7c">Cache.c</a>
+, <a class="el" href="Cache_8c.html#ae530ba131c65658674dd0d0b3fb2ea7c">Cache.c</a>
 </li>
 </ul>
 
@@ -405,7 +342,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </li>
 <li>sig_handler()
 : <a class="el" href="server_8c.html#ae9c795678d372dfe604060a8ed43c63f">server.c</a>
-, <a class="el" href="provasign_8c.html#a4f31a6fd48ee5d4579ae4aaaa3cae285">provasign.c</a>
 </li>
 <li>spawnHeartBeat()
 : <a class="el" href="Client_2Heartbeating_8c.html#a996f23ff45bfbedeb9b64f6b030122f8">Heartbeating.c</a>
@@ -421,11 +357,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 : <a class="el" href="server_8c.html#a5e7b14672f9e2c9fa99b363004afb8e8">server.c</a>
 </li>
 <li>stripCommand()
-: <a class="el" href="Server_2Utils_8c.html#a99eec54b0611d557e3e4eb1e783d9699">Utils.c</a>
-, <a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">Utils.h</a>
-</li>
-<li>swap()
-: <a class="el" href="BTperTest_8c.html#af2bb6bb3bd12a21a02bd08e94b41085f">BTperTest.c</a>
+: <a class="el" href="Server_2inc_2Utils_8h.html#ac26fe6c49ab17caab523c2410afb27c1">Utils.h</a>
+, <a class="el" href="Server_2Utils_8c.html#a99eec54b0611d557e3e4eb1e783d9699">Utils.c</a>
 </li>
 </ul>
 
@@ -473,7 +406,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 
 <h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
 <li>writeCache()
-: <a class="el" href="Client_2Cache_8c.html#a686e517ab500f68c40c03bfbc3e2e2fd">Cache.c</a>
+: <a class="el" href="Cache_8c.html#a686e517ab500f68c40c03bfbc3e2e2fd">Cache.c</a>
 , <a class="el" href="Cache_8h.html#a686e517ab500f68c40c03bfbc3e2e2fd">Cache.h</a>
 </li>
 <li>writeTo()
@@ -485,7 +418,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <hr class="footer"/><address class="footer"><small>
 Generato da &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.7
+</a> 1.8.11
 </small></address>
 </body>
 </html>

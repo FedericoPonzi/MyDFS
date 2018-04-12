@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['mainfile',['mainFile',['../Prova_8c.html#ab1efb3c7e72a52568def0cde719eab1c',1,'mainFile():&#160;Prova.c'],['../second_8h.html#ab1efb3c7e72a52568def0cde719eab1c',1,'mainFile():&#160;Prova.c']]],
-  ['modo',['modo',['../structMyDFSId.html#a98bc5ce1a7734459d8b81c997da4e9f0',1,'MyDFSId::modo()'],['../structSocketIdList.html#a84ef1b1879e61c17fe09e27e2038d0ee',1,'SocketIdList::modo()'],['../structOpenedFile.html#a6d9f22ff6ba81506ba9c4a60f27c4f32',1,'OpenedFile::modo()']]],
-  ['mutex',['mutex',['../StruttureDati_8h.html#a8647861982974418fd65cf3dca69c54e',1,'mutex():&#160;StruttureDati.c'],['../StruttureDati_8c.html#a8647861982974418fd65cf3dca69c54e',1,'mutex():&#160;StruttureDati.c']]]
+  ['next',['next',['../structWriteOp.html#ab10157ced397c43b41d1e77a6372a43c',1,'WriteOp::next()'],['../structReadOp.html#ac84186a2d784cb2fbd0c71dd7d5df78d',1,'ReadOp::next()'],['../structSocketIdList.html#a6a4ac9d91704e30a162d520bca97a270',1,'SocketIdList::next()'],['../structOpenedFile.html#a1d8b0791af363423c6d93a0699237718',1,'OpenedFile::next()']]],
+  ['numberalivechilds',['numberAliveChilds',['../Config_8c.html#ad588b9329591f013097f9531c643a262',1,'numberAliveChilds():&#160;Config.c'],['../Server_2inc_2Config_8h.html#ad588b9329591f013097f9531c643a262',1,'numberAliveChilds():&#160;Config.c']]],
+  ['numerocon',['numeroCon',['../Config_8c.html#a6fa40559d133e806762dd11ebaec522e',1,'numeroCon():&#160;Config.c'],['../Server_2inc_2Config_8h.html#a6fa40559d133e806762dd11ebaec522e',1,'numeroCon():&#160;Config.c']]]
 ];

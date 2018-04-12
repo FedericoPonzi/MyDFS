@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>MyDFS: Elementi globali</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MyDFS
    &#160;<span id="projectnumber">1</span>
    </div>
@@ -32,7 +33,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generato da Doxygen 1.8.7 -->
+<!-- Generato da Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
@@ -72,8 +73,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       <li><a href="globals_func.html"><span>Funzioni</span></a></li>
       <li><a href="globals_vars.html"><span>Variabili</span></a></li>
       <li class="current"><a href="globals_type.html"><span>Ridefinizioni&#160;di&#160;tipo&#160;(typedef)</span></a></li>
-      <li><a href="globals_enum.html"><span>Tipi&#160;enumerati&#160;(enum)</span></a></li>
-      <li><a href="globals_eval.html"><span>Valori&#160;del&#160;tipo&#160;enumerato</span></a></li>
       <li><a href="globals_defs.html"><span>Definizioni</span></a></li>
     </ul>
   </div>
@@ -83,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valori del tipo enumerato</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definizioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pagine</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,24 +96,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <li>CacheRequest
 : <a class="el" href="Client_2inc_2Config_8h.html#ac3da086aea32abd9cd7baaa4bf292648">Config.h</a>
 </li>
-<li>list_node
-: <a class="el" href="mmapStrutturaEasier_8c.html#a2a5f57f8e548267b907c998311963e4b">mmapStrutturaEasier.c</a>
-</li>
 <li>MyDFSId
 : <a class="el" href="Client_2inc_2Config_8h.html#a076074e6bb7cb3ee65df6e2bc8f06931">Config.h</a>
 </li>
 <li>OpenedFile
-: <a class="el" href="second_8h.html#aeb1a59f39eb8759e5c41cdfe0a53648c">second.h</a>
-, <a class="el" href="StruttureDati_8h.html#aeb1a59f39eb8759e5c41cdfe0a53648c">StruttureDati.h</a>
+: <a class="el" href="StruttureDati_8h.html#aeb1a59f39eb8759e5c41cdfe0a53648c">StruttureDati.h</a>
 </li>
 <li>ReadOp
 : <a class="el" href="Client_2inc_2Config_8h.html#a9073086354960a2d9ee6972ce86a7cc8">Config.h</a>
 </li>
 <li>SocketIdList
 : <a class="el" href="StruttureDati_8h.html#a0cff94b71c2fd35e1c3b8c56b181781e">StruttureDati.h</a>
-</li>
-<li>Struttura
-: <a class="el" href="Mmap_8c.html#a43df2cbbc8d75df3589a1c4cf505f668">Mmap.c</a>
 </li>
 <li>ThreadArgs
 : <a class="el" href="Client_2Heartbeating_8c.html#aa9b2d8627ecc6bba91f8f1fa704f393d">Heartbeating.c</a>
@@ -128,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <hr class="footer"/><address class="footer"><small>
 Generato da &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.7
+</a> 1.8.11
 </small></address>
 </body>
 </html>

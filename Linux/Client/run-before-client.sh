@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
-echo "CIAO MONDO SONO UN FILE DI TEST! :D mi devo creare il file ogni volta che voglio fare una prova percio ciao" > /tmp/file.txt
+echo "This will create some test files in your tmp directory."
+echo "CIAO MONDO SONO UN FILE DI TEST!" > /tmp/file.txt
 mkdir /tmp/prova
-echo "CIAO MONDO SONO UN FILE DI TEST! :D mi devo creare il file ogni volta che voglio fare una prova percio ciao" > /tmp/prova/file.txt
+echo "CIAO MONDO SONO UN FILE DI TEST numero 2!" > /tmp/prova/file.txt

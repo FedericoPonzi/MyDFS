@@ -1,19 +1,15 @@
 var searchData=
 [
-  ['read',['READ',['../md_READ.html',1,'']]],
-  ['read_2ec',['READ.c',['../Client_2READ_8c.html',1,'']]],
-  ['read_2ec',['READ.c',['../Server_2READ_8c.html',1,'']]],
-  ['read_2eh',['READ.h',['../Client_2inc_2READ_8h.html',1,'']]],
-  ['read_2eh',['READ.h',['../Server_2inc_2READ_8h.html',1,'']]],
-  ['read_2emd',['READ.md',['../READ_8md.html',1,'']]],
-  ['read_5fcopy_2ec',['read_copy.c',['../read__copy_8c.html',1,'']]],
-  ['readcommand',['READCOMMAND',['../Client_2inc_2Config_8h.html#add84839609e88a57d40aaa46a9f73ba9',1,'READCOMMAND():&#160;Config.h'],['../Server_2inc_2Config_8h.html#add84839609e88a57d40aaa46a9f73ba9',1,'READCOMMAND():&#160;Config.h']]],
-  ['readfrom',['readFrom',['../Client_2READ_8c.html#a0b8dfa171c3b5c784fb6cba643728110',1,'READ.c']]],
-  ['readlist',['readList',['../structMyDFSId.html#a8a4360512d45c22b6d8e980967c7dd32',1,'MyDFSId']]],
-  ['readlistmutex',['readListMutex',['../structMyDFSId.html#a71f51c82d7133bfc16fcffeb4c395da0',1,'MyDFSId']]],
-  ['readme_2emd',['README.md',['../README_8md.html',1,'']]],
-  ['readop',['ReadOp',['../structReadOp.html',1,'ReadOp'],['../Client_2inc_2Config_8h.html#a9073086354960a2d9ee6972ce86a7cc8',1,'ReadOp():&#160;Config.h']]],
-  ['readrequest',['readRequest',['../Client_2Cache_8c.html#ae530ba131c65658674dd0d0b3fb2ea7c',1,'readRequest(MyDFSId *id, long pos, unsigned int size, CacheRequest *req):&#160;Cache.c'],['../Cache_8h.html#ae530ba131c65658674dd0d0b3fb2ea7c',1,'readRequest(MyDFSId *id, long pos, unsigned int size, CacheRequest *req):&#160;Cache.c']]],
-  ['recv_5ftimeout',['RECV_TIMEOUT',['../Server_2inc_2Config_8h.html#aa882328bca54a0c7249a313d7d1f7d29',1,'Config.h']]],
-  ['rootpath',['rootPath',['../Server_2Config_8c.html#a8c5e63abddd4a2647c2310bde6f15fd7',1,'rootPath():&#160;Config.c'],['../Server_2inc_2Config_8h.html#a8c5e63abddd4a2647c2310bde6f15fd7',1,'rootPath():&#160;Config.c'],['../Server_2Config_8c.html#a940ff87c8a72e7a67a558568d5852c62',1,'ROOTPATH():&#160;Config.c']]]
+  ['parseinput',['parseInput',['../server_8c.html#affea8c811909deed86d0167131e471d7',1,'server.c']]],
+  ['ping_5ftime',['PING_TIME',['../Server_2inc_2Config_8h.html#a21c8feef84ea8774c2061af39050441c',1,'Config.h']]],
+  ['portnumb',['PORTNUMB',['../Config_8c.html#a0d9f198a3b0fbbf754c334769c7f6c34',1,'Config.c']]],
+  ['portnumber',['portNumber',['../Config_8c.html#ae53ea95e0769743e3a9e0935564b3739',1,'portNumber():&#160;Config.c'],['../Server_2inc_2Config_8h.html#ae53ea95e0769743e3a9e0935564b3739',1,'portNumber():&#160;Config.c']]],
+  ['pos',['pos',['../structWriteOp.html#a0cd1c3d781c93b6feaaa5d01606fdc3d',1,'WriteOp::pos()'],['../structReadOp.html#a5659a814b4b0696cc017d5ea088eb2c1',1,'ReadOp::pos()'],['../structCacheRequest.html#a9b1e1f0498ee02f22da75fe915334873',1,'CacheRequest::pos()']]],
+  ['posizione',['posizione',['../Log_8txt.html#a3b1541898eda3f58cea25c3d1a43c2a1',1,'Log.txt']]],
+  ['printerr_5fs',['printErr_s',['../Client_2Utils_8c.html#ac590e2c9c7dcdea6f86e8e2a173218fa',1,'Utils.c']]],
+  ['procorthread',['procOrThread',['../Config_8c.html#af05e592fecdd2c97fa06eafcb1c8e2c3',1,'procOrThread():&#160;Config.c'],['../Server_2inc_2Config_8h.html#af05e592fecdd2c97fa06eafcb1c8e2c3',1,'procOrThread():&#160;Config.c']]],
+  ['procortre',['PROCORTRE',['../Config_8c.html#aaa861939ac01146e55e4d0d71f8f7ae6',1,'Config.c']]],
+  ['prt_5fmsg_5fsize',['PRT_MSG_SIZE',['../OPE_8c.html#abf5dc13ad8c5442a46d67adb678d1541',1,'OPE.c']]],
+  ['pthreadargs',['pthreadArgs',['../structpthreadArgs.html',1,'']]],
+  ['ptid',['ptid',['../structpthreadArgs.html#abc763a99a614f8e00c11fbbece336516',1,'pthreadArgs::ptid()'],['../structOpenedFile.html#a33cb5376fd14129a1635cf142c0781a6',1,'OpenedFile::ptid()'],['../Log_8txt.html#a433c05c9305a39a488da369607037e4a',1,'ptid():&#160;Log.txt'],['../Log_8txt.html#a5fdcc7342b0f785d116f2807b6681647',1,'Ptid():&#160;Log.txt']]]
 ];

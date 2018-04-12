@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['backlog',['BACKLOG',['../Server_2inc_2Config_8h.html#aeefbbafa97642defe3ee6c3080b7d66f',1,'Config.h']]],
-  ['barriera',['barriera',['../structThreadArgs.html#a7ca0bdd546803a7e595b376aac79347c',1,'ThreadArgs']]],
-  ['btpertest_2ec',['BTperTest.c',['../BTperTest_8c.html',1,'']]],
-  ['buf_5fsize',['BUF_SIZE',['../read__copy_8c.html#a6821bafc3c88dfb2e433a095df9940c6',1,'read_copy.c']]],
-  ['buffsize',['BUFFSIZE',['../Client_2Heartbeating_8c.html#a39912bfe2a55f30e269196f9141d845d',1,'Heartbeating.c']]],
-  ['buffsizeread',['BUFFSIZEREAD',['../Client_2inc_2Config_8h.html#af9a3b0ff5be08d6b9a70217971e632b9',1,'Config.h']]]
+  ['acceptmutex',['acceptMutex',['../Config_8c.html#a1b7ba52f02ee92a5963c7aa917b10c2b',1,'acceptMutex():&#160;Config.c'],['../Server_2inc_2Config_8h.html#a1b7ba52f02ee92a5963c7aa917b10c2b',1,'acceptMutex():&#160;Config.c']]],
+  ['addwriteop',['addWriteOp',['../WRITE_8c.html#af30a6d079f7040855c747e2bea7a0e1b',1,'WRITE.c']]],
+  ['appendopenedfile',['appendOpenedFile',['../StruttureDati_8h.html#ae7b0c6e030593fdd15b723ef1c643b12',1,'appendOpenedFile(char *nomefile, int modo, OpenedFile **id):&#160;StruttureDati.c'],['../StruttureDati_8c.html#a12dc3ffb088dc6be12e6d5d2ed911031',1,'appendOpenedFile(char *nomeFile, int modo, OpenedFile **id):&#160;StruttureDati.c']]],
+  ['appendreadrequest',['appendReadRequest',['../Client_2READ_8c.html#afc0e31d500c5ae7b2a0f1aaa5a4ab78b',1,'READ.c']]],
+  ['alcuni_20appunti_20sulla_20open',['Alcuni appunti sulla open',['../md_OPE.html',1,'']]]
 ];

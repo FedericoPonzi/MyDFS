@@ -48,4 +48,10 @@
 /doxygen_docs
 /doxygen.tag
 /build
-/latex
+latex
+html
+
+# Other
+Log.txt
+/Linux/Server/Server
+/Linux/Client/Client

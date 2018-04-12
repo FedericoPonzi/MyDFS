@@ -1,13 +1,13 @@
-\#\+Alcuni appunti sulla R\+E\+A\+D \subsection*{Funzionamento}
+\#\+Alcuni appunti sulla R\+E\+AD \subsection*{Funzionamento}
 
 La funzione mydfs\+\_\+read funziona per ovvi motivi molto a contatto con il modulo di (Cache)\mbox{[}\hyperlink{Cache_8md}{Cache.\+md}\mbox{]}.
 
 Il prototipo di una mydfs\+\_\+read è\+:
 
-Quando un utente richiede la lettura di un file, viene fatta una richiesta alla cache per sapere se i dati richiesti dall' utente sono o meno presenti all' interno della cache.
+Quando un utente richiede la lettura di un file, viene fatta una richiesta alla cache per sapere se i dati richiesti dall\textquotesingle{} utente sono o meno presenti all\textquotesingle{} interno della cache.
 \begin{DoxyItemize}
-\item In caso di H\+I\+T\+: tutto apposto, viene effettuata una innocua read all' interno del file di cache appositamente creato. Viene aggiornato il puntatore del file (che viene usato proprio per effettuare la read) e riportata la quantità di dati richiesta dall' utente.
-\item In caso di M\+I\+S\+S\+: la cache riempie una struct Cache\+Req con la posizione da cui, nel file di cache, c'è un buco che bisogna coprire per permettere all 'utente di effettuare la sua lettura. La read poi si prende carico di inviare la richiesta, e richiede alla cache la scrittura dei dati ricevuti nel file di cache. Premessi n buchi, l' n+1 richiesta alla Cache ci porterà invevitabilmente ad una H\+I\+T.
+\item In caso di H\+IT\+: tutto apposto, viene effettuata una innocua read all\textquotesingle{} interno del file di cache appositamente creato. Viene aggiornato il puntatore del file (che viene usato proprio per effettuare la read) e riportata la quantità di dati richiesta dall\textquotesingle{} utente.
+\item In caso di M\+I\+SS\+: la cache riempie una struct Cache\+Req con la posizione da cui, nel file di cache, c\textquotesingle{}è un buco che bisogna coprire per permettere all \textquotesingle{}utente di effettuare la sua lettura. La read poi si prende carico di inviare la richiesta, e richiede alla cache la scrittura dei dati ricevuti nel file di cache. Premessi n buchi, l\textquotesingle{} n+1 richiesta alla Cache ci porterà invevitabilmente ad una H\+IT.
 \end{DoxyItemize}
 
 \subsubsection*{fseek}
@@ -16,7 +16,7 @@ Ref\+: \href{http://www.cplusplus.com/reference/cstdio/fseek/}{\tt http\+://www.
 
 
 \begin{DoxyItemize}
-\item S\+E\+E\+K\+\_\+\+S\+E\+T Beginning of file
-\item S\+E\+E\+K\+\_\+\+C\+U\+R Current position of the file pointer
-\item S\+E\+E\+K\+\_\+\+E\+N\+D End of file 
+\item S\+E\+E\+K\+\_\+\+S\+ET Beginning of file
+\item S\+E\+E\+K\+\_\+\+C\+UR Current position of the file pointer
+\item S\+E\+E\+K\+\_\+\+E\+ND End of file 
 \end{DoxyItemize}

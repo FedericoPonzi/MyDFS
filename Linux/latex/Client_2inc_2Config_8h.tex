@@ -1,6 +1,5 @@
-\hypertarget{Client_2inc_2Config_8h}{\section{Riferimenti per il file Client/inc/\+Config.h}
+\hypertarget{Client_2inc_2Config_8h}{}\section{Riferimenti per il file Client/inc/\+Config.h}
 \label{Client_2inc_2Config_8h}\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-}
 {\ttfamily \#include $<$errno.\+h$>$}\\*
 {\ttfamily \#include $<$pthread.\+h$>$}\\*
 \subsection*{Strutture dati}
@@ -11,23 +10,23 @@ struct \hyperlink{structWriteOp}{Write\+Op}
 struct \hyperlink{structReadOp}{Read\+Op}
 \begin{DoxyCompactList}\small\item\em Lista di operazione di lettura. \end{DoxyCompactList}\item 
 struct \hyperlink{structMyDFSId}{My\+D\+F\+S\+Id}
-\item 
+\begin{DoxyCompactList}\small\item\em Contiene tutte le informazioni utili per gestire il flusso di operazioni. \end{DoxyCompactList}\item 
 struct \hyperlink{structCacheRequest}{Cache\+Request}
-\begin{DoxyCompactList}\small\item\em \hyperlink{structStruttura}{Struttura} dati usata dalla cache, per dire alla read da che posizione del file c'e' un buco. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Struttura dati usata dalla cache, per dire alla read da che posizione del file c\textquotesingle{}e\textquotesingle{} un buco. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Definizioni}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\+E\+B\+U\+G}~1
-\begin{DoxyCompactList}\small\item\em Modalita' debug\+: \end{DoxyCompactList}\item 
-\#define \hyperlink{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D}~\char`\"{}O\+P\+E\+N\char`\"{}
+\#define \hyperlink{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\+E\+B\+UG}~1
+\begin{DoxyCompactList}\small\item\em Modalita\textquotesingle{} debug\+: \end{DoxyCompactList}\item 
+\#define \hyperlink{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}{O\+P\+E\+N\+C\+O\+M\+M\+A\+ND}~\char`\"{}O\+P\+EN\char`\"{}
 \item 
-\#define \hyperlink{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D}~\char`\"{}C\+L\+O\+S\char`\"{}
+\#define \hyperlink{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+ND}~\char`\"{}C\+L\+OS\char`\"{}
 \item 
-\#define \hyperlink{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D}~\char`\"{}R\+E\+A\+D\char`\"{}
+\#define \hyperlink{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}{R\+E\+A\+D\+C\+O\+M\+M\+A\+ND}~\char`\"{}R\+E\+AD\char`\"{}
 \item 
-\#define \hyperlink{Client_2inc_2Config_8h_ac42367fe5c999ec6650de83e9d72fe8c}{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T}~9001
+\#define \hyperlink{Client_2inc_2Config_8h_ac42367fe5c999ec6650de83e9d72fe8c}{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT}~9001
 \item 
-\#define \hyperlink{Client_2inc_2Config_8h_af9a3b0ff5be08d6b9a70217971e632b9}{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D}~65535
+\#define \hyperlink{Client_2inc_2Config_8h_af9a3b0ff5be08d6b9a70217971e632b9}{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+AD}~65535
 \end{DoxyCompactItemize}
 \subsection*{Ridefinizioni di tipo (typedef)}
 \begin{DoxyCompactItemize}
@@ -37,73 +36,81 @@ typedef struct \hyperlink{structWriteOp}{Write\+Op} \hyperlink{Client_2inc_2Conf
 typedef struct \hyperlink{structReadOp}{Read\+Op} \hyperlink{Client_2inc_2Config_8h_a9073086354960a2d9ee6972ce86a7cc8}{Read\+Op}
 \begin{DoxyCompactList}\small\item\em Lista di operazione di lettura. \end{DoxyCompactList}\item 
 typedef struct \hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} \hyperlink{Client_2inc_2Config_8h_a076074e6bb7cb3ee65df6e2bc8f06931}{My\+D\+F\+S\+Id}
-\item 
+\begin{DoxyCompactList}\small\item\em Contiene tutte le informazioni utili per gestire il flusso di operazioni. \end{DoxyCompactList}\item 
 typedef struct \hyperlink{structCacheRequest}{Cache\+Request} \hyperlink{Client_2inc_2Config_8h_ac3da086aea32abd9cd7baaa4bf292648}{Cache\+Request}
-\begin{DoxyCompactList}\small\item\em \hyperlink{structStruttura}{Struttura} dati usata dalla cache, per dire alla read da che posizione del file c'e' un buco. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Struttura dati usata dalla cache, per dire alla read da che posizione del file c\textquotesingle{}e\textquotesingle{} un buco. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle definizioni}
-\hypertarget{Client_2inc_2Config_8h_af9a3b0ff5be08d6b9a70217971e632b9}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D@{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D}}
-\index{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D@{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+A\+D~65535}}\label{Client_2inc_2Config_8h_af9a3b0ff5be08d6b9a70217971e632b9}
-\hypertarget{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D@{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D}}
-\index{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D@{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D~\char`\"{}C\+L\+O\+S\char`\"{}}}\label{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}
+\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+AD@{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+AD}}
+\index{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+AD@{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+AD}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
+\subsubsection[{\texorpdfstring{B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+AD}{BUFFSIZEREAD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+S\+I\+Z\+E\+R\+E\+AD~65535}\hypertarget{Client_2inc_2Config_8h_af9a3b0ff5be08d6b9a70217971e632b9}{}\label{Client_2inc_2Config_8h_af9a3b0ff5be08d6b9a70217971e632b9}
+\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+ND@{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+ND}}
+\index{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+ND@{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+ND}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
+\subsubsection[{\texorpdfstring{C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+ND}{CLOSECOMMAND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+ND~\char`\"{}C\+L\+OS\char`\"{}}\hypertarget{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}{}\label{Client_2inc_2Config_8h_a62cb50fa7a98a13378476e83137c8d7f}
 
 
 Referenziato da handle\+Command(), e mydfs\+\_\+close().
 
-\hypertarget{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!D\+E\+B\+U\+G@{D\+E\+B\+U\+G}}
-\index{D\+E\+B\+U\+G@{D\+E\+B\+U\+G}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{D\+E\+B\+U\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+U\+G~1}}\label{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}
+\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!D\+E\+B\+UG@{D\+E\+B\+UG}}
+\index{D\+E\+B\+UG@{D\+E\+B\+UG}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
+\subsubsection[{\texorpdfstring{D\+E\+B\+UG}{DEBUG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+UG~1}\hypertarget{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}{}\label{Client_2inc_2Config_8h_ad72dbcf6d0153db1b8d8a58001feed83}
 
 
-Modalita' debug\+: 
+Modalita\textquotesingle{} debug\+: 
 
 
 
 Referenziato da deamonize(), e log\+M().
 
-\hypertarget{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D@{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D}}
-\index{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D@{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+E\+N\+C\+O\+M\+M\+A\+N\+D~\char`\"{}O\+P\+E\+N\char`\"{}}}\label{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}
+\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!O\+P\+E\+N\+C\+O\+M\+M\+A\+ND@{O\+P\+E\+N\+C\+O\+M\+M\+A\+ND}}
+\index{O\+P\+E\+N\+C\+O\+M\+M\+A\+ND@{O\+P\+E\+N\+C\+O\+M\+M\+A\+ND}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
+\subsubsection[{\texorpdfstring{O\+P\+E\+N\+C\+O\+M\+M\+A\+ND}{OPENCOMMAND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+E\+N\+C\+O\+M\+M\+A\+ND~\char`\"{}O\+P\+EN\char`\"{}}\hypertarget{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}{}\label{Client_2inc_2Config_8h_a4c7025999674d0b90a4f9498c8ab849e}
 
 
-Referenziato da handle\+Command().
+Referenziato da handle\+Command(), e mydfs\+\_\+open().
 
-\hypertarget{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D@{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D}}
-\index{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D@{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D~\char`\"{}R\+E\+A\+D\char`\"{}}}\label{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}
+\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!R\+E\+A\+D\+C\+O\+M\+M\+A\+ND@{R\+E\+A\+D\+C\+O\+M\+M\+A\+ND}}
+\index{R\+E\+A\+D\+C\+O\+M\+M\+A\+ND@{R\+E\+A\+D\+C\+O\+M\+M\+A\+ND}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
+\subsubsection[{\texorpdfstring{R\+E\+A\+D\+C\+O\+M\+M\+A\+ND}{READCOMMAND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+A\+D\+C\+O\+M\+M\+A\+ND~\char`\"{}R\+E\+AD\char`\"{}}\hypertarget{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}{}\label{Client_2inc_2Config_8h_add84839609e88a57d40aaa46a9f73ba9}
 
 
 Referenziato da handle\+Command(), e send\+Read\+Command().
 
-\hypertarget{Client_2inc_2Config_8h_ac42367fe5c999ec6650de83e9d72fe8c}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T@{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T}}
-\index{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T@{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+R\+T~9001}}\label{Client_2inc_2Config_8h_ac42367fe5c999ec6650de83e9d72fe8c}
+\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT@{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT}}
+\index{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT@{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
+\subsubsection[{\texorpdfstring{S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT}{SERVER_PORT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT~9001}\hypertarget{Client_2inc_2Config_8h_ac42367fe5c999ec6650de83e9d72fe8c}{}\label{Client_2inc_2Config_8h_ac42367fe5c999ec6650de83e9d72fe8c}
+
+
+Referenziato da mydfs\+\_\+open().
+
 
 
 \subsection{Documentazione delle ridefinizioni di tipo (typedef)}
-\hypertarget{Client_2inc_2Config_8h_ac3da086aea32abd9cd7baaa4bf292648}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!Cache\+Request@{Cache\+Request}}
+\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!Cache\+Request@{Cache\+Request}}
 \index{Cache\+Request@{Cache\+Request}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{Cache\+Request}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Cache\+Request} {\bf Cache\+Request}}}\label{Client_2inc_2Config_8h_ac3da086aea32abd9cd7baaa4bf292648}
+\subsubsection[{\texorpdfstring{Cache\+Request}{CacheRequest}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Cache\+Request} {\bf Cache\+Request}}\hypertarget{Client_2inc_2Config_8h_ac3da086aea32abd9cd7baaa4bf292648}{}\label{Client_2inc_2Config_8h_ac3da086aea32abd9cd7baaa4bf292648}
 
 
-\hyperlink{structStruttura}{Struttura} dati usata dalla cache, per dire alla read da che posizione del file c'e' un buco. 
+Struttura dati usata dalla cache, per dire alla read da che posizione del file c\textquotesingle{}e\textquotesingle{} un buco. 
 
-\hypertarget{Client_2inc_2Config_8h_a076074e6bb7cb3ee65df6e2bc8f06931}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
+\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
 \index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{My\+D\+F\+S\+Id}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf My\+D\+F\+S\+Id}  {\bf My\+D\+F\+S\+Id}}}\label{Client_2inc_2Config_8h_a076074e6bb7cb3ee65df6e2bc8f06931}
-\hypertarget{Client_2inc_2Config_8h_a9073086354960a2d9ee6972ce86a7cc8}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!Read\+Op@{Read\+Op}}
+\subsubsection[{\texorpdfstring{My\+D\+F\+S\+Id}{MyDFSId}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf My\+D\+F\+S\+Id}  {\bf My\+D\+F\+S\+Id}}\hypertarget{Client_2inc_2Config_8h_a076074e6bb7cb3ee65df6e2bc8f06931}{}\label{Client_2inc_2Config_8h_a076074e6bb7cb3ee65df6e2bc8f06931}
+
+
+Contiene tutte le informazioni utili per gestire il flusso di operazioni. 
+
+\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!Read\+Op@{Read\+Op}}
 \index{Read\+Op@{Read\+Op}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{Read\+Op}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Read\+Op}  {\bf Read\+Op}}}\label{Client_2inc_2Config_8h_a9073086354960a2d9ee6972ce86a7cc8}
+\subsubsection[{\texorpdfstring{Read\+Op}{ReadOp}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Read\+Op}  {\bf Read\+Op}}\hypertarget{Client_2inc_2Config_8h_a9073086354960a2d9ee6972ce86a7cc8}{}\label{Client_2inc_2Config_8h_a9073086354960a2d9ee6972ce86a7cc8}
 
 
 Lista di operazione di lettura. 
 
-\hypertarget{Client_2inc_2Config_8h_a41c3c7ba236a9a247ba42f8c1cfc8c2a}{\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!Write\+Op@{Write\+Op}}
+\index{Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}!Write\+Op@{Write\+Op}}
 \index{Write\+Op@{Write\+Op}!Client/inc/\+Config.\+h@{Client/inc/\+Config.\+h}}
-\subsubsection[{Write\+Op}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Write\+Op}  {\bf Write\+Op}}}\label{Client_2inc_2Config_8h_a41c3c7ba236a9a247ba42f8c1cfc8c2a}
+\subsubsection[{\texorpdfstring{Write\+Op}{WriteOp}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Write\+Op}  {\bf Write\+Op}}\hypertarget{Client_2inc_2Config_8h_a41c3c7ba236a9a247ba42f8c1cfc8c2a}{}\label{Client_2inc_2Config_8h_a41c3c7ba236a9a247ba42f8c1cfc8c2a}
 
 
 Lista di operaioni di scrittura. 

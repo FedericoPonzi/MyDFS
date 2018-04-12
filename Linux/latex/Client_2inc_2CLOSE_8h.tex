@@ -1,6 +1,5 @@
-\hypertarget{Client_2inc_2CLOSE_8h}{\section{Riferimenti per il file Client/inc/\+C\+L\+O\+S\+E.h}
+\hypertarget{Client_2inc_2CLOSE_8h}{}\section{Riferimenti per il file Client/inc/\+C\+L\+O\+SE.h}
 \label{Client_2inc_2CLOSE_8h}\index{Client/inc/\+C\+L\+O\+S\+E.\+h@{Client/inc/\+C\+L\+O\+S\+E.\+h}}
-}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
@@ -9,24 +8,26 @@ int \hyperlink{Client_2inc_2CLOSE_8h_ad666db41278616946fce866250a175af}{mydfs\+\
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Client_2inc_2CLOSE_8h_ad666db41278616946fce866250a175af}{\index{Client/inc/\+C\+L\+O\+S\+E.\+h@{Client/inc/\+C\+L\+O\+S\+E.\+h}!mydfs\+\_\+close@{mydfs\+\_\+close}}
+\index{Client/inc/\+C\+L\+O\+S\+E.\+h@{Client/inc/\+C\+L\+O\+S\+E.\+h}!mydfs\+\_\+close@{mydfs\+\_\+close}}
 \index{mydfs\+\_\+close@{mydfs\+\_\+close}!Client/inc/\+C\+L\+O\+S\+E.\+h@{Client/inc/\+C\+L\+O\+S\+E.\+h}}
-\subsubsection[{mydfs\+\_\+close}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+close (
+\subsubsection[{\texorpdfstring{mydfs\+\_\+close(\+My\+D\+F\+S\+Id $\ast$)}{mydfs_close(MyDFSId *)}}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+close (
 \begin{DoxyParamCaption}
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id}
 \end{DoxyParamCaption}
-)}}\label{Client_2inc_2CLOSE_8h_ad666db41278616946fce866250a175af}
+)}\hypertarget{Client_2inc_2CLOSE_8h_ad666db41278616946fce866250a175af}{}\label{Client_2inc_2CLOSE_8h_ad666db41278616946fce866250a175af}
 
 \begin{DoxyParams}{Parametri}
-{\em dfsid} & L' id del file che l' utente vuole chiudere. \\
+{\em dfsid} & L\textquotesingle{} id del file che l\textquotesingle{} utente vuole chiudere. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Restituisce}
--\/1 in caso di errore, 0 altrimenti. Il comando C\+L\+O\+S\+E invia anche il numero di write che sono state eseguite, quindi quante send il client dovra' mandare al server. 
+-\/1 in caso di errore, 
+
+0 altrimenti. Il comando C\+L\+O\+SE invia anche il numero di write che sono state eseguite, quindi quante send il client dovra\textquotesingle{} mandare al server. 
 \end{DoxyReturn}
 
 
-Referenzia C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+N\+D, My\+D\+F\+S\+Id\+::control\+Socket\+Id, My\+D\+F\+S\+Id\+::filename, get\+Number\+Of\+Changes(), My\+D\+F\+S\+Id\+::indirizzo, log\+M(), Write\+Op\+::next, Read\+Op\+::next, My\+D\+F\+S\+Id\+::read\+List\+Mutex, My\+D\+F\+S\+Id\+::transfer\+Socket\+Id, e upload\+Changes().
+Referenzia C\+L\+O\+S\+E\+C\+O\+M\+M\+A\+ND, My\+D\+F\+S\+Id\+::control\+Socket\+Id, My\+D\+F\+S\+Id\+::filename, get\+Number\+Of\+Changes(), My\+D\+F\+S\+Id\+::indirizzo, log\+M(), Write\+Op\+::next, Read\+Op\+::next, My\+D\+F\+S\+Id\+::read\+List\+Mutex, My\+D\+F\+S\+Id\+::transfer\+Socket\+Id, e upload\+Changes().
 
 
 

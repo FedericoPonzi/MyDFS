@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['file_2ec',['file.c',['../file_8c.html',1,'']]],
-  ['fseek_2ec',['fseek.c',['../fseek_8c.html',1,'']]]
+  ['invalidazione_2emd',['Invalidazione.md',['../Invalidazione_8md.html',1,'']]]
 ];

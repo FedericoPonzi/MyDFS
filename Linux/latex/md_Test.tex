@@ -2,10 +2,10 @@ Il file di configurazione contiene le impostazioni per il server. Le righe che i
 
 
 \begin{DoxyItemize}
-\item {\ttfamily N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+O\+N $<$number$>$}\+: Equivale al numero di thread o processi da spawnare. Ogni processo/thread gestisce una connessione (=mydfs\+\_\+open)
-\item {\ttfamily P\+R\+O\+C\+E\+S\+S\+\_\+\+O\+R\+\_\+\+T\+H\+R\+E\+A\+D $<$number$>$}\+: 1 per i processi, 0 per i threads.
-\item {\ttfamily P\+O\+R\+T\+\_\+\+N\+U\+M\+B\+E\+R 9001}\+: Numero di porta su cui il server si mette in ascolto.
-\item {\ttfamily R\+O\+O\+T\+\_\+\+P\+A\+T\+H /tmp/}\+: Path del file system su cui deve lavorare il server.
+\item {\ttfamily N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+ON $<$number$>$}\+: Equivale al numero di thread o processi da spawnare. Ogni processo/thread gestisce una connessione (=mydfs\+\_\+open)
+\item {\ttfamily P\+R\+O\+C\+E\+S\+S\+\_\+\+O\+R\+\_\+\+T\+H\+R\+E\+AD $<$number$>$}\+: 1 per i processi, 0 per i threads.
+\item {\ttfamily P\+O\+R\+T\+\_\+\+N\+U\+M\+B\+ER 9001}\+: Numero di porta su cui il server si mette in ascolto.
+\item {\ttfamily R\+O\+O\+T\+\_\+\+P\+A\+TH /tmp/}\+: Path del file system su cui deve lavorare il server.
 \end{DoxyItemize}
 
 \subsubsection*{Esempio di file di configurazione}
@@ -36,6 +36,6 @@ ROOT_PATH /tmp/
 
 \subsection*{Esempio di programma base}
 
-Un esempio di programma minimale che esegue una open e una close e' il seguente\+: \#include $<$stdio.\+h$>$ \#include \char`\"{}inc/\+O\+P\+E\+N.\+h\char`\"{} \#include \char`\"{}inc/\+C\+L\+O\+S\+E.\+h\char`\"{} \#include \char`\"{}assert.\+h\char`\"{} \#include $<$string.\+h$>$ \#include \char`\"{}inc/\+Test.\+h\char`\"{} int \hyperlink{testBinario_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()} \{ printf(\char`\"{}\mbox{[}\+T\+E\+S\+T O\+P\+E\+N\mbox{]} Iniziato \textbackslash{}n\char`\"{}); My\+D\+F\+S\+Id$\ast$ file\+Id; int error = 0; file\+Id = mydfs\+\_\+open(indirizzo, filename, M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, \&error); assert(file\+Id != N\+U\+L\+L \&\& error == 0); mydfs\+\_\+close(file\+Id); printf(\char`\"{}\mbox{[}\+Test O\+P\+E\+N superato correttamente!\mbox{]}\textbackslash{}n\char`\"{});
+Un esempio di programma minimale che esegue una open e una close e\textquotesingle{} il seguente\+: \#include $<$stdio.\+h$>$ \#include \char`\"{}inc/\+O\+P\+E\+N.\+h\char`\"{} \#include \char`\"{}inc/\+C\+L\+O\+S\+E.\+h\char`\"{} \#include \char`\"{}assert.\+h\char`\"{} \#include $<$string.\+h$>$ \#include \char`\"{}inc/\+Test.\+h\char`\"{} int \hyperlink{testBinario_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()} \{ printf(\char`\"{}\mbox{[}\+T\+E\+S\+T O\+P\+E\+N\mbox{]} Iniziato \textbackslash{}n\char`\"{}); My\+D\+F\+S\+Id$\ast$ file\+Id; int error = 0; file\+Id = mydfs\+\_\+open(indirizzo, filename, M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, \&error); assert(file\+Id != N\+U\+LL \&\& error == 0); mydfs\+\_\+close(file\+Id); printf(\char`\"{}\mbox{[}\+Test O\+P\+E\+N superato correttamente!\mbox{]}\textbackslash{}n\char`\"{});
 
-return E\+X\+I\+T\+\_\+\+S\+U\+C\+C\+E\+S\+S; \} 
+return E\+X\+I\+T\+\_\+\+S\+U\+C\+C\+E\+SS; \} 

@@ -1,6 +1,5 @@
-\hypertarget{Client_2READ_8c}{\section{Riferimenti per il file Client/\+R\+E\+A\+D.c}
+\hypertarget{Client_2READ_8c}{}\section{Riferimenti per il file Client/\+R\+E\+AD.c}
 \label{Client_2READ_8c}\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
-}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
@@ -16,7 +15,7 @@
 \begin{DoxyCompactItemize}
 \item 
 long \hyperlink{Client_2READ_8c_a478820e0a2240153b83f6a843fd55c6a}{send\+Read\+Command} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, long pos)
-\begin{DoxyCompactList}\small\item\em Manda il comando di R\+E\+A\+D, e aspetta come risposta la dimensione di quanto deve leggere all'interno della risposta. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Manda il comando di R\+E\+AD, e aspetta come risposta la dimensione di quanto deve leggere all\textquotesingle{}interno della risposta. \end{DoxyCompactList}\item 
 int \hyperlink{Client_2READ_8c_a0b8dfa171c3b5c784fb6cba643728110}{read\+From} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int size\+Rimasta, int pos)
 \begin{DoxyCompactList}\small\item\em Legge dalla socket di trasferimento buffsize dati. \end{DoxyCompactList}\item 
 int \hyperlink{Client_2READ_8c_afc0e31d500c5ae7b2a0f1aaa5a4ab78b}{append\+Read\+Request} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, int pos, int size)
@@ -26,21 +25,21 @@ int \hyperlink{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{mydfs\+\_\+rea
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Client_2READ_8c_afc0e31d500c5ae7b2a0f1aaa5a4ab78b}{\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!append\+Read\+Request@{append\+Read\+Request}}
+\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!append\+Read\+Request@{append\+Read\+Request}}
 \index{append\+Read\+Request@{append\+Read\+Request}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
-\subsubsection[{append\+Read\+Request}]{\setlength{\rightskip}{0pt plus 5cm}int append\+Read\+Request (
+\subsubsection[{\texorpdfstring{append\+Read\+Request(\+My\+D\+F\+S\+Id $\ast$id, int pos, int size)}{appendReadRequest(MyDFSId *id, int pos, int size)}}]{\setlength{\rightskip}{0pt plus 5cm}int append\+Read\+Request (
 \begin{DoxyParamCaption}
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
 \item[{int}]{pos, }
 \item[{int}]{size}
 \end{DoxyParamCaption}
-)}}\label{Client_2READ_8c_afc0e31d500c5ae7b2a0f1aaa5a4ab78b}
+)}\hypertarget{Client_2READ_8c_afc0e31d500c5ae7b2a0f1aaa5a4ab78b}{}\label{Client_2READ_8c_afc0e31d500c5ae7b2a0f1aaa5a4ab78b}
 
 
 Aggiunge un nodo alla lista di reads. 
 
 \begin{DoxyReturn}{Restituisce}
-0 Se tutto e' andato bene 
+0 Se tutto e\textquotesingle{} andato bene 
 
 1 errore 
 \end{DoxyReturn}
@@ -52,23 +51,23 @@ Referenzia Read\+Op\+::next, Read\+Op\+::pos, My\+D\+F\+S\+Id\+::read\+List\+Mut
 
 Referenziato da mydfs\+\_\+read().
 
-\hypertarget{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!mydfs\+\_\+read@{mydfs\+\_\+read}}
+\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!mydfs\+\_\+read@{mydfs\+\_\+read}}
 \index{mydfs\+\_\+read@{mydfs\+\_\+read}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
-\subsubsection[{mydfs\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+read (
+\subsubsection[{\texorpdfstring{mydfs\+\_\+read(\+My\+D\+F\+S\+Id $\ast$id, int pos, void $\ast$ptr, unsigned int size)}{mydfs_read(MyDFSId *id, int pos, void *ptr, unsigned int size)}}]{\setlength{\rightskip}{0pt plus 5cm}int mydfs\+\_\+read (
 \begin{DoxyParamCaption}
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
 \item[{int}]{pos, }
 \item[{void $\ast$}]{ptr, }
 \item[{unsigned int}]{size}
 \end{DoxyParamCaption}
-)}}\label{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}
+)}\hypertarget{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}{}\label{Client_2READ_8c_aa4b63039ca9686f5666ce6bbb33317d7}
 
 
 name\+: mydfs\+\_\+read 
 
 
 \begin{DoxyParams}{Parametri}
-{\em id} & L' id del file da cui vuole leggere. \\
+{\em id} & L\textquotesingle{} id del file da cui vuole leggere. \\
 \hline
 {\em pos} & Posizione da cui vuole leggere (una delle seek). \\
 \hline
@@ -78,31 +77,33 @@ name\+: mydfs\+\_\+read
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Restituisce}
--\/1 in caso di errore, n bytes letti altrimenti. 
+-\/1 in caso di errore 
+
+n bytes letti altrimenti 
 \end{DoxyReturn}
 
 
-Referenzia append\+Read\+Request(), My\+D\+F\+S\+Id\+::filesize, My\+D\+F\+S\+Id\+::fp, log\+M(), M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D, Cache\+Request\+::pos, read\+From(), read\+Request(), e send\+Read\+Command().
+Referenzia append\+Read\+Request(), My\+D\+F\+S\+Id\+::filesize, My\+D\+F\+S\+Id\+::fp, log\+M(), M\+Y\+S\+E\+E\+K\+\_\+\+E\+ND, Cache\+Request\+::pos, posizione, read\+From(), read\+Request(), e send\+Read\+Command().
 
 
 
 Referenziato da main(), test\+Invalidazione\+Cache(), test\+Read(), e test\+Write().
 
-\hypertarget{Client_2READ_8c_a0b8dfa171c3b5c784fb6cba643728110}{\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!read\+From@{read\+From}}
+\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!read\+From@{read\+From}}
 \index{read\+From@{read\+From}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
-\subsubsection[{read\+From}]{\setlength{\rightskip}{0pt plus 5cm}int read\+From (
+\subsubsection[{\texorpdfstring{read\+From(\+My\+D\+F\+S\+Id $\ast$id, int size\+Rimasta, int pos)}{readFrom(MyDFSId *id, int sizeRimasta, int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int read\+From (
 \begin{DoxyParamCaption}
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
 \item[{int}]{size\+Rimasta, }
 \item[{int}]{pos}
 \end{DoxyParamCaption}
-)}}\label{Client_2READ_8c_a0b8dfa171c3b5c784fb6cba643728110}
+)}\hypertarget{Client_2READ_8c_a0b8dfa171c3b5c784fb6cba643728110}{}\label{Client_2READ_8c_a0b8dfa171c3b5c784fb6cba643728110}
 
 
 Legge dalla socket di trasferimento buffsize dati. 
 
 \begin{DoxyReturn}{Restituisce}
-1 se c'e' un errore con la recv, 
+1 se c\textquotesingle{}e\textquotesingle{} un errore con la recv, 
 
 il risultato di write\+Cache altrimenti.
 \end{DoxyReturn}
@@ -111,32 +112,32 @@ il risultato di write\+Cache altrimenti.
 \end{DoxySeeAlso}
 
 
-Referenzia log\+M(), My\+D\+F\+S\+Id\+::transfer\+Socket\+Id, e write\+Cache().
+Referenzia buff, log\+M(), My\+D\+F\+S\+Id\+::transfer\+Socket\+Id, e write\+Cache().
 
 
 
 Referenziato da mydfs\+\_\+read().
 
-\hypertarget{Client_2READ_8c_a478820e0a2240153b83f6a843fd55c6a}{\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!send\+Read\+Command@{send\+Read\+Command}}
+\index{Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}!send\+Read\+Command@{send\+Read\+Command}}
 \index{send\+Read\+Command@{send\+Read\+Command}!Client/\+R\+E\+A\+D.\+c@{Client/\+R\+E\+A\+D.\+c}}
-\subsubsection[{send\+Read\+Command}]{\setlength{\rightskip}{0pt plus 5cm}long send\+Read\+Command (
+\subsubsection[{\texorpdfstring{send\+Read\+Command(\+My\+D\+F\+S\+Id $\ast$id, long pos)}{sendReadCommand(MyDFSId *id, long pos)}}]{\setlength{\rightskip}{0pt plus 5cm}long send\+Read\+Command (
 \begin{DoxyParamCaption}
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
 \item[{long}]{pos}
 \end{DoxyParamCaption}
-)}}\label{Client_2READ_8c_a478820e0a2240153b83f6a843fd55c6a}
+)}\hypertarget{Client_2READ_8c_a478820e0a2240153b83f6a843fd55c6a}{}\label{Client_2READ_8c_a478820e0a2240153b83f6a843fd55c6a}
 
 
-Manda il comando di R\+E\+A\+D, e aspetta come risposta la dimensione di quanto deve leggere all'interno della risposta. 
+Manda il comando di R\+E\+AD, e aspetta come risposta la dimensione di quanto deve leggere all\textquotesingle{}interno della risposta. 
 
 \begin{DoxyReturn}{Restituisce}
--\/1 se c'e' un errore, 
+-\/1 se c\textquotesingle{}e\textquotesingle{} un errore, 
 
 altrimeni la dimensione che sta mandando il server. 
 \end{DoxyReturn}
 
 
-Referenzia get\+Number\+Lenght(), log\+M(), R\+E\+A\+D\+C\+O\+M\+M\+A\+N\+D, e My\+D\+F\+S\+Id\+::transfer\+Socket\+Id.
+Referenzia get\+Number\+Lenght(), log\+M(), R\+E\+A\+D\+C\+O\+M\+M\+A\+ND, e My\+D\+F\+S\+Id\+::transfer\+Socket\+Id.
 
 
 

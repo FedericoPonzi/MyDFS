@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>MyDFS: Campi dei dati - Variabili</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MyDFS
    &#160;<span id="projectnumber">1</span>
    </div>
@@ -32,7 +33,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generato da Doxygen 1.8.7 -->
+<!-- Generato da Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
@@ -85,7 +86,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
-      <li><a href="#index_v"><span>v</span></a></li>
       <li class="current"><a href="#index_w"><span>w</span></a></li>
     </ul>
   </div>
@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valori del tipo enumerato</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definizioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pagine</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -164,12 +164,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
 <li>next
-: <a class="el" href="structlist__node.html#ad7161aa64a7b9659180387062bf096c2">list_node</a>
-, <a class="el" href="structNodo.html#a2cf9f6e7df85ad3e124ba92fcb784ad3">Nodo</a>
-, <a class="el" href="structOpenedFile.html#a9b8c8b995cdda6da249a6ce9a9df98b2">OpenedFile</a>
+: <a class="el" href="structOpenedFile.html#a1d8b0791af363423c6d93a0699237718">OpenedFile</a>
 , <a class="el" href="structReadOp.html#ac84186a2d784cb2fbd0c71dd7d5df78d">ReadOp</a>
 , <a class="el" href="structSocketIdList.html#a6a4ac9d91704e30a162d520bca97a270">SocketIdList</a>
-, <a class="el" href="structStruttura.html#a2694fc2200e10bf8dcdc32bf7d8b9642">Struttura</a>
 , <a class="el" href="structWriteOp.html#ab10157ced397c43b41d1e77a6372a43c">WriteOp</a>
 </li>
 </ul>
@@ -180,9 +177,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 : <a class="el" href="structCacheRequest.html#a9b1e1f0498ee02f22da75fe915334873">CacheRequest</a>
 , <a class="el" href="structReadOp.html#a5659a814b4b0696cc017d5ea088eb2c1">ReadOp</a>
 , <a class="el" href="structWriteOp.html#a0cd1c3d781c93b6feaaa5d01606fdc3d">WriteOp</a>
-</li>
-<li>prova
-: <a class="el" href="structStruttura.html#a6bed68a71bad8da4f22e93def9c759af">Struttura</a>
 </li>
 <li>ptid
 : <a class="el" href="structOpenedFile.html#a33cb5376fd14129a1635cf142c0781a6">OpenedFile</a>
@@ -222,16 +216,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </ul>
 
 
-<h3><a class="anchor" id="index_v"></a>- v -</h3><ul>
-<li>val
-: <a class="el" href="structNodo.html#a8b3b2d0588fbc13d39d42ddcd0bd7a4f">Nodo</a>
-</li>
-<li>value
-: <a class="el" href="structlist__node.html#a783a68ff4a5e89d6739e38d708d13734">list_node</a>
-</li>
-</ul>
-
-
 <h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
 <li>writeList
 : <a class="el" href="structMyDFSId.html#a0f7d2a9c60ddc649ee7e65b8b9295432">MyDFSId</a>
@@ -242,7 +226,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <hr class="footer"/><address class="footer"><small>
 Generato da &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.7
+</a> 1.8.11
 </small></address>
 </body>
 </html>

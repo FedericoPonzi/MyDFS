@@ -2,28 +2,28 @@
 
 
 \begin{DoxyItemize}
-\item O\+\_\+\+R\+D\+O\+N\+L\+Y\+: Apre il file in lettura, altri client possono richiedere lo stesso file. Se non esiste, E\+R\+R\+O\+R\+E.
-\item O\+\_\+\+W\+R\+O\+N\+L\+Y\+: Apre il file in scrittura. Invia un messaggio di invalidazione a tutti i client che lo hanno aperto in lettura. Se e' già aperto in scrittura, E\+R\+R\+O\+R\+E
-\item O\+\_\+\+R\+D\+W\+R\+: Apre il file in lettura e scrittura. Invia un messaggio di invalidazione a tutti i client che lo hanno aperto in lettura.
-\item O\+\_\+\+C\+R\+E\+A\+T\+: Crea il file se non esiste
-\item O\+\_\+\+T\+R\+U\+N\+C\+: Cancella e ricrea il file sostanzialmente. Deve essere associato a O\+\_\+\+W\+R\+O\+N\+L\+Y o O\+\_\+\+R\+D\+W\+R altrimenti non ha senso.
-\item O\+\_\+\+E\+X\+L\+O\+C\+K\+: Crea un lock esclusivo sul file (se è aperto in lettura nessuno può leggerlo o scriverlo). Da implementare in L\+I\+N\+U\+X!
-\item O\+\_\+\+E\+X\+C\+L\+: Da usare assieme a O\+\_\+\+C\+R\+E\+A\+T. Se cerca di fare la open di un file che esiste già con O\+\_\+\+E\+X\+C\+L$\vert$\+O\+\_\+\+C\+R\+E\+A\+T allora la open fallisce. 
+\item O\+\_\+\+R\+D\+O\+N\+LY\+: Apre il file in lettura, altri client possono richiedere lo stesso file. Se non esiste, E\+R\+R\+O\+RE.
+\item O\+\_\+\+W\+R\+O\+N\+LY\+: Apre il file in scrittura. Invia un messaggio di invalidazione a tutti i client che lo hanno aperto in lettura. Se e\textquotesingle{} già aperto in scrittura, E\+R\+R\+O\+RE
+\item O\+\_\+\+R\+D\+WR\+: Apre il file in lettura e scrittura. Invia un messaggio di invalidazione a tutti i client che lo hanno aperto in lettura.
+\item O\+\_\+\+C\+R\+E\+AT\+: Crea il file se non esiste
+\item O\+\_\+\+T\+R\+U\+NC\+: Cancella e ricrea il file sostanzialmente. Deve essere associato a O\+\_\+\+W\+R\+O\+N\+LY o O\+\_\+\+R\+D\+WR altrimenti non ha senso.
+\item O\+\_\+\+E\+X\+L\+O\+CK\+: Crea un lock esclusivo sul file (se è aperto in lettura nessuno può leggerlo o scriverlo). Da implementare in L\+I\+N\+U\+X!
+\item O\+\_\+\+E\+X\+CL\+: Da usare assieme a O\+\_\+\+C\+R\+E\+AT. Se cerca di fare la open di un file che esiste già con O\+\_\+\+E\+X\+C\+L$\vert$\+O\+\_\+\+C\+R\+E\+AT allora la open fallisce. 
 
  \subsection*{Protocollo di comunicazione per la open}
 \end{DoxyItemize}
 
 
 \begin{DoxyEnumerate}
-\item Client\+: O\+P\+E\+N nomefile modo
+\item Client\+: O\+P\+EN nomefile modo
 \item Server\+: filesize
 \item Client\+: port\+\_\+num n
 \item Server\+: ok
 \end{DoxyEnumerate}
 
-1 -\/ Apertura comunicazione\+: Il client è connesso alla socket del server, invia il comando {\ttfamily O\+P\+E $<$nomefile$>$ modo} dove nomefile deve essere un nome di un file contenuto nel filesystem del server e modo e' un numero definito dalle costanti scritte all' inizio di questo documento (e presenti in \hyperlink{OPE_8h}{O\+P\+E.\+h}).
+1 -\/ Apertura comunicazione\+: Il client è connesso alla socket del server, invia il comando {\ttfamily O\+PE $<$nomefile$>$ modo} dove nomefile deve essere un nome di un file contenuto nel filesystem del server e modo e\textquotesingle{} un numero definito dalle costanti scritte all\textquotesingle{} inizio di questo documento (e presenti in \hyperlink{OPE_8h}{O\+P\+E.\+h}).
 \begin{DoxyItemize}
 \item 2 -\/ Risposta del server\+: Riporta un intero negativo in caso di errore nella apertura del file, la dimensione del file altrimenti (necessaria per la read).
-\item 3 -\/ Connessione di controllo\+: Riposta da parte del client che indica su la porta su cui ha creato una socket server a cui il server dovrà connettersi, e che verrà usata per l' heartbeating e le notifiche di invalidazione.
+\item 3 -\/ Connessione di controllo\+: Riposta da parte del client che indica su la porta su cui ha creato una socket server a cui il server dovrà connettersi, e che verrà usata per l\textquotesingle{} heartbeating e le notifiche di invalidazione.
 \item 4 -\/ Feedback\+: ok, o un intero negativo. 
 \end{DoxyItemize}

@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['val',['val',['../structNodo.html#a8b3b2d0588fbc13d39d42ddcd0bd7a4f',1,'Nodo']]],
-  ['value',['value',['../structlist__node.html#a783a68ff4a5e89d6739e38d708d13734',1,'list_node']]]
+  ['uploadchanges',['uploadChanges',['../Client_2CLOSE_8c.html#affca868a39ef47e0de0a54b7fca94e10',1,'CLOSE.c']]],
+  ['utils_2ec',['Utils.c',['../Server_2Utils_8c.html',1,'']]],
+  ['utils_2ec',['Utils.c',['../Client_2Utils_8c.html',1,'']]],
+  ['utils_2eh',['Utils.h',['../Client_2inc_2Utils_8h.html',1,'']]],
+  ['utils_2eh',['Utils.h',['../Server_2inc_2Utils_8h.html',1,'']]]
 ];

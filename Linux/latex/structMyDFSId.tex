@@ -1,6 +1,10 @@
-\hypertarget{structMyDFSId}{\section{Riferimenti per la struct My\+D\+F\+S\+Id}
+\hypertarget{structMyDFSId}{}\section{Riferimenti per la struct My\+D\+F\+S\+Id}
 \label{structMyDFSId}\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-}
+
+
+Contiene tutte le informazioni utili per gestire il flusso di operazioni.  
+
+
 
 
 {\ttfamily \#include $<$Config.\+h$>$}
@@ -11,54 +15,65 @@
 char $\ast$ \hyperlink{structMyDFSId_ac8c10a1a5b18776bf5e5585ee9e26331}{indirizzo}
 \item 
 char $\ast$ \hyperlink{structMyDFSId_ac0e1b8c96d859982c1a7d49f9e929e48}{filename}
-\item 
+\begin{DoxyCompactList}\small\item\em Indirizzo. \end{DoxyCompactList}\item 
 long \hyperlink{structMyDFSId_a394540d568f1fa235d096fd790d2891f}{filesize}
-\item 
+\begin{DoxyCompactList}\small\item\em Nome del file. \end{DoxyCompactList}\item 
 int \hyperlink{structMyDFSId_a98bc5ce1a7734459d8b81c997da4e9f0}{modo}
 \begin{DoxyCompactList}\small\item\em Dimensione del file. \end{DoxyCompactList}\item 
 int \hyperlink{structMyDFSId_a8d5f597502e29e2edc6d2f46c2323b1d}{transfer\+Socket\+Id}
 \begin{DoxyCompactList}\small\item\em Modo di apertura. \end{DoxyCompactList}\item 
 int \hyperlink{structMyDFSId_a4b67c0973fca25c75395e001b0bf8fc7}{control\+Socket\+Id}
-\begin{DoxyCompactList}\small\item\em socket id dell' heartbeating \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em socket id dell\textquotesingle{} heartbeating \end{DoxyCompactList}\item 
 pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{structMyDFSId_a71f51c82d7133bfc16fcffeb4c395da0}{read\+List\+Mutex}
 \begin{DoxyCompactList}\small\item\em Socket id dei comandi. \end{DoxyCompactList}\item 
 \hyperlink{structWriteOp}{Write\+Op} $\ast$ \hyperlink{structMyDFSId_a0f7d2a9c60ddc649ee7e65b8b9295432}{write\+List}
 \begin{DoxyCompactList}\small\item\em Mutex per accedere la writelist. \end{DoxyCompactList}\item 
 \hyperlink{structReadOp}{Read\+Op} $\ast$ \hyperlink{structMyDFSId_a8a4360512d45c22b6d8e980967c7dd32}{read\+List}
 \begin{DoxyCompactList}\small\item\em Lista di operazioni di scrittura avvenute nel file. \end{DoxyCompactList}\item 
-F\+I\+L\+E $\ast$ \hyperlink{structMyDFSId_ae2badd91d3b506420a9e49554df8212d}{fp}
+F\+I\+LE $\ast$ \hyperlink{structMyDFSId_ae2badd91d3b506420a9e49554df8212d}{fp}
 \begin{DoxyCompactList}\small\item\em Come sopra, ma read. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
+\subsection{Descrizione dettagliata}
+Contiene tutte le informazioni utili per gestire il flusso di operazioni. 
+
 \subsection{Documentazione dei campi}
-\hypertarget{structMyDFSId_a4b67c0973fca25c75395e001b0bf8fc7}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!control\+Socket\+Id@{control\+Socket\+Id}}
+\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!control\+Socket\+Id@{control\+Socket\+Id}}
 \index{control\+Socket\+Id@{control\+Socket\+Id}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{control\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::control\+Socket\+Id}}\label{structMyDFSId_a4b67c0973fca25c75395e001b0bf8fc7}
+\subsubsection[{\texorpdfstring{control\+Socket\+Id}{controlSocketId}}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::control\+Socket\+Id}\hypertarget{structMyDFSId_a4b67c0973fca25c75395e001b0bf8fc7}{}\label{structMyDFSId_a4b67c0973fca25c75395e001b0bf8fc7}
 
 
-socket id dell' heartbeating 
+socket id dell\textquotesingle{} heartbeating 
 
 
 
 Referenziato da heart\+Beat(), mydfs\+\_\+close(), mydfs\+\_\+open(), e upload\+Changes().
 
-\hypertarget{structMyDFSId_ac0e1b8c96d859982c1a7d49f9e929e48}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!filename@{filename}}
+\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!filename@{filename}}
 \index{filename@{filename}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{filename}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ My\+D\+F\+S\+Id\+::filename}}\label{structMyDFSId_ac0e1b8c96d859982c1a7d49f9e929e48}
+\subsubsection[{\texorpdfstring{filename}{filename}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ My\+D\+F\+S\+Id\+::filename}\hypertarget{structMyDFSId_ac0e1b8c96d859982c1a7d49f9e929e48}{}\label{structMyDFSId_ac0e1b8c96d859982c1a7d49f9e929e48}
+
+
+Indirizzo. 
+
 
 
 Referenziato da mydfs\+\_\+close(), mydfs\+\_\+open(), e test\+Read().
 
-\hypertarget{structMyDFSId_a394540d568f1fa235d096fd790d2891f}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!filesize@{filesize}}
+\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!filesize@{filesize}}
 \index{filesize@{filesize}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{filesize}]{\setlength{\rightskip}{0pt plus 5cm}long My\+D\+F\+S\+Id\+::filesize}}\label{structMyDFSId_a394540d568f1fa235d096fd790d2891f}
+\subsubsection[{\texorpdfstring{filesize}{filesize}}]{\setlength{\rightskip}{0pt plus 5cm}long My\+D\+F\+S\+Id\+::filesize}\hypertarget{structMyDFSId_a394540d568f1fa235d096fd790d2891f}{}\label{structMyDFSId_a394540d568f1fa235d096fd790d2891f}
 
 
-Referenziato da mydfs\+\_\+read(), mydfs\+\_\+write(), read\+Request(), e test\+Write().
+Nome del file. 
 
-\hypertarget{structMyDFSId_ae2badd91d3b506420a9e49554df8212d}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!fp@{fp}}
+
+
+Referenziato da mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), read\+Request(), e test\+Write().
+
+\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!fp@{fp}}
 \index{fp@{fp}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{fp}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+L\+E$\ast$ My\+D\+F\+S\+Id\+::fp}}\label{structMyDFSId_ae2badd91d3b506420a9e49554df8212d}
+\subsubsection[{\texorpdfstring{fp}{fp}}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+LE$\ast$ My\+D\+F\+S\+Id\+::fp}\hypertarget{structMyDFSId_ae2badd91d3b506420a9e49554df8212d}{}\label{structMyDFSId_ae2badd91d3b506420a9e49554df8212d}
 
 
 Come sopra, ma read. 
@@ -67,16 +82,16 @@ Come sopra, ma read.
 
 Referenziato da mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), upload\+Changes(), e write\+Cache().
 
-\hypertarget{structMyDFSId_ac8c10a1a5b18776bf5e5585ee9e26331}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!indirizzo@{indirizzo}}
+\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!indirizzo@{indirizzo}}
 \index{indirizzo@{indirizzo}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{indirizzo}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ My\+D\+F\+S\+Id\+::indirizzo}}\label{structMyDFSId_ac8c10a1a5b18776bf5e5585ee9e26331}
+\subsubsection[{\texorpdfstring{indirizzo}{indirizzo}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ My\+D\+F\+S\+Id\+::indirizzo}\hypertarget{structMyDFSId_ac8c10a1a5b18776bf5e5585ee9e26331}{}\label{structMyDFSId_ac8c10a1a5b18776bf5e5585ee9e26331}
 
 
 Referenziato da mydfs\+\_\+close(), e mydfs\+\_\+open().
 
-\hypertarget{structMyDFSId_a98bc5ce1a7734459d8b81c997da4e9f0}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!modo@{modo}}
+\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!modo@{modo}}
 \index{modo@{modo}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{modo}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::modo}}\label{structMyDFSId_a98bc5ce1a7734459d8b81c997da4e9f0}
+\subsubsection[{\texorpdfstring{modo}{modo}}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::modo}\hypertarget{structMyDFSId_a98bc5ce1a7734459d8b81c997da4e9f0}{}\label{structMyDFSId_a98bc5ce1a7734459d8b81c997da4e9f0}
 
 
 Dimensione del file. 
@@ -85,9 +100,9 @@ Dimensione del file.
 
 Referenziato da mydfs\+\_\+open(), e mydfs\+\_\+write().
 
-\hypertarget{structMyDFSId_a8a4360512d45c22b6d8e980967c7dd32}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!read\+List@{read\+List}}
+\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!read\+List@{read\+List}}
 \index{read\+List@{read\+List}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{read\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Read\+Op}$\ast$ My\+D\+F\+S\+Id\+::read\+List}}\label{structMyDFSId_a8a4360512d45c22b6d8e980967c7dd32}
+\subsubsection[{\texorpdfstring{read\+List}{readList}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Read\+Op}$\ast$ My\+D\+F\+S\+Id\+::read\+List}\hypertarget{structMyDFSId_a8a4360512d45c22b6d8e980967c7dd32}{}\label{structMyDFSId_a8a4360512d45c22b6d8e980967c7dd32}
 
 
 Lista di operazioni di scrittura avvenute nel file. 
@@ -96,9 +111,9 @@ Lista di operazioni di scrittura avvenute nel file.
 
 Referenziato da mydfs\+\_\+open().
 
-\hypertarget{structMyDFSId_a71f51c82d7133bfc16fcffeb4c395da0}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!read\+List\+Mutex@{read\+List\+Mutex}}
+\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!read\+List\+Mutex@{read\+List\+Mutex}}
 \index{read\+List\+Mutex@{read\+List\+Mutex}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{read\+List\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ My\+D\+F\+S\+Id\+::read\+List\+Mutex}}\label{structMyDFSId_a71f51c82d7133bfc16fcffeb4c395da0}
+\subsubsection[{\texorpdfstring{read\+List\+Mutex}{readListMutex}}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ My\+D\+F\+S\+Id\+::read\+List\+Mutex}\hypertarget{structMyDFSId_a71f51c82d7133bfc16fcffeb4c395da0}{}\label{structMyDFSId_a71f51c82d7133bfc16fcffeb4c395da0}
 
 
 Socket id dei comandi. 
@@ -107,9 +122,9 @@ Socket id dei comandi.
 
 Referenziato da append\+Read\+Request(), invalidate(), mydfs\+\_\+close(), mydfs\+\_\+open(), e read\+Request().
 
-\hypertarget{structMyDFSId_a8d5f597502e29e2edc6d2f46c2323b1d}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!transfer\+Socket\+Id@{transfer\+Socket\+Id}}
+\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!transfer\+Socket\+Id@{transfer\+Socket\+Id}}
 \index{transfer\+Socket\+Id@{transfer\+Socket\+Id}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{transfer\+Socket\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::transfer\+Socket\+Id}}\label{structMyDFSId_a8d5f597502e29e2edc6d2f46c2323b1d}
+\subsubsection[{\texorpdfstring{transfer\+Socket\+Id}{transferSocketId}}]{\setlength{\rightskip}{0pt plus 5cm}int My\+D\+F\+S\+Id\+::transfer\+Socket\+Id}\hypertarget{structMyDFSId_a8d5f597502e29e2edc6d2f46c2323b1d}{}\label{structMyDFSId_a8d5f597502e29e2edc6d2f46c2323b1d}
 
 
 Modo di apertura. 
@@ -118,9 +133,9 @@ Modo di apertura.
 
 Referenziato da mydfs\+\_\+close(), mydfs\+\_\+open(), read\+From(), e send\+Read\+Command().
 
-\hypertarget{structMyDFSId_a0f7d2a9c60ddc649ee7e65b8b9295432}{\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!write\+List@{write\+List}}
+\index{My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}!write\+List@{write\+List}}
 \index{write\+List@{write\+List}!My\+D\+F\+S\+Id@{My\+D\+F\+S\+Id}}
-\subsubsection[{write\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Write\+Op}$\ast$ My\+D\+F\+S\+Id\+::write\+List}}\label{structMyDFSId_a0f7d2a9c60ddc649ee7e65b8b9295432}
+\subsubsection[{\texorpdfstring{write\+List}{writeList}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Write\+Op}$\ast$ My\+D\+F\+S\+Id\+::write\+List}\hypertarget{structMyDFSId_a0f7d2a9c60ddc649ee7e65b8b9295432}{}\label{structMyDFSId_a0f7d2a9c60ddc649ee7e65b8b9295432}
 
 
 Mutex per accedere la writelist. 

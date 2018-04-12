@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pthreadargs',['pthreadArgs',['../structpthreadArgs.html',1,'']]]
+  ['socketidlist',['SocketIdList',['../structSocketIdList.html',1,'']]]
 ];

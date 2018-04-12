@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['controlsocketid',['controlSocketId',['../structMyDFSId.html#a4b67c0973fca25c75395e001b0bf8fc7',1,'MyDFSId::controlSocketId()'],['../structOpenedFile.html#a591b34fa52d94c831734d7cead0c6630',1,'OpenedFile::controlSocketId()']]],
-  ['controlsocketmutex',['controlSocketMutex',['../structOpenedFile.html#a59d8fd7142cc9f6a40828160a0f5fc08',1,'OpenedFile']]]
+  ['barriera',['barriera',['../structThreadArgs.html#a7ca0bdd546803a7e595b376aac79347c',1,'ThreadArgs']]],
+  ['buff',['buff',['../Log_8txt.html#a30a2db6d7011dabae4b8856b40a6ee0e',1,'Log.txt']]]
 ];

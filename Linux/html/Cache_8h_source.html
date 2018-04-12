@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>MyDFS:  File sorgente Client/inc/Cache.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MyDFS
    &#160;<span id="projectnumber">1</span>
    </div>
@@ -32,7 +33,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generato da Doxygen 1.8.7 -->
+<!-- Generato da Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valori del tipo enumerato</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definizioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pagine</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,17 +91,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="title">Cache.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="Cache_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CACHE</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CACHE</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;FILE* <a class="code" href="Cache_8h.html#ab85cfa2751c24894cd4bdca9254ed117">createTempFile</a>(<span class="keywordtype">char</span>* basename);</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">int</span> <a class="code" href="Cache_8h.html#ae530ba131c65658674dd0d0b3fb2ea7c">readRequest</a>(<a class="code" href="structMyDFSId.html">MyDFSId</a>* <span class="keywordtype">id</span>, <span class="keywordtype">long</span> pos, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size, <a class="code" href="structCacheRequest.html">CacheRequest</a>* req);</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">int</span> <a class="code" href="Cache_8h.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache</a>(<a class="code" href="structMyDFSId.html">MyDFSId</a>* <span class="keywordtype">id</span>, <span class="keywordtype">void</span>* buffer, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> pos);</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="Cache_8h_html_ae530ba131c65658674dd0d0b3fb2ea7c"><div class="ttname"><a href="Cache_8h.html#ae530ba131c65658674dd0d0b3fb2ea7c">readRequest</a></div><div class="ttdeci">int readRequest(MyDFSId *id, long pos, unsigned int size, CacheRequest *req)</div><div class="ttdoc">Usato per dire se il dato che voglio leggere si trova in cache oppure no. </div><div class="ttdef"><b>Definition:</b> Cache.c:65</div></div>
-<div class="ttc" id="structMyDFSId_html"><div class="ttname"><a href="structMyDFSId.html">MyDFSId</a></div><div class="ttdef"><b>Definition:</b> Config.h:37</div></div>
-<div class="ttc" id="structCacheRequest_html"><div class="ttname"><a href="structCacheRequest.html">CacheRequest</a></div><div class="ttdoc">Struttura dati usata dalla cache, per dire alla read da che posizione del file c&#39;e&#39; un buco...</div><div class="ttdef"><b>Definition:</b> Config.h:54</div></div>
+<a href="Cache_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CACHE</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CACHE</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;FILE* <a class="code" href="Cache_8h.html#ab85cfa2751c24894cd4bdca9254ed117">createTempFile</a>(<span class="keywordtype">char</span>* basename);</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">int</span> <a class="code" href="Cache_8h.html#ae530ba131c65658674dd0d0b3fb2ea7c">readRequest</a>(<a class="code" href="structMyDFSId.html">MyDFSId</a>* <span class="keywordtype">id</span>, <span class="keywordtype">long</span> pos, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size, <a class="code" href="structCacheRequest.html">CacheRequest</a>* req);</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">int</span> <a class="code" href="Cache_8h.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache</a>(<a class="code" href="structMyDFSId.html">MyDFSId</a>* <span class="keywordtype">id</span>, <span class="keywordtype">void</span>* buffer, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> pos);</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="Cache_8h_html_ae530ba131c65658674dd0d0b3fb2ea7c"><div class="ttname"><a href="Cache_8h.html#ae530ba131c65658674dd0d0b3fb2ea7c">readRequest</a></div><div class="ttdeci">int readRequest(MyDFSId *id, long pos, unsigned int size, CacheRequest *req)</div><div class="ttdoc">Usato per dire se il dato che voglio leggere si trova in cache oppure no. </div><div class="ttdef"><b>Definition:</b> Cache.c:65</div></div>
+<div class="ttc" id="structMyDFSId_html"><div class="ttname"><a href="structMyDFSId.html">MyDFSId</a></div><div class="ttdoc">Contiene tutte le informazioni utili per gestire il flusso di operazioni. </div><div class="ttdef"><b>Definition:</b> Config.h:40</div></div>
+<div class="ttc" id="structCacheRequest_html"><div class="ttname"><a href="structCacheRequest.html">CacheRequest</a></div><div class="ttdoc">Struttura dati usata dalla cache, per dire alla read da che posizione del file c&amp;#39;e&amp;#39; un buco...</div><div class="ttdef"><b>Definition:</b> Config.h:56</div></div>
 <div class="ttc" id="Cache_8h_html_a686e517ab500f68c40c03bfbc3e2e2fd"><div class="ttname"><a href="Cache_8h.html#a686e517ab500f68c40c03bfbc3e2e2fd">writeCache</a></div><div class="ttdeci">int writeCache(MyDFSId *id, void *buffer, int size, int pos)</div><div class="ttdoc">Funzione che scrive nel file di cache il contenuto di una read, senza sovrascrivere le parti scritte ...</div><div class="ttdef"><b>Definition:</b> Cache.c:173</div></div>
 <div class="ttc" id="Cache_8h_html_ab85cfa2751c24894cd4bdca9254ed117"><div class="ttname"><a href="Cache_8h.html#ab85cfa2751c24894cd4bdca9254ed117">createTempFile</a></div><div class="ttdeci">FILE * createTempFile(char *basename)</div><div class="ttdoc">Funzione che crea un file temporaneo, e ritorna un puntatore ad esso. </div><div class="ttdef"><b>Definition:</b> Cache.c:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -108,7 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <hr class="footer"/><address class="footer"><small>
 Generato da &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.7
+</a> 1.8.11
 </small></address>
 </body>
 </html>

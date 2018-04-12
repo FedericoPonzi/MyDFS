@@ -1,6 +1,5 @@
-\hypertarget{Server_2inc_2CLOSE_8h}{\section{Riferimenti per il file Server/inc/\+C\+L\+O\+S\+E.h}
+\hypertarget{Server_2inc_2CLOSE_8h}{}\section{Riferimenti per il file Server/inc/\+C\+L\+O\+SE.h}
 \label{Server_2inc_2CLOSE_8h}\index{Server/inc/\+C\+L\+O\+S\+E.\+h@{Server/inc/\+C\+L\+O\+S\+E.\+h}}
-}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
@@ -9,26 +8,26 @@ void \hyperlink{Server_2inc_2CLOSE_8h_aa0f032a9f5bfd044370c257459df60b0}{handle\
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Server_2inc_2CLOSE_8h_aa0f032a9f5bfd044370c257459df60b0}{\index{Server/inc/\+C\+L\+O\+S\+E.\+h@{Server/inc/\+C\+L\+O\+S\+E.\+h}!handle\+Close\+Command@{handle\+Close\+Command}}
+\index{Server/inc/\+C\+L\+O\+S\+E.\+h@{Server/inc/\+C\+L\+O\+S\+E.\+h}!handle\+Close\+Command@{handle\+Close\+Command}}
 \index{handle\+Close\+Command@{handle\+Close\+Command}!Server/inc/\+C\+L\+O\+S\+E.\+h@{Server/inc/\+C\+L\+O\+S\+E.\+h}}
-\subsubsection[{handle\+Close\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Close\+Command (
+\subsubsection[{\texorpdfstring{handle\+Close\+Command(char $\ast$command, int socket)}{handleCloseCommand(char *command, int socket)}}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Close\+Command (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{command, }
 \item[{int}]{socket}
 \end{DoxyParamCaption}
-)}}\label{Server_2inc_2CLOSE_8h_aa0f032a9f5bfd044370c257459df60b0}
+)}\hypertarget{Server_2inc_2CLOSE_8h_aa0f032a9f5bfd044370c257459df60b0}{}\label{Server_2inc_2CLOSE_8h_aa0f032a9f5bfd044370c257459df60b0}
 
 
 Gestisce il comando Close. 
 
 
 \begin{DoxyParams}{Parametri}
-{\em int} & socket socket del client che termina sessione Ci sono casi in cui questa funzione non viene richiamata, ad esempio se l' heartbeating chiude la connessione da solo. In quel caso, id sara' null. \\
+{\em int} & socket socket del client che termina sessione Ci sono casi in cui questa funzione non viene richiamata, ad esempio se l\textquotesingle{} heartbeating chiude la connessione da solo. In quel caso, id sara\textquotesingle{} null. \\
 \hline
 \end{DoxyParams}
 
 
-Referenzia close\+Client\+Session(), get\+Number\+Of\+Changes(), get\+Opened\+File(), getptid(), handle\+Writes(), is\+Modo\+Apertura(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, e send\+Invalidate().
+Referenzia close\+Client\+Session(), get\+Number\+Of\+Changes(), get\+Opened\+File(), getptid(), handle\+Writes(), is\+Modo\+Apertura(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+WR, M\+Y\+O\+\_\+\+W\+R\+O\+N\+LY, e send\+Invalidate().
 
 
 

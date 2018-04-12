@@ -1,10 +1,9 @@
-\hypertarget{Cache_8h}{\section{Riferimenti per il file Client/inc/\+Cache.h}
+\hypertarget{Cache_8h}{}\section{Riferimenti per il file Client/inc/\+Cache.h}
 \label{Cache_8h}\index{Client/inc/\+Cache.\+h@{Client/inc/\+Cache.\+h}}
-}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-F\+I\+L\+E $\ast$ \hyperlink{Cache_8h_ab85cfa2751c24894cd4bdca9254ed117}{create\+Temp\+File} (char $\ast$basename)
+F\+I\+LE $\ast$ \hyperlink{Cache_8h_ab85cfa2751c24894cd4bdca9254ed117}{create\+Temp\+File} (char $\ast$basename)
 \begin{DoxyCompactList}\small\item\em Funzione che crea un file temporaneo, e ritorna un puntatore ad esso. \end{DoxyCompactList}\item 
 int \hyperlink{Cache_8h_ae530ba131c65658674dd0d0b3fb2ea7c}{read\+Request} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id, long pos, unsigned int size, \hyperlink{structCacheRequest}{Cache\+Request} $\ast$req)
 \begin{DoxyCompactList}\small\item\em Usato per dire se il dato che voglio leggere si trova in cache oppure no. \end{DoxyCompactList}\item 
@@ -13,13 +12,13 @@ int \hyperlink{Cache_8h_a686e517ab500f68c40c03bfbc3e2e2fd}{write\+Cache} (\hyper
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Cache_8h_ab85cfa2751c24894cd4bdca9254ed117}{\index{Cache.\+h@{Cache.\+h}!create\+Temp\+File@{create\+Temp\+File}}
+\index{Cache.\+h@{Cache.\+h}!create\+Temp\+File@{create\+Temp\+File}}
 \index{create\+Temp\+File@{create\+Temp\+File}!Cache.\+h@{Cache.\+h}}
-\subsubsection[{create\+Temp\+File}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+L\+E$\ast$ create\+Temp\+File (
+\subsubsection[{\texorpdfstring{create\+Temp\+File(char $\ast$basename)}{createTempFile(char *basename)}}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+LE$\ast$ create\+Temp\+File (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{basename}
 \end{DoxyParamCaption}
-)}}\label{Cache_8h_ab85cfa2751c24894cd4bdca9254ed117}
+)}\hypertarget{Cache_8h_ab85cfa2751c24894cd4bdca9254ed117}{}\label{Cache_8h_ab85cfa2751c24894cd4bdca9254ed117}
 
 
 Funzione che crea un file temporaneo, e ritorna un puntatore ad esso. 
@@ -30,28 +29,28 @@ Referenzia get\+Filename(), e log\+M().
 
 
 
-Referenziato da main(), e mydfs\+\_\+open().
+Referenziato da mydfs\+\_\+open().
 
-\hypertarget{Cache_8h_ae530ba131c65658674dd0d0b3fb2ea7c}{\index{Cache.\+h@{Cache.\+h}!read\+Request@{read\+Request}}
+\index{Cache.\+h@{Cache.\+h}!read\+Request@{read\+Request}}
 \index{read\+Request@{read\+Request}!Cache.\+h@{Cache.\+h}}
-\subsubsection[{read\+Request}]{\setlength{\rightskip}{0pt plus 5cm}int read\+Request (
+\subsubsection[{\texorpdfstring{read\+Request(\+My\+D\+F\+S\+Id $\ast$id, long pos, unsigned int size, Cache\+Request $\ast$req)}{readRequest(MyDFSId *id, long pos, unsigned int size, CacheRequest *req)}}]{\setlength{\rightskip}{0pt plus 5cm}int read\+Request (
 \begin{DoxyParamCaption}
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
 \item[{long}]{pos, }
 \item[{unsigned int}]{size, }
 \item[{{\bf Cache\+Request} $\ast$}]{req}
 \end{DoxyParamCaption}
-)}}\label{Cache_8h_ae530ba131c65658674dd0d0b3fb2ea7c}
+)}\hypertarget{Cache_8h_ae530ba131c65658674dd0d0b3fb2ea7c}{}\label{Cache_8h_ae530ba131c65658674dd0d0b3fb2ea7c}
 
 
 Usato per dire se il dato che voglio leggere si trova in cache oppure no. 
 
 \begin{DoxyReturn}{Restituisce}
-1 M\+I\+S\+S\+: In caso di M\+I\+S\+S, dentro a req verranno messi posizione e size del dato da scaricare. 
+1 M\+I\+SS\+: In caso di M\+I\+SS, dentro a req verranno messi posizione e size del dato da scaricare. 
 
-0 H\+I\+T\+: torna false.
+0 H\+IT\+: torna false.
 \end{DoxyReturn}
-Nota\+: La miss si riferisce ad un \char`\"{}buco\char`\"{}, quindi bisogna chiamare la funzione piu' volte per assicurarsi che non ci siano altri miss. Nota2\+: Il lock e' in teoria troppo grande. In pratica pero', se fra la prima operazione di lettura e la seconda ci fosse una invalidazione della cache qualcosa di orrendo potrebbe accadere. Quindi va bene cosi'. 
+Nota\+: La miss si riferisce ad un \char`\"{}buco\char`\"{}, quindi bisogna chiamare la funzione piu\textquotesingle{} volte per assicurarsi che non ci siano altri miss. Nota2\+: Il lock e\textquotesingle{} in teoria troppo grande. In pratica pero\textquotesingle{}, se fra la prima operazione di lettura e la seconda ci fosse una invalidazione della cache qualcosa di orrendo potrebbe accadere. Quindi va bene cosi\textquotesingle{}. 
 
 Referenzia My\+D\+F\+S\+Id\+::filesize, Write\+Op\+::next, Read\+Op\+::next, Write\+Op\+::pos, Read\+Op\+::pos, Cache\+Request\+::pos, My\+D\+F\+S\+Id\+::read\+List\+Mutex, read\+Request(), Write\+Op\+::size, Read\+Op\+::size, e Cache\+Request\+::size.
 
@@ -59,30 +58,30 @@ Referenzia My\+D\+F\+S\+Id\+::filesize, Write\+Op\+::next, Read\+Op\+::next, Wri
 
 Referenziato da mydfs\+\_\+read(), e read\+Request().
 
-\hypertarget{Cache_8h_a686e517ab500f68c40c03bfbc3e2e2fd}{\index{Cache.\+h@{Cache.\+h}!write\+Cache@{write\+Cache}}
+\index{Cache.\+h@{Cache.\+h}!write\+Cache@{write\+Cache}}
 \index{write\+Cache@{write\+Cache}!Cache.\+h@{Cache.\+h}}
-\subsubsection[{write\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}int write\+Cache (
+\subsubsection[{\texorpdfstring{write\+Cache(\+My\+D\+F\+S\+Id $\ast$id, void $\ast$buffer, int size, int pos)}{writeCache(MyDFSId *id, void *buffer, int size, int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int write\+Cache (
 \begin{DoxyParamCaption}
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id, }
 \item[{void $\ast$}]{buffer, }
 \item[{int}]{size, }
 \item[{int}]{pos}
 \end{DoxyParamCaption}
-)}}\label{Cache_8h_a686e517ab500f68c40c03bfbc3e2e2fd}
+)}\hypertarget{Cache_8h_a686e517ab500f68c40c03bfbc3e2e2fd}{}\label{Cache_8h_a686e517ab500f68c40c03bfbc3e2e2fd}
 
 
 Funzione che scrive nel file di cache il contenuto di una read, senza sovrascrivere le parti scritte da write locali. 
 
 Eseguo un ciclo che vede se il punto in cui\+:
 \begin{DoxyEnumerate}
-\item Controllo se il punto in cui voglio scrivere e' contenuto in una operazione di write. In quel caso, richiamo questa funzione spostando avanti il puntatore del buffer
-\item Il punto in cui voglio scrivere non e' incluso in nessuna write. In questo caso, vedo se c'e' una write inclusa nello spazio del buffer della read che voglio scrivere. Se e' cosi', scrivo quanto posso, e se posso scrivere altro dopo la sezione di write, richiamo questa funzione ricorsivamente aggiornado gli indici.
+\item Controllo se il punto in cui voglio scrivere e\textquotesingle{} contenuto in una operazione di write. In quel caso, richiamo questa funzione spostando avanti il puntatore del buffer
+\item Il punto in cui voglio scrivere non e\textquotesingle{} incluso in nessuna write. In questo caso, vedo se c\textquotesingle{}e\textquotesingle{} una write inclusa nello spazio del buffer della read che voglio scrivere. Se e\textquotesingle{} cosi\textquotesingle{}, scrivo quanto posso, e se posso scrivere altro dopo la sezione di write, richiamo questa funzione ricorsivamente aggiornado gli indici.
 \end{DoxyEnumerate}
 
-Utilizzo pos, e vedo se e' contenuto in una write. Se si lo sposto fino alla fine della write, e richiamo questa funzione ricorsivamente. Raggiunto il caso base, cerco se c'e' una write contenuta fra pos e pos+size. Se e' così mi trovo la fine della write. Eseguo la scrittura e richiamo questa funzione ricorsivamente
+Utilizzo pos, e vedo se e\textquotesingle{} contenuto in una write. Se si lo sposto fino alla fine della write, e richiamo questa funzione ricorsivamente. Raggiunto il caso base, cerco se c\textquotesingle{}e\textquotesingle{} una write contenuta fra pos e pos+size. Se e\textquotesingle{} così mi trovo la fine della write. Eseguo la scrittura e richiamo questa funzione ricorsivamente
 
 \begin{DoxyReturn}{Restituisce}
-1 se tutto e' ok, 0 se qualcosa e' andata storta 
+1 se tutto e\textquotesingle{} ok, 0 se qualcosa e\textquotesingle{} andata storta 
 \end{DoxyReturn}
 
 

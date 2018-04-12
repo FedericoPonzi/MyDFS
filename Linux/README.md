@@ -6,5 +6,5 @@
 * Sulla [read](READ.md)
 * Sulla [write](WRITE.md)
 * Sulla [cache](Cache.md)
-* Sull' [invaludazione](Invalidazione.md)
+* Sulla [invalidazione](Invalidazione.md)
 * Sulla [configurazione e sui test](Test.md)

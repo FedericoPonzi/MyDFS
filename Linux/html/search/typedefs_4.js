@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readop',['ReadOp',['../Client_2inc_2Config_8h.html#a9073086354960a2d9ee6972ce86a7cc8',1,'Config.h']]]
+  ['socketidlist',['SocketIdList',['../StruttureDati_8h.html#a0cff94b71c2fd35e1c3b8c56b181781e',1,'StruttureDati.h']]]
 ];

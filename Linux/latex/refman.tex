@@ -4,6 +4,7 @@
 \usepackage{fixltx2e}
 \usepackage{calc}
 \usepackage{doxygen}
+\usepackage[export]{adjustbox} % also loads graphicx
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{makeidx}
@@ -19,7 +20,6 @@
 
 % Font selection
 \usepackage[T1]{fontenc}
-\usepackage{mathptmx}
 \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
 \usepackage{amssymb}
@@ -49,7 +49,7 @@
 \hbadness=750
 \setlength{\emergencystretch}{15pt}
 \setlength{\parindent}{0cm}
-\setlength{\parskip}{0.2cm}
+\setlength{\parskip}{3ex plus 2ex minus 2ex}
 \makeatletter
 \renewcommand{\paragraph}{%
   \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
@@ -74,8 +74,8 @@
 \fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
 \fancyfoot[LE]{\fancyplain{}{}}
 \fancyfoot[CE]{\fancyplain{}{}}
-\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Generato Gio 10 Dic 2015 13\+:09\+:35 per My\+D\+F\+S da Doxygen }}
-\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Generato Gio 10 Dic 2015 13\+:09\+:35 per My\+D\+F\+S da Doxygen }}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Generato da Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Generato da Doxygen }}
 \fancyfoot[CO]{\fancyplain{}{}}
 \fancyfoot[RO]{\fancyplain{}{}}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -112,6 +112,8 @@
   \newpage{\pagestyle{empty}\cleardoublepage}%
 }
 
+\usepackage{caption}
+\captionsetup{labelsep=space,justification=centering,font={bf},singlelinecheck=off,skip=4pt,position=top}
 
 %===== C O N T E N T S =====
 
@@ -119,7 +121,6 @@
 
 % Titlepage & ToC
 \hypersetup{pageanchor=false,
-             bookmarks=true,
              bookmarksnumbered=true,
              pdfencoding=unicode
             }
@@ -127,11 +128,9 @@
 \begin{titlepage}
 \vspace*{7cm}
 \begin{center}%
-{\Large My\+D\+F\+S \\[1ex]\large 1 }\\
+{\Large My\+D\+FS \\[1ex]\large 1 }\\
 \vspace*{1cm}
-{\large Generato da Doxygen 1.8.7}\\
-\vspace*{0.5cm}
-{\small Gio 10 Dic 2015 13:09:35}\\
+{\large Generato da Doxygen 1.8.11}\\
 \end{center}
 \end{titlepage}
 \clearemptydoublepage
@@ -141,13 +140,13 @@
 \hypersetup{pageanchor=true}
 
 %--- Begin generated contents ---
-\chapter{Pagina Principale}
+\chapter{My Distribuited File System}
 \label{index}\hypertarget{index}{}\input{index}
 \chapter{Cache}
 \label{md_Cache}
 \hypertarget{md_Cache}{}
 \input{md_Cache}
-\chapter{Debug dell' applicazione}
+\chapter{Debug dell\textquotesingle{} applicazione}
 \label{md_DEBUG}
 \hypertarget{md_DEBUG}{}
 \input{md_DEBUG}
@@ -159,7 +158,7 @@
 \label{md_OPE}
 \hypertarget{md_OPE}{}
 \input{md_OPE}
-\chapter{R\+E\+A\+D}
+\chapter{R\+E\+AD}
 \label{md_READ}
 \hypertarget{md_READ}{}
 \input{md_READ}
@@ -167,7 +166,7 @@
 \label{md_Test}
 \hypertarget{md_Test}{}
 \input{md_Test}
-\chapter{W\+R\+I\+T\+E}
+\chapter{W\+R\+I\+TE}
 \label{md_WRITE}
 \hypertarget{md_WRITE}{}
 \input{md_WRITE}
@@ -181,20 +180,16 @@
 \input{files}
 \chapter{Documentazione delle classi}
 \input{structCacheRequest}
-\input{structlist__node}
 \input{structMyDFSId}
-\input{structNodo}
 \input{structOpenedFile}
 \input{structpthreadArgs}
 \input{structReadOp}
 \input{structSocketIdList}
-\input{structStruttura}
 \input{structThreadArgs}
 \input{structWriteOp}
 \chapter{Documentazione dei file}
 \input{Cache_8md}
-\input{Client_2Cache_8c}
-\input{Prove_2Cache_2Cache_8c}
+\input{Cache_8c}
 \input{Client_2CLOSE_8c}
 \input{Server_2CLOSE_8c}
 \input{Client_2Heartbeating_8c}
@@ -231,49 +226,27 @@
 \input{DEBUG_8md}
 \input{Invalidazione_8md}
 \input{OPE_8md}
-\input{BTperTest_8c}
-\input{DataStrutePointToPoint_8c}
-\input{enum_8c}
-\input{file_8c}
-\input{fseek_8c}
-\input{Main_8c}
-\input{Mmap_8c}
-\input{mmapStrutturaEasier_8c}
-\input{mmapStruttureDati_8c}
-\input{Open_01e_01modalita_01apertura_2prova_8c}
-\input{prova_8c}
-\input{parseinput_8c}
-\input{Prove_2Parsing_01file_01Config_2Config_8c}
-\input{Server_2Config_8c}
-\input{pointerToPointers_8c}
-\input{provasign_8c}
-\input{read__copy_8c}
-\input{signals_8c}
-\input{strtol_8c}
-\input{Prova_8c}
-\input{second_8c}
-\input{second_8h}
-\input{terzo_8c}
-\input{terzo_8h}
-\input{Threading_8c}
-\input{copy_8c}
-\input{write_8c}
 \input{READ_8md}
 \input{README_8md}
 \input{CommandsHandler_8c}
+\input{Config_8c}
 \input{CommandsHandler_8h}
 \input{OPE_8h}
 \input{StruttureDati_8h}
+\input{Log_8txt}
 \input{OPE_8c}
 \input{server_8c}
 \input{StruttureDati_8c}
+\input{file_8txt}
 \input{Test_8md}
 \input{WRITE_8md}
 %--- End generated contents ---
 
 % Index
+\backmatter
 \newpage
 \phantomsection
+\clearemptydoublepage
 \addcontentsline{toc}{chapter}{Indice}
 \printindex
 

@@ -1,6 +1,5 @@
-\hypertarget{Server_2CLOSE_8c}{\section{Riferimenti per il file Server/\+C\+L\+O\+S\+E.c}
+\hypertarget{Server_2CLOSE_8c}{}\section{Riferimenti per il file Server/\+C\+L\+O\+SE.c}
 \label{Server_2CLOSE_8c}\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}}
-}
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
@@ -8,6 +7,7 @@
 {\ttfamily \#include $<$sys/types.\+h$>$}\\*
 {\ttfamily \#include $<$signal.\+h$>$}\\*
 {\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}inc/\+O\+P\+E.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Strutture\+Dati.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
@@ -21,7 +21,7 @@ int \hyperlink{Server_2CLOSE_8c_a21857a51925ee30db458ebcdaba4681a}{get\+Chunk\+P
 int \hyperlink{Server_2CLOSE_8c_a08cb38236e114f03ae330076f65a42c0}{get\+Chunk\+Size} (char $\ast$buffer)
 \begin{DoxyCompactList}\small\item\em Prende in input il comando, ed estrare la dimensione della write. \end{DoxyCompactList}\item 
 int \hyperlink{Server_2CLOSE_8c_a5c4e45865ca15361e71d2ab68ec75754}{get\+Number\+Of\+Changes} (char $\ast$command)
-\item 
+\begin{DoxyCompactList}\small\item\em Ritorna il numero di cambiamenti n dal comando C\+L\+OS n. \end{DoxyCompactList}\item 
 int \hyperlink{Server_2CLOSE_8c_a29faf0797a0c5b3d36a86e72cc023d85}{handle\+Writes} (int number\+Of\+Changes, \hyperlink{structOpenedFile}{Opened\+File} $\ast$id)
 \begin{DoxyCompactList}\small\item\em gestisce tutte le writes. \end{DoxyCompactList}\item 
 void \hyperlink{Server_2CLOSE_8c_a12ee57b78a18d7b6afb04b7ea5a98a80}{send\+Invalidate} (\hyperlink{structOpenedFile}{Opened\+File} $\ast$id)
@@ -31,95 +31,104 @@ void \hyperlink{Server_2CLOSE_8c_aa0f032a9f5bfd044370c257459df60b0}{handle\+Clos
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Server_2CLOSE_8c_a21857a51925ee30db458ebcdaba4681a}{\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!get\+Chunk\+Position@{get\+Chunk\+Position}}
+\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!get\+Chunk\+Position@{get\+Chunk\+Position}}
 \index{get\+Chunk\+Position@{get\+Chunk\+Position}!Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}}
-\subsubsection[{get\+Chunk\+Position}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Chunk\+Position (
+\subsubsection[{\texorpdfstring{get\+Chunk\+Position(char $\ast$buffer)}{getChunkPosition(char *buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Chunk\+Position (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{buffer}
 \end{DoxyParamCaption}
-)}}\label{Server_2CLOSE_8c_a21857a51925ee30db458ebcdaba4681a}
+)}\hypertarget{Server_2CLOSE_8c_a21857a51925ee30db458ebcdaba4681a}{}\label{Server_2CLOSE_8c_a21857a51925ee30db458ebcdaba4681a}
 
 
 Prende in input il comando, ed estrare la posizione della write. 
 
 es\+: \char`\"{}\+P\+O\+S 0 S\+I\+Z\+E 1000\char`\"{} torna 0. 
 
-Referenziato da handle\+Writes(), e main().
+Referenziato da handle\+Writes().
 
-\hypertarget{Server_2CLOSE_8c_a08cb38236e114f03ae330076f65a42c0}{\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!get\+Chunk\+Size@{get\+Chunk\+Size}}
+\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!get\+Chunk\+Size@{get\+Chunk\+Size}}
 \index{get\+Chunk\+Size@{get\+Chunk\+Size}!Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}}
-\subsubsection[{get\+Chunk\+Size}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Chunk\+Size (
+\subsubsection[{\texorpdfstring{get\+Chunk\+Size(char $\ast$buffer)}{getChunkSize(char *buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Chunk\+Size (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{buffer}
 \end{DoxyParamCaption}
-)}}\label{Server_2CLOSE_8c_a08cb38236e114f03ae330076f65a42c0}
+)}\hypertarget{Server_2CLOSE_8c_a08cb38236e114f03ae330076f65a42c0}{}\label{Server_2CLOSE_8c_a08cb38236e114f03ae330076f65a42c0}
 
 
 Prende in input il comando, ed estrare la dimensione della write. 
 
 es\+: \char`\"{}\+P\+O\+S 0 S\+I\+Z\+E 1000\char`\"{} torna 1000. 
 
-Referenziato da handle\+Writes(), e main().
+Referenziato da handle\+Writes().
 
-\hypertarget{Server_2CLOSE_8c_a5c4e45865ca15361e71d2ab68ec75754}{\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!get\+Number\+Of\+Changes@{get\+Number\+Of\+Changes}}
+\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!get\+Number\+Of\+Changes@{get\+Number\+Of\+Changes}}
 \index{get\+Number\+Of\+Changes@{get\+Number\+Of\+Changes}!Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}}
-\subsubsection[{get\+Number\+Of\+Changes}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Number\+Of\+Changes (
+\subsubsection[{\texorpdfstring{get\+Number\+Of\+Changes(char $\ast$command)}{getNumberOfChanges(char *command)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Number\+Of\+Changes (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{command}
 \end{DoxyParamCaption}
-)}}\label{Server_2CLOSE_8c_a5c4e45865ca15361e71d2ab68ec75754}
-\hypertarget{Server_2CLOSE_8c_aa0f032a9f5bfd044370c257459df60b0}{\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!handle\+Close\+Command@{handle\+Close\+Command}}
+)}\hypertarget{Server_2CLOSE_8c_a5c4e45865ca15361e71d2ab68ec75754}{}\label{Server_2CLOSE_8c_a5c4e45865ca15361e71d2ab68ec75754}
+
+
+Ritorna il numero di cambiamenti n dal comando C\+L\+OS n. 
+
+\begin{DoxyReturn}{Restituisce}
+n numero di cambiamenti 
+
+-\/1 se strtol e\textquotesingle{} fallita 
+\end{DoxyReturn}
+\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!handle\+Close\+Command@{handle\+Close\+Command}}
 \index{handle\+Close\+Command@{handle\+Close\+Command}!Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}}
-\subsubsection[{handle\+Close\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Close\+Command (
+\subsubsection[{\texorpdfstring{handle\+Close\+Command(char $\ast$command, int socket)}{handleCloseCommand(char *command, int socket)}}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Close\+Command (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{command, }
 \item[{int}]{socket}
 \end{DoxyParamCaption}
-)}}\label{Server_2CLOSE_8c_aa0f032a9f5bfd044370c257459df60b0}
+)}\hypertarget{Server_2CLOSE_8c_aa0f032a9f5bfd044370c257459df60b0}{}\label{Server_2CLOSE_8c_aa0f032a9f5bfd044370c257459df60b0}
 
 
 Gestisce il comando Close. 
 
 
 \begin{DoxyParams}{Parametri}
-{\em int} & socket socket del client che termina sessione Ci sono casi in cui questa funzione non viene richiamata, ad esempio se l' heartbeating chiude la connessione da solo. In quel caso, id sara' null. \\
+{\em int} & socket socket del client che termina sessione Ci sono casi in cui questa funzione non viene richiamata, ad esempio se l\textquotesingle{} heartbeating chiude la connessione da solo. In quel caso, id sara\textquotesingle{} null. \\
 \hline
 \end{DoxyParams}
 
 
-Referenzia close\+Client\+Session(), get\+Number\+Of\+Changes(), get\+Opened\+File(), getptid(), handle\+Writes(), is\+Modo\+Apertura(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, e send\+Invalidate().
+Referenzia close\+Client\+Session(), get\+Number\+Of\+Changes(), get\+Opened\+File(), getptid(), handle\+Writes(), is\+Modo\+Apertura(), Opened\+File\+::modo, M\+Y\+O\+\_\+\+R\+D\+WR, M\+Y\+O\+\_\+\+W\+R\+O\+N\+LY, e send\+Invalidate().
 
 
 
 Referenziato da handle\+Command().
 
-\hypertarget{Server_2CLOSE_8c_a29faf0797a0c5b3d36a86e72cc023d85}{\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!handle\+Writes@{handle\+Writes}}
+\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!handle\+Writes@{handle\+Writes}}
 \index{handle\+Writes@{handle\+Writes}!Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}}
-\subsubsection[{handle\+Writes}]{\setlength{\rightskip}{0pt plus 5cm}int handle\+Writes (
+\subsubsection[{\texorpdfstring{handle\+Writes(int number\+Of\+Changes, Opened\+File $\ast$id)}{handleWrites(int numberOfChanges, OpenedFile *id)}}]{\setlength{\rightskip}{0pt plus 5cm}int handle\+Writes (
 \begin{DoxyParamCaption}
 \item[{int}]{number\+Of\+Changes, }
 \item[{{\bf Opened\+File} $\ast$}]{id}
 \end{DoxyParamCaption}
-)}}\label{Server_2CLOSE_8c_a29faf0797a0c5b3d36a86e72cc023d85}
+)}\hypertarget{Server_2CLOSE_8c_a29faf0797a0c5b3d36a86e72cc023d85}{}\label{Server_2CLOSE_8c_a29faf0797a0c5b3d36a86e72cc023d85}
 
 
 gestisce tutte le writes. 
 
 
 
-Referenzia Opened\+File\+::control\+Socket\+Id, Opened\+File\+::filesize, F\+I\+L\+E\+S\+I\+Z\+E, get\+Chunk\+Position(), get\+Chunk\+Size(), e log\+M().
+Referenzia Opened\+File\+::control\+Socket\+Id, Opened\+File\+::filesize, F\+I\+L\+E\+S\+I\+ZE, get\+Chunk\+Position(), get\+Chunk\+Size(), e log\+M().
 
 
 
 Referenziato da handle\+Close\+Command().
 
-\hypertarget{Server_2CLOSE_8c_a12ee57b78a18d7b6afb04b7ea5a98a80}{\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!send\+Invalidate@{send\+Invalidate}}
+\index{Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}!send\+Invalidate@{send\+Invalidate}}
 \index{send\+Invalidate@{send\+Invalidate}!Server/\+C\+L\+O\+S\+E.\+c@{Server/\+C\+L\+O\+S\+E.\+c}}
-\subsubsection[{send\+Invalidate}]{\setlength{\rightskip}{0pt plus 5cm}void send\+Invalidate (
+\subsubsection[{\texorpdfstring{send\+Invalidate(\+Opened\+File $\ast$id)}{sendInvalidate(OpenedFile *id)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+Invalidate (
 \begin{DoxyParamCaption}
 \item[{{\bf Opened\+File} $\ast$}]{id}
 \end{DoxyParamCaption}
-)}}\label{Server_2CLOSE_8c_a12ee57b78a18d7b6afb04b7ea5a98a80}
+)}\hypertarget{Server_2CLOSE_8c_a12ee57b78a18d7b6afb04b7ea5a98a80}{}\label{Server_2CLOSE_8c_a12ee57b78a18d7b6afb04b7ea5a98a80}
 
 
 Invia il messaggio di invalidazione ai client che hanno il file aperto in lettura. 

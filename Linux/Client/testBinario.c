@@ -12,7 +12,8 @@
 
 int main()
 {
-    printf("Test copia un file binario :D\n");
+    printf("Test copia un file binario. \n");
+	printf("It will use the file 'binario.tar.gz'.");
     char* filepath ="binario.tar.gz";
     int err = 0;
     int i = 0;
@@ -26,6 +27,7 @@ int main()
     {
         fwrite(buffer, 1, i, fp);
     }
+
     mydfs_close(id);
     fclose(fp);
     free(buffer);

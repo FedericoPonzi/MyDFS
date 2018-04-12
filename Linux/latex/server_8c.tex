@@ -1,6 +1,5 @@
-\hypertarget{server_8c}{\section{Riferimenti per il file Server/server.c}
+\hypertarget{server_8c}{}\section{Riferimenti per il file Server/server.c}
 \label{server_8c}\index{Server/server.\+c@{Server/server.\+c}}
-}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
 {\ttfamily \#include $<$stdarg.\+h$>$}\\*
@@ -26,19 +25,19 @@
 void \hyperlink{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}{spawn\+Thread} ()
 \begin{DoxyCompactList}\small\item\em Crea un thread e richiama \hyperlink{server_8c_ac53af003472a20c81247bd125288a4c8}{handle\+Socket()} \end{DoxyCompactList}\item 
 void \hyperlink{server_8c_a62b9349e06b1fd5e9f6e08e25f5968ab}{spawn\+Process} ()
-\begin{DoxyCompactList}\small\item\em Crea un processo se il numero di processi disponibili e' inferiore a numero\+Con. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Crea un processo se il numero di processi disponibili e\textquotesingle{} inferiore a numero\+Con. \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{server_8c_ac53af003472a20c81247bd125288a4c8}{handle\+Socket} ()
 \begin{DoxyCompactList}\small\item\em Gestisce la comunicazione con la socket. \end{DoxyCompactList}\item 
 void \hyperlink{server_8c_af9111700e7416f44aec9f208e66f0d7e}{spawn\+Heart\+Beat} (int temp\+\_\+sd)
 \item 
 void $\ast$ \hyperlink{server_8c_ac43da3dbb27d7a95bb3fbf75f3dfd99f}{heart\+Beat} (void $\ast$temp\+\_\+sd)
-\begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l' heartbeating. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l\textquotesingle{} heartbeating. \end{DoxyCompactList}\item 
 void \hyperlink{server_8c_ae9c795678d372dfe604060a8ed43c63f}{sig\+\_\+handler} (int sig, siginfo\+\_\+t $\ast$siginfo, void $\ast$context)
-\begin{DoxyCompactList}\small\item\em Signal handler per gestire l' invalidazione. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Signal handler per gestire l\textquotesingle{} invalidazione. \end{DoxyCompactList}\item 
 void \hyperlink{server_8c_a0b8ba8aea857bed7c7fd940ea404c3ea}{deamonize} ()
 \begin{DoxyCompactList}\small\item\em Funzione che demonizza il server. \end{DoxyCompactList}\item 
 void \hyperlink{server_8c_affea8c811909deed86d0167131e471d7}{parse\+Input} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
-\begin{DoxyCompactList}\small\item\em Parsa l' input, e modifica le impostazioni di conseguenza. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Parsa l\textquotesingle{} input, e modifica le impostazioni di conseguenza. \end{DoxyCompactList}\item 
 int \hyperlink{server_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
 \subsection*{Variabili}
@@ -51,88 +50,88 @@ struct sockaddr\+\_\+in \hyperlink{server_8c_a437cecc27162b023659813375ca67d62}{
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{server_8c_a0b8ba8aea857bed7c7fd940ea404c3ea}{\index{server.\+c@{server.\+c}!deamonize@{deamonize}}
+\index{server.\+c@{server.\+c}!deamonize@{deamonize}}
 \index{deamonize@{deamonize}!server.\+c@{server.\+c}}
-\subsubsection[{deamonize}]{\setlength{\rightskip}{0pt plus 5cm}void deamonize (
+\subsubsection[{\texorpdfstring{deamonize()}{deamonize()}}]{\setlength{\rightskip}{0pt plus 5cm}void deamonize (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{server_8c_a0b8ba8aea857bed7c7fd940ea404c3ea}
+)}\hypertarget{server_8c_a0b8ba8aea857bed7c7fd940ea404c3ea}{}\label{server_8c_a0b8ba8aea857bed7c7fd940ea404c3ea}
 
 
 Funzione che demonizza il server. 
 
-Se la modalita' debug e' attiva non viene attivata la modalita' deamon. 
+Se la modalita\textquotesingle{} debug e\textquotesingle{} attiva non viene attivata la modalita\textquotesingle{} deamon. 
 
-Referenzia D\+E\+B\+U\+G, e log\+M().
+Referenzia D\+E\+B\+UG, e log\+M().
 
 
 
 Referenziato da main().
 
-\hypertarget{server_8c_ac53af003472a20c81247bd125288a4c8}{\index{server.\+c@{server.\+c}!handle\+Socket@{handle\+Socket}}
+\index{server.\+c@{server.\+c}!handle\+Socket@{handle\+Socket}}
 \index{handle\+Socket@{handle\+Socket}!server.\+c@{server.\+c}}
-\subsubsection[{handle\+Socket}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ handle\+Socket (
+\subsubsection[{\texorpdfstring{handle\+Socket()}{handleSocket()}}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ handle\+Socket (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{server_8c_ac53af003472a20c81247bd125288a4c8}
+)}\hypertarget{server_8c_ac53af003472a20c81247bd125288a4c8}{}\label{server_8c_ac53af003472a20c81247bd125288a4c8}
 
 
 Gestisce la comunicazione con la socket. 
 
 Riceve un messaggio dalla socket, lo gestisce, e scrive la risposta. 
 
-Referenzia accept\+Mutex, close\+Client\+Session(), getptid(), handle\+Command(), log\+M(), number\+Alive\+Childs, R\+E\+C\+V\+\_\+\+T\+I\+M\+E\+O\+U\+T, e sd.
+Referenzia accept\+Mutex, buff, close\+Client\+Session(), getptid(), handle\+Command(), log\+M(), number\+Alive\+Childs, R\+E\+C\+V\+\_\+\+T\+I\+M\+E\+O\+UT, e sd.
 
 
 
 Referenziato da spawn\+Process(), e spawn\+Thread().
 
-\hypertarget{server_8c_ac43da3dbb27d7a95bb3fbf75f3dfd99f}{\index{server.\+c@{server.\+c}!heart\+Beat@{heart\+Beat}}
+\index{server.\+c@{server.\+c}!heart\+Beat@{heart\+Beat}}
 \index{heart\+Beat@{heart\+Beat}!server.\+c@{server.\+c}}
-\subsubsection[{heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ heart\+Beat (
+\subsubsection[{\texorpdfstring{heart\+Beat(void $\ast$temp\+\_\+sd)}{heartBeat(void *temp_sd)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ heart\+Beat (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{temp\+\_\+sd}
 \end{DoxyParamCaption}
-)}}\label{server_8c_ac43da3dbb27d7a95bb3fbf75f3dfd99f}
+)}\hypertarget{server_8c_ac43da3dbb27d7a95bb3fbf75f3dfd99f}{}\label{server_8c_ac43da3dbb27d7a95bb3fbf75f3dfd99f}
 
 
-Main del nuovo thread creato per l' heartbeating. 
+Main del nuovo thread creato per l\textquotesingle{} heartbeating. 
 
 
 
-Referenzia Thread\+Args\+::barriera, close\+Client\+Session(), Opened\+File\+::control\+Socket\+Id, My\+D\+F\+S\+Id\+::control\+Socket\+Id, invalidate(), log\+M(), e P\+I\+N\+G\+\_\+\+T\+I\+M\+E.
+Referenzia Thread\+Args\+::barriera, close\+Client\+Session(), Opened\+File\+::control\+Socket\+Id, My\+D\+F\+S\+Id\+::control\+Socket\+Id, Thread\+Args\+::id, invalidate(), log\+M(), P\+I\+N\+G\+\_\+\+T\+I\+ME, e ptid.
 
 
 
 Referenziato da spawn\+Heart\+Beat().
 
-\hypertarget{server_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{server.\+c@{server.\+c}!main@{main}}
+\index{server.\+c@{server.\+c}!main@{main}}
 \index{main@{main}!server.\+c@{server.\+c}}
-\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$argv[])}{main(int argc, char *argv[])}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
 \begin{DoxyParamCaption}
 \item[{int}]{argc, }
 \item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
 \end{DoxyParamCaption}
-)}}\label{server_8c_a0ddf1224851353fc92bfbff6f499fa97}
+)}\hypertarget{server_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\label{server_8c_a0ddf1224851353fc92bfbff6f499fa97}
 
 
 Referenzia deamonize(), load\+Config(), log\+M(), numero\+Con, parse\+Input(), port\+Number, proc\+Or\+Thread, sd, server, sig\+\_\+handler(), spawn\+Process(), e spawn\+Thread().
 
-\hypertarget{server_8c_affea8c811909deed86d0167131e471d7}{\index{server.\+c@{server.\+c}!parse\+Input@{parse\+Input}}
+\index{server.\+c@{server.\+c}!parse\+Input@{parse\+Input}}
 \index{parse\+Input@{parse\+Input}!server.\+c@{server.\+c}}
-\subsubsection[{parse\+Input}]{\setlength{\rightskip}{0pt plus 5cm}void parse\+Input (
+\subsubsection[{\texorpdfstring{parse\+Input(int argc, char $\ast$argv[])}{parseInput(int argc, char *argv[])}}]{\setlength{\rightskip}{0pt plus 5cm}void parse\+Input (
 \begin{DoxyParamCaption}
 \item[{int}]{argc, }
 \item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
 \end{DoxyParamCaption}
-)}}\label{server_8c_affea8c811909deed86d0167131e471d7}
+)}\hypertarget{server_8c_affea8c811909deed86d0167131e471d7}{}\label{server_8c_affea8c811909deed86d0167131e471d7}
 
 
-Parsa l' input, e modifica le impostazioni di conseguenza. 
+Parsa l\textquotesingle{} input, e modifica le impostazioni di conseguenza. 
 
-./\+Server \mbox{[}-\/\+P$<$port$>$\mbox{]} \mbox{[}-\/d$<$path$>$\mbox{]} \mbox{[}-\/c$<$numberofconnection$>$\mbox{]} \mbox{[}-\/h\mbox{]} 
+./\+Server \mbox{[}-\/P$<$port$>$\mbox{]} \mbox{[}-\/d$<$path$>$\mbox{]} \mbox{[}-\/c$<$numberofconnection$>$\mbox{]} \mbox{[}-\/h\mbox{]} 
 
 Referenzia numero\+Con, port\+Number, e root\+Path.
 
@@ -140,18 +139,18 @@ Referenzia numero\+Con, port\+Number, e root\+Path.
 
 Referenziato da main().
 
-\hypertarget{server_8c_ae9c795678d372dfe604060a8ed43c63f}{\index{server.\+c@{server.\+c}!sig\+\_\+handler@{sig\+\_\+handler}}
+\index{server.\+c@{server.\+c}!sig\+\_\+handler@{sig\+\_\+handler}}
 \index{sig\+\_\+handler@{sig\+\_\+handler}!server.\+c@{server.\+c}}
-\subsubsection[{sig\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}void sig\+\_\+handler (
+\subsubsection[{\texorpdfstring{sig\+\_\+handler(int sig, siginfo\+\_\+t $\ast$siginfo, void $\ast$context)}{sig_handler(int sig, siginfo_t *siginfo, void *context)}}]{\setlength{\rightskip}{0pt plus 5cm}void sig\+\_\+handler (
 \begin{DoxyParamCaption}
 \item[{int}]{sig, }
 \item[{siginfo\+\_\+t $\ast$}]{siginfo, }
 \item[{void $\ast$}]{context}
 \end{DoxyParamCaption}
-)}}\label{server_8c_ae9c795678d372dfe604060a8ed43c63f}
+)}\hypertarget{server_8c_ae9c795678d372dfe604060a8ed43c63f}{}\label{server_8c_ae9c795678d372dfe604060a8ed43c63f}
 
 
-Signal handler per gestire l' invalidazione. 
+Signal handler per gestire l\textquotesingle{} invalidazione. 
 
 
 
@@ -161,23 +160,23 @@ Referenzia Opened\+File\+::control\+Socket\+Id, get\+Opened\+File(), invalidate(
 
 Referenziato da main().
 
-\hypertarget{server_8c_af9111700e7416f44aec9f208e66f0d7e}{\index{server.\+c@{server.\+c}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
+\index{server.\+c@{server.\+c}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
 \index{spawn\+Heart\+Beat@{spawn\+Heart\+Beat}!server.\+c@{server.\+c}}
-\subsubsection[{spawn\+Heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Heart\+Beat (
+\subsubsection[{\texorpdfstring{spawn\+Heart\+Beat(int temp\+\_\+sd)}{spawnHeartBeat(int temp_sd)}}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Heart\+Beat (
 \begin{DoxyParamCaption}
 \item[{int}]{temp\+\_\+sd}
 \end{DoxyParamCaption}
-)}}\label{server_8c_af9111700e7416f44aec9f208e66f0d7e}
-\hypertarget{server_8c_a62b9349e06b1fd5e9f6e08e25f5968ab}{\index{server.\+c@{server.\+c}!spawn\+Process@{spawn\+Process}}
+)}\hypertarget{server_8c_af9111700e7416f44aec9f208e66f0d7e}{}\label{server_8c_af9111700e7416f44aec9f208e66f0d7e}
+\index{server.\+c@{server.\+c}!spawn\+Process@{spawn\+Process}}
 \index{spawn\+Process@{spawn\+Process}!server.\+c@{server.\+c}}
-\subsubsection[{spawn\+Process}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Process (
+\subsubsection[{\texorpdfstring{spawn\+Process()}{spawnProcess()}}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Process (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{server_8c_a62b9349e06b1fd5e9f6e08e25f5968ab}
+)}\hypertarget{server_8c_a62b9349e06b1fd5e9f6e08e25f5968ab}{}\label{server_8c_a62b9349e06b1fd5e9f6e08e25f5968ab}
 
 
-Crea un processo se il numero di processi disponibili e' inferiore a numero\+Con. 
+Crea un processo se il numero di processi disponibili e\textquotesingle{} inferiore a numero\+Con. 
 
 
 
@@ -187,23 +186,23 @@ Referenzia handle\+Socket(), log\+M(), number\+Alive\+Childs, e numero\+Con.
 
 Referenziato da main().
 
-\hypertarget{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}{\index{server.\+c@{server.\+c}!spawn\+Thread@{spawn\+Thread}}
+\index{server.\+c@{server.\+c}!spawn\+Thread@{spawn\+Thread}}
 \index{spawn\+Thread@{spawn\+Thread}!server.\+c@{server.\+c}}
-\subsubsection[{spawn\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Thread (
+\subsubsection[{\texorpdfstring{spawn\+Thread()}{spawnThread()}}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Thread (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}
+)}\hypertarget{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}{}\label{server_8c_a5e7b14672f9e2c9fa99b363004afb8e8}
 
 
 Crea un thread e richiama \hyperlink{server_8c_ac53af003472a20c81247bd125288a4c8}{handle\+Socket()} 
 
-All' arrivo di una connessione, crea un thread e richiama handle\+Socket \begin{DoxySeeAlso}{Si veda anche}
+All\textquotesingle{} arrivo di una connessione, crea un thread e richiama handle\+Socket \begin{DoxySeeAlso}{Si veda anche}
 server.\+c\+::handle\+Socket 
 \end{DoxySeeAlso}
 
 
-Referenzia handle\+Socket(), log\+M(), number\+Alive\+Childs, numero\+Con, e tid.
+Referenzia handle\+Socket(), log\+M(), number\+Alive\+Childs, e numero\+Con.
 
 
 
@@ -212,16 +211,16 @@ Referenziato da main().
 
 
 \subsection{Documentazione delle variabili}
-\hypertarget{server_8c_a06b0afe769d54ae94259d8532bc878b0}{\index{server.\+c@{server.\+c}!sd@{sd}}
+\index{server.\+c@{server.\+c}!sd@{sd}}
 \index{sd@{sd}!server.\+c@{server.\+c}}
-\subsubsection[{sd}]{\setlength{\rightskip}{0pt plus 5cm}int sd}}\label{server_8c_a06b0afe769d54ae94259d8532bc878b0}
+\subsubsection[{\texorpdfstring{sd}{sd}}]{\setlength{\rightskip}{0pt plus 5cm}int sd}\hypertarget{server_8c_a06b0afe769d54ae94259d8532bc878b0}{}\label{server_8c_a06b0afe769d54ae94259d8532bc878b0}
 
 
 Referenziato da create\+Control\+Sock(), handle\+Socket(), e main().
 
-\hypertarget{server_8c_a437cecc27162b023659813375ca67d62}{\index{server.\+c@{server.\+c}!server@{server}}
+\index{server.\+c@{server.\+c}!server@{server}}
 \index{server@{server}!server.\+c@{server.\+c}}
-\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}struct sockaddr\+\_\+in server}}\label{server_8c_a437cecc27162b023659813375ca67d62}
+\subsubsection[{\texorpdfstring{server}{server}}]{\setlength{\rightskip}{0pt plus 5cm}struct sockaddr\+\_\+in server}\hypertarget{server_8c_a437cecc27162b023659813375ca67d62}{}\label{server_8c_a437cecc27162b023659813375ca67d62}
 
 
 Referenziato da main().

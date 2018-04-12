@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['socketidlist',['SocketIdList',['../structSocketIdList.html',1,'']]],
-  ['struttura',['Struttura',['../structStruttura.html',1,'']]]
+  ['writeop',['WriteOp',['../structWriteOp.html',1,'']]]
 ];

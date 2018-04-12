@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>MyDFS: Riferimenti per il file Client/inc/CLOSE.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MyDFS
    &#160;<span id="projectnumber">1</span>
    </div>
@@ -32,7 +33,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generato da Doxygen 1.8.7 -->
+<!-- Generato da Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valori del tipo enumerato</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definizioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pagine</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -120,7 +121,9 @@ Funzioni</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Restituisce</dt><dd>-1 in caso di errore, 0 altrimenti. Il comando CLOSE invia anche il numero di write che sono state eseguite, quindi quante send il client dovra' mandare al server. </dd></dl>
+<dl class="section return"><dt>Restituisce</dt><dd>-1 in caso di errore, </dd>
+<dd>
+0 altrimenti. Il comando CLOSE invia anche il numero di write che sono state eseguite, quindi quante send il client dovra' mandare al server. </dd></dl>
 
 <p>Referenzia <a class="el" href="Client_2inc_2Config_8h.html#a62cb50fa7a98a13378476e83137c8d7f">CLOSECOMMAND</a>, <a class="el" href="structMyDFSId.html#a4b67c0973fca25c75395e001b0bf8fc7">MyDFSId::controlSocketId</a>, <a class="el" href="structMyDFSId.html#ac0e1b8c96d859982c1a7d49f9e929e48">MyDFSId::filename</a>, <a class="el" href="Client_2CLOSE_8c.html#a8e44338b364d8da7b693226bf600c53c">getNumberOfChanges()</a>, <a class="el" href="structMyDFSId.html#ac8c10a1a5b18776bf5e5585ee9e26331">MyDFSId::indirizzo</a>, <a class="el" href="Client_2inc_2Utils_8h.html#a1f6240c9883eba86a3a1dc5e8ea77338">logM()</a>, <a class="el" href="structWriteOp.html#ab10157ced397c43b41d1e77a6372a43c">WriteOp::next</a>, <a class="el" href="structReadOp.html#ac84186a2d784cb2fbd0c71dd7d5df78d">ReadOp::next</a>, <a class="el" href="structMyDFSId.html#a71f51c82d7133bfc16fcffeb4c395da0">MyDFSId::readListMutex</a>, <a class="el" href="structMyDFSId.html#a8d5f597502e29e2edc6d2f46c2323b1d">MyDFSId::transferSocketId</a>, e <a class="el" href="Client_2CLOSE_8c.html#affca868a39ef47e0de0a54b7fca94e10">uploadChanges()</a>.</p>
 
@@ -133,7 +136,7 @@ Funzioni</h2></td></tr>
 <hr class="footer"/><address class="footer"><small>
 Generato da &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.7
+</a> 1.8.11
 </small></address>
 </body>
 </html>

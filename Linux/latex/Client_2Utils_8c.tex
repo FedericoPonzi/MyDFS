@@ -1,6 +1,5 @@
-\hypertarget{Client_2Utils_8c}{\section{Riferimenti per il file Client/\+Utils.c}
+\hypertarget{Client_2Utils_8c}{}\section{Riferimenti per il file Client/\+Utils.c}
 \label{Client_2Utils_8c}\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}}
-}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
 {\ttfamily \#include $<$stdarg.\+h$>$}\\*
@@ -9,8 +8,8 @@
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{log\+M} (char $\ast$messaggio,...)
-\begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se D\+E\+B\+U\+G vale 1. \end{DoxyCompactList}\item 
+void \hyperlink{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{logM} (char $\ast$messaggio,...)
+\begin{DoxyCompactList}\small\item\em Stampa un messaggio di log sullo S\+T\+D\+O\+UT se D\+E\+B\+UG vale 1. \end{DoxyCompactList}\item 
 void \hyperlink{Client_2Utils_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}{print\+Err\+\_\+s} (char $\ast$error)
 \begin{DoxyCompactList}\small\item\em Stampa un errore particolare. \end{DoxyCompactList}\item 
 int \hyperlink{Client_2Utils_8c_a6e2594e56afc29e961a1797a0bd8d262}{is\+Modo\+Apertura} (int modo\+\_\+client, int modo)
@@ -20,13 +19,13 @@ int \hyperlink{Client_2Utils_8c_ab79ad909806935a9a392a5fb44b47197}{get\+Number\+
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Client_2Utils_8c_ab79ad909806935a9a392a5fb44b47197}{\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!get\+Number\+Lenght@{get\+Number\+Lenght}}
+\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!get\+Number\+Lenght@{get\+Number\+Lenght}}
 \index{get\+Number\+Lenght@{get\+Number\+Lenght}!Client/\+Utils.\+c@{Client/\+Utils.\+c}}
-\subsubsection[{get\+Number\+Lenght}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Number\+Lenght (
+\subsubsection[{\texorpdfstring{get\+Number\+Lenght(int n)}{getNumberLenght(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Number\+Lenght (
 \begin{DoxyParamCaption}
 \item[{int}]{n}
 \end{DoxyParamCaption}
-)}}\label{Client_2Utils_8c_ab79ad909806935a9a392a5fb44b47197}
+)}\hypertarget{Client_2Utils_8c_ab79ad909806935a9a392a5fb44b47197}{}\label{Client_2Utils_8c_ab79ad909806935a9a392a5fb44b47197}
 
 
 Ritorna il numero di cifre del numero in input. 
@@ -35,39 +34,39 @@ Ritorna il numero di cifre del numero in input.
 
 Referenziato da send\+Read\+Command().
 
-\hypertarget{Client_2Utils_8c_a6e2594e56afc29e961a1797a0bd8d262}{\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!is\+Modo\+Apertura@{is\+Modo\+Apertura}}
+\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!is\+Modo\+Apertura@{is\+Modo\+Apertura}}
 \index{is\+Modo\+Apertura@{is\+Modo\+Apertura}!Client/\+Utils.\+c@{Client/\+Utils.\+c}}
-\subsubsection[{is\+Modo\+Apertura}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Modo\+Apertura (
+\subsubsection[{\texorpdfstring{is\+Modo\+Apertura(int modo\+\_\+client, int modo)}{isModoApertura(int modo_client, int modo)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Modo\+Apertura (
 \begin{DoxyParamCaption}
 \item[{int}]{modo\+\_\+client, }
 \item[{int}]{modo}
 \end{DoxyParamCaption}
-)}}\label{Client_2Utils_8c_a6e2594e56afc29e961a1797a0bd8d262}
+)}\hypertarget{Client_2Utils_8c_a6e2594e56afc29e961a1797a0bd8d262}{}\label{Client_2Utils_8c_a6e2594e56afc29e961a1797a0bd8d262}
 
 
 Dice se modo\+\_\+client contiene il modo \char`\"{}modo\char`\"{}. 
 
-\hypertarget{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!log\+M@{log\+M}}
-\index{log\+M@{log\+M}!Client/\+Utils.\+c@{Client/\+Utils.\+c}}
-\subsubsection[{log\+M}]{\setlength{\rightskip}{0pt plus 5cm}void log\+M (
+\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!logM@{logM}}
+\index{logM@{logM}!Client/\+Utils.\+c@{Client/\+Utils.\+c}}
+\subsubsection[{\texorpdfstring{log\+M(char $\ast$messaggio,...)}{logM(char *messaggio,...)}}]{\setlength{\rightskip}{0pt plus 5cm}void logM (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{messaggio, }
 \item[{}]{...}
 \end{DoxyParamCaption}
-)}}\label{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}
+)}\hypertarget{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}{}\label{Client_2Utils_8c_a1f6240c9883eba86a3a1dc5e8ea77338}
 
 
-Stampa un messaggio di log sullo S\+T\+D\+O\+U\+T se D\+E\+B\+U\+G vale 1. 
+Stampa un messaggio di log sullo S\+T\+D\+O\+UT se D\+E\+B\+UG vale 1. 
 
-\hypertarget{Client_2Utils_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}{\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!print\+Err\+\_\+s@{print\+Err\+\_\+s}}
+\index{Client/\+Utils.\+c@{Client/\+Utils.\+c}!print\+Err\+\_\+s@{print\+Err\+\_\+s}}
 \index{print\+Err\+\_\+s@{print\+Err\+\_\+s}!Client/\+Utils.\+c@{Client/\+Utils.\+c}}
-\subsubsection[{print\+Err\+\_\+s}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Err\+\_\+s (
+\subsubsection[{\texorpdfstring{print\+Err\+\_\+s(char $\ast$error)}{printErr_s(char *error)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Err\+\_\+s (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{error}
 \end{DoxyParamCaption}
-)}}\label{Client_2Utils_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}
+)}\hypertarget{Client_2Utils_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}{}\label{Client_2Utils_8c_ac590e2c9c7dcdea6f86e8e2a173218fa}
 
 
 Stampa un errore particolare. 
 
-Non interrompe il programma. error\+: L'errore da stampare 
+Non interrompe il programma. error\+: L\textquotesingle{}errore da stampare 

@@ -1,16 +1,14 @@
 var searchData=
 [
-  ['handleclosecommand',['handleCloseCommand',['../Server_2CLOSE_8c.html#aa0f032a9f5bfd044370c257459df60b0',1,'handleCloseCommand(char *command, int socket):&#160;CLOSE.c'],['../Server_2inc_2CLOSE_8h.html#aa0f032a9f5bfd044370c257459df60b0',1,'handleCloseCommand(char *command, int socket):&#160;CLOSE.c']]],
-  ['handlecommand',['handleCommand',['../CommandsHandler_8c.html#af50eb510202dbf6e4e65c56a6e0c8fd5',1,'handleCommand(char *buff, int socket):&#160;CommandsHandler.c'],['../CommandsHandler_8h.html#af50eb510202dbf6e4e65c56a6e0c8fd5',1,'handleCommand(char *buff, int socket):&#160;CommandsHandler.c']]],
-  ['handleline',['handleLine',['../Prove_2Parsing_01file_01Config_2Config_8c.html#a273482281a7c4e340879ab4d5b81f0a3',1,'Config.c']]],
-  ['handleopencommand',['handleOpenCommand',['../OPE_8h.html#a6eccb6ec6ec9c8375e70ab4088b511a5',1,'handleOpenCommand(char *command, int socket):&#160;OPE.c'],['../OPE_8c.html#a6eccb6ec6ec9c8375e70ab4088b511a5',1,'handleOpenCommand(char *command, int socket):&#160;OPE.c']]],
-  ['handlereadcommand',['handleREADCommand',['../Server_2inc_2READ_8h.html#a11a14c030d3457d46ad960cf8bc15a4a',1,'handleREADCommand(char *command, int socket):&#160;READ.c'],['../Server_2READ_8c.html#a11a14c030d3457d46ad960cf8bc15a4a',1,'handleREADCommand(char *command, int socket):&#160;READ.c']]],
-  ['handlesocket',['handleSocket',['../server_8c.html#ac53af003472a20c81247bd125288a4c8',1,'server.c']]],
-  ['handlewrites',['handleWrites',['../Server_2CLOSE_8c.html#a29faf0797a0c5b3d36a86e72cc023d85',1,'CLOSE.c']]],
-  ['hbmutex',['hbMutex',['../Client_2inc_2Heartbeating_8h.html#a4bf185e2235ae2d2aaa2a21714ee959a',1,'Heartbeating.h']]],
-  ['heartbeat',['heartBeat',['../Client_2Heartbeating_8c.html#ac0251d094362d92791cda41e3a72592b',1,'heartBeat(void *tA):&#160;Heartbeating.c'],['../Client_2inc_2Heartbeating_8h.html#aae3126a1d85426aa8df88b7186611472',1,'heartBeat(void *sd):&#160;Heartbeating.c'],['../Server_2Heartbeating_8c.html#a22cde1f0c556a5838e950b9b7cac546b',1,'heartBeat(void *args):&#160;Heartbeating.c'],['../Server_2inc_2Heartbeating_8h.html#a3224550934078a0a93c864a1e3e8e11a',1,'heartBeat(void *pt_pthreadarg):&#160;Heartbeating.c'],['../server_8c.html#ac43da3dbb27d7a95bb3fbf75f3dfd99f',1,'heartBeat(void *temp_sd):&#160;Heartbeating.c']]],
-  ['heartbeating_2ec',['Heartbeating.c',['../Server_2Heartbeating_8c.html',1,'']]],
-  ['heartbeating_2ec',['Heartbeating.c',['../Client_2Heartbeating_8c.html',1,'']]],
-  ['heartbeating_2eh',['Heartbeating.h',['../Client_2inc_2Heartbeating_8h.html',1,'']]],
-  ['heartbeating_2eh',['Heartbeating.h',['../Server_2inc_2Heartbeating_8h.html',1,'']]]
+  ['getchunkposition',['getChunkPosition',['../Server_2CLOSE_8c.html#a21857a51925ee30db458ebcdaba4681a',1,'CLOSE.c']]],
+  ['getchunksize',['getChunkSize',['../Server_2CLOSE_8c.html#a08cb38236e114f03ae330076f65a42c0',1,'CLOSE.c']]],
+  ['getcommandid',['getCommandID',['../CommandsHandler_8h.html#a919c7f4b4bcb820f1d6566238178390e',1,'CommandsHandler.h']]],
+  ['getfilename',['getFileName',['../StruttureDati_8h.html#a5bd53dd113398b8df28c065f0ef2255e',1,'getFileName():&#160;StruttureDati.c'],['../StruttureDati_8c.html#a5bd53dd113398b8df28c065f0ef2255e',1,'getFileName():&#160;StruttureDati.c'],['../Cache_8c.html#a73ab89ae79c4dad7bd15bd0d3367be07',1,'getFilename(char *basename):&#160;Cache.c']]],
+  ['getmodo',['getModo',['../OPE_8c.html#a14798837102781498ee08e3c4cf5561c',1,'OPE.c']]],
+  ['getnumberlenght',['getNumberLenght',['../Client_2inc_2Utils_8h.html#ab79ad909806935a9a392a5fb44b47197',1,'getNumberLenght(int n):&#160;Utils.c'],['../Client_2Utils_8c.html#ab79ad909806935a9a392a5fb44b47197',1,'getNumberLenght(int n):&#160;Utils.c']]],
+  ['getnumberofchanges',['getNumberOfChanges',['../Client_2CLOSE_8c.html#a8e44338b364d8da7b693226bf600c53c',1,'getNumberOfChanges(MyDFSId *id):&#160;CLOSE.c'],['../Server_2CLOSE_8c.html#a5c4e45865ca15361e71d2ab68ec75754',1,'getNumberOfChanges(char *command):&#160;CLOSE.c']]],
+  ['getopenedfile',['getOpenedFile',['../StruttureDati_8h.html#a47a975b11b2dad0a1142c7313a7d2f19',1,'getOpenedFile():&#160;StruttureDati.c'],['../StruttureDati_8c.html#a47a975b11b2dad0a1142c7313a7d2f19',1,'getOpenedFile():&#160;StruttureDati.c']]],
+  ['getposfromcommand',['getPosFromCommand',['../Server_2READ_8c.html#a7693e61685c7d3f6b4fe3b682a5e626d',1,'READ.c']]],
+  ['getptid',['getptid',['../Server_2inc_2Utils_8h.html#a67a6020df08de081237572837b51fb82',1,'getptid():&#160;Utils.c'],['../Server_2Utils_8c.html#a67a6020df08de081237572837b51fb82',1,'getptid():&#160;Utils.c']]],
+  ['gettransfersocket',['getTransferSocket',['../StruttureDati_8h.html#ab227c35b76ef6706729ad091f99e7263',1,'getTransferSocket():&#160;StruttureDati.c'],['../StruttureDati_8c.html#ab227c35b76ef6706729ad091f99e7263',1,'getTransferSocket():&#160;StruttureDati.c']]]
 ];

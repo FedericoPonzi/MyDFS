@@ -1,6 +1,5 @@
-\hypertarget{Server_2Heartbeating_8c}{\section{Riferimenti per il file Server/\+Heartbeating.c}
+\hypertarget{Server_2Heartbeating_8c}{}\section{Riferimenti per il file Server/\+Heartbeating.c}
 \label{Server_2Heartbeating_8c}\index{Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}}
-}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
 {\ttfamily \#include $<$stdarg.\+h$>$}\\*
@@ -22,39 +21,39 @@
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{Server_2Heartbeating_8c_a7a884e9c69d08e30f16519fcea98169d}{spawn\+Heart\+Beat} (\hyperlink{structOpenedFile}{Opened\+File} $\ast$id)
-\begin{DoxyCompactList}\small\item\em Funzione che spawna il thread per l' heartbeating. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Funzione che spawna il thread per l\textquotesingle{} heartbeating. \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{Server_2Heartbeating_8c_a22cde1f0c556a5838e950b9b7cac546b}{heart\+Beat} (void $\ast$args)
-\begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l' heartbeating. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l\textquotesingle{} heartbeating. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Server_2Heartbeating_8c_a22cde1f0c556a5838e950b9b7cac546b}{\index{Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}!heart\+Beat@{heart\+Beat}}
+\index{Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}!heart\+Beat@{heart\+Beat}}
 \index{heart\+Beat@{heart\+Beat}!Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}}
-\subsubsection[{heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ heart\+Beat (
+\subsubsection[{\texorpdfstring{heart\+Beat(void $\ast$args)}{heartBeat(void *args)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ heart\+Beat (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{args}
 \end{DoxyParamCaption}
-)}}\label{Server_2Heartbeating_8c_a22cde1f0c556a5838e950b9b7cac546b}
+)}\hypertarget{Server_2Heartbeating_8c_a22cde1f0c556a5838e950b9b7cac546b}{}\label{Server_2Heartbeating_8c_a22cde1f0c556a5838e950b9b7cac546b}
 
 
-Main del nuovo thread creato per l' heartbeating. 
+Main del nuovo thread creato per l\textquotesingle{} heartbeating. 
 
 
 
-Referenzia Thread\+Args\+::barriera, close\+Client\+Session(), Opened\+File\+::control\+Socket\+Id, My\+D\+F\+S\+Id\+::control\+Socket\+Id, invalidate(), log\+M(), e P\+I\+N\+G\+\_\+\+T\+I\+M\+E.
+Referenzia Thread\+Args\+::barriera, close\+Client\+Session(), Opened\+File\+::control\+Socket\+Id, My\+D\+F\+S\+Id\+::control\+Socket\+Id, Thread\+Args\+::id, invalidate(), log\+M(), P\+I\+N\+G\+\_\+\+T\+I\+ME, e ptid.
 
-\hypertarget{Server_2Heartbeating_8c_a7a884e9c69d08e30f16519fcea98169d}{\index{Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
+\index{Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
 \index{spawn\+Heart\+Beat@{spawn\+Heart\+Beat}!Server/\+Heartbeating.\+c@{Server/\+Heartbeating.\+c}}
-\subsubsection[{spawn\+Heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Heart\+Beat (
+\subsubsection[{\texorpdfstring{spawn\+Heart\+Beat(\+Opened\+File $\ast$id)}{spawnHeartBeat(OpenedFile *id)}}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Heart\+Beat (
 \begin{DoxyParamCaption}
 \item[{{\bf Opened\+File} $\ast$}]{id}
 \end{DoxyParamCaption}
-)}}\label{Server_2Heartbeating_8c_a7a884e9c69d08e30f16519fcea98169d}
+)}\hypertarget{Server_2Heartbeating_8c_a7a884e9c69d08e30f16519fcea98169d}{}\label{Server_2Heartbeating_8c_a7a884e9c69d08e30f16519fcea98169d}
 
 
-Funzione che spawna il thread per l' heartbeating. 
+Funzione che spawna il thread per l\textquotesingle{} heartbeating. 
 
 
 
-Referenzia heart\+Beat(), my\+Exit(), e tid.
+Referenzia heart\+Beat(), e my\+Exit().
 

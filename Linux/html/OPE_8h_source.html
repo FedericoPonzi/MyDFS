@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>MyDFS:  File sorgente Server/inc/OPE.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MyDFS
    &#160;<span id="projectnumber">1</span>
    </div>
@@ -32,7 +33,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generato da Doxygen 1.8.7 -->
+<!-- Generato da Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valori del tipo enumerato</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definizioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pagine</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,27 +91,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="title">OPE.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="OPE_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef OPENCOMMAND_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define OPENCOMMAND_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="OPE_8h.html#addf7c1358350b77c12278a4a1d6009cc">    4</a></span>&#160;<span class="preprocessor">#define MYO_RDONLY 1</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="OPE_8h.html#a85f78205a7dfd8bec546ea15b8c11e72">    5</a></span>&#160;<span class="preprocessor">#define MYO_WRONLY 2</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="OPE_8h.html#aa9060de0420480468979d7332bc6d1b6">    6</a></span>&#160;<span class="preprocessor">#define MYO_RDWR   4</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="OPE_8h.html#ab8181332ab18dffb096fd34bb09d50ba">    7</a></span>&#160;<span class="preprocessor">#define MYO_CREAT  8</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="OPE_8h.html#a7223636d09d813f91adef7515ab8185d">    8</a></span>&#160;<span class="preprocessor">#define MYO_TRUNC  16</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="OPE_8h.html#a143323b4e3aee4c7d2e296e06b114c13">    9</a></span>&#160;<span class="preprocessor">#define MYO_EXCL   32</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="OPE_8h.html#a8150949fd71074229bee31cd830c1ffa">   10</a></span>&#160;<span class="preprocessor">#define MYO_EXLOCK 64</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> <a class="code" href="OPE_8h.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a>(<span class="keywordtype">char</span>* command, <span class="keywordtype">int</span> socket);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="OPE_8h_html_a6eccb6ec6ec9c8375e70ab4088b511a5"><div class="ttname"><a href="OPE_8h.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a></div><div class="ttdeci">void handleOpenCommand(char *command, int socket)</div><div class="ttdoc">Gestisce il comando Open. </div><div class="ttdef"><b>Definition:</b> OPE.c:40</div></div>
+<a href="OPE_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef OPENCOMMAND_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define OPENCOMMAND_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="OPE_8h.html#addf7c1358350b77c12278a4a1d6009cc">    4</a></span>&#160;<span class="preprocessor">#define MYO_RDONLY 1</span></div><div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="OPE_8h.html#a85f78205a7dfd8bec546ea15b8c11e72">    5</a></span>&#160;<span class="preprocessor">#define MYO_WRONLY 2</span></div><div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="OPE_8h.html#aa9060de0420480468979d7332bc6d1b6">    6</a></span>&#160;<span class="preprocessor">#define MYO_RDWR   4</span></div><div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="OPE_8h.html#ab8181332ab18dffb096fd34bb09d50ba">    7</a></span>&#160;<span class="preprocessor">#define MYO_CREAT  8</span></div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="OPE_8h.html#a7223636d09d813f91adef7515ab8185d">    8</a></span>&#160;<span class="preprocessor">#define MYO_TRUNC  16</span></div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="OPE_8h.html#a143323b4e3aee4c7d2e296e06b114c13">    9</a></span>&#160;<span class="preprocessor">#define MYO_EXCL   32</span></div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="OPE_8h.html#a8150949fd71074229bee31cd830c1ffa">   10</a></span>&#160;<span class="preprocessor">#define MYO_EXLOCK 64</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> <a class="code" href="OPE_8h.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a>(<span class="keywordtype">char</span>* command, <span class="keywordtype">int</span> socket);</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="OPE_8h_html_a6eccb6ec6ec9c8375e70ab4088b511a5"><div class="ttname"><a href="OPE_8h.html#a6eccb6ec6ec9c8375e70ab4088b511a5">handleOpenCommand</a></div><div class="ttdeci">void handleOpenCommand(char *command, int socket)</div><div class="ttdoc">Gestisce il comando Open. </div><div class="ttdef"><b>Definition:</b> OPE.c:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generato da &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.7
+</a> 1.8.11
 </small></address>
 </body>
 </html>

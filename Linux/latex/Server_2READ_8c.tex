@@ -1,6 +1,5 @@
-\hypertarget{Server_2READ_8c}{\section{Riferimenti per il file Server/\+R\+E\+A\+D.c}
+\hypertarget{Server_2READ_8c}{}\section{Riferimenti per il file Server/\+R\+E\+AD.c}
 \label{Server_2READ_8c}\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}}
-}
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
 {\ttfamily \#include $<$sys/types.\+h$>$}\\*
@@ -18,38 +17,38 @@
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{Server_2READ_8c_a7693e61685c7d3f6b4fe3b682a5e626d}{get\+Pos\+From\+Command} (char $\ast$command)
-\begin{DoxyCompactList}\small\item\em Ritorna la posizione della read richiesta dall' utente. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Ritorna la posizione della read richiesta dall\textquotesingle{} utente. \end{DoxyCompactList}\item 
 void \hyperlink{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}{handle\+R\+E\+A\+D\+Command} (char $\ast$command, int socket)
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Server_2READ_8c_a7693e61685c7d3f6b4fe3b682a5e626d}{\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!get\+Pos\+From\+Command@{get\+Pos\+From\+Command}}
+\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!get\+Pos\+From\+Command@{get\+Pos\+From\+Command}}
 \index{get\+Pos\+From\+Command@{get\+Pos\+From\+Command}!Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}}
-\subsubsection[{get\+Pos\+From\+Command}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Pos\+From\+Command (
+\subsubsection[{\texorpdfstring{get\+Pos\+From\+Command(char $\ast$command)}{getPosFromCommand(char *command)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Pos\+From\+Command (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{command}
 \end{DoxyParamCaption}
-)}}\label{Server_2READ_8c_a7693e61685c7d3f6b4fe3b682a5e626d}
+)}\hypertarget{Server_2READ_8c_a7693e61685c7d3f6b4fe3b682a5e626d}{}\label{Server_2READ_8c_a7693e61685c7d3f6b4fe3b682a5e626d}
 
 
-Ritorna la posizione della read richiesta dall' utente. 
+Ritorna la posizione della read richiesta dall\textquotesingle{} utente. 
 
 
 
 Referenziato da handle\+R\+E\+A\+D\+Command().
 
-\hypertarget{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}{\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!handle\+R\+E\+A\+D\+Command@{handle\+R\+E\+A\+D\+Command}}
+\index{Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}!handle\+R\+E\+A\+D\+Command@{handle\+R\+E\+A\+D\+Command}}
 \index{handle\+R\+E\+A\+D\+Command@{handle\+R\+E\+A\+D\+Command}!Server/\+R\+E\+A\+D.\+c@{Server/\+R\+E\+A\+D.\+c}}
-\subsubsection[{handle\+R\+E\+A\+D\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+R\+E\+A\+D\+Command (
+\subsubsection[{\texorpdfstring{handle\+R\+E\+A\+D\+Command(char $\ast$command, int socket)}{handleREADCommand(char *command, int socket)}}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+R\+E\+A\+D\+Command (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{command, }
 \item[{int}]{socket}
 \end{DoxyParamCaption}
-)}}\label{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}
+)}\hypertarget{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}{}\label{Server_2READ_8c_a11a14c030d3457d46ad960cf8bc15a4a}
 
 
-Referenzia close\+Client\+Session(), F\+I\+L\+E\+S\+I\+Z\+E, Opened\+File\+::fp, get\+Opened\+File(), get\+Pos\+From\+Command(), getptid(), e log\+M().
+Referenzia buff, close\+Client\+Session(), F\+I\+L\+E\+S\+I\+ZE, Opened\+File\+::fp, get\+Opened\+File(), get\+Pos\+From\+Command(), getptid(), e log\+M().
 
 
 

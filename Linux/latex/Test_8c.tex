@@ -1,6 +1,5 @@
-\hypertarget{Test_8c}{\section{Riferimenti per il file Client/\+Test.c}
+\hypertarget{Test_8c}{}\section{Riferimenti per il file Client/\+Test.c}
 \label{Test_8c}\index{Client/\+Test.\+c@{Client/\+Test.\+c}}
-}
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}inc/\+Utils.\+h\char`\"{}}\\*
@@ -21,13 +20,13 @@ int \hyperlink{Test_8c_a90d8443b03c7c48c168b313d28fb72b1}{test\+Open} (char $\as
 int \hyperlink{Test_8c_a2cc4287fccdbd6ef633304f7a4f4cf42}{test\+Simple\+Read} (char $\ast$filename, char $\ast$indirizzo, int debug)
 \begin{DoxyCompactList}\small\item\em Simple\+Read. \end{DoxyCompactList}\item 
 int \hyperlink{Test_8c_af1bdec0a156f8dd5ec0ee1a640181db1}{test\+Read} (char $\ast$filename, char $\ast$indirizzo, int debug)
-\begin{DoxyCompactList}\small\item\em N\+O\+T\+A\+: La parte e funziona solo in locale. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em N\+O\+TA\+: La parte e funziona solo in locale. \end{DoxyCompactList}\item 
 int \hyperlink{Test_8c_a6491367bb2b16a53d1506930ffa9c85c}{test\+Heart\+Beating} (char $\ast$filename, char $\ast$indirizzo, int debug)
-\begin{DoxyCompactList}\small\item\em Testa l' heartbeating. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Testa l\textquotesingle{} heartbeating. \end{DoxyCompactList}\item 
 int \hyperlink{Test_8c_aeefba065d2a3d2cc6647202058643c82}{test\+Write} (char $\ast$filename, char $\ast$indirizzo, int debug)
-\begin{DoxyCompactList}\small\item\em Testa la write N\+O\+T\+A\+: bufferpiccolo deve essere maggiore o uguale alla dimensione di file.\+txt altrimenti il test non verra' superato. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Testa la write N\+O\+TA\+: bufferpiccolo deve essere maggiore o uguale alla dimensione di \hyperlink{file_8txt}{file.\+txt} altrimenti il test non verra\textquotesingle{} superato. \end{DoxyCompactList}\item 
 void \hyperlink{Test_8c_a6e3806bfb5ee43f3514fa607c6f1a305}{test\+Invalidazione\+Cache} (char $\ast$filename, char $\ast$indirizzo, int debug)
-\begin{DoxyCompactList}\small\item\em Testa l' invalidazione della cache. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Testa l\textquotesingle{} invalidazione della cache. \end{DoxyCompactList}\item 
 void \hyperlink{Test_8c_a9cc4d65ba912461794f9b7523ebedca8}{test\+Stress\+Test} (char $\ast$filename, char $\ast$indirizzo, int debug)
 \begin{DoxyCompactList}\small\item\em Sceglie un test a caso e lo esegue. \end{DoxyCompactList}\item 
 void \hyperlink{Test_8c_a79b2f3f1a8562425da6aad86fb32c327}{test\+Open\+Errors} (char $\ast$filename, char $\ast$indirizzo, int debug)
@@ -35,159 +34,159 @@ void \hyperlink{Test_8c_a79b2f3f1a8562425da6aad86fb32c327}{test\+Open\+Errors} (
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Test_8c_a6491367bb2b16a53d1506930ffa9c85c}{\index{Test.\+c@{Test.\+c}!test\+Heart\+Beating@{test\+Heart\+Beating}}
+\index{Test.\+c@{Test.\+c}!test\+Heart\+Beating@{test\+Heart\+Beating}}
 \index{test\+Heart\+Beating@{test\+Heart\+Beating}!Test.\+c@{Test.\+c}}
-\subsubsection[{test\+Heart\+Beating}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Heart\+Beating (
+\subsubsection[{\texorpdfstring{test\+Heart\+Beating(char $\ast$filename, char $\ast$indirizzo, int debug)}{testHeartBeating(char *filename, char *indirizzo, int debug)}}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Heart\+Beating (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
 \item[{char $\ast$}]{indirizzo, }
 \item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a6491367bb2b16a53d1506930ffa9c85c}
+)}\hypertarget{Test_8c_a6491367bb2b16a53d1506930ffa9c85c}{}\label{Test_8c_a6491367bb2b16a53d1506930ffa9c85c}
 
 
-Testa l' heartbeating. 
+Testa l\textquotesingle{} heartbeating. 
 
-Visto che H\+B si trova su un altro thread, per comodita' non viene effettuata nessuna assert. La corretta uscita da questa funzione quindi non indica il superamento del test!! 
+Visto che HB si trova su un altro thread, per comodita\textquotesingle{} non viene effettuata nessuna assert. La corretta uscita da questa funzione quindi non indica il superamento del test!! 
 
-Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), e M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y.
+Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), e M\+Y\+O\+\_\+\+W\+R\+O\+N\+LY.
 
 
 
 Referenziato da main().
 
-\hypertarget{Test_8c_a6e3806bfb5ee43f3514fa607c6f1a305}{\index{Test.\+c@{Test.\+c}!test\+Invalidazione\+Cache@{test\+Invalidazione\+Cache}}
+\index{Test.\+c@{Test.\+c}!test\+Invalidazione\+Cache@{test\+Invalidazione\+Cache}}
 \index{test\+Invalidazione\+Cache@{test\+Invalidazione\+Cache}!Test.\+c@{Test.\+c}}
-\subsubsection[{test\+Invalidazione\+Cache}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Invalidazione\+Cache (
+\subsubsection[{\texorpdfstring{test\+Invalidazione\+Cache(char $\ast$filename, char $\ast$indirizzo, int debug)}{testInvalidazioneCache(char *filename, char *indirizzo, int debug)}}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Invalidazione\+Cache (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
 \item[{char $\ast$}]{indirizzo, }
 \item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a6e3806bfb5ee43f3514fa607c6f1a305}
+)}\hypertarget{Test_8c_a6e3806bfb5ee43f3514fa607c6f1a305}{}\label{Test_8c_a6e3806bfb5ee43f3514fa607c6f1a305}
 
 
-Testa l' invalidazione della cache. 
+Testa l\textquotesingle{} invalidazione della cache. 
 
 
 
-Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y, M\+Y\+O\+\_\+\+R\+D\+W\+R, e M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T.
+Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), M\+Y\+O\+\_\+\+R\+D\+O\+N\+LY, M\+Y\+O\+\_\+\+R\+D\+WR, e M\+Y\+S\+E\+E\+K\+\_\+\+S\+ET.
 
 
 
 Referenziato da main(), e test\+Stress\+Test().
 
-\hypertarget{Test_8c_a90d8443b03c7c48c168b313d28fb72b1}{\index{Test.\+c@{Test.\+c}!test\+Open@{test\+Open}}
+\index{Test.\+c@{Test.\+c}!test\+Open@{test\+Open}}
 \index{test\+Open@{test\+Open}!Test.\+c@{Test.\+c}}
-\subsubsection[{test\+Open}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Open (
+\subsubsection[{\texorpdfstring{test\+Open(char $\ast$filename, char $\ast$indirizzo, int debug)}{testOpen(char *filename, char *indirizzo, int debug)}}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Open (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
 \item[{char $\ast$}]{indirizzo, }
 \item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a90d8443b03c7c48c168b313d28fb72b1}
+)}\hypertarget{Test_8c_a90d8443b03c7c48c168b313d28fb72b1}{}\label{Test_8c_a90d8443b03c7c48c168b313d28fb72b1}
 
 
 Testa tutte le opzioni di apertura della open. 
 
 
 
-Referenzia log\+M(), mydfs\+\_\+close(), mydfs\+\_\+open(), M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, M\+Y\+O\+\_\+\+E\+X\+C\+L, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+T\+R\+U\+N\+C, e M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y.
+Referenzia log\+M(), mydfs\+\_\+close(), mydfs\+\_\+open(), M\+Y\+O\+\_\+\+C\+R\+E\+AT, M\+Y\+O\+\_\+\+E\+X\+CL, M\+Y\+O\+\_\+\+E\+X\+L\+O\+CK, M\+Y\+O\+\_\+\+R\+D\+O\+N\+LY, M\+Y\+O\+\_\+\+R\+D\+WR, M\+Y\+O\+\_\+\+T\+R\+U\+NC, e M\+Y\+O\+\_\+\+W\+R\+O\+N\+LY.
 
 
 
 Referenziato da main(), e test\+Stress\+Test().
 
-\hypertarget{Test_8c_a79b2f3f1a8562425da6aad86fb32c327}{\index{Test.\+c@{Test.\+c}!test\+Open\+Errors@{test\+Open\+Errors}}
+\index{Test.\+c@{Test.\+c}!test\+Open\+Errors@{test\+Open\+Errors}}
 \index{test\+Open\+Errors@{test\+Open\+Errors}!Test.\+c@{Test.\+c}}
-\subsubsection[{test\+Open\+Errors}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Open\+Errors (
+\subsubsection[{\texorpdfstring{test\+Open\+Errors(char $\ast$filename, char $\ast$indirizzo, int debug)}{testOpenErrors(char *filename, char *indirizzo, int debug)}}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Open\+Errors (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
 \item[{char $\ast$}]{indirizzo, }
 \item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a79b2f3f1a8562425da6aad86fb32c327}
+)}\hypertarget{Test_8c_a79b2f3f1a8562425da6aad86fb32c327}{}\label{Test_8c_a79b2f3f1a8562425da6aad86fb32c327}
 
 
-Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, M\+Y\+O\+\_\+\+E\+X\+C\+L, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y, e M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y.
+Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), M\+Y\+O\+\_\+\+C\+R\+E\+AT, M\+Y\+O\+\_\+\+E\+X\+CL, M\+Y\+O\+\_\+\+E\+X\+L\+O\+CK, M\+Y\+O\+\_\+\+R\+D\+O\+N\+LY, e M\+Y\+O\+\_\+\+W\+R\+O\+N\+LY.
 
 
 
 Referenziato da main().
 
-\hypertarget{Test_8c_af1bdec0a156f8dd5ec0ee1a640181db1}{\index{Test.\+c@{Test.\+c}!test\+Read@{test\+Read}}
+\index{Test.\+c@{Test.\+c}!test\+Read@{test\+Read}}
 \index{test\+Read@{test\+Read}!Test.\+c@{Test.\+c}}
-\subsubsection[{test\+Read}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Read (
+\subsubsection[{\texorpdfstring{test\+Read(char $\ast$filename, char $\ast$indirizzo, int debug)}{testRead(char *filename, char *indirizzo, int debug)}}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Read (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
 \item[{char $\ast$}]{indirizzo, }
 \item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_af1bdec0a156f8dd5ec0ee1a640181db1}
+)}\hypertarget{Test_8c_af1bdec0a156f8dd5ec0ee1a640181db1}{}\label{Test_8c_af1bdec0a156f8dd5ec0ee1a640181db1}
 
 
-N\+O\+T\+A\+: La parte e funziona solo in locale. 
+N\+O\+TA\+: La parte e funziona solo in locale. 
 
 
 
-Referenzia My\+D\+F\+S\+Id\+::filename, mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), M\+Y\+O\+\_\+\+R\+D\+O\+N\+L\+Y, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+S\+E\+E\+K\+\_\+\+C\+U\+R, M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D, e M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T.
+Referenzia My\+D\+F\+S\+Id\+::filename, mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), M\+Y\+O\+\_\+\+R\+D\+O\+N\+LY, M\+Y\+O\+\_\+\+R\+D\+WR, M\+Y\+S\+E\+E\+K\+\_\+\+C\+UR, M\+Y\+S\+E\+E\+K\+\_\+\+E\+ND, e M\+Y\+S\+E\+E\+K\+\_\+\+S\+ET.
 
 
 
 Referenziato da main(), e test\+Stress\+Test().
 
-\hypertarget{Test_8c_a2cc4287fccdbd6ef633304f7a4f4cf42}{\index{Test.\+c@{Test.\+c}!test\+Simple\+Read@{test\+Simple\+Read}}
+\index{Test.\+c@{Test.\+c}!test\+Simple\+Read@{test\+Simple\+Read}}
 \index{test\+Simple\+Read@{test\+Simple\+Read}!Test.\+c@{Test.\+c}}
-\subsubsection[{test\+Simple\+Read}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Simple\+Read (
+\subsubsection[{\texorpdfstring{test\+Simple\+Read(char $\ast$filename, char $\ast$indirizzo, int debug)}{testSimpleRead(char *filename, char *indirizzo, int debug)}}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Simple\+Read (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
 \item[{char $\ast$}]{indirizzo, }
 \item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a2cc4287fccdbd6ef633304f7a4f4cf42}
+)}\hypertarget{Test_8c_a2cc4287fccdbd6ef633304f7a4f4cf42}{}\label{Test_8c_a2cc4287fccdbd6ef633304f7a4f4cf42}
 
 
 Simple\+Read. 
 
 
 
-Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), e M\+Y\+O\+\_\+\+R\+D\+W\+R.
+Referenzia mydfs\+\_\+close(), mydfs\+\_\+open(), e M\+Y\+O\+\_\+\+R\+D\+WR.
 
-\hypertarget{Test_8c_a9cc4d65ba912461794f9b7523ebedca8}{\index{Test.\+c@{Test.\+c}!test\+Stress\+Test@{test\+Stress\+Test}}
+\index{Test.\+c@{Test.\+c}!test\+Stress\+Test@{test\+Stress\+Test}}
 \index{test\+Stress\+Test@{test\+Stress\+Test}!Test.\+c@{Test.\+c}}
-\subsubsection[{test\+Stress\+Test}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Stress\+Test (
+\subsubsection[{\texorpdfstring{test\+Stress\+Test(char $\ast$filename, char $\ast$indirizzo, int debug)}{testStressTest(char *filename, char *indirizzo, int debug)}}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Stress\+Test (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
 \item[{char $\ast$}]{indirizzo, }
 \item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_a9cc4d65ba912461794f9b7523ebedca8}
+)}\hypertarget{Test_8c_a9cc4d65ba912461794f9b7523ebedca8}{}\label{Test_8c_a9cc4d65ba912461794f9b7523ebedca8}
 
 
 Sceglie un test a caso e lo esegue. 
 
 \begin{DoxyRefDesc}{Da fare}
-\item[\hyperlink{todo__todo000002}{Da fare}]da terminare. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000001}{Da fare}]da terminare.\end{DoxyRefDesc}
 
 
 Referenzia test\+Invalidazione\+Cache(), test\+Open(), test\+Read(), e test\+Write().
 
-\hypertarget{Test_8c_aeefba065d2a3d2cc6647202058643c82}{\index{Test.\+c@{Test.\+c}!test\+Write@{test\+Write}}
+\index{Test.\+c@{Test.\+c}!test\+Write@{test\+Write}}
 \index{test\+Write@{test\+Write}!Test.\+c@{Test.\+c}}
-\subsubsection[{test\+Write}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Write (
+\subsubsection[{\texorpdfstring{test\+Write(char $\ast$filename, char $\ast$indirizzo, int debug)}{testWrite(char *filename, char *indirizzo, int debug)}}]{\setlength{\rightskip}{0pt plus 5cm}int test\+Write (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename, }
 \item[{char $\ast$}]{indirizzo, }
 \item[{int}]{debug}
 \end{DoxyParamCaption}
-)}}\label{Test_8c_aeefba065d2a3d2cc6647202058643c82}
+)}\hypertarget{Test_8c_aeefba065d2a3d2cc6647202058643c82}{}\label{Test_8c_aeefba065d2a3d2cc6647202058643c82}
 
 
-Testa la write N\+O\+T\+A\+: bufferpiccolo deve essere maggiore o uguale alla dimensione di file.\+txt altrimenti il test non verra' superato. 
+Testa la write N\+O\+TA\+: bufferpiccolo deve essere maggiore o uguale alla dimensione di \hyperlink{file_8txt}{file.\+txt} altrimenti il test non verra\textquotesingle{} superato. 
 
 
 
-Referenzia My\+D\+F\+S\+Id\+::filesize, mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+S\+E\+E\+K\+\_\+\+E\+N\+D, e M\+Y\+S\+E\+E\+K\+\_\+\+S\+E\+T.
+Referenzia My\+D\+F\+S\+Id\+::filesize, mydfs\+\_\+close(), mydfs\+\_\+open(), mydfs\+\_\+read(), mydfs\+\_\+write(), M\+Y\+O\+\_\+\+C\+R\+E\+AT, M\+Y\+O\+\_\+\+R\+D\+WR, M\+Y\+S\+E\+E\+K\+\_\+\+E\+ND, e M\+Y\+S\+E\+E\+K\+\_\+\+S\+ET.
 
 
 

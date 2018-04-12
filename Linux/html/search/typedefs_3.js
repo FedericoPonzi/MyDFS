@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openedfile',['OpenedFile',['../second_8h.html#aeb1a59f39eb8759e5c41cdfe0a53648c',1,'OpenedFile():&#160;second.h'],['../StruttureDati_8h.html#aeb1a59f39eb8759e5c41cdfe0a53648c',1,'OpenedFile():&#160;StruttureDati.h']]]
+  ['readop',['ReadOp',['../Client_2inc_2Config_8h.html#a9073086354960a2d9ee6972ce86a7cc8',1,'Config.h']]]
 ];

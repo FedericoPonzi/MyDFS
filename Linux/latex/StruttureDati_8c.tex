@@ -1,6 +1,5 @@
-\hypertarget{StruttureDati_8c}{\section{Riferimenti per il file Server/\+Strutture\+Dati.c}
+\hypertarget{StruttureDati_8c}{}\section{Riferimenti per il file Server/\+Strutture\+Dati.c}
 \label{StruttureDati_8c}\index{Server/\+Strutture\+Dati.\+c@{Server/\+Strutture\+Dati.\+c}}
-}
 
 
 Contiene funzioni utilizzate per caricare il file di configurazione.  
@@ -26,40 +25,40 @@ Contiene funzioni utilizzate per caricare il file di configurazione.
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{StruttureDati_8c_a12dc3ffb088dc6be12e6d5d2ed911031}{append\+Opened\+File} (char $\ast$nome\+File, int modo, \hyperlink{structOpenedFile}{Opened\+File} $\ast$$\ast$id)
-\begin{DoxyCompactList}\small\item\em Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. \end{DoxyCompactList}\item 
 int \hyperlink{StruttureDati_8c_aa089645f4772b1d34f2808e1f913eb45}{check\+Modo\+Open} (char $\ast$nome\+File, int modo)
 \begin{DoxyCompactList}\small\item\em controlla se la open è realizzabile con il modo richiesti \end{DoxyCompactList}\item 
 int \hyperlink{StruttureDati_8c_a53729d51218aa9a03ba46e8b1fa89875}{file\+Already\+Opened\+In\+Write} (char $\ast$filename)
-\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e' gia' stato aperto in una modalita' che non permette l'accesso da parte di altri client N\+O\+T\+A\+: S\+I\+N\+C\+R\+O\+N\+I\+Z\+Z\+A\+T\+O C\+O\+N M\+U\+T\+E\+X. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto in una modalita\textquotesingle{} che non permette l\textquotesingle{}accesso da parte di altri client N\+O\+TA\+: S\+I\+N\+C\+R\+O\+N\+I\+Z\+Z\+A\+TO C\+ON M\+U\+T\+EX. \end{DoxyCompactList}\item 
 int \hyperlink{StruttureDati_8c_a6e2594e56afc29e961a1797a0bd8d262}{is\+Modo\+Apertura} (int modo\+\_\+client, int modo)
 \begin{DoxyCompactList}\small\item\em Dice se modo\+\_\+client contiene il modo \char`\"{}modo\char`\"{}. \end{DoxyCompactList}\item 
 void \hyperlink{StruttureDati_8c_a1674324a5bfcb0d5c3a5547c23a73e5a}{free\+Opened\+File} (\hyperlink{structOpenedFile}{Opened\+File} $\ast$id)
 \begin{DoxyCompactList}\small\item\em Libera lo spazio occupato dal puntatore. \end{DoxyCompactList}\item 
-void \hyperlink{StruttureDati_8c_a4d533448d4fea33fea1475cffe4ad377}{close\+Client\+Session} (unsigned long int ptid)
-\begin{DoxyCompactList}\small\item\em rimuove collegamenti tra client e file aperti nella sessione N\+O\+T\+A\+: A\+C\+C\+E\+S\+S\+O S\+I\+N\+C\+R\+O\+N\+I\+Z\+Z\+A\+T\+O C\+O\+N M\+U\+T\+E\+X \end{DoxyCompactList}\item 
+void \hyperlink{StruttureDati_8c_a4d533448d4fea33fea1475cffe4ad377}{close\+Client\+Session} (unsigned long int \hyperlink{Log_8txt_a433c05c9305a39a488da369607037e4a}{ptid})
+\begin{DoxyCompactList}\small\item\em rimuove collegamenti tra client e file aperti nella sessione N\+O\+TA\+: A\+C\+C\+E\+S\+SO S\+I\+N\+C\+R\+O\+N\+I\+Z\+Z\+A\+TO C\+ON M\+U\+T\+EX \end{DoxyCompactList}\item 
 int \hyperlink{StruttureDati_8c_ab227c35b76ef6706729ad091f99e7263}{get\+Transfer\+Socket} ()
 \item 
 char $\ast$ \hyperlink{StruttureDati_8c_a5bd53dd113398b8df28c065f0ef2255e}{get\+File\+Name} ()
 \begin{DoxyCompactList}\small\item\em Ritorna il nome del file aperto da questo ptid. \end{DoxyCompactList}\item 
 \hyperlink{structOpenedFile}{Opened\+File} $\ast$ \hyperlink{StruttureDati_8c_a47a975b11b2dad0a1142c7313a7d2f19}{get\+Opened\+File} ()
-\begin{DoxyCompactList}\small\item\em Ritorna l' opened file associato a questo ptid. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Ritorna l\textquotesingle{} opened file associato a questo ptid. \end{DoxyCompactList}\item 
 int \hyperlink{StruttureDati_8c_ae45ca2477d989c728fe47566c9f5b95a}{count\+Opened\+File} ()
 \begin{DoxyCompactList}\small\item\em Ritorna il numero di righe della tabella con i file aperti. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variabili}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{structOpenedFile}{Opened\+File} $\ast$$\ast$ \hyperlink{StruttureDati_8c_ac6c781406efae2362705c3a19a96474a}{opened\+File\+Linked\+List} = N\+U\+L\+L
+\hyperlink{structOpenedFile}{Opened\+File} $\ast$$\ast$ \hyperlink{StruttureDati_8c_ac6c781406efae2362705c3a19a96474a}{opened\+File\+Linked\+List} = N\+U\+LL
 \item 
 \hyperlink{structOpenedFile}{Opened\+File} $\ast$$\ast$ \hyperlink{StruttureDati_8c_a7ed27afe1793bab93e0646228dd26ce3}{free\+\_\+head}
 \item 
 pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{StruttureDati_8c_a8647861982974418fd65cf3dca69c54e}{mutex}
-\begin{DoxyCompactList}\small\item\em Questo mutex e' da usare su ogni lavoro che si esegue con la lista linkata di elementi. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Questo mutex e\textquotesingle{} da usare su ogni lavoro che si esegue con la lista linkata di elementi. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descrizione dettagliata}
 Contiene funzioni utilizzate per caricare il file di configurazione. 
 
-Contiene le funzioni di utilita' per le Strutture Dati.
+Contiene le funzioni di utilita\textquotesingle{} per le Strutture Dati.
 
 \begin{DoxyAuthor}{Autore}
 Federico Ponzi 
@@ -67,60 +66,60 @@ Federico Ponzi
 \begin{DoxyDate}{Data}
 18.\+07.\+2015
 \end{DoxyDate}
-Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell' header di questo modulo. 
+Contiene tutte le funzioni utili per lavorare con le strutture dati definite nell\textquotesingle{} header di questo modulo. 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{StruttureDati_8c_a12dc3ffb088dc6be12e6d5d2ed911031}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!append\+Opened\+File@{append\+Opened\+File}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!append\+Opened\+File@{append\+Opened\+File}}
 \index{append\+Opened\+File@{append\+Opened\+File}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{append\+Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}int append\+Opened\+File (
+\subsubsection[{\texorpdfstring{append\+Opened\+File(char $\ast$nome\+File, int modo, Opened\+File $\ast$$\ast$id)}{appendOpenedFile(char *nomeFile, int modo, OpenedFile **id)}}]{\setlength{\rightskip}{0pt plus 5cm}int append\+Opened\+File (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{nome\+File, }
 \item[{int}]{modo, }
 \item[{{\bf Opened\+File} $\ast$$\ast$}]{id}
 \end{DoxyParamCaption}
-)}}\label{StruttureDati_8c_a12dc3ffb088dc6be12e6d5d2ed911031}
+)}\hypertarget{StruttureDati_8c_a12dc3ffb088dc6be12e6d5d2ed911031}{}\label{StruttureDati_8c_a12dc3ffb088dc6be12e6d5d2ed911031}
 
 
-Aggiunge l' oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. 
+Aggiunge l\textquotesingle{} oggetto in input alla fine della lista linkata dei file aperti \hyperlink{structOpenedFile}{Opened\+File}. 
 
-Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all' elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. 
+Se non esiste la radice main\+File la crea. Altrimenti scorre tutti i nodi fino ad arrivare all\textquotesingle{} elemento in coda, crea un nuovo nodo con i dati in input e lo appende alla fine. 
 
-Referenzia check\+Modo\+Open(), Opened\+File\+::control\+Socket\+Mutex, file\+Already\+Opened\+In\+Write(), Opened\+File\+::file\+Name, Opened\+File\+::fp, free\+\_\+head, getptid(), is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, mutex, my\+Exit(), M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, M\+Y\+O\+\_\+\+T\+R\+U\+N\+C, Opened\+File\+::next, number\+Alive\+Childs, opened\+File\+Linked\+List, Opened\+File\+::ptid, e root\+Path.
+Referenzia check\+Modo\+Open(), Opened\+File\+::control\+Socket\+Mutex, file\+Already\+Opened\+In\+Write(), Opened\+File\+::file\+Name, Opened\+File\+::fp, free\+\_\+head, getptid(), is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, mutex, my\+Exit(), M\+Y\+O\+\_\+\+C\+R\+E\+AT, M\+Y\+O\+\_\+\+T\+R\+U\+NC, Opened\+File\+::next, number\+Alive\+Childs, opened\+File\+Linked\+List, Opened\+File\+::ptid, e root\+Path.
 
 
 
 Referenziato da handle\+Open\+Command().
 
-\hypertarget{StruttureDati_8c_aa089645f4772b1d34f2808e1f913eb45}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!check\+Modo\+Open@{check\+Modo\+Open}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!check\+Modo\+Open@{check\+Modo\+Open}}
 \index{check\+Modo\+Open@{check\+Modo\+Open}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{check\+Modo\+Open}]{\setlength{\rightskip}{0pt plus 5cm}int check\+Modo\+Open (
+\subsubsection[{\texorpdfstring{check\+Modo\+Open(char $\ast$nome\+File, int modo)}{checkModoOpen(char *nomeFile, int modo)}}]{\setlength{\rightskip}{0pt plus 5cm}int check\+Modo\+Open (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{nome\+File, }
 \item[{int}]{modo}
 \end{DoxyParamCaption}
-)}}\label{StruttureDati_8c_aa089645f4772b1d34f2808e1f913eb45}
+)}\hypertarget{StruttureDati_8c_aa089645f4772b1d34f2808e1f913eb45}{}\label{StruttureDati_8c_aa089645f4772b1d34f2808e1f913eb45}
 
 
 controlla se la open è realizzabile con il modo richiesti 
 
 
 
-Referenzia Opened\+File\+::file\+Name, is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, mutex, M\+Y\+O\+\_\+\+C\+R\+E\+A\+T, M\+Y\+O\+\_\+\+E\+X\+C\+L, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, Opened\+File\+::next, opened\+File\+Linked\+List, e root\+Path.
+Referenzia Opened\+File\+::file\+Name, is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, mutex, M\+Y\+O\+\_\+\+C\+R\+E\+AT, M\+Y\+O\+\_\+\+E\+X\+CL, M\+Y\+O\+\_\+\+E\+X\+L\+O\+CK, M\+Y\+O\+\_\+\+R\+D\+WR, M\+Y\+O\+\_\+\+W\+R\+O\+N\+LY, Opened\+File\+::next, opened\+File\+Linked\+List, e root\+Path.
 
 
 
 Referenziato da append\+Opened\+File().
 
-\hypertarget{StruttureDati_8c_a4d533448d4fea33fea1475cffe4ad377}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!close\+Client\+Session@{close\+Client\+Session}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!close\+Client\+Session@{close\+Client\+Session}}
 \index{close\+Client\+Session@{close\+Client\+Session}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{close\+Client\+Session}]{\setlength{\rightskip}{0pt plus 5cm}void close\+Client\+Session (
+\subsubsection[{\texorpdfstring{close\+Client\+Session(unsigned long int ptid)}{closeClientSession(unsigned long int ptid)}}]{\setlength{\rightskip}{0pt plus 5cm}void close\+Client\+Session (
 \begin{DoxyParamCaption}
 \item[{unsigned long int}]{ptid}
 \end{DoxyParamCaption}
-)}}\label{StruttureDati_8c_a4d533448d4fea33fea1475cffe4ad377}
+)}\hypertarget{StruttureDati_8c_a4d533448d4fea33fea1475cffe4ad377}{}\label{StruttureDati_8c_a4d533448d4fea33fea1475cffe4ad377}
 
 
-rimuove collegamenti tra client e file aperti nella sessione N\+O\+T\+A\+: A\+C\+C\+E\+S\+S\+O S\+I\+N\+C\+R\+O\+N\+I\+Z\+Z\+A\+T\+O C\+O\+N M\+U\+T\+E\+X 
+rimuove collegamenti tra client e file aperti nella sessione N\+O\+TA\+: A\+C\+C\+E\+S\+SO S\+I\+N\+C\+R\+O\+N\+I\+Z\+Z\+A\+TO C\+ON M\+U\+T\+EX 
 
 
 \begin{DoxyParams}{Parametri}
@@ -129,19 +128,19 @@ rimuove collegamenti tra client e file aperti nella sessione N\+O\+T\+A\+: A\+C\
 \end{DoxyParams}
 
 
-Referenzia count\+Opened\+File(), Opened\+File\+::file\+Name, free\+\_\+head, free\+Opened\+File(), log\+M(), mutex, Opened\+File\+::next, opened\+File\+Linked\+List, Opened\+File\+::ptid, e T\+R\+U\+E.
+Referenzia count\+Opened\+File(), Opened\+File\+::file\+Name, free\+\_\+head, free\+Opened\+File(), log\+M(), mutex, Opened\+File\+::next, opened\+File\+Linked\+List, Opened\+File\+::ptid, e T\+R\+UE.
 
 
 
 Referenziato da handle\+Close\+Command(), handle\+Open\+Command(), handle\+R\+E\+A\+D\+Command(), handle\+Socket(), e heart\+Beat().
 
-\hypertarget{StruttureDati_8c_ae45ca2477d989c728fe47566c9f5b95a}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!count\+Opened\+File@{count\+Opened\+File}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!count\+Opened\+File@{count\+Opened\+File}}
 \index{count\+Opened\+File@{count\+Opened\+File}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{count\+Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}int count\+Opened\+File (
+\subsubsection[{\texorpdfstring{count\+Opened\+File()}{countOpenedFile()}}]{\setlength{\rightskip}{0pt plus 5cm}int count\+Opened\+File (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{StruttureDati_8c_ae45ca2477d989c728fe47566c9f5b95a}
+)}\hypertarget{StruttureDati_8c_ae45ca2477d989c728fe47566c9f5b95a}{}\label{StruttureDati_8c_ae45ca2477d989c728fe47566c9f5b95a}
 
 
 Ritorna il numero di righe della tabella con i file aperti. 
@@ -154,32 +153,32 @@ Referenzia mutex, Opened\+File\+::next, e opened\+File\+Linked\+List.
 
 Referenziato da close\+Client\+Session().
 
-\hypertarget{StruttureDati_8c_a53729d51218aa9a03ba46e8b1fa89875}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!file\+Already\+Opened\+In\+Write@{file\+Already\+Opened\+In\+Write}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!file\+Already\+Opened\+In\+Write@{file\+Already\+Opened\+In\+Write}}
 \index{file\+Already\+Opened\+In\+Write@{file\+Already\+Opened\+In\+Write}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{file\+Already\+Opened\+In\+Write}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Opened\+In\+Write (
+\subsubsection[{\texorpdfstring{file\+Already\+Opened\+In\+Write(char $\ast$filename)}{fileAlreadyOpenedInWrite(char *filename)}}]{\setlength{\rightskip}{0pt plus 5cm}int file\+Already\+Opened\+In\+Write (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{filename}
 \end{DoxyParamCaption}
-)}}\label{StruttureDati_8c_a53729d51218aa9a03ba46e8b1fa89875}
+)}\hypertarget{StruttureDati_8c_a53729d51218aa9a03ba46e8b1fa89875}{}\label{StruttureDati_8c_a53729d51218aa9a03ba46e8b1fa89875}
 
 
-Controlla se un file con quel nome e' gia' stato aperto in una modalita' che non permette l'accesso da parte di altri client N\+O\+T\+A\+: S\+I\+N\+C\+R\+O\+N\+I\+Z\+Z\+A\+T\+O C\+O\+N M\+U\+T\+E\+X. 
+Controlla se un file con quel nome e\textquotesingle{} gia\textquotesingle{} stato aperto in una modalita\textquotesingle{} che non permette l\textquotesingle{}accesso da parte di altri client N\+O\+TA\+: S\+I\+N\+C\+R\+O\+N\+I\+Z\+Z\+A\+TO C\+ON M\+U\+T\+EX. 
 
 
 
-Referenzia F\+A\+L\+S\+E, Opened\+File\+::file\+Name, is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, mutex, M\+Y\+O\+\_\+\+E\+X\+L\+O\+C\+K, M\+Y\+O\+\_\+\+R\+D\+W\+R, M\+Y\+O\+\_\+\+W\+R\+O\+N\+L\+Y, Opened\+File\+::next, e opened\+File\+Linked\+List.
+Referenzia F\+A\+L\+SE, Opened\+File\+::file\+Name, is\+Modo\+Apertura(), log\+M(), Opened\+File\+::modo, mutex, M\+Y\+O\+\_\+\+E\+X\+L\+O\+CK, M\+Y\+O\+\_\+\+R\+D\+WR, M\+Y\+O\+\_\+\+W\+R\+O\+N\+LY, Opened\+File\+::next, e opened\+File\+Linked\+List.
 
 
 
 Referenziato da append\+Opened\+File().
 
-\hypertarget{StruttureDati_8c_a1674324a5bfcb0d5c3a5547c23a73e5a}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!free\+Opened\+File@{free\+Opened\+File}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!free\+Opened\+File@{free\+Opened\+File}}
 \index{free\+Opened\+File@{free\+Opened\+File}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{free\+Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}void free\+Opened\+File (
+\subsubsection[{\texorpdfstring{free\+Opened\+File(\+Opened\+File $\ast$id)}{freeOpenedFile(OpenedFile *id)}}]{\setlength{\rightskip}{0pt plus 5cm}void free\+Opened\+File (
 \begin{DoxyParamCaption}
 \item[{{\bf Opened\+File} $\ast$}]{id}
 \end{DoxyParamCaption}
-)}}\label{StruttureDati_8c_a1674324a5bfcb0d5c3a5547c23a73e5a}
+)}\hypertarget{StruttureDati_8c_a1674324a5bfcb0d5c3a5547c23a73e5a}{}\label{StruttureDati_8c_a1674324a5bfcb0d5c3a5547c23a73e5a}
 
 
 Libera lo spazio occupato dal puntatore. 
@@ -192,66 +191,66 @@ Referenzia Opened\+File\+::control\+Socket\+Id, Opened\+File\+::fp, log\+M(), e 
 
 Referenziato da close\+Client\+Session().
 
-\hypertarget{StruttureDati_8c_a5bd53dd113398b8df28c065f0ef2255e}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+File\+Name@{get\+File\+Name}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+File\+Name@{get\+File\+Name}}
 \index{get\+File\+Name@{get\+File\+Name}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{get\+File\+Name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+File\+Name (
+\subsubsection[{\texorpdfstring{get\+File\+Name()}{getFileName()}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+File\+Name (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{StruttureDati_8c_a5bd53dd113398b8df28c065f0ef2255e}
+)}\hypertarget{StruttureDati_8c_a5bd53dd113398b8df28c065f0ef2255e}{}\label{StruttureDati_8c_a5bd53dd113398b8df28c065f0ef2255e}
 
 
 Ritorna il nome del file aperto da questo ptid. 
 
-N\+O\+T\+A\+: A\+C\+C\+E\+S\+S\+O S\+I\+N\+C\+R\+O\+N\+I\+Z\+Z\+A\+T\+O C\+O\+N M\+U\+T\+E\+X 
+N\+O\+TA\+: A\+C\+C\+E\+S\+SO S\+I\+N\+C\+R\+O\+N\+I\+Z\+Z\+A\+TO C\+ON M\+U\+T\+EX 
 
 Referenzia Opened\+File\+::file\+Name, getptid(), mutex, Opened\+File\+::next, opened\+File\+Linked\+List, e Opened\+File\+::ptid.
 
-\hypertarget{StruttureDati_8c_a47a975b11b2dad0a1142c7313a7d2f19}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+Opened\+File@{get\+Opened\+File}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+Opened\+File@{get\+Opened\+File}}
 \index{get\+Opened\+File@{get\+Opened\+File}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{get\+Opened\+File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ get\+Opened\+File (
+\subsubsection[{\texorpdfstring{get\+Opened\+File()}{getOpenedFile()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$ get\+Opened\+File (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{StruttureDati_8c_a47a975b11b2dad0a1142c7313a7d2f19}
+)}\hypertarget{StruttureDati_8c_a47a975b11b2dad0a1142c7313a7d2f19}{}\label{StruttureDati_8c_a47a975b11b2dad0a1142c7313a7d2f19}
 
 
-Ritorna l' opened file associato a questo ptid. 
+Ritorna l\textquotesingle{} opened file associato a questo ptid. 
 
 
 
-Referenzia getptid(), mutex, Opened\+File\+::next, opened\+File\+Linked\+List, e Opened\+File\+::ptid.
+Referenzia getptid(), mutex, Opened\+File\+::next, opened\+File\+Linked\+List, Opened\+File\+::ptid, e ptid.
 
 
 
 Referenziato da handle\+Close\+Command(), handle\+R\+E\+A\+D\+Command(), e sig\+\_\+handler().
 
-\hypertarget{StruttureDati_8c_ab227c35b76ef6706729ad091f99e7263}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+Transfer\+Socket@{get\+Transfer\+Socket}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!get\+Transfer\+Socket@{get\+Transfer\+Socket}}
 \index{get\+Transfer\+Socket@{get\+Transfer\+Socket}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{get\+Transfer\+Socket}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Transfer\+Socket (
+\subsubsection[{\texorpdfstring{get\+Transfer\+Socket()}{getTransferSocket()}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Transfer\+Socket (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{StruttureDati_8c_ab227c35b76ef6706729ad091f99e7263}
+)}\hypertarget{StruttureDati_8c_ab227c35b76ef6706729ad091f99e7263}{}\label{StruttureDati_8c_ab227c35b76ef6706729ad091f99e7263}
 
 
 Referenzia Opened\+File\+::control\+Socket\+Id, getptid(), mutex, Opened\+File\+::next, opened\+File\+Linked\+List, e Opened\+File\+::ptid.
 
-\hypertarget{StruttureDati_8c_a6e2594e56afc29e961a1797a0bd8d262}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!is\+Modo\+Apertura@{is\+Modo\+Apertura}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!is\+Modo\+Apertura@{is\+Modo\+Apertura}}
 \index{is\+Modo\+Apertura@{is\+Modo\+Apertura}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{is\+Modo\+Apertura}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Modo\+Apertura (
+\subsubsection[{\texorpdfstring{is\+Modo\+Apertura(int modo\+\_\+client, int modo)}{isModoApertura(int modo_client, int modo)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Modo\+Apertura (
 \begin{DoxyParamCaption}
 \item[{int}]{modo\+\_\+client, }
 \item[{int}]{modo}
 \end{DoxyParamCaption}
-)}}\label{StruttureDati_8c_a6e2594e56afc29e961a1797a0bd8d262}
+)}\hypertarget{StruttureDati_8c_a6e2594e56afc29e961a1797a0bd8d262}{}\label{StruttureDati_8c_a6e2594e56afc29e961a1797a0bd8d262}
 
 
 Dice se modo\+\_\+client contiene il modo \char`\"{}modo\char`\"{}. 
 
 
 
-Referenzia F\+A\+L\+S\+E, e T\+R\+U\+E.
+Referenzia F\+A\+L\+SE, e T\+R\+UE.
 
 
 
@@ -260,28 +259,28 @@ Referenziato da append\+Opened\+File(), check\+Modo\+Open(), file\+Already\+Open
 
 
 \subsection{Documentazione delle variabili}
-\hypertarget{StruttureDati_8c_a7ed27afe1793bab93e0646228dd26ce3}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!free\+\_\+head@{free\+\_\+head}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!free\+\_\+head@{free\+\_\+head}}
 \index{free\+\_\+head@{free\+\_\+head}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{free\+\_\+head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$$\ast$ free\+\_\+head}}\label{StruttureDati_8c_a7ed27afe1793bab93e0646228dd26ce3}
+\subsubsection[{\texorpdfstring{free\+\_\+head}{free_head}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$$\ast$ free\+\_\+head}\hypertarget{StruttureDati_8c_a7ed27afe1793bab93e0646228dd26ce3}{}\label{StruttureDati_8c_a7ed27afe1793bab93e0646228dd26ce3}
 
 
-Referenziato da append\+Opened\+File(), e close\+Client\+Session().
+Referenziato da append\+Opened\+File(), close\+Client\+Session(), e load\+Config().
 
-\hypertarget{StruttureDati_8c_a8647861982974418fd65cf3dca69c54e}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!mutex@{mutex}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!mutex@{mutex}}
 \index{mutex@{mutex}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ mutex}}\label{StruttureDati_8c_a8647861982974418fd65cf3dca69c54e}
+\subsubsection[{\texorpdfstring{mutex}{mutex}}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ mutex}\hypertarget{StruttureDati_8c_a8647861982974418fd65cf3dca69c54e}{}\label{StruttureDati_8c_a8647861982974418fd65cf3dca69c54e}
 
 
-Questo mutex e' da usare su ogni lavoro che si esegue con la lista linkata di elementi. 
+Questo mutex e\textquotesingle{} da usare su ogni lavoro che si esegue con la lista linkata di elementi. 
 
 
 
-Referenziato da append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), count\+Opened\+File(), file\+Already\+Opened\+In\+Write(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), e send\+Invalidate().
+Referenziato da append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), count\+Opened\+File(), file\+Already\+Opened\+In\+Write(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), load\+Config(), e send\+Invalidate().
 
-\hypertarget{StruttureDati_8c_ac6c781406efae2362705c3a19a96474a}{\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!opened\+File\+Linked\+List@{opened\+File\+Linked\+List}}
+\index{Strutture\+Dati.\+c@{Strutture\+Dati.\+c}!opened\+File\+Linked\+List@{opened\+File\+Linked\+List}}
 \index{opened\+File\+Linked\+List@{opened\+File\+Linked\+List}!Strutture\+Dati.\+c@{Strutture\+Dati.\+c}}
-\subsubsection[{opened\+File\+Linked\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$$\ast$ opened\+File\+Linked\+List = N\+U\+L\+L}}\label{StruttureDati_8c_ac6c781406efae2362705c3a19a96474a}
+\subsubsection[{\texorpdfstring{opened\+File\+Linked\+List}{openedFileLinkedList}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Opened\+File}$\ast$$\ast$ opened\+File\+Linked\+List = N\+U\+LL}\hypertarget{StruttureDati_8c_ac6c781406efae2362705c3a19a96474a}{}\label{StruttureDati_8c_ac6c781406efae2362705c3a19a96474a}
 
 
-Referenziato da append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), count\+Opened\+File(), file\+Already\+Opened\+In\+Write(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), e send\+Invalidate().
+Referenziato da append\+Opened\+File(), check\+Modo\+Open(), close\+Client\+Session(), count\+Opened\+File(), file\+Already\+Opened\+In\+Write(), get\+File\+Name(), get\+Opened\+File(), get\+Transfer\+Socket(), load\+Config(), e send\+Invalidate().
 

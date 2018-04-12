@@ -1,6 +1,5 @@
-\hypertarget{Client_2inc_2Heartbeating_8h}{\section{Riferimenti per il file Client/inc/\+Heartbeating.h}
+\hypertarget{Client_2inc_2Heartbeating_8h}{}\section{Riferimenti per il file Client/inc/\+Heartbeating.h}
 \label{Client_2inc_2Heartbeating_8h}\index{Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}}
-}
 {\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\\*
 \subsection*{Strutture dati}
 \begin{DoxyCompactItemize}
@@ -11,9 +10,9 @@ struct \hyperlink{structpthreadArgs}{pthread\+Args}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{Client_2inc_2Heartbeating_8h_a996f23ff45bfbedeb9b64f6b030122f8}{spawn\+Heart\+Beat} (\hyperlink{structMyDFSId}{My\+D\+F\+S\+Id} $\ast$id)
-\begin{DoxyCompactList}\small\item\em Se il processo esegue una O\+P\+E\+N poi una C\+L\+O\+S\+E e poi di nuovo O\+P\+E\+N il sd della connessione dati della seconda connessione potrebbe coincidere col sd dell' heartbeating. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Se il processo esegue una O\+P\+EN poi una C\+L\+O\+SE e poi di nuovo O\+P\+EN il sd della connessione dati della seconda connessione potrebbe coincidere col sd dell\textquotesingle{} heartbeating. \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{Client_2inc_2Heartbeating_8h_aae3126a1d85426aa8df88b7186611472}{heart\+Beat} (void $\ast$\hyperlink{server_8c_a06b0afe769d54ae94259d8532bc878b0}{sd})
-\begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l' heartbeating. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Main del nuovo thread creato per l\textquotesingle{} heartbeating. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variabili}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,31 +21,31 @@ pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{Client_2inc_2Heartbeating_8h_a4bf185
 
 
 \subsection{Documentazione delle funzioni}
-\hypertarget{Client_2inc_2Heartbeating_8h_aae3126a1d85426aa8df88b7186611472}{\index{Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}!heart\+Beat@{heart\+Beat}}
+\index{Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}!heart\+Beat@{heart\+Beat}}
 \index{heart\+Beat@{heart\+Beat}!Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}}
-\subsubsection[{heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ heart\+Beat (
+\subsubsection[{\texorpdfstring{heart\+Beat(void $\ast$sd)}{heartBeat(void *sd)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ heart\+Beat (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{sd}
 \end{DoxyParamCaption}
-)}}\label{Client_2inc_2Heartbeating_8h_aae3126a1d85426aa8df88b7186611472}
+)}\hypertarget{Client_2inc_2Heartbeating_8h_aae3126a1d85426aa8df88b7186611472}{}\label{Client_2inc_2Heartbeating_8h_aae3126a1d85426aa8df88b7186611472}
 
 
-Main del nuovo thread creato per l' heartbeating. 
+Main del nuovo thread creato per l\textquotesingle{} heartbeating. 
 
-\hypertarget{Client_2inc_2Heartbeating_8h_a996f23ff45bfbedeb9b64f6b030122f8}{\index{Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
+\index{Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}!spawn\+Heart\+Beat@{spawn\+Heart\+Beat}}
 \index{spawn\+Heart\+Beat@{spawn\+Heart\+Beat}!Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}}
-\subsubsection[{spawn\+Heart\+Beat}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Heart\+Beat (
+\subsubsection[{\texorpdfstring{spawn\+Heart\+Beat(\+My\+D\+F\+S\+Id $\ast$id)}{spawnHeartBeat(MyDFSId *id)}}]{\setlength{\rightskip}{0pt plus 5cm}void spawn\+Heart\+Beat (
 \begin{DoxyParamCaption}
 \item[{{\bf My\+D\+F\+S\+Id} $\ast$}]{id}
 \end{DoxyParamCaption}
-)}}\label{Client_2inc_2Heartbeating_8h_a996f23ff45bfbedeb9b64f6b030122f8}
+)}\hypertarget{Client_2inc_2Heartbeating_8h_a996f23ff45bfbedeb9b64f6b030122f8}{}\label{Client_2inc_2Heartbeating_8h_a996f23ff45bfbedeb9b64f6b030122f8}
 
 
-Se il processo esegue una O\+P\+E\+N poi una C\+L\+O\+S\+E e poi di nuovo O\+P\+E\+N il sd della connessione dati della seconda connessione potrebbe coincidere col sd dell' heartbeating. 
+Se il processo esegue una O\+P\+EN poi una C\+L\+O\+SE e poi di nuovo O\+P\+EN il sd della connessione dati della seconda connessione potrebbe coincidere col sd dell\textquotesingle{} heartbeating. 
 
-L' H\+B potrebbe andare in recv, dopo la C\+L\+O\+S\+E e finire a fare la recv sulla connessione dati della successiva O\+P\+E\+N. 
+L\textquotesingle{} HB potrebbe andare in recv, dopo la C\+L\+O\+SE e finire a fare la recv sulla connessione dati della successiva O\+P\+EN. 
 
-Referenzia Thread\+Args\+::barriera, heart\+Beat(), Thread\+Args\+::id, e tid.
+Referenzia Thread\+Args\+::barriera, heart\+Beat(), e Thread\+Args\+::id.
 
 
 
@@ -55,6 +54,6 @@ Referenziato da handle\+Open\+Command(), e mydfs\+\_\+open().
 
 
 \subsection{Documentazione delle variabili}
-\hypertarget{Client_2inc_2Heartbeating_8h_a4bf185e2235ae2d2aaa2a21714ee959a}{\index{Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}!hb\+Mutex@{hb\+Mutex}}
+\index{Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}!hb\+Mutex@{hb\+Mutex}}
 \index{hb\+Mutex@{hb\+Mutex}!Client/inc/\+Heartbeating.\+h@{Client/inc/\+Heartbeating.\+h}}
-\subsubsection[{hb\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ hb\+Mutex}}\label{Client_2inc_2Heartbeating_8h_a4bf185e2235ae2d2aaa2a21714ee959a}
+\subsubsection[{\texorpdfstring{hb\+Mutex}{hbMutex}}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ hb\+Mutex}\hypertarget{Client_2inc_2Heartbeating_8h_a4bf185e2235ae2d2aaa2a21714ee959a}{}\label{Client_2inc_2Heartbeating_8h_a4bf185e2235ae2d2aaa2a21714ee959a}
