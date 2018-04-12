@@ -30,3 +30,22 @@
 
 # Debug files
 *.dSYM/
+
+# Doxygen
+*~
+.*sw?
+\#*
+.DS_Store
+
+*.rej
+*.orig
+
+*.pro
+/packages/rpm/doxygen.spec
+*.idb
+*.pdb
+
+/doxygen_docs
+/doxygen.tag
+/build
+/latex
