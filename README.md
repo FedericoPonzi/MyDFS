@@ -1,5 +1,5 @@
 # MyDFS
-A simple distribuited file system made for my exam of System Progamming.
+A simple distributed file system made for my exam of System Progamming.
 
 Made in C, ported from Linux to Windows.
 
